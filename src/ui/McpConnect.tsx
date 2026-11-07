@@ -168,12 +168,12 @@ export default function McpConnect({
         return (
           <>
             <ol className="mcp-recipe">
-              <li>Open <strong>Settings → Apps &amp; Connectors</strong>.</li>
-              <li>Under <strong>Advanced settings</strong>, turn on <strong>Developer mode</strong>, then choose <strong>Create</strong>.</li>
-              <li>Paste the URL, choose <strong>OAuth</strong> for authentication and save.</li>
+              <li>Open <strong>chatgpt.com/plugins</strong>, select <strong>+</strong>, then <strong>Add custom MCP server</strong>.</li>
+              <li>Paste the URL, name it <em>developing-country.org</em> and choose <strong>OAuth</strong> for authentication.</li>
+              <li>Confirm the warning, choose <strong>Create as a plugin</strong>, then type <strong>@</strong> in a chat to use it.</li>
             </ol>
-            <a className="mcp-open" href="https://chatgpt.com/#settings/Connectors" target="_blank" rel="noreferrer">
-              Open ChatGPT settings ↗
+            <a className="mcp-open" href="https://chatgpt.com/plugins" target="_blank" rel="noreferrer">
+              Open ChatGPT plugins ↗
             </a>
           </>
         )
