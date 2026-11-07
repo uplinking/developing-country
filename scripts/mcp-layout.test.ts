@@ -17,6 +17,17 @@ describe('MCP App inline frame height', () => {
     expect(inlineHeight({ containerDimensions: { width: 760, maxHeight: 420 } }, true, 1200)).toBe(420)
     expect(inlineHeight({ containerDimensions: { width: 760, maxHeight: 900 } }, true, 1200)).toBe(640)
     expect(inlineHeight({ containerDimensions: { width: 760, maxHeight: 0 } }, false, 1200)).toBe(480)
+    expect(inlineHeight({ containerDimensions: { width: 760 } }, true, 1200, 300)).toBe(300)
+  })
+
+  test('a fixed container height is taken as given', () => {
+    expect(inlineHeight({ containerDimensions: { width: 760, height: 520 } }, true, 1200)).toBe(520)
+    expect(inlineHeight({ containerDimensions: { width: 760, height: 0 } }, false, 1200)).toBe(480)
+  })
+
+  test('maxWidth decides phone layout when the host gives no width', () => {
+    expect(inlineHeight({ containerDimensions: { maxWidth: 400 } }, false, 1200)).toBe(360)
+    expect(inlineHeight({ containerDimensions: { maxWidth: 900 } }, false, 400)).toBe(480)
   })
 })
 

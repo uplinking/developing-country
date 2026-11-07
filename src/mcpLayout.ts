@@ -12,9 +12,14 @@ const DATA_HEIGHT_DESKTOP = 640
 const DATA_HEIGHT_MOBILE = 560
 const MOBILE_MAX_WIDTH = 520
 
+function positive(value: number | undefined): number | undefined {
+  return value !== undefined && Number.isFinite(value) && value > 0 ? value : undefined
+}
+
 /**
- * The inline frame height to request. A host's maxHeight always wins: the MCP
- * host context's, else one the host publishes as an extension.
+ * The inline frame height to request. A fixed container height is taken as
+ * given. Otherwise a host's maxHeight always wins: the MCP host context's,
+ * else one the host publishes as an extension.
  */
 export function inlineHeight(
   ctx: McpUiHostContext | undefined,
@@ -23,15 +28,20 @@ export function inlineHeight(
   fallbackMaxHeight?: number,
 ): number {
   const dimensions = ctx?.containerDimensions
-  const width = dimensions && 'width' in dimensions ? dimensions.width : fallbackWidth
+  const fixed = positive(dimensions && 'height' in dimensions ? dimensions.height : undefined)
+  if (fixed !== undefined) return fixed
+  const width =
+    positive(dimensions && 'width' in dimensions ? dimensions.width : undefined) ??
+    positive(dimensions && 'maxWidth' in dimensions ? dimensions.maxWidth : undefined) ??
+    fallbackWidth
   const mobile = ctx?.platform === 'mobile' || width <= MOBILE_MAX_WIDTH
   const wanted = data
     ? mobile ? DATA_HEIGHT_MOBILE : DATA_HEIGHT_DESKTOP
     : mobile ? INLINE_HEIGHT_MOBILE : INLINE_HEIGHT_DESKTOP
   // A host that caps inline height (phones do) gets a frame that fits rather
   // than one it has to clip or scroll.
-  const cap = (dimensions && 'maxHeight' in dimensions ? dimensions.maxHeight : undefined) ?? fallbackMaxHeight
-  return cap !== undefined && Number.isFinite(cap) && cap > 0 ? Math.min(wanted, cap) : wanted
+  const cap = positive(dimensions && 'maxHeight' in dimensions ? dimensions.maxHeight : undefined) ?? positive(fallbackMaxHeight)
+  return cap === undefined ? wanted : Math.min(wanted, cap)
 }
 
 const SAFE_AREA_SIDES = ['top', 'right', 'bottom', 'left'] as const

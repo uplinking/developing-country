@@ -117,7 +117,7 @@ const TOOLS: ToolDef[] = [
     name: 'analyze_location',
     batchSafe: false,
     description:
-      'Use this when the user asks what is at, near or around a place in Sri Lanka (a town, address, listing or map point). Given the place\'s lat/lng (and optional radius_km, default 10), returns a provenance-tagged readout: district demographics (point-in-polygon), nearest expressway + status, nearby planned developments, attractions, waterfalls, trails, cycling routes, parks, and your own prospects. Completeness is first-class: known_absent means we have no geometry (silent zones, MoH clinics, courts) — do not invent polygons; osm_only is not an official register. Gazette 924/12 defines a 100 m silent-zone facility class; we do not ship those buffers as law. Use query_data for bounded spatial or indicator-table research; this tool stays a point readout. Every run is saved (`saved.url` map link). If the user gives a listing URL: extract location, then call with lat/lng plus source_url and title.',
+      'Use this when the user asks what is at, near or around a place in Sri Lanka (a town, address, listing or map point). Given the place\'s lat/lng (and optional radius_km, default 10), returns a provenance-tagged readout: district demographics (point-in-polygon), nearest expressway + status, nearby planned developments, attractions, waterfalls, trails, cycling routes, parks, and your own prospects. Completeness is first-class: known_absent means we have no geometry (silent zones, MoH clinics, courts) — do not invent polygons; osm_only is not an official register. Gazette 924/12 defines a 100 m silent-zone facility class; we do not ship those buffers as law. Use query_data for bounded spatial or indicator-table research; this tool stays a point readout. Each run is logged privately to the signed-in account history (`saved.url` map link). If the user gives a listing URL: extract location, then call with lat/lng plus source_url and title.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -154,7 +154,7 @@ const TOOLS: ToolDef[] = [
     name: 'search_places',
     batchSafe: false,
     description:
-      'Use this to find a named place in Sri Lanka and its coordinates (e.g. before analyze_location). Searches by name across searchable ontology stores (metro stops and lines, expressways, developments, BOI zones, attractions, waterfalls, trails, cycling, parks) plus your prospects. Does not scan the 11 MB metro catchment, sea-route trunks, or admin rings. Returns matches with layer, coordinates, and provenance.',
+      'Use this to find a named place in Sri Lanka and its coordinates (e.g. before analyze_location). Searches by name across searchable ontology stores (metro stops and lines, expressways, developments, BOI zones, attractions, waterfalls, trails, cycling, parks) plus your prospects. Does not search the metro catchment, sea-route or administrative-boundary layers; use query_data for those. Returns matches with layer, coordinates, and provenance.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -274,7 +274,7 @@ const TOOLS: ToolDef[] = [
     name: 'get_layer_catalog',
     batchSafe: true,
     description:
-      'Find and understand datasets — start every research question here. No arguments: a slim index of all Indicator Tables (with themes, publisher, time span, geography) and spatial entities. {q} and/or {theme}/{publisher}: ranked search across titles, descriptions, field names and dimension values (e.g. q:"remittances", q:"Jaffna", theme:"ECON"). {dataset_id}: one dataset card — exact field ids with roles/units, every filterable value, time span, geography join key, caveats, provenance and freshness, ready-to-run preset calls with chart presentations, and ranked related datasets with reasons. {full:true}: the complete provenance catalog (large; same as resource developing-country://catalog). Every response has a `next` list of suggested calls.',
+      'Find and understand Sri Lanka datasets. No arguments: a slim index of all Indicator Tables (with themes, publisher, time span, geography) and spatial entities. {q} and/or {theme}/{publisher}: ranked search across titles, descriptions, field names and dimension values (e.g. q:"remittances", q:"Jaffna", theme:"ECON"). {dataset_id}: one dataset card — exact field ids with roles/units, every filterable value, time span, geography join key, caveats, provenance and freshness, ready-to-run preset calls with chart presentations, and ranked related datasets with reasons. {full:true}: the complete provenance catalog (large; same as resource developing-country://catalog). Every response has a `next` list of suggested calls.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -353,7 +353,7 @@ function jsonResponse<T extends object | JsonPrimitive>(
   })
 }
 
-async function toolListPayload(params: JsonObject, sessionId: string | null) {
+export async function toolListPayload(params: JsonObject, sessionId: string | null) {
   const ui = (await sessionOffersUi(sessionId)) || requestOffersUi(params)
   return {
     tools: TOOLS.map((t) => {
@@ -411,7 +411,7 @@ async function dispatch(
               [UI_EXTENSION_ID]: { mimeTypes: [UI_RESOURCE_MIME] },
             },
           },
-          serverInfo: { name: 'developing-country.org', version: MCP_APP_VERSION },
+          serverInfo: { name: 'developing-country.org', title: 'Developing Country', version: MCP_APP_VERSION },
           instructions:
             'developing-country.org — Sri Lanka evidence platform: 100+ official Indicator Tables (census, CBSL, Treasury, DCS, World Bank) plus spatial layers. ' +
             'Research loop: (1) get_layer_catalog {q} or {theme} to find datasets; (2) get_layer_catalog {dataset_id} for exact field ids, filterable values, presets and related datasets; ' +
