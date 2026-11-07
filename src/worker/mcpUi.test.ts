@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test'
 import { MCP_UI_RESOURCE_URI, PREVIOUS_MCP_UI_RESOURCE_URIS } from '../shared/mcpApp'
-import { UI_TOOLS, uiCsp } from './mcpUi'
+import { UI_DISPLAY_MODES, UI_TOOLS, uiCsp, uiResourceMeta } from './mcpUi'
 
 describe('MCP App production identity and CSP', () => {
   test('advertises the renamed UI resource while retaining the previous URI aliases', () => {
@@ -32,5 +32,15 @@ describe('MCP App production identity and CSP', () => {
 
   test('one answer paints one app frame: the catalog lookup carries no UI', () => {
     expect([...UI_TOOLS].sort()).toEqual(['analyze_location', 'query_data'])
+  })
+
+  test('the resource carries the standard ui block plus host hints other hosts ignore', () => {
+    const env = { BETTER_AUTH_URL: 'https://explore.developing-country.org' }
+    const meta = uiResourceMeta(env)
+    expect(meta.ui).toEqual(uiCsp(env))
+    expect(meta['openai/ui'].availableDisplayModes).toEqual([...UI_DISPLAY_MODES])
+    expect(meta['openai/widgetDescription'].length).toBeGreaterThan(0)
+    // No legacy CSP alias: ui.csp is the one CSP every host reads.
+    expect(Object.keys(meta)).not.toContain('openai/widgetCSP')
   })
 })

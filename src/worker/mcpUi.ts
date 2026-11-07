@@ -52,6 +52,25 @@ export function uiCsp(env: { BASE_PATH?: string; BETTER_AUTH_URL?: string; PUBLI
   return { csp: { resourceDomains, connectDomains }, prefersBorder: true }
 }
 
+// Display modes the app handles: inline, plus fullscreen for maps and the
+// dataset browser. Mirrors appCapabilities.availableDisplayModes in AppMcp.
+export const UI_DISPLAY_MODES = ['inline', 'fullscreen'] as const
+
+/**
+ * Resource-contents `_meta` for the app. `ui` is the MCP Apps standard block
+ * every host reads. The `openai/*` keys are ChatGPT's resource hints (display
+ * modes known before the frame loads; a one-line summary for the model so it
+ * does not re-narrate the frame); other hosts ignore them.
+ */
+export function uiResourceMeta(env: { BASE_PATH?: string; BETTER_AUTH_URL?: string; PUBLIC_VIEW_ORIGIN?: string }) {
+  return {
+    ui: uiCsp(env),
+    'openai/ui': { availableDisplayModes: [...UI_DISPLAY_MODES] },
+    'openai/widgetDescription':
+      'Interactive developing-country.org view of this result: a map, chart, table or dataset browser with sources. The user can pan, open datasets and save a live view, so do not restate every value it shows.',
+  }
+}
+
 export function clientOffersUi(capabilities: JsonValue | undefined): boolean {
   if (!isJsonObject(capabilities)) return false
   const ext = capabilities.extensions

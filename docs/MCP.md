@@ -233,6 +233,36 @@ drop every parameter type. So `tools/list` advertises a flattened projection
 instead (`src/worker/mcpSchema.ts`): `op` is an enum and every other property
 names the ops that accept it. Never advertise a top-level combinator.
 
+## Host metadata
+
+Every advertised tool carries a `title` and all four MCP tool annotations
+(`readOnlyHint`, `destructiveHint`, `idempotentHint`, `openWorldHint`) from
+`src/worker/mcpToolMeta.ts`. Hosts use them to decide when to ask the user
+before a call, so they describe each tool's worst case:
+
+- `analyze_location` logs the run to the caller's history, so it is not
+  read-only.
+- `query_data` with `presentation` saves a public-by-link view, so it is not
+  read-only.
+
+`src/worker/mcpToolMeta.test.ts` fails if a tool ships without a row in that
+file.
+
+The same table supplies the short status lines that ChatGPT shows while a
+tool runs (`openai/toolInvocation/invoking` and `openai/toolInvocation/invoked`
+in the tool's `_meta`).
+
+The UI resource carries the standard `_meta.ui` block (CSP and border). It
+also carries two ChatGPT hints that other hosts ignore:
+
+- `openai/ui.availableDisplayModes`
+- `openai/widgetDescription`
+
+The app uses the MCP Apps bridge for everything. It falls back to a host's
+`window.openai` extension only when a standard call such as `openLink` or
+`requestDisplayMode` is refused. It sizes its inline frame from the host's
+`containerDimensions` and `platform`, and pads by `safeAreaInsets` on phones.
+
 ## Tool model
 
 Tools are organized by intent rather than by dataset. The current surface
