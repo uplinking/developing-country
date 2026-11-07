@@ -39,7 +39,7 @@ export const LK_INITIATIVE_DATASETS: IndicatorDatasetDefinition[] = [
       question: 'How much has a funder approved or paid in a year, and for what?',
       contains: 'Totals per year (and all years), grouping, money stage and currency, computed from lk-initiative-events. A lender approval and a later Cabinet clearance of the same money count once.',
       use: 'Pick one period, one group_by (funder, origin, instrument, sector or all) and one bucket, then read amount for each currency.',
-      limit: 'Recorded totals, not national totals. Rows overlap across groupings and periods and must not be summed. Currencies are never converted.',
+      limit: 'Recorded totals, not national totals. Rows overlap across groupings and periods and must not be summed. Currencies are never converted. Whole budgets (Appropriation Acts, council budgets, supplementary estimates) and debt operations are never added; they stay in lk-initiative-events.',
     },
     presets: [{
       id: 'approved-by-funder-usd',
