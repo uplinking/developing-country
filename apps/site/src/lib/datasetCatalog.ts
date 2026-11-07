@@ -1,3 +1,5 @@
+import type { DatasetSearchTerms } from './dataSearch'
+
 export interface DatasetVersionRecord {
   checksum: string
   country: string
@@ -27,12 +29,19 @@ export interface KnownDataGap {
   lastChecked: string
 }
 
+/** Build-time inputs for /data search; see apps/site/src/lib/dataSearch.ts. */
+export interface DatasetCatalogSearch {
+  synonyms: Record<string, string[]>
+  datasets: Record<string, DatasetSearchTerms>
+}
+
 export interface DatasetCatalog {
   schemaVersion: 1
   country: 'LK'
   versions: DatasetVersionRecord[]
   sources: DatasetSourceRecord[]
   knownDataGaps: KnownDataGap[]
+  search: DatasetCatalogSearch
 }
 
 export interface DatasetCatalogPointer {
@@ -131,6 +140,35 @@ function parseGap(value: unknown, index: number): KnownDataGap {
   }
 }
 
+function plainText(value: unknown, path: string): string {
+  if (typeof value !== 'string') throw new DatasetCatalogError(`${path} must be a string`)
+  return value
+}
+
+function parseSearch(value: unknown, datasetIds: ReadonlySet<string>): DatasetCatalogSearch {
+  const item = record(value)
+  const synonyms = record(item?.synonyms)
+  const datasets = record(item?.datasets)
+  if (!item || !synonyms || !datasets) throw new DatasetCatalogError('search must hold synonyms and datasets objects')
+  return {
+    synonyms: Object.fromEntries(Object.entries(synonyms).map(([key, list]) => {
+      if (!Array.isArray(list) || list.length === 0) {
+        throw new DatasetCatalogError(`search.synonyms.${key} must list at least one phrase`)
+      }
+      return [requiredText(key, 'search.synonyms key'), list.map((entry, index) => requiredText(entry, `search.synonyms.${key}[${index}]`))]
+    })),
+    datasets: Object.fromEntries(Object.entries(datasets).map(([id, terms]) => {
+      const entry = record(terms)
+      if (!datasetIds.has(id) || !entry) throw new DatasetCatalogError(`search.datasets.${id} is not a registered dataset`)
+      return [id, {
+        fields: plainText(entry.fields, `search.datasets.${id}.fields`),
+        values: plainText(entry.values, `search.datasets.${id}.values`),
+        description: plainText(entry.description, `search.datasets.${id}.description`),
+      }]
+    })),
+  }
+}
+
 function unique(values: string[], path: string): void {
   if (new Set(values).size !== values.length) throw new DatasetCatalogError(`${path} contains duplicate ids`)
 }
@@ -167,7 +205,8 @@ export function parseDatasetCatalog(value: unknown, expectedDatasetIds: readonly
       }
     }
   }
-  return { schemaVersion: 1, country: 'LK', versions, sources, knownDataGaps }
+  const search = parseSearch(root.search, new Set(expectedIds))
+  return { schemaVersion: 1, country: 'LK', versions, sources, knownDataGaps, search }
 }
 
 async function sha256(bytes: Uint8Array): Promise<string> {
