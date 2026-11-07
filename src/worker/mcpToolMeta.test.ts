@@ -64,10 +64,10 @@ describe('tool presentation for hosts', () => {
       }
     }
     // Tools whose handlers insert or update rows: never read-only.
-    for (const name of ['analyze_location', 'add_prospect', 'update_prospect', 'report_issue', 'contribute', 'query_data']) {
+    for (const name of ['analyze_location', 'add_prospect', 'update_prospect', 'query_data']) {
       expect(TOOL_PRESENTATION.get(name)?.annotations.readOnlyHint).toBe(false)
     }
-    for (const name of ['search_places', 'list_prospects', 'list_issues', 'get_layer_catalog']) {
+    for (const name of ['search_places', 'list_prospects', 'get_layer_catalog']) {
       expect(TOOL_PRESENTATION.get(name)?.annotations.readOnlyHint).toBe(true)
     }
   })

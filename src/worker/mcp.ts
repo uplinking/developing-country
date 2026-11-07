@@ -14,13 +14,10 @@ import {
   addProspect,
   analyze,
   catalog,
-  contribute,
   coverage,
-  listIssues,
   listProspects,
   ontology,
   query,
-  reportIssue,
   searchPlaces,
   updateProspect,
   viewEvidence,
@@ -115,17 +112,12 @@ function optionalNumber(args: JsonObject, key: string): number | undefined {
   return isJsonNumber(value) ? value : undefined
 }
 
-function optionalIssueKind(args: JsonObject): 'comment' | 'solution' | 'evidence' | undefined {
-  const value = optionalString(args, 'kind')
-  return value === 'comment' || value === 'solution' || value === 'evidence' ? value : undefined
-}
-
 const TOOLS: ToolDef[] = [
   {
     name: 'analyze_location',
     batchSafe: false,
     description:
-      'Use this when the user asks what is at, near or around a place in Sri Lanka (a town, address, listing or map point). Given the place\'s lat/lng (and optional radius_km, default 10), returns a provenance-tagged readout: district demographics (point-in-polygon), nearest expressway + status, nearby planned developments, attractions, waterfalls, trails, cycling routes, parks, open civic issues, and your own prospects. Completeness is first-class: known_absent means we have no geometry (silent zones, MoH clinics, courts) — do not invent polygons; osm_only is not an official register. Gazette 924/12 defines a 100 m silent-zone facility class; we do not ship those buffers as law. Use query_data for bounded spatial or indicator-table research; this tool stays a point readout. Every run is saved (`saved.url` map link). If the user gives a listing URL: extract location, then call with lat/lng plus source_url and title.',
+      'Use this when the user asks what is at, near or around a place in Sri Lanka (a town, address, listing or map point). Given the place\'s lat/lng (and optional radius_km, default 10), returns a provenance-tagged readout: district demographics (point-in-polygon), nearest expressway + status, nearby planned developments, attractions, waterfalls, trails, cycling routes, parks, and your own prospects. Completeness is first-class: known_absent means we have no geometry (silent zones, MoH clinics, courts) — do not invent polygons; osm_only is not an official register. Gazette 924/12 defines a 100 m silent-zone facility class; we do not ship those buffers as law. Use query_data for bounded spatial or indicator-table research; this tool stays a point readout. Every run is saved (`saved.url` map link). If the user gives a listing URL: extract location, then call with lat/lng plus source_url and title.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -162,7 +154,7 @@ const TOOLS: ToolDef[] = [
     name: 'search_places',
     batchSafe: false,
     description:
-      'Use this to find a named place in Sri Lanka and its coordinates (e.g. before analyze_location). Searches by name across searchable ontology stores (metro stops and lines, expressways, developments, BOI zones, attractions, waterfalls, trails, cycling, parks) plus your prospects and civic issues. Does not scan the 11 MB metro catchment, sea-route trunks, or admin rings. Returns matches with layer, coordinates, and provenance.',
+      'Use this to find a named place in Sri Lanka and its coordinates (e.g. before analyze_location). Searches by name across searchable ontology stores (metro stops and lines, expressways, developments, BOI zones, attractions, waterfalls, trails, cycling, parks) plus your prospects. Does not scan the 11 MB metro catchment, sea-route trunks, or admin rings. Returns matches with layer, coordinates, and provenance.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -239,71 +231,6 @@ const TOOLS: ToolDef[] = [
         visibility: optionalString(a, 'visibility'),
         lat: optionalNumber(a, 'lat'),
         lng: optionalNumber(a, 'lng'),
-      }),
-  },
-  {
-    name: 'report_issue',
-    batchSafe: false,
-    description:
-      'Report a civic issue (pothole, flooding, broken streetlight, culvert, …) at a location. Just lat/lng + category is enough; description is optional. Returns the created issue including its id and `web_url` — a map link to the report you can give the user (it appears live in the web app).',
-    inputSchema: {
-      type: 'object',
-      properties: {
-        lat: numberProp('Latitude (WGS84) of the issue being reported.'),
-        lng: numberProp('Longitude (WGS84) of the issue being reported.'),
-        category: stringProp("Category, e.g. 'pothole' | 'flooding' | 'streetlight' | 'culvert'."),
-        description: stringProp('Optional: what is wrong.'),
-      },
-      required: ['lat', 'lng', 'category'],
-    },
-    handler: (env, id, a) =>
-      reportIssue(env, id, {
-        lat: Number(a.lat),
-        lng: Number(a.lng),
-        category: String(a.category ?? ''),
-        description: optionalString(a, 'description'),
-      }),
-  },
-  {
-    name: 'list_issues',
-    batchSafe: true,
-    description: 'Query civic issues by bounding box (bbox = "minLng,minLat,maxLng,maxLat"), category and/or status (open|in_progress|resolved|closed).',
-    inputSchema: {
-      type: 'object',
-      properties: {
-        bbox: stringProp('minLng,minLat,maxLng,maxLat'),
-        category: stringProp('Filter by category.'),
-        status: stringProp('Filter by status.'),
-        limit: numberProp('Max results (default 500, max 1000).'),
-      },
-    },
-    handler: (env, id, a) =>
-      listIssues(env, id, {
-        bbox: optionalString(a, 'bbox'),
-        category: optionalString(a, 'category'),
-        status: optionalString(a, 'status'),
-        limit: optionalNumber(a, 'limit'),
-      }),
-  },
-  {
-    name: 'contribute',
-    batchSafe: false,
-    description:
-      'Add a contribution to an existing issue: a comment (default), a solution proposal, or evidence of repair. Only issue_id is required — kind defaults to "comment". Returns the contribution plus `web_url`, a map link to the issue.',
-    inputSchema: {
-      type: 'object',
-      properties: {
-        issue_id: stringProp('Target issue id (from report_issue or list_issues).'),
-        kind: { type: 'string', enum: ['comment', 'solution', 'evidence'], description: 'Defaults to "comment".' },
-        body: stringProp('The contribution text.'),
-      },
-      required: ['issue_id'],
-    },
-    handler: (env, id, a) =>
-      contribute(env, id, {
-        issue_id: String(a.issue_id ?? ''),
-        kind: optionalIssueKind(a),
-        body: optionalString(a, 'body'),
       }),
   },
   {

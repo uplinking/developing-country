@@ -61,7 +61,6 @@ const STACK_ORDER = [
   'schools',
   'hospitals',
   'stepper',
-  'issues',
   'analyses',
   'prospects',
 ]
@@ -282,7 +281,7 @@ export default function MapView({
         else if (sunActiveRef.current) sunPickRef.current(p)
       })
       // (buildOverlays already kicked off loadApiLayers to fill runtime sources.)
-      // Deep-link: tool results (report_issue / add_prospect / analyze) hand back
+      // Deep-link: tool results (add_prospect / analyze) hand back
       // a canonical /?lat=&lng= URL. If present, recentre the map on that point so
       // the link actually lands somewhere. Just a camera move — no routing scheme.
       centerFromQuery(map)

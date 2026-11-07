@@ -103,44 +103,6 @@ export const TOOL_PRESENTATION: ReadonlyMap<string, ToolPresentation> = new Map<
     },
   ],
   [
-    'report_issue',
-    {
-      // Civic issues are public on the platform map.
-      annotations: {
-        title: 'Report a civic issue',
-        readOnlyHint: false,
-        destructiveHint: false,
-        idempotentHint: false,
-        openWorldHint: true,
-      },
-      invoking: 'Filing the report…',
-      invoked: 'Issue reported',
-    },
-  ],
-  [
-    'list_issues',
-    {
-      annotations: { title: 'List civic issues', ...READ },
-      invoking: 'Loading civic issues…',
-      invoked: 'Civic issues loaded',
-    },
-  ],
-  [
-    'contribute',
-    {
-      // Contributions appear publicly on the issue.
-      annotations: {
-        title: 'Contribute to an issue',
-        readOnlyHint: false,
-        destructiveHint: false,
-        idempotentHint: false,
-        openWorldHint: true,
-      },
-      invoking: 'Posting your contribution…',
-      invoked: 'Contribution posted',
-    },
-  ],
-  [
     'query_data',
     {
       // Read-only without `presentation`; with it, the call saves a Data View

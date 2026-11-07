@@ -14,7 +14,6 @@ import { isJsonObject } from '../shared/json'
 import { DEFAULT_DATA_VIEW_ORIGIN } from '@developing-country/views'
 import {
   AnalysisRow,
-  listIssueRows,
   listVisibleProspectRows,
   hydrateProspect,
   insertAnalysis,
@@ -189,24 +188,6 @@ export async function analyzeLocation(env: Env, identity: Identity | null, param
   // --- parks: containing polygon or nearby ---
   const parks_containing_or_near = await parksNear(env, lat, lng, radius)
 
-  // --- open civic issues nearby ---
-  const issueRows = await listIssueRows(env, { status: 'open', limit: 1000 })
-  const open_issues_nearby = issueRows
-    .map((r) => ({ r, d: haversineKm(lat, lng, r.lat, r.lng) }))
-    .filter((x) => x.d <= radius)
-    .sort((a, b) => a.d - b.d)
-    .slice(0, 50)
-    .map((x) => ({
-      id: x.r.id,
-      category: x.r.category,
-      description: x.r.description,
-      status: x.r.status,
-      lat: x.r.lat,
-      lng: x.r.lng,
-      distance_km: round(x.d),
-      ...catInfo('issues'),
-    }))
-
   // --- user's own (and public) prospects nearby ---
   // Push a bbox into SQL so we only pull candidate rows inside the radius, not
   // every public prospect across all users.
@@ -266,7 +247,6 @@ export async function analyzeLocation(env: Env, identity: Identity | null, param
     trails_nearby,
     cycling_nearby,
     parks_containing_or_near,
-    open_issues_nearby,
     prospects_nearby,
   }
 }
