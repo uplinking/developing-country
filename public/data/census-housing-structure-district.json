@@ -1,0 +1,2682 @@
+{
+  "caveats": [
+    "These are occupied housing units, not households or resident population.",
+    "A storey or floor band is the census structure class; it is not a building-height survey or a condominium register."
+  ],
+  "country": "LK",
+  "dataset_id": "census-housing-structure-district",
+  "description": "Census 2024 occupied housing units by published structure type, including single houses by storeys and attached houses by floor band.",
+  "fields": [
+    {
+      "id": "geography_id",
+      "label": "Geography id",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "geography_name",
+      "label": "Geography",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "year",
+      "label": "Census year",
+      "role": "dimension",
+      "type": "year"
+    },
+    {
+      "id": "category",
+      "label": "Structure category",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "category_label",
+      "label": "Structure category label",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "aggregation": "sum",
+      "id": "housing_units",
+      "label": "Housing units",
+      "role": "measure",
+      "type": "integer",
+      "unit": "housing units"
+    },
+    {
+      "aggregation": "none",
+      "id": "share_pct",
+      "label": "Share of housing units",
+      "role": "measure",
+      "type": "number",
+      "unit": "percent"
+    },
+    {
+      "aggregation": "none",
+      "id": "total_housing_units",
+      "label": "Total housing units",
+      "role": "measure",
+      "type": "integer",
+      "unit": "housing units"
+    }
+  ],
+  "grain": "One row per geography and housing-structure category.",
+  "notes": [
+    "The national row is retained with geography_id LK.",
+    "Category labels follow the published Table A1 wording without renaming attached-floor bands as apartments."
+  ],
+  "primary_key": [
+    "geography_id",
+    "category"
+  ],
+  "rows": [
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "housing_units": 4958009,
+      "share_pct": 82.215,
+      "total_housing_units": 6030541,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "housing_units": 751375,
+      "share_pct": 12.4595,
+      "total_housing_units": 6030541,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "housing_units": 59484,
+      "share_pct": 0.9864,
+      "total_housing_units": 6030541,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "housing_units": 164419,
+      "share_pct": 2.7264,
+      "total_housing_units": 6030541,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "housing_units": 50030,
+      "share_pct": 0.8296,
+      "total_housing_units": 6030541,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "housing_units": 25373,
+      "share_pct": 0.4207,
+      "total_housing_units": 6030541,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "housing_units": 12853,
+      "share_pct": 0.2131,
+      "total_housing_units": 6030541,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "housing_units": 6031,
+      "share_pct": 0.1,
+      "total_housing_units": 6030541,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "housing_units": 1756,
+      "share_pct": 0.0291,
+      "total_housing_units": 6030541,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "housing_units": 1211,
+      "share_pct": 0.0201,
+      "total_housing_units": 6030541,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "housing_units": 355982,
+      "share_pct": 54.4273,
+      "total_housing_units": 654051,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "housing_units": 185828,
+      "share_pct": 28.4119,
+      "total_housing_units": 654051,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "housing_units": 24207,
+      "share_pct": 3.7011,
+      "total_housing_units": 654051,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "housing_units": 27406,
+      "share_pct": 4.1902,
+      "total_housing_units": 654051,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "housing_units": 24275,
+      "share_pct": 3.7115,
+      "total_housing_units": 654051,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "housing_units": 16529,
+      "share_pct": 2.5272,
+      "total_housing_units": 654051,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "housing_units": 11907,
+      "share_pct": 1.8205,
+      "total_housing_units": 654051,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "housing_units": 5994,
+      "share_pct": 0.9164,
+      "total_housing_units": 654051,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "housing_units": 1756,
+      "share_pct": 0.2685,
+      "total_housing_units": 654051,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "housing_units": 167,
+      "share_pct": 0.0255,
+      "total_housing_units": 654051,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "housing_units": 534645,
+      "share_pct": 78.2761,
+      "total_housing_units": 683025,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "housing_units": 123034,
+      "share_pct": 18.0131,
+      "total_housing_units": 683025,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "housing_units": 6482,
+      "share_pct": 0.949,
+      "total_housing_units": 683025,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "housing_units": 10860,
+      "share_pct": 1.59,
+      "total_housing_units": 683025,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "housing_units": 5848,
+      "share_pct": 0.8562,
+      "total_housing_units": 683025,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "housing_units": 1802,
+      "share_pct": 0.2638,
+      "total_housing_units": 683025,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "housing_units": 296,
+      "share_pct": 0.0433,
+      "total_housing_units": 683025,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 683025,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 683025,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "housing_units": 58,
+      "share_pct": 0.0085,
+      "total_housing_units": 683025,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "housing_units": 286667,
+      "share_pct": 82.0385,
+      "total_housing_units": 349430,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "housing_units": 51470,
+      "share_pct": 14.7297,
+      "total_housing_units": 349430,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "housing_units": 2033,
+      "share_pct": 0.5818,
+      "total_housing_units": 349430,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "housing_units": 6361,
+      "share_pct": 1.8204,
+      "total_housing_units": 349430,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "housing_units": 2341,
+      "share_pct": 0.6699,
+      "total_housing_units": 349430,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "housing_units": 444,
+      "share_pct": 0.1271,
+      "total_housing_units": 349430,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "housing_units": 69,
+      "share_pct": 0.0197,
+      "total_housing_units": 349430,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 349430,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 349430,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "housing_units": 45,
+      "share_pct": 0.0129,
+      "total_housing_units": 349430,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "housing_units": 291819,
+      "share_pct": 74.8588,
+      "total_housing_units": 389826,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "housing_units": 68443,
+      "share_pct": 17.5573,
+      "total_housing_units": 389826,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "housing_units": 8761,
+      "share_pct": 2.2474,
+      "total_housing_units": 389826,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "housing_units": 14534,
+      "share_pct": 3.7283,
+      "total_housing_units": 389826,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "housing_units": 4520,
+      "share_pct": 1.1595,
+      "total_housing_units": 389826,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "housing_units": 1237,
+      "share_pct": 0.3173,
+      "total_housing_units": 389826,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "housing_units": 458,
+      "share_pct": 0.1175,
+      "total_housing_units": 389826,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "housing_units": 23,
+      "share_pct": 0.0059,
+      "total_housing_units": 389826,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 389826,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "housing_units": 31,
+      "share_pct": 0.008,
+      "total_housing_units": 389826,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "housing_units": 128108,
+      "share_pct": 86.4513,
+      "total_housing_units": 148184,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "housing_units": 13811,
+      "share_pct": 9.3202,
+      "total_housing_units": 148184,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "housing_units": 594,
+      "share_pct": 0.4009,
+      "total_housing_units": 148184,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "housing_units": 4629,
+      "share_pct": 3.1238,
+      "total_housing_units": 148184,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "housing_units": 909,
+      "share_pct": 0.6134,
+      "total_housing_units": 148184,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "housing_units": 116,
+      "share_pct": 0.0783,
+      "total_housing_units": 148184,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "housing_units": 5,
+      "share_pct": 0.004,
+      "total_housing_units": 148184,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 148184,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 148184,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "housing_units": 12,
+      "share_pct": 0.0081,
+      "total_housing_units": 148184,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "housing_units": 119904,
+      "share_pct": 62.1538,
+      "total_housing_units": 192915,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "housing_units": 12981,
+      "share_pct": 6.7289,
+      "total_housing_units": 192915,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "housing_units": 2399,
+      "share_pct": 1.2436,
+      "total_housing_units": 192915,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "housing_units": 51345,
+      "share_pct": 26.6153,
+      "total_housing_units": 192915,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "housing_units": 3720,
+      "share_pct": 1.9283,
+      "total_housing_units": 192915,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "housing_units": 2513,
+      "share_pct": 1.3026,
+      "total_housing_units": 192915,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "housing_units": 6,
+      "share_pct": 0.0031,
+      "total_housing_units": 192915,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 192915,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 192915,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "housing_units": 47,
+      "share_pct": 0.0244,
+      "total_housing_units": 192915,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "housing_units": 254574,
+      "share_pct": 83.3633,
+      "total_housing_units": 305379,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "housing_units": 43339,
+      "share_pct": 14.1919,
+      "total_housing_units": 305379,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "housing_units": 2545,
+      "share_pct": 0.8334,
+      "total_housing_units": 305379,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "housing_units": 2916,
+      "share_pct": 0.9549,
+      "total_housing_units": 305379,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "housing_units": 1545,
+      "share_pct": 0.5059,
+      "total_housing_units": 305379,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "housing_units": 366,
+      "share_pct": 0.1199,
+      "total_housing_units": 305379,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "housing_units": 60,
+      "share_pct": 0.0196,
+      "total_housing_units": 305379,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "housing_units": 14,
+      "share_pct": 0.0046,
+      "total_housing_units": 305379,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 305379,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "housing_units": 20,
+      "share_pct": 0.0065,
+      "total_housing_units": 305379,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "housing_units": 190760,
+      "share_pct": 82.9269,
+      "total_housing_units": 230034,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "housing_units": 31234,
+      "share_pct": 13.578,
+      "total_housing_units": 230034,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "housing_units": 2172,
+      "share_pct": 0.9442,
+      "total_housing_units": 230034,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "housing_units": 3904,
+      "share_pct": 1.6971,
+      "total_housing_units": 230034,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "housing_units": 1597,
+      "share_pct": 0.6942,
+      "total_housing_units": 230034,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "housing_units": 352,
+      "share_pct": 0.153,
+      "total_housing_units": 230034,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 230034,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 230034,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 230034,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "housing_units": 15,
+      "share_pct": 0.0065,
+      "total_housing_units": 230034,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "housing_units": 170180,
+      "share_pct": 90.7346,
+      "total_housing_units": 187558,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "housing_units": 16473,
+      "share_pct": 8.7829,
+      "total_housing_units": 187558,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "housing_units": 600,
+      "share_pct": 0.3199,
+      "total_housing_units": 187558,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "housing_units": 139,
+      "share_pct": 0.0741,
+      "total_housing_units": 187558,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "housing_units": 129,
+      "share_pct": 0.0688,
+      "total_housing_units": 187558,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "housing_units": 30,
+      "share_pct": 0.016,
+      "total_housing_units": 187558,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 187558,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 187558,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 187558,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "housing_units": 7,
+      "share_pct": 0.0037,
+      "total_housing_units": 187558,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "housing_units": 147174,
+      "share_pct": 93.8628,
+      "total_housing_units": 156797,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "housing_units": 8637,
+      "share_pct": 5.5084,
+      "total_housing_units": 156797,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "housing_units": 406,
+      "share_pct": 0.2589,
+      "total_housing_units": 156797,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "housing_units": 215,
+      "share_pct": 0.1371,
+      "total_housing_units": 156797,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "housing_units": 175,
+      "share_pct": 0.1116,
+      "total_housing_units": 156797,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "housing_units": 76,
+      "share_pct": 0.0485,
+      "total_housing_units": 156797,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "housing_units": 5,
+      "share_pct": 0.0032,
+      "total_housing_units": 156797,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 156797,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 156797,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "housing_units": 109,
+      "share_pct": 0.0695,
+      "total_housing_units": 156797,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "housing_units": 30553,
+      "share_pct": 95.4632,
+      "total_housing_units": 32005,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "housing_units": 1309,
+      "share_pct": 4.09,
+      "total_housing_units": 32005,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "housing_units": 51,
+      "share_pct": 0.1594,
+      "total_housing_units": 32005,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "housing_units": 21,
+      "share_pct": 0.0656,
+      "total_housing_units": 32005,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "housing_units": 28,
+      "share_pct": 0.0875,
+      "total_housing_units": 32005,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "housing_units": 24,
+      "share_pct": 0.075,
+      "total_housing_units": 32005,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 32005,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 32005,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 32005,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "housing_units": 19,
+      "share_pct": 0.0594,
+      "total_housing_units": 32005,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "housing_units": 45145,
+      "share_pct": 94.3962,
+      "total_housing_units": 47825,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "housing_units": 2219,
+      "share_pct": 4.6398,
+      "total_housing_units": 47825,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "housing_units": 113,
+      "share_pct": 0.2363,
+      "total_housing_units": 47825,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "housing_units": 218,
+      "share_pct": 0.4558,
+      "total_housing_units": 47825,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "housing_units": 117,
+      "share_pct": 0.2446,
+      "total_housing_units": 47825,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "housing_units": 9,
+      "share_pct": 0.0188,
+      "total_housing_units": 47825,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 47825,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 47825,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 47825,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "housing_units": 4,
+      "share_pct": 0.0084,
+      "total_housing_units": 47825,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "housing_units": 33729,
+      "share_pct": 98.1979,
+      "total_housing_units": 34348,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "housing_units": 559,
+      "share_pct": 1.6275,
+      "total_housing_units": 34348,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "housing_units": 11,
+      "share_pct": 0.032,
+      "total_housing_units": 34348,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "housing_units": 5,
+      "share_pct": 0.0146,
+      "total_housing_units": 34348,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "housing_units": 4,
+      "share_pct": 0.0116,
+      "total_housing_units": 34348,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 34348,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 34348,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 34348,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 34348,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "housing_units": 40,
+      "share_pct": 0.1165,
+      "total_housing_units": 34348,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "housing_units": 35770,
+      "share_pct": 98.043,
+      "total_housing_units": 36484,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "housing_units": 672,
+      "share_pct": 1.8419,
+      "total_housing_units": 36484,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "housing_units": 23,
+      "share_pct": 0.063,
+      "total_housing_units": 36484,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "housing_units": 7,
+      "share_pct": 0.0192,
+      "total_housing_units": 36484,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "housing_units": 1,
+      "share_pct": 0.0027,
+      "total_housing_units": 36484,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 36484,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 36484,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 36484,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 36484,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "housing_units": 11,
+      "share_pct": 0.0302,
+      "total_housing_units": 36484,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "housing_units": 154487,
+      "share_pct": 92.4242,
+      "total_housing_units": 167150,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "housing_units": 11503,
+      "share_pct": 6.8818,
+      "total_housing_units": 167150,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "housing_units": 614,
+      "share_pct": 0.3673,
+      "total_housing_units": 167150,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "housing_units": 203,
+      "share_pct": 0.1214,
+      "total_housing_units": 167150,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "housing_units": 115,
+      "share_pct": 0.0688,
+      "total_housing_units": 167150,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "housing_units": 5,
+      "share_pct": 0.003,
+      "total_housing_units": 167150,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 167150,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 167150,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 167150,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "housing_units": 223,
+      "share_pct": 0.1334,
+      "total_housing_units": 167150,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "housing_units": 184418,
+      "share_pct": 90.9086,
+      "total_housing_units": 202861,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "housing_units": 15935,
+      "share_pct": 7.8551,
+      "total_housing_units": 202861,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "housing_units": 486,
+      "share_pct": 0.2396,
+      "total_housing_units": 202861,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "housing_units": 933,
+      "share_pct": 0.4599,
+      "total_housing_units": 202861,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "housing_units": 582,
+      "share_pct": 0.2869,
+      "total_housing_units": 202861,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "housing_units": 424,
+      "share_pct": 0.209,
+      "total_housing_units": 202861,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 202861,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 202861,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 202861,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "housing_units": 83,
+      "share_pct": 0.0409,
+      "total_housing_units": 202861,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "housing_units": 113267,
+      "share_pct": 94.9024,
+      "total_housing_units": 119351,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "housing_units": 5264,
+      "share_pct": 4.4105,
+      "total_housing_units": 119351,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "housing_units": 265,
+      "share_pct": 0.222,
+      "total_housing_units": 119351,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "housing_units": 296,
+      "share_pct": 0.248,
+      "total_housing_units": 119351,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "housing_units": 77,
+      "share_pct": 0.0645,
+      "total_housing_units": 119351,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "housing_units": 62,
+      "share_pct": 0.0519,
+      "total_housing_units": 119351,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "housing_units": 8,
+      "share_pct": 0.0067,
+      "total_housing_units": 119351,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 119351,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 119351,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "housing_units": 112,
+      "share_pct": 0.0938,
+      "total_housing_units": 119351,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "housing_units": 463412,
+      "share_pct": 91.4192,
+      "total_housing_units": 506909,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "housing_units": 40530,
+      "share_pct": 7.9955,
+      "total_housing_units": 506909,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "housing_units": 1033,
+      "share_pct": 0.2038,
+      "total_housing_units": 506909,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "housing_units": 1274,
+      "share_pct": 0.2513,
+      "total_housing_units": 506909,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "housing_units": 512,
+      "share_pct": 0.101,
+      "total_housing_units": 506909,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "housing_units": 96,
+      "share_pct": 0.0189,
+      "total_housing_units": 506909,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "housing_units": 14,
+      "share_pct": 0.0028,
+      "total_housing_units": 506909,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 506909,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 506909,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "housing_units": 38,
+      "share_pct": 0.0075,
+      "total_housing_units": 506909,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "housing_units": 218131,
+      "share_pct": 94.2275,
+      "total_housing_units": 231494,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "housing_units": 11820,
+      "share_pct": 5.106,
+      "total_housing_units": 231494,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "housing_units": 262,
+      "share_pct": 0.1132,
+      "total_housing_units": 231494,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "housing_units": 869,
+      "share_pct": 0.3754,
+      "total_housing_units": 231494,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "housing_units": 273,
+      "share_pct": 0.1179,
+      "total_housing_units": 231494,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "housing_units": 43,
+      "share_pct": 0.0186,
+      "total_housing_units": 231494,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "housing_units": 24,
+      "share_pct": 0.0104,
+      "total_housing_units": 231494,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 231494,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 231494,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "housing_units": 72,
+      "share_pct": 0.0311,
+      "total_housing_units": 231494,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "housing_units": 254764,
+      "share_pct": 93.8675,
+      "total_housing_units": 271408,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "housing_units": 15511,
+      "share_pct": 5.715,
+      "total_housing_units": 271408,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "housing_units": 330,
+      "share_pct": 0.1216,
+      "total_housing_units": 271408,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "housing_units": 426,
+      "share_pct": 0.157,
+      "total_housing_units": 271408,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "housing_units": 330,
+      "share_pct": 0.1216,
+      "total_housing_units": 271408,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "housing_units": 30,
+      "share_pct": 0.0111,
+      "total_housing_units": 271408,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 271408,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 271408,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 271408,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "housing_units": 17,
+      "share_pct": 0.0063,
+      "total_housing_units": 271408,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "housing_units": 118981,
+      "share_pct": 94.0695,
+      "total_housing_units": 126482,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "housing_units": 6958,
+      "share_pct": 5.5012,
+      "total_housing_units": 126482,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "housing_units": 229,
+      "share_pct": 0.1811,
+      "total_housing_units": 126482,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "housing_units": 155,
+      "share_pct": 0.1225,
+      "total_housing_units": 126482,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "housing_units": 63,
+      "share_pct": 0.0498,
+      "total_housing_units": 126482,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "housing_units": 87,
+      "share_pct": 0.0688,
+      "total_housing_units": 126482,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "housing_units": 1,
+      "share_pct": 0.0008,
+      "total_housing_units": 126482,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 126482,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 126482,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "housing_units": 8,
+      "share_pct": 0.0063,
+      "total_housing_units": 126482,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "housing_units": 195196,
+      "share_pct": 81.5297,
+      "total_housing_units": 239417,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "housing_units": 20112,
+      "share_pct": 8.4004,
+      "total_housing_units": 239417,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "housing_units": 2138,
+      "share_pct": 0.893,
+      "total_housing_units": 239417,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "housing_units": 19950,
+      "share_pct": 8.3327,
+      "total_housing_units": 239417,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "housing_units": 1268,
+      "share_pct": 0.5296,
+      "total_housing_units": 239417,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "housing_units": 736,
+      "share_pct": 0.3074,
+      "total_housing_units": 239417,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 239417,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 239417,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 239417,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "housing_units": 17,
+      "share_pct": 0.0071,
+      "total_housing_units": 239417,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "housing_units": 142586,
+      "share_pct": 94.5982,
+      "total_housing_units": 150728,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "housing_units": 7068,
+      "share_pct": 4.6892,
+      "total_housing_units": 150728,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "housing_units": 217,
+      "share_pct": 0.144,
+      "total_housing_units": 150728,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "housing_units": 682,
+      "share_pct": 0.4525,
+      "total_housing_units": 150728,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "housing_units": 116,
+      "share_pct": 0.077,
+      "total_housing_units": 150728,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "housing_units": 45,
+      "share_pct": 0.0299,
+      "total_housing_units": 150728,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 150728,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 150728,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 150728,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "housing_units": 14,
+      "share_pct": 0.0093,
+      "total_housing_units": 150728,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "housing_units": 285973,
+      "share_pct": 88.0315,
+      "total_housing_units": 324853,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "housing_units": 26214,
+      "share_pct": 8.0695,
+      "total_housing_units": 324853,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "housing_units": 1609,
+      "share_pct": 0.4953,
+      "total_housing_units": 324853,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "housing_units": 10176,
+      "share_pct": 3.1325,
+      "total_housing_units": 324853,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "housing_units": 674,
+      "share_pct": 0.2075,
+      "total_housing_units": 324853,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "housing_units": 191,
+      "share_pct": 0.0588,
+      "total_housing_units": 324853,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 324853,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 324853,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 324853,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "housing_units": 16,
+      "share_pct": 0.0049,
+      "total_housing_units": 324853,
+      "year": 2024
+    },
+    {
+      "category": "single_house_single_storey",
+      "category_label": "Single house, single storey",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "housing_units": 201784,
+      "share_pct": 83.3725,
+      "total_housing_units": 242027,
+      "year": 2024
+    },
+    {
+      "category": "single_house_two_storey",
+      "category_label": "Single house, two storey",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "housing_units": 30451,
+      "share_pct": 12.5817,
+      "total_housing_units": 242027,
+      "year": 2024
+    },
+    {
+      "category": "single_house_more_than_two_storey",
+      "category_label": "Single house, more than two storeys",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "housing_units": 1904,
+      "share_pct": 0.7867,
+      "total_housing_units": 242027,
+      "year": 2024
+    },
+    {
+      "category": "attached_1st_floor",
+      "category_label": "Attached house, 1st floor",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "housing_units": 6895,
+      "share_pct": 2.8489,
+      "total_housing_units": 242027,
+      "year": 2024
+    },
+    {
+      "category": "attached_2nd_floor",
+      "category_label": "Attached house, 2nd floor",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "housing_units": 811,
+      "share_pct": 0.3351,
+      "total_housing_units": 242027,
+      "year": 2024
+    },
+    {
+      "category": "attached_3_or_4_floors",
+      "category_label": "Attached house, 3rd or 4th floor",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "housing_units": 156,
+      "share_pct": 0.0645,
+      "total_housing_units": 242027,
+      "year": 2024
+    },
+    {
+      "category": "attached_5_to_10_floors",
+      "category_label": "Attached house, 5th to 10th floor",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 242027,
+      "year": 2024
+    },
+    {
+      "category": "attached_11_to_19_floors",
+      "category_label": "Attached house, 11th to 19th floor",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 242027,
+      "year": 2024
+    },
+    {
+      "category": "attached_20_plus_floors",
+      "category_label": "Attached house, 20th floor or higher",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "housing_units": 0,
+      "share_pct": 0,
+      "total_housing_units": 242027,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "housing_units": 26,
+      "share_pct": 0.0107,
+      "total_housing_units": 242027,
+      "year": 2024
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "dcs-cph-2024-housing-structure"
+  ],
+  "title": "Housing unit structure by district",
+  "vintage": "Census 2024"
+}

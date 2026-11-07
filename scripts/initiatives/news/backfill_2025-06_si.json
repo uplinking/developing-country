@@ -1,0 +1,94 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2025-06-01",
+  "2025-06-31"
+ ],
+ "upstream": "nuuuwan/lk_news@7c98b51874e343a55176ce773acd06a36d320d1e",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-06",
+ "language": "si",
+ "articles_read": 2,
+ "rejected": 1,
+ "rejected_ids": [
+  "2025-06-10-adalk-3003b2c7"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "rural-road-development-program-1800",
+   "name": "National Rural Road Development Programme (1,800 roads)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "rural-road-development-program-gosl",
+   "project_id": "rural-road-development-program-1800",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "rural-road-development-program-gosl-allocated-2025-06-22",
+   "line_id": "rural-road-development-program-gosl",
+   "date": "2025-06-22",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 5000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government allocates extra funds for rural road development",
+   "confidence": "high",
+   "reports": [
+    "2025-06-22-lankadeepalk-57546280"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rural-road-development-program-gosl-launched-2025-06-22",
+   "line_id": "rural-road-development-program-gosl",
+   "date": "2025-06-22",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "National programme to develop 1,800 rural roads launched",
+   "confidence": "high",
+   "reports": [
+    "2025-06-22-lankadeepalk-57546280"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2025-06-22-lankadeepalk-57546280": {
+   "date": "2025-06-22",
+   "title": "ග්‍රාමිය මාර්ග 1800 ක් සංවර්ධනය කරනවා",
+   "url": "https://www.lankadeepa.lk/latest_news/ගරමය-මරග-1800-ක-සවරධනය-කරනව/1-674465",
+   "outlet": "Lankadeepa",
+   "lang": "si"
+  }
+ }
+}

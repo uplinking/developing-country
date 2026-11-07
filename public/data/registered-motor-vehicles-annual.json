@@ -1,0 +1,552 @@
+{
+  "caveats": [
+    "This is a national stock table. It is not a district map and must not be choroplethed.",
+    "These are registered vehicles, not vehicles in use on a given day.",
+    "A dash in the source for special-purpose vehicles in 2020–2021 is stored as null, not zero."
+  ],
+  "country": "LK",
+  "dataset_id": "registered-motor-vehicles-annual",
+  "description": "National stock of registered motor vehicles by published class, 2020–2024, compiled by DCS from Department of Motor Traffic figures.",
+  "fields": [
+    {
+      "id": "year",
+      "label": "Year",
+      "role": "dimension",
+      "type": "year"
+    },
+    {
+      "id": "category",
+      "label": "Category",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "category_label",
+      "label": "Category label",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "aggregation": "none",
+      "id": "vehicles",
+      "label": "Registered vehicles",
+      "role": "measure",
+      "type": "integer",
+      "unit": "vehicles"
+    },
+    {
+      "aggregation": "none",
+      "id": "share_pct",
+      "label": "Share of national stock",
+      "role": "measure",
+      "type": "number",
+      "unit": "percent"
+    },
+    {
+      "aggregation": "none",
+      "id": "total_vehicles",
+      "label": "National stock",
+      "role": "measure",
+      "type": "integer",
+      "unit": "vehicles"
+    }
+  ],
+  "grain": "One row per calendar year and published vehicle class, including the national total.",
+  "notes": [
+    "Lorries include lorry proper, prime movers, lorry trailers, fork-lifts and other lorries.",
+    "Tractors and engines include 2-wheel and 4-wheel land-vehicle tractors and land-vehicle trailers.",
+    "Buses combine SLTB and private buses."
+  ],
+  "primary_key": [
+    "year",
+    "category"
+  ],
+  "rows": [
+    {
+      "category": "total",
+      "category_label": "Total",
+      "share_pct": 100,
+      "total_vehicles": 8297852,
+      "vehicles": 8297852,
+      "year": 2020
+    },
+    {
+      "category": "total",
+      "category_label": "Total",
+      "share_pct": 100,
+      "total_vehicles": 8331702,
+      "vehicles": 8331702,
+      "year": 2021
+    },
+    {
+      "category": "total",
+      "category_label": "Total",
+      "share_pct": 100,
+      "total_vehicles": 8352213,
+      "vehicles": 8352213,
+      "year": 2022
+    },
+    {
+      "category": "total",
+      "category_label": "Total",
+      "share_pct": 100,
+      "total_vehicles": 8380103,
+      "vehicles": 8380103,
+      "year": 2023
+    },
+    {
+      "category": "total",
+      "category_label": "Total",
+      "share_pct": 100,
+      "total_vehicles": 8454513,
+      "vehicles": 8454513,
+      "year": 2024
+    },
+    {
+      "category": "passenger_cars",
+      "category_label": "Passenger Cars",
+      "share_pct": 10.81,
+      "total_vehicles": 8297852,
+      "vehicles": 896885,
+      "year": 2020
+    },
+    {
+      "category": "passenger_cars",
+      "category_label": "Passenger Cars",
+      "share_pct": 10.81,
+      "total_vehicles": 8331702,
+      "vehicles": 900380,
+      "year": 2021
+    },
+    {
+      "category": "passenger_cars",
+      "category_label": "Passenger Cars",
+      "share_pct": 10.8,
+      "total_vehicles": 8352213,
+      "vehicles": 901869,
+      "year": 2022
+    },
+    {
+      "category": "passenger_cars",
+      "category_label": "Passenger Cars",
+      "share_pct": 10.78,
+      "total_vehicles": 8380103,
+      "vehicles": 903685,
+      "year": 2023
+    },
+    {
+      "category": "passenger_cars",
+      "category_label": "Passenger Cars",
+      "share_pct": 10.71,
+      "total_vehicles": 8454513,
+      "vehicles": 905329,
+      "year": 2024
+    },
+    {
+      "category": "three_wheelers",
+      "category_label": "Three Wheelers",
+      "share_pct": 14.25,
+      "total_vehicles": 8297852,
+      "vehicles": 1182227,
+      "year": 2020
+    },
+    {
+      "category": "three_wheelers",
+      "category_label": "Three Wheelers",
+      "share_pct": 14.21,
+      "total_vehicles": 8331702,
+      "vehicles": 1184320,
+      "year": 2021
+    },
+    {
+      "category": "three_wheelers",
+      "category_label": "Three Wheelers",
+      "share_pct": 14.18,
+      "total_vehicles": 8352213,
+      "vehicles": 1184356,
+      "year": 2022
+    },
+    {
+      "category": "three_wheelers",
+      "category_label": "Three Wheelers",
+      "share_pct": 14.13,
+      "total_vehicles": 8380103,
+      "vehicles": 1184416,
+      "year": 2023
+    },
+    {
+      "category": "three_wheelers",
+      "category_label": "Three Wheelers",
+      "share_pct": 14.01,
+      "total_vehicles": 8454513,
+      "vehicles": 1184510,
+      "year": 2024
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses (SLTB + private)",
+      "share_pct": 1.36,
+      "total_vehicles": 8297852,
+      "vehicles": 112583,
+      "year": 2020
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses (SLTB + private)",
+      "share_pct": 1.35,
+      "total_vehicles": 8331702,
+      "vehicles": 112864,
+      "year": 2021
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses (SLTB + private)",
+      "share_pct": 1.36,
+      "total_vehicles": 8352213,
+      "vehicles": 113268,
+      "year": 2022
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses (SLTB + private)",
+      "share_pct": 1.36,
+      "total_vehicles": 8380103,
+      "vehicles": 113953,
+      "year": 2023
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses (SLTB + private)",
+      "share_pct": 1.35,
+      "total_vehicles": 8454513,
+      "vehicles": 114099,
+      "year": 2024
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor Cycles",
+      "share_pct": 58.08,
+      "total_vehicles": 8297852,
+      "vehicles": 4819708,
+      "year": 2020
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor Cycles",
+      "share_pct": 57.94,
+      "total_vehicles": 8331702,
+      "vehicles": 4827719,
+      "year": 2021
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor Cycles",
+      "share_pct": 57.91,
+      "total_vehicles": 8352213,
+      "vehicles": 4836779,
+      "year": 2022
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor Cycles",
+      "share_pct": 57.96,
+      "total_vehicles": 8380103,
+      "vehicles": 4856979,
+      "year": 2023
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor Cycles",
+      "share_pct": 58.22,
+      "total_vehicles": 8454513,
+      "vehicles": 4922268,
+      "year": 2024
+    },
+    {
+      "category": "lorries",
+      "category_label": "Lorries",
+      "share_pct": 4.53,
+      "total_vehicles": 8297852,
+      "vehicles": 375487,
+      "year": 2020
+    },
+    {
+      "category": "lorries",
+      "category_label": "Lorries",
+      "share_pct": 4.56,
+      "total_vehicles": 8331702,
+      "vehicles": 379831,
+      "year": 2021
+    },
+    {
+      "category": "lorries",
+      "category_label": "Lorries",
+      "share_pct": 4.57,
+      "total_vehicles": 8352213,
+      "vehicles": 381555,
+      "year": 2022
+    },
+    {
+      "category": "lorries",
+      "category_label": "Lorries",
+      "share_pct": 4.56,
+      "total_vehicles": 8380103,
+      "vehicles": 382069,
+      "year": 2023
+    },
+    {
+      "category": "lorries",
+      "category_label": "Lorries",
+      "share_pct": 4.53,
+      "total_vehicles": 8454513,
+      "vehicles": 383335,
+      "year": 2024
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and Hearses",
+      "share_pct": 0.05,
+      "total_vehicles": 8297852,
+      "vehicles": 3954,
+      "year": 2020
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and Hearses",
+      "share_pct": 0.05,
+      "total_vehicles": 8331702,
+      "vehicles": 4042,
+      "year": 2021
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and Hearses",
+      "share_pct": 0.05,
+      "total_vehicles": 8352213,
+      "vehicles": 4124,
+      "year": 2022
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and Hearses",
+      "share_pct": 0.05,
+      "total_vehicles": 8380103,
+      "vehicles": 4131,
+      "year": 2023
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and Hearses",
+      "share_pct": 0.05,
+      "total_vehicles": 8454513,
+      "vehicles": 4148,
+      "year": 2024
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual Purpose Vehicles",
+      "share_pct": 5.41,
+      "total_vehicles": 8297852,
+      "vehicles": 448552,
+      "year": 2020
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual Purpose Vehicles",
+      "share_pct": 5.39,
+      "total_vehicles": 8331702,
+      "vehicles": 449323,
+      "year": 2021
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual Purpose Vehicles",
+      "share_pct": 5.39,
+      "total_vehicles": 8352213,
+      "vehicles": 450083,
+      "year": 2022
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual Purpose Vehicles",
+      "share_pct": 5.38,
+      "total_vehicles": 8380103,
+      "vehicles": 450669,
+      "year": 2023
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual Purpose Vehicles",
+      "share_pct": 5.34,
+      "total_vehicles": 8454513,
+      "vehicles": 451696,
+      "year": 2024
+    },
+    {
+      "category": "tractors_and_engines",
+      "category_label": "Tractors and Engines",
+      "share_pct": 5.5,
+      "total_vehicles": 8297852,
+      "vehicles": 456011,
+      "year": 2020
+    },
+    {
+      "category": "tractors_and_engines",
+      "category_label": "Tractors and Engines",
+      "share_pct": 5.65,
+      "total_vehicles": 8331702,
+      "vehicles": 470775,
+      "year": 2021
+    },
+    {
+      "category": "tractors_and_engines",
+      "category_label": "Tractors and Engines",
+      "share_pct": 5.72,
+      "total_vehicles": 8352213,
+      "vehicles": 477704,
+      "year": 2022
+    },
+    {
+      "category": "tractors_and_engines",
+      "category_label": "Tractors and Engines",
+      "share_pct": 5.75,
+      "total_vehicles": 8380103,
+      "vehicles": 481724,
+      "year": 2023
+    },
+    {
+      "category": "tractors_and_engines",
+      "category_label": "Tractors and Engines",
+      "share_pct": 5.76,
+      "total_vehicles": 8454513,
+      "vehicles": 486649,
+      "year": 2024
+    },
+    {
+      "category": "quadricycle",
+      "category_label": "Quadricycle",
+      "share_pct": 0.03,
+      "total_vehicles": 8297852,
+      "vehicles": 2442,
+      "year": 2020
+    },
+    {
+      "category": "quadricycle",
+      "category_label": "Quadricycle",
+      "share_pct": 0.03,
+      "total_vehicles": 8331702,
+      "vehicles": 2442,
+      "year": 2021
+    },
+    {
+      "category": "quadricycle",
+      "category_label": "Quadricycle",
+      "share_pct": 0.03,
+      "total_vehicles": 8352213,
+      "vehicles": 2442,
+      "year": 2022
+    },
+    {
+      "category": "quadricycle",
+      "category_label": "Quadricycle",
+      "share_pct": 0.03,
+      "total_vehicles": 8380103,
+      "vehicles": 2442,
+      "year": 2023
+    },
+    {
+      "category": "quadricycle",
+      "category_label": "Quadricycle",
+      "share_pct": 0.03,
+      "total_vehicles": 8454513,
+      "vehicles": 2443,
+      "year": 2024
+    },
+    {
+      "category": "motor_home",
+      "category_label": "Motor Home",
+      "share_pct": 0,
+      "total_vehicles": 8297852,
+      "vehicles": 3,
+      "year": 2020
+    },
+    {
+      "category": "motor_home",
+      "category_label": "Motor Home",
+      "share_pct": 0,
+      "total_vehicles": 8331702,
+      "vehicles": 6,
+      "year": 2021
+    },
+    {
+      "category": "motor_home",
+      "category_label": "Motor Home",
+      "share_pct": 0,
+      "total_vehicles": 8352213,
+      "vehicles": 6,
+      "year": 2022
+    },
+    {
+      "category": "motor_home",
+      "category_label": "Motor Home",
+      "share_pct": 0,
+      "total_vehicles": 8380103,
+      "vehicles": 6,
+      "year": 2023
+    },
+    {
+      "category": "motor_home",
+      "category_label": "Motor Home",
+      "share_pct": 0,
+      "total_vehicles": 8454513,
+      "vehicles": 6,
+      "year": 2024
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special Purpose Vehicles",
+      "share_pct": null,
+      "total_vehicles": 8297852,
+      "vehicles": null,
+      "year": 2020
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special Purpose Vehicles",
+      "share_pct": null,
+      "total_vehicles": 8331702,
+      "vehicles": null,
+      "year": 2021
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special Purpose Vehicles",
+      "share_pct": 0,
+      "total_vehicles": 8352213,
+      "vehicles": 27,
+      "year": 2022
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special Purpose Vehicles",
+      "share_pct": 0,
+      "total_vehicles": 8380103,
+      "vehicles": 29,
+      "year": 2023
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special Purpose Vehicles",
+      "share_pct": 0,
+      "total_vehicles": 8454513,
+      "vehicles": 30,
+      "year": 2024
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "dcs-pocket-book-2025-vehicles"
+  ],
+  "title": "Registered motor vehicles",
+  "vintage": "2020–2024"
+}

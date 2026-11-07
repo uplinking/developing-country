@@ -1,0 +1,1599 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-08-01",
+  "2024-08-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "si",
+ "articles_read": 151,
+ "rejected": 103,
+ "rejected_ids": [
+  "2024-08-01-adaderanasinhalalk-3a6ed438",
+  "2024-08-01-adaderanasinhalalk-7d359e66",
+  "2024-08-01-adalk-2834e13a",
+  "2024-08-02-adaderanasinhalalk-d0bfdbd6",
+  "2024-08-02-adaderanasinhalalk-e9ff228e",
+  "2024-08-02-adaderanasinhalalk-ed175ea2",
+  "2024-08-03-adaderanasinhalalk-2b1b3b20",
+  "2024-08-03-adaderanasinhalalk-97df2d5d",
+  "2024-08-04-adaderanasinhalalk-3ef8a919",
+  "2024-08-04-adalk-c7b09cdd",
+  "2024-08-05-adaderanasinhalalk-c24f8a57",
+  "2024-08-05-adalk-18d3fa94",
+  "2024-08-05-adalk-4261d975",
+  "2024-08-05-adalk-5e016de8",
+  "2024-08-05-adalk-78ee2ce6",
+  "2024-08-05-adalk-7dfd39e8",
+  "2024-08-05-adalk-ad6c984c",
+  "2024-08-06-adaderanasinhalalk-64c780cd",
+  "2024-08-06-adalk-214af5a5",
+  "2024-08-06-adalk-2d4fa37a",
+  "2024-08-06-adalk-40217b26",
+  "2024-08-06-adalk-6338b924",
+  "2024-08-07-adaderanasinhalalk-1db3edc3",
+  "2024-08-07-adaderanasinhalalk-9182e274",
+  "2024-08-08-adaderanasinhalalk-96763aa7",
+  "2024-08-08-adaderanasinhalalk-e044139b",
+  "2024-08-08-adaderanasinhalalk-f6847be9",
+  "2024-08-08-adaderanasinhalalk-f69c676c",
+  "2024-08-08-adalk-3f870044",
+  "2024-08-08-adalk-8598c697",
+  "2024-08-09-adaderanasinhalalk-8a7ce229",
+  "2024-08-09-adaderanasinhalalk-8cacd2ee",
+  "2024-08-09-adaderanasinhalalk-adcc2cf3",
+  "2024-08-09-adaderanasinhalalk-e2cedbc9",
+  "2024-08-09-adaderanasinhalalk-e68928bc",
+  "2024-08-09-adalk-0b7f8508",
+  "2024-08-09-adalk-0b8e2c9e",
+  "2024-08-11-adaderanasinhalalk-145734b7",
+  "2024-08-11-adaderanasinhalalk-44b84d82",
+  "2024-08-11-adaderanasinhalalk-b5322e8c",
+  "2024-08-11-adalk-46f85cec",
+  "2024-08-12-adaderanasinhalalk-8f980606",
+  "2024-08-12-adalk-c487cf27",
+  "2024-08-13-adaderanasinhalalk-26d2365c",
+  "2024-08-13-adaderanasinhalalk-652b3949",
+  "2024-08-13-adalk-2af3b7e5",
+  "2024-08-13-adalk-aa0e27c3",
+  "2024-08-13-adalk-bb4d0b71",
+  "2024-08-13-adalk-f85c1fbb",
+  "2024-08-14-adaderanasinhalalk-22d62202",
+  "2024-08-15-adaderanasinhalalk-3e993b77",
+  "2024-08-15-adalk-1435f3ec",
+  "2024-08-15-adalk-8f96c0a5",
+  "2024-08-15-adalk-ae5e846b",
+  "2024-08-16-adalk-a901ed2a",
+  "2024-08-18-adaderanasinhalalk-66ed28d6",
+  "2024-08-18-adalk-44850fa3",
+  "2024-08-18-adalk-94f9a05f",
+  "2024-08-18-adalk-cdd1a6a9",
+  "2024-08-18-adalk-eccc3405",
+  "2024-08-19-adaderanasinhalalk-caa10ee1",
+  "2024-08-19-adalk-04d1942e",
+  "2024-08-20-adaderanasinhalalk-e281896e",
+  "2024-08-20-adalk-0f9c6dad",
+  "2024-08-21-adaderanasinhalalk-3813b53c",
+  "2024-08-21-adaderanasinhalalk-a05a546b",
+  "2024-08-21-adalk-36453b2e",
+  "2024-08-21-adalk-8146206c",
+  "2024-08-21-adalk-e19124aa",
+  "2024-08-21-bbccomsinhala-56a68525",
+  "2024-08-22-adaderanasinhalalk-2c6cc250",
+  "2024-08-22-adaderanasinhalalk-aeb75eb3",
+  "2024-08-23-adaderanasinhalalk-30f4bba8",
+  "2024-08-24-adalk-d92e3b6d",
+  "2024-08-25-adaderanasinhalalk-70cc8194",
+  "2024-08-25-adaderanasinhalalk-acf55fd9",
+  "2024-08-25-adaderanasinhalalk-d781cf59",
+  "2024-08-25-adalk-1a170c90",
+  "2024-08-25-adalk-6e4aa3f2",
+  "2024-08-25-adalk-78608ffa",
+  "2024-08-25-adalk-e29a0885",
+  "2024-08-26-adaderanasinhalalk-0abcd64a",
+  "2024-08-26-adaderanasinhalalk-c849c91d",
+  "2024-08-26-adaderanasinhalalk-f39a0b7b",
+  "2024-08-26-adalk-17d919c8",
+  "2024-08-26-adalk-52764621",
+  "2024-08-27-adaderanasinhalalk-10cb7931",
+  "2024-08-27-adaderanasinhalalk-1353f93f",
+  "2024-08-27-adaderanasinhalalk-68d3e826",
+  "2024-08-27-adaderanasinhalalk-7b036aff",
+  "2024-08-27-adaderanasinhalalk-b01d0359",
+  "2024-08-27-adalk-034e2481",
+  "2024-08-27-adalk-c74fdf39",
+  "2024-08-27-adalk-e3bddc7b",
+  "2024-08-27-adalk-fba048f8",
+  "2024-08-28-adaderanasinhalalk-d04ae04e",
+  "2024-08-28-adaderanasinhalalk-d13cb180",
+  "2024-08-28-adalk-05959fe2",
+  "2024-08-28-adalk-7b8a8bfc",
+  "2024-08-29-adaderanasinhalalk-40d2ef3b",
+  "2024-08-29-adaderanasinhalalk-f469972d",
+  "2024-08-29-adalk-ac2f1bc4",
+  "2024-08-29-adalk-c00aee0a"
+ ],
+ "unattributed_ids": [],
+ "dropped": [
+  "line gosl-gaza-children-fund"
+ ],
+ "projects": [
+  {
+   "id": "rubber-fertiliser-subsidy-2024",
+   "name": "Fertiliser subsidy for rubber growers 2024",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fertiliser-subsidy-maha-2024-25",
+   "name": "Fertiliser subsidy for paddy farmers, Maha season 2024/25",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "paddy-marketing-board-yala-purchase-2024",
+   "name": "Paddy Marketing Board paddy purchase, Yala season 2024",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "aruwakkalu-waste-management-project",
+   "name": "Colombo Metropolitan Solid Waste Management Project (Aruwakkalu landfill)",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Aruwakkalu, Puttalam",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-digital-railway-ticketing",
+   "name": "Online digital railway ticketing system (pravesha.lk)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-crop-damage-compensation-increase-2024",
+   "name": "Increase of crop damage compensation for farmers (drought/flood/wildlife)",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-airport-shuttle-bus-service",
+   "name": "Airport Terminal Shuttle Bus Service (Katunayake-Fort-Makumbura)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Katunayake",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-personal-income-tax-threshold-revision-imf",
+   "name": "Personal Income Tax Threshold Revision Proposal to IMF",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "water-tariff-reduction-2024",
+   "name": "Reduction of water supply tariffs",
+   "sector": "water",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "egg-import-price-stabilization-2024",
+   "name": "Egg import to address price increase",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gaza-children-fund",
+   "name": "Children of Gaza Fund humanitarian aid",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Gaza",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-digital-id-system-integration",
+   "name": "Integration of state IT systems using NIC and passport numbers",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kelani-valley-railway-resettlement",
+   "name": "Resettlement of illegal occupants along Kelani Valley railway reservation",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "Padukka, Colombo suburban railway",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "senior-citizens-deposit-interest-subsidy-2024",
+   "name": "Subsidised interest rate scheme for senior citizens' fixed deposits",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "middle-east-repatriation-fund-2024",
+   "name": "Fund to repatriate Sri Lankans from Middle East amid regional conflict",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "river-for-jaffna-water-scheme",
+   "name": "River for Jaffna water supply scheme",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "gosl-rubber-fertiliser-subsidy-2024",
+   "project_id": "rubber-fertiliser-subsidy-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-fertiliser-subsidy-maha-2024-25",
+   "project_id": "fertiliser-subsidy-maha-2024-25",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-paddy-marketing-board-yala-purchase-2024",
+   "project_id": "paddy-marketing-board-yala-purchase-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-aruwakkalu-waste-management",
+   "project_id": "aruwakkalu-waste-management-project",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-digital-railway-ticketing-pravesha",
+   "project_id": "gosl-digital-railway-ticketing",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-crop-damage-compensation-increase-2024",
+   "project_id": "gosl-crop-damage-compensation-increase-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-airport-shuttle-bus-service",
+   "project_id": "gosl-airport-shuttle-bus-service",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "mixed",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-personal-income-tax-threshold-revision-imf",
+   "project_id": "gosl-personal-income-tax-threshold-revision-imf",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-water-tariff-reduction-2024",
+   "project_id": "water-tariff-reduction-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-egg-import-price-stabilization-2024",
+   "project_id": "egg-import-price-stabilization-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-govt-it-system-integration-nic",
+   "project_id": "gosl-digital-id-system-integration",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "unknown"
+  },
+  {
+   "id": "gosl-kelani-valley-railway-resettlement",
+   "project_id": "kelani-valley-railway-resettlement",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-senior-citizens-deposit-interest-subsidy-2024",
+   "project_id": "senior-citizens-deposit-interest-subsidy-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-middle-east-repatriation-fund",
+   "project_id": "middle-east-repatriation-fund-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "gosl-river-for-jaffna",
+   "project_id": "river-for-jaffna-water-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-suraksha-student-insurance",
+   "project_id": "suraksha-student-insurance-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "india-hybrid-renewable-energy-islands-india-disbursed-2024-08-28",
+   "line_id": "india-hybrid-renewable-energy-islands-india",
+   "date": "2024-08-28",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "India hands over first tranche for island hybrid power projects",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-29-adaderanasinhalalk-6ccbe0b5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-rubber-fertiliser-subsidy-2024-govt_authorised-2024-08-28",
+   "line_id": "gosl-rubber-fertiliser-subsidy-2024",
+   "date": "2024-08-28",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 4000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rubber fertiliser subsidy cuts bag price by Rs 4,000",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-28-adalk-116bed58",
+    "2024-08-28-adaderanasinhalalk-59f77338"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-fisherfolk-fuel-subsidy-2024-released-2024-08-26",
+   "line_id": "gosl-fisherfolk-fuel-subsidy-2024",
+   "date": "2024-08-26",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 25,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Fisheries diesel and kerosene price cut Rs 25 per litre",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-28-adalk-6ea39718"
+   ],
+   "relation": "update_of:gosl-fisherfolk-fuel-subsidy-2024-govt_authorised-2024-08-21",
+   "notes": null
+  },
+  {
+   "id": "ltl-petronet-lng-kerawalapitiya-launched-2024-08-28",
+   "line_id": "ltl-petronet-lng-kerawalapitiya",
+   "date": "2024-08-28",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President opens first stage of Kerawalapitiya LNG power plant",
+   "confidence": "high",
+   "reports": [
+    "2024-08-28-adalk-869e8f55",
+    "2024-08-28-adaderanasinhalalk-725ecd04"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-fertiliser-subsidy-maha-2024-25-govt_authorised-2024-08-27",
+   "line_id": "gosl-fertiliser-subsidy-maha-2024-25",
+   "date": "2024-08-27",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 25000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet raises paddy fertiliser subsidy to Rs 25,000 per hectare",
+   "confidence": "high",
+   "reports": [
+    "2024-08-27-adalk-e0d34fa8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-paddy-marketing-board-yala-purchase-2024-govt_authorised-2024-08-26",
+   "line_id": "gosl-paddy-marketing-board-yala-purchase-2024",
+   "date": "2024-08-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet releases first tranche for Yala paddy purchases.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-27-adalk-7985684b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-tea-grower-fertiliser-subsidy-2024-released-2024-08-26",
+   "line_id": "gosl-tea-grower-fertiliser-subsidy-2024",
+   "date": "2024-08-26",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 2400000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Tea fertiliser subsidy implemented, cutting price Rs 4000 per bag",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-26-adaderanasinhalalk-3d9ec609"
+   ],
+   "relation": "update_of:gosl-tea-grower-fertiliser-subsidy-2024-govt_authorised-2024-08-21",
+   "notes": null
+  },
+  {
+   "id": "gosl-aruwakkalu-waste-management-launched-2024-08-25",
+   "line_id": "gosl-aruwakkalu-waste-management",
+   "date": "2024-08-25",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Train-based waste transport to Aruwakkalu landfill begins operation",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-25-adalk-139556e4",
+    "2024-08-25-adaderanasinhalalk-ed7c772c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-digital-railway-ticketing-pravesha-launched-2024-08-23",
+   "line_id": "gosl-digital-railway-ticketing-pravesha",
+   "date": "2024-08-23",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government launches online railway ticket booking website",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-23-adaderanasinhalalk-5b42c53e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-public-sector-salary-hike-2025-govt_authorised-2024-08-22",
+   "line_id": "gosl-public-sector-salary-hike-2025",
+   "date": "2024-08-22",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves 24-50% public sector basic salary hike",
+   "confidence": "high",
+   "reports": [
+    "2024-08-22-adalk-b3f007c3",
+    "2024-08-22-adaderanasinhalalk-d428282d"
+   ],
+   "relation": "repeat_of:gosl-public-sector-salary-hike-2025-govt_authorised-2024-08-22",
+   "notes": null
+  },
+  {
+   "id": "gosl-digital-railway-ticketing-pravesha-launched-2024-08-22",
+   "line_id": "gosl-digital-railway-ticketing-pravesha",
+   "date": "2024-08-22",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Digital railway ticket with QR code launched via pravesha.lk",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-22-adalk-15804a02"
+   ],
+   "relation": "repeat_of:gosl-digital-railway-ticketing-pravesha-launched-2024-08-23",
+   "notes": null
+  },
+  {
+   "id": "gosl-fertiliser-subsidy-maha-2024-25-govt_authorised-2024-08-22",
+   "line_id": "gosl-fertiliser-subsidy-maha-2024-25",
+   "date": "2024-08-22",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 15000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs 15,000/hectare fertiliser subsidy for Maha season",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-22-adaderanasinhalalk-bbea0b65"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-fisherfolk-fuel-subsidy-2024-govt_authorised-2024-08-21",
+   "line_id": "gosl-fisherfolk-fuel-subsidy-2024",
+   "date": "2024-08-21",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 25,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs 25/litre fuel subsidy for fishermen",
+   "confidence": "high",
+   "reports": [
+    "2024-08-21-adaderanasinhalalk-475b2ede"
+   ],
+   "relation": "repeat_of:gosl-fisherfolk-fuel-subsidy-2024-govt_authorised-2024-08-21",
+   "notes": null
+  },
+  {
+   "id": "gosl-tea-grower-fertiliser-subsidy-2024-govt_authorised-2024-08-21",
+   "line_id": "gosl-tea-grower-fertiliser-subsidy-2024",
+   "date": "2024-08-21",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 4000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet raises tea grower fertiliser allowance to Rs 4,000",
+   "confidence": "high",
+   "reports": [
+    "2024-08-21-adaderanasinhalalk-475b2ede"
+   ],
+   "relation": "repeat_of:gosl-tea-grower-fertiliser-subsidy-2024-govt_authorised-2024-08-21",
+   "notes": null
+  },
+  {
+   "id": "gosl-crop-damage-compensation-increase-2024-proposed-2024-08-21",
+   "line_id": "gosl-crop-damage-compensation-increase-2024",
+   "date": "2024-08-21",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 100000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister proposes raising crop damage compensation to Rs 100,000/acre",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-21-adalk-c03de654"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-public-sector-salary-hike-2025-govt_authorised-2024-08-20",
+   "line_id": "gosl-public-sector-salary-hike-2025",
+   "date": "2024-08-20",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 55000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Lowest-grade public servants' minimum salary raised to Rs 55,000",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-20-adalk-90d0482c"
+   ],
+   "relation": "repeat_of:gosl-public-sector-salary-hike-2025-govt_authorised-2024-08-22",
+   "notes": null
+  },
+  {
+   "id": "fertiliser-crs-gosl-funds-spent-2024-08-20",
+   "line_id": "fertiliser-crs-gosl-funds",
+   "date": "2024-08-20",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 840000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Fertiliser company paid record Rs 840mn compensation for staff retirement",
+   "confidence": "high",
+   "reports": [
+    "2024-08-20-adalk-44c6fcec"
+   ],
+   "relation": "update_of:fertiliser-crs-gosl-funds-allocated-2024-05-29",
+   "notes": null
+  },
+  {
+   "id": "gosl-funds-ginger-import-2024-govt_authorised-2024-08-16",
+   "line_id": "gosl-funds-ginger-import-2024",
+   "date": "2024-08-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Farmers protest Cabinet approval to import ginger from China",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-16-adalk-9fbf276d"
+   ],
+   "relation": "repeat_of:gosl-funds-ginger-import-2024-govt_authorised-2024-08-14",
+   "notes": null
+  },
+  {
+   "id": "gosl-airport-shuttle-bus-service-launched-2024-08-15",
+   "line_id": "gosl-airport-shuttle-bus-service",
+   "date": "2024-08-15",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Transport Ministry launches luxury airport shuttle bus service",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-15-adalk-ca83b240"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-personal-income-tax-threshold-revision-imf-proposed-2024-08-14",
+   "line_id": "gosl-personal-income-tax-threshold-revision-imf",
+   "date": "2024-08-14",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government proposes raising personal income tax threshold to IMF",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-14-adaderanasinhalalk-21eeb78f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-funds-ginger-import-2024-govt_authorised-2024-08-13",
+   "line_id": "gosl-funds-ginger-import-2024",
+   "date": "2024-08-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves importing 3,000 tonnes of ginger to curb prices",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-13-adalk-a73e41e9",
+    "2024-08-13-adaderanasinhalalk-c9456fe0"
+   ],
+   "relation": "repeat_of:gosl-funds-ginger-import-2024-govt_authorised-2024-08-13",
+   "notes": null
+  },
+  {
+   "id": "gosl-public-sector-salary-hike-2025-govt_authorised-2024-08-13",
+   "line_id": "gosl-public-sector-salary-hike-2025",
+   "date": "2024-08-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 25000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs 25,000 monthly cost-of-living allowance for state workers",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-13-adalk-444aefdd",
+    "2024-08-13-adaderanasinhalalk-2bfa06c4"
+   ],
+   "relation": "repeat_of:gosl-public-sector-salary-hike-2025-govt_authorised-2024-08-13",
+   "notes": null
+  },
+  {
+   "id": "gosl-pinnawala-kitulgala-tourism-corridor-govt_authorised-2024-08-13",
+   "line_id": "gosl-pinnawala-kitulgala-tourism-corridor",
+   "date": "2024-08-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves implementing identified Pinnawala-Kitulgala tourism corridor projects",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-13-adalk-afd69178"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-water-tariff-reduction-2024-govt_authorised-2024-08-13",
+   "line_id": "gosl-water-tariff-reduction-2024",
+   "date": "2024-08-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves revision reducing water tariffs",
+   "confidence": "high",
+   "reports": [
+    "2024-08-13-adaderanasinhalalk-59442477"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-plantation-workers-statutory-payments-govt_authorised-2024-08-12",
+   "line_id": "gosl-plantation-workers-statutory-payments",
+   "date": "2024-08-12",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1700,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Wage Board approves Rs 1,700 daily wage for plantation workers",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-12-adaderanasinhalalk-503b11ee"
+   ],
+   "relation": "update_of:plantation-workers-arrears-settlement-gosl-govt_authorised-2024-06-01",
+   "notes": null
+  },
+  {
+   "id": "gosl-egg-import-price-stabilization-2024-govt_authorised-2024-08-09",
+   "line_id": "gosl-egg-import-price-stabilization-2024",
+   "date": "2024-08-09",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves egg imports via state corporation to cut prices",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-09-adaderanasinhalalk-97dbede4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-gaza-children-fund-disbursed-2024-08-07",
+   "line_id": "gosl-gaza-children-fund",
+   "date": "2024-08-07",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 590000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka hands over $590,000 to Gaza children's fund",
+   "confidence": "high",
+   "reports": [
+    "2024-08-08-adalk-bf34e148",
+    "2024-08-08-adaderanasinhalalk-750e61c0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "pensioner-allowance-gosl-released-2024-08-08",
+   "line_id": "pensioner-allowance-gosl",
+   "date": "2024-08-08",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 3000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Circular issued to pay pensioners' allowance from September",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-08-adaderanasinhalalk-d482d5bd"
+   ],
+   "relation": "update_of:pensioner-allowance-gosl-govt_authorised-2024-07-24",
+   "notes": null
+  },
+  {
+   "id": "gosl-govt-it-system-integration-nic-govt_authorised-2024-08-06",
+   "line_id": "gosl-govt-it-system-integration-nic",
+   "date": "2024-08-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves integrating state IT systems using NIC numbers",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-06-adalk-1f4a18ea",
+    "2024-08-06-adaderanasinhalalk-4f009688"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-kelani-valley-railway-resettlement-govt_authorised-2024-08-06",
+   "line_id": "gosl-kelani-valley-railway-resettlement",
+   "date": "2024-08-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves resettling illegal railway reservation occupants near Padukka",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-06-adalk-0590910b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-proposed-2024-08-06",
+   "line_id": "imf-eff-loan",
+   "date": "2024-08-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 663000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF to provide $663mn for 2025 budget financing gap",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-06-adalk-06f318a7"
+   ],
+   "relation": "repeat_of:imf-eff-loan-proposed-2024-08-27",
+   "notes": null
+  },
+  {
+   "id": "wb-budget-support-2025-gap-proposed-2024-08-06",
+   "line_id": "wb-budget-support-2025-gap",
+   "date": "2024-08-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 400000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "World Bank pledges $400mn for 2025 budget resource gap",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-06-adalk-06f318a7"
+   ],
+   "relation": "repeat_of:wb-budget-support-2025-gap-proposed-2024-08-27",
+   "notes": null
+  },
+  {
+   "id": "adb-budget-support-2025-gap-proposed-2024-08-06",
+   "line_id": "adb-budget-support-2025-gap",
+   "date": "2024-08-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 300000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB pledges $300mn for 2025 budget resource gap",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-06-adalk-06f318a7"
+   ],
+   "relation": "repeat_of:adb-budget-support-2025-gap-proposed-2024-08-27",
+   "notes": null
+  },
+  {
+   "id": "gosl-pension-anomaly-elimination-2024-govt_authorised-2024-08-06",
+   "line_id": "gosl-pension-anomaly-elimination-2024",
+   "date": "2024-08-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves removing public pension anomalies",
+   "confidence": "high",
+   "reports": [
+    "2024-08-06-adalk-c3838b0d",
+    "2024-08-06-adaderanasinhalalk-fcd97758"
+   ],
+   "relation": "repeat_of:gosl-pension-anomaly-elimination-2024-govt_authorised-2024-08-06",
+   "notes": null
+  },
+  {
+   "id": "gosl-senior-citizens-deposit-interest-subsidy-2024-govt_authorised-2024-08-06",
+   "line_id": "gosl-senior-citizens-deposit-interest-subsidy-2024",
+   "date": "2024-08-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves subsidised 10% interest for senior citizen deposits",
+   "confidence": "high",
+   "reports": [
+    "2024-08-06-adaderanasinhalalk-ebcb6637"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-middle-east-repatriation-fund-allocated-2024-08-03",
+   "line_id": "gosl-middle-east-repatriation-fund",
+   "date": "2024-08-03",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 5000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government allocates over $5m to repatriate Sri Lankans from Middle East",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-03-adalk-f5f3560b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-gosl-jaffna-kilinochchi-water-completed-2024-08-02",
+   "line_id": "adb-gosl-jaffna-kilinochchi-water",
+   "date": "2024-08-02",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 266000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President opened Thalaiyadi desalination plant, Jaffna water project",
+   "confidence": "high",
+   "reports": [
+    "2024-08-03-adalk-f1ae5ddf",
+    "2024-08-02-adaderanasinhalalk-d04966c9"
+   ],
+   "relation": "repeat_of:adb-gosl-jaffna-kilinochchi-water-completed-2024-08-02",
+   "notes": null
+  },
+  {
+   "id": "gosl-river-for-jaffna-proposed-2024-08-03",
+   "line_id": "gosl-river-for-jaffna",
+   "date": "2024-08-03",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President announces new water scheme to pipe river water to Jaffna",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-03-adalk-f1ae5ddf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "presidential-fund-als-scholarship-gosl-disbursed-2024-08-01",
+   "line_id": "presidential-fund-als-scholarship-gosl",
+   "date": "2024-08-01",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 5000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Presidential Fund disburses August scholarship instalments to ~116,000 students",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-01-adalk-64e93e9b",
+    "2024-08-01-adaderanasinhalalk-7b2809e2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-suraksha-student-insurance-agreement_signed-2024-08-01",
+   "line_id": "gosl-suraksha-student-insurance",
+   "date": "2024-08-01",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 7112000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ministry of Education signs 3-year school student insurance agreement",
+   "confidence": "high",
+   "reports": [
+    "2024-08-01-adaderanasinhalalk-bc596abe",
+    "2024-08-01-adalk-60c218c4"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-08-29-adaderanasinhalalk-6ccbe0b5": {
+   "date": "2024-08-29",
+   "title": "උතුරේ හබ්‍රිඩ් විදුලිබල ව්‍යාපෘති සඳහා ඉන්දියාවෙන් මුදල්",
+   "url": "http://sinhala.adaderana.lk/news/200456",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-28-adalk-116bed58": {
+   "date": "2024-08-28",
+   "title": "රබර් පොහොර මිටියක් රු. 4000කින් අඩු කරයි",
+   "url": "https://www.ada.lk/breaking_news/රබර්-පොහොර-මිටියක්-රු--4000කින්-අඩු-කරයි/11-411612",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-28-adalk-6ea39718": {
+   "date": "2024-08-28",
+   "title": "ධීවරයින් වෙනුවෙන් ඩීසල් හා භූමිතෙල් මිල රු. 25කින් අඩු කරයි",
+   "url": "https://www.ada.lk/breaking_news/ධීවරයින්-වෙනුවෙන්-ඩීසල්-හා-භූමිතෙල්-මිල-රු--25කින්-අඩු-කරයි/11-411609",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-28-adaderanasinhalalk-59f77338": {
+   "date": "2024-08-28",
+   "title": "රබර් වගාවට පොහොර සහනාධාරයක්",
+   "url": "http://sinhala.adaderana.lk/news/200412",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-28-adalk-869e8f55": {
+   "date": "2024-08-28",
+   "title": "සොබාදනවි පළමු අදියර ජනපති අතින් විවෘත කෙරේ",
+   "url": "https://www.ada.lk/breaking_news/සොබාදනවි-පළමු-අදියර-ජනපති-අතින්-විවෘත-කෙරේ/11-411605",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-28-adaderanasinhalalk-725ecd04": {
+   "date": "2024-08-28",
+   "title": "සොබාධනවි ජනපති අතින් විවෘත කෙරේ",
+   "url": "http://sinhala.adaderana.lk/news/200411",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-27-adalk-e0d34fa8": {
+   "date": "2024-08-27",
+   "title": "පොහොර සහනාධාරය රු. 25000ක් දක්වා ඉහළට",
+   "url": "https://www.ada.lk/breaking_news/පොහොර-සහනාධාරය-රු--25000ක්-දක්වා-ඉහළට/11-411595",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-27-adalk-7985684b": {
+   "date": "2024-08-27",
+   "title": "යලේ වී මිලදී ගැනීමට පළමු අදියර යටතේ රු.මි. 500ක්",
+   "url": "https://www.ada.lk/breaking_news/යලේ-වී-මිලදී-ගැනීමට-පළමු-අදියර-යටතේ-රු-මි--500ක්/11-411592",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-26-adaderanasinhalalk-3d9ec609": {
+   "date": "2024-08-26",
+   "title": "තේ පොහොර සහනාධාරය ක්‍රියාත්මක කරයි",
+   "url": "http://sinhala.adaderana.lk/news/200338",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-25-adalk-139556e4": {
+   "date": "2024-08-25",
+   "title": "ආරුවක්කාලු කසළ ව්‍යාපෘතියේ මූලික මට්ටමේ අත්හදා බැලීම් සිදුකරයි",
+   "url": "https://www.ada.lk/breaking_news/ආරුවක්කාලු-කසළ-ව්‍යාපෘතියේ-මූලික-මට්ටමේ-අත්හදා-බැලීම්-සිදුකරයි/11-411546",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-25-adaderanasinhalalk-ed7c772c": {
+   "date": "2024-08-25",
+   "title": "දුම්රියෙන් කසළ රැගෙන යෑම අරඹයි",
+   "url": "http://sinhala.adaderana.lk/news/200315",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-23-adaderanasinhalalk-5b42c53e": {
+   "date": "2024-08-23",
+   "title": "දුම්රිය ප්‍රවේශපත්‍රය ඩිජිටල් වෙයි",
+   "url": "http://sinhala.adaderana.lk/news/200254",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-22-adalk-b3f007c3": {
+   "date": "2024-08-22",
+   "title": "2024 ජනවාරි සිට සෑම රාජ්‍ය සේවකයෙකුගේම මූලික වැටුප සියයට 24 සිට 50 කින් ඉහළට",
+   "url": "https://www.ada.lk/breaking_news/2024-ජනවාරි-සිට-සෑම-රාජ්‍ය-සේවකයෙකුගේම-මූලික-වැටුප-සියයට-24-සිට-50-කින්-ඉහළට/11-411508",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-22-adalk-15804a02": {
+   "date": "2024-08-22",
+   "title": "ඩිජිටල් දුම්රිය ප්‍රවේශ පත්‍රයක් අද සිට",
+   "url": "https://www.ada.lk/breaking_news/ඩිජිටල්-දුම්රිය-ප්‍රවේශ-පත්‍රයක්-අද-සිට/11-411506",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-22-adaderanasinhalalk-d428282d": {
+   "date": "2024-08-22",
+   "title": "රාජ්‍ය සේවයේ මූලික වැටුප වැඩි වෙන්නේ මෙහෙමයි",
+   "url": "http://sinhala.adaderana.lk/news/200210",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-22-adaderanasinhalalk-bbea0b65": {
+   "date": "2024-08-22",
+   "title": "මහ කන්නයේ වගා කෙරූ ගොවීන්ට පොහොර සහනාධාරයක්",
+   "url": "http://sinhala.adaderana.lk/news/200205",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-21-adaderanasinhalalk-475b2ede": {
+   "date": "2024-08-21",
+   "title": "හෙට සිට ධීවරයින්ට සහ තේ වගාකරුවන්ට සහනාධාරයක්",
+   "url": "http://sinhala.adaderana.lk/news/200186",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-21-adalk-c03de654": {
+   "date": "2024-08-21",
+   "title": "වගා හානි වන්දි අක්කරයකට රු. 100000ක් කරන්න යෝජනාවක්",
+   "url": "https://www.ada.lk/breaking_news/වගා-හානි-වන්දි-අක්කරයකට-රු--100000ක්-කරන්න-යෝජනාවක්/11-411482",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-20-adalk-90d0482c": {
+   "date": "2024-08-20",
+   "title": "රජයේ පහළම සේවකයාගේ වැටුපත් රු. 55000ක් දක්වා ඉහළට",
+   "url": "https://www.ada.lk/breaking_news/රජයේ-පහළම-සේවකයාගේ-වැටුපත්-රු--55000ක්-දක්වා-ඉහළට/11-411466",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-20-adalk-44c6fcec": {
+   "date": "2024-08-20",
+   "title": "රාජ්‍ය පොහොර සමාගම වාර්තාගත ලාභයක් ලබයි",
+   "url": "https://www.ada.lk/breaking_news/රාජ්‍ය-පොහොර-සමාගම-වාර්තාගත-ලාභයක්-ලබයි/11-411465",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-16-adalk-9fbf276d": {
+   "date": "2024-08-16",
+   "title": "චීනයෙන් ඉඟුරු ගෙන්වනවාට විරෝධය",
+   "url": "https://www.ada.lk/breaking_news/චීනයෙන්-ඉඟුරු-ගෙන්වනවාට-විරෝධය/11-411409",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-15-adalk-ca83b240": {
+   "date": "2024-08-15",
+   "title": "කටුනායක  සිට කොළඹ කොටුවට හා මා කුඹුරට සුඛෝපභෝගී බස් රථ සේවාවක්",
+   "url": "https://www.ada.lk/breaking_news/කටුනායක--සිට-කොළඹ-කොටුවට-හා-මා-කුඹුරට-සුඛෝපභෝගී-බස්-රථ-සේවාවක්/11-411391",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-14-adaderanasinhalalk-21eeb78f": {
+   "date": "2024-08-14",
+   "title": "පුද්ගල ආදායම් බදු මට්ටම සංශෝධනයට රජයෙන් යෝජනාවක්",
+   "url": "http://sinhala.adaderana.lk/news/199933",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-13-adalk-a73e41e9": {
+   "date": "2024-08-13",
+   "title": "ඉඟුරු ටොන් 3000ක් ආනයනය කරයි",
+   "url": "https://www.ada.lk/breaking_news/ඉඟුරු-ටොන්-3000ක්-ආනයනය-කරයි/11-411356",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-13-adalk-444aefdd": {
+   "date": "2024-08-13",
+   "title": "ජීවන වියදම් දීමනාව ලෙස රු. 25000ක් දෙන්න කැබිනට් අනුමැතිය",
+   "url": "https://www.ada.lk/breaking_news/ජීවන-වියදම්-දීමනාව-ලෙස-රු--25000ක්-දෙන්න-කැබිනට්-අනුමැතිය/11-411352",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-13-adalk-afd69178": {
+   "date": "2024-08-13",
+   "title": "පින්නවල හා කිතුල්ගල සංචාරක තීරයක්",
+   "url": "https://www.ada.lk/breaking_news/පින්නවල-හා-කිතුල්ගල-සංචාරක-තීරයක්/11-411350",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-13-adaderanasinhalalk-2bfa06c4": {
+   "date": "2024-08-13",
+   "title": "රාජ්‍ය සේවක වැටුප් සංශෝධනයට අමාත්‍ය මණ්ඩල අනුමැතිය",
+   "url": "http://sinhala.adaderana.lk/news/199886",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-13-adaderanasinhalalk-c9456fe0": {
+   "date": "2024-08-13",
+   "title": "ඉඟුරු මෙට්‍රික් ටොන් 3000ක් ආනයනයට තීරණයක්",
+   "url": "http://sinhala.adaderana.lk/news/199885",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-13-adaderanasinhalalk-59442477": {
+   "date": "2024-08-13",
+   "title": "ජල ගාස්තු අඩුවෙන්නේ මෙහෙමයි",
+   "url": "http://sinhala.adaderana.lk/news/199884",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-12-adaderanasinhalalk-503b11ee": {
+   "date": "2024-08-12",
+   "title": "වතු සේවක දෛනික වැටුපට පඩි පාලක සභාවේ අනුමැතිය",
+   "url": "http://sinhala.adaderana.lk/news/199854",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-09-adaderanasinhalalk-97dbede4": {
+   "date": "2024-08-09",
+   "title": "ඉදිරි දින 10 තුළ බිත්තර ආනයනය අරඹයි",
+   "url": "http://sinhala.adaderana.lk/news/199735",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-08-adalk-bf34e148": {
+   "date": "2024-08-08",
+   "title": "ගාසා දරුවන්ට තවත් ඇමරිකානු ඩොලර් පන්ලක්ෂ අනූදහසක් ශ්‍රී ලංකාවෙන් ලබාදෙයි",
+   "url": "https://www.ada.lk/breaking_news/ගාසා-දරුවන්ට-තවත්-ඇමරිකානු-ඩොලර්-පන්ලක්ෂ-අනූදහසක්-ශ්‍රී-ලංකාවෙන්-ලබාදෙයි/11-411267",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-08-adaderanasinhalalk-750e61c0": {
+   "date": "2024-08-08",
+   "title": "ගාසා අරමුදලට ලැබුණු මුදල් ප්‍රමාණයක් භාර දෙයි",
+   "url": "http://sinhala.adaderana.lk/news/199709",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-08-adaderanasinhalalk-d482d5bd": {
+   "date": "2024-08-08",
+   "title": "විශ්‍රාමික දීමනාවට අදාළ චක්‍රලේඛය නිකුත් වෙයි",
+   "url": "http://sinhala.adaderana.lk/news/199694",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-06-adalk-1f4a18ea": {
+   "date": "2024-08-06",
+   "title": "රාජ්‍ය සේවයේ වැඩ කඩිනම් කිරීමේ ක්‍රමවේදයක්",
+   "url": "https://www.ada.lk/breaking_news/රාජ්‍ය-සේවයේ-වැඩ-කඩිනම්-කිරීමේ-ක්‍රමවේදයක්/11-411241",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-06-adalk-0590910b": {
+   "date": "2024-08-06",
+   "title": "කැලණිවැලි කෝච්චි පාර දෙපැත්තේ අනවසර පදිංචිකරුවන් වෙනත් ස්ථානවලට",
+   "url": "https://www.ada.lk/breaking_news/කැලණිවැලි-කෝච්චි-පාර-දෙපැත්තේ-අනවසර-පදිංචිකරුවන්-වෙනත්-ස්ථානවලට/11-411240",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-06-adalk-06f318a7": {
+   "date": "2024-08-06",
+   "title": "මැතිවරණ නිසා අයි.එම්.එෆ්. ගිවිසුම වෙනස් වෙන්නේ නෑ",
+   "url": "https://www.ada.lk/breaking_news/මැතිවරණ-නිසා-අයි-එම්-එෆ්--ගිවිසුම-වෙනස්-වෙන්නේ-නෑ/11-411230",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-06-adalk-c3838b0d": {
+   "date": "2024-08-06",
+   "title": "විශ්‍රාමිකයින්ට සුබ ආරංචියක්",
+   "url": "https://www.ada.lk/breaking_news/විශ්‍රාමිකයින්ට-සුබ-ආරංචියක්/11-411224",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-06-adaderanasinhalalk-fcd97758": {
+   "date": "2024-08-06",
+   "title": "රාජ්‍ය සේවක විශ්‍රාම වැටුප් විෂමතා ඉවත් කිරීමට අනුමැතිය",
+   "url": "http://sinhala.adaderana.lk/news/199621",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-06-adaderanasinhalalk-ebcb6637": {
+   "date": "2024-08-06",
+   "title": "ජ්‍යෙෂ්ඨ පුරවැසියන්ගේ ස්ථාවර තැන්පතු සඳහා විශේෂ පොලී අනුපාතිකයක්",
+   "url": "http://sinhala.adaderana.lk/news/199619",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-06-adaderanasinhalalk-4f009688": {
+   "date": "2024-08-06",
+   "title": "රාජ්‍ය ආයතන ඩිජිටල්කරණයට අදාළ ජනපතිගේ තීරණයට කැබිනට් අනුමැතිය",
+   "url": "http://sinhala.adaderana.lk/news/199616",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-03-adalk-f5f3560b": {
+   "date": "2024-08-03",
+   "title": "මැද පෙරදිග ලාංකිකයන් ගෙන්විමට මුදල් වෙන් කරයි",
+   "url": "https://www.ada.lk/breaking_news/මැද-පෙරදිග-ලාංකිකයන්-ගෙන්විමට-මුදල්-වෙන්-කරයි/11-411176",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-03-adalk-f1ae5ddf": {
+   "date": "2024-08-03",
+   "title": "“යාපනයට ගංගාවක්” ව්‍යාපෘතිය කඩිනමින්",
+   "url": "https://www.ada.lk/breaking_news/“යාපනයට-ගංගාවක්”-ව්‍යාපෘතිය-කඩිනමින්/11-411173",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-02-adaderanasinhalalk-d04966c9": {
+   "date": "2024-08-02",
+   "title": "උතුරේ ජල ගැටලුවට යාපනයට ගංගාවක්",
+   "url": "http://sinhala.adaderana.lk/news/199493",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-01-adalk-64e93e9b": {
+   "date": "2024-08-01",
+   "title": "ජනාධිපති අරමුදලේ ශිෂ්‍යත්ව වාරික මුදල අද ගිණුම් වෙත",
+   "url": "https://www.ada.lk/breaking_news/ජනාධිපති-අරමුදලේ-ශිෂ්‍යත්ව-වාරික-මුදල-අද-ගිණුම්-වෙත/11-411154",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-08-01-adaderanasinhalalk-bc596abe": {
+   "date": "2024-08-01",
+   "title": "සුරක්ෂා සිසු රක්ෂණය ක්‍රියාත්මක කෙරේ",
+   "url": "http://sinhala.adaderana.lk/news/199452",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-01-adaderanasinhalalk-7b2809e2": {
+   "date": "2024-08-01",
+   "title": "ශිෂ්‍යත්ව වාරික මුදල් ගිණුම්වලට යොමුකෙරේ",
+   "url": "http://sinhala.adaderana.lk/news/199450",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-08-01-adalk-60c218c4": {
+   "date": "2024-08-01",
+   "title": "සුරක්ෂා සිදු රක්ෂණය ගැන රජයෙන් අලුත්ම තීරණයක්",
+   "url": "https://www.ada.lk/breaking_news/සුරක්ෂා-සිදු-රක්ෂණය-ගැන-රජයෙන්-අලුත්ම-තීරණයක්/11-411142",
+   "outlet": "Ada",
+   "lang": "si"
+  }
+ }
+}

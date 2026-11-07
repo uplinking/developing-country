@@ -1,0 +1,39 @@
+---
+import { Scrolly as ScrollyIsland } from '@developing-country/figures'
+import '@developing-country/figures/styles.css'
+import { figureIslandConfig, safeScrollySteps } from '../figure-view'
+
+interface Props {
+  node?: Record<string, unknown>
+  value?: Record<string, unknown>
+  devApiBase?: string
+}
+
+const node = Astro.props.node ?? Astro.props.value ?? {}
+const configuredOrigin = import.meta.env.PUBLIC_DATA_VIEW_ORIGIN || undefined
+// Fail closed: one non-canonical step disables the whole sequence.
+const steps = safeScrollySteps(node.steps, Astro.url.origin, configuredOrigin)
+const config = figureIslandConfig({
+  configuredOrigin,
+  tileBase: import.meta.env.PUBLIC_TILE_BASE,
+  devApiBase: import.meta.env.DEV ? Astro.props.devApiBase : undefined,
+})
+const title = typeof node.title === 'string' && node.title.trim() ? node.title.trim() : undefined
+---
+
+{steps ? (
+  <div class="dc-block dc-block--full" data-dc-block="scrolly">
+    <ScrollyIsland client:only="react" title={title} steps={steps} config={config} >
+      <div slot="fallback" class="dcf-island-fallback" data-kind="scrolly" aria-hidden="true"></div>
+    </ScrollyIsland>
+    <noscript>
+      <ol class="dc-scrolly-fallback">
+        {steps.map((step) => <li><p>{step.text}</p><a href={step.view_url}>Open the data view ↗</a></li>)}
+      </ol>
+    </noscript>
+  </div>
+) : (
+  <aside class="dc-live-view dc-live-view--invalid" role="note">
+    Scrolly unavailable: every step view and underlay needs a canonical <code>/views/view_…</code> link from the platform.
+  </aside>
+)}

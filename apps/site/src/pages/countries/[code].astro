@@ -1,0 +1,59 @@
+---
+import { getEmDashCollection } from 'emdash'
+import { PortableText } from 'emdash/ui'
+import { isCountryCode } from '@developing-country/countries'
+import { LiveView } from '@developing-country/emdash-blocks/astro'
+import { safeCmsHref } from '@developing-country/emdash-blocks'
+import SiteLayout from '../../layouts/SiteLayout.astro'
+import { countryFields } from '../../lib/content'
+import { CANONICAL_EXPLORER_ORIGIN, resolveExplorerHref } from '../../lib/explorer'
+import { COUNTRY_OG_IMAGES } from '../../lib/ogImages.generated'
+
+const code = String(Astro.params.code || '').toUpperCase()
+if (!isCountryCode(code)) return Astro.rewrite('/404')
+const { entries: countries, cacheHint } = await getEmDashCollection('countries', {
+  where: { code },
+  limit: 1,
+})
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint)
+const country = countries[0]
+if (!country) return Astro.rewrite('/404')
+const data = countryFields(country.data)
+const canonicalPlatformUrl = safeCmsHref(data.platformUrl) || CANONICAL_EXPLORER_ORIGIN
+const platformUrl = resolveExplorerHref(
+  canonicalPlatformUrl,
+  import.meta.env.DEV ? 'http://127.0.0.1:5173' : undefined,
+)
+---
+
+<SiteLayout
+  title={data.name}
+  description={data.strapline}
+  image={COUNTRY_OG_IMAGES.has(code.toLowerCase()) ? `/og/countries/${code.toLowerCase()}.jpg` : undefined}
+  content={{ collection: 'countries', id: data.id, slug: country.id }}
+>
+  <div class="page-shell">
+    <header class="country-header">
+      <span class="country-header__code">Sri Lanka — our first country</span>
+      <h1 {...country.edit.name}>{data.name}</h1>
+      <p {...country.edit.strapline}>{data.strapline}</p>
+      <div class="country-actions">
+        <a class="dc-button dc-button--primary" href={platformUrl}>Explore the map</a>
+        <a class="dc-button" href={`/analysis?country=${data.code}`}>Read our thoughts</a>
+      </div>
+    </header>
+    {data.featuredViewUrl && (
+      <LiveView value={{
+        view_url: data.featuredViewUrl,
+        title: `${data.name} featured live data view`,
+        caption: 'Interactive view of Sri Lanka',
+      }} />
+    )}
+    <div class="country-copy" {...country.edit.content}>
+      <PortableText value={data.content} />
+    </div>
+    <aside class="country-coverage">
+      <strong>Coverage note.</strong> {data.coverageNote}
+    </aside>
+  </div>
+</SiteLayout>

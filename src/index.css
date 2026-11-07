@@ -1,0 +1,102 @@
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/overpass-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/overpass-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/overpass-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/overpass-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'M PLUS 1 Code';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/mplus1code-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'M PLUS 1 Code';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/mplus1code-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'M PLUS 1 Code';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/mplus1code-600.woff2') format('woff2');
+}
+
+:root {
+  /* One editorial voice plus one data voice, shared with the public site. */
+  --sans: 'Overpass', ui-sans-serif, system-ui, 'Segoe UI', sans-serif;
+  --mono: 'M PLUS 1 Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --display: var(--sans);
+  color-scheme: light;
+}
+/* Native controls and scrollbars follow the same theme as the panels. */
+:root[data-theme='dark'] { color-scheme: dark; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) { color-scheme: dark; }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* The map is a fixed viewport, but standalone dataset reports are documents. */
+body.document-scroll {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.document-scroll #root {
+  height: auto;
+  min-height: 100%;
+}
+
+/* Figures line up in columns wherever they are compared — coordinates, counts,
+   populations, distances. */
+.mono,
+code,
+pre {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}

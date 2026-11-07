@@ -1,0 +1,269 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2025-01-01",
+  "2025-01-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 26,
+ "rejected": 20,
+ "rejected_ids": [
+  "2025-01-01-dailyftlk-ad604ce2",
+  "2025-01-01-dailyftlk-c19a6966",
+  "2025-01-01-dailyftlk-dcd16512",
+  "2025-01-01-dailyftlk-e59563f5",
+  "2025-01-02-economynextcom-42fead82",
+  "2025-01-03-dailyftlk-f51785ae",
+  "2025-01-03-economynextcom-dca2e099",
+  "2025-01-04-dailyftlk-975d4631",
+  "2025-01-06-adaderanalk-ed42de92",
+  "2025-01-06-dailyftlk-5b13d824",
+  "2025-01-07-adaderanalk-85653666",
+  "2025-01-07-adaderanalk-ddb2e2c6",
+  "2025-01-07-dbsjeyarajcom-e49e3478",
+  "2025-01-07-economynextcom-6092859e",
+  "2025-01-08-adaderanalk-862cb9d7",
+  "2025-01-08-adaderanalk-99433a1b",
+  "2025-01-08-dailyftlk-04517c87",
+  "2025-01-08-dailyftlk-5e3a2fa8",
+  "2025-01-09-dailyftlk-78d300f2",
+  "2025-01-09-dailyftlk-c72a3dce"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "colombo-port-tug-vessels",
+   "name": "Colombo Port tug vessel procurement and rental",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "stationery-voucher-expansion",
+   "name": "Stationery allowance voucher for non-Aswesuma vulnerable students",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "industries-startup-loan-facility",
+   "name": "Collateral-free startup loan facility for entrepreneurs",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "karainagar-boatyard-rehabilitation",
+   "name": "Rehabilitation of Karainagar Boatyard",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Karainagar, Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "colombo-port-tug-vessels-gosl",
+   "project_id": "colombo-port-tug-vessels",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "stationery-voucher-expansion-gosl",
+   "project_id": "stationery-voucher-expansion",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "industries-startup-loan-facility-gosl",
+   "project_id": "industries-startup-loan-facility",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "india-grant-karainagar-boatyard",
+   "project_id": "karainagar-boatyard-rehabilitation",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "colombo-port-tug-vessels-gosl-govt_authorised-2025-01-06",
+   "line_id": "colombo-port-tug-vessels-gosl",
+   "date": "2025-01-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves renting two tug vessels for Colombo Port",
+   "confidence": "high",
+   "reports": [
+    "2025-01-09-dailyftlk-477e313e",
+    "2025-01-08-economynextcom-c142ba52"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "stationery-voucher-expansion-gosl-govt_authorised-2025-01-06",
+   "line_id": "stationery-voucher-expansion-gosl",
+   "date": "2025-01-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved stationery voucher for non-Aswesuma students",
+   "confidence": "high",
+   "reports": [
+    "2025-01-08-dailyftlk-6a9079a6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-flood-relief-aid-china-grant-govt_authorised-2025-01-07",
+   "line_id": "china-flood-relief-aid-china-grant",
+   "date": "2025-01-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet confirmed Chinese grants of rations, nets, houses",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-07-economynextcom-b0cb4afd"
+   ],
+   "relation": "update_of:china-flood-relief-aid-china-grant-pledged-2024-10-31",
+   "notes": null
+  },
+  {
+   "id": "industries-startup-loan-facility-gosl-proposed-2025-01-06",
+   "line_id": "industries-startup-loan-facility-gosl",
+   "date": "2025-01-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 50000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ministry proposes Rs. 50 billion collateral-free startup loan facility",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-06-dailyftlk-282f3ce1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-karainagar-boatyard-agreement_signed-2024-12-16",
+   "line_id": "india-grant-karainagar-boatyard",
+   "date": "2024-12-16",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 290000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India grant MoU signed for Karainagar Boatyard rehabilitation",
+   "confidence": "high",
+   "reports": [
+    "2025-01-02-adaderanalk-9871ff1f"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2025-01-09-dailyftlk-477e313e": {
+   "date": "2025-01-09",
+   "title": "Cabinet green lights revised procurement plan for Colombo Port tug vessels",
+   "url": "https://www.ft.lk/business/Cabinet-green-lights-revised-procurement-plan-for-Colombo-Port-tug-vessels/34-771632",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-01-08-economynextcom-c142ba52": {
+   "date": "2025-01-08",
+   "title": "Sri Lanka Cabinet opts to rent two tug vessels after procurement failures",
+   "url": "https://economynext.com/sri-lanka-cabinet-opts-to-rent-two-tug-vessels-after-procurement-failures-198542/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2025-01-08-dailyftlk-6a9079a6": {
+   "date": "2025-01-08",
+   "title": "Cabinet nod to extend stationary allowance for non-Aswesuma beneficiary students via voucher",
+   "url": "https://www.ft.lk/news/Cabinet-nod-to-extend-stationary-allowance-for-non-Aswesuma-beneficiary-students-via-voucher/56-771543",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-01-07-economynextcom-b0cb4afd": {
+   "date": "2025-01-07",
+   "title": "Sri Lanka Cabinet approves China-related proposals ahead of President’s Beijing visit",
+   "url": "https://economynext.com/sri-lanka-cabinet-approves-china-related-proposals-ahead-of-presidents-beijing-visit-198492/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2025-01-06-dailyftlk-282f3ce1": {
+   "date": "2025-01-06",
+   "title": "Industries and Entrepreneurship Development Ministry goes public with focus areas, progress",
+   "url": "https://www.ft.lk/business/Industries-and-Entrepreneurship-Development-Ministry-goes-public-with-focus-areas-progress/34-771446",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-01-02-adaderanalk-9871ff1f": {
+   "date": "2025-01-02",
+   "title": "India funds rehabilitation of Sri Lanka’s Karainagar Boatyard",
+   "url": "https://www.adaderana.lk/news/104680/india-funds-rehabilitation-of-sri-lankas-karainagar-boatyard",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  }
+ }
+}

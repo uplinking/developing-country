@@ -1,0 +1,737 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-09-01",
+  "2024-09-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "si",
+ "articles_read": 126,
+ "rejected": 106,
+ "rejected_ids": [
+  "2024-09-02-adalk-2030f4a8",
+  "2024-09-02-adalk-d023d231",
+  "2024-09-02-bbccomsinhala-0c372ba3",
+  "2024-09-11-adalk-1fa75ba8",
+  "2024-09-11-adalk-321aa2bf",
+  "2024-09-11-adalk-99d4dfde",
+  "2024-09-11-adalk-a4937371",
+  "2024-09-11-adalk-bdbe0699",
+  "2024-09-12-adaderanasinhalalk-65968c2b",
+  "2024-09-12-adaderanasinhalalk-c3ab4d24",
+  "2024-09-12-adaderanasinhalalk-d86b63e4",
+  "2024-09-12-adaderanasinhalalk-e4b07bdc",
+  "2024-09-12-adaderanasinhalalk-ecfda644",
+  "2024-09-12-adalk-0c3b7dc6",
+  "2024-09-12-adalk-12e34160",
+  "2024-09-12-adalk-687d3fb9",
+  "2024-09-12-adalk-a040d1c7",
+  "2024-09-13-adaderanasinhalalk-1bc04029",
+  "2024-09-13-adaderanasinhalalk-93bf34d7",
+  "2024-09-14-adaderanasinhalalk-45965973",
+  "2024-09-14-adaderanasinhalalk-c86dd091",
+  "2024-09-14-adalk-059dc23c",
+  "2024-09-15-adalk-8ce2d23b",
+  "2024-09-16-adaderanasinhalalk-c55720f6",
+  "2024-09-16-adaderanasinhalalk-f0a17be8",
+  "2024-09-16-adaderanasinhalalk-f99e6e05",
+  "2024-09-16-adalk-1171e0b3",
+  "2024-09-16-adalk-283735c9",
+  "2024-09-16-adalk-63353607",
+  "2024-09-16-adalk-9d887259",
+  "2024-09-17-adalk-f587fe11",
+  "2024-09-17-adalk-ff7f6ce1",
+  "2024-09-18-adaderanasinhalalk-2de20e2d",
+  "2024-09-18-adalk-004180c5",
+  "2024-09-18-adalk-c5c674e2",
+  "2024-09-19-adaderanasinhalalk-20cbace3",
+  "2024-09-19-adaderanasinhalalk-bf66fb6c",
+  "2024-09-19-adalk-20f79d83",
+  "2024-09-19-adalk-c52114d7",
+  "2024-09-20-adaderanasinhalalk-0b887ae8",
+  "2024-09-23-adalk-5e081ec1",
+  "2024-09-24-adaderanasinhalalk-ac68d1e0",
+  "2024-09-24-adalk-a901ed2a",
+  "2024-09-24-adalk-f7dcb495",
+  "2024-09-24-bbccomsinhala-4abdc934",
+  "2024-09-25-adaderanasinhalalk-0a530487",
+  "2024-09-25-adaderanasinhalalk-0cbeeed8",
+  "2024-09-25-adaderanasinhalalk-0d6b2cde",
+  "2024-09-25-adaderanasinhalalk-58fbb498",
+  "2024-09-25-adaderanasinhalalk-5f09835e",
+  "2024-09-25-adaderanasinhalalk-6c359c21",
+  "2024-09-25-adaderanasinhalalk-89761ac5",
+  "2024-09-25-adaderanasinhalalk-8cf63c56",
+  "2024-09-25-adaderanasinhalalk-c3b4af6b",
+  "2024-09-25-adaderanasinhalalk-ef328cd7",
+  "2024-09-25-adalk-0beebbbf",
+  "2024-09-25-adalk-31f5a964",
+  "2024-09-25-adalk-585da625",
+  "2024-09-25-adalk-5e88f868",
+  "2024-09-25-adalk-796694f6",
+  "2024-09-25-adalk-bad054f2",
+  "2024-09-26-adaderanasinhalalk-284607f5",
+  "2024-09-26-adaderanasinhalalk-3eb2fa73",
+  "2024-09-26-adaderanasinhalalk-6c0c1913",
+  "2024-09-26-adaderanasinhalalk-86497957",
+  "2024-09-26-adaderanasinhalalk-bb921853",
+  "2024-09-26-adalk-2a6ac39f",
+  "2024-09-26-adalk-568371a3",
+  "2024-09-26-adalk-851254db",
+  "2024-09-26-adalk-889e4959",
+  "2024-09-27-adaderanasinhalalk-3d6c2280",
+  "2024-09-27-adaderanasinhalalk-76640af4",
+  "2024-09-27-adaderanasinhalalk-a4e6000a",
+  "2024-09-27-adaderanasinhalalk-e5474479",
+  "2024-09-27-adalk-ad48c777",
+  "2024-09-28-adaderanasinhalalk-04948856",
+  "2024-09-28-adaderanasinhalalk-263d95eb",
+  "2024-09-28-adaderanasinhalalk-52275591",
+  "2024-09-28-adaderanasinhalalk-811fd858",
+  "2024-09-28-adaderanasinhalalk-946a3a2c",
+  "2024-09-28-adaderanasinhalalk-cbe2f4c4",
+  "2024-09-28-adalk-23680149",
+  "2024-09-28-adalk-4857b438",
+  "2024-09-28-adalk-8ca98b6b",
+  "2024-09-28-adalk-b8c13eb7",
+  "2024-09-29-adaderanasinhalalk-61a8ca55",
+  "2024-09-29-adaderanasinhalalk-a8b3e7cc",
+  "2024-09-29-adaderanasinhalalk-bae181b3",
+  "2024-09-29-adaderanasinhalalk-f2a117b4",
+  "2024-09-29-adaderanasinhalalk-f36284b6",
+  "2024-09-29-adalk-37b47f88",
+  "2024-09-29-adalk-4e7efbe3",
+  "2024-09-29-adalk-5d5e7765",
+  "2024-09-29-adalk-8253bff3",
+  "2024-09-29-adalk-9c57a7b2",
+  "2024-09-29-adalk-c56a001a",
+  "2024-09-29-adalk-e354f14c",
+  "2024-09-29-adalk-f56b221d",
+  "2024-09-30-adaderanasinhalalk-6ac43c12",
+  "2024-09-30-adaderanasinhalalk-c894bcef",
+  "2024-09-30-adaderanasinhalalk-d215bdf3",
+  "2024-09-30-adaderanasinhalalk-fc24b2ec",
+  "2024-09-30-adalk-1cc7050f",
+  "2024-09-30-adalk-2aa96d1b",
+  "2024-09-30-adalk-a549d839",
+  "2024-09-30-adalk-e4adc466"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "fertilizer-subsidy-maha-2024-25",
+   "name": "Fertiliser subsidy for Maha paddy season 2024/25",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "uda-rajagiriya-ubesekarapura-housing",
+   "name": "UDA 20-storey housing complex for slum dwellers, Rajagiriya",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "Rajagiriya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "daham-pasal-teacher-uniform-allowance-2025",
+   "name": "Dhamma school teacher uniform allowance 2025",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mahawa-anuradhapura-railway-india-loan-project",
+   "name": "Mahawa-Anuradhapura railway line modernisation (India loan scheme)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Anuradhapura",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kataragama-hospital-ward-complex",
+   "name": "New ward complex at Kataragama District Hospital",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Kataragama",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "railway-station-land-ppp-development",
+   "name": "Railway station land development PPP programme",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "fertilizer-subsidy-maha-2024-25-gosl",
+   "project_id": "fertilizer-subsidy-maha-2024-25",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-uda-rajagiriya-ubesekarapura-housing",
+   "project_id": "uda-rajagiriya-ubesekarapura-housing",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-daham-pasal-teacher-uniform-allowance-2025-gosl",
+   "project_id": "daham-pasal-teacher-uniform-allowance-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "mahawa-anuradhapura-railway-india-loan",
+   "project_id": "mahawa-anuradhapura-railway-india-loan-project",
+   "funder": "india",
+   "funder_name": "India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "kataragama-hospital-ward-complex-donors",
+   "project_id": "kataragama-hospital-ward-complex",
+   "funder": "private",
+   "funder_name": "Kataragama temple devotees and donors",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-railway-station-land-ppp",
+   "project_id": "railway-station-land-ppp-development",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "general-election-2024-funding-gosl-released-2024-09-29",
+   "line_id": "general-election-2024-funding-gosl",
+   "date": "2024-09-29",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 11000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President signs license releasing Rs 11bn for parliamentary election",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-29-adaderanasinhalalk-c3a8b11e"
+   ],
+   "relation": "repeat_of:general-election-2024-funding-gosl-govt_authorised-2024-09-30",
+   "notes": null
+  },
+  {
+   "id": "japan-halted-projects-resumption-loan-pledged-2024-09-27",
+   "line_id": "japan-halted-projects-resumption-loan",
+   "date": "2024-09-27",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan to resume 11 halted ODA projects in Sri Lanka",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-27-adaderanasinhalalk-f7dc28c2"
+   ],
+   "relation": "repeat_of:japan-halted-projects-resumption-loan-pledged-2024-09-27",
+   "notes": null
+  },
+  {
+   "id": "fertilizer-subsidy-maha-2024-25-gosl-govt_authorised-2024-09-26",
+   "line_id": "fertilizer-subsidy-maha-2024-25-gosl",
+   "date": "2024-09-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 25000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "President raises paddy fertiliser subsidy to Rs 25,000 per hectare",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-26-adalk-754af3cc",
+    "2024-09-26-adaderanasinhalalk-aff629c6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-fisherfolk-fuel-subsidy-2024-govt_authorised-2024-09-26",
+   "line_id": "gosl-fisherfolk-fuel-subsidy-2024",
+   "date": "2024-09-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "President orders monthly fuel subsidy for fishing vessels from October",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-26-adalk-754af3cc",
+    "2024-09-26-adaderanasinhalalk-0fbb99f3"
+   ],
+   "relation": "update_of:gosl-fisherfolk-fuel-subsidy-2024-govt_authorised-2024-08-21",
+   "notes": null
+  },
+  {
+   "id": "gosl-uda-rajagiriya-ubesekarapura-housing-halted-2022-03-29",
+   "line_id": "gosl-uda-rajagiriya-ubesekarapura-housing",
+   "date": "2022-03-29",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": 296000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "UDA halts Rajagiriya slum housing project, Rs296mn wasted",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-25-adalk-74c7f82e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "general-election-2024-funding-gosl-cost_estimate-2024-09-25",
+   "line_id": "general-election-2024-funding-gosl",
+   "date": "2024-09-25",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 11000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Election Commission estimates Rs 11bn needed for general election",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-25-bbccomsinhala-301d5fcf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "isb-restructuring-2024-bondholders-agreement_signed-2024-09-19",
+   "line_id": "isb-restructuring-2024-bondholders",
+   "date": "2024-09-19",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 17500000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka reaches agreement with international commercial bondholders",
+   "confidence": "high",
+   "reports": [
+    "2024-09-19-adaderanasinhalalk-cf6ba229",
+    "2024-09-19-adalk-65206d5b"
+   ],
+   "relation": "repeat_of:isb-restructuring-2024-bondholders-agreement_signed-2024-09-19",
+   "notes": null
+  },
+  {
+   "id": "cdb-debt-restructuring-2024-agreement_signed-2024-09-19",
+   "line_id": "cdb-debt-restructuring-2024",
+   "date": "2024-09-19",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 3300000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China Development Bank policy agreement on debt restructuring terms",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-19-adalk-65206d5b"
+   ],
+   "relation": "repeat_of:cdb-debt-restructuring-2024-agreement_signed-2024-09-19",
+   "notes": null
+  },
+  {
+   "id": "isb-restructuring-2024-bondholders-agreement_signed-2024-09-20",
+   "line_id": "isb-restructuring-2024-bondholders",
+   "date": "2024-09-20",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 17000000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Economists praise commercial debt restructuring agreement with bondholders",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-20-adaderanasinhalalk-7fe7777d"
+   ],
+   "relation": "repeat_of:isb-restructuring-2024-bondholders-agreement_signed-2024-09-19",
+   "notes": null
+  },
+  {
+   "id": "china-grant-school-uniform-fabric-2025-pledged-2024-09-18",
+   "line_id": "china-grant-school-uniform-fabric-2025",
+   "date": "2024-09-18",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China confirms uniform fabric grant for 2025 school term",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-18-adalk-b12c9f09",
+    "2024-09-18-adaderanasinhalalk-7cedb0d8"
+   ],
+   "relation": "update_of:china-grant-school-uniform-fabric-2025-pledged-2024-07-23",
+   "notes": null
+  },
+  {
+   "id": "gosl-vehicle-import-liberalization-roadmap-govt_authorised-2024-09-13",
+   "line_id": "gosl-vehicle-import-liberalization-roadmap",
+   "date": "2024-09-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet sets phased vehicle import dates from October 2024",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-13-adaderanasinhalalk-63fe902c",
+    "2024-09-13-adaderanasinhalalk-b3ddec79"
+   ],
+   "relation": "update_of:gosl-vehicle-import-liberalization-roadmap-proposed-2024-06-14",
+   "notes": null
+  },
+  {
+   "id": "gosl-vehicle-import-liberalization-roadmap-govt_authorised-2024-09-14",
+   "line_id": "gosl-vehicle-import-liberalization-roadmap",
+   "date": "2024-09-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister confirms phased vehicle import schedule, no tariff exemptions",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-14-adaderanasinhalalk-a388f5b7"
+   ],
+   "relation": "repeat_of:gosl-vehicle-import-liberalization-roadmap-govt_authorised-2024-09-13",
+   "notes": null
+  },
+  {
+   "id": "gosl-daham-pasal-teacher-uniform-allowance-2025-gosl-govt_authorised-2024-09-14",
+   "line_id": "gosl-daham-pasal-teacher-uniform-allowance-2025-gosl",
+   "date": "2024-09-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 2500,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves uniform allowance for Dhamma school teachers 2025",
+   "confidence": "high",
+   "reports": [
+    "2024-09-14-adaderanasinhalalk-ef48a07c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mahawa-anuradhapura-railway-india-loan-halted-2024-09-12",
+   "line_id": "mahawa-anuradhapura-railway-india-loan",
+   "date": "2024-09-12",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Mahawa-Anuradhapura railway opening halted over safety, funding issues",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-12-adalk-f9db1e1a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kataragama-hospital-ward-complex-donors-underway-2024-09-12",
+   "line_id": "kataragama-hospital-ward-complex-donors",
+   "date": "2024-09-12",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "New ward complex built at Kataragama hospital from temple donations",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-12-adalk-f232413a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-railway-station-land-ppp-govt_authorised-2024-09-11",
+   "line_id": "gosl-railway-station-land-ppp",
+   "date": "2024-09-11",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves PPP scheme to develop railway station lands",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-11-adalk-9070e161"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-public-sector-salary-hike-2025-govt_authorised-2024-09-04",
+   "line_id": "gosl-public-sector-salary-hike-2025",
+   "date": "2024-09-04",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves full salary anomaly committee report",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-11-adalk-18b13ca0"
+   ],
+   "relation": "update_of:gosl-public-sector-salary-hike-2025-govt_authorised-2024-08-22",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-09-29-adaderanasinhalalk-c3a8b11e": {
+   "date": "2024-09-29",
+   "title": "පාර්ලිමේන්තු මැතිවරණයට යන වියදම ගැන ජනපති ගත් තීරණය",
+   "url": "http://sinhala.adaderana.lk/news/201660",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-09-27-adaderanasinhalalk-f7dc28c2": {
+   "date": "2024-09-27",
+   "title": "ජපාන ව්‍යාපෘති ගැන ලැබුණු සුබ ආරංචිය",
+   "url": "http://sinhala.adaderana.lk/news/201597",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-09-26-adalk-754af3cc": {
+   "date": "2024-09-26",
+   "title": "ජනපතිගෙන් ගොවීන්ට සහ ධීවරයන්ට සහනාධාර",
+   "url": "https://www.ada.lk/breaking_news/ජනපතිගෙන්-ගොවීන්ට-සහ-ධීවරයන්ට-සහනාධාර/11-412173",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-09-26-adaderanasinhalalk-0fbb99f3": {
+   "date": "2024-09-26",
+   "title": "ධීවර ප්‍රජාවට ඉන්ධන සහනාධාරයක්",
+   "url": "http://sinhala.adaderana.lk/news/201575",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-09-26-adaderanasinhalalk-aff629c6": {
+   "date": "2024-09-26",
+   "title": "ජනපති නියමයෙන් පොහොර සහනාධාරය ඉහළට",
+   "url": "http://sinhala.adaderana.lk/news/201573",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-09-25-adalk-74c7f82e": {
+   "date": "2024-09-25",
+   "title": "ලක්ෂ 2960ක නිශ්කාර්ය වියදමක්",
+   "url": "https://www.ada.lk/breaking_news/ලක්ෂ 2960ක-නිශ්කාර්ය-වියදමක්/11-412153",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-09-25-bbccomsinhala-301d5fcf": {
+   "date": "2024-09-25",
+   "title": "මහ මැතිවරණයක් පැවැත්වීමට ආණ්ඩුවට මුදල් තිබේ ද?",
+   "url": "https://www.bbc.com/sinhala/articles/c20mz2873peo",
+   "outlet": "BBC Sinhala",
+   "lang": "si"
+  },
+  "2024-09-20-adaderanasinhalalk-7fe7777d": {
+   "date": "2024-09-20",
+   "title": "විදෙස් ණය ප්‍රතිව්‍යූහගතකරණය රට ලැබූ ජයග්‍රහණයක් බව ආර්ථික විශේෂඥයන් පවසයි",
+   "url": "http://sinhala.adaderana.lk/news/201245",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-09-19-adalk-65206d5b": {
+   "date": "2024-09-19",
+   "title": "විදේශ වාණිජ ණය ප්‍රතිව්‍යුහගත කිරීමට ප්‍රතිපත්තිමය එකඟතාව",
+   "url": "https://www.ada.lk/breaking_news/විදේශ-වාණිජ-ණය-ප්‍රතිව්‍යුහගත-කිරීමට-ප්‍රතිපත්තිමය-එකඟතාව/11-412030",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-09-19-adaderanasinhalalk-cf6ba229": {
+   "date": "2024-09-19",
+   "title": "ශ්‍රී ලංකාව ජාත්‍යන්තර වාණිජ ණයහිමියන් සමග එකඟතාවයකට එළැඹෙයි",
+   "url": "http://sinhala.adaderana.lk/news/201204",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-09-18-adalk-b12c9f09": {
+   "date": "2024-09-18",
+   "title": "2025 නව පාසල් වාරයට පෙර පාසල් නිල ඇඳුම්  සිසුන් අතට",
+   "url": "https://www.ada.lk/breaking_news/2025-නව-පාසල්-වාරයට-පෙර-පාසල්-නිල-ඇඳුම්--සිසුන්-අතට/11-412003",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-09-18-adaderanasinhalalk-7cedb0d8": {
+   "date": "2024-09-18",
+   "title": "පාසල් නිල ඇඳුම් ලබාදීම ගැන දැනුම්දීමක්",
+   "url": "http://sinhala.adaderana.lk/news/201155",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-09-14-adaderanasinhalalk-a388f5b7": {
+   "date": "2024-09-14",
+   "title": "වාහන ආනයනයේදී තීරුබදු සහන නැහැ - බන්දුල",
+   "url": "http://sinhala.adaderana.lk/news/201027",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-09-14-adaderanasinhalalk-ef48a07c": {
+   "date": "2024-09-14",
+   "title": "දහම් පාසල් ගුරු දීමනාව රුපියල් 2,500කින් වැඩි කරයි",
+   "url": "http://sinhala.adaderana.lk/news/201024",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-09-13-adaderanasinhalalk-63fe902c": {
+   "date": "2024-09-13",
+   "title": "වාහන ආනයනය ඔක්තෝබර් 1 සිට අදියර කිහිපයකින්",
+   "url": "http://sinhala.adaderana.lk/news/200997",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-09-13-adaderanasinhalalk-b3ddec79": {
+   "date": "2024-09-13",
+   "title": "වාහන ආනයන සීමා ඉවත් කිරීමට කැබිනට් තීරණයක්",
+   "url": "http://sinhala.adaderana.lk/news/200984",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-09-12-adalk-f9db1e1a": {
+   "date": "2024-09-12",
+   "title": "මහව - අනුරාධපුර දුම්රිය මාර්ගය විවෘත කිරීමට මැකො හරස්වෙයි",
+   "url": "https://www.ada.lk/breaking_news/මහව---අනුරාධපුර-දුම්රිය-මාර්ගය-විවෘත-කිරීමට-මැකො-හරස්වෙයි/11-411929",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-09-12-adalk-f232413a": {
+   "date": "2024-09-12",
+   "title": "කතරගම දේවාලයෙන් කතරගම රෝහලට නව වාට්ටු සංකීර්ණයක්",
+   "url": "https://www.ada.lk/breaking_news/කතරගම-දේවාලයෙන්-කතරගම-රෝහලට-නව-වාට්ටු-සංකීර්ණයක්/11-411911",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-09-11-adalk-9070e161": {
+   "date": "2024-09-11",
+   "title": "දුම්රියේ ඉඩම් සංවර්ධනයට රාජ්‍ය හා පෞද්ගලික හවුල්කාරිත්ව ක්‍රමයක්",
+   "url": "https://www.ada.lk/breaking_news/දුම්රියේ-ඉඩම්-සංවර්ධනයට-රාජ්‍ය-හා-පෞද්ගලික-හවුල්කාරිත්ව-ක්‍රමයක්/11-411885",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-09-11-adalk-18b13ca0": {
+   "date": "2024-09-11",
+   "title": "රාජ්‍ය සේවක වැටුප් වැඩි කිරීමට බාධාවක් නෑ",
+   "url": "https://www.ada.lk/breaking_news/රාජ්‍ය-සේවක-වැටුප්-වැඩි-කිරීමට-බාධාවක්-නෑ/11-411881",
+   "outlet": "Ada",
+   "lang": "si"
+  }
+ }
+}

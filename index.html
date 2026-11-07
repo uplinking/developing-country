@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin />
+    <link rel="preconnect" href="https://s3.amazonaws.com" crossorigin />
+    <meta name="description" content="Explore Sri Lanka’s public data on one interactive map." />
+    <meta name="theme-color" content="#f7f6f4" />
+    <title>Explore Sri Lanka — developing-country.org</title>
+    <script>
+      // The public site and explorer share one light editorial chrome. The MCP
+      // App (?mcp, or the Worker's loader) leaves data-theme unset until the
+      // host supplies one, so it follows prefers-color-scheme meanwhile.
+      (function () {
+        if (window.location.origin === 'null' || /[?&]mcp(=|&|$)/.test(window.location.search)) return
+        document.documentElement.setAttribute('data-theme', 'light')
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

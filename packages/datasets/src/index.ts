@@ -1,0 +1,58 @@
+export {
+  DATASET_QUERY_LIMITS,
+  DatasetContractError,
+  parseIndicatorTable,
+  selectRows,
+  type IndicatorAggregation,
+  type IndicatorField,
+  type IndicatorFieldRole,
+  type IndicatorFieldType,
+  type IndicatorRow,
+  type IndicatorScalar,
+  type IndicatorTableV1,
+  type SelectFilter,
+  type SelectOrder,
+  type SelectRowsInput,
+  type SelectRowsOptions,
+  type SelectRowsResult,
+} from './table'
+export {
+  INDICATOR_DATASET_REGISTRY,
+  indicatorDatasetIdentity,
+  indicatorDatasetPath,
+  indicatorDatasetRegistryEntry,
+  indicatorPresetPath,
+  type IndicatorDatasetId,
+  type IndicatorDatasetRegistryEntry,
+} from './registry'
+export {
+  INDICATOR_DATASETS,
+  indicatorDataset,
+  indicatorPreset,
+  type IndicatorChartPreset,
+  type IndicatorDatasetDefinition,
+  type IndicatorDatasetNote,
+} from './presets'
+export {
+  PUBLIC_DATA_THEMES,
+  isPublicDataThemeId,
+  publicDataTheme,
+  type PublicDataTheme,
+  type PublicDataThemeId,
+} from './themes'
+export {
+  DATASET_PUBLISHER_IDS,
+  DATASET_LICENCES,
+  PLATFORM_DATASET_LICENCE_IDS,
+  PUBLISHERS,
+  PUBLISHER_TYPES,
+  datasetLicence,
+  datasetPublisher,
+  isPublisherTypeId,
+  type DatasetLicence,
+  type DatasetLicenceId,
+  type DatasetPublisher,
+  type PublisherId,
+  type PublisherType,
+  type PublisherTypeId,
+} from './publishers'

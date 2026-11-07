@@ -1,0 +1,128 @@
+---
+import { decodeSlug, getEmDashEntry, getSeoMeta, getSiteSettings } from 'emdash'
+import { PortableText } from 'emdash/ui'
+import { LiveView } from '@developing-country/emdash-blocks/astro'
+import DatasetPreview from '../../components/DatasetPreview.astro'
+import SiteLayout from '../../layouts/SiteLayout.astro'
+import { articleFields } from '../../lib/content'
+import { loadSiteDatasetCatalog } from '../../lib/datasetCatalogCloudflare'
+import { datasetExploreUrl, datasetMeta, isDatasetId, resolveDatasetPreviewUrl } from '../../lib/datasets'
+
+const slug = decodeSlug(Astro.params.slug)
+if (!slug) return Astro.rewrite('/404')
+const { entry: article, cacheHint } = await getEmDashEntry('articles', slug)
+if (!article) return Astro.rewrite('/404')
+if (Astro.cache?.enabled) Astro.cache.set({ ...cacheHint, maxAge: 60, swr: 0 })
+
+const settings = await getSiteSettings()
+const data = articleFields(article.data)
+if (data.format !== 'dataset_note') return Astro.redirect(`/analysis/${slug}`)
+if (!isDatasetId(data.datasetId)) return Astro.rewrite('/404')
+const dataset = datasetMeta(await loadSiteDatasetCatalog(), data.datasetId)
+const explorerOrigin = import.meta.env.PUBLIC_EXPLORER_ORIGIN
+  || (import.meta.env.DEV ? 'http://127.0.0.1:5173' : undefined)
+const exploreUrl = datasetExploreUrl(data.datasetId, false, explorerOrigin)
+const embeddedUrl = resolveDatasetPreviewUrl(data.datasetId, data.datasetPreviewUrl, explorerOrigin)
+const seo = getSeoMeta(article, {
+  siteTitle: settings.title || 'developing-country.org',
+  siteUrl: 'https://developing-country.org',
+  path: `/data/${slug}`,
+})
+const checked = new Date(dataset.version.refreshedAt).toLocaleDateString('en-GB', {
+  day: '2-digit', month: 'long', year: 'numeric',
+})
+const recordCount = dataset.version.rowCount?.toLocaleString('en-GB')
+---
+
+<SiteLayout
+  title={data.title}
+  description={seo.description || data.dek}
+  image={seo.ogImage}
+  type="article"
+  publishedTime={data.publishedAt?.toISOString()}
+  modifiedTime={data.updatedAt.toISOString()}
+  content={{ collection: 'articles', id: data.id, slug }}
+>
+  <article class="page-shell dataset-note">
+    <header class="dataset-note__header">
+      <a class="dataset-note__back" href="/data">← All data notes</a>
+      <h1 {...article.edit.title}>{data.title}</h1>
+      <p class="dataset-note__dek" {...article.edit.dek}>{data.dek}</p>
+    </header>
+
+    <dl class="dataset-note__facts">
+      <div><dt>Records</dt><dd>{recordCount || 'Network data'}</dd></div>
+      <div><dt>Vintage</dt><dd>{dataset.version.vintage}</dd></div>
+      <div><dt>Last checked</dt><dd>{checked}</dd></div>
+      <div>
+        <dt>Published by</dt>
+        <dd class="dataset-note__publisher">
+          <span data-publisher-type={dataset.publisher.type.id}>{dataset.publisher.type.label}</span>
+          <strong>{dataset.publisher.name}</strong>
+        </dd>
+      </div>
+      {dataset.licence && (
+        <div>
+          <dt>Licence</dt>
+          <dd><a href={dataset.licence.url} rel="license">{dataset.licence.name}</a></dd>
+        </div>
+      )}
+    </dl>
+
+    <section class="dataset-note__preview" aria-label="Dataset preview">
+      {data.primaryViewUrl ? (
+        <LiveView value={{
+          view_url: data.primaryViewUrl,
+          title: `Interactive view of ${data.title}`,
+          caption: 'Live data view',
+        }} />
+      ) : dataset.preview ? (
+        <DatasetPreview kind={dataset.preview.kind} title={data.title} url={embeddedUrl} exploreUrl={exploreUrl} />
+      ) : (
+        <div class="dataset-note__preview-unavailable">
+          <p>This network supports the walking calculations but is not shown as a separate map layer yet.</p>
+          <a class="dc-button" href={exploreUrl}>Open the explorer</a>
+        </div>
+      )}
+    </section>
+
+    <div class="dataset-note__body" {...article.edit.content}>
+      <PortableText value={data.content} />
+    </div>
+
+    <aside class="dataset-note__sources">
+      <header>
+        <h2>Sources</h2>
+        {dataset.licence && (
+          <p class="dataset-note__credit">
+            Reuse this dataset under {dataset.licence.name}, crediting
+            “{dataset.publisher.name}, {data.title}”. Each source below keeps its own terms.
+          </p>
+        )}
+      </header>
+      <ol>
+        {dataset.sources.map((source, index) => (
+          <li>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>{source.name}</h3>
+              <p class="dataset-note__source-publisher">{source.publisher}</p>
+              <div
+                class="dataset-note__licence"
+                data-status={source.licenceDisclosure.status}
+              >
+                <span class="dataset-note__licence-status">{source.licenceDisclosure.label}</span>
+                <p>{source.licenceDisclosure.text}</p>
+                {source.licenceDisclosure.caveat && (
+                  <p class="dataset-note__licence-caveat">{source.licenceDisclosure.caveat}</p>
+                )}
+              </div>
+            </div>
+            <a href={source.url}>Open source <span aria-hidden="true">↗</span></a>
+          </li>
+        ))}
+      </ol>
+      <p class="dataset-note__version">Dataset version <code>{dataset.version.versionId}</code> · verified against the source registry.</p>
+    </aside>
+  </article>
+</SiteLayout>

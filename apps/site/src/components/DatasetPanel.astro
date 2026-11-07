@@ -1,0 +1,62 @@
+---
+import ExplorerFilm from './ExplorerFilm.astro'
+import type { ExplorerShot } from '../lib/films'
+
+type Tone = 'coral' | 'lilac' | 'sage' | 'ochre' | 'blue'
+
+interface Fact {
+  label: string
+  value: string
+}
+
+interface Props {
+  index: number
+  eyebrow: string
+  title: string
+  summary: string
+  facts: Fact[]
+  noteUrl: string
+  exploreUrl: string
+  tone: Tone
+  /** The explorer still this chapter films, and what it shows for readers who cannot see it. */
+  shot: ExplorerShot
+  shotLabel: string
+}
+
+const { index, eyebrow, title, summary, facts, noteUrl, exploreUrl, tone, shot, shotLabel } = Astro.props
+const number = String(index).padStart(2, '0')
+---
+
+<article
+  class:list={['dataset-panel', `dataset-panel--${tone}`]}
+  style={`--panel-index: ${index}`}
+  aria-labelledby={`dataset-${number}-title`}
+  aria-describedby={`dataset-${number}-eyebrow`}
+>
+  <div class="dataset-panel__inner">
+    <div class="dataset-panel__identity">
+      <p class="dataset-panel__eyebrow" id={`dataset-${number}-eyebrow`}>{eyebrow}</p>
+      <p class="dataset-panel__number" aria-hidden="true">{number}</p>
+      <h3 id={`dataset-${number}-title`}>{title}</h3>
+      <div class="dataset-panel__media">
+        <ExplorerFilm class="dataset-panel__film" shot={shot} label={shotLabel} />
+      </div>
+    </div>
+
+    <div class="dataset-panel__story">
+      <p class="dataset-panel__summary">{summary}</p>
+      <dl class="dataset-panel__facts" aria-label={`${title} dataset facts`}>
+        {facts.map((fact) => (
+          <div>
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+      <div class="dataset-panel__actions">
+        <a href={noteUrl} aria-label={`Read the data note for ${title}`}>About this data <span aria-hidden="true">→</span></a>
+        <a href={exploreUrl} aria-label={`Explore ${title} on the map`}>Open the map <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+</article>

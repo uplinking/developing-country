@@ -1,0 +1,721 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2025-11-01",
+  "2025-11-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 27,
+ "rejected": 19,
+ "rejected_ids": [
+  "2025-11-05-islandlk-090611ed",
+  "2025-11-10-dailyftlk-740fba4e",
+  "2025-11-10-dailyftlk-d1515a3c",
+  "2025-11-11-islandlk-ef4852e4",
+  "2025-11-12-islandlk-a937aae0",
+  "2025-11-13-islandlk-a88115a2",
+  "2025-11-14-dailyftlk-5625103c",
+  "2025-11-14-dailyftlk-5b50aec6",
+  "2025-11-14-dailyftlk-71d178d5",
+  "2025-11-18-dailyftlk-8d7fa598",
+  "2025-11-19-dailyftlk-66f9798c",
+  "2025-11-21-dailyftlk-9c3d25a3",
+  "2025-11-22-islandlk-99db2e98",
+  "2025-11-24-dailyftlk-698564d4",
+  "2025-11-26-dailyftlk-9a023df1",
+  "2025-11-27-dailyftlk-70051a8d",
+  "2025-11-27-dailyftlk-77073dbd",
+  "2025-11-27-dailyftlk-a393089d",
+  "2025-11-27-islandlk-a719624a"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "ditwah-cyclone-humanitarian-relief-india",
+   "name": "India naval humanitarian relief operation for Cyclone Ditwah (Operation Sagar Bandhu)",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-road-development-2026-budget",
+   "name": "Nationwide road development (2026 Budget)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "central-expressway-kadawatha-mirigama",
+   "name": "Central Expressway Kadawatha-Mirigama section",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kadawatha-Mirigama",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "major-irrigation-projects-2026-budget",
+   "name": "Major irrigation projects (2026 Budget)",
+   "sector": "water",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "drinking-water-schemes-2026-budget",
+   "name": "Drinking water schemes (2026 Budget)",
+   "sector": "water",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "malayagam-community-housing-2026-budget",
+   "name": "Malayagam community housing, 2,000 houses (2026 Budget)",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "idp-communities-housing-2026-budget",
+   "name": "Housing for internally displaced communities (2026 Budget)",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "disaster-displaced-housing-2026-budget",
+   "name": "Housing for disaster-displaced families (2026 Budget)",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "green-gram-purchasing-program",
+   "name": "Green gram harvest purchasing initiative (2025)",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nine-health-projects-2026",
+   "name": "Nine new health sector projects, 2026 public investment",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "base-hospitals-development-2026-budget",
+   "name": "Base Hospitals development and upgrade (2026 Budget)",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "prison-officer-residential-facilities",
+   "name": "Expansion of residential facilities for prison officers",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "vidatha-program-strategic-plan",
+   "name": "Five-year strategic plan for Vidatha program (2026-2030)",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sl-housing-finance-banks-restructuring",
+   "name": "Restructuring of SLHDFC Bank and State Mortgage and Investment Bank into BOC/People's Bank",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "invasive-alien-species-biosecurity-sri-lanka",
+   "name": "Prevention and control of invasive alien species for enhanced biosecurity",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "india-inkind-ditwah-humanitarian-relief",
+   "project_id": "ditwah-cyclone-humanitarian-relief-india",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "relief"
+  },
+  {
+   "id": "gosl-road-network-development-2026-budget",
+   "project_id": "national-road-development-2026-budget",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-central-expressway-kadawatha-mirigama",
+   "project_id": "central-expressway-kadawatha-mirigama",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-major-irrigation-projects-2026-budget",
+   "project_id": "major-irrigation-projects-2026-budget",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-drinking-water-schemes-2026-budget",
+   "project_id": "drinking-water-schemes-2026-budget",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-malayagam-community-housing-2026-budget",
+   "project_id": "malayagam-community-housing-2026-budget",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-idp-communities-housing-2026-budget",
+   "project_id": "idp-communities-housing-2026-budget",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-disaster-displaced-housing-2026-budget",
+   "project_id": "disaster-displaced-housing-2026-budget",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "gosl-green-gram-purchasing-program",
+   "project_id": "green-gram-purchasing-program",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-nine-health-projects-2026",
+   "project_id": "nine-health-projects-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-base-hospitals-development-2026-budget",
+   "project_id": "base-hospitals-development-2026-budget",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "prison-officer-residential-facilities-gosl",
+   "project_id": "prison-officer-residential-facilities",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "vidatha-program-strategic-plan-gosl",
+   "project_id": "vidatha-program-strategic-plan",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-sl-housing-finance-banks-restructuring",
+   "project_id": "sl-housing-finance-banks-restructuring",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "equity",
+   "purpose": "programme"
+  },
+  {
+   "id": "kbf-grant-invasive-species-sri-lanka",
+   "project_id": "invasive-alien-species-biosecurity-sri-lanka",
+   "funder": "other:kunming_biodiversity_fund",
+   "funder_name": "Kunming Biodiversity Fund",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "india-inkind-ditwah-humanitarian-relief-launched-2025-11-28",
+   "line_id": "india-inkind-ditwah-humanitarian-relief",
+   "date": "2025-11-28",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India launches naval humanitarian relief operation after Cyclone Ditwah",
+   "confidence": "medium",
+   "reports": [
+    "2025-11-29-dbsjeyarajcom-a07b9252"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-road-network-development-2026-budget-proposed-2025-11-27",
+   "line_id": "gosl-road-network-development-2026-budget",
+   "date": "2025-11-27",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 342000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "2026 Budget allocates funds for nationwide road development",
+   "confidence": "medium",
+   "reports": [
+    "2025-11-27-dailyftlk-4deec1da"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-central-expressway-kadawatha-mirigama-proposed-2025-11-27",
+   "line_id": "gosl-central-expressway-kadawatha-mirigama",
+   "date": "2025-11-27",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 66150000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "2026 Budget funds Kadawatha-Mirigama Central Expressway section",
+   "confidence": "medium",
+   "reports": [
+    "2025-11-27-dailyftlk-4deec1da"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "urban-regeneration-housing-colombage-torrington-gosl-proposed-2025-11-27",
+   "line_id": "urban-regeneration-housing-colombage-torrington-gosl",
+   "date": "2025-11-27",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 15000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "2026 Budget allocates further funds for Urban Regeneration Project",
+   "confidence": "low",
+   "reports": [
+    "2025-11-27-dailyftlk-4deec1da"
+   ],
+   "relation": "update_of:urban-regeneration-housing-colombage-torrington-gosl-govt_authorised-2025-08-05",
+   "notes": null
+  },
+  {
+   "id": "gosl-major-irrigation-projects-2026-budget-proposed-2025-11-27",
+   "line_id": "gosl-major-irrigation-projects-2026-budget",
+   "date": "2025-11-27",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 91700000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "2026 Budget allocates funds for major irrigation projects",
+   "confidence": "medium",
+   "reports": [
+    "2025-11-27-dailyftlk-4deec1da"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-drinking-water-schemes-2026-budget-proposed-2025-11-27",
+   "line_id": "gosl-drinking-water-schemes-2026-budget",
+   "date": "2025-11-27",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 85700000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "2026 Budget allocates funds for drinking water schemes",
+   "confidence": "medium",
+   "reports": [
+    "2025-11-27-dailyftlk-4deec1da"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-malayagam-community-housing-2026-budget-proposed-2025-11-27",
+   "line_id": "gosl-malayagam-community-housing-2026-budget",
+   "date": "2025-11-27",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 4290000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "2026 Budget funds 2,000 houses for Malayagam community",
+   "confidence": "medium",
+   "reports": [
+    "2025-11-27-dailyftlk-4deec1da"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-idp-communities-housing-2026-budget-proposed-2025-11-27",
+   "line_id": "gosl-idp-communities-housing-2026-budget",
+   "date": "2025-11-27",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 5000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "2026 Budget allocates housing funds for internally displaced communities",
+   "confidence": "medium",
+   "reports": [
+    "2025-11-27-dailyftlk-4deec1da"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-disaster-displaced-housing-2026-budget-proposed-2025-11-27",
+   "line_id": "gosl-disaster-displaced-housing-2026-budget",
+   "date": "2025-11-27",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 2000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "2026 Budget allocates housing funds for disaster-displaced families",
+   "confidence": "medium",
+   "reports": [
+    "2025-11-27-dailyftlk-4deec1da"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-green-gram-purchasing-program-govt_authorised-2025-11-20",
+   "line_id": "gosl-green-gram-purchasing-program",
+   "date": "2025-11-20",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 764000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet allocates funds to buy green gram harvest from farmers",
+   "confidence": "high",
+   "reports": [
+    "2025-11-20-dailyftlk-bd92e0ae"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-nine-health-projects-2026-govt_authorised-2025-11-17",
+   "line_id": "gosl-nine-health-projects-2026",
+   "date": "2025-11-17",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 21640000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs 21.64bn for nine new health projects",
+   "confidence": "high",
+   "reports": [
+    "2025-11-19-dailyftlk-3e6d9cac"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-base-hospitals-development-2026-budget-allocated-2025-11-19",
+   "line_id": "gosl-base-hospitals-development-2026-budget",
+   "date": "2025-11-19",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 31000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "2026 Budget allocates funds to upgrade Base Hospitals",
+   "confidence": "high",
+   "reports": [
+    "2025-11-19-dailyftlk-3e6d9cac"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "prison-officer-residential-facilities-gosl-govt_authorised-2025-11-19",
+   "line_id": "prison-officer-residential-facilities-gosl",
+   "date": "2025-11-19",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 150000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs.150m to expand prison officer housing",
+   "confidence": "high",
+   "reports": [
+    "2025-11-19-dailyftlk-940ad4a0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "vidatha-program-strategic-plan-gosl-govt_authorised-2025-11-15",
+   "line_id": "vidatha-program-strategic-plan-gosl",
+   "date": "2025-11-15",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves five-year plan to strengthen Vidatha program",
+   "confidence": "high",
+   "reports": [
+    "2025-11-15-dailyftlk-67e10070"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-sl-housing-finance-banks-restructuring-govt_authorised-2025-11-11",
+   "line_id": "gosl-sl-housing-finance-banks-restructuring",
+   "date": "2025-11-11",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves merging two state banks into BOC, People's Bank",
+   "confidence": "high",
+   "reports": [
+    "2025-11-11-islandlk-c8d5c6b2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kbf-grant-invasive-species-sri-lanka-funder_approved-2025-11-07",
+   "line_id": "kbf-grant-invasive-species-sri-lanka",
+   "date": "2025-11-07",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Kunming Biodiversity Fund approves grant for Sri Lanka invasive species project",
+   "confidence": "medium",
+   "reports": [
+    "2025-11-07-dailyftlk-42cd523a"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2025-11-29-dbsjeyarajcom-a07b9252": {
+   "date": "2025-11-29",
+   "title": "India Launches “Operation Sagar Bandhu ” to provide  Immediate Humanitarian Relief to Sri Lanka amid Cyclone Ditwah; essential supplies distributed through   Indian Naval Ships INS Vikrant and INS Udayagiri currently docked  in Sri Lanka",
+   "url": "https://dbsjeyaraj.com/dbsj/?p=86695",
+   "outlet": "dbsjeyaraj.com",
+   "lang": "en"
+  },
+  "2025-11-27-dailyftlk-4deec1da": {
+   "date": "2025-11-27",
+   "title": "2026 Budget commits over Rs. 688 b to construction: Sector poised for acceleration",
+   "url": "https://www.ft.lk/columns/2026-Budget-commits-over-Rs-688-b-to-construction-Sector-poised-for-acceleration/4-784883",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-11-20-dailyftlk-bd92e0ae": {
+   "date": "2025-11-20",
+   "title": "Green gram purchasing initiative gets Rs. 764 m boost",
+   "url": "https://www.ft.lk/news/Green-gram-purchasing-initiative-gets-Rs-764-m-boost/56-784586",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-11-19-dailyftlk-3e6d9cac": {
+   "date": "2025-11-19",
+   "title": "Govt. earmarks over Rs. 21 b for nine new health projects as part of 2026 public investment push",
+   "url": "https://www.ft.lk/news/Govt-earmarks-over-Rs-21-b-for-nine-new-health-projects-as-part-of-2026-public-investment-push/56-784531",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-11-19-dailyftlk-940ad4a0": {
+   "date": "2025-11-19",
+   "title": "Govt. to invest Rs. 150 m to expand residential facilities for prison officers",
+   "url": "https://www.ft.lk/news/Govt-to-invest-Rs-150-m-to-expand-residential-facilities-for-prison-officers/56-784530",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-11-15-dailyftlk-67e10070": {
+   "date": "2025-11-15",
+   "title": "Cabinet approves five-year strategic plan to strengthen Vidatha program countrywide",
+   "url": "https://www.ft.lk/business/Cabinet-approves-five-year-strategic-plan-to-strengthen-Vidatha-program-countrywide/34-784363",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-11-11-islandlk-c8d5c6b2": {
+   "date": "2025-11-11",
+   "title": "Cabinet approves restructuring of the Sri Lanka Housing Development Finance Corporation Bank and the State Mortgage and Investment Bank",
+   "url": "http://island.lk/cqb8net-approves-restructuring-of-the-sri-lanka-housing-development-finance-corporation-bank-and-the-state-mortgage-and-investment-bank/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2025-11-07-dailyftlk-42cd523a": {
+   "date": "2025-11-07",
+   "title": "Kunming Biodiversity Fund approves $5.8 m in funding for FAO-led projects in SL among others",
+   "url": "https://www.ft.lk/opinion/Kunming-Biodiversity-Fund-approves-5-8-m-in-funding-for-FAO-led-projects-in-SL-among-others/14-784044",
+   "outlet": "Daily FT",
+   "lang": "en"
+  }
+ }
+}

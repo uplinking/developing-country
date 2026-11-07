@@ -1,0 +1,120 @@
+/* Canonical product palette shared by the public site, explorer and live views.
+   Route colours carry meaning; prose remains neutral paper/ink. */
+:root {
+  --route-system: #00a191;
+  --route-sun: #e8930c;
+  --route-flag: #d14321;
+  --route-info: #2456c4;
+  --on-route: #ffffff;
+  --dc-radius: 2px;
+  --dc-font-sans: 'Overpass', ui-sans-serif, system-ui, sans-serif;
+  --dc-font-display: var(--dc-font-sans);
+  --dc-font-data: 'M PLUS 1 Code', ui-monospace, monospace;
+  --brand-coral: #fe7141;
+  --brand-lilac: #eee5fa;
+  /* Shared site header. Every public surface is light; only a host that sets
+     data-theme='dark' explicitly flips it (no prefers-color-scheme fallback). */
+  --header-bg: #ffffff;
+  --header-ink: #050505;
+  --header-dim: #5f5d56;
+  --header-line: #050505;
+  --header-line-soft: rgba(5, 5, 5, 0.16);
+  --header-shadow: #050505;
+  --header-focus: #2456c4;
+  --on-brand: #050505;
+}
+
+:root[data-theme='dark'] {
+  --brand-lilac: #2b2440;
+  --header-bg: #1a1c21;
+  --header-ink: #edebe3;
+  --header-dim: #a09e95;
+  --header-line: rgba(240, 238, 230, 0.34);
+  --header-line-soft: rgba(240, 238, 230, 0.14);
+  --header-shadow: #000000;
+  --header-focus: #93b4ff;
+}
+
+:root,
+:root[data-theme='light'] {
+  --map-bg: #e8e6df;
+  --paper: #f7f6f4;
+  /* Bands and popovers sit one step above the panel slab. */
+  --paper-raised: #ffffff;
+  --paper-2: rgba(22, 24, 29, 0.055);
+  --paper-3: rgba(22, 24, 29, 0.1);
+  --ink: #050505;
+  --ink-dim: #5f5d56;
+  --panel-line: #050505;
+  --panel-line-soft: rgba(22, 24, 29, 0.28);
+  --shadow: none;
+  --switch-off: rgba(22, 24, 29, 0.18);
+  --switch-knob: #f6f4ed;
+  --route-system-ink: #05776c;
+  --route-sun-ink: #9a6206;
+  --route-flag-ink: #b23a1d;
+  --route-info-ink: #1d47a8;
+  --focus: #2456c4;
+  --board: #101216;
+  --board-ink: #f2f0e9;
+  --board-dim: rgba(242, 240, 233, 0.64);
+  --board-line: rgba(242, 240, 233, 0.16);
+}
+
+:root[data-theme='dark'] {
+  --map-bg: #101114;
+  --paper: #1a1c21;
+  --paper-raised: #22252b;
+  --paper-2: rgba(240, 238, 230, 0.06);
+  --paper-3: rgba(240, 238, 230, 0.11);
+  --ink: #edebe3;
+  --ink-dim: #a09e95;
+  --panel-line: rgba(240, 238, 230, 0.34);
+  --panel-line-soft: rgba(240, 238, 230, 0.18);
+  --shadow: none;
+  --switch-off: rgba(240, 238, 230, 0.2);
+  --switch-knob: #1a1c21;
+  --route-system: #2cc7b6;
+  --route-sun: #f5ad3c;
+  --route-flag: #ff7a59;
+  --route-info: #93b4ff;
+  --route-system-ink: #2cc7b6;
+  --route-sun-ink: #f5ad3c;
+  --route-flag-ink: #ff7a59;
+  --route-info-ink: #93b4ff;
+  --focus: #93b4ff;
+  --board: #0b0c0f;
+  --board-ink: #f2f0e9;
+  --board-dim: rgba(242, 240, 233, 0.6);
+  --board-line: rgba(242, 240, 233, 0.14);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --map-bg: #101114;
+    --paper: #1a1c21;
+    --paper-raised: #22252b;
+    --paper-2: rgba(240, 238, 230, 0.06);
+    --paper-3: rgba(240, 238, 230, 0.11);
+    --ink: #edebe3;
+    --ink-dim: #a09e95;
+    --panel-line: rgba(240, 238, 230, 0.34);
+    --panel-line-soft: rgba(240, 238, 230, 0.18);
+    --shadow: none;
+    --switch-off: rgba(240, 238, 230, 0.2);
+    --switch-knob: #1a1c21;
+    --route-system: #2cc7b6;
+    --route-sun: #f5ad3c;
+    --route-flag: #ff7a59;
+    --route-info: #93b4ff;
+    --route-system-ink: #2cc7b6;
+    --route-sun-ink: #f5ad3c;
+    --route-flag-ink: #ff7a59;
+    --route-info-ink: #93b4ff;
+    --focus: #93b4ff;
+    --board: #0b0c0f;
+    --board-ink: #f2f0e9;
+    --board-dim: rgba(242, 240, 233, 0.6);
+    --board-line: rgba(242, 240, 233, 0.14);
+  }
+}

@@ -1,0 +1,209 @@
+---
+import { publishedEntries } from '../../lib/cmsCollections'
+import { gapFields, linkedGaps } from '../../lib/claims'
+import MissingDataCard from '../../components/MissingDataCard.astro'
+import DatasetCard from '../../components/DatasetCard.astro'
+import SiteLayout from '../../layouts/SiteLayout.astro'
+import { articleFields } from '../../lib/content'
+import { loadSiteDatasetCatalog } from '../../lib/datasetCatalogCloudflare'
+import {
+  PUBLISHER_TYPES,
+  PUBLIC_DATA_THEMES,
+  datasetMeta,
+  datasetNotes,
+  isDatasetId,
+  isPublisherTypeId,
+  isPublicDataThemeId,
+} from '../../lib/datasets'
+
+if (Astro.cache?.enabled) Astro.cache.set({ tags: ['articles', 'data_gaps'], maxAge: 60, swr: 0 })
+
+const [entries, gapEntries, catalog] = await Promise.all([
+  publishedEntries('articles'),
+  publishedEntries('data_gaps'),
+  loadSiteDatasetCatalog(),
+])
+const tab = Astro.url.searchParams.get('tab') === 'missing' ? 'missing' : 'available'
+const claims = entries.map((entry) => ({ slug: entry.id, data: articleFields(entry.data) }))
+  .filter(({ data }) => data.format === 'analysis' && data.analysisKind === 'tracked_claim')
+  .filter(({ data }) => data.claimSourceUrl)
+  .map(({ data }) => ({ id: data.id, title: data.claimSourceTitle || data.title, href: data.claimSourceUrl!, missingDataIds: data.missingDataIds, countryCode: data.countryCode, summary: data.dek, sourceTitle: data.claimSourceTitle, sourceUrl: data.claimSourceUrl }))
+const gaps = linkedGaps(gapEntries.flatMap((entry) => {
+  const gap = gapFields(String((entry.data as Record<string, unknown>).id || entry.id), entry.data)
+  return gap ? [gap] : []
+}), claims)
+const notesByDataset = new Map(
+  entries
+    .map((entry) => ({ id: entry.id, data: articleFields(entry.data) }))
+    .filter((entry) => entry.data.format === 'dataset_note' && isDatasetId(entry.data.datasetId))
+    .map((entry) => [entry.data.datasetId!, entry]),
+)
+const allNotes = datasetNotes.flatMap((dataset) => {
+  const article = notesByDataset.get(dataset.id)
+  return article ? [{ dataset: datasetMeta(catalog, dataset.id), article }] : []
+})
+const allRows = [
+  ...allNotes.map((row) => ({ kind: 'available' as const, dataset: row.dataset, article: row.article, gap: null, claims: [] })),
+  ...gaps.map((row) => ({ kind: 'missing' as const, dataset: row.gap, article: null, gap: row.gap, claims: row.claims })),
+]
+const activeRows = allRows.filter((row) => row.kind === tab)
+const availableThemes = PUBLIC_DATA_THEMES.filter((theme) =>
+  allRows.some(({ dataset }) => dataset.themeIds.includes(theme.id)),
+)
+const themeParam = Astro.url.searchParams.get('theme') || ''
+const publisherTypeParam = Astro.url.searchParams.get('publisher_type') || ''
+const publisherParam = Astro.url.searchParams.get('publisher') || ''
+const selectedTheme = isPublicDataThemeId(themeParam) && availableThemes.some((theme) => theme.id === themeParam)
+  ? themeParam
+  : ''
+const availablePublisherTypes = PUBLISHER_TYPES.filter((type) =>
+  allRows.some(({ dataset }) => dataset.publisher.type.id === type.id),
+)
+const selectedPublisherType = isPublisherTypeId(publisherTypeParam)
+  && availablePublisherTypes.some((type) => type.id === publisherTypeParam)
+  ? publisherTypeParam
+  : ''
+const availablePublishers = [...new Map(
+  allRows
+    .filter(({ dataset }) => !selectedPublisherType || dataset.publisher.type.id === selectedPublisherType)
+    .map(({ dataset }) => [dataset.publisher.id, dataset.publisher]),
+).values()].sort((left, right) => left.name.localeCompare(right.name))
+const selectedPublisher = availablePublishers.some((publisher) => publisher.id === publisherParam)
+  ? publisherParam
+  : ''
+const notes = activeRows.filter(({ dataset }) =>
+  (!selectedTheme || dataset.themeIds.includes(selectedTheme))
+  && (!selectedPublisherType || dataset.publisher.type.id === selectedPublisherType)
+  && (!selectedPublisher || dataset.publisher.id === selectedPublisher),
+)
+
+interface FilterPatch {
+  theme?: string
+  publisherType?: string
+  publisher?: string
+  tab?: string
+}
+
+const filterHref = (patch: FilterPatch = {}) => {
+  const next = {
+    theme: patch.theme ?? selectedTheme,
+    publisherType: patch.publisherType ?? selectedPublisherType,
+    publisher: patch.publisher ?? selectedPublisher,
+  }
+  const params = new URLSearchParams()
+  if ((patch.tab ?? tab) === 'missing') params.set('tab', 'missing')
+  if (next.theme) params.set('theme', next.theme)
+  if (next.publisherType) params.set('publisher_type', next.publisherType)
+  if (next.publisher) params.set('publisher', next.publisher)
+  const query = params.toString()
+  return query ? `/data?${query}` : '/data'
+}
+
+const themeCount = (themeId: (typeof PUBLIC_DATA_THEMES)[number]['id']) => activeRows.filter(({ dataset }) => dataset.themeIds.includes(themeId)).length
+const publisherTypeCount = (typeId: string) => activeRows.filter(({ dataset }) => dataset.publisher.type.id === typeId).length
+const publisherCount = (publisherId: string) => activeRows.filter(({ dataset }) => dataset.publisher.id === publisherId).length
+---
+
+<SiteLayout
+  title="Data"
+  description="Explore available datasets and the missing records needed to verify public claims."
+>
+  <div class="page-shell data-index">
+    <section class="data-index__available" aria-labelledby="available-data-title">
+      <div class="section-rule">
+        <h1 id="available-data-title">{tab === 'missing' ? 'Missing data' : 'Available data'}</h1>
+        <span>{notes.length} of {activeRows.length} {tab === 'missing' ? 'data gaps' : 'datasets'}</span>
+      </div>
+
+      <nav class="catalogue-tabs" aria-label="Data availability">
+        <a href={filterHref({ tab: 'available' })} aria-current={tab === 'available' ? 'page' : undefined}>Available data <span>{allNotes.length}</span></a>
+        <a href={filterHref({ tab: 'missing' })} aria-current={tab === 'missing' ? 'page' : undefined}>Missing data <span>{gaps.length}</span></a>
+      </nav>
+      <div class="data-index__catalogue">
+        <nav class="dataset-filters" aria-label="Filter data">
+          <div class="dataset-filters__header">
+            <strong>Filter</strong>
+            {(selectedTheme || selectedPublisherType || selectedPublisher) && <a href={tab === 'missing' ? '/data?tab=missing' : '/data'}>Reset all</a>}
+          </div>
+
+          <section class="dataset-filter-group" data-filter="theme" aria-labelledby="theme-filter-title">
+            <h2 id="theme-filter-title">Theme</h2>
+            <ul>
+              <li>
+                <a href={filterHref({ theme: '' })} aria-current={!selectedTheme ? 'true' : undefined}>
+                  <i aria-hidden="true"></i><span>All themes</span><small>{activeRows.length}</small>
+                </a>
+              </li>
+              {availableThemes.map((theme) => (
+                <li>
+                  <a href={filterHref({ theme: theme.id })} aria-current={selectedTheme === theme.id ? 'true' : undefined}>
+                    <i aria-hidden="true"></i><span>{theme.label}</span><small>{themeCount(theme.id)}</small>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="dataset-filter-group" data-filter="publisher_type" aria-labelledby="publisher-type-filter-title">
+            <h2 id="publisher-type-filter-title">{tab === 'missing' ? 'Data holder type' : 'Publisher type'}</h2>
+            <ul>
+              <li>
+                <a href={filterHref({ publisherType: '', publisher: '' })} aria-current={!selectedPublisherType ? 'true' : undefined}>
+                  <i aria-hidden="true"></i><span>All types</span><small>{activeRows.length}</small>
+                </a>
+              </li>
+              {availablePublisherTypes.map((type) => (
+                <li>
+                  <a href={filterHref({ publisherType: type.id, publisher: '' })} aria-current={selectedPublisherType === type.id ? 'true' : undefined}>
+                    <i aria-hidden="true"></i><span>{type.label}</span><small>{publisherTypeCount(type.id)}</small>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="dataset-filter-group" data-filter="publisher" aria-labelledby="publisher-filter-title">
+            <h2 id="publisher-filter-title">{tab === 'missing' ? 'Expected data holder' : 'Publisher'}</h2>
+            <ul>
+              <li>
+                <a href={filterHref({ publisher: '' })} aria-current={!selectedPublisher ? 'true' : undefined}>
+                  <i aria-hidden="true"></i><span>All publishers</span><small>{selectedPublisherType ? publisherTypeCount(selectedPublisherType) : activeRows.length}</small>
+                </a>
+              </li>
+              {availablePublishers.map((publisher) => (
+                <li>
+                  <a href={filterHref({ publisher: publisher.id })} aria-current={selectedPublisher === publisher.id ? 'true' : undefined}>
+                    <i aria-hidden="true"></i><span>{publisher.name}</span><small>{publisherCount(publisher.id)}</small>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </nav>
+
+        <div class="data-index__results">
+          {notes.length > 0 ? (
+            <div class="dataset-card-grid data-index__grid">
+              {notes.map(({ dataset, article, gap, claims }) => (
+                gap ? <MissingDataCard gap={gap} claims={claims} /> : article && (
+                <DatasetCard
+                  href={`/data/${dataset.id}`}
+                  title={article.data.title}
+                  dek={article.data.dek}
+                  country={dataset.version.country}
+                  refreshedAt={dataset.version.refreshedAt}
+                  themes={dataset.themes}
+                  publisher={dataset.publisher}
+                  sources={dataset.sources}
+                />
+                )
+              ))}
+            </div>
+          ) : (
+            <p class="dataset-filter-empty">No {tab === 'missing' ? 'data gaps' : 'datasets'} match these filters. Try another theme or data holder.</p>
+          )}
+        </div>
+      </div>
+    </section>
+  </div>
+</SiteLayout>

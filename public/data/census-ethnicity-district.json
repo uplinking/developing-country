@@ -1,0 +1,3723 @@
+{
+  "caveats": [
+    "Ethnic group is as declared by the respondent.",
+    "These are census enumeration counts, not mid-year estimates."
+  ],
+  "country": "LK",
+  "dataset_id": "census-ethnicity-district",
+  "description": "Census 2012 and Census 2024 resident population by published ethnic group for Sri Lanka and its 25 districts.",
+  "fields": [
+    {
+      "id": "geography_id",
+      "label": "Geography id",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "geography_name",
+      "label": "Geography",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "year",
+      "label": "Census year",
+      "role": "dimension",
+      "type": "year"
+    },
+    {
+      "id": "category",
+      "label": "Category",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "category_label",
+      "label": "Category label",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "aggregation": "sum",
+      "id": "population",
+      "label": "Population",
+      "role": "measure",
+      "type": "integer",
+      "unit": "people"
+    },
+    {
+      "aggregation": "none",
+      "id": "share_pct",
+      "label": "Share of geography total",
+      "role": "measure",
+      "type": "number",
+      "unit": "percent"
+    },
+    {
+      "aggregation": "none",
+      "id": "total_population",
+      "label": "Geography total",
+      "role": "measure",
+      "type": "integer",
+      "unit": "people"
+    }
+  ],
+  "grain": "One row per geography, census year and published category.",
+  "notes": [
+    "Table 6.1.11 groups Sri Lanka Chetty, Bharatha, Veddas and Other as Other.",
+    "Indian Tamil is published as Indian Tamil / Malaiyaga Thamilar in 2024."
+  ],
+  "primary_key": [
+    "geography_id",
+    "year",
+    "category"
+  ],
+  "rows": [
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 15250081,
+      "share_pct": 74.9,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 16144037,
+      "share_pct": 74.12,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 2269266,
+      "share_pct": 11.15,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 2681627,
+      "share_pct": 12.31,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 839504,
+      "share_pct": 4.12,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 600360,
+      "share_pct": 2.76,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 1892638,
+      "share_pct": 9.3,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 2283246,
+      "share_pct": 10.48,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 38293,
+      "share_pct": 0.19,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 31721,
+      "share_pct": 0.15,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 44130,
+      "share_pct": 0.22,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 26650,
+      "share_pct": 0.12,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 25527,
+      "share_pct": 0.13,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 14159,
+      "share_pct": 0.07,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1778971,
+      "share_pct": 76.54,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1807945,
+      "share_pct": 76.11,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 235090,
+      "share_pct": 10.11,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 243856,
+      "share_pct": 10.27,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 24289,
+      "share_pct": 1.04,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 15427,
+      "share_pct": 0.65,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 249609,
+      "share_pct": 10.74,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 285346,
+      "share_pct": 12.01,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 13306,
+      "share_pct": 0.57,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 10643,
+      "share_pct": 0.45,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 14444,
+      "share_pct": 0.62,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 8249,
+      "share_pct": 0.35,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 8640,
+      "share_pct": 0.37,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 3949,
+      "share_pct": 0.17,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 2086469,
+      "share_pct": 90.53,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 2188512,
+      "share_pct": 89.84,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 81245,
+      "share_pct": 3.52,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 97925,
+      "share_pct": 4.02,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 9137,
+      "share_pct": 0.4,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 6575,
+      "share_pct": 0.27,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 97621,
+      "share_pct": 4.24,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 123220,
+      "share_pct": 5.06,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 10784,
+      "share_pct": 0.47,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 7030,
+      "share_pct": 0.29,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 12720,
+      "share_pct": 0.55,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 9488,
+      "share_pct": 0.39,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 6857,
+      "share_pct": 0.3,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 3392,
+      "share_pct": 0.14,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 1060107,
+      "share_pct": 86.76,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 1119109,
+      "share_pct": 85.7,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 23035,
+      "share_pct": 1.89,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 41361,
+      "share_pct": 3.17,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 23217,
+      "share_pct": 1.9,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 7198,
+      "share_pct": 0.55,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 113320,
+      "share_pct": 9.27,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 136412,
+      "share_pct": 10.45,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 1188,
+      "share_pct": 0.1,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 840,
+      "share_pct": 0.06,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 689,
+      "share_pct": 0.06,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 476,
+      "share_pct": 0.04,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 392,
+      "share_pct": 0.03,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 388,
+      "share_pct": 0.03,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 1023488,
+      "share_pct": 74.41,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 1077312,
+      "share_pct": 73.69,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 69210,
+      "share_pct": 5.03,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 122772,
+      "share_pct": 8.4,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 85111,
+      "share_pct": 6.19,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 38311,
+      "share_pct": 2.62,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 191570,
+      "share_pct": 13.93,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 219905,
+      "share_pct": 15.04,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 2384,
+      "share_pct": 0.17,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 1891,
+      "share_pct": 0.13,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 2444,
+      "share_pct": 0.18,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 1001,
+      "share_pct": 0.07,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 1175,
+      "share_pct": 0.09,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 703,
+      "share_pct": 0.05,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 391305,
+      "share_pct": 80.76,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 424788,
+      "share_pct": 80.62,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 24279,
+      "share_pct": 5.01,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 42172,
+      "share_pct": 8,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 23238,
+      "share_pct": 4.8,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 7716,
+      "share_pct": 1.46,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 44786,
+      "share_pct": 9.24,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 51471,
+      "share_pct": 9.77,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 386,
+      "share_pct": 0.08,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 359,
+      "share_pct": 0.07,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 392,
+      "share_pct": 0.08,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 283,
+      "share_pct": 0.05,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 145,
+      "share_pct": 0.03,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 81,
+      "share_pct": 0.02,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 282053,
+      "share_pct": 39.63,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 281904,
+      "share_pct": 38.87,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 32563,
+      "share_pct": 4.58,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 60288,
+      "share_pct": 8.31,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 377637,
+      "share_pct": 53.07,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 362299,
+      "share_pct": 49.95,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 17652,
+      "share_pct": 2.48,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 19245,
+      "share_pct": 2.65,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 761,
+      "share_pct": 0.11,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 1252,
+      "share_pct": 0.17,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 543,
+      "share_pct": 0.08,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 216,
+      "share_pct": 0.03,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 435,
+      "share_pct": 0.06,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 76,
+      "share_pct": 0.01,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 1003722,
+      "share_pct": 94.39,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 1030354,
+      "share_pct": 93.89,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 13953,
+      "share_pct": 1.31,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 17600,
+      "share_pct": 1.6,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 6146,
+      "share_pct": 0.58,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 2883,
+      "share_pct": 0.26,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 38790,
+      "share_pct": 3.65,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 45672,
+      "share_pct": 4.16,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 256,
+      "share_pct": 0.02,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 244,
+      "share_pct": 0.02,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 106,
+      "share_pct": 0.01,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 85,
+      "share_pct": 0.01,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 361,
+      "share_pct": 0.03,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 534,
+      "share_pct": 0.05,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 767580,
+      "share_pct": 94.29,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 788804,
+      "share_pct": 94.14,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 8772,
+      "share_pct": 1.08,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 11119,
+      "share_pct": 1.33,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 12127,
+      "share_pct": 1.49,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 8082,
+      "share_pct": 0.96,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 25254,
+      "share_pct": 3.1,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 29430,
+      "share_pct": 3.51,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 131,
+      "share_pct": 0.02,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 259,
+      "share_pct": 0.03,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 58,
+      "share_pct": 0.01,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 44,
+      "share_pct": 0.01,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 126,
+      "share_pct": 0.02,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 151,
+      "share_pct": 0.02,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 582301,
+      "share_pct": 97.07,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 651274,
+      "share_pct": 97,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 2105,
+      "share_pct": 0.35,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 2054,
+      "share_pct": 0.31,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 120,
+      "share_pct": 0.02,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 121,
+      "share_pct": 0.02,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 6629,
+      "share_pct": 1.11,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 13809,
+      "share_pct": 2.06,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 146,
+      "share_pct": 0.02,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 99,
+      "share_pct": 0.01,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 8164,
+      "share_pct": 1.36,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 3931,
+      "share_pct": 0.59,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 438,
+      "share_pct": 0.07,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 130,
+      "share_pct": 0.02,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 2284,
+      "share_pct": 0.39,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 3395,
+      "share_pct": 0.57,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 577338,
+      "share_pct": 98.88,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 586491,
+      "share_pct": 98.61,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 1807,
+      "share_pct": 0.31,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 782,
+      "share_pct": 0.13,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 2162,
+      "share_pct": 0.37,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 3947,
+      "share_pct": 0.66,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 126,
+      "share_pct": 0.02,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 64,
+      "share_pct": 0.01,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 23,
+      "share_pct": 0,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 7,
+      "share_pct": 0,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 142,
+      "share_pct": 0.02,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 65,
+      "share_pct": 0.01,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 2305,
+      "share_pct": 2.31,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 678,
+      "share_pct": 0.55,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 80103,
+      "share_pct": 80.45,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 89992,
+      "share_pct": 72.72,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 692,
+      "share_pct": 0.69,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 319,
+      "share_pct": 0.26,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 16436,
+      "share_pct": 16.51,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 32752,
+      "share_pct": 26.46,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 12,
+      "share_pct": 0.01,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 3,
+      "share_pct": 0,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 11,
+      "share_pct": 0.01,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 5,
+      "share_pct": 0,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 11,
+      "share_pct": 0.01,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 7,
+      "share_pct": 0.01,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 17138,
+      "share_pct": 9.96,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 18575,
+      "share_pct": 10.78,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 141144,
+      "share_pct": 82.01,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 135164,
+      "share_pct": 78.44,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 1979,
+      "share_pct": 1.15,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 1625,
+      "share_pct": 0.94,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 11748,
+      "share_pct": 6.83,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 16632,
+      "share_pct": 9.65,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 58,
+      "share_pct": 0.03,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 32,
+      "share_pct": 0.02,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 8,
+      "share_pct": 0,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 4,
+      "share_pct": 0,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 40,
+      "share_pct": 0.02,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 280,
+      "share_pct": 0.16,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 8927,
+      "share_pct": 9.68,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 11190,
+      "share_pct": 9.13,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 79107,
+      "share_pct": 85.76,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 108082,
+      "share_pct": 88.14,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 2281,
+      "share_pct": 2.47,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 223,
+      "share_pct": 0.18,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 1821,
+      "share_pct": 1.97,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 3102,
+      "share_pct": 2.53,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 49,
+      "share_pct": 0.05,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 12,
+      "share_pct": 0.01,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 11,
+      "share_pct": 0.01,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 3,
+      "share_pct": 0,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 42,
+      "share_pct": 0.05,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 7,
+      "share_pct": 0.01,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 1331,
+      "share_pct": 1.17,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 1704,
+      "share_pct": 1.25,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 110494,
+      "share_pct": 97.34,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 133023,
+      "share_pct": 97.3,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 1030,
+      "share_pct": 0.91,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 685,
+      "share_pct": 0.5,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 629,
+      "share_pct": 0.55,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 1273,
+      "share_pct": 0.93,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 1,
+      "share_pct": 0,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 21,
+      "share_pct": 0.02,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 2,
+      "share_pct": 0,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 0,
+      "share_pct": 0,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 23,
+      "share_pct": 0.02,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 4,
+      "share_pct": 0,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 6797,
+      "share_pct": 1.29,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 6855,
+      "share_pct": 1.15,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 380930,
+      "share_pct": 72.34,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 424710,
+      "share_pct": 71.27,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 2078,
+      "share_pct": 0.39,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 992,
+      "share_pct": 0.17,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 133854,
+      "share_pct": 25.42,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 160284,
+      "share_pct": 26.9,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 2814,
+      "share_pct": 0.53,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 2899,
+      "share_pct": 0.49,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 28,
+      "share_pct": 0.01,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 17,
+      "share_pct": 0,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 66,
+      "share_pct": 0.01,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 161,
+      "share_pct": 0.03,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 252458,
+      "share_pct": 38.88,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 276583,
+      "share_pct": 37.15,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 112457,
+      "share_pct": 17.32,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 125751,
+      "share_pct": 16.89,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 846,
+      "share_pct": 0.13,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 664,
+      "share_pct": 0.09,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 281702,
+      "share_pct": 43.38,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 339290,
+      "share_pct": 45.57,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 1036,
+      "share_pct": 0.16,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 1168,
+      "share_pct": 0.16,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 187,
+      "share_pct": 0.03,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 136,
+      "share_pct": 0.02,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 716,
+      "share_pct": 0.11,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 959,
+      "share_pct": 0.13,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 101483,
+      "share_pct": 26.74,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 108676,
+      "share_pct": 24.55,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 116646,
+      "share_pct": 30.73,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 128088,
+      "share_pct": 28.93,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 1227,
+      "share_pct": 0.32,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 765,
+      "share_pct": 0.17,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 158771,
+      "share_pct": 41.83,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 203987,
+      "share_pct": 46.07,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 966,
+      "share_pct": 0.25,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 861,
+      "share_pct": 0.19,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 356,
+      "share_pct": 0.09,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 311,
+      "share_pct": 0.07,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 92,
+      "share_pct": 0.02,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 57,
+      "share_pct": 0.01,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 1479863,
+      "share_pct": 91.44,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 1601899,
+      "share_pct": 90.6,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 18041,
+      "share_pct": 1.11,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 21775,
+      "share_pct": 1.23,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 2594,
+      "share_pct": 0.16,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 1788,
+      "share_pct": 0.1,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 115302,
+      "share_pct": 7.12,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 140888,
+      "share_pct": 7.97,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 663,
+      "share_pct": 0.04,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 478,
+      "share_pct": 0.03,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 1220,
+      "share_pct": 0.08,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 796,
+      "share_pct": 0.05,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 782,
+      "share_pct": 0.05,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 532,
+      "share_pct": 0.03,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 560838,
+      "share_pct": 73.56,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 591753,
+      "share_pct": 72.27,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 48341,
+      "share_pct": 6.34,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 48544,
+      "share_pct": 5.93,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 1953,
+      "share_pct": 0.26,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 1229,
+      "share_pct": 0.15,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 147546,
+      "share_pct": 19.35,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 174497,
+      "share_pct": 21.31,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 1152,
+      "share_pct": 0.15,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 1726,
+      "share_pct": 0.21,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 631,
+      "share_pct": 0.08,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 558,
+      "share_pct": 0.07,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 1935,
+      "share_pct": 0.25,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 509,
+      "share_pct": 0.06,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 782808,
+      "share_pct": 90.96,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 870049,
+      "share_pct": 90.62,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 4728,
+      "share_pct": 0.55,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 5063,
+      "share_pct": 0.53,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 477,
+      "share_pct": 0.06,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 412,
+      "share_pct": 0.04,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 70692,
+      "share_pct": 8.21,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 83283,
+      "share_pct": 8.67,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 246,
+      "share_pct": 0.03,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 174,
+      "share_pct": 0.02,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 161,
+      "share_pct": 0.02,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 101,
+      "share_pct": 0.01,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 1463,
+      "share_pct": 0.17,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 998,
+      "share_pct": 0.1,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 368197,
+      "share_pct": 90.67,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 402785,
+      "share_pct": 90,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 7301,
+      "share_pct": 1.8,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 7394,
+      "share_pct": 1.65,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 161,
+      "share_pct": 0.04,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 94,
+      "share_pct": 0.02,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 30177,
+      "share_pct": 7.43,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 36864,
+      "share_pct": 8.24,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 88,
+      "share_pct": 0.02,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 55,
+      "share_pct": 0.01,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 46,
+      "share_pct": 0.01,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 25,
+      "share_pct": 0.01,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 118,
+      "share_pct": 0.03,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 313,
+      "share_pct": 0.07,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 595372,
+      "share_pct": 73.02,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 640625,
+      "share_pct": 73.44,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 21880,
+      "share_pct": 2.68,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 81854,
+      "share_pct": 9.38,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 150484,
+      "share_pct": 18.46,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 95686,
+      "share_pct": 10.97,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 44716,
+      "share_pct": 5.48,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 52188,
+      "share_pct": 5.98,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 992,
+      "share_pct": 0.12,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 890,
+      "share_pct": 0.1,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 1351,
+      "share_pct": 0.17,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 715,
+      "share_pct": 0.08,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 610,
+      "share_pct": 0.07,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 349,
+      "share_pct": 0.04,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 428104,
+      "share_pct": 94.91,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 499366,
+      "share_pct": 94.65,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 8206,
+      "share_pct": 1.82,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 14765,
+      "share_pct": 2.8,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 5001,
+      "share_pct": 1.11,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 1249,
+      "share_pct": 0.24,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 9508,
+      "share_pct": 2.11,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 12085,
+      "share_pct": 2.29,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 116,
+      "share_pct": 0.03,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 61,
+      "share_pct": 0.01,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 63,
+      "share_pct": 0.01,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 17,
+      "share_pct": 0,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 60,
+      "share_pct": 0.01,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 42,
+      "share_pct": 0.01,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 947811,
+      "share_pct": 87.11,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 1003515,
+      "share_pct": 87.61,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 54437,
+      "share_pct": 5,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 91300,
+      "share_pct": 7.97,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 62124,
+      "share_pct": 5.71,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 23991,
+      "share_pct": 2.09,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 22346,
+      "share_pct": 2.05,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 25870,
+      "share_pct": 2.26,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 405,
+      "share_pct": 0.04,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 481,
+      "share_pct": 0.04,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 288,
+      "share_pct": 0.03,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 65,
+      "share_pct": 0.01,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 596,
+      "share_pct": 0.05,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 201,
+      "share_pct": 0.02,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 718369,
+      "share_pct": 85.45,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "sinhalese",
+      "category_label": "Sinhalese",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 736387,
+      "share_pct": 84.6,
+      "total_population": 870476,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 17861,
+      "share_pct": 2.12,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_tamil",
+      "category_label": "Sri Lanka Tamil",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 40484,
+      "share_pct": 4.65,
+      "total_population": 870476,
+      "year": 2024
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 43748,
+      "share_pct": 5.2,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "indian_tamil",
+      "category_label": "Indian Tamil / Malaiyaga Thamilar",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 21244,
+      "share_pct": 2.44,
+      "total_population": 870476,
+      "year": 2024
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 59997,
+      "share_pct": 7.14,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "sri_lanka_moor",
+      "category_label": "Sri Lanka Moor / Muslim",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 71794,
+      "share_pct": 8.25,
+      "total_population": 870476,
+      "year": 2024
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 227,
+      "share_pct": 0.03,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "burgher",
+      "category_label": "Burgher",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 179,
+      "share_pct": 0.02,
+      "total_population": 870476,
+      "year": 2024
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 184,
+      "share_pct": 0.02,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "malay",
+      "category_label": "Malay",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 117,
+      "share_pct": 0.01,
+      "total_population": 870476,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 262,
+      "share_pct": 0.03,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 271,
+      "share_pct": 0.03,
+      "total_population": 870476,
+      "year": 2024
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "dcs-cph-2024-ethnicity"
+  ],
+  "title": "Population by ethnic group and district",
+  "vintage": "Census 2012 and Census 2024"
+}

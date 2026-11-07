@@ -1,0 +1,1980 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-02-01",
+  "2026-02-31"
+ ],
+ "upstream": "nuuuwan/lk_news@7c98b51874e343a55176ce773acd06a36d320d1e",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-06",
+ "language": "si",
+ "articles_read": 114,
+ "rejected": 69,
+ "rejected_ids": [
+  "2026-02-01-adalk-a69f6b4d",
+  "2026-02-02-adalk-0116f4c9",
+  "2026-02-03-adalk-120492c5",
+  "2026-02-03-adalk-2b5bfa21",
+  "2026-02-03-adalk-acdaefac",
+  "2026-02-04-adalk-d26d88df",
+  "2026-02-04-adalk-e4fd5cca",
+  "2026-02-05-adalk-1f4d2be5",
+  "2026-02-05-adalk-28f29004",
+  "2026-02-05-adalk-c1c3afc7",
+  "2026-02-06-adalk-498eb133",
+  "2026-02-06-adalk-5b62378a",
+  "2026-02-06-adalk-615e7baa",
+  "2026-02-06-adalk-8df361d2",
+  "2026-02-06-adalk-f1350ee8",
+  "2026-02-06-adalk-f3c51921",
+  "2026-02-08-adalk-8d9124e1",
+  "2026-02-09-adalk-3eccbf18",
+  "2026-02-10-adalk-15e169ef",
+  "2026-02-10-adalk-50e33c4d",
+  "2026-02-10-adalk-90a94dc3",
+  "2026-02-10-adalk-b31f8f07",
+  "2026-02-10-adalk-f4884381",
+  "2026-02-11-adalk-16247172",
+  "2026-02-11-adalk-87746da4",
+  "2026-02-11-adalk-98bfee0e",
+  "2026-02-12-adalk-068a1644",
+  "2026-02-12-adalk-220e3681",
+  "2026-02-12-adalk-81ac0bec",
+  "2026-02-12-adalk-8765a10a",
+  "2026-02-12-adalk-e9d340d6",
+  "2026-02-12-adalk-f4e54ceb",
+  "2026-02-13-adalk-13e707a7",
+  "2026-02-13-adalk-a6e43529",
+  "2026-02-13-adalk-d73d75d1",
+  "2026-02-16-adalk-03f518d0",
+  "2026-02-16-adalk-4b1ad3e0",
+  "2026-02-17-adalk-5182922c",
+  "2026-02-18-adalk-158cbcc3",
+  "2026-02-18-adalk-62b557bd",
+  "2026-02-18-adalk-a04495c9",
+  "2026-02-18-adalk-d2749cb6",
+  "2026-02-19-adalk-6808425b",
+  "2026-02-19-adalk-7836a56b",
+  "2026-02-19-adalk-818b6b07",
+  "2026-02-19-adalk-945c2f56",
+  "2026-02-19-adalk-c65b8fb3",
+  "2026-02-20-adalk-64bbd7a2",
+  "2026-02-20-adalk-b1ab96f8",
+  "2026-02-20-adalk-e15b1243",
+  "2026-02-23-adalk-66a28e70",
+  "2026-02-23-adalk-a154c3d4",
+  "2026-02-23-adalk-a33ed1da",
+  "2026-02-23-adalk-a8d46c40",
+  "2026-02-24-adalk-0593a08d",
+  "2026-02-24-adalk-227410f7",
+  "2026-02-25-adalk-4b87afc1",
+  "2026-02-25-adalk-80f4ce83",
+  "2026-02-25-adalk-96d5394f",
+  "2026-02-25-adalk-b67bf34d",
+  "2026-02-25-adalk-f23bbfc0",
+  "2026-02-26-adalk-0406782d",
+  "2026-02-27-adalk-23c8df16",
+  "2026-02-27-adalk-50e97558",
+  "2026-02-27-adalk-66af1750",
+  "2026-02-27-adalk-c97374b8",
+  "2026-02-27-adalk-d34f7b46",
+  "2026-02-27-adalk-fe289f58",
+  "2026-02-28-adalk-55687a5e"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "kerawalapitiya-garbage-fire-environmental-investigation",
+   "name": "Kerawalapitiya Dump Fire Environmental Impact Investigation",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Kerawalapitiya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "digital-nomad-visa-program",
+   "name": "Digital Nomad Visa Facility Relaunch",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "lakvijaya-coal-supply-review-committee",
+   "name": "Expert Committee to Review Lakvijaya Coal Supply Methodology",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "matale-jackfruit-market-shops",
+   "name": "Matale Jackfruit Vendor Market Shops",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Matale",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "colombo-light-rail-cancellation-compensation",
+   "name": "Colombo Light Rail Transit project cancellation compensation",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "weligama-coconut-wilt-disease-control",
+   "name": "Weligama Coconut Leaf Wilting Disease Control Programme",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Weligama",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "pinnawala-free-elephant-forest-unit",
+   "name": "Pinnawala 'Free Elephant Forest' Unit Opening",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "Pinnawala",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-battery-storage-300mw",
+   "name": "National 300MW Battery Storage Tender Plan",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "labour-welfare-fund-closure",
+   "name": "Closure of the Labour Welfare Fund",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "archaeological-site-conservation-programme",
+   "name": "Identification and Conservation of 1,000 Archaeological Sites",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kandy-district-temple-reconstruction-ditwah",
+   "name": "Kandy District Cyclone-Damaged Temple Reconstruction",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "Kandy District",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sripada-harita-wandana-cleanup-programme",
+   "name": "Samanala Siri Harita Wandana Sri Pada Cleanup Programme",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Sri Pada",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nagollagama-new-post-office",
+   "name": "Nagollagama New Post Office Building",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Nagollagama, Kurunegala",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "postal-department-building-construction-2025",
+   "name": "Postal Department Building Construction and Renovation 2025",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-high-speed-broadband-2029",
+   "name": "National High-Speed Broadband Access Plan by 2029",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "lanka-metro-transit-bus-service",
+   "name": "Lanka Metro Transit Pilot Bus Service",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kasikotte-elephant-underpass-gosl",
+   "name": "Kasikotte Elephant Underpass on Mahawa-Omanthe Railway Line",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kasikotte, Mahawa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "southern-fishery-harbours-development",
+   "name": "Dodanduwa, Hikkaduwa and Ambalangoda Fishery Harbour Development",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Southern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ditwah-livestock-farm-compensation",
+   "name": "Cyclone Ditwah Livestock Farm Compensation",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "battery-storage-160mw-boo",
+   "name": "160MW Battery Energy Storage System (Build-Own-Operate)",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "petrol-supply-contract-epdesa",
+   "name": "CPC Petrol Shipment Supply Contract with Epdesa Pte Ltd",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sri-lanka-legal-aid-commission-recruitment-23",
+   "name": "Sri Lanka Legal Aid Commission Management Assistant Recruitment",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mechanized-harvesting-operator-training-programme",
+   "name": "Mechanized Paddy Harvesting Operator Training Programme",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "kerawalapitiya-garbage-fire-environmental-investigation-gosl",
+   "project_id": "kerawalapitiya-garbage-fire-environmental-investigation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "unknown"
+  },
+  {
+   "id": "digital-nomad-visa-program-gosl",
+   "project_id": "digital-nomad-visa-program",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "lakvijaya-coal-supply-review-committee-gosl",
+   "project_id": "lakvijaya-coal-supply-review-committee",
+   "funder": "gosl",
+   "funder_name": "Ministry of Power and Energy",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "unknown"
+  },
+  {
+   "id": "matale-jackfruit-market-shops-gosl",
+   "project_id": "matale-jackfruit-market-shops",
+   "funder": "gosl",
+   "funder_name": "President's Office",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "colombo-light-rail-cancellation-compensation-gosl",
+   "project_id": "colombo-light-rail-cancellation-compensation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "weligama-coconut-wilt-disease-control-gosl",
+   "project_id": "weligama-coconut-wilt-disease-control",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "pinnawala-free-elephant-forest-unit-gosl",
+   "project_id": "pinnawala-free-elephant-forest-unit",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "national-battery-storage-300mw-gosl",
+   "project_id": "national-battery-storage-300mw",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "labour-welfare-fund-closure-gosl",
+   "project_id": "labour-welfare-fund-closure",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "unknown"
+  },
+  {
+   "id": "archaeological-site-conservation-programme-gosl",
+   "project_id": "archaeological-site-conservation-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "kandy-district-temple-reconstruction-ditwah-gosl",
+   "project_id": "kandy-district-temple-reconstruction-ditwah",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "sripada-harita-wandana-cleanup-programme-gosl",
+   "project_id": "sripada-harita-wandana-cleanup-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "nagollagama-new-post-office-gosl",
+   "project_id": "nagollagama-new-post-office",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "postal-department-building-construction-2025-gosl",
+   "project_id": "postal-department-building-construction-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "national-high-speed-broadband-2029-gosl",
+   "project_id": "national-high-speed-broadband-2029",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "lanka-metro-transit-bus-service-gosl",
+   "project_id": "lanka-metro-transit-bus-service",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "kasikotte-elephant-underpass-gosl",
+   "project_id": "kasikotte-elephant-underpass-gosl",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "southern-fishery-harbours-development-gosl",
+   "project_id": "southern-fishery-harbours-development",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "ditwah-livestock-farm-compensation-gosl",
+   "project_id": "ditwah-livestock-farm-compensation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "ditwah-livestock-farm-compensation-worldbank",
+   "project_id": "ditwah-livestock-farm-compensation",
+   "funder": "world_bank",
+   "funder_name": "World Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "relief"
+  },
+  {
+   "id": "battery-storage-160mw-boo-unknown",
+   "project_id": "battery-storage-160mw-boo",
+   "funder": "unknown",
+   "funder_name": "Unknown (Build-Own-Operate private developers)",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "petrol-supply-contract-epdesa-gosl",
+   "project_id": "petrol-supply-contract-epdesa",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka / Ceylon Petroleum Corporation",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "sri-lanka-legal-aid-commission-recruitment-23-gosl",
+   "project_id": "sri-lanka-legal-aid-commission-recruitment-23",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "mechanized-harvesting-operator-training-programme-gosl",
+   "project_id": "mechanized-harvesting-operator-training-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "2026-school-footwear-voucher-programme-gosl-unclear-2026-02-27",
+   "line_id": "2026-school-footwear-voucher-programme-gosl",
+   "date": "2026-02-27",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": 3000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "School footwear voucher validity extended to March 15",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-27-adalk-8f62623e"
+   ],
+   "relation": "update_of:2026-school-footwear-voucher-programme-gosl-unclear-2026-02-27",
+   "notes": null
+  },
+  {
+   "id": "kerawalapitiya-garbage-fire-environmental-investigation-gosl-proposed-2026-02-27",
+   "line_id": "kerawalapitiya-garbage-fire-environmental-investigation-gosl",
+   "date": "2026-02-27",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ministry orders probe into Kerawalapitiya dump fire impact",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-27-adalk-868fe14e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "himikam-full-land-deed-programme-gosl-launched-2026-02-27",
+   "line_id": "himikam-full-land-deed-programme-gosl",
+   "date": "2026-02-27",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President launches Himikam land deed handover ceremony in Anuradhapura",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-26-adalk-b1f610a8"
+   ],
+   "relation": "repeat_of:himikam-full-land-deed-programme-gosl-launched-2026-02-27",
+   "notes": null
+  },
+  {
+   "id": "digital-nomad-visa-program-gosl-launched-2026-02-26",
+   "line_id": "digital-nomad-visa-program-gosl",
+   "date": "2026-02-26",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka relaunches Digital Nomad Visa facility at Katunayake airport",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-27-adalk-680b8b7f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "q2-2026-electricity-tariff-revision-gosl-proposed-2026-02-25",
+   "line_id": "q2-2026-electricity-tariff-revision-gosl",
+   "date": "2026-02-25",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Public comments sought on 2026 electricity tariff revision",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-25-adalk-65965823"
+   ],
+   "relation": "repeat_of:q2-2026-electricity-tariff-revision-gosl-proposed-2026-02-14",
+   "notes": null
+  },
+  {
+   "id": "mandaitivu-international-cricket-stadium-gosl-underway-2026-02-25",
+   "line_id": "mandaitivu-international-cricket-stadium-gosl",
+   "date": "2026-02-25",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet confirms Jaffna cricket stadium construction continues, not halted",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-25-adalk-48344b32"
+   ],
+   "relation": "update_of:mandaitivu-international-cricket-stadium-gosl-halted-2026-02-24",
+   "notes": null
+  },
+  {
+   "id": "lakvijaya-coal-supply-review-committee-gosl-govt_authorised-2026-02-25",
+   "line_id": "lakvijaya-coal-supply-review-committee-gosl",
+   "date": "2026-02-25",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ministry appoints expert committee to review Lakvijaya coal supply method",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-25-adalk-cece8425"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mandaitivu-international-cricket-stadium-gosl-halted-2026-02-24",
+   "line_id": "mandaitivu-international-cricket-stadium-gosl",
+   "date": "2026-02-24",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Jaffna cricket stadium construction halted over missing environmental approval",
+   "confidence": "high",
+   "reports": [
+    "2026-02-24-adalk-a89713f1"
+   ],
+   "relation": "repeat_of:mandaitivu-international-cricket-stadium-gosl-halted-2026-02-24",
+   "notes": null
+  },
+  {
+   "id": "matale-jackfruit-market-shops-gosl-launched-2026-02-23",
+   "line_id": "matale-jackfruit-market-shops-gosl",
+   "date": "2026-02-23",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 9600000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "New jackfruit vendor shops opened in Matale, funded by President's Office",
+   "confidence": "high",
+   "reports": [
+    "2026-02-24-adalk-a5a32a09"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "us-coast-guard-cutter-decisive-transfer-usa-underway-2026-02-23",
+   "line_id": "us-coast-guard-cutter-decisive-transfer-usa",
+   "date": "2026-02-23",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "US Coast Guard cutter departs Baltimore en route to Sri Lanka Navy",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-23-adalk-0b1e6a03"
+   ],
+   "relation": "repeat_of:us-coast-guard-cutter-decisive-transfer-usa-underway-2026-02-21",
+   "notes": null
+  },
+  {
+   "id": "paddy-purchase-2025-2026-maha-gosl-underway-2026-02-22",
+   "line_id": "paddy-purchase-2025-2026-maha-gosl",
+   "date": "2026-02-22",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Paddy Marketing Board opens 18 purchase centres in Southern Province",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-22-adalk-850f0c8a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "education-teacher-recruitment-23304-gosl-govt_authorised-2026-02-20",
+   "line_id": "education-teacher-recruitment-23304-gosl",
+   "date": "2026-02-20",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Approval confirmed for recruiting 23,000+ teachers in 2026",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-20-adalk-bfbfffef"
+   ],
+   "relation": "repeat_of:education-teacher-recruitment-23304-gosl-govt_authorised-2026-02-18",
+   "notes": null
+  },
+  {
+   "id": "mirigama-kadawatha-expressway-development-china-underway-2026-02-20",
+   "line_id": "mirigama-kadawatha-expressway-development-china",
+   "date": "2026-02-20",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Kadawatha-Mirigama expressway section 42% complete, targeted 2028",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-20-adalk-49c9aa31"
+   ],
+   "relation": "update_of:mirigama-kadawatha-expressway-development-china-underway-2026-01-01",
+   "notes": null
+  },
+  {
+   "id": "colombo-light-rail-cancellation-compensation-gosl-spent-2026-02-20",
+   "line_id": "colombo-light-rail-cancellation-compensation-gosl",
+   "date": "2026-02-20",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 1250000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government paid consultant compensation after cancelling light rail project",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-20-adalk-35142bda"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "weligama-coconut-wilt-disease-control-gosl-allocated-2026-02-19",
+   "line_id": "weligama-coconut-wilt-disease-control-gosl",
+   "date": "2026-02-19",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 122000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds allocated to control Weligama coconut leaf wilting disease",
+   "confidence": "high",
+   "reports": [
+    "2026-02-19-adalk-b311bc2c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "pinnawala-free-elephant-forest-unit-gosl-launched-2026-02-18",
+   "line_id": "pinnawala-free-elephant-forest-unit-gosl",
+   "date": "2026-02-18",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister opens new 'Free Elephant Forest' unit at Pinnawala",
+   "confidence": "low",
+   "reports": [
+    "2026-02-18-adalk-a8963bb7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-battery-storage-300mw-gosl-proposed-2026-02-18",
+   "line_id": "national-battery-storage-300mw-gosl",
+   "date": "2026-02-18",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister says tender planned for new 300MW battery storage system",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-18-adalk-4ce5c2a8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "labour-welfare-fund-closure-gosl-govt_authorised-2026-02-17",
+   "line_id": "labour-welfare-fund-closure-gosl",
+   "date": "2026-02-17",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves closing Labour Welfare Fund by June 2026",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-17-adalk-7d0bd756"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nanu-oya-ambewela-railway-restoration-gosl-underway-2026-02-17",
+   "line_id": "nanu-oya-ambewela-railway-restoration-gosl",
+   "date": "2026-02-17",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Repair work continues on landslide-hit Ambewela-Nanuoya rail section",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-17-adalk-2f1c022d"
+   ],
+   "relation": "repeat_of:nanu-oya-ambewela-railway-restoration-gosl-underway-2026-02-15",
+   "notes": null
+  },
+  {
+   "id": "jica-health-sector-cardiac-units-japan-funder_approved-2026-02-17",
+   "line_id": "jica-health-sector-cardiac-units-japan",
+   "date": "2026-02-17",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 7903000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "JICA agrees to resume cardiac catheterization units at five hospitals",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-17-adalk-5459a460"
+   ],
+   "relation": "repeat_of:jica-health-sector-cardiac-units-japan-funder_approved-2026-02-17",
+   "notes": null
+  },
+  {
+   "id": "archaeological-site-conservation-programme-gosl-proposed-2026-02-17",
+   "line_id": "archaeological-site-conservation-programme-gosl",
+   "date": "2026-02-17",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Plans to identify and conserve 1,000 unidentified archaeological sites",
+   "confidence": "low",
+   "reports": [
+    "2026-02-17-adalk-6a5294ef"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kandy-district-temple-reconstruction-ditwah-gosl-launched-2026-02-17",
+   "line_id": "kandy-district-temple-reconstruction-ditwah-gosl",
+   "date": "2026-02-17",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Launches reconstruction of Cyclone Ditwah-damaged temples in Kandy district",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-17-adalk-6a5294ef"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "paddy-purchase-2025-2026-maha-gosl-allocated-2026-02-16",
+   "line_id": "paddy-purchase-2025-2026-maha-gosl",
+   "date": "2026-02-16",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 10000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs. 10 billion allocated to purchase Maha season paddy",
+   "confidence": "high",
+   "reports": [
+    "2026-02-16-adalk-d7776036"
+   ],
+   "relation": "repeat_of:paddy-purchase-2025-2026-maha-gosl-allocated-2026-02-16",
+   "notes": null
+  },
+  {
+   "id": "microfinance-credit-regulatory-authority-gosl-govt_authorised-2026-02-10",
+   "line_id": "microfinance-credit-regulatory-authority-gosl",
+   "date": "2026-02-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Parliamentary committee approves Microfinance and Credit Regulatory Authority bill",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-16-adalk-a1e3f82f"
+   ],
+   "relation": "update_of:microfinance-credit-regulatory-authority-gosl-unclear-2026-02-10",
+   "notes": null
+  },
+  {
+   "id": "sripada-harita-wandana-cleanup-programme-gosl-proposed-2026-02-19",
+   "line_id": "sripada-harita-wandana-cleanup-programme-gosl",
+   "date": "2026-02-19",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "National programme to clean Sri Pada pilgrimage site under Clean Sri Lanka",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-16-adalk-41b0ebae"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "puttalam-palavi-rail-service-restoration-gosl-launched-2026-02-16",
+   "line_id": "puttalam-palavi-rail-service-restoration-gosl",
+   "date": "2026-02-16",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Train service resumes fully to Puttalam after cyclone damage repair",
+   "confidence": "high",
+   "reports": [
+    "2026-02-16-adalk-a8435878"
+   ],
+   "relation": "repeat_of:puttalam-palavi-rail-service-restoration-gosl-launched-2026-02-16",
+   "notes": null
+  },
+  {
+   "id": "q2-2026-electricity-tariff-revision-gosl-proposed-2026-02-14",
+   "line_id": "q2-2026-electricity-tariff-revision-gosl",
+   "date": "2026-02-14",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "CEB proposes 13.56% electricity tariff hike for Q2 2026",
+   "confidence": "high",
+   "reports": [
+    "2026-02-14-adalk-4d651aaf"
+   ],
+   "relation": "repeat_of:q2-2026-electricity-tariff-revision-gosl-proposed-2026-02-14",
+   "notes": null
+  },
+  {
+   "id": "anuradhapura-international-sports-complex-gosl-proposed-2026-02-13",
+   "line_id": "anuradhapura-international-sports-complex-gosl",
+   "date": "2026-02-13",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ministers inspect 200-acre site for new Anuradhapura sports complex",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-14-adalk-fc317ec8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nagollagama-new-post-office-gosl-completed-2026-02-13",
+   "line_id": "nagollagama-new-post-office-gosl",
+   "date": "2026-02-13",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 13500000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "New Nagollagama post office building handed over to public",
+   "confidence": "high",
+   "reports": [
+    "2026-02-14-adalk-4961d049"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "postal-department-fleet-modernisation-gosl-released-2026-02-13",
+   "line_id": "postal-department-fleet-modernisation-gosl",
+   "date": "2026-02-13",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 590000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Postal trucks and crew cabs added to transport fleet",
+   "confidence": "high",
+   "reports": [
+    "2026-02-14-adalk-4961d049"
+   ],
+   "relation": "repeat_of:postal-department-fleet-modernisation-gosl-released-2026-02-12",
+   "notes": null
+  },
+  {
+   "id": "postal-service-it-equipment-procurement-gosl-released-2026-02-13",
+   "line_id": "postal-service-it-equipment-procurement-gosl",
+   "date": "2026-02-13",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Desktop, laptop and tablet distribution to post offices",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-14-adalk-4961d049"
+   ],
+   "relation": "repeat_of:postal-service-it-equipment-procurement-gosl-released-2026-02-12",
+   "notes": null
+  },
+  {
+   "id": "sri-lanka-post-2025-revenue-unknown-unclear-2026-02-13",
+   "line_id": "sri-lanka-post-2025-revenue-unknown",
+   "date": "2026-02-13",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": 13450000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka Post reports 2025 revenue of Rs 13.45 billion",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-14-adalk-4961d049"
+   ],
+   "relation": "update_of:sri-lanka-post-2025-revenue-unknown-unclear-2026-01-12",
+   "notes": null
+  },
+  {
+   "id": "postal-department-building-construction-2025-gosl-allocated-2026-02-13",
+   "line_id": "postal-department-building-construction-2025-gosl",
+   "date": "2026-02-13",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs 600 million allocated for new postal building construction, 2025",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-14-adalk-4961d049"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-drug-eradication-campaign-gosl-launched-2026-02-14",
+   "line_id": "national-drug-eradication-campaign-gosl",
+   "date": "2026-02-14",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Drug eradication operation launched in Thanamalwila, Uva Province",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-13-adalk-c4c0cebf"
+   ],
+   "relation": "repeat_of:national-drug-eradication-campaign-gosl-underway-2026-02-11",
+   "notes": null
+  },
+  {
+   "id": "national-high-speed-broadband-2029-gosl-proposed-2026-02-06",
+   "line_id": "national-high-speed-broadband-2029-gosl",
+   "date": "2026-02-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Plan to give nationwide high-speed broadband access by 2029",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-13-adalk-38b39bce"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "lanka-metro-transit-bus-service-gosl-proposed-2026-02-13",
+   "line_id": "lanka-metro-transit-bus-service-gosl",
+   "date": "2026-02-13",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Pilot 'Lanka Metro Transit' bus service planned for Colombo",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-13-adalk-4d36b58b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "postal-department-fleet-modernisation-gosl-released-2026-02-12",
+   "line_id": "postal-department-fleet-modernisation-gosl",
+   "date": "2026-02-12",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 590000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "10 lorries, 20 crew cabs handed to postal fleet",
+   "confidence": "high",
+   "reports": [
+    "2026-02-12-adalk-5f5c907b"
+   ],
+   "relation": "repeat_of:postal-department-fleet-modernisation-gosl-released-2026-02-12",
+   "notes": null
+  },
+  {
+   "id": "postal-service-modernisation-2026-gosl-launched-2026-02-12",
+   "line_id": "postal-service-modernisation-2026-gosl",
+   "date": "2026-02-12",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 849000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Postal modernisation project total allocation launched",
+   "confidence": "high",
+   "reports": [
+    "2026-02-12-adalk-5f5c907b"
+   ],
+   "relation": "repeat_of:postal-service-modernisation-2026-gosl-launched-2026-02-12",
+   "notes": null
+  },
+  {
+   "id": "postal-service-it-equipment-procurement-gosl-released-2026-02-12",
+   "line_id": "postal-service-it-equipment-procurement-gosl",
+   "date": "2026-02-12",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Desktops, laptops, tablets distributed to post offices",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-12-adalk-5f5c907b"
+   ],
+   "relation": "repeat_of:postal-service-it-equipment-procurement-gosl-released-2026-02-12",
+   "notes": null
+  },
+  {
+   "id": "postal-service-recruitment-2800-gosl-proposed-2026-02-12",
+   "line_id": "postal-service-recruitment-2800-gosl",
+   "date": "2026-02-12",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "2,800 postal staff to be recruited and made permanent",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-12-adalk-5f5c907b"
+   ],
+   "relation": "repeat_of:postal-service-recruitment-2800-gosl-proposed-2026-02-13",
+   "notes": null
+  },
+  {
+   "id": "sri-lanka-post-2025-revenue-unknown-unclear-2026-02-12",
+   "line_id": "sri-lanka-post-2025-revenue-unknown",
+   "date": "2026-02-12",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": 13450000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka Post 2025 annual revenue reported",
+   "confidence": "high",
+   "reports": [
+    "2026-02-12-adalk-5f5c907b"
+   ],
+   "relation": "repeat_of:sri-lanka-post-2025-revenue-unknown-unclear-2026-02-13",
+   "notes": null
+  },
+  {
+   "id": "kasikotte-elephant-underpass-gosl-underway-2026-02-12",
+   "line_id": "kasikotte-elephant-underpass-gosl",
+   "date": "2026-02-12",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Elephant underpass construction resumes on Mahawa-Omanthe rail line",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-12-adalk-14789843"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "navy-maritime-security-services-gosl-unclear-2026-02-12",
+   "line_id": "navy-maritime-security-services-gosl",
+   "date": "2026-02-12",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": 598000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Navy earned $598,000 from maritime security services",
+   "confidence": "high",
+   "reports": [
+    "2026-02-12-adalk-9c59b1d8"
+   ],
+   "relation": "repeat_of:navy-maritime-security-services-gosl-unclear-2026-02-08",
+   "notes": null
+  },
+  {
+   "id": "accessible-bus-pilot-clean-sri-lanka-gosl-govt_authorised-2026-02-10",
+   "line_id": "accessible-bus-pilot-clean-sri-lanka-gosl",
+   "date": "2026-02-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves 10 accessible low-floor buses via Lanka Metro Transit",
+   "confidence": "high",
+   "reports": [
+    "2026-02-10-adalk-a3b47d20"
+   ],
+   "relation": "repeat_of:accessible-bus-pilot-clean-sri-lanka-gosl-govt_authorised-2026-02-10",
+   "notes": null
+  },
+  {
+   "id": "lgbtiq-tourism-promotion-unknown-halted-2026-02-10",
+   "line_id": "lgbtiq-tourism-promotion-unknown",
+   "date": "2026-02-10",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Attorney General confirms withdrawal of LGBTIQ tourism promotion approval",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-10-adalk-2dd920be"
+   ],
+   "relation": "repeat_of:lgbtiq-tourism-promotion-unknown-halted-2026-02-10",
+   "notes": null
+  },
+  {
+   "id": "southern-fishery-harbours-development-gosl-proposed-2026-02-10",
+   "line_id": "southern-fishery-harbours-development-gosl",
+   "date": "2026-02-10",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Plans prepared to develop three southern fishery harbours",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-10-adalk-6933cf79"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ditwah-livestock-farm-compensation-gosl-spent-2026-02-09",
+   "line_id": "ditwah-livestock-farm-compensation-gosl",
+   "date": "2026-02-09",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 3200000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government paid farmers compensation for cyclone-damaged livestock farms",
+   "confidence": "high",
+   "reports": [
+    "2026-02-09-adalk-b7482c4e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ditwah-livestock-farm-compensation-worldbank-disbursed-2026-02-09",
+   "line_id": "ditwah-livestock-farm-compensation-worldbank",
+   "date": "2026-02-09",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 2500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "World Bank funded post-disaster emergency livestock vaccination programme",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-09-adalk-b7482c4e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "colombo-cancer-early-detection-centre-gosl-launched-2026-02-09",
+   "line_id": "colombo-cancer-early-detection-centre-gosl",
+   "date": "2026-02-09",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cancer early detection centre opened at Colombo National Hospital",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-09-adalk-a1309598"
+   ],
+   "relation": "repeat_of:colombo-cancer-early-detection-centre-gosl-launched-2026-02-10",
+   "notes": null
+  },
+  {
+   "id": "india-grant-ditwah-bridge-equipment-released-2026-02-06",
+   "line_id": "india-grant-ditwah-bridge-equipment",
+   "date": "2026-02-06",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India navy ship delivers ten Bailey bridges for disaster recovery",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-06-adalk-c3bf5ce9"
+   ],
+   "relation": "repeat_of:india-grant-ditwah-bridge-equipment-released-2026-02-05",
+   "notes": null
+  },
+  {
+   "id": "battery-storage-160mw-boo-unknown-contract_awarded-2026-02-02",
+   "line_id": "battery-storage-160mw-boo-unknown",
+   "date": "2026-02-02",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves tender for 160MW battery storage system",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-03-adalk-b9617557"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "petrol-supply-contract-epdesa-gosl-contract_awarded-2026-02-03",
+   "line_id": "petrol-supply-contract-epdesa-gosl",
+   "date": "2026-02-03",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awards 6-month petrol shipment contract to Singapore firm",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-03-adalk-357061b4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ifc-risk-sharing-facility-combank-launched-2026-02-03",
+   "line_id": "ifc-risk-sharing-facility-combank",
+   "date": "2026-02-03",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 60000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "IFC launches $60m SME risk-sharing facility with Commercial Bank",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-03-adalk-37d62cbf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sri-lanka-legal-aid-commission-recruitment-23-gosl-launched-2026-02-02",
+   "line_id": "sri-lanka-legal-aid-commission-recruitment-23-gosl",
+   "date": "2026-02-02",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government appoints 23 Legal Aid Commission management assistants",
+   "confidence": "high",
+   "reports": [
+    "2026-02-02-adalk-38b6810c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mechanized-harvesting-operator-training-programme-gosl-launched-2026-01-28",
+   "line_id": "mechanized-harvesting-operator-training-programme-gosl",
+   "date": "2026-01-28",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Agriculture Department launches island-wide harvester operator training",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-01-adalk-c8ed7f3d"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-02-27-adalk-8f62623e": {
+   "date": "2026-02-27",
+   "title": "පාසල් පාවහන් තිළිණපතේ වලංගු කාලය දිගු කරයි",
+   "url": "https://www.ada.lk/breaking_news/පාසල්-පාවහන්-තිළිණපතේ-වලංගු-කාලය-දිගු-කරයි/11-421449",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-27-adalk-868fe14e": {
+   "date": "2026-02-27",
+   "title": "කෙරවලපිටියේ ගින්නේ පාරිසරික බලපෑමට විමර්ශණයක්",
+   "url": "https://www.ada.lk/breaking_news/කෙරවලපිටියේ-ගින්නේ-පාරිසරික-බලපෑමට-විමර්ශණයක්/11-421444",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-27-adalk-680b8b7f": {
+   "date": "2026-02-27",
+   "title": "කටුනායකට යළිත් ඩිජිටල් නොමෑඩ් වීසා පහසුකම",
+   "url": "https://www.ada.lk/breaking_news/කටුනායකට-යළිත්-ඩිජිටල්-නොමෑඩ්-වීසා-පහසුකම/11-421439",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-26-adalk-b1f610a8": {
+   "date": "2026-02-26",
+   "title": "හිමිකම නිදහස් පත්‍ර දීමනා ප්‍රදානය හෙට",
+   "url": "https://www.ada.lk/breaking_news/හිමිකම-නිදහස්-පත්‍ර-දීමනා-ප්‍රදානය-හෙට/11-421434",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-25-adalk-65965823": {
+   "date": "2026-02-25",
+   "title": "2026 වසරේ විදුලි ගාස්තු වැඩිවෙයි ? මහජන අදහස් විමසීම අද සිට",
+   "url": "https://www.ada.lk/breaking_news/2026-වසරේ-විදුලි-ගාස්තු-වැඩිවෙයි---මහජන-අදහස්-විමසීම-අද-සිට/11-421407",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-25-adalk-48344b32": {
+   "date": "2026-02-25",
+   "title": "යාපනය ක්‍රිකට් ක්‍රීඩාංගණයේ ඉදිකිරිම් ඉදිරියට යනවා",
+   "url": "https://www.ada.lk/sports/යාපනය-ක්‍රිකට්-ක්‍රීඩාංගණයේ-ඉදිකිරිම්-ඉදිරියට-යනවා/9-421402",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-25-adalk-cece8425": {
+   "date": "2026-02-25",
+   "title": "ගල් අඟුරු සැපයීමේ ක්‍රමය ඇගයීමට විශේෂඥ කමිටුවක්",
+   "url": "https://www.ada.lk/breaking_news/ගල්-අඟුරු-සැපයීමේ-ක්‍රමය-ඇගයීමට-විශේෂඥ-කමිටුවක්/11-421400",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-24-adalk-a89713f1": {
+   "date": "2026-02-24",
+   "title": "ජනපති මුල්ගල් තැබූ යාපනය ක්‍රිකට් ක්‍රීඩාංගනය අතරමග නවතියි !",
+   "url": "https://www.ada.lk/breaking_news/ජනපති-මුල්ගල්-තැබූ-යාපනය-ක්‍රිකට්-ක්‍රීඩාංගනය-අතරමග-නවතියි--/11-421392",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-24-adalk-a5a32a09": {
+   "date": "2026-02-24",
+   "title": "මාතලේ කොස් අලෙවිසැල් විවෘත කරයි",
+   "url": "https://www.ada.lk/picture_story/මාතලේ-කොස්-අලෙවිසැල්-විවෘත-කරයි/10-421388",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-23-adalk-0b1e6a03": {
+   "date": "2026-02-23",
+   "title": "ඇමෙරිකාව නාවික හමුදාවට දුන් ආවේක්ෂණ නෞකාව ඇමෙරිකාවේ සිට ලංකාවට ගමන් අරඹයි",
+   "url": "https://www.ada.lk/breaking_news/ඇමෙරිකාව-නාවික-හමුදාවට-දුන්-ආවේක්ෂණ-නෞකාව-ඇමෙරිකාවේ-සිට-ලංකාවට-ගමන්-අරඹයි/11-421378",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-22-adalk-850f0c8a": {
+   "date": "2026-02-22",
+   "title": "දකුණේ වී ගන්න මධ්‍යස්ථාන 18ක් විවෘතයි",
+   "url": "https://www.ada.lk/breaking_news/දකුණේ-වී-ගන්න-මධ්‍යස්ථාන-18ක්-විවෘතයි/11-421358",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-20-adalk-bfbfffef": {
+   "date": "2026-02-20",
+   "title": "2026 දී ගුරුවරුන් 23,000ක් බඳවා ගන්නවා",
+   "url": "https://www.ada.lk/breaking_news/2026-දී-ගුරුවරුන්-23-000ක්-බඳවා-ගන්නවා/11-421345",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-20-adalk-35142bda": {
+   "date": "2026-02-20",
+   "title": "සැහැල්ලු දුම්රිය ව්‍යාපෘතියට වැය කළ රු. මිලියන 5978ක් නිෂ්කාර්ය වියදමක් වෙලා",
+   "url": "https://www.ada.lk/breaking_news/සැහැල්ලු-දුම්රිය-ව්‍යාපෘතියට-වැය-කළ-රු--මිලියන-5978ක්-නිෂ්කාර්ය-වියදමක්-වෙලා/11-421342",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-20-adalk-49c9aa31": {
+   "date": "2026-02-20",
+   "title": "කඩවත මීරිගම අධිවේගයේ වැඩ සියයට 42ක් අවසන්, 2028දී විවෘත කිරීමේ ඉලක්කයක්",
+   "url": "https://www.ada.lk/breaking_news/කඩවත-මීරිගම-අධිවේගයේ-වැඩ-සියයට-42ක්-අවසන්--2028දී-විවෘත-කිරීමේ-ඉලක්කයක්/11-421333",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-19-adalk-b311bc2c": {
+   "date": "2026-02-19",
+   "title": "පොල් කොළ මැලවිමේ රෝගය දකුණෙන් පිටතට යාම වැළැක්විමට යයි",
+   "url": "https://www.ada.lk/breaking_news/පොල්-කොළ-මැලවිමේ-රෝගය-දකුණෙන්-පිටතට-යාම-වැළැක්විමට-යයි/11-421311",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-18-adalk-a8963bb7": {
+   "date": "2026-02-18",
+   "title": "පින්නවලින් හොඳ ආදායමක්",
+   "url": "https://www.ada.lk/breaking_news/පින්නවලින්-හොඳ-ආදායමක්/11-421294",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-18-adalk-4ce5c2a8": {
+   "date": "2026-02-18",
+   "title": "මෙගාවොට් 300ක විදුලිය ගබඩාකරණ බැටරි පද්ධතියක්",
+   "url": "https://www.ada.lk/breaking_news/මෙගාවොට්-300ක-විදුලිය-ගබඩාකරණ-බැටරි-පද්ධතියක්/11-421292",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-17-adalk-7d0bd756": {
+   "date": "2026-02-17",
+   "title": "ශ්‍රම වාසනා අරමුදල ඈවර කරයි",
+   "url": "https://www.ada.lk/breaking_news/ශ්‍රම-වාසනා-අරමුදල-ඈවර-කරයි/11-421286",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-17-adalk-2f1c022d": {
+   "date": "2026-02-17",
+   "title": "අඹේවෙළ සහ නානුඔය  දුම්රිය මාර්ගය ප්‍රතිසංස්කරණය කඩිනම් කරයි",
+   "url": "https://www.ada.lk/picture_story/අඹේවෙළ-සහ-නානුඔය--දුම්රිය-මාර්ගය-ප්‍රතිසංස්කරණය-කඩිනම්-කරයි/10-421283",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-17-adalk-5459a460": {
+   "date": "2026-02-17",
+   "title": "ජපානය නතර කර දැමූ ව්‍යාපෘති කිහිපයක් යළි අරඹයි",
+   "url": "https://www.ada.lk/breaking_news/ජපානය-නතර-කර-දැමූ-ව්‍යාපෘති-කිහිපයක්-යළි-අරඹයි/11-421281",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-17-adalk-6a5294ef": {
+   "date": "2026-02-17",
+   "title": "හඳුනා නොගත් පුරා විද්‍යාත්මක ස්ථාන 1000 ක් හඳුනාගෙන සංරක්ෂණය කරයි",
+   "url": "https://www.ada.lk/breaking_news/හඳුනා-නොගත්-පුරා-විද්‍යාත්මක-ස්ථාන-1000-ක්-හඳුනාගෙන-සංරක්ෂණය-කරයි/11-421273",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-16-adalk-d7776036": {
+   "date": "2026-02-16",
+   "title": "මහ කන්නයේ වී සහතික මිල ප්‍රකාශයට",
+   "url": "https://www.ada.lk/breaking_news/මහ-කන්නයේ-වී-සහතික-මිල-ප්‍රකාශයට/11-421266",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-16-adalk-a1e3f82f": {
+   "date": "2026-02-16",
+   "title": "ණයට මුදල් දෙන අයට බලපත්‍රයක් ලබා ගැනිම අනිවාර්ය කරයි",
+   "url": "https://www.ada.lk/breaking_news/ණයට-මුදල්-දෙන-අයට-බලපත්‍රයක්-ලබා-ගැනිම-අනිවාර්ය-කරයි/11-421263",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-16-adalk-41b0ebae": {
+   "date": "2026-02-16",
+   "title": "සිරිපා අඩවිය 2028දී මීට වසර 40කට පෙර තිබූ තත්ත්වයට",
+   "url": "https://www.ada.lk/breaking_news/සිරිපා-අඩවිය-2028දී-මීට-වසර-40කට-පෙර-තිබූ-තත්ත්වයට/11-421261",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-16-adalk-a8435878": {
+   "date": "2026-02-16",
+   "title": "පුත්තලමටම දුම්රිය යයි",
+   "url": "https://www.ada.lk/breaking_news/පුත්තලමටම-දුම්රිය-යයි/11-421255",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-14-adalk-4d651aaf": {
+   "date": "2026-02-14",
+   "title": "සියයට 13.5ක විදුලි ගාස්තු වැඩිවීමක් ඉල්ලයි",
+   "url": "https://www.ada.lk/breaking_news/සියයට-13-5ක-විදුලි-ගාස්තු-වැඩිවීමක්-ඉල්ලයි/11-421241",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-14-adalk-fc317ec8": {
+   "date": "2026-02-14",
+   "title": "අනුරාධපුරට නව ක්‍රීඩා සංකීර්ණයක්",
+   "url": "https://www.ada.lk/sports/අනුරාධපුරට-නව-ක්‍රීඩා-සංකීර්ණයක්/9-421237",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-14-adalk-4961d049": {
+   "date": "2026-02-14",
+   "title": "ස්පීඩ් පෝස්ට් වැඩිම ආදායම නාගොල්ලාගම තැපැල් කාර්යාලයට",
+   "url": "https://www.ada.lk/breaking_news/ස්පීඩ්-පෝස්ට්-වැඩිම-ආදායම-නාගොල්ලාගම-තැපැල්-කාර්යාලයට/11-421236",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-13-adalk-c4c0cebf": {
+   "date": "2026-02-13",
+   "title": "තණමල්විලින් ගංජා තුරන් කිරීමේ මෙහෙයුම හෙට ඇරඹෙයි",
+   "url": "https://www.ada.lk/breaking_news/තණමල්විලින්-ගංජා-තුරන්-කිරීමේ-මෙහෙයුම-හෙට-ඇරඹෙයි/11-421234",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-13-adalk-38b39bce": {
+   "date": "2026-02-13",
+   "title": "2029දී සෑම පුද්ගලයෙකුටම අධිවේගී අන්තර්ජාල සබඳතාවක්",
+   "url": "https://www.ada.lk/technology/2029දී-සෑම-පුද්ගලයෙකුටම-අධිවේගී-අන්තර්ජාල-සබඳතාවක්/5-421229",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-13-adalk-4d36b58b": {
+   "date": "2026-02-13",
+   "title": "මෙට්‍රෝ සමාගමට ඕන පත්ල පහත් බස් රථ මේ වසරේ අගෝස්තුවේදි එයි",
+   "url": "https://www.ada.lk/breaking_news/මෙට්‍රෝ-සමාගමට-ඕන-පත්ල-පහත්-බස්-රථ-මේ-වසරේ-අගෝස්තුවේදි-එයි/11-421220",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-12-adalk-5f5c907b": {
+   "date": "2026-02-12",
+   "title": "තැපෑලට මිලියන 590 කට අධික වටිනාකමකින් යුත් වාහන",
+   "url": "https://www.ada.lk/breaking_news/තැපෑලට-මිලියන-590-කට-අධික-වටිනාකමකින්-යුත්-වාහන/11-421212",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-12-adalk-14789843": {
+   "date": "2026-02-12",
+   "title": "කාසිකොටේ අලි උමගේ වැඩ අරඹයි",
+   "url": "https://www.ada.lk/breaking_news/කාසිකොටේ-අලි-උමගේ-වැඩ-අරඹයි/11-421201",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-12-adalk-9c59b1d8": {
+   "date": "2026-02-12",
+   "title": "නෞකා ආරක්ෂාවෙන් නාවික හමුදාව ඩොලර් 598000ක් උපයයි",
+   "url": "https://www.ada.lk/breaking_news/නෞකා-ආරක්ෂාවෙන්-නාවික-හමුදාව-ඩොලර්-598000ක්-උපයයි/11-421199",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-10-adalk-a3b47d20": {
+   "date": "2026-02-10",
+   "title": "පත්ල පහත් නව බස් 10ක් මෙට්‍රෝ සමාගම හරහා සේවයට",
+   "url": "https://www.ada.lk/breaking_news/පත්ල-පහත්-නව-බස්-10ක්-මෙට්‍රෝ-සමාගම-හරහා-සේවයට/11-421177",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-10-adalk-2dd920be": {
+   "date": "2026-02-10",
+   "title": "සමරිසි සංචාරක ප්‍රවර්ධන වැඩ සටහනත් ආණ්ඩුව රිවස් කරයි",
+   "url": "https://www.ada.lk/breaking_news/සමරිසි-සංචාරක-ප්‍රවර්ධන-වැඩ-සටහනත්-ආණ්ඩුව-රිවස්-කරයි/11-421174",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-10-adalk-6933cf79": {
+   "date": "2026-02-10",
+   "title": "දකුණේ ධීවර වරාය තුනක් සංවර්ධනයට",
+   "url": "https://www.ada.lk/breaking_news/දකුණේ-ධීවර-වරාය-තුනක්-සංවර්ධනයට/11-421163",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-09-adalk-b7482c4e": {
+   "date": "2026-02-09",
+   "title": "දිත්වා නිසා හානි වූ සත්ත්ව ගොවිපොළ සඳහා රු.මි. 3200ක් ගොවීන්ට ගෙව්වා",
+   "url": "https://www.ada.lk/breaking_news/දිත්වා-නිසා-හානි-වූ-සත්ත්ව-ගොවිපොළ-සඳහා-රු-මි--3200ක්-ගොවීන්ට-ගෙව්වා/11-421160",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-09-adalk-a1309598": {
+   "date": "2026-02-09",
+   "title": "සෑම දිස්ත්‍රික්කයකටම පිළිකා කලින් හඳුනා ගැනීමේ මධ්‍යස්ථානයක්",
+   "url": "https://www.ada.lk/breaking_news/සෑම-දිස්ත්‍රික්කයකටම-පිළිකා-කලින්-හඳුනා-ගැනීමේ-මධ්‍යස්ථානයක්/11-421156",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-06-adalk-c3bf5ce9": {
+   "date": "2026-02-06",
+   "title": "ඉන්දීය  ‘INS GHARIAL’ යුද නැව කොළඹට එයි",
+   "url": "https://www.ada.lk/breaking_news/ඉන්දීය--‘INS-GHARIAL’-යුද-නැව-කොළඹට-එයි/11-421116",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-03-adalk-b9617557": {
+   "date": "2026-02-03",
+   "title": "මෙගාවොට් 160ක බැටරි බලශක්ති ගබඩාකරණ පද්ධතියකට කැබිනට් අනුමැතිය",
+   "url": "https://www.ada.lk/breaking_news/මෙගාවොට්-160ක-බැටරි-බලශක්ති-ගබඩාකරණ-පද්ධතියකට-කැබිනට්-අනුමැතිය/11-421086",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-03-adalk-357061b4": {
+   "date": "2026-02-03",
+   "title": "මාස 6කට පෙට්‍රල් නැව් 5ක් මිලදී ගැනීමේ කොන්ත්‍රාත්තුව සිංගප්පුරු සමාගමකට",
+   "url": "https://www.ada.lk/breaking_news/මාස-6කට-පෙට්‍රල්-නැව්-5ක්-මිලදී-ගැනීමේ-කොන්ත්‍රාත්තුව-සිංගප්පුරු-සමාගමකට/11-421084",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-03-adalk-37d62cbf": {
+   "date": "2026-02-03",
+   "title": "IFC මූල්‍ය සහාය සමග කොමර්ෂල් බැංකු කාන්තා හා කෘෂි ව්‍යාපාර මූල්‍ය පහසුකම්",
+   "url": "https://www.ada.lk/business/IFC-මූල්‍ය-සහාය-සමග-කොමර්ෂල්-බැංකු-කාන්තා-හා-කෘෂි-ව්‍යාපාර-මූල්‍ය-පහසුකම්/7-421075",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-02-adalk-38b6810c": {
+   "date": "2026-02-02",
+   "title": "රාජ්‍ය සේවකයින් ගැන ඇමති හර්ෂණ කී දේ",
+   "url": "https://www.ada.lk/breaking_news/රාජ්‍ය-සේවකයින්-ගැන-ඇමති-හර්ෂණ-කී-දේ/11-421064",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-02-01-adalk-c8ed7f3d": {
+   "date": "2026-02-01",
+   "title": "භූතයාගේ අස්වනු හානිය අවම කිරීමට වැඩසටහනක්",
+   "url": "https://www.ada.lk/breaking_news/භූතයාගේ-අස්වනු-හානිය-අවම-කිරීමට-වැඩසටහනක්/11-421046",
+   "outlet": "Ada",
+   "lang": "si"
+  }
+ }
+}

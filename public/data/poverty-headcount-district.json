@@ -1,0 +1,1330 @@
+{
+  "caveats": [
+    "The 2019 poverty line was adjusted from the 2012/13 basis using NCPI.",
+    "Northern and Eastern provinces were excluded from the first four survey periods; those values are null."
+  ],
+  "country": "LK",
+  "dataset_id": "poverty-headcount-district",
+  "description": "Published Household Income and Expenditure Survey poverty headcount ratios across seven survey periods.",
+  "fields": [
+    {
+      "id": "geography_id",
+      "label": "Geography id",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "geography_name",
+      "label": "Geography",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "survey_period",
+      "label": "Survey period",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "coverage_note",
+      "label": "Coverage note",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "aggregation": "none",
+      "id": "poverty_headcount_ratio_pct",
+      "label": "Poverty headcount ratio",
+      "role": "measure",
+      "type": "number",
+      "unit": "percent"
+    }
+  ],
+  "grain": "One row per geography and survey period.",
+  "primary_key": [
+    "geography_id",
+    "survey_period"
+  ],
+  "rows": [
+    {
+      "coverage_note": null,
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "poverty_headcount_ratio_pct": 28.8,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "poverty_headcount_ratio_pct": 22.7,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "poverty_headcount_ratio_pct": 15.2,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "poverty_headcount_ratio_pct": 8.9,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "poverty_headcount_ratio_pct": 6.7,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "poverty_headcount_ratio_pct": 4.1,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "poverty_headcount_ratio_pct": 14.3,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "poverty_headcount_ratio_pct": 12,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "poverty_headcount_ratio_pct": 6,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "poverty_headcount_ratio_pct": 5,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "poverty_headcount_ratio_pct": 3.6,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "poverty_headcount_ratio_pct": 1.4,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "poverty_headcount_ratio_pct": 0.9,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "poverty_headcount_ratio_pct": 2.3,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "poverty_headcount_ratio_pct": 14,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "poverty_headcount_ratio_pct": 11,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "poverty_headcount_ratio_pct": 9,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "poverty_headcount_ratio_pct": 3.9,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "poverty_headcount_ratio_pct": 2.1,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "poverty_headcount_ratio_pct": 2,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "poverty_headcount_ratio_pct": 5.7,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "poverty_headcount_ratio_pct": 29,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "poverty_headcount_ratio_pct": 20,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "poverty_headcount_ratio_pct": 13,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "poverty_headcount_ratio_pct": 6,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "poverty_headcount_ratio_pct": 3.1,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "poverty_headcount_ratio_pct": 2.9,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "poverty_headcount_ratio_pct": 12.2,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "poverty_headcount_ratio_pct": 37,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "poverty_headcount_ratio_pct": 25,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "poverty_headcount_ratio_pct": 17,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "poverty_headcount_ratio_pct": 10.3,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "poverty_headcount_ratio_pct": 6.2,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "poverty_headcount_ratio_pct": 5.5,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "poverty_headcount_ratio_pct": 14.3,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "poverty_headcount_ratio_pct": 42,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "poverty_headcount_ratio_pct": 30,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "poverty_headcount_ratio_pct": 19,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "poverty_headcount_ratio_pct": 11.4,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "poverty_headcount_ratio_pct": 7.8,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "poverty_headcount_ratio_pct": 3.9,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "poverty_headcount_ratio_pct": 19.6,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "poverty_headcount_ratio_pct": 32,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "poverty_headcount_ratio_pct": 23,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "poverty_headcount_ratio_pct": 34,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "poverty_headcount_ratio_pct": 7.6,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "poverty_headcount_ratio_pct": 6.6,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "poverty_headcount_ratio_pct": 6.3,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "poverty_headcount_ratio_pct": 26.3,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "poverty_headcount_ratio_pct": 32,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "poverty_headcount_ratio_pct": 26,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "poverty_headcount_ratio_pct": 14,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "poverty_headcount_ratio_pct": 10.3,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "poverty_headcount_ratio_pct": 9.9,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "poverty_headcount_ratio_pct": 2.9,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "poverty_headcount_ratio_pct": 13.2,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "poverty_headcount_ratio_pct": 35,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "poverty_headcount_ratio_pct": 27,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "poverty_headcount_ratio_pct": 15,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "poverty_headcount_ratio_pct": 11.2,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "poverty_headcount_ratio_pct": 7.1,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "poverty_headcount_ratio_pct": 4.4,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "poverty_headcount_ratio_pct": 11.1,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "poverty_headcount_ratio_pct": 31,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "poverty_headcount_ratio_pct": 32,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "poverty_headcount_ratio_pct": 13,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "poverty_headcount_ratio_pct": 6.9,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "poverty_headcount_ratio_pct": 4.9,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "poverty_headcount_ratio_pct": 1.2,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "poverty_headcount_ratio_pct": 13.6,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "poverty_headcount_ratio_pct": 8.3,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "poverty_headcount_ratio_pct": 7.7,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "poverty_headcount_ratio_pct": 25.8,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "poverty_headcount_ratio_pct": 20.1,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "poverty_headcount_ratio_pct": 1,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "poverty_headcount_ratio_pct": 8,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "poverty_headcount_ratio_pct": 3.4,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "poverty_headcount_ratio_pct": 2,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "poverty_headcount_ratio_pct": 13.9,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "poverty_headcount_ratio_pct": 28.8,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "poverty_headcount_ratio_pct": 12.7,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "poverty_headcount_ratio_pct": 44.5,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "poverty_headcount_ratio_pct": 12.7,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "poverty_headcount_ratio_pct": 18.2,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "poverty_headcount_ratio_pct": 26.4,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "poverty_headcount_ratio_pct": 19.4,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "poverty_headcount_ratio_pct": 11.3,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "poverty_headcount_ratio_pct": 20.8,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "poverty_headcount_ratio_pct": 5.4,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "poverty_headcount_ratio_pct": 2.6,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "poverty_headcount_ratio_pct": 17.2,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": "Northern and Eastern provinces excluded from this survey period",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "poverty_headcount_ratio_pct": null,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "poverty_headcount_ratio_pct": 9,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "poverty_headcount_ratio_pct": 10,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "poverty_headcount_ratio_pct": 18.3,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "poverty_headcount_ratio_pct": 26,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "poverty_headcount_ratio_pct": 25,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "poverty_headcount_ratio_pct": 15,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "poverty_headcount_ratio_pct": 11.7,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "poverty_headcount_ratio_pct": 6.5,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "poverty_headcount_ratio_pct": 2.9,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "poverty_headcount_ratio_pct": 12.5,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "poverty_headcount_ratio_pct": 31,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "poverty_headcount_ratio_pct": 31,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "poverty_headcount_ratio_pct": 13,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "poverty_headcount_ratio_pct": 10.5,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "poverty_headcount_ratio_pct": 5.1,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "poverty_headcount_ratio_pct": 2.1,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "poverty_headcount_ratio_pct": 10.5,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "poverty_headcount_ratio_pct": 27,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "poverty_headcount_ratio_pct": 20,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "poverty_headcount_ratio_pct": 15,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "poverty_headcount_ratio_pct": 5.7,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "poverty_headcount_ratio_pct": 7.6,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "poverty_headcount_ratio_pct": 3.8,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "poverty_headcount_ratio_pct": 8.1,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "poverty_headcount_ratio_pct": 20,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "poverty_headcount_ratio_pct": 24,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "poverty_headcount_ratio_pct": 13,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "poverty_headcount_ratio_pct": 5.8,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "poverty_headcount_ratio_pct": 6.7,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "poverty_headcount_ratio_pct": 2.2,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "poverty_headcount_ratio_pct": 17,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "poverty_headcount_ratio_pct": 41,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "poverty_headcount_ratio_pct": 37,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "poverty_headcount_ratio_pct": 24,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "poverty_headcount_ratio_pct": 13.3,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "poverty_headcount_ratio_pct": 12.3,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "poverty_headcount_ratio_pct": 6.8,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "poverty_headcount_ratio_pct": 32.3,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "poverty_headcount_ratio_pct": 56,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "poverty_headcount_ratio_pct": 37,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "poverty_headcount_ratio_pct": 33,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "poverty_headcount_ratio_pct": 14.5,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "poverty_headcount_ratio_pct": 20.8,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "poverty_headcount_ratio_pct": 5.8,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "poverty_headcount_ratio_pct": 21,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "poverty_headcount_ratio_pct": 46,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "poverty_headcount_ratio_pct": 34,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "poverty_headcount_ratio_pct": 27,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "poverty_headcount_ratio_pct": 10.4,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "poverty_headcount_ratio_pct": 10.4,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "poverty_headcount_ratio_pct": 6.5,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "poverty_headcount_ratio_pct": 24.9,
+      "survey_period": "2019"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "poverty_headcount_ratio_pct": 36,
+      "survey_period": "1995-96"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "poverty_headcount_ratio_pct": 32,
+      "survey_period": "2002"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "poverty_headcount_ratio_pct": 21,
+      "survey_period": "2006-07"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "poverty_headcount_ratio_pct": 10.8,
+      "survey_period": "2009-10"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "poverty_headcount_ratio_pct": 6.7,
+      "survey_period": "2012-13"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "poverty_headcount_ratio_pct": 7.1,
+      "survey_period": "2016"
+    },
+    {
+      "coverage_note": null,
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "poverty_headcount_ratio_pct": 20.8,
+      "survey_period": "2019"
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "dcs-hies-poverty"
+  ],
+  "title": "Poverty headcount ratio by district",
+  "vintage": "1995/96–2019; latest observation is pre-crisis"
+}

@@ -1,0 +1,238 @@
+{
+  "caveats": [
+    "Rounded province map labels, not district estimates or a provincial time series. Values are modelled rather than official HIES observations."
+  ],
+  "country": "LK",
+  "dataset_id": "worldbank-poverty-province",
+  "fields": [
+    {
+      "id": "record_id",
+      "label": "Observation ID",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "source_id",
+      "label": "Source ID",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "source_url",
+      "label": "Original source",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "source_sha256",
+      "label": "Original file SHA-256",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "source_locator",
+      "label": "Source cell or page",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "review_note",
+      "label": "Review note",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "edition",
+      "label": "Report edition",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "year",
+      "label": "Reference year",
+      "role": "dimension",
+      "type": "year"
+    },
+    {
+      "id": "province",
+      "label": "Province",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "poverty_line_usd_day",
+      "label": "Daily poverty threshold, USD",
+      "role": "dimension",
+      "type": "number"
+    },
+    {
+      "id": "ppp_year",
+      "label": "PPP base",
+      "role": "dimension",
+      "type": "year"
+    },
+    {
+      "id": "estimation_method",
+      "label": "Estimation method",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "aggregation": "none",
+      "id": "value",
+      "label": "Estimated poverty headcount",
+      "role": "measure",
+      "type": "number",
+      "unit": "% population"
+    }
+  ],
+  "grain": "Province × 2024 reference year at USD 4.20/day, 2021 PPP",
+  "primary_key": [
+    "province",
+    "year",
+    "edition"
+  ],
+  "rows": [
+    {
+      "edition": "2026-10",
+      "estimation_method": "LFS survey-to-survey imputation",
+      "poverty_line_usd_day": 4.2,
+      "ppp_year": 2021,
+      "province": "Northern",
+      "record_id": "2026-10:2024:Northern",
+      "review_note": "Rounded whole-percentage map label visually reviewed; no district estimates inferred.",
+      "source_id": "worldbank-sldu-2026-10",
+      "source_locator": "PDF physical page 34, Figure 1.28, printed province label",
+      "source_sha256": "5d85078fcc0ef7c277825a35a57216082c28759a7cc30c8229963c4e20108a53",
+      "source_url": "https://documents1.worldbank.org/curated/en/099854410052618368/pdf/IDU-b519d848-09f1-47d1-b782-3378e00f3019.pdf",
+      "value": 30,
+      "year": 2024
+    },
+    {
+      "edition": "2026-10",
+      "estimation_method": "LFS survey-to-survey imputation",
+      "poverty_line_usd_day": 4.2,
+      "ppp_year": 2021,
+      "province": "North Central",
+      "record_id": "2026-10:2024:North Central",
+      "review_note": "Rounded whole-percentage map label visually reviewed; no district estimates inferred.",
+      "source_id": "worldbank-sldu-2026-10",
+      "source_locator": "PDF physical page 34, Figure 1.28, printed province label",
+      "source_sha256": "5d85078fcc0ef7c277825a35a57216082c28759a7cc30c8229963c4e20108a53",
+      "source_url": "https://documents1.worldbank.org/curated/en/099854410052618368/pdf/IDU-b519d848-09f1-47d1-b782-3378e00f3019.pdf",
+      "value": 18,
+      "year": 2024
+    },
+    {
+      "edition": "2026-10",
+      "estimation_method": "LFS survey-to-survey imputation",
+      "poverty_line_usd_day": 4.2,
+      "ppp_year": 2021,
+      "province": "North Western",
+      "record_id": "2026-10:2024:North Western",
+      "review_note": "Rounded whole-percentage map label visually reviewed; no district estimates inferred.",
+      "source_id": "worldbank-sldu-2026-10",
+      "source_locator": "PDF physical page 34, Figure 1.28, printed province label",
+      "source_sha256": "5d85078fcc0ef7c277825a35a57216082c28759a7cc30c8229963c4e20108a53",
+      "source_url": "https://documents1.worldbank.org/curated/en/099854410052618368/pdf/IDU-b519d848-09f1-47d1-b782-3378e00f3019.pdf",
+      "value": 14,
+      "year": 2024
+    },
+    {
+      "edition": "2026-10",
+      "estimation_method": "LFS survey-to-survey imputation",
+      "poverty_line_usd_day": 4.2,
+      "ppp_year": 2021,
+      "province": "Central",
+      "record_id": "2026-10:2024:Central",
+      "review_note": "Rounded whole-percentage map label visually reviewed; no district estimates inferred.",
+      "source_id": "worldbank-sldu-2026-10",
+      "source_locator": "PDF physical page 34, Figure 1.28, printed province label",
+      "source_sha256": "5d85078fcc0ef7c277825a35a57216082c28759a7cc30c8229963c4e20108a53",
+      "source_url": "https://documents1.worldbank.org/curated/en/099854410052618368/pdf/IDU-b519d848-09f1-47d1-b782-3378e00f3019.pdf",
+      "value": 25,
+      "year": 2024
+    },
+    {
+      "edition": "2026-10",
+      "estimation_method": "LFS survey-to-survey imputation",
+      "poverty_line_usd_day": 4.2,
+      "ppp_year": 2021,
+      "province": "Eastern",
+      "record_id": "2026-10:2024:Eastern",
+      "review_note": "Rounded whole-percentage map label visually reviewed; no district estimates inferred.",
+      "source_id": "worldbank-sldu-2026-10",
+      "source_locator": "PDF physical page 34, Figure 1.28, printed province label",
+      "source_sha256": "5d85078fcc0ef7c277825a35a57216082c28759a7cc30c8229963c4e20108a53",
+      "source_url": "https://documents1.worldbank.org/curated/en/099854410052618368/pdf/IDU-b519d848-09f1-47d1-b782-3378e00f3019.pdf",
+      "value": 28,
+      "year": 2024
+    },
+    {
+      "edition": "2026-10",
+      "estimation_method": "LFS survey-to-survey imputation",
+      "poverty_line_usd_day": 4.2,
+      "ppp_year": 2021,
+      "province": "Western",
+      "record_id": "2026-10:2024:Western",
+      "review_note": "Rounded whole-percentage map label visually reviewed; no district estimates inferred.",
+      "source_id": "worldbank-sldu-2026-10",
+      "source_locator": "PDF physical page 34, Figure 1.28, printed province label",
+      "source_sha256": "5d85078fcc0ef7c277825a35a57216082c28759a7cc30c8229963c4e20108a53",
+      "source_url": "https://documents1.worldbank.org/curated/en/099854410052618368/pdf/IDU-b519d848-09f1-47d1-b782-3378e00f3019.pdf",
+      "value": 9,
+      "year": 2024
+    },
+    {
+      "edition": "2026-10",
+      "estimation_method": "LFS survey-to-survey imputation",
+      "poverty_line_usd_day": 4.2,
+      "ppp_year": 2021,
+      "province": "Sabaragamuwa",
+      "record_id": "2026-10:2024:Sabaragamuwa",
+      "review_note": "Rounded whole-percentage map label visually reviewed; no district estimates inferred.",
+      "source_id": "worldbank-sldu-2026-10",
+      "source_locator": "PDF physical page 34, Figure 1.28, printed province label",
+      "source_sha256": "5d85078fcc0ef7c277825a35a57216082c28759a7cc30c8229963c4e20108a53",
+      "source_url": "https://documents1.worldbank.org/curated/en/099854410052618368/pdf/IDU-b519d848-09f1-47d1-b782-3378e00f3019.pdf",
+      "value": 26,
+      "year": 2024
+    },
+    {
+      "edition": "2026-10",
+      "estimation_method": "LFS survey-to-survey imputation",
+      "poverty_line_usd_day": 4.2,
+      "ppp_year": 2021,
+      "province": "Uva",
+      "record_id": "2026-10:2024:Uva",
+      "review_note": "Rounded whole-percentage map label visually reviewed; no district estimates inferred.",
+      "source_id": "worldbank-sldu-2026-10",
+      "source_locator": "PDF physical page 34, Figure 1.28, printed province label",
+      "source_sha256": "5d85078fcc0ef7c277825a35a57216082c28759a7cc30c8229963c4e20108a53",
+      "source_url": "https://documents1.worldbank.org/curated/en/099854410052618368/pdf/IDU-b519d848-09f1-47d1-b782-3378e00f3019.pdf",
+      "value": 29,
+      "year": 2024
+    },
+    {
+      "edition": "2026-10",
+      "estimation_method": "LFS survey-to-survey imputation",
+      "poverty_line_usd_day": 4.2,
+      "ppp_year": 2021,
+      "province": "Southern",
+      "record_id": "2026-10:2024:Southern",
+      "review_note": "Rounded whole-percentage map label visually reviewed; no district estimates inferred.",
+      "source_id": "worldbank-sldu-2026-10",
+      "source_locator": "PDF physical page 34, Figure 1.28, printed province label",
+      "source_sha256": "5d85078fcc0ef7c277825a35a57216082c28759a7cc30c8229963c4e20108a53",
+      "source_url": "https://documents1.worldbank.org/curated/en/099854410052618368/pdf/IDU-b519d848-09f1-47d1-b782-3378e00f3019.pdf",
+      "value": 15,
+      "year": 2024
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "worldbank-sldu-2026-10"
+  ],
+  "title": "World Bank provincial poverty estimates, 2024",
+  "vintage": "2024 estimates, October 2026 edition"
+}

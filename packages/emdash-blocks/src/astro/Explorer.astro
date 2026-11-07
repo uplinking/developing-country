@@ -1,0 +1,58 @@
+---
+import { Explorer as ExplorerIsland } from '@developing-country/figures'
+import '@developing-country/figures/styles.css'
+import { figureIslandConfig, safeFigureViewUrl, textField } from '../figure-view'
+
+interface Props {
+  node?: Record<string, unknown>
+  value?: Record<string, unknown>
+  devApiBase?: string
+}
+
+const node = Astro.props.node ?? Astro.props.value ?? {}
+const configuredOrigin = import.meta.env.PUBLIC_DATA_VIEW_ORIGIN || undefined
+const viewUrl = safeFigureViewUrl(node.view_url, Astro.url.origin, configuredOrigin)
+const config = figureIslandConfig({
+  configuredOrigin,
+  devApiBase: import.meta.env.DEV ? Astro.props.devApiBase : undefined,
+})
+const titleField = textField(node, 'title_field')
+const metricList = (value: unknown) => (Array.isArray(value) ? value : [])
+  .filter((metric): metric is Record<string, unknown> => Boolean(metric) && typeof metric === 'object')
+  .flatMap((metric) => {
+    const field = textField(metric, 'field')
+    if (!field) return []
+    return [{
+      field,
+      label: textField(metric, 'label') ?? field,
+      ...(textField(metric, 'unit') ? { unit: textField(metric, 'unit') } : {}),
+      ...(textField(metric, 'format') ? { format: textField(metric, 'format') } : {}),
+    }]
+  })
+const metrics = metricList(node.metrics)
+const badges = metricList(node.badges)
+---
+
+{viewUrl && titleField && metrics.length > 0 ? (
+  <div class="dc-block dc-block--wide" data-dc-block="explorer">
+    <ExplorerIsland
+      client:only="react"
+      view_url={viewUrl}
+      title={textField(node, 'title')}
+      title_field={titleField}
+      subtitle_field={textField(node, 'subtitle_field')}
+      search_fields={textField(node, 'search_fields')}
+      sort_field={textField(node, 'sort_field')}
+      sort_dir={textField(node, 'sort_dir')}
+      metrics={metrics}
+      badges={badges}
+      config={config}
+    >
+      <div slot="fallback" class="dcf-island-fallback" data-kind="explorer" aria-hidden="true"></div>
+    </ExplorerIsland>
+  </div>
+) : (
+  <aside class="dc-live-view dc-live-view--invalid" role="note">
+    Explorer unavailable: it needs a title field, at least one metric and a canonical <code>/views/view_…</code> link.
+  </aside>
+)}

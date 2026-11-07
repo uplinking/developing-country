@@ -1,0 +1,489 @@
+{
+  "caveats": [
+    "This is a valuation indicator for Colombo District land, not a transaction-price or island-wide house-price index.",
+    "The June 2022 methodology revision means pre-revision publications should not be mixed with this series.",
+    "CBSL makes the workbook freely downloadable but does not state an open-data reuse licence on the statistical-table page; this artifact contains normalized aggregate facts and does not redistribute the workbook."
+  ],
+  "country": "LK",
+  "dataset_id": "colombo-land-valuation-indicator",
+  "description": "Half-yearly Land Valuation Indicator for Colombo District (2017 H1=100), with residential, commercial, industrial and overall sub-indices.",
+  "fields": [
+    {
+      "id": "period",
+      "label": "Half-year end",
+      "role": "dimension",
+      "type": "period"
+    },
+    {
+      "id": "half",
+      "label": "Half",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "segment",
+      "label": "Sub-index",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "aggregation": "none",
+      "id": "index_value",
+      "label": "Land Valuation Indicator",
+      "role": "measure",
+      "type": "number",
+      "unit": "2017 H1=100"
+    }
+  ],
+  "grain": "One Colombo-district row per half-year and sub-index.",
+  "notes": [
+    "The Land Price Index was renamed Land Valuation Indicator from 2019 H2.",
+    "The whole 2017 H1=100 series was revised in June 2022 using re-estimated Government Valuation Department data.",
+    "Coverage is Colombo District Divisional Secretariat divisions, not the island.",
+    "2025 H2 values are taken from the official CBSL press table dated 25 February 2026; earlier points come from the CBSL Economic Data Library series."
+  ],
+  "primary_key": [
+    "period",
+    "segment"
+  ],
+  "rows": [
+    {
+      "half": "H1",
+      "index_value": 100,
+      "period": "2017-06",
+      "segment": "commercial"
+    },
+    {
+      "half": "H1",
+      "index_value": 100,
+      "period": "2017-06",
+      "segment": "industrial"
+    },
+    {
+      "half": "H1",
+      "index_value": 100,
+      "period": "2017-06",
+      "segment": "overall"
+    },
+    {
+      "half": "H1",
+      "index_value": 100,
+      "period": "2017-06",
+      "segment": "residential"
+    },
+    {
+      "half": "H2",
+      "index_value": 107,
+      "period": "2017-12",
+      "segment": "commercial"
+    },
+    {
+      "half": "H2",
+      "index_value": 107.2,
+      "period": "2017-12",
+      "segment": "industrial"
+    },
+    {
+      "half": "H2",
+      "index_value": 107,
+      "period": "2017-12",
+      "segment": "overall"
+    },
+    {
+      "half": "H2",
+      "index_value": 106.8,
+      "period": "2017-12",
+      "segment": "residential"
+    },
+    {
+      "half": "H1",
+      "index_value": 114.7,
+      "period": "2018-06",
+      "segment": "commercial"
+    },
+    {
+      "half": "H1",
+      "index_value": 115.1,
+      "period": "2018-06",
+      "segment": "industrial"
+    },
+    {
+      "half": "H1",
+      "index_value": 114.7,
+      "period": "2018-06",
+      "segment": "overall"
+    },
+    {
+      "half": "H1",
+      "index_value": 114.3,
+      "period": "2018-06",
+      "segment": "residential"
+    },
+    {
+      "half": "H2",
+      "index_value": 121.5,
+      "period": "2018-12",
+      "segment": "commercial"
+    },
+    {
+      "half": "H2",
+      "index_value": 123.7,
+      "period": "2018-12",
+      "segment": "industrial"
+    },
+    {
+      "half": "H2",
+      "index_value": 122.3,
+      "period": "2018-12",
+      "segment": "overall"
+    },
+    {
+      "half": "H2",
+      "index_value": 121.7,
+      "period": "2018-12",
+      "segment": "residential"
+    },
+    {
+      "half": "H1",
+      "index_value": 128.5,
+      "period": "2019-06",
+      "segment": "commercial"
+    },
+    {
+      "half": "H1",
+      "index_value": 131.5,
+      "period": "2019-06",
+      "segment": "industrial"
+    },
+    {
+      "half": "H1",
+      "index_value": 129.7,
+      "period": "2019-06",
+      "segment": "overall"
+    },
+    {
+      "half": "H1",
+      "index_value": 128.9,
+      "period": "2019-06",
+      "segment": "residential"
+    },
+    {
+      "half": "H2",
+      "index_value": 135.5,
+      "period": "2019-12",
+      "segment": "commercial"
+    },
+    {
+      "half": "H2",
+      "index_value": 139.4,
+      "period": "2019-12",
+      "segment": "industrial"
+    },
+    {
+      "half": "H2",
+      "index_value": 137.2,
+      "period": "2019-12",
+      "segment": "overall"
+    },
+    {
+      "half": "H2",
+      "index_value": 136.6,
+      "period": "2019-12",
+      "segment": "residential"
+    },
+    {
+      "half": "H1",
+      "index_value": 142,
+      "period": "2020-06",
+      "segment": "commercial"
+    },
+    {
+      "half": "H1",
+      "index_value": 146.1,
+      "period": "2020-06",
+      "segment": "industrial"
+    },
+    {
+      "half": "H1",
+      "index_value": 144.3,
+      "period": "2020-06",
+      "segment": "overall"
+    },
+    {
+      "half": "H1",
+      "index_value": 144.9,
+      "period": "2020-06",
+      "segment": "residential"
+    },
+    {
+      "half": "H2",
+      "index_value": 148.7,
+      "period": "2020-12",
+      "segment": "commercial"
+    },
+    {
+      "half": "H2",
+      "index_value": 154.1,
+      "period": "2020-12",
+      "segment": "industrial"
+    },
+    {
+      "half": "H2",
+      "index_value": 151.6,
+      "period": "2020-12",
+      "segment": "overall"
+    },
+    {
+      "half": "H2",
+      "index_value": 152,
+      "period": "2020-12",
+      "segment": "residential"
+    },
+    {
+      "half": "H1",
+      "index_value": 158.7,
+      "period": "2021-06",
+      "segment": "commercial"
+    },
+    {
+      "half": "H1",
+      "index_value": 161.3,
+      "period": "2021-06",
+      "segment": "industrial"
+    },
+    {
+      "half": "H1",
+      "index_value": 159.8,
+      "period": "2021-06",
+      "segment": "overall"
+    },
+    {
+      "half": "H1",
+      "index_value": 159.3,
+      "period": "2021-06",
+      "segment": "residential"
+    },
+    {
+      "half": "H2",
+      "index_value": 173.4,
+      "period": "2021-12",
+      "segment": "commercial"
+    },
+    {
+      "half": "H2",
+      "index_value": 186.6,
+      "period": "2021-12",
+      "segment": "industrial"
+    },
+    {
+      "half": "H2",
+      "index_value": 178.7,
+      "period": "2021-12",
+      "segment": "overall"
+    },
+    {
+      "half": "H2",
+      "index_value": 176.3,
+      "period": "2021-12",
+      "segment": "residential"
+    },
+    {
+      "half": "H1",
+      "index_value": 182.8,
+      "period": "2022-06",
+      "segment": "commercial"
+    },
+    {
+      "half": "H1",
+      "index_value": 194.6,
+      "period": "2022-06",
+      "segment": "industrial"
+    },
+    {
+      "half": "H1",
+      "index_value": 186.9,
+      "period": "2022-06",
+      "segment": "overall"
+    },
+    {
+      "half": "H1",
+      "index_value": 183.4,
+      "period": "2022-06",
+      "segment": "residential"
+    },
+    {
+      "half": "H2",
+      "index_value": 200.5,
+      "period": "2022-12",
+      "segment": "commercial"
+    },
+    {
+      "half": "H2",
+      "index_value": 212,
+      "period": "2022-12",
+      "segment": "industrial"
+    },
+    {
+      "half": "H2",
+      "index_value": 205.2,
+      "period": "2022-12",
+      "segment": "overall"
+    },
+    {
+      "half": "H2",
+      "index_value": 203.1,
+      "period": "2022-12",
+      "segment": "residential"
+    },
+    {
+      "half": "H1",
+      "index_value": 210.3,
+      "period": "2023-06",
+      "segment": "commercial"
+    },
+    {
+      "half": "H1",
+      "index_value": 220.7,
+      "period": "2023-06",
+      "segment": "industrial"
+    },
+    {
+      "half": "H1",
+      "index_value": 215.3,
+      "period": "2023-06",
+      "segment": "overall"
+    },
+    {
+      "half": "H1",
+      "index_value": 215,
+      "period": "2023-06",
+      "segment": "residential"
+    },
+    {
+      "half": "H2",
+      "index_value": 214,
+      "period": "2023-12",
+      "segment": "commercial"
+    },
+    {
+      "half": "H2",
+      "index_value": 224.5,
+      "period": "2023-12",
+      "segment": "industrial"
+    },
+    {
+      "half": "H2",
+      "index_value": 219.8,
+      "period": "2023-12",
+      "segment": "overall"
+    },
+    {
+      "half": "H2",
+      "index_value": 221,
+      "period": "2023-12",
+      "segment": "residential"
+    },
+    {
+      "half": "H1",
+      "index_value": 228.1,
+      "period": "2024-06",
+      "segment": "commercial"
+    },
+    {
+      "half": "H1",
+      "index_value": 228.9,
+      "period": "2024-06",
+      "segment": "industrial"
+    },
+    {
+      "half": "H1",
+      "index_value": 230.1,
+      "period": "2024-06",
+      "segment": "overall"
+    },
+    {
+      "half": "H1",
+      "index_value": 233.3,
+      "period": "2024-06",
+      "segment": "residential"
+    },
+    {
+      "half": "H2",
+      "index_value": 234.1,
+      "period": "2024-12",
+      "segment": "commercial"
+    },
+    {
+      "half": "H2",
+      "index_value": 233.2,
+      "period": "2024-12",
+      "segment": "industrial"
+    },
+    {
+      "half": "H2",
+      "index_value": 236.8,
+      "period": "2024-12",
+      "segment": "overall"
+    },
+    {
+      "half": "H2",
+      "index_value": 242.9,
+      "period": "2024-12",
+      "segment": "residential"
+    },
+    {
+      "half": "H1",
+      "index_value": 254.3,
+      "period": "2025-06",
+      "segment": "commercial"
+    },
+    {
+      "half": "H1",
+      "index_value": 248,
+      "period": "2025-06",
+      "segment": "industrial"
+    },
+    {
+      "half": "H1",
+      "index_value": 256.4,
+      "period": "2025-06",
+      "segment": "overall"
+    },
+    {
+      "half": "H1",
+      "index_value": 266.9,
+      "period": "2025-06",
+      "segment": "residential"
+    },
+    {
+      "half": "H2",
+      "index_value": 260.6,
+      "period": "2025-12",
+      "segment": "commercial"
+    },
+    {
+      "half": "H2",
+      "index_value": 251.9,
+      "period": "2025-12",
+      "segment": "industrial"
+    },
+    {
+      "half": "H2",
+      "index_value": 261.9,
+      "period": "2025-12",
+      "segment": "overall"
+    },
+    {
+      "half": "H2",
+      "index_value": 273.1,
+      "period": "2025-12",
+      "segment": "residential"
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "cbsl-land-valuation-indicator"
+  ],
+  "title": "Colombo Land Valuation Indicator",
+  "vintage": "2017 H1–2025 H2; 2017 H1=100 series revised in June 2022"
+}

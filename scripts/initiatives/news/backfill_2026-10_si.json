@@ -1,0 +1,1491 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-10-01",
+  "2026-10-31"
+ ],
+ "upstream": "nuuuwan/lk_news@223722ce566ed7347092aa7f15b24251eb1c3fac",
+ "extracted_by": "Codex gpt-6-luna (medium reasoning)",
+ "extracted_at": "2026-11-06",
+ "language": "si",
+ "articles_read": 44,
+ "rejected": 11,
+ "rejected_ids": [
+  "2026-10-02-adalk-26437b2c",
+  "2026-10-02-adalk-a1021f64",
+  "2026-10-03-adalk-c2b7a5d1",
+  "2026-10-05-adalk-1efc3559",
+  "2026-10-05-adalk-588e0870",
+  "2026-10-06-adalk-c998668c",
+  "2026-10-07-adalk-a12e42b4",
+  "2026-10-07-adalk-e7057d12",
+  "2026-10-08-adalk-2430a90d",
+  "2026-10-08-adalk-2553bf32",
+  "2026-10-09-adalk-0fae1ff5",
+  "2026-10-11-adalk-37676fea",
+  "2026-10-13-adalk-8bb28a45",
+  "2026-10-14-adalk-2c4ecd37",
+  "2026-10-14-adalk-eba69e8c"
+ ],
+ "unattributed_ids": [
+  "2026-10-02-adalk-a1021f64",
+  "2026-10-03-adalk-c2b7a5d1",
+  "2026-10-05-adalk-588e0870",
+  "2026-10-14-adalk-eba69e8c"
+ ],
+ "dropped": [
+  "event imf-eff-2023 proposed: no report in chunk"
+ ],
+ "projects": [
+  {
+   "id": "nawinna-public-sports-ground",
+   "name": "Nawinna Public Sports Ground Development",
+   "sector": "urban",
+   "status": "unknown",
+   "place": "Nawinna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nuwara-eliya-pradeshiya-sabha-2027-budget",
+   "name": "Nuwara Eliya Pradeshiya Sabha 2027 Budget",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Nuwara Eliya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "aswesuma-school-supplies-2027",
+   "name": "2027 School Supplies Assistance for Aswesuma Families",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "yala-national-park-zones-reopening-2026",
+   "name": "Reopening of Yala National Park Zones 1 and 2",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "Yala National Park",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "colombo-port-east-terminal-management-company",
+   "name": "East Terminal Management Company",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "financial-literacy-month-2026",
+   "name": "Financial Literacy Month 2026",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "special-needs-children-korea-skills-programme",
+   "name": "Sri Lanka-Korea Skills Programme for Children with Special Needs",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "korea-medicines-donation-sri-lanka-2026",
+   "name": "Korean Medicines Support for Sri Lankan Hospitals",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "provincial-anti-corruption-commissions",
+   "name": "Provincial Anti-Corruption Commissions",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "primary-health-service-assistant-recruitment-2026",
+   "name": "Recruitment of Primary Health-Service Assistants",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "diyagama-forest-reserve",
+   "name": "Diyagama Forest Reserve",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Diyagama, Homagama",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "tea-plants-25-million-project",
+   "name": "25 Million Tea Plants Project",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "government-cab-vehicle-procurement-1750",
+   "name": "Procurement of 1,750 Government Cab Vehicles",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sethsiripaya-stage-iii-and-iv",
+   "name": "Sethsiripaya Stages III Completion and IV Commencement",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Sethsiripaya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "official-email-for-public-servants",
+   "name": "Official Email Accounts for Public Servants",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "2027-government-appropriation",
+   "name": "2027 Government Appropriation",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "cdb-elevate-ai-zone-peradeniya",
+   "name": "CDB Elevate AI Zone at the University of Peradeniya",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Peradeniya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "maduwanwela-tourism-zone",
+   "name": "Maduwanwela Walawwa Tourism Zone Development",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "Maduwanwela",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "farmer-pension-arrears-payments",
+   "name": "Arrears Payments under the Farmers’ Pension Scheme",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "grade-6-entrepreneurship-financial-literacy-subject",
+   "name": "Entrepreneurship and Financial Literacy Subject for Grades 6–9",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nuwara-eliya-water-sewerage-project",
+   "name": "Nuwara Eliya Water Supply and Sewerage Project",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Nuwara Eliya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kankesanthurai-land-release-investment-zone",
+   "name": "Land Release for Kankesanthurai Investment Zone",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Kankesanthurai",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "batticaloa-teaching-hospital-nephrology-unit",
+   "name": "Batticaloa Teaching Hospital Nephrology and Dialysis Unit",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Batticaloa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "batticaloa-provincial-health-training-centre-national-transfer",
+   "name": "Batticaloa Provincial Health Training Centre National Transfer",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Thiraimadu",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "number-plate-delay-inquiry",
+   "name": "Inquiry into Delays in Number Plate and Driving Licence Issuance",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "family-health-service-officer-recruitment-1056",
+   "name": "Recruitment of 1,056 Family Health Service Officers",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "polonnaruwa-kidney-hospital-explosion-repairs",
+   "name": "Repairs to Polonnaruwa National Kidney Hospital After Explosion",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Polonnaruwa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ditwah-climate-resilient-road-reconstruction",
+   "name": "Cyclone Ditwah Climate-Resilient Road Reconstruction",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "nawinna-public-sports-ground-gosl",
+   "project_id": "nawinna-public-sports-ground",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "nuwara-eliya-pradeshiya-sabha-2027-budget-gosl",
+   "project_id": "nuwara-eliya-pradeshiya-sabha-2027-budget",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "aswesuma-school-supplies-2027-gosl",
+   "project_id": "aswesuma-school-supplies-2027",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "yala-national-park-zones-reopening-2026-gosl",
+   "project_id": "yala-national-park-zones-reopening-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "colombo-port-east-terminal-management-company-gosl",
+   "project_id": "colombo-port-east-terminal-management-company",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "unknown",
+   "instrument": "equity",
+   "purpose": "project"
+  },
+  {
+   "id": "financial-literacy-month-2026-gosl",
+   "project_id": "financial-literacy-month-2026",
+   "funder": "gosl",
+   "funder_name": "Central Bank of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "special-needs-children-korea-skills-programme-unknown",
+   "project_id": "special-needs-children-korea-skills-programme",
+   "funder": "unknown",
+   "funder_name": "Korean volunteer organisation",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "korea-medicines-donation-sri-lanka-2026-unknown",
+   "project_id": "korea-medicines-donation-sri-lanka-2026",
+   "funder": "unknown",
+   "funder_name": "Korean volunteer organisation",
+   "funder_type": "unknown",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "relief"
+  },
+  {
+   "id": "provincial-anti-corruption-commissions-gosl",
+   "project_id": "provincial-anti-corruption-commissions",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "primary-health-service-assistant-recruitment-2026-gosl",
+   "project_id": "primary-health-service-assistant-recruitment-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "diyagama-forest-reserve-gosl",
+   "project_id": "diyagama-forest-reserve",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "tea-plants-25-million-project-gosl",
+   "project_id": "tea-plants-25-million-project",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "government-cab-vehicle-procurement-1750-gosl",
+   "project_id": "government-cab-vehicle-procurement-1750",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "sethsiripaya-stage-iii-and-iv-gosl",
+   "project_id": "sethsiripaya-stage-iii-and-iv",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "official-email-for-public-servants-gosl",
+   "project_id": "official-email-for-public-servants",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "2027-government-appropriation-gosl",
+   "project_id": "2027-government-appropriation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "cdb-elevate-ai-zone-cdb",
+   "project_id": "cdb-elevate-ai-zone-peradeniya",
+   "funder": "private",
+   "funder_name": "Citizens Development Business Finance PLC (CDB)",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "equity",
+   "purpose": "project"
+  },
+  {
+   "id": "maduwanwela-tourism-zone-gosl",
+   "project_id": "maduwanwela-tourism-zone",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "farmer-pension-arrears-payments-gosl",
+   "project_id": "farmer-pension-arrears-payments",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "grade-6-entrepreneurship-financial-literacy-subject-gosl",
+   "project_id": "grade-6-entrepreneurship-financial-literacy-subject",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "nuwara-eliya-water-sewerage-project-gosl",
+   "project_id": "nuwara-eliya-water-sewerage-project",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "kankesanthurai-land-release-investment-zone-gosl",
+   "project_id": "kankesanthurai-land-release-investment-zone",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "batticaloa-teaching-hospital-nephrology-unit-gosl",
+   "project_id": "batticaloa-teaching-hospital-nephrology-unit",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "batticaloa-provincial-health-training-centre-national-transfer-gosl",
+   "project_id": "batticaloa-provincial-health-training-centre-national-transfer",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "number-plate-delay-inquiry-gosl",
+   "project_id": "number-plate-delay-inquiry",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "family-health-service-officer-recruitment-1056-gosl",
+   "project_id": "family-health-service-officer-recruitment-1056",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "polonnaruwa-kidney-hospital-repairs-china",
+   "project_id": "polonnaruwa-kidney-hospital-explosion-repairs",
+   "funder": "china",
+   "funder_name": "China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "relief"
+  },
+  {
+   "id": "ditwah-climate-resilient-road-reconstruction-world-bank",
+   "project_id": "ditwah-climate-resilient-road-reconstruction",
+   "funder": "world_bank",
+   "funder_name": "World Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "nawinna-public-sports-ground-gosl-proposed-2026-10-14",
+   "line_id": "nawinna-public-sports-ground-gosl",
+   "date": "2026-10-14",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ministry plans to convert Nawinna’s former waste site into a public sports ground by December.",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-14-adalk-aee7de42"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nuwara-eliya-pradeshiya-sabha-2027-budget-gosl-allocated-2026-10-13",
+   "line_id": "nuwara-eliya-pradeshiya-sabha-2027-budget-gosl",
+   "date": "2026-10-13",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 340000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Council adopted its 2027 budget, with planned expenditure of about 34 crore rupees.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-13-adalk-4a30e4e5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-school-supplies-2027-gosl-govt_authorised-2026-10-13",
+   "line_id": "aswesuma-school-supplies-2027-gosl",
+   "date": "2026-10-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 6000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved continuing school supplies assistance for eligible children in 2027.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-13-adalk-337932a6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "yala-national-park-zones-reopening-2026-gosl-proposed-2026-10-13",
+   "line_id": "yala-national-park-zones-reopening-2026-gosl",
+   "date": "2026-10-13",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Authorities decided to reopen Yala National Park zones 1 and 2 to visitors on October 16.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-13-adalk-d3431802"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "colombo-port-east-terminal-management-company-gosl-govt_authorised-2026-10-12",
+   "line_id": "colombo-port-east-terminal-management-company-gosl",
+   "date": "2026-10-12",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The government decided to establish a company to manage Colombo Port's East Terminal and offer shares to investors.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-13-adalk-c769d987"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "financial-literacy-month-2026-gosl-launched-2026-10-08",
+   "line_id": "financial-literacy-month-2026-gosl",
+   "date": "2026-10-08",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The Central Bank launched Financial Literacy Month 2026 alongside the Colombo FinLit Expo.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-13-adalk-9e10efd6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "special-needs-children-korea-skills-programme-unknown-proposed-2026-10-12",
+   "line_id": "special-needs-children-korea-skills-programme-unknown",
+   "date": "2026-10-12",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "A Korean organisation plans an 11-day skills exchange programme for children with special needs next year.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-12-adalk-a98006c9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "korea-medicines-donation-sri-lanka-2026-unknown-pledged-2026-10-12",
+   "line_id": "korea-medicines-donation-sri-lanka-2026-unknown",
+   "date": "2026-10-12",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Korean representatives agreed to provide several medicines needed by Sri Lankan hospitals.",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-12-adalk-a98006c9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "provincial-anti-corruption-commissions-gosl-proposed-2026-10-12",
+   "line_id": "provincial-anti-corruption-commissions-gosl",
+   "date": "2026-10-12",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The President announced plans to establish an anti-corruption commission in every province and recruit 900 officers.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-12-adalk-45729eaa"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "primary-health-service-assistant-recruitment-2026-gosl-proposed-2026-10-11",
+   "line_id": "primary-health-service-assistant-recruitment-2026-gosl",
+   "date": "2026-10-11",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ministry prepared to appoint 436 primary health-service assistants.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-10-adalk-28a3a9dc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "diyagama-forest-reserve-gosl-proposed-2026-10-09",
+   "line_id": "diyagama-forest-reserve-gosl",
+   "date": "2026-10-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government plans to designate the Diyagama forest area as a reserve.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-09-adalk-764f3580"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "tea-plants-25-million-project-gosl-allocated-2026-10-09",
+   "line_id": "tea-plants-25-million-project-gosl",
+   "date": "2026-10-09",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 250000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka Tea Board provided funding for the 25 million tea plants project.",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-09-adalk-bcccada6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "government-cab-vehicle-procurement-1750-gosl-proposed-2026-10-09",
+   "line_id": "government-cab-vehicle-procurement-1750-gosl",
+   "date": "2026-10-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government identified 1,750 cab vehicles for public-service needs and plans to provide them.",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-09-adalk-cd9cda89"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sethsiripaya-stage-iii-and-iv-gosl-proposed-2026-10-09",
+   "line_id": "sethsiripaya-stage-iii-and-iv-gosl",
+   "date": "2026-10-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government plans budget funding to complete Sethsiripaya Stage III and begin Stage IV.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-09-adalk-cd9cda89"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "salary-and-pension-commission-gosl-cost_estimate-2026-10-09",
+   "line_id": "salary-and-pension-commission-gosl",
+   "date": "2026-10-09",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 330000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President estimated the 2027 public-service salary increase burden at Rs. 330 billion.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-09-adalk-cd9cda89"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "official-email-for-public-servants-gosl-proposed-2026-10-07",
+   "line_id": "official-email-for-public-servants-gosl",
+   "date": "2026-10-07",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government considered official email accounts for public servants.",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-07-adalk-8aed63a2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "2027-government-appropriation-gosl-proposed-2026-10-07",
+   "line_id": "2027-government-appropriation-gosl",
+   "date": "2026-10-07",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 4992773388000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government introduced the 2027 appropriation bill for public services and borrowing authority.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-07-adalk-41d25438"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "cdb-elevate-ai-zone-cdb-launched-2026-10-07",
+   "line_id": "cdb-elevate-ai-zone-cdb",
+   "date": "2026-10-07",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 40000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "CDB opened an AI learning facility at the University of Peradeniya.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-07-adalk-b88fc994"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "maduwanwela-tourism-zone-gosl-proposed-2026-10-06",
+   "line_id": "maduwanwela-tourism-zone-gosl",
+   "date": "2026-10-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister directed officials to expedite development of a tourism zone around Maduwanwela Walawwa.",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-06-adalk-44990d1b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-2023-proposed-2026-10-06",
+   "line_id": "imf-eff-2023",
+   "date": "2026-10-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 345000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF staff and Sri Lankan authorities reached staff-level agreement on the seventh EFF review.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-06-adalk-61cc7e22"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "farmer-pension-arrears-payments-gosl-disbursed-2026-10-06",
+   "line_id": "farmer-pension-arrears-payments-gosl",
+   "date": "2026-10-06",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Payments of overdue pensions to participants in the former farmers’ pension scheme began.",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-06-adalk-eb16ccc0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "grade-6-entrepreneurship-financial-literacy-subject-gosl-proposed-2026-10-05",
+   "line_id": "grade-6-entrepreneurship-financial-literacy-subject-gosl",
+   "date": "2026-10-05",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government plans to introduce entrepreneurship and financial literacy as a subject from 2027.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-05-adalk-fd68ebb4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nuwara-eliya-water-sewerage-project-gosl-allocated-2026-10-05",
+   "line_id": "nuwara-eliya-water-sewerage-project-gosl",
+   "date": "2026-10-05",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 25100000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funding allocated for Nuwara Eliya drinking water and sewerage project.",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-05-adalk-15378adf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-rooftop-solar-agreement_signed-2026-10-01",
+   "line_id": "adb-loan-rooftop-solar",
+   "date": "2026-10-01",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 35000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka and ADB signed the concessional loan agreement for power distribution upgrades.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-05-adalk-0d1c0ea8"
+   ],
+   "relation": "update_of:adb-loan-rooftop-solar-funder_approved-2026-06-26",
+   "notes": null
+  },
+  {
+   "id": "rooftop-solar-grid-modernisation-eu-grant-agreement_signed-2026-10-01",
+   "line_id": "rooftop-solar-grid-modernisation-eu-grant",
+   "date": "2026-10-01",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 5400000,
+   "currency": "EUR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka signed the EU grant agreement for rooftop solar and grid modernisation.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-05-adalk-0d1c0ea8"
+   ],
+   "relation": "update_of:rooftop-solar-grid-modernisation-eu-grant-funder_approved-2026-06-26",
+   "notes": null
+  },
+  {
+   "id": "rooftop-solar-grid-modernisation-japan-grant-agreement_signed-2026-10-01",
+   "line_id": "rooftop-solar-grid-modernisation-japan-grant",
+   "date": "2026-10-01",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 5500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka signed Japan fund grant agreement for rooftop solar and grid modernisation.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-05-adalk-0d1c0ea8"
+   ],
+   "relation": "update_of:rooftop-solar-grid-modernisation-japan-grant-funder_approved-2026-06-26",
+   "notes": null
+  },
+  {
+   "id": "kankesanthurai-land-release-investment-zone-gosl-released-2026-10-05",
+   "line_id": "kankesanthurai-land-release-investment-zone-gosl",
+   "date": "2026-10-05",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Military-released land was handed over for civilian economic development and the proposed investment zone.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-05-adalk-9b927ee0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "batticaloa-teaching-hospital-nephrology-unit-gosl-launched-2026-10-04",
+   "line_id": "batticaloa-teaching-hospital-nephrology-unit-gosl",
+   "date": "2026-10-04",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 550000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Seven-storey nephrology and dialysis unit opened at Batticaloa Teaching Hospital.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-04-adalk-a6c0afc3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "batticaloa-provincial-health-training-centre-national-transfer-gosl-launched-2026-10-03",
+   "line_id": "batticaloa-provincial-health-training-centre-national-transfer-gosl",
+   "date": "2026-10-03",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Batticaloa health training centre became a national-level centre under Ministry control.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-03-adalk-8b97343a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "number-plate-delay-inquiry-gosl-proposed-2026-10-02",
+   "line_id": "number-plate-delay-inquiry-gosl",
+   "date": "2026-10-02",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Parliamentary committee instructed officials to investigate number plate and licence issuance delays.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-02-adalk-0f7920bc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "family-health-service-officer-recruitment-1056-gosl-proposed-2026-10-02",
+   "line_id": "family-health-service-officer-recruitment-1056-gosl",
+   "date": "2026-10-02",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Appointments for 1,056 newly trained family health service officers are scheduled for October 4.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-02-adalk-5bc36e68"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ditwah-main-line-railway-restoration-gosl-launched-2026-10-02",
+   "line_id": "ditwah-main-line-railway-restoration-gosl",
+   "date": "2026-10-02",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Train services resumed between Rambukkana, Peradeniya and Gampola after cyclone damage.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-02-adalk-1c3bf8e0"
+   ],
+   "relation": "update_of:ditwah-main-line-railway-restoration-gosl-underway-2026-09-03",
+   "notes": null
+  },
+  {
+   "id": "polonnaruwa-kidney-hospital-repairs-china-proposed-2026-10-02",
+   "line_id": "polonnaruwa-kidney-hospital-repairs-china",
+   "date": "2026-10-02",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Officials pursued emergency Chinese aid for repairs after an explosion damaged hospital facilities.",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-02-adalk-95503da3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ditwah-climate-resilient-road-reconstruction-world-bank-funder_approved-2026-10-01",
+   "line_id": "ditwah-climate-resilient-road-reconstruction-world-bank",
+   "date": "2026-10-01",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 110000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "World Bank approved funding to repair and rebuild 600 kilometres of cyclone-damaged roads.",
+   "confidence": "high",
+   "reports": [
+    "2026-10-01-adalk-791fc351"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-10-14-adalk-aee7de42": {
+   "date": "2026-10-14",
+   "title": "කුණු කන්දක් ක්‍රීඩාංගණයක් කරයි",
+   "url": "https://www.ada.lk/breaking_news/කුණු-කන්දක්-ක්‍රීඩාංගණයක්-කරයි/11-424655",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-13-adalk-4a30e4e5": {
+   "date": "2026-10-13",
+   "title": "නුවරඑළිය ප්‍රා ස අයවැය ඒකමතිකව සම්මතයි",
+   "url": "https://www.ada.lk/breaking_news/නුවරඑළිය-ප්‍රා-ස-අයවැය-ඒකමතිකව-සම්මතයි/11-424638",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-13-adalk-337932a6": {
+   "date": "2026-10-13",
+   "title": "අස්වැසුම ලබන පවුල්වල ළමුන්ට රු. 6000ක දීමනාව ලබන වසරේදීත්",
+   "url": "https://www.ada.lk/breaking_news/අස්වැසුම-ලබන-පවුල්වල-ළමුන්ට-රු--6000ක-දීමනාව-ලබන-වසරේදීත්/11-424637",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-13-adalk-d3431802": {
+   "date": "2026-10-13",
+   "title": "යාලේ කලාප අංක 1 හා 2 ලබන 16දා යළි විවෘත කරයි",
+   "url": "https://www.ada.lk/breaking_news/යාලේ-කලාප-අංක-1-හා-2-ලබන-16දා-යළි-විවෘත-කරයි/11-424634",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-13-adalk-c769d987": {
+   "date": "2026-10-13",
+   "title": "නැගෙනහිර ජැටියේ අයිතිය රජයට, කළමනාකරණය සමාගමකට",
+   "url": "https://www.ada.lk/breaking_news/නැගෙනහිර-ජැටියේ-අයිතිය-රජයට--කළමනාකරණය-සමාගමකට/11-424632",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-13-adalk-9e10efd6": {
+   "date": "2026-10-13",
+   "title": "2026 වසර මූල්‍ය සාක්ෂරතා මාසයේ ඇරඹුම මහ බැංකුව සනිටුහන් කරයි",
+   "url": "https://www.ada.lk/business/2026-වසර-මූල්‍ය-සාක්ෂරතා-මාසයේ-ඇරඹුම-මහ-බැංකුව-සනිටුහන්-කරයි/7-424627",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-12-adalk-a98006c9": {
+   "date": "2026-10-12",
+   "title": "විශේෂ අවශ්‍යතා ඇති දරුවන්ගේ කුසලතා සංවර්ධනයට කොරියාව සමග වැඩසටහනක්",
+   "url": "https://www.ada.lk/breaking_news/විශේෂ-අවශ්‍යතා-ඇති-දරුවන්ගේ-කුසලතා-සංවර්ධනයට-කොරියාව-සමග-වැඩසටහනක්/11-424622",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-12-adalk-45729eaa": {
+   "date": "2026-10-12",
+   "title": "සෑම පළාතකටම අල්ලස් කොමිසමක්",
+   "url": "https://www.ada.lk/breaking_news/සෑම-පළාතකටම-අල්ලස්-කොමිසමක්/11-424612",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-10-adalk-28a3a9dc": {
+   "date": "2026-10-10",
+   "title": "සෞඛ්‍ය කාර්ය සහායකයින් 436 කට පත්වීම් ලිපි ප්‍රදානය ලබන",
+   "url": "https://www.ada.lk/breaking_news/සෞඛ්‍ය-කාර්ය-සහායකයින්-436-කට-පත්වීම්-ලිපි-ප්‍රදානය-ලබන/11-424593",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-09-adalk-764f3580": {
+   "date": "2026-10-09",
+   "title": "දියගම වනාන්තරය රක්ෂිතයක් කරයි",
+   "url": "https://www.ada.lk/breaking_news/දියගම-වනාන්තරය-රක්ෂිතයක්-කරයි/11-424588",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-09-adalk-bcccada6": {
+   "date": "2026-10-09",
+   "title": "තේ පැළ ව්‍යාපෘතියෙන් රු. ලක්ෂ 976ක් වතුරේ",
+   "url": "https://www.ada.lk/breaking_news/තේ-පැළ-ව්‍යාපෘතියෙන්-රු--ලක්ෂ-976ක්-වතුරේ/11-424584",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-09-adalk-cd9cda89": {
+   "date": "2026-10-09",
+   "title": "ඉදිරි වසර දෙකේදී වැට් බදු අඩුකරනවා",
+   "url": "https://www.ada.lk/breaking_news/ඉදිරි-වසර-දෙකේදී-වැට්-බදු-අඩුකරනවා/11-424580",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-07-adalk-8aed63a2": {
+   "date": "2026-10-07",
+   "title": "රාජ්‍ය සේවකයන්ට නිල විද්‍යුත් තැපැල් ලිපිනයක්",
+   "url": "https://www.ada.lk/breaking_news/රාජ්‍ය-සේවකයන්ට-නිල-විද්‍යුත්-තැපැල්-ලිපිනයක්/11-424556",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-07-adalk-41d25438": {
+   "date": "2026-10-07",
+   "title": "2027 විසර්ජන පනත් කෙටුම්පත පාර්ලිමේන්තුවට",
+   "url": "https://www.ada.lk/breaking_news/2027-විසර්ජන-පනත්-කෙටුම්පත-පාර්ලිමේන්තුවට/11-424555",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-07-adalk-b88fc994": {
+   "date": "2026-10-07",
+   "title": "දිට්වාවෙන් පසු යළි නැගිටින පේරේ සරසවියට CDB වෙතින් අත්වැලක්",
+   "url": "https://www.ada.lk/business/දිට්වාවෙන්-පසු-යළි-නැගිටින-පේරේ-සරසවියට-CDB-වෙතින්-අත්වැලක්/7-424538",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-06-adalk-44990d1b": {
+   "date": "2026-10-06",
+   "title": "මඩුවන්වෙල වලව්ව කේන්ද්‍ර කර ගනිමින් සංචාරක කලාපයක්",
+   "url": "https://www.ada.lk/breaking_news/මඩුවන්වෙල-වලව්ව-කේන්ද්‍ර-කර-ගනිමින්-සංචාරක-කලාපයක්/11-424534",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-06-adalk-61cc7e22": {
+   "date": "2026-10-06",
+   "title": "IMF විස්තීරණ ණය පහසුකමේ හත්වන සමාලෝචන එකඟතාව",
+   "url": "https://www.ada.lk/business/IMF-විස්තීරණ-ණය-පහසුකමේ-හත්වන-සමාලෝචන-එකඟතාව/7-424526",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-06-adalk-eb16ccc0": {
+   "date": "2026-10-06",
+   "title": "ගොවීන්ට හිඟ විශ්‍රාම වැටුප් ගෙවිම අරඹයි",
+   "url": "https://www.ada.lk/breaking_news/ගොවීන්ට-හිඟ-විශ්‍රාම-වැටුප්-ගෙවිම-අරඹයි/11-424523",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-05-adalk-fd68ebb4": {
+   "date": "2026-10-05",
+   "title": "ලබන වසරේ සිට 6 ශ්‍රේණියට අලුත් විෂයක්",
+   "url": "https://www.ada.lk/breaking_news/ලබන-වසරේ-සිට-6-ශ්‍රේණියට-අලුත්-විෂයක්/11-424517",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-05-adalk-15378adf": {
+   "date": "2026-10-05",
+   "title": "නුවරඑළියේ ජල හා මලාප්‍රවාහන ගැටලුවට රු. බිලියන 25.1ක ව්‍යාපෘතියක්",
+   "url": "https://www.ada.lk/breaking_news/නුවරඑළියේ-ජල-හා-මලාප්‍රවාහන-ගැටලුවට-රු--බිලියන-25-1ක-ව්‍යාපෘතියක්/11-424509",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-05-adalk-0d1c0ea8": {
+   "date": "2026-10-05",
+   "title": "විදුලිය ශක්තිමත් කිරීමට ඩොලර් මිලියන 62ක ණය හා ප්‍රධාන",
+   "url": "https://www.ada.lk/breaking_news/විදුලිය-ශක්තිමත්-කිරීමට-ඩොලර්-මිලියන-62ක-ණය-හා-ප්‍රධාන/11-424505",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-05-adalk-9b927ee0": {
+   "date": "2026-10-05",
+   "title": "ආරක්ෂක අංශ භාවිත කළ ඉඩම් අක්කර 187ක් මුදා",
+   "url": "https://www.ada.lk/breaking_news/ආරක්ෂක-අංශ-භාවිත-කළ-ඉඩම්-අක්කර-187ක්-මුදා/11-424504",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-04-adalk-a6c0afc3": {
+   "date": "2026-10-04",
+   "title": "මඩකලපුව ශික්ෂණ රෝහලේ  සත් මහල් වකුගඩු හා රුධිර කාන්දුකරණ ඒකකය ජනතා අයිතියට",
+   "url": "https://www.ada.lk/breaking_news/මඩකලපුව-ශික්ෂණ-රෝහලේ--සත්-මහල්-වකුගඩු-හා-රුධිර-කාන්දුකරණ-ඒකකය-ජනතා-අයිතියට/11-424495",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-03-adalk-8b97343a": {
+   "date": "2026-10-03",
+   "title": "මඩකලපුව පළාත් සෞඛ්‍ය පුහුණු මධ්‍යස්ථානය සෞඛ්‍ය අමාත්‍යාංශය යටතට",
+   "url": "https://www.ada.lk/breaking_news/මඩකලපුව-පළාත්-සෞඛ්‍ය-පුහුණු-මධ්‍යස්ථානය-සෞඛ්‍ය-අමාත්‍යාංශය-යටතට/11-424486",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-02-adalk-0f7920bc": {
+   "date": "2026-10-02",
+   "title": "අංක තහඩු සහ රියදුරු බලපත්‍ර නිකුත් කිරීමේ ප්‍රමාදය පිළිබඳ විමර්ශනයක්",
+   "url": "https://www.ada.lk/breaking_news/අංක-තහඩු-සහ-රියදුරු-බලපත්‍ර-නිකුත්-කිරීමේ-ප්‍රමාදය-පිළිබඳ-විමර්ශනයක්/11-424481",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-02-adalk-5bc36e68": {
+   "date": "2026-10-02",
+   "title": "පවුල් සෞඛ්‍ය සේවා නිලධාරිනියන් 1056ක් අනිද්දා සිට සේවයට",
+   "url": "https://www.ada.lk/breaking_news/පවුල්-සෞඛ්‍ය-සේවා-නිලධාරිනියන්-1056ක්-අනිද්දා-සිට-සේවයට/11-424477",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-02-adalk-1c3bf8e0": {
+   "date": "2026-10-02",
+   "title": "කොළඹ පේරාදෙණිය හා ගම්පොළ දක්වා දුම්රිය ධාවනය අද ඇරඹෙයි",
+   "url": "https://www.ada.lk/breaking_news/කොළඹ-පේරාදෙණිය-හා-ගම්පොළ-දක්වා-දුම්රිය-ධාවනය-අද-ඇරඹෙයි/11-424469",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-02-adalk-95503da3": {
+   "date": "2026-10-02",
+   "title": "වකුගඩු රෝහලේ හානිය කඩිනමින් යථා තත්ත්වයට",
+   "url": "https://www.ada.lk/breaking_news/වකුගඩු-රෝහලේ-හානිය-කඩිනමින්-යථා-තත්ත්වයට/11-424468",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-10-01-adalk-791fc351": {
+   "date": "2026-10-01",
+   "title": "මාර්ග සංවර්ධනයට ලෝක  බැංකුවෙන් ඩො.මිලි 110ක්",
+   "url": "https://www.ada.lk/business/මාර්ග-සංවර්ධනයට-ලෝක--බැංකුවෙන්-ඩො-මිලි-110ක්/7-424460",
+   "outlet": "Ada",
+   "lang": "si"
+  }
+ }
+}

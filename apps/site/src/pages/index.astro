@@ -1,0 +1,199 @@
+---
+import { getEmDashCollection, getEmDashEntry } from 'emdash'
+import { isCountryCode } from '@developing-country/countries'
+import ArticleCard from '../components/ArticleCard.astro'
+import CountryFeature from '../components/CountryFeature.astro'
+import DatasetPanel from '../components/DatasetPanel.astro'
+import SiteLayout from '../layouts/SiteLayout.astro'
+import { articleFields, countryFields, pageFields } from '../lib/content'
+import { loadSiteDatasetCatalog } from '../lib/datasetCatalogCloudflare'
+import { datasetExploreUrl, datasetMeta, datasetNotes } from '../lib/datasets'
+import { CANONICAL_EXPLORER_ORIGIN, resolveExplorerHref } from '../lib/explorer'
+import { CHAPTER_SHOTS } from '../lib/films'
+
+const [{ entry: home, cacheHint }, { entries: articles }, { entries: countries }, datasetCatalog] = await Promise.all([
+  getEmDashEntry('pages', 'home'),
+  getEmDashCollection('articles', { orderBy: { published_at: 'desc' }, limit: 100 }),
+  getEmDashCollection('countries', { limit: 6 }),
+  loadSiteDatasetCatalog(),
+])
+if (Astro.cache?.enabled) Astro.cache.set({ ...cacheHint, maxAge: 60, swr: 0 })
+
+const homeData = home ? pageFields(home.data) : null
+const articleCards = articles
+  .map((entry) => ({ id: entry.id, data: articleFields(entry.data) }))
+  .filter((article) => article.data.format === 'analysis' && article.data.analysisKind === 'essay')
+  .slice(0, 3)
+const countryCards = countries
+  .map((entry) => ({ id: entry.id, data: countryFields(entry.data) }))
+  .filter((entry) => isCountryCode(entry.data.code))
+
+const featuredCountry = countryCards[0]
+const localExplorerOrigin = import.meta.env.DEV ? 'http://127.0.0.1:5173' : undefined
+const explore = (url: string) => resolveExplorerHref(url, localExplorerOrigin)
+const explorerHref = explore(`${CANONICAL_EXPLORER_ORIGIN}/`)
+const mapLayerCount = datasetNotes.filter((note) => note.preview?.kind !== 'chart').length
+const indicatorCount = datasetNotes.filter((note) => note.preview?.kind === 'chart').length
+/** The dataset library door films these cards exactly as /data renders them. */
+const libraryIds = [
+  'census-age-sex-dsd',
+  'ccpi-monthly',
+  'labour-force',
+  'merchandise-trade-monthly',
+  'government-fiscal-operations-annual',
+  'electricity-customers-sales',
+  'poverty-headcount-district',
+  'water-supply-connections-coverage',
+  'gdp-by-industry',
+] as const satisfies readonly Parameters<typeof datasetMeta>[1][]
+const noteDeks = new Map(articles.map((entry) => [entry.id, articleFields(entry.data).dek]))
+const libraryCards = libraryIds.map((id) => {
+  const dataset = datasetMeta(datasetCatalog, id)
+  return {
+    href: `/data/${id}`,
+    title: dataset.title,
+    dek: noteDeks.get(id) ?? null,
+    country: dataset.version.country,
+    refreshedAt: dataset.version.refreshedAt,
+    themes: dataset.themes,
+    publisher: dataset.publisher,
+    sources: dataset.sources,
+  }
+})
+const checked = (datasetId: Parameters<typeof datasetMeta>[1]) => {
+  const value = datasetMeta(datasetCatalog, datasetId).version.refreshedAt
+  const parsed = /^\d{4}-\d{2}-\d{2}$/.test(value) ? new Date(`${value}T00:00:00Z`) : null
+  return parsed ? parsed.toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' }) : value
+}
+const records = (datasetId: Parameters<typeof datasetMeta>[1], noun: string) => {
+  const count = datasetMeta(datasetCatalog, datasetId).version.rowCount
+  return count === undefined ? 'See note' : `${count.toLocaleString('en-GB')} ${noun}`
+}
+
+const datasets = [
+  {
+    eyebrow: 'Public projects',
+    title: 'What is being built?',
+    summary: 'See what was announced, where it is, who is responsible, what it was expected to cost and when anyone last reported progress.',
+    facts: [{ label: 'Records', value: records('developments', 'projects') }, { label: 'Last checked', value: checked('developments') }],
+    noteUrl: '/data/developments',
+    exploreUrl: explore(datasetExploreUrl('developments')),
+    shot: CHAPTER_SHOTS.developments,
+    shotLabel: 'The explorer map of Sri Lanka with planned developments on, and the Getambe Junction Flyover’s status timeline open.',
+    tone: 'coral' as const,
+  },
+  {
+    eyebrow: 'Population',
+    title: 'Where do people live?',
+    summary: 'Compare population across provinces, districts and smaller administrative areas, while keeping the census year and known gaps in view.',
+    facts: [{ label: 'Census years', value: '2012 + 2024' }, { label: 'Last checked', value: checked('demographics') }],
+    noteUrl: '/data/demographics',
+    exploreUrl: explore(datasetExploreUrl('demographics')),
+    shot: CHAPTER_SHOTS.demographics,
+    shotLabel: 'The explorer map around Colombo shaded by population density per GN division, with Koholvila’s census readout open.',
+    tone: 'lilac' as const,
+  },
+  {
+    eyebrow: 'Public transport',
+    title: 'How far does the city reach?',
+    summary: 'See Colombo Metro Bus routes and the streets people can reach on foot from each stop—not just the lines on a transport map.',
+    facts: [{ label: 'Walking records', value: records('metro_catchment', 'catchments') }, { label: 'Last checked', value: checked('metro_catchment') }],
+    noteUrl: '/data/metro_catchment',
+    exploreUrl: explore(datasetExploreUrl('metro_catchment')),
+    shot: CHAPTER_SHOTS.metro_catchment,
+    shotLabel: 'The explorer map of south-east Colombo showing streets within a five- and ten-minute walk of Metro Bus stops, with the Pannipitiya stop selected.',
+    tone: 'sage' as const,
+  },
+  {
+    eyebrow: 'Schools',
+    title: 'Is learning within reach?',
+    summary: 'Explore where schools have been mapped, then compare them with population and transport. A point on a map does not always mean practical access.',
+    facts: [{ label: 'Mapped places', value: records('schools', 'places') }, { label: 'Source', value: 'OpenStreetMap' }],
+    noteUrl: '/data/schools',
+    exploreUrl: explore(datasetExploreUrl('schools')),
+    shot: CHAPTER_SHOTS.schools,
+    shotLabel: 'The explorer map around Kandy with mapped schools, and one college’s readout noting it is from OpenStreetMap, not the official register.',
+    tone: 'ochre' as const,
+  },
+  {
+    eyebrow: 'Hospitals',
+    title: 'Where is care available?',
+    summary: 'Locate mapped hospitals and clinics, while keeping one limitation clear: this is a community map, not the official health-service register.',
+    facts: [{ label: 'Mapped places', value: records('hospitals', 'places') }, { label: 'Coverage', value: 'Community-mapped' }],
+    noteUrl: '/data/hospitals',
+    exploreUrl: explore(datasetExploreUrl('hospitals')),
+    shot: CHAPTER_SHOTS.hospitals,
+    shotLabel: 'The explorer map around Jaffna with mapped hospitals and clinics, and Northern Central Hospital’s readout open.',
+    tone: 'blue' as const,
+  },
+]
+---
+
+<SiteLayout
+  title="developing-country.org"
+  description={homeData?.description || 'Sri Lanka’s public data, brought together and explained.'}
+  immersiveHeader
+>
+  {home && homeData ? (
+    <div class="report-home" {...home.edit.content}>
+      <section class="report-hero" aria-labelledby="report-title">
+        <div class="report-hero__placeholder" aria-hidden="true">
+          <div class="report-hero__grid"></div>
+        </div>
+        <div class="report-hero__content">
+          <div class="report-hero__title-wrap">
+            <h1 id="report-title"><span>Developing</span><span>country</span></h1>
+          </div>
+
+        </div>
+      </section>
+
+      {featuredCountry && (
+        <CountryFeature
+          map={{ count: mapLayerCount, href: explorerHref }}
+          data={{ count: indicatorCount, href: '/data', cards: libraryCards }}
+        />
+      )}
+
+      <section class="mission-fold" aria-label="Why I’m building Developing Country">
+        <div class="mission-fold__inner">
+          <figure class="mission-fold__quote">
+            <blockquote>“I want to help build the data infrastructure that developing countries need to grow. What an achievement it would be to go from developing to developed in a lifetime.”</blockquote>
+          </figure>
+        </div>
+      </section>
+
+      <section class="dataset-chapters" aria-label="Explore the data">
+        {datasets.map((dataset, index) => (
+          <DatasetPanel index={index + 1} {...dataset} />
+        ))}
+      </section>
+
+      {articleCards.length > 0 && <section class="research-showcase">
+        <div class="research-showcase__inner">
+          <div class="research-showcase__heading">
+            <p class="report-label">Writing</p>
+            <h2>Read the argument. Check the source.</h2>
+            <a class="text-link" href="/analysis">Read our thoughts <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="article-grid article-grid--showcase">
+            {articleCards.map((article) => (
+              <ArticleCard
+                href={article.data.format === 'dataset_note' ? `/data/${article.id}` : `/analysis/${article.id}`}
+                title={article.data.title}
+                dek={article.data.dek}
+                country={article.data.countryCode}
+                publishedAt={article.data.publishedAt}
+                format={article.data.format}
+                analysisKind={article.data.analysisKind}
+                claimStatus={article.data.claimStatus}
+              />
+            ))}
+          </div>
+        </div>
+      </section>}
+    </div>
+  ) : (
+    <div class="page-shell empty-state">The public site is waiting for its EmDash seed.</div>
+  )}
+</SiteLayout>

@@ -1,0 +1,502 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2025-10-01",
+  "2025-10-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 30,
+ "rejected": 18,
+ "rejected_ids": [
+  "2025-10-01-economynextcom-218594bb",
+  "2025-10-01-islandlk-efbbfe0c",
+  "2025-10-02-economynextcom-52b08bbd",
+  "2025-10-04-islandlk-59e7a88f",
+  "2025-10-07-islandlk-f63c5b9c",
+  "2025-10-08-dailyftlk-120b594a",
+  "2025-10-09-dailyftlk-349c7b06",
+  "2025-10-09-islandlk-456d4766",
+  "2025-10-09-islandlk-caafc9bf",
+  "2025-10-10-dailyftlk-323d5055",
+  "2025-10-10-dailyftlk-7524eda3",
+  "2025-10-14-islandlk-465d2b80",
+  "2025-10-15-dailyftlk-40e1d278",
+  "2025-10-15-dailyftlk-5ba1e14f",
+  "2025-10-21-dailyftlk-025f1af5",
+  "2025-10-23-dailyftlk-d96f3bc2",
+  "2025-10-27-islandlk-c5699003",
+  "2025-10-29-dailyftlk-6f7c144f",
+  "2025-10-29-dailyftlk-81107eef",
+  "2025-10-31-islandlk-e93fe5a8"
+ ],
+ "unattributed_ids": [
+  "2025-10-09-islandlk-456d4766",
+  "2025-10-09-islandlk-caafc9bf"
+ ],
+ "dropped": [
+  "event imf-eff-2023-proposed-2025-10-09 proposed: unknown line",
+  "event imf-eff-2023-proposed-2025-10-09 proposed: unknown line"
+ ],
+ "projects": [
+  {
+   "id": "assistive-devices-manufacturing-project",
+   "name": "Local manufacture of assistive devices for differently-abled persons",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "state-printing-corporation-textbook-printing-2026",
+   "name": "Printing of textbooks and modules by State Printing Corporation for 2026",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kolonnawa-fuel-filling-upgrade",
+   "name": "Upgrade of fuel filling facilities at Kolonnawa Terminal (CPSTL)",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Kolonnawa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "excise-department-revenue-system",
+   "name": "New revenue administration system for Excise Department",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-dollar-bonds-2025",
+   "name": "Issuance of dollar bonds by Ministry of Finance as short-term liquidity tool",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ambatale-water-safety-climate-resilience",
+   "name": "Safe and Resilient Water Supply for Western Cities - Ambatale Water Supply Scheme climate resilience",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ratmalana-airport-complex",
+   "name": "Ratmalana Airport airfield facility upgrade",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Ratmalana",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "murban-crude-supply-bb-energy",
+   "name": "Murban crude oil supply contract with BB Energy Asia",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-dharga-town-hospital-ward-complex",
+   "name": "New ward complex at Dharga Town District Hospital (China-funded 13-hospital upgrade)",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Dharga Town, Kalutara",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "assistive-devices-manufacturing-gosl",
+   "project_id": "assistive-devices-manufacturing-project",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "state-printing-corporation-textbook-printing-2026-gosl",
+   "project_id": "state-printing-corporation-textbook-printing-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "kolonnawa-fuel-filling-upgrade-gosl",
+   "project_id": "kolonnawa-fuel-filling-upgrade",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka (CPSTL)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "excise-department-revenue-system-gosl",
+   "project_id": "excise-department-revenue-system",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-dollar-bonds-2025-gosl",
+   "project_id": "gosl-dollar-bonds-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "unknown",
+   "instrument": "loan",
+   "purpose": "balance_of_payments"
+  },
+  {
+   "id": "ambatale-water-safety-cdri-india",
+   "project_id": "ambatale-water-safety-climate-resilience",
+   "funder": "other:cdri",
+   "funder_name": "Coalition for Disaster Resilient Infrastructure (IRAF Trust Fund)",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "ratmalana-airport-complex-gosl",
+   "project_id": "ratmalana-airport-complex",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "murban-crude-supply-bb-energy-gosl",
+   "project_id": "murban-crude-supply-bb-energy",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "china-dharga-town-hospital-ward-complex",
+   "project_id": "china-dharga-town-hospital-ward-complex",
+   "funder": "china",
+   "funder_name": "China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "assistive-devices-manufacturing-gosl-govt_authorised-2025-10-23",
+   "line_id": "assistive-devices-manufacturing-gosl",
+   "date": "2025-10-23",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 630200000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves local manufacture of assistive devices project",
+   "confidence": "high",
+   "reports": [
+    "2025-10-23-dailyftlk-f5695574"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "state-printing-corporation-textbook-printing-2026-gosl-govt_authorised-2025-10-22",
+   "line_id": "state-printing-corporation-textbook-printing-2026-gosl",
+   "date": "2025-10-22",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 761290000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved textbook printing contract for State Printing Corporation",
+   "confidence": "high",
+   "reports": [
+    "2025-10-23-dailyftlk-ee5c39c6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kolonnawa-fuel-filling-upgrade-gosl-govt_authorised-2025-10-14",
+   "line_id": "kolonnawa-fuel-filling-upgrade-gosl",
+   "date": "2025-10-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1450000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved procurement for Kolonnawa fuel filling facility upgrade",
+   "confidence": "high",
+   "reports": [
+    "2025-10-15-dailyftlk-497e03ee"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "excise-department-revenue-system-gosl-contract_awarded-2025-10-13",
+   "line_id": "excise-department-revenue-system-gosl",
+   "date": "2025-10-13",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 1300000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved contract for new Excise Department revenue system",
+   "confidence": "high",
+   "reports": [
+    "2025-10-15-dailyftlk-2b04a826"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-dollar-bonds-2025-gosl-govt_authorised-2025-10-14",
+   "line_id": "gosl-dollar-bonds-2025-gosl",
+   "date": "2025-10-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves issuing dollar bonds as liquidity tool",
+   "confidence": "high",
+   "reports": [
+    "2025-10-14-islandlk-a6b0f793"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ambatale-water-safety-cdri-india-funder_approved-2025-10-10",
+   "line_id": "ambatale-water-safety-cdri-india",
+   "date": "2025-10-10",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 469232,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "CDRI awards grant for Ambatale water supply climate resilience project",
+   "confidence": "high",
+   "reports": [
+    "2025-10-10-dailyftlk-5c40aee1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-2023-proposed-2025-10-09",
+   "line_id": "imf-eff-2023",
+   "date": "2025-10-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 347000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF staff-level agreement on fifth EFF review reached",
+   "confidence": "medium",
+   "reports": [
+    "2025-10-09-islandlk-f8cdac71"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ratmalana-airport-complex-gosl-contract_awarded-2025-10-09",
+   "line_id": "ratmalana-airport-complex-gosl",
+   "date": "2025-10-09",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 3040000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sanken awarded contract for Ratmalana Airport airfield facility",
+   "confidence": "high",
+   "reports": [
+    "2025-10-09-dailyftlk-8ba4527f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "murban-crude-supply-bb-energy-gosl-contract_awarded-2025-10-09",
+   "line_id": "murban-crude-supply-bb-energy-gosl",
+   "date": "2025-10-09",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves crude oil supply deal with BB Energy Asia",
+   "confidence": "medium",
+   "reports": [
+    "2025-10-09-dailyftlk-2284d847"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-dharga-town-hospital-ward-complex-launched-2025-10-02",
+   "line_id": "china-dharga-town-hospital-ward-complex",
+   "date": "2025-10-02",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China-funded new ward complex opened at Dharga Town Hospital",
+   "confidence": "high",
+   "reports": [
+    "2025-10-02-dailyftlk-ffb974eb"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2025-10-23-dailyftlk-f5695574": {
+   "date": "2025-10-23",
+   "title": "Rs. 630 m allocated to locally manufacture assistive devices for differently-abled",
+   "url": "https://www.ft.lk/news/Rs-630-m-allocated-to-locally-manufacture-assistive-devices-for-differently-abled/56-783339",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-10-23-dailyftlk-ee5c39c6": {
+   "date": "2025-10-23",
+   "title": "Rs. 761 m approved for textbook printing by State Printing Corporation",
+   "url": "https://www.ft.lk/news/Rs-761-m-approved-for-textbook-printing-by-State-Printing-Corporation/56-783337",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-10-15-dailyftlk-497e03ee": {
+   "date": "2025-10-15",
+   "title": "Rs. 1.45 b project to upgrade Kolonnawa fuel filling facilities",
+   "url": "https://www.ft.lk/news/Rs-1-45-b-project-to-upgrade-Kolonnawa-fuel-filling-facilities/56-782999",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-10-15-dailyftlk-2b04a826": {
+   "date": "2025-10-15",
+   "title": "Cabinet nod for Rs. 1.3 b Excise Department revenue system",
+   "url": "https://www.ft.lk/news/Cabinet-nod-for-Rs-1-3-b-Excise-Department-revenue-system/56-782995",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-10-14-islandlk-a6b0f793": {
+   "date": "2025-10-14",
+   "title": "Cabinet nod to issue Dollar Bonds",
+   "url": "http://island.lk/cabinet-nod-to-issue-dollar-bonds/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2025-10-10-dailyftlk-5c40aee1": {
+   "date": "2025-10-10",
+   "title": "CDRI awards Rs. 142 m grant for UN-Habitat-Water Board project",
+   "url": "https://www.ft.lk/news/CDRI-awards-Rs-142-m-grant-for-UN-Habitat-Water-Board-project/56-782824",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-10-09-islandlk-f8cdac71": {
+   "date": "2025-10-09",
+   "title": "Govt-IMF staff level agreement boosts share market",
+   "url": "http://island.lk/govt-imf-staff-level-agreement-boosts-share-market/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2025-10-09-dailyftlk-8ba4527f": {
+   "date": "2025-10-09",
+   "title": "Sanken awarded Rs. 3 b contract for Ratmalana Airport complex",
+   "url": "https://www.ft.lk/business/Sanken-awarded-Rs-3-b-contract-for-Ratmalana-Airport-complex/34-782768",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-10-09-dailyftlk-2284d847": {
+   "date": "2025-10-09",
+   "title": "Cabinet approves four-month Murban crude supply deal with BB Energy Asia",
+   "url": "https://www.ft.lk/business/Cabinet-approves-four-month-Murban-crude-supply-deal-with-BB-Energy-Asia/34-782767",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-10-02-dailyftlk-ffb974eb": {
+   "date": "2025-10-02",
+   "title": "Rs. 1 b China-funded ward complex opens at Dharga Town Hospital",
+   "url": "https://www.ft.lk/news/Rs-1-b-China-funded-ward-complex-opens-at-Dharga-Town-Hospital/56-782467",
+   "outlet": "Daily FT",
+   "lang": "en"
+  }
+ }
+}

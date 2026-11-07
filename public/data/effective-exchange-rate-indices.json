@@ -1,0 +1,2345 @@
+{
+  "caveats": [
+    "REER is not a bilateral rupee/dollar rate; it adjusts NEER for inflation differentials.",
+    "CBSL makes the workbook freely downloadable but does not state an open-data reuse licence on the statistical-table page; this artifact contains normalized aggregate facts and does not redistribute the workbook."
+  ],
+  "country": "LK",
+  "dataset_id": "effective-exchange-rate-indices",
+  "description": "Monthly NEER and REER indices (2017=100, 24-currency basket) published by the Central Bank of Sri Lanka.",
+  "fields": [
+    {
+      "id": "period",
+      "label": "Month",
+      "role": "dimension",
+      "type": "period"
+    },
+    {
+      "id": "index_id",
+      "label": "Index id",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "index_label",
+      "label": "Index",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "provisional",
+      "label": "Provisional",
+      "role": "dimension",
+      "type": "boolean"
+    },
+    {
+      "aggregation": "none",
+      "id": "value",
+      "label": "Index value",
+      "role": "measure",
+      "type": "number",
+      "unit": "2017=100"
+    }
+  ],
+  "grain": "One national row per month and index.",
+  "notes": [
+    "(a) NEER and REER are rebased to 2017=100.",
+    "(b) REER was revised using rebased CPI figures of several trading-partner countries from January 2026.",
+    "(c) REER uses the rebased CCPI (2021=100) from February 2023.",
+    "(d) Provisional.",
+    "Values are rounded to two decimal places."
+  ],
+  "primary_key": [
+    "period",
+    "index_id"
+  ],
+  "rows": [
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2013-01",
+      "provisional": false,
+      "value": 103.64
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2013-01",
+      "provisional": false,
+      "value": 94.36
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2013-02",
+      "provisional": false,
+      "value": 104.09
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2013-02",
+      "provisional": false,
+      "value": 95.21
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2013-03",
+      "provisional": false,
+      "value": 105.12
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2013-03",
+      "provisional": false,
+      "value": 97.41
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2013-04",
+      "provisional": false,
+      "value": 105.58
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2013-04",
+      "provisional": false,
+      "value": 94.01
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2013-05",
+      "provisional": false,
+      "value": 105.78
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2013-05",
+      "provisional": false,
+      "value": 95.73
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2013-06",
+      "provisional": false,
+      "value": 105.38
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2013-06",
+      "provisional": false,
+      "value": 97.62
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2013-07",
+      "provisional": false,
+      "value": 104.01
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2013-07",
+      "provisional": false,
+      "value": 97.2
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2013-08",
+      "provisional": false,
+      "value": 103.91
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2013-08",
+      "provisional": false,
+      "value": 97.18
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2013-09",
+      "provisional": false,
+      "value": 103.76
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2013-09",
+      "provisional": false,
+      "value": 96.65
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2013-10",
+      "provisional": false,
+      "value": 103.39
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2013-10",
+      "provisional": false,
+      "value": 96.47
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2013-11",
+      "provisional": false,
+      "value": 104.04
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2013-11",
+      "provisional": false,
+      "value": 97.85
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2013-12",
+      "provisional": false,
+      "value": 104.19
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2013-12",
+      "provisional": false,
+      "value": 97.81
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2014-01",
+      "provisional": false,
+      "value": 104.71
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2014-01",
+      "provisional": false,
+      "value": 99.03
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2014-02",
+      "provisional": false,
+      "value": 104.59
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2014-02",
+      "provisional": false,
+      "value": 98.59
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2014-03",
+      "provisional": false,
+      "value": 104.33
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2014-03",
+      "provisional": false,
+      "value": 98.07
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2014-04",
+      "provisional": false,
+      "value": 103.93
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2014-04",
+      "provisional": false,
+      "value": 97.46
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2014-05",
+      "provisional": false,
+      "value": 103.66
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2014-05",
+      "provisional": false,
+      "value": 97.32
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2014-06",
+      "provisional": false,
+      "value": 104.03
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2014-06",
+      "provisional": false,
+      "value": 98.28
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2014-07",
+      "provisional": false,
+      "value": 103.93
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2014-07",
+      "provisional": false,
+      "value": 98.44
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2014-08",
+      "provisional": false,
+      "value": 104.77
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2014-08",
+      "provisional": false,
+      "value": 98.96
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2014-09",
+      "provisional": false,
+      "value": 105.89
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2014-09",
+      "provisional": false,
+      "value": 99.63
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2014-10",
+      "provisional": false,
+      "value": 106.57
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2014-10",
+      "provisional": false,
+      "value": 98.91
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2014-11",
+      "provisional": false,
+      "value": 107.61
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2014-11",
+      "provisional": false,
+      "value": 99.95
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2014-12",
+      "provisional": false,
+      "value": 109.19
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2014-12",
+      "provisional": false,
+      "value": 101.83
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2015-01",
+      "provisional": false,
+      "value": 110.34
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2015-01",
+      "provisional": false,
+      "value": 106.14
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2015-02",
+      "provisional": false,
+      "value": 110.06
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2015-02",
+      "provisional": false,
+      "value": 103.55
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2015-03",
+      "provisional": false,
+      "value": 111.21
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2015-03",
+      "provisional": false,
+      "value": 103.97
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2015-04",
+      "provisional": false,
+      "value": 110.71
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2015-04",
+      "provisional": false,
+      "value": 103.29
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2015-05",
+      "provisional": false,
+      "value": 109.64
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2015-05",
+      "provisional": false,
+      "value": 102.46
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2015-06",
+      "provisional": false,
+      "value": 109.86
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2015-06",
+      "provisional": false,
+      "value": 103.21
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2015-07",
+      "provisional": false,
+      "value": 110.71
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2015-07",
+      "provisional": false,
+      "value": 104.12
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2015-08",
+      "provisional": false,
+      "value": 112
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2015-08",
+      "provisional": false,
+      "value": 104.89
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2015-09",
+      "provisional": false,
+      "value": 108.52
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2015-09",
+      "provisional": false,
+      "value": 101.36
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2015-10",
+      "provisional": false,
+      "value": 106.49
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2015-10",
+      "provisional": false,
+      "value": 99.6
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2015-11",
+      "provisional": false,
+      "value": 107.62
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2015-11",
+      "provisional": false,
+      "value": 102.08
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2015-12",
+      "provisional": false,
+      "value": 106.31
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2015-12",
+      "provisional": false,
+      "value": 101.43
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2016-01",
+      "provisional": false,
+      "value": 107.15
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2016-01",
+      "provisional": false,
+      "value": 102.39
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2016-02",
+      "provisional": false,
+      "value": 106.64
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2016-02",
+      "provisional": false,
+      "value": 101.01
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2016-03",
+      "provisional": false,
+      "value": 105.51
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2016-03",
+      "provisional": false,
+      "value": 99.11
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2016-04",
+      "provisional": false,
+      "value": 104.37
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2016-04",
+      "provisional": false,
+      "value": 98.54
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2016-05",
+      "provisional": false,
+      "value": 103.51
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2016-05",
+      "provisional": false,
+      "value": 99.17
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2016-06",
+      "provisional": false,
+      "value": 104.11
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2016-06",
+      "provisional": false,
+      "value": 101.01
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2016-07",
+      "provisional": false,
+      "value": 104.74
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2016-07",
+      "provisional": false,
+      "value": 101.98
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2016-08",
+      "provisional": false,
+      "value": 104.11
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2016-08",
+      "provisional": false,
+      "value": 99.79
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2016-09",
+      "provisional": false,
+      "value": 103.97
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2016-09",
+      "provisional": false,
+      "value": 99.25
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2016-10",
+      "provisional": false,
+      "value": 104.28
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2016-10",
+      "provisional": false,
+      "value": 99.59
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2016-11",
+      "provisional": false,
+      "value": 105.05
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2016-11",
+      "provisional": false,
+      "value": 101.73
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2016-12",
+      "provisional": false,
+      "value": 105.44
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2016-12",
+      "provisional": false,
+      "value": 103.07
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2017-01",
+      "provisional": false,
+      "value": 104.5
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2017-01",
+      "provisional": false,
+      "value": 103.09
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2017-02",
+      "provisional": false,
+      "value": 103.14
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2017-02",
+      "provisional": false,
+      "value": 102.08
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2017-03",
+      "provisional": false,
+      "value": 102.54
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2017-03",
+      "provisional": false,
+      "value": 101.18
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2017-04",
+      "provisional": false,
+      "value": 101.51
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2017-04",
+      "provisional": false,
+      "value": 100.32
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2017-05",
+      "provisional": false,
+      "value": 100.5
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2017-05",
+      "provisional": false,
+      "value": 100.15
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2017-06",
+      "provisional": false,
+      "value": 99.69
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2017-06",
+      "provisional": false,
+      "value": 100.81
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2017-07",
+      "provisional": false,
+      "value": 98.65
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2017-07",
+      "provisional": false,
+      "value": 98.85
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2017-08",
+      "provisional": false,
+      "value": 98.05
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2017-08",
+      "provisional": false,
+      "value": 97.51
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2017-09",
+      "provisional": false,
+      "value": 97.62
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2017-09",
+      "provisional": false,
+      "value": 97.56
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2017-10",
+      "provisional": false,
+      "value": 98.1
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2017-10",
+      "provisional": false,
+      "value": 98.76
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2017-11",
+      "provisional": false,
+      "value": 98.08
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2017-11",
+      "provisional": false,
+      "value": 99.74
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2017-12",
+      "provisional": false,
+      "value": 97.92
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2017-12",
+      "provisional": false,
+      "value": 100.1
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2018-01",
+      "provisional": false,
+      "value": 95.93
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2018-01",
+      "provisional": false,
+      "value": 97.67
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2018-02",
+      "provisional": false,
+      "value": 94.75
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2018-02",
+      "provisional": false,
+      "value": 95.42
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2018-03",
+      "provisional": false,
+      "value": 94.48
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2018-03",
+      "provisional": false,
+      "value": 94.81
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2018-04",
+      "provisional": false,
+      "value": 94.55
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2018-04",
+      "provisional": false,
+      "value": 94.72
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2018-05",
+      "provisional": false,
+      "value": 95.49
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2018-05",
+      "provisional": false,
+      "value": 96.5
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2018-06",
+      "provisional": false,
+      "value": 95.55
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2018-06",
+      "provisional": false,
+      "value": 98.31
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2018-07",
+      "provisional": false,
+      "value": 96.61
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2018-07",
+      "provisional": false,
+      "value": 99
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2018-08",
+      "provisional": false,
+      "value": 97.24
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2018-08",
+      "provisional": false,
+      "value": 99.35
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2018-09",
+      "provisional": false,
+      "value": 95.29
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2018-09",
+      "provisional": false,
+      "value": 96.42
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2018-10",
+      "provisional": false,
+      "value": 92.17
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2018-10",
+      "provisional": false,
+      "value": 92.78
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2018-11",
+      "provisional": false,
+      "value": 89.17
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2018-11",
+      "provisional": false,
+      "value": 91.08
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2018-12",
+      "provisional": false,
+      "value": 87.36
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2018-12",
+      "provisional": false,
+      "value": 89.41
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2019-01",
+      "provisional": false,
+      "value": 85.97
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2019-01",
+      "provisional": false,
+      "value": 88.4
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2019-02",
+      "provisional": false,
+      "value": 87.41
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2019-02",
+      "provisional": false,
+      "value": 89.1
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2019-03",
+      "provisional": false,
+      "value": 87.37
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2019-03",
+      "provisional": false,
+      "value": 88.66
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2019-04",
+      "provisional": false,
+      "value": 89.4
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2019-04",
+      "provisional": false,
+      "value": 90.53
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2019-05",
+      "provisional": false,
+      "value": 89.31
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2019-05",
+      "provisional": false,
+      "value": 91.63
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2019-06",
+      "provisional": false,
+      "value": 89.06
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2019-06",
+      "provisional": false,
+      "value": 92.11
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2019-07",
+      "provisional": false,
+      "value": 89.21
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2019-07",
+      "provisional": false,
+      "value": 91.77
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2019-08",
+      "provisional": false,
+      "value": 89.45
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2019-08",
+      "provisional": false,
+      "value": 91.84
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2019-09",
+      "provisional": false,
+      "value": 88.26
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2019-09",
+      "provisional": false,
+      "value": 91.1
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2019-10",
+      "provisional": false,
+      "value": 87.65
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2019-10",
+      "provisional": false,
+      "value": 90.23
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2019-11",
+      "provisional": false,
+      "value": 87.93
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2019-11",
+      "provisional": false,
+      "value": 91.64
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2019-12",
+      "provisional": false,
+      "value": 87.18
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2019-12",
+      "provisional": false,
+      "value": 91.2
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2020-01",
+      "provisional": false,
+      "value": 86.93
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2020-01",
+      "provisional": false,
+      "value": 92.49
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2020-02",
+      "provisional": false,
+      "value": 87.62
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2020-02",
+      "provisional": false,
+      "value": 93.09
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2020-03",
+      "provisional": false,
+      "value": 87.35
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2020-03",
+      "provisional": false,
+      "value": 92.31
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2020-04",
+      "provisional": false,
+      "value": 84.73
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2020-04",
+      "provisional": false,
+      "value": 89.88
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2020-05",
+      "provisional": false,
+      "value": 86.94
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2020-05",
+      "provisional": false,
+      "value": 92.7
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2020-06",
+      "provisional": false,
+      "value": 86.74
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2020-06",
+      "provisional": false,
+      "value": 92.89
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2020-07",
+      "provisional": false,
+      "value": 86.27
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2020-07",
+      "provisional": false,
+      "value": 92.16
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2020-08",
+      "provisional": false,
+      "value": 85.83
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2020-08",
+      "provisional": false,
+      "value": 91.32
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2020-09",
+      "provisional": false,
+      "value": 85.55
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2020-09",
+      "provisional": false,
+      "value": 91.49
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2020-10",
+      "provisional": false,
+      "value": 85.63
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2020-10",
+      "provisional": false,
+      "value": 91.4
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2020-11",
+      "provisional": false,
+      "value": 84.94
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2020-11",
+      "provisional": false,
+      "value": 91.13
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2020-12",
+      "provisional": false,
+      "value": 82.95
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2020-12",
+      "provisional": false,
+      "value": 88.18
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2021-01",
+      "provisional": false,
+      "value": 80.83
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2021-01",
+      "provisional": false,
+      "value": 86.31
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2021-02",
+      "provisional": false,
+      "value": 79.27
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2021-02",
+      "provisional": false,
+      "value": 84.6
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2021-03",
+      "provisional": false,
+      "value": 78.75
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2021-03",
+      "provisional": false,
+      "value": 83.72
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2021-04",
+      "provisional": false,
+      "value": 79.02
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2021-04",
+      "provisional": false,
+      "value": 83.58
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2021-05",
+      "provisional": false,
+      "value": 77.46
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2021-05",
+      "provisional": false,
+      "value": 82.41
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2021-06",
+      "provisional": false,
+      "value": 77.56
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2021-06",
+      "provisional": false,
+      "value": 83.44
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2021-07",
+      "provisional": false,
+      "value": 78.4
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2021-07",
+      "provisional": false,
+      "value": 84.28
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2021-08",
+      "provisional": false,
+      "value": 78.08
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2021-08",
+      "provisional": false,
+      "value": 83.95
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2021-09",
+      "provisional": false,
+      "value": 77.72
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2021-09",
+      "provisional": false,
+      "value": 83.74
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2021-10",
+      "provisional": false,
+      "value": 78.43
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2021-10",
+      "provisional": false,
+      "value": 85.37
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2021-11",
+      "provisional": false,
+      "value": 78.63
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2021-11",
+      "provisional": false,
+      "value": 87.29
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2021-12",
+      "provisional": false,
+      "value": 79.58
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2021-12",
+      "provisional": false,
+      "value": 90.43
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2022-01",
+      "provisional": false,
+      "value": 79.17
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2022-01",
+      "provisional": false,
+      "value": 92.45
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2022-02",
+      "provisional": false,
+      "value": 79.24
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2022-02",
+      "provisional": false,
+      "value": 92.87
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2022-03",
+      "provisional": false,
+      "value": 62.55
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2022-03",
+      "provisional": false,
+      "value": 74.66
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2022-04",
+      "provisional": false,
+      "value": 50.88
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2022-04",
+      "provisional": false,
+      "value": 65.8
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2022-05",
+      "provisional": false,
+      "value": 46.22
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2022-05",
+      "provisional": false,
+      "value": 64.33
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2022-06",
+      "provisional": false,
+      "value": 46.42
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2022-06",
+      "provisional": false,
+      "value": 72.3
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2022-07",
+      "provisional": false,
+      "value": 47.12
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2022-07",
+      "provisional": false,
+      "value": 76.33
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2022-08",
+      "provisional": false,
+      "value": 47.27
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2022-08",
+      "provisional": false,
+      "value": 78.22
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2022-09",
+      "provisional": false,
+      "value": 48.1
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2022-09",
+      "provisional": false,
+      "value": 82.17
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2022-10",
+      "provisional": false,
+      "value": 48.69
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2022-10",
+      "provisional": false,
+      "value": 82.22
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2022-11",
+      "provisional": false,
+      "value": 47.99
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2022-11",
+      "provisional": false,
+      "value": 80.61
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2022-12",
+      "provisional": false,
+      "value": 47.26
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2022-12",
+      "provisional": false,
+      "value": 79.63
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2023-01",
+      "provisional": false,
+      "value": 46.82
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2023-01",
+      "provisional": false,
+      "value": 79.51
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2023-02",
+      "provisional": true,
+      "value": 47.34
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2023-02",
+      "provisional": true,
+      "value": 62.1
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2023-03",
+      "provisional": false,
+      "value": 52.47
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2023-03",
+      "provisional": false,
+      "value": 70.66
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2023-04",
+      "provisional": false,
+      "value": 53.38
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2023-04",
+      "provisional": false,
+      "value": 70.44
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2023-05",
+      "provisional": false,
+      "value": 55.79
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2023-05",
+      "provisional": false,
+      "value": 73.47
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2023-06",
+      "provisional": false,
+      "value": 57.51
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2023-06",
+      "provisional": false,
+      "value": 75.45
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2023-07",
+      "provisional": false,
+      "value": 54.2
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2023-07",
+      "provisional": false,
+      "value": 69.75
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2023-08",
+      "provisional": false,
+      "value": 54.64
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2023-08",
+      "provisional": false,
+      "value": 69.93
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2023-09",
+      "provisional": false,
+      "value": 54.82
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2023-09",
+      "provisional": false,
+      "value": 70.7
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2023-10",
+      "provisional": false,
+      "value": 54.84
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2023-10",
+      "provisional": false,
+      "value": 70.39
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2023-11",
+      "provisional": false,
+      "value": 53.82
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2023-11",
+      "provisional": false,
+      "value": 69.9
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2023-12",
+      "provisional": false,
+      "value": 53.65
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2023-12",
+      "provisional": false,
+      "value": 70.23
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2024-01",
+      "provisional": false,
+      "value": 54.65
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2024-01",
+      "provisional": false,
+      "value": 73.37
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2024-02",
+      "provisional": false,
+      "value": 56.48
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2024-02",
+      "provisional": false,
+      "value": 75.36
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2024-03",
+      "provisional": false,
+      "value": 57.75
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2024-03",
+      "provisional": false,
+      "value": 75.39
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2024-04",
+      "provisional": false,
+      "value": 59.38
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2024-04",
+      "provisional": false,
+      "value": 76.6
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2024-05",
+      "provisional": false,
+      "value": 59.15
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2024-05",
+      "provisional": false,
+      "value": 75.73
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2024-06",
+      "provisional": false,
+      "value": 58.41
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2024-06",
+      "provisional": false,
+      "value": 75.15
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2024-07",
+      "provisional": false,
+      "value": 58.41
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2024-07",
+      "provisional": false,
+      "value": 74.37
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2024-08",
+      "provisional": false,
+      "value": 58.39
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2024-08",
+      "provisional": false,
+      "value": 72.79
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2024-09",
+      "provisional": false,
+      "value": 57.85
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2024-09",
+      "provisional": false,
+      "value": 71.95
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2024-10",
+      "provisional": false,
+      "value": 59.76
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2024-10",
+      "provisional": false,
+      "value": 73.62
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2024-11",
+      "provisional": false,
+      "value": 60.97
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2024-11",
+      "provisional": false,
+      "value": 74.94
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2024-12",
+      "provisional": false,
+      "value": 61.5
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2024-12",
+      "provisional": false,
+      "value": 76.46
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2025-01",
+      "provisional": false,
+      "value": 61.06
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2025-01",
+      "provisional": false,
+      "value": 76.32
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2025-02",
+      "provisional": false,
+      "value": 60.73
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2025-02",
+      "provisional": false,
+      "value": 75.78
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2025-03",
+      "provisional": false,
+      "value": 60.28
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2025-03",
+      "provisional": false,
+      "value": 74.88
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2025-04",
+      "provisional": false,
+      "value": 59.14
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2025-04",
+      "provisional": false,
+      "value": 73.09
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2025-05",
+      "provisional": false,
+      "value": 58.39
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2025-05",
+      "provisional": false,
+      "value": 72.7
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2025-06",
+      "provisional": false,
+      "value": 58.04
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2025-06",
+      "provisional": false,
+      "value": 72.7
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2025-07",
+      "provisional": false,
+      "value": 57.73
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2025-07",
+      "provisional": false,
+      "value": 71.83
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2025-08",
+      "provisional": false,
+      "value": 58.02
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2025-08",
+      "provisional": false,
+      "value": 71.71
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2025-09",
+      "provisional": false,
+      "value": 57.82
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2025-09",
+      "provisional": false,
+      "value": 72
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2025-10",
+      "provisional": false,
+      "value": 57.88
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2025-10",
+      "provisional": false,
+      "value": 71.91
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2025-11",
+      "provisional": false,
+      "value": 57.52
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2025-11",
+      "provisional": false,
+      "value": 71.31
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2025-12",
+      "provisional": false,
+      "value": 56.78
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2025-12",
+      "provisional": false,
+      "value": 71.19
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2026-01",
+      "provisional": false,
+      "value": 56.62
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2026-01",
+      "provisional": false,
+      "value": 73.86
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2026-02",
+      "provisional": false,
+      "value": 56.37
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2026-02",
+      "provisional": false,
+      "value": 72.58
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2026-03",
+      "provisional": false,
+      "value": 56.54
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2026-03",
+      "provisional": false,
+      "value": 72.64
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2026-04",
+      "provisional": false,
+      "value": 55.59
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2026-04",
+      "provisional": false,
+      "value": 73.07
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2026-05",
+      "provisional": false,
+      "value": 54.2
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2026-05",
+      "provisional": false,
+      "value": 71.6
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2026-06",
+      "provisional": true,
+      "value": 52.94
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2026-06",
+      "provisional": true,
+      "value": 71.36
+    },
+    {
+      "index_id": "neer",
+      "index_label": "NEER (2017=100)",
+      "period": "2026-07",
+      "provisional": true,
+      "value": 53.03
+    },
+    {
+      "index_id": "reer",
+      "index_label": "REER (2017=100)",
+      "period": "2026-07",
+      "provisional": true,
+      "value": 71.65
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "cbsl-neer-reer-indices"
+  ],
+  "title": "Nominal and real effective exchange-rate indices",
+  "vintage": "2013-01–2026-07; latest months provisional"
+}

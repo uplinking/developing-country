@@ -1,0 +1,576 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-03-01",
+  "2026-03-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 34,
+ "rejected": 23,
+ "rejected_ids": [
+  "2026-03-04-dbsjeyarajcom-2f9a75df",
+  "2026-03-04-islandlk-dc0cba60",
+  "2026-03-05-dailyftlk-29165860",
+  "2026-03-05-dailyftlk-721e7fa9",
+  "2026-03-07-islandlk-648a70be",
+  "2026-03-10-dailyftlk-1f46b009",
+  "2026-03-12-dailyftlk-22cf314c",
+  "2026-03-12-islandlk-03463c50",
+  "2026-03-15-dbsjeyarajcom-f561cd26",
+  "2026-03-15-islandlk-8893c084",
+  "2026-03-16-dbsjeyarajcom-fc5c32c4",
+  "2026-03-17-islandlk-3db3dc0f",
+  "2026-03-18-dailyftlk-4d8423ab",
+  "2026-03-18-dbsjeyarajcom-191e0311",
+  "2026-03-18-dbsjeyarajcom-9a864c43",
+  "2026-03-19-dailyftlk-195720c6",
+  "2026-03-23-dbsjeyarajcom-c6da9d21",
+  "2026-03-24-dailyftlk-bae3871b",
+  "2026-03-25-dailyftlk-a5c89db5",
+  "2026-03-25-islandlk-cf849669",
+  "2026-03-26-dailyftlk-6cc5a512",
+  "2026-03-26-dailyftlk-9104a90a",
+  "2026-03-26-islandlk-662625c4"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "koica-sow-and-grow-wfp",
+   "name": "Sow and Grow maize-Thriposha nutrition project",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Anuradhapura, Monaragala, Badulla",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sanitary-napkin-program-2026-schoolgirls",
+   "name": "2026 sanitary napkin program for schoolgirls",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "chemmani-mass-graves-excavation",
+   "name": "Chemmani mass graves excavation and forensic investigation",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Chemmani, Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "omp-special-project-inquiry-panels",
+   "name": "OMP special project with 75 inquiry panels",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "slita-textile-training-complex-ratmalana",
+   "name": "SLITA textile training complex, Ratmalana",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Ratmalana",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-fisheries-electric-motorcycles",
+   "name": "India grant for electric motorcycles for fisheries field officers",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "lakvijaya-coal-emergency-procurement-2026",
+   "name": "Emergency coal procurement for Lakvijaya Power Plant (2026)",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Norochcholai",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "customs-oracle-exadata-system",
+   "name": "Oracle Exadata system supply for Sri Lanka Customs",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rti-commission-digitisation",
+   "name": "Digitisation of RTI Commission operations",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jaffna-tourism-infrastructure-2026",
+   "name": "Tourism infrastructure development, Jaffna District (part of national 2026-2028 program)",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "rebuilding-sri-lanka-fund-slic",
+   "project_id": "rebuilding-sri-lanka-fund",
+   "funder": "private",
+   "funder_name": "Sri Lanka Insurance Corporation",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "koica-sow-and-grow-wfp",
+   "project_id": "koica-sow-and-grow-wfp",
+   "funder": "korea",
+   "funder_name": "Korea International Cooperation Agency (KOICA)",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-sanitary-napkin-program-2026",
+   "project_id": "sanitary-napkin-program-2026-schoolgirls",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-chemmani-excavation-funding",
+   "project_id": "chemmani-mass-graves-excavation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-omp-special-project-inquiry-panels",
+   "project_id": "omp-special-project-inquiry-panels",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-slita-textile-training-complex",
+   "project_id": "slita-textile-training-complex-ratmalana",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "india-fisheries-electric-motorcycles-grant",
+   "project_id": "india-fisheries-electric-motorcycles",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "lakvijaya-coal-emergency-procurement-gosl",
+   "project_id": "lakvijaya-coal-emergency-procurement-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "customs-oracle-exadata-system-gosl",
+   "project_id": "customs-oracle-exadata-system",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "rti-commission-digitisation-osf",
+   "project_id": "rti-commission-digitisation",
+   "funder": "other:open_society_foundation",
+   "funder_name": "Open Society Foundation",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-jaffna-tourism-infrastructure-2026",
+   "project_id": "jaffna-tourism-infrastructure-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "rebuilding-sri-lanka-fund-slic-disbursed-2026-03-16",
+   "line_id": "rebuilding-sri-lanka-fund-slic",
+   "date": "2026-03-16",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 10000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "SLIC donates Rs. 10 million to cyclone relief fund",
+   "confidence": "high",
+   "reports": [
+    "2026-03-26-dailyftlk-9bccec2a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "koica-sow-and-grow-wfp-launched-2026-03-26",
+   "line_id": "koica-sow-and-grow-wfp",
+   "date": "2026-03-26",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 10000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "WFP, KOICA launch $10m Sow and Grow nutrition-farming project",
+   "confidence": "high",
+   "reports": [
+    "2026-03-26-islandlk-0f6a38c3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-sanitary-napkin-program-2026-govt_authorised-2026-03-25",
+   "line_id": "gosl-sanitary-napkin-program-2026",
+   "date": "2026-03-25",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1440,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves 2026 sanitary napkin program for schoolgirls",
+   "confidence": "high",
+   "reports": [
+    "2026-03-25-dailyftlk-24d203f9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-chemmani-excavation-funding-allocated-2026-03-24",
+   "line_id": "gosl-chemmani-excavation-funding",
+   "date": "2026-03-24",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 19000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government allocates funds for Chemmani mass grave excavation",
+   "confidence": "high",
+   "reports": [
+    "2026-03-24-dbsjeyarajcom-1d088656"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-omp-special-project-inquiry-panels-allocated-2026-03-24",
+   "line_id": "gosl-omp-special-project-inquiry-panels",
+   "date": "2026-03-24",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 375000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds allocated for OMP special project with 75 inquiry panels",
+   "confidence": "high",
+   "reports": [
+    "2026-03-24-dbsjeyarajcom-1d088656"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-slita-textile-training-complex-launched-2026-03-23",
+   "line_id": "gosl-slita-textile-training-complex",
+   "date": "2026-03-23",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 520000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs. 520 million textile training complex opens in Ratmalana",
+   "confidence": "high",
+   "reports": [
+    "2026-03-24-dailyftlk-2e99b00b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-fisheries-electric-motorcycles-grant-govt_authorised-2026-03-20",
+   "line_id": "india-fisheries-electric-motorcycles-grant",
+   "date": "2026-03-20",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 264590000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved India grant for fisheries officers' electric motorcycles",
+   "confidence": "high",
+   "reports": [
+    "2026-03-20-dailyftlk-d1b7141d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "lakvijaya-coal-emergency-procurement-gosl-contract_awarded-2026-03-16",
+   "line_id": "lakvijaya-coal-emergency-procurement-gosl",
+   "date": "2026-03-16",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awarded emergency 300,000-ton coal contract to Indian supplier",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-18-dbsjeyarajcom-fab9afd0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "customs-oracle-exadata-system-gosl-contract_awarded-2026-03-12",
+   "line_id": "customs-oracle-exadata-system-gosl",
+   "date": "2026-03-12",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 2197960000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awards Oracle Exadata system contract to Millennium ITESP",
+   "confidence": "high",
+   "reports": [
+    "2026-03-12-dailyftlk-5f334168"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rti-commission-digitisation-osf-govt_authorised-2026-03-12",
+   "line_id": "rti-commission-digitisation-osf",
+   "date": "2026-03-12",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 200000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves grant to digitise RTI Commission operations",
+   "confidence": "high",
+   "reports": [
+    "2026-03-12-dailyftlk-1babb3e0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-jaffna-tourism-infrastructure-2026-govt_authorised-2026-03-09",
+   "line_id": "gosl-jaffna-tourism-infrastructure-2026",
+   "date": "2026-03-09",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 131020000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves funds for Jaffna tourism infrastructure development",
+   "confidence": "high",
+   "reports": [
+    "2026-03-11-dailyftlk-fd4b8eb1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "vidatha-program-strategic-plan-gosl-launched-2026-03-07",
+   "line_id": "vidatha-program-strategic-plan-gosl",
+   "date": "2026-03-07",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Second Vidatha technology incubation centre opens at Ruhuna university",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-07-dailyftlk-b239cbf8"
+   ],
+   "relation": "update_of:vidatha-program-strategic-plan-gosl-govt_authorised-2025-11-15",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-03-26-dailyftlk-9bccec2a": {
+   "date": "2026-03-26",
+   "title": "SLIC donates Rs. 10 m to ‘Rebuild Sri Lanka’ Fund",
+   "url": "https://www.ft.lk/business/SLIC-donates-Rs-10-m-to-Rebuild-Sri-Lanka-Fund/34-790080",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-03-26-islandlk-0f6a38c3": {
+   "date": "2026-03-26",
+   "title": "WFP and Koica launch usd 10 million “Sow and Grow” project",
+   "url": "http://island.lk/wfp-and-koica-launch-usd-10-million-sow-and-grow-project/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2026-03-25-dailyftlk-24d203f9": {
+   "date": "2026-03-25",
+   "title": "Cabinet approves 2026 sanitary napkin program for schoolgirls",
+   "url": "https://www.ft.lk/news/Cabinet-approves-2026-sanitary-napkin-program-for-schoolgirls/56-790024",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-03-24-dbsjeyarajcom-1d088656": {
+   "date": "2026-03-24",
+   "title": "ITAK Batticaloa MP Shanakiyan Rasamanickam  Questions Govt  in Parliament on missing persons, accountability and delays in investigations : Justice Minister Harshana Nanayakkara responds with detailed data on ongoing efforts.",
+   "url": "https://dbsjeyaraj.com/dbsj/?p=87542",
+   "outlet": "dbsjeyaraj.com",
+   "lang": "en"
+  },
+  "2026-03-24-dailyftlk-2e99b00b": {
+   "date": "2026-03-24",
+   "title": "Rs. 520 m textile training complex opens in Ratmalana",
+   "url": "https://www.ft.lk/business/Rs-520-m-textile-training-complex-opens-in-Ratmalana/34-789991",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-03-20-dailyftlk-d1b7141d": {
+   "date": "2026-03-20",
+   "title": "Cabinet green lights MoU with India for Rs. 264.6 m grant to provide electric motorcycles to fisheries field officers",
+   "url": "https://www.ft.lk/news/Cabinet-green-lights-MoU-with-India-for-Rs-264-6-m-grant-to-provide-electric-motorcycles-to-fisheries-field-officers/56-789791",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-03-18-dbsjeyarajcom-fab9afd0": {
+   "date": "2026-03-18",
+   "title": "Govt to procure petroleum and petroleum-related products, liquefied petroleum gas (LP gas), and coal outside standard procurement guidelines for a period of three months;  Cabinet approves  emergency coal procurement of 300,000 tons for the Lakvijaya Power Plant",
+   "url": "https://dbsjeyaraj.com/dbsj/?p=87420",
+   "outlet": "dbsjeyaraj.com",
+   "lang": "en"
+  },
+  "2026-03-12-dailyftlk-5f334168": {
+   "date": "2026-03-12",
+   "title": "Millennium I.T.E.S.P. gets Rs. 2.2 b Oracle Exadata System supply  contract for Sri Lanka Customs",
+   "url": "https://www.ft.lk/business/Millennium-I-T-E-S-P-gets-Rs-2-2-b-Oracle-Exadata-System-supply-contract-for-Sri-Lanka-Customs/34-789446",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-03-12-dailyftlk-1babb3e0": {
+   "date": "2026-03-12",
+   "title": "Cabinet approves $ 200,000 grant to digitise RTI Commission operations",
+   "url": "https://www.ft.lk/news/Cabinet-approves-200-000-grant-to-digitise-RTI-Commission-operations/56-789441",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-03-11-dailyftlk-fd4b8eb1": {
+   "date": "2026-03-11",
+   "title": "Govt. to deploy over Rs. 131 m to develop  Jaffna tourism infrastructure this year",
+   "url": "https://www.ft.lk/news/Govt-to-deploy-over-Rs-131-m-to-develop-Jaffna-tourism-infrastructure-this-year/56-789410",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-03-07-dailyftlk-b239cbf8": {
+   "date": "2026-03-07",
+   "title": "Second incubation centre of Science and Technology Ministry opens at Faculty of Agriculture, Ruhuna",
+   "url": "https://www.ft.lk/business/Second-incubation-centre-of-Science-and-Technology-Ministry-opens-at-Faculty-of-Agriculture-Ruhuna/34-789218",
+   "outlet": "Daily FT",
+   "lang": "en"
+  }
+ }
+}

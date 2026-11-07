@@ -1,0 +1,69 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Cloudflare / Wrangler
+.wrangler
+
+# Data pipeline artifacts (large; regenerate with `bun run data`)
+data/build
+data/src
+
+# Framework-generated local state. Keep EmDash's deterministic migration
+# manifest, but never commit its local database, uploads, or generated Astro
+# cache/types.
+**/.astro/
+apps/site/.emdash/*
+!apps/site/.emdash/migrations.json
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Wrangler local secrets (never committed)
+.dev.vars
+
+# Wrangler auth / account selection — these hold a Cloudflare API token, which
+# picks WHICH account `wrangler deploy` publishes to. Never commit.
+.env
+.env.*
+!.env.example
+# Exceptions: these are public VITE_* build configs (base path, tile origin,
+# tileset list, basemap mode). They end up in the client bundle anyway, so they
+# are deliberately tracked — don't let the broad rule above hide them.
+!.env.production
+!.env.explore
+
+# D1 production exports (contain user rows) — never commit
+backup/
+
+
+# Local analysis-article runs (production runs under out/explore.developing-country.org are kept)
+analysis/*/out/localhost*
+analysis/*/out/127.0.0.1*
+.cache/
+
+# Private working material lives in its own repository, cloned into private/.
+# The agent configuration is linked from there, so it is never committed here.
+/private/
+/CLAUDE.md
+/AGENTS.md
+/.claude
+/.agents

@@ -1,0 +1,2198 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-04-01",
+  "2024-04-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "si",
+ "articles_read": 226,
+ "rejected": 168,
+ "rejected_ids": [
+  "2024-04-01-adaderanasinhalalk-54969db0",
+  "2024-04-01-adaderanasinhalalk-92d3f260",
+  "2024-04-01-adalk-07988ae5",
+  "2024-04-01-adalk-f679f59f",
+  "2024-04-02-adaderanasinhalalk-08a684bf",
+  "2024-04-02-adaderanasinhalalk-31eb9ac5",
+  "2024-04-02-adaderanasinhalalk-9f7a71fe",
+  "2024-04-02-adaderanasinhalalk-a945aa5d",
+  "2024-04-02-adaderanasinhalalk-ac7954da",
+  "2024-04-02-adalk-0fc2fef4",
+  "2024-04-02-adalk-518c4a84",
+  "2024-04-02-adalk-70b4a420",
+  "2024-04-02-adalk-a29f829a",
+  "2024-04-02-adalk-a880da61",
+  "2024-04-02-adalk-b5d8a914",
+  "2024-04-03-adaderanasinhalalk-0499fbe7",
+  "2024-04-03-adaderanasinhalalk-df44d720",
+  "2024-04-03-adalk-02572603",
+  "2024-04-03-adalk-0a0fea77",
+  "2024-04-03-adalk-16ff74eb",
+  "2024-04-03-adalk-93d31226",
+  "2024-04-03-adalk-ccd41fb9",
+  "2024-04-03-adalk-d16d0fe7",
+  "2024-04-03-adalk-dd99ab4d",
+  "2024-04-04-adaderanasinhalalk-11519c4b",
+  "2024-04-04-adaderanasinhalalk-d2688787",
+  "2024-04-04-adaderanasinhalalk-e8b58bc4",
+  "2024-04-04-adalk-1c756bdc",
+  "2024-04-04-adalk-63b9e37c",
+  "2024-04-04-adalk-77ae77a6",
+  "2024-04-04-adalk-91b4e76e",
+  "2024-04-05-adaderanasinhalalk-44d1a835",
+  "2024-04-05-adaderanasinhalalk-60c1572b",
+  "2024-04-05-adaderanasinhalalk-7b394702",
+  "2024-04-05-adaderanasinhalalk-9cac10b3",
+  "2024-04-05-adalk-7775d5e8",
+  "2024-04-06-adaderanasinhalalk-2a4127c8",
+  "2024-04-06-adaderanasinhalalk-554874cc",
+  "2024-04-06-adalk-712a4e96",
+  "2024-04-06-adalk-fae3c4de",
+  "2024-04-07-adaderanasinhalalk-075ca123",
+  "2024-04-07-adaderanasinhalalk-308f19fc",
+  "2024-04-07-adaderanasinhalalk-9fccf95c",
+  "2024-04-07-adalk-01400c5d",
+  "2024-04-07-adalk-644a5be6",
+  "2024-04-07-adalk-6efa49aa",
+  "2024-04-07-adalk-74222ddf",
+  "2024-04-07-adalk-a8801863",
+  "2024-04-07-adalk-c5aeb9ed",
+  "2024-04-07-adalk-f512ccb0",
+  "2024-04-08-adaderanasinhalalk-04815093",
+  "2024-04-08-adaderanasinhalalk-5b6df4e0",
+  "2024-04-08-adaderanasinhalalk-6c703da8",
+  "2024-04-08-adaderanasinhalalk-92d4e761",
+  "2024-04-08-adalk-56ee13eb",
+  "2024-04-08-adalk-59d8c96b",
+  "2024-04-08-adalk-9e363a65",
+  "2024-04-08-adalk-de51c76e",
+  "2024-04-08-adalk-f20b1b84",
+  "2024-04-09-adaderanasinhalalk-262a9df6",
+  "2024-04-09-adaderanasinhalalk-440bb11d",
+  "2024-04-09-adaderanasinhalalk-591eb588",
+  "2024-04-09-adaderanasinhalalk-69d3a899",
+  "2024-04-09-adaderanasinhalalk-74b6542e",
+  "2024-04-09-adaderanasinhalalk-d7577ece",
+  "2024-04-09-adaderanasinhalalk-e4bf19dc",
+  "2024-04-09-adalk-01776875",
+  "2024-04-09-adalk-3177b849",
+  "2024-04-09-adalk-46318bf3",
+  "2024-04-09-adalk-58aad454",
+  "2024-04-10-adaderanasinhalalk-6c7ee2d6",
+  "2024-04-10-adaderanasinhalalk-b1becd00",
+  "2024-04-10-adaderanasinhalalk-c2907591",
+  "2024-04-10-adaderanasinhalalk-e24e7126",
+  "2024-04-10-adaderanasinhalalk-f66afc1a",
+  "2024-04-10-adalk-8769d19c",
+  "2024-04-10-adalk-8f52bb49",
+  "2024-04-10-adalk-b567418f",
+  "2024-04-10-adalk-baff030d",
+  "2024-04-12-adaderanasinhalalk-58d5e842",
+  "2024-04-12-adaderanasinhalalk-7e88c53d",
+  "2024-04-12-adalk-deb4cdb2",
+  "2024-04-13-adaderanasinhalalk-14f16743",
+  "2024-04-13-adaderanasinhalalk-a83fff4e",
+  "2024-04-14-adaderanasinhalalk-5929ae7b",
+  "2024-04-14-adalk-90f8298e",
+  "2024-04-14-adalk-a9b36912",
+  "2024-04-14-adalk-ad309044",
+  "2024-04-15-adaderanasinhalalk-16b17b1e",
+  "2024-04-15-adalk-2a6ae3c0",
+  "2024-04-15-adalk-422bf321",
+  "2024-04-15-adalk-466360c3",
+  "2024-04-16-adaderanasinhalalk-233b612b",
+  "2024-04-16-adaderanasinhalalk-73f4169f",
+  "2024-04-16-adaderanasinhalalk-8848a843",
+  "2024-04-16-adaderanasinhalalk-e6fb8990",
+  "2024-04-16-adalk-018153a0",
+  "2024-04-16-adalk-81634dae",
+  "2024-04-16-adalk-b234f2a6",
+  "2024-04-16-adalk-d284e7c7",
+  "2024-04-17-adaderanasinhalalk-05952abd",
+  "2024-04-17-adaderanasinhalalk-8cac80d2",
+  "2024-04-17-adalk-15714ba1",
+  "2024-04-17-adalk-765262b7",
+  "2024-04-17-adalk-cb311cb2",
+  "2024-04-18-adaderanasinhalalk-2986d6ca",
+  "2024-04-18-adaderanasinhalalk-502dccf9",
+  "2024-04-18-adaderanasinhalalk-a447980f",
+  "2024-04-18-adaderanasinhalalk-bf0e3d66",
+  "2024-04-18-adalk-11482997",
+  "2024-04-18-adalk-15ab478a",
+  "2024-04-18-adalk-af06d776",
+  "2024-04-18-adalk-c78b76ac",
+  "2024-04-18-adalk-cde4ada8",
+  "2024-04-18-adalk-eb3f7e42",
+  "2024-04-19-adaderanasinhalalk-26b20c84",
+  "2024-04-19-adaderanasinhalalk-619e1d0c",
+  "2024-04-19-adaderanasinhalalk-714c2d30",
+  "2024-04-19-adaderanasinhalalk-de19207f",
+  "2024-04-20-adalk-1db07cff",
+  "2024-04-20-adalk-2aadc1b8",
+  "2024-04-21-adalk-0a8738bd",
+  "2024-04-21-adalk-5bce0d38",
+  "2024-04-21-adalk-e844add2",
+  "2024-04-22-adaderanasinhalalk-860147e4",
+  "2024-04-22-adalk-a9618443",
+  "2024-04-23-adaderanasinhalalk-9ef3a60f",
+  "2024-04-23-adalk-beaba2a0",
+  "2024-04-23-adalk-df36030a",
+  "2024-04-24-adaderanasinhalalk-664b98b5",
+  "2024-04-24-adaderanasinhalalk-69718831",
+  "2024-04-24-adaderanasinhalalk-78ea9b8d",
+  "2024-04-25-adaderanasinhalalk-66a9b2cf",
+  "2024-04-25-adaderanasinhalalk-bd5ea89a",
+  "2024-04-25-adaderanasinhalalk-fb066bf9",
+  "2024-04-25-adalk-0e400888",
+  "2024-04-25-adalk-24daf4ee",
+  "2024-04-25-adalk-6cd60d19",
+  "2024-04-25-adalk-74138920",
+  "2024-04-25-adalk-c93fdce5",
+  "2024-04-26-adaderanasinhalalk-02d23a15",
+  "2024-04-26-adaderanasinhalalk-d202b030",
+  "2024-04-26-adalk-1f36f263",
+  "2024-04-26-adalk-81fde9f6",
+  "2024-04-26-adalk-a1e6161b",
+  "2024-04-27-adaderanasinhalalk-290893a8",
+  "2024-04-27-adaderanasinhalalk-3de40186",
+  "2024-04-27-adaderanasinhalalk-5ecdb1a6",
+  "2024-04-27-adaderanasinhalalk-ca146f01",
+  "2024-04-27-adaderanasinhalalk-ca5b1c20",
+  "2024-04-27-adaderanasinhalalk-efb842e9",
+  "2024-04-27-adalk-8526e175",
+  "2024-04-28-adaderanasinhalalk-2c7f02ad",
+  "2024-04-28-adaderanasinhalalk-5092cfe7",
+  "2024-04-28-adaderanasinhalalk-b6b08fe3",
+  "2024-04-28-adalk-462cfbb7",
+  "2024-04-28-adalk-a1dcf3af",
+  "2024-04-29-adaderanasinhalalk-12c84bff",
+  "2024-04-29-adaderanasinhalalk-66282b13",
+  "2024-04-29-adaderanasinhalalk-ae5d8ef0",
+  "2024-04-29-adaderanasinhalalk-c63f6f46",
+  "2024-04-29-adaderanasinhalalk-d42d82ce",
+  "2024-04-29-adalk-12dccedf",
+  "2024-04-29-adalk-49a50080",
+  "2024-04-29-adalk-840591ee",
+  "2024-04-29-adalk-db5d7139",
+  "2024-04-29-adalk-ea349c83",
+  "2024-04-30-adalk-a5be44ab",
+  "2024-04-30-adalk-a92fcf23",
+  "2024-04-30-adalk-c51a287c"
+ ],
+ "unattributed_ids": [
+  "2024-04-07-adalk-01400c5d",
+  "2024-04-17-adaderanasinhalalk-8cac80d2"
+ ],
+ "dropped": [
+  "event gosl-evisa-tourist-scheme launched: unknown line",
+  "line world_bank-kandy-green-city",
+  "event world_bank-kandy-green-city cost_estimate: unknown line"
+ ],
+ "projects": [
+  {
+   "id": "epf-interest-rate-increase-2023",
+   "name": "EPF interest rate increase for 2023 investment returns",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "energy-sector-regulatory-committee",
+   "name": "Committee to regulate the energy sector",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mattala-airport-management-handover",
+   "name": "Mattala International Airport management handover to foreign operators",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Mattala",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "yala-paddy-cultivation-subsidy-2024",
+   "name": "Yala season paddy cultivation subsidy 2024",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-estate-worker-housing-project-8445-units",
+   "name": "India-funded estate worker housing project (8,445 units)",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "karapitiya-hospital-ct-scanner-equipment",
+   "name": "Karapitiya Teaching Hospital CT scanner and medical equipment",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Karapitiya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "srilankan-airlines-divestment",
+   "name": "Divestment of SriLankan Airlines",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "uncultivated-land-release-programme",
+   "name": "Uncultivated land release for cultivation programme",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kerawalapitiya-nugegoda-transmission-line",
+   "name": "Kerawalapitiya-Nugegoda 33kV transmission line",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Kerawalapitiya-Nugegoda, Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "samurdhi-govt-employee-loan-scheme",
+   "name": "Samurdhi Laksara loan scheme for state employees",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sigiriya-dambulla-tourism-zone-development",
+   "name": "Sigiriya-Dambulla tourism zone development project",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "Sigiriya-Dambulla",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "western-province-crime-security-programme",
+   "name": "Western Province crime security programme",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Western Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "big-onion-import-sathosa-2024",
+   "name": "Big onion import via Sathosa from India",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-evisa-tourist-scheme",
+   "name": "e-Visa system for tourists",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-hospital-colombo-ct-scanner-equipment",
+   "name": "National Hospital Colombo CT scanner equipment",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "aswesuma-welfare-benefit-payments-2024",
+   "name": "Aswesuma welfare benefit cash payments 2024",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "tower-hall-retired-artists-allowance",
+   "name": "Tower Hall Theatre Foundation retired artists allowance programme",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "north-east-idp-land-release-2024",
+   "name": "Land release and resettlement for North-East displaced families",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "Northern and Eastern Provinces",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kompannaveediya-flyover",
+   "name": "Kompannaveediya twin flyover project",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rice-distribution-poor-families-2024",
+   "name": "Rice distribution programme for poor families 2024",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-onion-supply-2024",
+   "name": "India onion supply to Sri Lanka 2024",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kandy-green-city-development",
+   "name": "Kandy green city and suburb development plan",
+   "sector": "urban",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rathnapura-gem-jewellery-trade-centre",
+   "name": "Rathnapura International Gem and Jewellery Trade Centre",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Rathnapura",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-childfund-bicycle-donation",
+   "name": "Japan ChildFund bicycle donation for school attendance",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "gosl-epf-interest-rate-increase-2023",
+   "project_id": "epf-interest-rate-increase-2023",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "gosl-energy-sector-regulatory-committee",
+   "project_id": "energy-sector-regulatory-committee",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "unknown"
+  },
+  {
+   "id": "mattala-airport-india-shaurya-aeronautics",
+   "project_id": "mattala-airport-management-handover",
+   "funder": "private",
+   "funder_name": "Shaurya Aeronautics Pvt. Ltd (India)",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "mattala-airport-russia-airports-regions",
+   "project_id": "mattala-airport-management-handover",
+   "funder": "private",
+   "funder_name": "Airports of Regions Management Company (Russia)",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "yala-paddy-cultivation-subsidy-2024-gosl",
+   "project_id": "yala-paddy-cultivation-subsidy-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "india-grant-estate-housing-8445-units",
+   "project_id": "india-estate-worker-housing-project-8445-units",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-karapitiya-ct-scanner-equipment",
+   "project_id": "karapitiya-hospital-ct-scanner-equipment",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-srilankan-airlines-divestment",
+   "project_id": "srilankan-airlines-divestment",
+   "funder": "private",
+   "funder_name": "Multiple private investors (AirAsia, FITS Aviation, Hayleys and others)",
+   "funder_type": "private",
+   "origin": "unknown",
+   "instrument": "equity",
+   "purpose": "unknown"
+  },
+  {
+   "id": "gosl-uncultivated-land-release-programme",
+   "project_id": "uncultivated-land-release-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-kerawalapitiya-nugegoda-transmission-line",
+   "project_id": "kerawalapitiya-nugegoda-transmission-line",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka / Ceylon Electricity Board",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-samurdhi-lakssara-loan-scheme",
+   "project_id": "samurdhi-govt-employee-loan-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "adb-sigiriya-dambulla-tourism-zone",
+   "project_id": "sigiriya-dambulla-tourism-zone-development",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-western-province-security-programme",
+   "project_id": "western-province-crime-security-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-big-onion-import-sathosa-2024",
+   "project_id": "big-onion-import-sathosa-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "wfp-school-food-programme-2024",
+   "project_id": "school-food-programme-2024",
+   "funder": "un",
+   "funder_name": "World Food Programme",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-evisa-tourist-scheme-line",
+   "project_id": "gosl-evisa-tourist-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "adb-national-hospital-ct-scanner-equipment",
+   "project_id": "national-hospital-colombo-ct-scanner-equipment",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-aswesuma-welfare-payments-2024",
+   "project_id": "aswesuma-welfare-benefit-payments-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "tower-hall-retired-artists-allowance-gosl",
+   "project_id": "tower-hall-retired-artists-allowance",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-north-east-idp-land-release-2024",
+   "project_id": "north-east-idp-land-release-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-kompannaveediya-flyover",
+   "project_id": "kompannaveediya-flyover",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka / Road Development Authority",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-children-of-gaza-fund-school-pledge",
+   "project_id": "children-of-gaza-fund",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "relief"
+  },
+  {
+   "id": "gosl-rice-distribution-poor-families-2024",
+   "project_id": "rice-distribution-poor-families-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "in_kind",
+   "purpose": "relief"
+  },
+  {
+   "id": "india-onion-supply-india",
+   "project_id": "india-onion-supply-2024",
+   "funder": "india",
+   "funder_name": "India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "relief"
+  },
+  {
+   "id": "gosl-rathnapura-gem-jewellery-trade-centre",
+   "project_id": "rathnapura-gem-jewellery-trade-centre",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-cabinet-aircraft-lease-authorisation-2024",
+   "project_id": "srilankan-airlines-widebody-aircraft-leases-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "japan-childfund-bicycle-donation-line",
+   "project_id": "japan-childfund-bicycle-donation",
+   "funder": "other:japan_childfund",
+   "funder_name": "ChildFund Japan",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "gosl-overseas-workers-electric-vehicle-import-scheme-underway-2024-04-30",
+   "line_id": "gosl-overseas-workers-electric-vehicle-import-scheme",
+   "date": "2024-04-30",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 109800000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Overseas workers' EV import scheme channels $109.8mn remittances so far.",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-30-adaderanasinhalalk-0ff003e1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-epf-interest-rate-increase-2023-govt_authorised-2024-04-28",
+   "line_id": "gosl-epf-interest-rate-increase-2023",
+   "date": "2024-04-28",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government raises EPF interest payout from 9% to 13%",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-28-adalk-70b6e629",
+    "2024-04-28-adaderanasinhalalk-9cc1d62c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-energy-sector-regulatory-committee-govt_authorised-2024-04-26",
+   "line_id": "gosl-energy-sector-regulatory-committee",
+   "date": "2024-04-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves new committee to regulate energy sector",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-26-adaderanasinhalalk-d22ae8c3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mattala-airport-india-shaurya-aeronautics-govt_authorised-2024-04-26",
+   "line_id": "mattala-airport-india-shaurya-aeronautics",
+   "date": "2024-04-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves handing Mattala airport management to Indian firm",
+   "confidence": "high",
+   "reports": [
+    "2024-04-26-adaderanasinhalalk-9b0cb2e1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mattala-airport-russia-airports-regions-govt_authorised-2024-04-26",
+   "line_id": "mattala-airport-russia-airports-regions",
+   "date": "2024-04-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves handing Mattala airport management to Russian firm",
+   "confidence": "high",
+   "reports": [
+    "2024-04-26-adaderanasinhalalk-9b0cb2e1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "yala-paddy-cultivation-subsidy-2024-gosl-allocated-2024-04-24",
+   "line_id": "yala-paddy-cultivation-subsidy-2024-gosl",
+   "date": "2024-04-24",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 15000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs 15,000 per hectare paddy subsidy credited next week",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-24-adalk-b3c069dc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-gram-shakthi-housing-disbursed-2024-04-24",
+   "line_id": "india-grant-gram-shakthi-housing",
+   "date": "2024-04-24",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 807000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "India disburses Rs 807 million for Gram Shakthi housing projects",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-24-adalk-e8cbe998"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-gram-shakthi-housing-pledged-2024-04-24",
+   "line_id": "india-grant-gram-shakthi-housing",
+   "date": "2024-04-24",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 1592700000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "India to disburse further Rs 1,592.7 million for housing",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-24-adalk-e8cbe998"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-sobitha-nahimigama-allocated-2024-04-24",
+   "line_id": "india-grant-sobitha-nahimigama",
+   "date": "2024-04-24",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 450000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India allocates Rs 450 million for Sobitha Nahimigama village housing",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-24-adalk-e8cbe998"
+   ],
+   "relation": "update_of:india-grant-sobitha-nahimigama-agreement_signed-2024-03-21",
+   "notes": null
+  },
+  {
+   "id": "india-grant-estate-housing-8445-units-pledged-2024-04-24",
+   "line_id": "india-grant-estate-housing-8445-units",
+   "date": "2024-04-24",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 23646000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India to fund 8,445 estate worker houses",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-24-adalk-e8cbe998"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-uma-oya-funding-completed-2024-04-24",
+   "line_id": "gosl-uma-oya-funding",
+   "date": "2024-04-24",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Uma Oya multipurpose irrigation and hydropower project opened",
+   "confidence": "high",
+   "reports": [
+    "2024-04-24-adalk-ced5189e",
+    "2024-04-24-adaderanasinhalalk-78c1cca7",
+    "2024-04-24-bbccomsinhala-51e8c271",
+    "2024-04-23-adalk-ed5c659f"
+   ],
+   "relation": "update_of:gosl-uma-oya-funding-proposed-2024-04-23",
+   "notes": null
+  },
+  {
+   "id": "gosl-karapitiya-ct-scanner-equipment-completed-2024-04-24",
+   "line_id": "gosl-karapitiya-ct-scanner-equipment",
+   "date": "2024-04-24",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 220000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "New Rs 220 million CT scanner installed at Karapitiya hospital",
+   "confidence": "high",
+   "reports": [
+    "2024-04-24-adaderanasinhalalk-efdd0621"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-karapitiya-ct-scanner-equipment-allocated-2024-04-24",
+   "line_id": "gosl-karapitiya-ct-scanner-equipment",
+   "date": "2024-04-24",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs 100 crore allocated for hospital resources and equipment",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-24-adaderanasinhalalk-efdd0621"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-uma-oya-funding-completed-2024-04-23",
+   "line_id": "gosl-uma-oya-funding",
+   "date": "2024-04-23",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 514000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Uma Oya multipurpose project handed over to public, total cost $514m",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-23-adaderanasinhalalk-e6abceae"
+   ],
+   "relation": "repeat_of:gosl-uma-oya-funding-completed-2024-04-24",
+   "notes": null
+  },
+  {
+   "id": "gosl-srilankan-airlines-divestment-proposed-2024-04-22",
+   "line_id": "gosl-srilankan-airlines-divestment",
+   "date": "2024-04-22",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Six investors express interest in buying SriLankan Airlines",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-23-adaderanasinhalalk-36806a42",
+    "2024-04-22-adalk-f4b264fb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-uncultivated-land-release-programme-govt_authorised-2024-04-22",
+   "line_id": "gosl-uncultivated-land-release-programme",
+   "date": "2024-04-22",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government approves policy to free uncultivated plantation land for farming",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-22-adalk-7724b651"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-kerawalapitiya-nugegoda-transmission-line-underway-2024-04-18",
+   "line_id": "gosl-kerawalapitiya-nugegoda-transmission-line",
+   "date": "2024-04-18",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Parliament committee clears obstacles for 33kV transmission line",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-22-adalk-2ced59a1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-school-food-programme-2024-halted-2024-04-22",
+   "line_id": "gosl-school-food-programme-2024",
+   "date": "2024-04-22",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Substandard school rice stock distribution suspended after inspection",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-22-adalk-bf2f3877",
+    "2024-04-22-adaderanasinhalalk-30ddfb2e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-samurdhi-lakssara-loan-scheme-launched-2024-04-21",
+   "line_id": "gosl-samurdhi-lakssara-loan-scheme",
+   "date": "2024-04-21",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Samurdhi banks launch new loan scheme for state employees",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-21-adalk-96938e72"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-sigiriya-dambulla-tourism-zone-cost_estimate-2024-04-21",
+   "line_id": "adb-sigiriya-dambulla-tourism-zone",
+   "date": "2024-04-21",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 30000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB-backed Sigiriya-Dambulla tourism zone project estimated $30m",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-21-adalk-35d66d33"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-sigiriya-dambulla-tourism-zone-govt_authorised-2024-04-21",
+   "line_id": "adb-sigiriya-dambulla-tourism-zone",
+   "date": "2024-04-21",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "District committee approves Sigiriya-Dambulla tourism zone plan",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-21-adalk-35d66d33"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-western-province-security-programme-launched-2024-04-20",
+   "line_id": "gosl-western-province-security-programme",
+   "date": "2024-04-20",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Police launch new Western Province crime security programme",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-20-adaderanasinhalalk-bea6a67c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-big-onion-import-sathosa-2024-govt_authorised-2024-04-20",
+   "line_id": "gosl-big-onion-import-sathosa-2024",
+   "date": "2024-04-20",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government decides to import big onions via Sathosa",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-20-adaderanasinhalalk-2ac2f4e1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-high-commission-wellington-govt_authorised-2024-04-20",
+   "line_id": "gosl-high-commission-wellington",
+   "date": "2024-04-20",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves new Sri Lanka High Commission in Wellington.",
+   "confidence": "high",
+   "reports": [
+    "2024-04-20-adaderanasinhalalk-52f0ed95"
+   ],
+   "relation": "repeat_of:gosl-high-commission-wellington-govt_authorised-2024-04-20",
+   "notes": null
+  },
+  {
+   "id": "wfp-school-food-programme-2024-released-2024-04-19",
+   "line_id": "wfp-school-food-programme-2024",
+   "date": "2024-04-19",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "WFP fortified rice distribution to schools begins, 735 tonnes.",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-20-adalk-558c19ee"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-school-food-programme-2024-allocated-2024-04-20",
+   "line_id": "gosl-school-food-programme-2024",
+   "date": "2024-04-20",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 16600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government allocates Rs 16,600 million directly to provincial councils for school meals.",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-20-adalk-558c19ee"
+   ],
+   "relation": "update_of:gosl-school-food-programme-2024-govt_authorised-2024-03-06",
+   "notes": null
+  },
+  {
+   "id": "gosl-plantation-workers-statutory-payments-proposed-2024-04-17",
+   "line_id": "gosl-plantation-workers-statutory-payments",
+   "date": "2024-04-17",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 5000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet paper planned for unpaid plantation workers' EPF/ETF dues",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-17-adaderanasinhalalk-e7ffb72e"
+   ],
+   "relation": "repeat_of:gosl-plantation-workers-statutory-payments-proposed-2024-04-18",
+   "notes": null
+  },
+  {
+   "id": "adb-national-hospital-ct-scanner-equipment-completed-2024-04-11",
+   "line_id": "adb-national-hospital-ct-scanner-equipment",
+   "date": "2024-04-11",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 220000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB-funded CT scanner installed at National Hospital Colombo",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-12-adalk-e75be3a8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-poe-health-facilities-grant-disbursed-2024-04-10",
+   "line_id": "japan-poe-health-facilities-grant",
+   "date": "2024-04-10",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 8400000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan hands over scanning equipment for Katunayake, Colombo port",
+   "confidence": "high",
+   "reports": [
+    "2024-04-10-adaderanasinhalalk-79981b09"
+   ],
+   "relation": "repeat_of:japan-poe-health-facilities-grant-disbursed-2024-04-10",
+   "notes": null
+  },
+  {
+   "id": "gosl-aswesuma-welfare-payments-2024-spent-2024-04-10",
+   "line_id": "gosl-aswesuma-welfare-payments-2024",
+   "date": "2024-04-10",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 58500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government spends Rs 58.5bn on Aswesuma benefits for 1.85m families",
+   "confidence": "high",
+   "reports": [
+    "2024-04-10-adaderanasinhalalk-a3e67582"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-aswesuma-welfare-payments-2024-allocated-2024-04-10",
+   "line_id": "gosl-aswesuma-welfare-payments-2024",
+   "date": "2024-04-10",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 205000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Budget allocates Rs 205bn to expand Aswesuma to 2.4m families",
+   "confidence": "high",
+   "reports": [
+    "2024-04-10-adaderanasinhalalk-a3e67582"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-english-teacher-recruitment-2024-govt_authorised-2024-04-09",
+   "line_id": "gosl-english-teacher-recruitment-2024",
+   "date": "2024-04-09",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves recruiting 2,500 English-medium teachers",
+   "confidence": "high",
+   "reports": [
+    "2024-04-09-adaderanasinhalalk-3a78bbb9"
+   ],
+   "relation": "repeat_of:gosl-english-teacher-recruitment-2024-govt_authorised-2024-04-10",
+   "notes": null
+  },
+  {
+   "id": "gosl-kdu-local-mbbs-admissions-govt_authorised-2024-04-09",
+   "line_id": "gosl-kdu-local-mbbs-admissions",
+   "date": "2024-04-09",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves fee-paying local MBBS admissions at KDU",
+   "confidence": "high",
+   "reports": [
+    "2024-04-09-adalk-7fb9aec4",
+    "2024-04-09-adaderanasinhalalk-ef0ed18d"
+   ],
+   "relation": "repeat_of:gosl-kdu-local-mbbs-admissions-govt_authorised-2024-04-09",
+   "notes": null
+  },
+  {
+   "id": "tower-hall-retired-artists-allowance-gosl-allocated-2024-04-08",
+   "line_id": "tower-hall-retired-artists-allowance-gosl",
+   "date": "2024-04-08",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 10000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Tower Hall Foundation raises pension allowance for retired artists",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-09-adalk-c2bac7a7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-north-east-idp-land-release-2024-govt_authorised-2024-04-09",
+   "line_id": "gosl-north-east-idp-land-release-2024",
+   "date": "2024-04-09",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Land released for 212 displaced families in North-East",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-09-adaderanasinhalalk-5c397f1b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "presidential-fund-als-scholarship-gosl-allocated-2024-04-08",
+   "line_id": "presidential-fund-als-scholarship-gosl",
+   "date": "2024-04-08",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 6000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "6,000 A/L scholars to get Rs. 6,000 monthly for 24 months",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-08-adaderanasinhalalk-bcd72822"
+   ],
+   "relation": "update_of:presidential-fund-als-scholarship-gosl-govt_authorised-2024-01-29",
+   "notes": null
+  },
+  {
+   "id": "gosl-kompannaveediya-flyover-completed-2024-04-08",
+   "line_id": "gosl-kompannaveediya-flyover",
+   "date": "2024-04-08",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 5278081272.43,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Kompannaveediya twin flyover opened to public, Colombo",
+   "confidence": "high",
+   "reports": [
+    "2024-04-08-adalk-02eadb70",
+    "2024-04-08-adaderanasinhalalk-013e2670"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-children-of-gaza-fund-school-pledge-pledged-2024-04-08",
+   "line_id": "gosl-children-of-gaza-fund-school-pledge",
+   "date": "2024-04-08",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President pledges to build a school in Gaza",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-08-adalk-365d394b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "decentralized-budget-2024-development-projects-gosl-allocated-2024-04-07",
+   "line_id": "decentralized-budget-2024-development-projects-gosl",
+   "date": "2024-04-07",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 20000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs 20bn allocated for divisional secretariat area development",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-07-adalk-05afbf81"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-rice-distribution-poor-families-2024-proposed-2024-04-07",
+   "line_id": "gosl-rice-distribution-poor-families-2024",
+   "date": "2024-04-07",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rice distribution planned for 2.75m poor families at New Year",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-07-adalk-05afbf81",
+    "2024-04-07-adaderanasinhalalk-81150de8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-onion-supply-india-proposed-2024-04-07",
+   "line_id": "india-onion-supply-india",
+   "date": "2024-04-07",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India plans to supply thousands of tonnes of onions to Sri Lanka",
+   "confidence": "low",
+   "reports": [
+    "2024-04-07-adaderanasinhalalk-eb175e20"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-rice-distribution-poor-families-2024-govt_authorised-2024-04-07",
+   "line_id": "gosl-rice-distribution-poor-families-2024",
+   "date": "2024-04-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves 20kg rice for low-income families, two months",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-07-adaderanasinhalalk-de6ed075"
+   ],
+   "relation": "update_of:gosl-rice-distribution-poor-families-2024-proposed-2024-04-07",
+   "notes": null
+  },
+  {
+   "id": "gosl-rice-distribution-poor-families-2024-launched-2024-04-07",
+   "line_id": "gosl-rice-distribution-poor-families-2024",
+   "date": "2024-04-07",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Districts instructed to begin distributing rice to poor families",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-07-adaderanasinhalalk-de6ed075"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-tourist-vehicle-import-programme-2024-govt_authorised-2024-04-05",
+   "line_id": "gosl-tourist-vehicle-import-programme-2024",
+   "date": "2024-04-05",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet restricts vehicle imports to 250 buses, 750 vans for tourism",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-05-adaderanasinhalalk-3a3a8639"
+   ],
+   "relation": "repeat_of:gosl-tourist-vehicle-import-programme-2024-govt_authorised-2024-04-02",
+   "notes": null
+  },
+  {
+   "id": "gosl-overseas-workers-electric-vehicle-import-scheme-halted-2024-04-02",
+   "line_id": "gosl-overseas-workers-electric-vehicle-import-scheme",
+   "date": "2024-04-02",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Committee orders suspension of overseas workers' EV import permit gazette",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-04-adalk-e1bf248e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-rathnapura-gem-jewellery-trade-centre-launched-2024-04-04",
+   "line_id": "gosl-rathnapura-gem-jewellery-trade-centre",
+   "date": "2024-04-04",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 365000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President opens Rathnapura international gem trade centre phase 1",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-04-adaderanasinhalalk-08903329"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-english-teacher-recruitment-2024-launched-2024-04-03",
+   "line_id": "gosl-english-teacher-recruitment-2024",
+   "date": "2024-04-03",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President attends appointment of 2,320 graduate teachers",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-04-adalk-49d57020",
+    "2024-04-03-adalk-3c048c21"
+   ],
+   "relation": "update_of:gosl-english-teacher-recruitment-2024-govt_authorised-2024-04-09",
+   "notes": null
+  },
+  {
+   "id": "gosl-cabinet-aircraft-lease-authorisation-2024-govt_authorised-2024-04-03",
+   "line_id": "gosl-cabinet-aircraft-lease-authorisation-2024",
+   "date": "2024-04-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved leasing four aircraft for SriLankan Airlines",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-03-adalk-76f83ec1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-tourist-vehicle-import-programme-2024-govt_authorised-2024-04-02",
+   "line_id": "gosl-tourist-vehicle-import-programme-2024",
+   "date": "2024-04-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves import of 1,000 tourist vans and buses",
+   "confidence": "high",
+   "reports": [
+    "2024-04-02-adalk-7b9f8eb3",
+    "2024-04-02-adaderanasinhalalk-e6d39ca4"
+   ],
+   "relation": "repeat_of:gosl-tourist-vehicle-import-programme-2024-govt_authorised-2024-04-02",
+   "notes": null
+  },
+  {
+   "id": "gosl-free-sanitary-pads-school-programme-2024-govt_authorised-2024-04-02",
+   "line_id": "gosl-free-sanitary-pads-school-programme-2024",
+   "date": "2024-04-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves free sanitary pads programme for school students",
+   "confidence": "high",
+   "reports": [
+    "2024-04-02-adalk-f5c1452c",
+    "2024-04-02-adaderanasinhalalk-c064468f"
+   ],
+   "relation": "repeat_of:gosl-free-sanitary-pads-school-programme-2024-govt_authorised-2024-04-02",
+   "notes": null
+  },
+  {
+   "id": "gosl-children-of-gaza-fund-disbursed-2024-04-01",
+   "line_id": "gosl-children-of-gaza-fund",
+   "date": "2024-04-01",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 1000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka transfers $1 million to Palestine for Gaza children",
+   "confidence": "high",
+   "reports": [
+    "2024-04-01-adalk-3b3e8d6f",
+    "2024-04-01-adaderanasinhalalk-5aca64b1"
+   ],
+   "relation": "repeat_of:gosl-children-of-gaza-fund-disbursed-2024-04-01",
+   "notes": null
+  },
+  {
+   "id": "gosl-children-of-gaza-fund-unclear-2024-04-01",
+   "line_id": "gosl-children-of-gaza-fund",
+   "date": "2024-04-01",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": 20000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Public donations exceed Rs 20 million to Gaza children fund",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-01-adaderanasinhalalk-5aca64b1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-childfund-bicycle-donation-line-disbursed-2024-04-01",
+   "line_id": "japan-childfund-bicycle-donation-line",
+   "date": "2024-04-01",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan ChildFund donates 500 bicycles to disadvantaged students",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-01-adalk-ecffb45b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-expressway-network-sahasya-management-transfer-underway-2024-04-01",
+   "line_id": "gosl-expressway-network-sahasya-management-transfer",
+   "date": "2024-04-01",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Expressway daily operations handed to private manager",
+   "confidence": "medium",
+   "reports": [
+    "2024-04-01-adaderanasinhalalk-cef1a0b3"
+   ],
+   "relation": "update_of:gosl-expressway-network-sahasya-management-transfer-govt_authorised-2024-03-26",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-04-30-adaderanasinhalalk-0ff003e1": {
+   "date": "2024-04-30",
+   "title": "විදෙස් ශ්‍රමිකයන්ට ලබාදුන් වාහන ආනයන අවසරය දීර්ඝ කිරීමට විරෝධයක්",
+   "url": "http://sinhala.adaderana.lk/news/196120",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-28-adalk-70b6e629": {
+   "date": "2024-04-28",
+   "title": "සේවක අර්ථසාධක අරමුදලේ පොලිය සියයට 13 දක්වා ඉහළට",
+   "url": "https://www.ada.lk/breaking_news/සේවක-අර්ථසාධක-අරමුදලේ-පොලිය-සියයට-13-දක්වා-ඉහළට/11-409307",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-28-adaderanasinhalalk-9cc1d62c": {
+   "date": "2024-04-28",
+   "title": "EPF ගැන රජය හදිසියේම තීරණයක් ගනී",
+   "url": "http://sinhala.adaderana.lk/news/196057",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-26-adaderanasinhalalk-d22ae8c3": {
+   "date": "2024-04-26",
+   "title": "බලශක්ති ක්ෂේත්‍රය නියාමනය සඳහා ආයතනයක්",
+   "url": "http://sinhala.adaderana.lk/news/195991",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-26-adaderanasinhalalk-9b0cb2e1": {
+   "date": "2024-04-26",
+   "title": "මත්තල ගුවන්තොටුපොළ කළමනාකරණයට ආයතන දෙකක්",
+   "url": "http://sinhala.adaderana.lk/news/195989",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-24-adalk-b3c069dc": {
+   "date": "2024-04-24",
+   "title": "යල කන්නයේ වී වගාවට දෙන රු. 15000 ලබන සතියේ සිට ගොවි ගිණුම් වෙත",
+   "url": "https://www.ada.lk/breaking_news/යල-කන්නයේ-වී-වගාවට-දෙන-රු--15000-ලබන-සතියේ-සිට-ගොවි-ගිණුම්-වෙත/11-409249",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-24-adalk-e8cbe998": {
+   "date": "2024-04-24",
+   "title": "ඉන්දියානු ආධාර යටතේ ඉදිකෙරුණු තවත් ගම්මාන 04ක් ලගදීම ජනතා අයිතියට",
+   "url": "https://www.ada.lk/breaking_news/ඉන්දියානු-ආධාර-යටතේ-ඉදිකෙරුණු-තවත්-ගම්මාන-04ක්-ලගදීම-ජනතා-අයිතියට/11-409244",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-24-adalk-ced5189e": {
+   "date": "2024-04-24",
+   "title": "“උමා දිය ජනනි” බහුකාර්ය සංවර්ධන ව්‍යාපෘතිය ජනතා අයිතියට",
+   "url": "https://www.ada.lk/breaking_news/“උමා-දිය-ජනනි”-බහුකාර්ය-සංවර්ධන-ව්‍යාපෘතිය-ජනතා-අයිතියට/11-409241",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-24-adaderanasinhalalk-efdd0621": {
+   "date": "2024-04-24",
+   "title": "කරාපිටියට අලුත් CT ස්කෑන් යන්ත්‍රයක්",
+   "url": "http://sinhala.adaderana.lk/news/195932",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-24-adaderanasinhalalk-78c1cca7": {
+   "date": "2024-04-24",
+   "title": "උමා ඔය ව්‍යාපෘතිය විවෘත කෙරේ",
+   "url": "http://sinhala.adaderana.lk/news/195924",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-24-bbccomsinhala-51e8c271": {
+   "date": "2024-04-24",
+   "title": "උමා ඔය බහුකාර්ය සංවර්ධන යෝජනා ක්‍රමය: ආණ්ඩුව සහ ජනතාව කියන්නේ කුමක්ද?",
+   "url": "https://www.bbc.com/sinhala/articles/c4n1dqlrmn8o",
+   "outlet": "BBC Sinhala",
+   "lang": "si"
+  },
+  "2024-04-23-adalk-ed5c659f": {
+   "date": "2024-04-23",
+   "title": "මහවැලියට පසු දැවැන්තම වාරි ව්‍යාපෘතිය හෙට ජන අයිතියට",
+   "url": "https://www.ada.lk/breaking_news/මහවැලියට-පසු-දැවැන්තම-වාරි-ව්‍යාපෘතිය-හෙට-ජන-අයිතියට/11-409224",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-23-adaderanasinhalalk-e6abceae": {
+   "date": "2024-04-23",
+   "title": "හෙට ජනතා අයිතියට පැවරෙන උමා ඔය ව්‍යාපෘතිය",
+   "url": "http://sinhala.adaderana.lk/news/195892",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-23-adaderanasinhalalk-36806a42": {
+   "date": "2024-04-23",
+   "title": "ශ්‍රීලන්කන් මිල දී ගන්න ආ ආයෝජකයෝ",
+   "url": "http://sinhala.adaderana.lk/news/195891",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-22-adalk-7724b651": {
+   "date": "2024-04-22",
+   "title": "වගා නොකළ ඉඩම් වගා කිරීමට කැමති අයට නිදහස් කරයි",
+   "url": "https://www.ada.lk/breaking_news/වගා-නොකළ-ඉඩම්-වගා-කිරීමට-කැමති-අයට-නිදහස්-කරයි/11-409214",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-22-adalk-2ced59a1": {
+   "date": "2024-04-22",
+   "title": "කෙරවලපිටිය - නුගපේ 33,000ක විදුලි රැහැන ඉදිකිරීමට පැවති බාධා ඉවත් කෙරේ",
+   "url": "https://www.ada.lk/breaking_news/කෙරවලපිටිය---නුගපේ-33-000ක-විදුලි-රැහැන-ඉදිකිරීමට-පැවති-බාධා-ඉවත්-කෙරේ/11-409208",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-22-adalk-f4b264fb": {
+   "date": "2024-04-22",
+   "title": "ශ්‍රී ලන්කන් මිලදී ගන්න සමාගම් 6ක් කැමැත්තෙන්",
+   "url": "https://www.ada.lk/breaking_news/ශ්‍රී-ලන්කන්-මිලදී-ගන්න-සමාගම්-6ක්-කැමැත්තෙන්/11-409206",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-22-adalk-bf2f3877": {
+   "date": "2024-04-22",
+   "title": "පාසල් සිසුන්ට කන්න දීමට තිබූ සහල් ප්‍රමිතියෙන් තොරයි",
+   "url": "https://www.ada.lk/breaking_news/පාසල්-සිසුන්ට-කන්න-දීමට-තිබූ-සහල්-ප්‍රමිතියෙන්-තොරයි/11-409200",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-22-adaderanasinhalalk-30ddfb2e": {
+   "date": "2024-04-22",
+   "title": "පාසල් දරුවන්ට බෙදාදීමට තිබූ සහල් ප්‍රමිතියෙන් තොර බවට අනාවරණයක්",
+   "url": "http://sinhala.adaderana.lk/news/195849",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-21-adalk-96938e72": {
+   "date": "2024-04-21",
+   "title": "රාජ්‍ය සේවකයන්ටත් සමෘද්ධියෙන් ණය",
+   "url": "https://www.ada.lk/breaking_news/රාජ්‍ය-සේවකයන්ටත්-සමෘද්ධියෙන්-ණය/11-409177",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-21-adalk-35d66d33": {
+   "date": "2024-04-21",
+   "title": "සීගිරි හා දඹුලු සංචාරක කලාප සංවර්ධන ව්‍යාපෘති නිම කිරීමට කාලයක් දෙයි",
+   "url": "https://www.ada.lk/breaking_news/සීගිරි-හා-දඹුලු-සංචාරක-කලාප-සංවර්ධන-ව්‍යාපෘති-නිම-කිරීමට-කාලයක්-දෙයි/11-409172",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-20-adaderanasinhalalk-bea6a67c": {
+   "date": "2024-04-20",
+   "title": "හදිසියේම බස්නාහිරට නව ආරක්ෂක වැඩපිළිවෙලක්",
+   "url": "http://sinhala.adaderana.lk/news/195818",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-20-adaderanasinhalalk-2ac2f4e1": {
+   "date": "2024-04-20",
+   "title": "ලොකු ලූනු ගෙන්වීම සතොස හරහා",
+   "url": "http://sinhala.adaderana.lk/news/195812",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-20-adaderanasinhalalk-52f0ed95": {
+   "date": "2024-04-20",
+   "title": "නවසීලන්තයට ශ්‍රී ලංකා මහ කොමසාරිස් කාර්යාලයක්",
+   "url": "http://sinhala.adaderana.lk/news/195799",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-20-adalk-558c19ee": {
+   "date": "2024-04-20",
+   "title": "පාසල් සිසුන්ට ආහාර දෙන්න ලෝක ආහාර සංවිධානයෙන් ලොකු තෑග්ගක්",
+   "url": "https://www.ada.lk/breaking_news/පාසල්-සිසුන්ට-ආහාර-දෙන්න-ලෝක-ආහාර-සංවිධානයෙන්-ලොකු-තෑග්ගක්/11-409164",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-17-adaderanasinhalalk-e7ffb72e": {
+   "date": "2024-04-17",
+   "title": "රාජ්‍ය වතු සේවකයන්ගේ EPF සහ ETF ගැන තීරණයක්",
+   "url": "http://sinhala.adaderana.lk/news/195734",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-12-adalk-e75be3a8": {
+   "date": "2024-04-12",
+   "title": "ජාතික රෝහලට නවීනතම සී.ටී. ස්කෑන් යන්ත්‍රයක්",
+   "url": "https://www.ada.lk/breaking_news/ජාතික-රෝහලට-නවීනතම-සී-ටී--ස්කෑන්-යන්ත්‍රයක්/11-409068",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-10-adaderanasinhalalk-79981b09": {
+   "date": "2024-04-10",
+   "title": "ජපානයෙන් ශ්‍රී ලංකාවට අධි තාක්ෂණික ස්කෑන් යන්ත්‍ර තොගයක්",
+   "url": "http://sinhala.adaderana.lk/news/195516",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-10-adaderanasinhalalk-a3e67582": {
+   "date": "2024-04-10",
+   "title": "අස්වැසුමට තවත් පවුල් 182,000ක් සුදුසුකම් ලබයි",
+   "url": "http://sinhala.adaderana.lk/news/195498",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-09-adaderanasinhalalk-3a78bbb9": {
+   "date": "2024-04-09",
+   "title": "ඉංග්‍රීසි ගුරුවරු 2500ක් බඳවා ගැනීමට අනුමැතිය",
+   "url": "http://sinhala.adaderana.lk/news/195474",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-09-adalk-7fb9aec4": {
+   "date": "2024-04-09",
+   "title": "ගෙවීමේ පදනම මත කොතලාවල සරසවියෙන් වෛද්‍ය උපාධියක් ගන්න අවස්ථාව",
+   "url": "https://www.ada.lk/breaking_news/ගෙවීමේ-පදනම-මත-කොතලාවල-සරසවියෙන්-වෛද්‍ය-උපාධියක්-ගන්න-අවස්ථාව/11-409036",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-09-adalk-c2bac7a7": {
+   "date": "2024-04-09",
+   "title": "වියපත් කළාකරුවන්ට දෙන දීමනාව වැඩි කරයි",
+   "url": "https://www.ada.lk/breaking_news/වියපත්-කළාකරුවන්ට-දෙන-දීමනාව-වැඩි-කරයි/11-409030",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-09-adaderanasinhalalk-ef0ed18d": {
+   "date": "2024-04-09",
+   "title": "කොතලාවල ආරක්ෂක විශ්වවිද්‍යාලය  ගැන කැබිනට් තීරණයක්",
+   "url": "http://sinhala.adaderana.lk/news/195465",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-09-adaderanasinhalalk-5c397f1b": {
+   "date": "2024-04-09",
+   "title": "උතුරු - නැගෙනහිර අවතැන් මධ්‍යස්ථාන ගැන තීරණයක්",
+   "url": "http://sinhala.adaderana.lk/news/195453",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-08-adaderanasinhalalk-bcd72822": {
+   "date": "2024-04-08",
+   "title": "මාර්තු මාසයේ 6000ක ශිෂ්‍යත්වය හිමිවන දරුවන් ගැන දැනුම්දීමක්",
+   "url": "http://sinhala.adaderana.lk/news/195448",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-08-adalk-365d394b": {
+   "date": "2024-04-08",
+   "title": "ගාසා තීරයට ශ්‍රී ලංකාවෙන් පාසලක්",
+   "url": "https://www.ada.lk/breaking_news/ගාසා-තීරයට-ශ්‍රී-ලංකාවෙන්-පාසලක්/11-409016",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-08-adalk-02eadb70": {
+   "date": "2024-04-08",
+   "title": "කොම්පඤ්ඤවීදිය ගුවන් පාලම ජනතා අයිතියට",
+   "url": "https://www.ada.lk/breaking_news/කොම්පඤ්ඤවීදිය-ගුවන්-පාලම-ජනතා-අයිතියට/11-409011",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-08-adaderanasinhalalk-013e2670": {
+   "date": "2024-04-08",
+   "title": "කොම්පඤ්ඤවීදියේ නව ගුවන් පාලම ජන සතු කෙරේ",
+   "url": "http://sinhala.adaderana.lk/news/195421",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-07-adalk-05afbf81": {
+   "date": "2024-04-07",
+   "title": "හාල් කිලේ 20 ලැබෙන පවුල් මෙන්න",
+   "url": "https://www.ada.lk/breaking_news/හාල්-කිලේ-20-ලැබෙන-පවුල්-මෙන්න/11-408992",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-07-adaderanasinhalalk-eb175e20": {
+   "date": "2024-04-07",
+   "title": "ඉන්දීය ලූනු කඩිනමින් ශ්‍රී ලංකාවට",
+   "url": "http://sinhala.adaderana.lk/news/195402",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-07-adaderanasinhalalk-81150de8": {
+   "date": "2024-04-07",
+   "title": "රාජ්‍ය සේවකයන්ගේ අප්‍රේල් වැටුප හෙට සිට ගෙවීමට පියවර",
+   "url": "http://sinhala.adaderana.lk/news/195399",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-07-adaderanasinhalalk-de6ed075": {
+   "date": "2024-04-07",
+   "title": "අඩු ආදායම්ලාභී පවුල් සඳහා ලැබෙන සහනය",
+   "url": "http://sinhala.adaderana.lk/news/195386",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-05-adaderanasinhalalk-3a3a8639": {
+   "date": "2024-04-05",
+   "title": "වාහන ගෙන්වන්නේ සංචාරක කර්මාන්තය සඳහාම පමණයි",
+   "url": "http://sinhala.adaderana.lk/news/195332",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-04-adalk-e1bf248e": {
+   "date": "2024-04-04",
+   "title": "රට විරුවන්ට දුන් විද්‍යුත් වාහන බලපත්‍ර තාවකාලිකව නවත්වයි",
+   "url": "https://www.ada.lk/breaking_news/රට-විරුවන්ට-දුන්-විද්‍යුත්-වාහන-බලපත්‍ර-තාවකාලිකව-නවත්වයි/11-408962",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-04-adaderanasinhalalk-08903329": {
+   "date": "2024-04-04",
+   "title": "ජනපති මැණික් කුලුන විවෘත කරයි",
+   "url": "http://sinhala.adaderana.lk/news/195311",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-04-adalk-49d57020": {
+   "date": "2024-04-04",
+   "title": "ගුරුවරුන් 4000කට ගුරු පත්වීම්",
+   "url": "https://www.ada.lk/breaking_news/ගුරුවරුන්-4000කට-ගුරු-පත්වීම්/11-408949",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-03-adalk-76f83ec1": {
+   "date": "2024-04-03",
+   "title": "ශ්‍රීලන්කන්ට ගුවන් යානා 10ක් ඕනෑ",
+   "url": "https://www.ada.lk/breaking_news/ශ්‍රීලන්කන්ට-ගුවන්-යානා-10ක්-ඕනෑ/11-408933",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-03-adalk-3c048c21": {
+   "date": "2024-04-03",
+   "title": "ආර්ථිකය ශක්තිමත් වීම නිසා ගුරු පුරප්පාඩු පිරවීමට හැකිව තිබෙනවා",
+   "url": "https://www.ada.lk/breaking_news/ආර්ථිකය-ශක්තිමත්-වීම-නිසා-ගුරු-පුරප්පාඩු-පිරවීමට-හැකිව-තිබෙනවා/11-408931",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-02-adalk-7b9f8eb3": {
+   "date": "2024-04-02",
+   "title": "වාහන ආනයනය ගැන රජයේ අලුත්ම තීරණය",
+   "url": "https://www.ada.lk/breaking_news/වාහන-ආනයනය-ගැන-රජයේ-අලුත්ම-තීරණය/11-408904",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-02-adalk-f5c1452c": {
+   "date": "2024-04-02",
+   "title": "පාසල් සිසුවියන්ට නොමිලේ සනීපාරක්ෂක තුවා",
+   "url": "https://www.ada.lk/breaking_news/පාසල්-සිසුවියන්ට-නොමිලේ-සනීපාරක්ෂක-තුවා/11-408898",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-02-adaderanasinhalalk-c064468f": {
+   "date": "2024-04-02",
+   "title": "පාසල් දැරියන්ට සනීපාරක්ෂක තුවා ලබාදීමේ වැඩසටහනට කැබිනට් අනුමැතිය",
+   "url": "http://sinhala.adaderana.lk/news/195209",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-02-adaderanasinhalalk-e6d39ca4": {
+   "date": "2024-04-02",
+   "title": "වාහන ආනයනය ගැන ගත් අලුත්ම කැබිනට් තීරණය",
+   "url": "http://sinhala.adaderana.lk/news/195208",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-01-adalk-3b3e8d6f": {
+   "date": "2024-04-01",
+   "title": "ගාසාහි ළමා අරමුදලට ලංකාවෙනුත් ඩොලර් මල්ලක්",
+   "url": "https://www.ada.lk/breaking_news/ගාසාහි-ළමා-අරමුදලට-ලංකාවෙනුත්-ඩොලර්-මල්ලක්/11-408885",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-01-adaderanasinhalalk-5aca64b1": {
+   "date": "2024-04-01",
+   "title": "ගාසා ළමුන්ට ශ්‍රී ලංකාවෙන් ඩොලර් මිලියනයක්",
+   "url": "http://sinhala.adaderana.lk/news/195175",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-04-01-adalk-ecffb45b": {
+   "date": "2024-04-01",
+   "title": "දුෂ්කර ප්‍රදේශවල සිසුන්ගේ පාසල් පැමිණීම දිරිගැන්වීමට ජපානයෙන් පාපැදි",
+   "url": "https://www.ada.lk/breaking_news/දුෂ්කර-ප්‍රදේශවල-සිසුන්ගේ-පාසල්-පැමිණීම-දිරිගැන්වීමට-ජපානයෙන්-පාපැදි/11-408881",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-04-01-adaderanasinhalalk-cef1a0b3": {
+   "date": "2024-04-01",
+   "title": "අධිවේගී මාර්ගවල දෛනික මෙහෙයුම් කටයුතු පෞද්ගලික අංශයට",
+   "url": "http://sinhala.adaderana.lk/news/195152",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  }
+ }
+}

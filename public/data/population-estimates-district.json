@@ -1,0 +1,2786 @@
+{
+  "caveats": [
+    "These are annual estimates based on the population balancing equation, not Census 2024 enumeration counts."
+  ],
+  "country": "LK",
+  "dataset_id": "population-estimates-district",
+  "description": "Registrar General population estimates published by DCS, expressed as people after converting the source table from thousands.",
+  "fields": [
+    {
+      "id": "geography_id",
+      "label": "Geography id",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "geography_name",
+      "label": "Geography",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "year",
+      "label": "Year",
+      "role": "dimension",
+      "type": "year"
+    },
+    {
+      "id": "sex",
+      "label": "Sex",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "aggregation": "sum",
+      "id": "population",
+      "label": "Estimated mid-year population",
+      "role": "measure",
+      "type": "integer",
+      "unit": "people"
+    }
+  ],
+  "grain": "One row per geography, year and sex.",
+  "primary_key": [
+    "geography_id",
+    "year",
+    "sex"
+  ],
+  "rows": [
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 21919000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 10613000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 11306000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 22156000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 10727000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 11429000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 22181000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 10740000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 11441000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 22037000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 10670000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 11367000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 21916000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 10611000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 11305000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 2455000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1205000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1250000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 2480000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1217000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1263000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 2478000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1216000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1262000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 2460000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1207000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1253000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 2446000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1200000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1246000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 2423000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 1174000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 1249000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 2443000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 1184000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 1259000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 2439000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 1182000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 1257000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 2421000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 1173000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 1248000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 2402000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 1164000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 1238000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 1287000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 623000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 664000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 1296000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 627000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 669000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 1292000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 625000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 667000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 1279000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 619000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 660000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 1267000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 613000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 654000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 1483000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 707000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 776000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 1501000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 716000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 785000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 1499000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 715000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 784000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 1482000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 707000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 775000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 1471000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 701000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 770000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 525000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 253000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 272000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 530000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 256000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 274000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 530000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 256000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 274000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 525000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 253000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 272000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 520000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 251000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 269000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 773000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 370000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 403000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 780000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 373000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 407000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 783000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 374000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 409000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 781000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 373000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 408000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 779000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 373000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 406000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 1135000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 544000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 591000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 1147000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 550000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 597000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 1147000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 550000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 597000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 1139000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 546000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 593000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 1130000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 542000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 588000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 866000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 415000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 451000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 873000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 418000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 455000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 874000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 419000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 455000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 869000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 416000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 453000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 865000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 414000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 451000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 668000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 328000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 340000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 676000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 332000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 344000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 681000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 335000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 346000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 680000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 334000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 346000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 680000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 334000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 346000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 621000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 292000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 329000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 626000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 294000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 332000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 629000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 295000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 334000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 628000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 295000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 333000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 629000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 295000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 334000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 112000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 56000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 56000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 114000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 57000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 57000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 115000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 58000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 57000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 116000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 58000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 58000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 117000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 59000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 58000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 191000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 94000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 97000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 194000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 95000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 99000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 195000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 96000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 99000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 196000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 96000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 100000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 197000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 97000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 100000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 98000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 49000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 49000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 98000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 49000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 49000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 99000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 50000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 49000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 99000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 50000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 49000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 100000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 50000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 50000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 130000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 64000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 66000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 133000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 65000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 68000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 135000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 66000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 69000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 136000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 67000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 69000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 138000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 68000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 70000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 579000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 276000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 303000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 590000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 281000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 309000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 590000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 281000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 309000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 582000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 277000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 305000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 577000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 275000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 302000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 736000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 356000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 380000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 752000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 364000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 388000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 754000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 365000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 389000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 749000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 363000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 386000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 746000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 361000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 385000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 431000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 213000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 218000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 441000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 218000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 223000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 444000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 219000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 225000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 443000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 219000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 224000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 442000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 218000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 224000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 1726000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 829000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 897000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 1743000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 837000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 906000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 1742000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 837000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 905000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 1727000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 829000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 898000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 1712000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 822000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 890000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 837000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 405000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 432000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 849000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 411000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 438000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 850000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 411000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 439000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 845000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 409000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 436000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 839000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 406000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 433000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 943000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 460000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 483000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 954000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 466000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 488000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 957000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 467000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 490000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 950000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 464000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 486000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 944000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 461000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 483000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 443000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 219000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 224000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 448000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 221000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 227000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 449000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 222000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 227000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 445000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 220000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 225000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 442000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 219000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 223000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 886000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 426000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 460000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 895000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 430000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 465000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 899000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 432000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 467000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 896000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 431000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 465000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 895000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 430000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 465000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 501000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 249000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 252000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 505000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 251000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 254000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 509000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 253000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 256000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 509000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 253000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 256000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 509000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 253000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 256000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 1179000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 581000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 598000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 1190000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 587000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 603000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 1193000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 588000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 605000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 1188000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 586000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 602000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 1183000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 583000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 600000,
+      "sex": "female",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 891000,
+      "sex": "total",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 425000,
+      "sex": "male",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 466000,
+      "sex": "female",
+      "year": 2020
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 898000,
+      "sex": "total",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 428000,
+      "sex": "male",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 470000,
+      "sex": "female",
+      "year": 2021
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 898000,
+      "sex": "total",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 428000,
+      "sex": "male",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 470000,
+      "sex": "female",
+      "year": 2022
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 892000,
+      "sex": "total",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 425000,
+      "sex": "male",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 467000,
+      "sex": "female",
+      "year": 2023
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 886000,
+      "sex": "total",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 422000,
+      "sex": "male",
+      "year": 2024
+    },
+    {
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 464000,
+      "sex": "female",
+      "year": 2024
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "dcs-population-estimates-2025"
+  ],
+  "title": "Estimated mid-year population by district and sex",
+  "vintage": "2020–2024 estimates (2020–2023 provisional)"
+}

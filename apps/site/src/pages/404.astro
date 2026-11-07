@@ -1,0 +1,14 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro'
+Astro.response.status = 404
+---
+
+<SiteLayout title="Not found">
+  <div class="page-shell">
+    <header class="page-hero">
+      <p class="page-kicker">404 / NO MATCH</p>
+      <h1>This coordinate has no page.</h1>
+      <p class="page-hero__deck"><a href="/">Return to the evidence layer →</a></p>
+    </header>
+  </div>
+</SiteLayout>

@@ -1,0 +1,1544 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-11-01",
+  "2024-11-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 77,
+ "rejected": 49,
+ "rejected_ids": [
+  "2024-11-01-islandlk-6ccbb416",
+  "2024-11-04-adaderanalk-2cec87a2",
+  "2024-11-04-adaderanalk-9adff613",
+  "2024-11-04-islandlk-0c0e81f6",
+  "2024-11-05-economynextcom-d863aedd",
+  "2024-11-09-adaderanalk-7e305700",
+  "2024-11-10-economynextcom-6db4ea9b",
+  "2024-11-11-adaderanalk-11c77752",
+  "2024-11-11-economynextcom-f47592a3",
+  "2024-11-11-islandlk-42bda205",
+  "2024-11-12-economynextcom-cc32bb38",
+  "2024-11-14-economynextcom-9267f18c",
+  "2024-11-16-adaderanalk-3d55039c",
+  "2024-11-17-adaderanalk-7d92ee70",
+  "2024-11-18-adaderanalk-3e5e8ca0",
+  "2024-11-18-adaderanalk-a16968b8",
+  "2024-11-18-adaderanalk-e8216bff",
+  "2024-11-18-colombotelegraphcom-925bd3d8",
+  "2024-11-18-dailyftlk-9ec63bca",
+  "2024-11-18-islandlk-7e1ceb94",
+  "2024-11-18-islandlk-a8432c85",
+  "2024-11-19-adaderanalk-7bd17d51",
+  "2024-11-19-adaderanalk-fbb621f6",
+  "2024-11-19-colombotelegraphcom-1caa2171",
+  "2024-11-19-colombotelegraphcom-9615f48a",
+  "2024-11-19-economynextcom-7cef1e65",
+  "2024-11-19-economynextcom-92b06b1d",
+  "2024-11-20-dailyftlk-886f655c",
+  "2024-11-20-dailyftlk-e8649502",
+  "2024-11-20-islandlk-3a2ce8d3",
+  "2024-11-21-adaderanalk-9eceb39e",
+  "2024-11-21-economynextcom-713dede6",
+  "2024-11-22-dailyftlk-edbd83de",
+  "2024-11-23-dailyftlk-e719795c",
+  "2024-11-24-adaderanalk-1fe1c930",
+  "2024-11-24-economynextcom-d4c79d3f",
+  "2024-11-25-adaderanalk-cb75a5ca",
+  "2024-11-25-economynextcom-431c1259",
+  "2024-11-25-economynextcom-5bd16368",
+  "2024-11-25-economynextcom-caf9721e",
+  "2024-11-25-islandlk-bf890fbd",
+  "2024-11-26-adaderanalk-088a12a9",
+  "2024-11-26-adaderanalk-7989c38a",
+  "2024-11-26-dailyftlk-61e6d8fc",
+  "2024-11-26-dailyftlk-eb3ca86c",
+  "2024-11-27-adaderanalk-446a434c",
+  "2024-11-27-dailyftlk-c9c91915",
+  "2024-11-27-islandlk-9b96cf7a",
+  "2024-11-28-adaderanalk-4060a1ed"
+ ],
+ "unattributed_ids": [],
+ "dropped": [
+  "event isb-restructuring-2024-consultants-gosl allocated: unknown line"
+ ],
+ "projects": [
+  {
+   "id": "cpc-debt-interest-subsidy",
+   "name": "Interest subsidy to banks for Ceylon Petroleum Corporation transferred debt",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-grant-school-uniform-fabric",
+   "name": "China grant of school uniform fabric for students",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "usa-grant-slaf-aircraft",
+   "name": "US grant of two aircraft to Sri Lanka Air Force",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-grant-northern-eastern-fishers",
+   "name": "China grant to small fishers in Northern and Eastern provinces",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Northern and Eastern provinces",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "senior-citizens-interest-subsidy",
+   "name": "Interest subsidy programme for senior citizens' deposits",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "interim-budget-2025-h1",
+   "name": "Interim Budget for first four months of 2025",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "pensioners-allowance-increase",
+   "name": "Increase in pensioners' allowances",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-grant-fuel-health-sector",
+   "name": "Japan fuel stock grant for health sector",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "school-nourishment-program-allowance-increase",
+   "name": "School nourishment program per-pupil allowance increase",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "defence-disaster-property-restoration",
+   "name": "Defence Ministry compensation for disaster-damaged properties",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "treasury-exchange-loss-reimbursement",
+   "name": "Exchange loss reimbursement on Treasury dollar accounts",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "battery-storage-grid-upgrade-adb",
+   "name": "Battery storage and power grid upgrade for renewable energy integration",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rice-import-2024",
+   "name": "Import of 70,000 MT of rice to address market shortage",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-batticaloa-surgical-unit",
+   "name": "India-funded surgical unit at Batticaloa Teaching Hospital",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Batticaloa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-disaster-relief-monitoring-project",
+   "name": "China-assisted disaster relief and monitoring project",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "korea-waste-management-uva-northern",
+   "name": "Integrated solid waste management project, Uva and Northern Provinces",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Uva and Northern Provinces",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "road-rehabilitation-100000km",
+   "name": "100,000 km road rehabilitation initiative",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "cpc-petrol-import-vitol-2024",
+   "name": "Petrol import contract (Vitol Asia), 1.5 million barrels",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-grant-low-income-housing-1996units",
+   "name": "China-funded low-income housing project (1,996 units)",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "Colombo district (Moratuwa, Kottawa, Dematagoda, Maharagama, Peliyagoda)",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jica-fecal-sludge-management",
+   "name": "Project for Improvement of Fecal Sludge Management",
+   "sector": "water",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "cpc-debt-interest-subsidy-gosl",
+   "project_id": "cpc-debt-interest-subsidy",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "china-grant-school-uniform-fabric",
+   "project_id": "china-grant-school-uniform-fabric",
+   "funder": "china",
+   "funder_name": "Government of China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "programme"
+  },
+  {
+   "id": "usa-grant-slaf-aircraft",
+   "project_id": "usa-grant-slaf-aircraft",
+   "funder": "usa",
+   "funder_name": "Government of United States",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "china-grant-northern-eastern-fishers",
+   "project_id": "china-grant-northern-eastern-fishers",
+   "funder": "china",
+   "funder_name": "Government of China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "senior-citizens-interest-subsidy-gosl",
+   "project_id": "senior-citizens-interest-subsidy",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "interim-budget-2025-h1-gosl",
+   "project_id": "interim-budget-2025-h1",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "pensioners-allowance-increase-gosl",
+   "project_id": "pensioners-allowance-increase",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "isb-debt-restructuring-2024-advisory-gosl",
+   "project_id": "isb-debt-restructuring-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "japan-grant-fuel-health-sector-japan",
+   "project_id": "japan-grant-fuel-health-sector",
+   "funder": "japan",
+   "funder_name": "Government of Japan",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "school-nourishment-program-gosl",
+   "project_id": "school-nourishment-program-allowance-increase",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "defence-disaster-restoration-gosl",
+   "project_id": "defence-disaster-property-restoration",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "treasury-exchange-loss-gosl",
+   "project_id": "treasury-exchange-loss-reimbursement",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "adb-loan-battery-grid-upgrade",
+   "project_id": "battery-storage-grid-upgrade-adb",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "rice-import-gosl",
+   "project_id": "rice-import-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "india-grant-batticaloa-surgical-unit",
+   "project_id": "india-batticaloa-surgical-unit",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "china-grant-disaster-relief-monitoring",
+   "project_id": "china-disaster-relief-monitoring-project",
+   "funder": "china",
+   "funder_name": "Government of China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "china-grant-disaster-relief-material-aid",
+   "project_id": "china-disaster-relief-monitoring-project",
+   "funder": "china",
+   "funder_name": "Government of China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "relief"
+  },
+  {
+   "id": "koica-grant-waste-management",
+   "project_id": "korea-waste-management-uva-northern",
+   "funder": "korea",
+   "funder_name": "Korean International Cooperation Agency (KOICA)",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "road-rehabilitation-100000km-gosl",
+   "project_id": "road-rehabilitation-100000km",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "cpc-petrol-import-vitol-private",
+   "project_id": "cpc-petrol-import-vitol-2024",
+   "funder": "private",
+   "funder_name": "Vitol Asia (Singapore) Pte Ltd",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "china-grant-low-income-housing",
+   "project_id": "china-grant-low-income-housing-1996units",
+   "funder": "china",
+   "funder_name": "Government of China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "jica-fecal-sludge-management-japan",
+   "project_id": "jica-fecal-sludge-management",
+   "funder": "japan",
+   "funder_name": "JICA",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "imf-eff-loan-unclear-2024-11-23",
+   "line_id": "imf-eff-loan",
+   "date": "2024-11-23",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF staff reach staff-level agreement on third EFF review",
+   "confidence": "high",
+   "reports": [
+    "2024-11-29-islandlk-3d0b5df2",
+    "2024-11-27-adaderanalk-45c54c6e",
+    "2024-11-23-adaderanalk-63a4683f",
+    "2024-11-23-economynextcom-b5dbb3e4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "cpc-debt-interest-subsidy-gosl-allocated-2024-11-27",
+   "line_id": "cpc-debt-interest-subsidy-gosl",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 130000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government allocates interest subsidy for CPC debt taken over",
+   "confidence": "high",
+   "reports": [
+    "2024-11-27-economynextcom-de4378a7",
+    "2024-11-27-dailyftlk-8cd287a9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-grant-school-uniform-fabric-allocated-2024-11-27",
+   "line_id": "china-grant-school-uniform-fabric",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 9829000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government records China grant of school uniform fabric",
+   "confidence": "high",
+   "reports": [
+    "2024-11-27-economynextcom-de4378a7",
+    "2024-11-27-dailyftlk-8cd287a9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "usa-grant-slaf-aircraft-allocated-2024-11-27",
+   "line_id": "usa-grant-slaf-aircraft",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 8331000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government records US grant of two aircraft to Air Force",
+   "confidence": "high",
+   "reports": [
+    "2024-11-27-economynextcom-de4378a7",
+    "2024-11-27-dailyftlk-8cd287a9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-grant-northern-eastern-fishers-allocated-2024-11-27",
+   "line_id": "china-grant-northern-eastern-fishers",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1533000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government records China grant to small fishers North, East",
+   "confidence": "high",
+   "reports": [
+    "2024-11-27-economynextcom-de4378a7",
+    "2024-11-27-dailyftlk-8cd287a9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "senior-citizens-interest-subsidy-gosl-allocated-2024-11-27",
+   "line_id": "senior-citizens-interest-subsidy-gosl",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 32641000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government allocates interest subsidy payment for senior citizens",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-27-economynextcom-de4378a7",
+    "2024-11-27-dailyftlk-8cd287a9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "interim-budget-2025-h1-gosl-govt_authorised-2024-11-27",
+   "line_id": "interim-budget-2025-h1-gosl",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves interim budget for first four months 2025",
+   "confidence": "high",
+   "reports": [
+    "2024-11-27-dailyftlk-ef81ec25"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-unclear-2024-11-27",
+   "line_id": "imf-eff-loan",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Chamber welcomes IMF third review staff-level agreement",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-27-dailyftlk-378d63c1"
+   ],
+   "relation": "repeat_of:imf-eff-loan-unclear-2024-11-23",
+   "notes": null
+  },
+  {
+   "id": "pensioners-allowance-increase-gosl-allocated-2024-11-27",
+   "line_id": "pensioners-allowance-increase-gosl",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1400000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Supplementary funds for increased pensioners' allowances",
+   "confidence": "high",
+   "reports": [
+    "2024-11-27-dailyftlk-8cd287a9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "isb-debt-restructuring-2024-advisory-gosl-allocated-2024-11-27",
+   "line_id": "isb-debt-restructuring-2024-advisory-gosl",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 3213000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds to reimburse CBSL's debt restructuring consultants",
+   "confidence": "high",
+   "reports": [
+    "2024-11-27-dailyftlk-8cd287a9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-grant-fuel-health-sector-japan-allocated-2024-11-27",
+   "line_id": "japan-grant-fuel-health-sector-japan",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 10826000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Allocation for Japan fuel grant to health sector",
+   "confidence": "high",
+   "reports": [
+    "2024-11-27-dailyftlk-8cd287a9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "school-nourishment-program-gosl-allocated-2024-11-27",
+   "line_id": "school-nourishment-program-gosl",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1800000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds to raise per-pupil school nourishment allowance",
+   "confidence": "high",
+   "reports": [
+    "2024-11-27-dailyftlk-8cd287a9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "defence-disaster-restoration-gosl-allocated-2024-11-27",
+   "line_id": "defence-disaster-restoration-gosl",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 400000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds for defence ministry disaster property restoration",
+   "confidence": "high",
+   "reports": [
+    "2024-11-27-dailyftlk-8cd287a9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "isb-restructuring-2024-bondholders-launched-2024-11-26",
+   "line_id": "isb-restructuring-2024-bondholders",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 12550000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet-approved launch of sovereign bond exchange",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-adaderanalk-f781aff5"
+   ],
+   "relation": "update_of:isb-restructuring-2024-bondholders-agreement_signed-2024-09-19",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-unclear-2024-11-26",
+   "line_id": "imf-eff-loan",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF staff-level agreement reached for third EFF review.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-26-economynextcom-07863a64"
+   ],
+   "relation": "repeat_of:imf-eff-loan-unclear-2024-11-23",
+   "notes": null
+  },
+  {
+   "id": "isb-restructuring-2024-bondholders-govt_authorised-2024-11-26",
+   "line_id": "isb-restructuring-2024-bondholders",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved implementing sovereign bond restructuring via bond swap.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-islandlk-1d7583c8",
+    "2024-11-26-adaderanalk-2bc63243"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "cpc-debt-interest-subsidy-gosl-allocated-2024-11-26",
+   "line_id": "cpc-debt-interest-subsidy-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 130000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Supplementary funds for CPC debt interest subsidy to banks.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-adaderanalk-1de4e56c"
+   ],
+   "relation": "repeat_of:cpc-debt-interest-subsidy-gosl-allocated-2024-11-27",
+   "notes": null
+  },
+  {
+   "id": "treasury-exchange-loss-gosl-allocated-2024-11-26",
+   "line_id": "treasury-exchange-loss-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 18000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds to cover exchange loss on Treasury dollar accounts.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-adaderanalk-1de4e56c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "senior-citizens-interest-subsidy-gosl-allocated-2024-11-26",
+   "line_id": "senior-citizens-interest-subsidy-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 32641000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds to reimburse banks for senior citizens' interest subsidy.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-adaderanalk-1de4e56c"
+   ],
+   "relation": "repeat_of:senior-citizens-interest-subsidy-gosl-allocated-2024-11-27",
+   "notes": null
+  },
+  {
+   "id": "china-grant-school-uniform-fabric-allocated-2024-11-26",
+   "line_id": "china-grant-school-uniform-fabric",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 9829000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds recording value of China's school uniform fabric grant.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-adaderanalk-1de4e56c"
+   ],
+   "relation": "repeat_of:china-grant-school-uniform-fabric-allocated-2024-11-27",
+   "notes": null
+  },
+  {
+   "id": "usa-grant-slaf-aircraft-allocated-2024-11-26",
+   "line_id": "usa-grant-slaf-aircraft",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 8331000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds for two US-donated aircraft and taxes.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-adaderanalk-1de4e56c"
+   ],
+   "relation": "repeat_of:usa-grant-slaf-aircraft-allocated-2024-11-27",
+   "notes": null
+  },
+  {
+   "id": "pensioners-allowance-increase-gosl-allocated-2024-11-26",
+   "line_id": "pensioners-allowance-increase-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1400000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds for increased pensioners' retirement allowances.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-adaderanalk-1de4e56c"
+   ],
+   "relation": "repeat_of:pensioners-allowance-increase-gosl-allocated-2024-11-27",
+   "notes": null
+  },
+  {
+   "id": "isb-debt-restructuring-2024-advisory-gosl-allocated-2024-11-26",
+   "line_id": "isb-debt-restructuring-2024-advisory-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 3213000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds to reimburse advisors for debt restructuring process.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-adaderanalk-1de4e56c"
+   ],
+   "relation": "repeat_of:isb-debt-restructuring-2024-advisory-gosl-allocated-2024-11-27",
+   "notes": null
+  },
+  {
+   "id": "china-grant-northern-eastern-fishers-allocated-2024-11-26",
+   "line_id": "china-grant-northern-eastern-fishers",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1533000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds for China's emergency relief to Northern/Eastern fishers.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-adaderanalk-1de4e56c"
+   ],
+   "relation": "repeat_of:china-grant-northern-eastern-fishers-allocated-2024-11-27",
+   "notes": null
+  },
+  {
+   "id": "japan-grant-fuel-health-sector-japan-allocated-2024-11-26",
+   "line_id": "japan-grant-fuel-health-sector-japan",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 10826000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds recording Japan's fuel stock grant for health sector.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-26-adaderanalk-1de4e56c"
+   ],
+   "relation": "repeat_of:japan-grant-fuel-health-sector-japan-allocated-2024-11-27",
+   "notes": null
+  },
+  {
+   "id": "school-nourishment-program-gosl-allocated-2024-11-26",
+   "line_id": "school-nourishment-program-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1800000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds to raise school nutrition program daily allowance.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-adaderanalk-1de4e56c"
+   ],
+   "relation": "repeat_of:school-nourishment-program-gosl-allocated-2024-11-27",
+   "notes": null
+  },
+  {
+   "id": "defence-disaster-restoration-gosl-allocated-2024-11-26",
+   "line_id": "defence-disaster-restoration-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 400000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds for disaster property reconstruction compensation.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-adaderanalk-1de4e56c"
+   ],
+   "relation": "repeat_of:defence-disaster-restoration-gosl-allocated-2024-11-27",
+   "notes": null
+  },
+  {
+   "id": "interim-budget-2025-h1-gosl-govt_authorised-2024-11-26",
+   "line_id": "interim-budget-2025-h1-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved interim vote on account for early 2025.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-adaderanalk-bf9cc0fd"
+   ],
+   "relation": "repeat_of:interim-budget-2025-h1-gosl-govt_authorised-2024-11-27",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-battery-grid-upgrade-funder_approved-2024-11-25",
+   "line_id": "adb-loan-battery-grid-upgrade",
+   "date": "2024-11-25",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approves $200mn loan for battery storage and grid upgrade",
+   "confidence": "high",
+   "reports": [
+    "2024-11-25-economynextcom-2c0ee977",
+    "2024-11-25-adaderanalk-44a6e383"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-govt_authorised-2024-11-20",
+   "line_id": "rice-import-gosl",
+   "date": "2024-11-20",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves import of 70,000 MT rice",
+   "confidence": "high",
+   "reports": [
+    "2024-11-20-adaderanalk-bb77ccdb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-financial-sector-reform-program-adb-funder_approved-2024-11-19",
+   "line_id": "adb-financial-sector-reform-program-adb",
+   "date": "2024-11-19",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approves $200m loan, financial sector reforms subprogram 2",
+   "confidence": "high",
+   "reports": [
+    "2024-11-19-economynextcom-b5b08007",
+    "2024-11-19-adaderanalk-49c37974"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-batticaloa-surgical-unit-completed-2024-11-04",
+   "line_id": "india-grant-batticaloa-surgical-unit",
+   "date": "2024-11-04",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 302000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India-funded surgical unit at Batticaloa Teaching Hospital inaugurated",
+   "confidence": "high",
+   "reports": [
+    "2024-11-11-dailyftlk-702557a6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-grant-disaster-relief-monitoring-disbursed-2024-11-09",
+   "line_id": "china-grant-disaster-relief-monitoring",
+   "date": "2024-11-09",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 30000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China disaster relief funds forwarded to Treasury for damaged properties",
+   "confidence": "high",
+   "reports": [
+    "2024-11-09-adaderanalk-78bf56be"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-grant-disaster-relief-material-aid-pledged-2024-11-09",
+   "line_id": "china-grant-disaster-relief-material-aid",
+   "date": "2024-11-09",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 10000000,
+   "currency": "CNY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China pledges 10 million Yuan humanitarian aid for disaster relief",
+   "confidence": "high",
+   "reports": [
+    "2024-11-09-adaderanalk-78bf56be"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "defence-disaster-restoration-gosl-released-2024-11-09",
+   "line_id": "defence-disaster-restoration-gosl",
+   "date": "2024-11-09",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Treasury releases additional funds to Defence Ministry for disaster home rebuilding",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-09-adaderanalk-78bf56be"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-grant-school-uniform-fabric-govt_authorised-2024-11-04",
+   "line_id": "china-grant-school-uniform-fabric",
+   "date": "2024-11-04",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 5200000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves China fabric grant for 2025 school uniforms",
+   "confidence": "high",
+   "reports": [
+    "2024-11-07-dailyftlk-1b565345"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "koica-grant-waste-management-govt_authorised-2024-11-04",
+   "line_id": "koica-grant-waste-management",
+   "date": "2024-11-04",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 10200000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Korea grant for solid waste management project",
+   "confidence": "high",
+   "reports": [
+    "2024-11-07-dailyftlk-c6e844d0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "road-rehabilitation-100000km-gosl-allocated-2024-11-04",
+   "line_id": "road-rehabilitation-100000km-gosl",
+   "date": "2024-11-04",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 28370000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet reallocates unused funds to clear road rehabilitation bills",
+   "confidence": "high",
+   "reports": [
+    "2024-11-07-dailyftlk-a6bba2bd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "cpc-petrol-import-vitol-private-contract_awarded-2024-11-06",
+   "line_id": "cpc-petrol-import-vitol-private",
+   "date": "2024-11-06",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves petrol import contract to Vitol Asia",
+   "confidence": "high",
+   "reports": [
+    "2024-11-06-economynextcom-6e7ea283"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-grant-school-uniform-fabric-govt_authorised-2024-11-06",
+   "line_id": "china-grant-school-uniform-fabric",
+   "date": "2024-11-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves accepting China's school uniform fabric grant",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-06-adaderanalk-06fac20b"
+   ],
+   "relation": "repeat_of:china-grant-school-uniform-fabric-govt_authorised-2024-11-04",
+   "notes": null
+  },
+  {
+   "id": "china-grant-low-income-housing-contract_awarded-2024-11-06",
+   "line_id": "china-grant-low-income-housing",
+   "date": "2024-11-06",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves China-funded low-income housing construction contracts",
+   "confidence": "high",
+   "reports": [
+    "2024-11-06-economynextcom-b4c5f23d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jica-fecal-sludge-management-japan-agreement_signed-2024-10-15",
+   "line_id": "jica-fecal-sludge-management-japan",
+   "date": "2024-10-15",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "JICA signs fecal sludge management technical cooperation project",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-04-islandlk-96fa0857"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-11-29-islandlk-3d0b5df2": {
+   "date": "2024-11-29",
+   "title": "IMF statement on Sri Lanka to members of financial community",
+   "url": "http://island.lk/imf-statement-on-sri-lanka-to-members-of-financial-community/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-11-27-adaderanalk-45c54c6e": {
+   "date": "2024-11-27",
+   "title": "Ceylon Chamber welcomes staff-level agreement for third review of IMF program",
+   "url": "https://www.adaderana.lk/news/103804/ceylon-chamber-welcomes-staff-level-agreement-for-third-review-of-imf-program",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-11-27-economynextcom-de4378a7": {
+   "date": "2024-11-27",
+   "title": "Sri Lanka to pay Rs130bn to banks for CPC debt in Rs219bn supplementary estimate",
+   "url": "https://economynext.com/sri-lanka-to-pay-rs130bn-to-banks-for-cpc-debt-in-rs219bn-supplementary-estimate-190135/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-11-27-dailyftlk-ef81ec25": {
+   "date": "2024-11-27",
+   "title": "Cabinet nod to present Interim Budget for first four months  of 2025",
+   "url": "https://www.ft.lk/business/Cabinet-nod-to-present-Interim-Budget-for-first-four-months-of-2025/34-769731",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-11-27-dailyftlk-378d63c1": {
+   "date": "2024-11-27",
+   "title": "Ceylon Chamber welcomes staff-level agreement for 3rd review of IMF program",
+   "url": "https://www.ft.lk/business/Ceylon-Chamber-welcomes-staff-level-agreement-for-3rd-review-of-IMF-program/34-769729",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-11-27-dailyftlk-8cd287a9": {
+   "date": "2024-11-27",
+   "title": "Cabinet approved Rs. 219.37 b supplementary estimate  for remaining 2024 expenses",
+   "url": "https://www.ft.lk/news/Cabinet-approved-Rs-219-37-b-supplementary-estimate-for-remaining-2024-expenses/56-769726",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-11-26-adaderanalk-f781aff5": {
+   "date": "2024-11-26",
+   "title": "Sri Lanka announces launch of ISB exchange after Cabinet approval",
+   "url": "https://www.adaderana.lk/news/103785/sri-lanka-announces-launch-of-isb-exchange-after-cabinet-approval-",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-11-26-economynextcom-07863a64": {
+   "date": "2024-11-26",
+   "title": "Ceylon Chamber welcomes IMF staff-level agreement",
+   "url": "https://economynext.com/ceylon-chamber-welcomes-imf-staff-level-agreement-160652/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-11-26-islandlk-1d7583c8": {
+   "date": "2024-11-26",
+   "title": "Cabinet approves implementation of international sovereign bond restructuring to restore sovereign debt sustainability",
+   "url": "http://island.lk/cabinet-approves-implementation-of-international-sovereign-bond-restructuring-to-restore-sovereign-debt-sustainability/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-11-26-adaderanalk-1de4e56c": {
+   "date": "2024-11-26",
+   "title": "Supplementary estimate for essential expenses to be tabled in Parliament",
+   "url": "https://www.adaderana.lk/news/103773/supplementary-estimate-for-essential-expenses-to-be-tabled-in-parliament",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-11-26-adaderanalk-2bc63243": {
+   "date": "2024-11-26",
+   "title": "Sri Lanka’s Cabinet approves restructuring of international sovereign bonds",
+   "url": "https://www.adaderana.lk/news/103771/sri-lankas-cabinet-approves-restructuring-of-international-sovereign-bonds",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-11-26-adaderanalk-bf9cc0fd": {
+   "date": "2024-11-26",
+   "title": "Cabinet approval to present Vote on Account; 2025 Budget Speech on Feb.17",
+   "url": "https://www.adaderana.lk/news/103770/cabinet-approval-to-present-vote-on-account-2025-budget-speech-on-feb17",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-11-25-economynextcom-2c0ee977": {
+   "date": "2024-11-25",
+   "title": "ADB approves $200mn Sri Lanka loan for battery storage, grid upgrade",
+   "url": "https://economynext.com/adb-approves-200mn-sri-lanka-loan-for-battery-storage-grid-upgrade-189761/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-11-25-adaderanalk-44a6e383": {
+   "date": "2024-11-25",
+   "title": "ADB approves $200 million loan to advance power system expansion in Sri Lanka",
+   "url": "https://www.adaderana.lk/news/103747/adb-approves-200-million-loan-to-advance-power-system-expansion-in-sri-lanka",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-11-23-adaderanalk-63a4683f": {
+   "date": "2024-11-23",
+   "title": "IMF reaches staff-level agreement on third review of Sri Lanka’s EFF",
+   "url": "https://www.adaderana.lk/news/103704/imf-reaches-staff-level-agreement-on-third-review-of-sri-lankas-eff",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-11-23-economynextcom-b5dbb3e4": {
+   "date": "2024-11-23",
+   "title": "Sri Lanka reaches staff level agreement with the IMF",
+   "url": "https://economynext.com/sri-lanka-reaches-staff-level-agreement-with-the-imf-189535/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-11-20-adaderanalk-bb77ccdb": {
+   "date": "2024-11-20",
+   "title": "Cabinet approval to import 70,000 MT of rice",
+   "url": "https://www.adaderana.lk/news/103643/cabinet-approval-to-import-70000-mt-of-rice",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-11-19-economynextcom-b5b08007": {
+   "date": "2024-11-19",
+   "title": "ADB US$200 million loan to strengthen Sri Lanka’s financial sector",
+   "url": "https://economynext.com/adb-us200-million-loan-to-strengthen-sri-lankas-financial-sector-188795/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-11-19-adaderanalk-49c37974": {
+   "date": "2024-11-19",
+   "title": "ADB approves USD 200 mln loan to strengthen Sri Lanka’s financial sector reforms",
+   "url": "https://www.adaderana.lk/news/103622/adb-approves-usd-200-mln-loan-to-strengthen-sri-lankas-financial-sector-reforms",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-11-11-dailyftlk-702557a6": {
+   "date": "2024-11-11",
+   "title": "India-funded surgical unit inaugurated at Batticaloa Teaching Hospital",
+   "url": "https://www.ft.lk/news/India-funded-surgical-unit-inaugurated-at-Batticaloa-Teaching-Hospital/56-769091",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-11-09-adaderanalk-78bf56be": {
+   "date": "2024-11-09",
+   "title": "Chinese funds transferred to Treasury for disaster relief and monitoring project",
+   "url": "https://www.adaderana.lk/news/103272/chinese-funds-transferred-to-treasury-for-disaster-relief-and-monitoring-project",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-11-07-dailyftlk-1b565345": {
+   "date": "2024-11-07",
+   "title": "China extends fabric grant for 2025 school uniforms",
+   "url": "https://www.ft.lk/news/China-extends-fabric-grant-for-2025-school-uniforms/56-768928",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-11-07-dailyftlk-c6e844d0": {
+   "date": "2024-11-07",
+   "title": "Korea extends $ 10.2 m grant for integrated solid waste management project",
+   "url": "https://www.ft.lk/news/Korea-extends-10-2-m-grant-for-integrated-solid-waste-management-project/56-768926",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-11-07-dailyftlk-a6bba2bd": {
+   "date": "2024-11-07",
+   "title": "Govt. reallocates unused funds to settle Rs. 28 b  for road rehabilitation bills",
+   "url": "https://www.ft.lk/news/Govt-reallocates-unused-funds-to-settle-Rs-28-b-for-road-rehabilitation-bills/56-768924",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-11-06-economynextcom-6e7ea283": {
+   "date": "2024-11-06",
+   "title": "Sri Lanka awards 1.5mn barrel petrol contract to Vitol Asia",
+   "url": "https://economynext.com/sri-lanka-awards-1-5mn-barrel-petrol-contract-to-vitol-asia-186263/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-11-06-adaderanalk-06fac20b": {
+   "date": "2024-11-06",
+   "title": "China’s fabric grant for 2025 school uniforms receives approval",
+   "url": "https://www.adaderana.lk/news/103201/chinas-fabric-grant-for-2025-school-uniforms-receives-approval",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-11-06-economynextcom-b4c5f23d": {
+   "date": "2024-11-06",
+   "title": "China to build 1,996 low income houses in Sri Lanka with grant",
+   "url": "https://economynext.com/china-to-build-1996-low-income-houses-in-sri-lanka-with-grant-186230/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-11-04-islandlk-96fa0857": {
+   "date": "2024-11-04",
+   "title": "JICA initiates new technical cooperation project in Sri Lanka",
+   "url": "http://island.lk/jica-initiates-new-technical-cooperation-project-in-sri-lanka/",
+   "outlet": "The Island",
+   "lang": "en"
+  }
+ }
+}

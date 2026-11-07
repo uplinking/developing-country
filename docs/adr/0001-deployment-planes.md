@@ -1,0 +1,3 @@
+# Separate the site plane from the explorer/platform plane
+
+The Astro and EmDash site owns the landing page, country desks, Research Articles, editorial admin, and editorial MCP at `developing-country.org`. The React explorer and existing platform Worker own live Data Views, platform MCP, data queries, tiles, and sessions at `explore.developing-country.org`. Cloudflare custom domains make both surfaces one product while preserving separate deployment and failure domains. A Research Article stores the exact canonical explorer URL, so no internal service binding or copied renderer state is required.

@@ -1,0 +1,905 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-05-01",
+  "2024-05-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 71,
+ "rejected": 53,
+ "rejected_ids": [
+  "2024-05-01-adaderanalk-082b1758",
+  "2024-05-01-adaderanalk-546ce209",
+  "2024-05-01-adaderanalk-f732b44c",
+  "2024-05-01-dailyftlk-bc524c3e",
+  "2024-05-02-dailyftlk-f24c708c",
+  "2024-05-04-economynextcom-15a964de",
+  "2024-05-06-economynextcom-d1bb8a1e",
+  "2024-05-07-dailyftlk-6c6dc528",
+  "2024-05-07-dailymirrorlk-226aa881",
+  "2024-05-07-economynextcom-3775d5fc",
+  "2024-05-08-economynextcom-6579242e",
+  "2024-05-08-islandlk-d516d83f",
+  "2024-05-09-adaderanalk-cadf9a3b",
+  "2024-05-10-adaderanalk-d09df4d0",
+  "2024-05-10-dailyftlk-0ae422a0",
+  "2024-05-12-colombotelegraphcom-86964bbd",
+  "2024-05-12-colombotelegraphcom-aa248409",
+  "2024-05-12-dailymirrorlk-3bdf2f0c",
+  "2024-05-13-adaderanalk-ca76b443",
+  "2024-05-13-dailyftlk-8122ac33",
+  "2024-05-13-dailymirrorlk-6975ada3",
+  "2024-05-13-economynextcom-57142d34",
+  "2024-05-13-economynextcom-c74bb7b0",
+  "2024-05-13-islandlk-7d9a96ac",
+  "2024-05-13-islandlk-e287aeb3",
+  "2024-05-14-adaderanalk-05cdb6e7",
+  "2024-05-14-adaderanalk-526629e3",
+  "2024-05-14-dailymirrorlk-222e98b5",
+  "2024-05-15-dailyftlk-2decc22e",
+  "2024-05-15-dailyftlk-75385ce4",
+  "2024-05-17-dailyftlk-a2599262",
+  "2024-05-18-adaderanalk-15e21983",
+  "2024-05-18-dailyftlk-64b9f07c",
+  "2024-05-20-dailymirrorlk-51ae77b8",
+  "2024-05-20-dailymirrorlk-7537d793",
+  "2024-05-20-economynextcom-5b6de277",
+  "2024-05-20-islandlk-23cbccc9",
+  "2024-05-20-islandlk-8b6aecaf",
+  "2024-05-20-islandlk-e38f1b04",
+  "2024-05-21-islandlk-709650b5",
+  "2024-05-22-adaderanalk-1c583603",
+  "2024-05-22-adaderanalk-db665001",
+  "2024-05-22-dailymirrorlk-0da0eb77",
+  "2024-05-22-dailymirrorlk-2889bbc0",
+  "2024-05-22-dailymirrorlk-86b4213b",
+  "2024-05-22-dailymirrorlk-f2e27459",
+  "2024-05-23-dailymirrorlk-04d334e5",
+  "2024-05-27-islandlk-6073a0ea",
+  "2024-05-28-dailymirrorlk-390fbac1",
+  "2024-05-29-dailyftlk-328df0bb",
+  "2024-05-29-dailyftlk-583fd422",
+  "2024-05-31-dailymirrorlk-d9e0f842",
+  "2024-05-31-economynextcom-dfbc54e3"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "cbsl-green-finance-support",
+   "name": "Central Bank green finance and climate-smart infrastructure support",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fertiliser-companies-amalgamation-crs",
+   "name": "Amalgamation of Ceylon Fertiliser Company and Colombo Commercial Fertiliser Company with Compulsory Retirement Scheme",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kandy-jica-sanitation-project",
+   "name": "Kandy city wastewater/sanitation project",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "financial-literacy-roadmap-2024-2028",
+   "name": "Financial Literacy Roadmap of Sri Lanka 2024-2028",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "agri-entrepreneurship-villages-2024",
+   "name": "Youth agri-entrepreneurship model farm villages",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nsb-slsbl-voluntary-retirement-scheme",
+   "name": "Voluntary retirement scheme for Sri Lanka Savings Bank (NSB subsidiary) employees",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adani-renewable-energy-ppa",
+   "name": "Adani renewable energy power purchase agreement",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ai-buddhism-research-fund",
+   "name": "Research on Buddha's teachings and Artificial Intelligence",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kankesanthurai-industrial-zone",
+   "name": "Kankesanthurai industrial park, Jaffna peninsula",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-unique-id-card-project",
+   "name": "India-funded Unique ID card project",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "smart-climate-irrigated-agriculture-project",
+   "name": "Smart Climate Irrigated Agriculture Project (SCIAP)",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "colombo-lrt-project",
+   "name": "Colombo Light Rail Transit project (cancelled)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "litro-mabima-facility-refurbishment",
+   "name": "Refurbishment of Litro Gas Mabima LPG storage and bottling facility",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Sapugaskande",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-digital-classroom-schools",
+   "name": "China-funded digital classroom project for Sri Lankan schools",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "smart-agriculture-package-adb",
+   "name": "ADB-funded Smart Agriculture Package for Mahaweli farmers",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Ratnapura",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "virtual-courts-sri-lanka",
+   "name": "Virtual courts initiative for Ministry of Justice",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kks-port-renovation",
+   "name": "Kankesanthurai Port renovation",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "cbsl-green-finance-wb-ifc",
+   "project_id": "cbsl-green-finance-support",
+   "funder": "world_bank",
+   "funder_name": "World Bank Group / IFC",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "mixed",
+   "purpose": "programme"
+  },
+  {
+   "id": "fertiliser-crs-gosl-funds",
+   "project_id": "fertiliser-companies-amalgamation-crs",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "japan-jica-kandy-sanitation",
+   "project_id": "kandy-jica-sanitation-project",
+   "funder": "japan",
+   "funder_name": "Japan International Cooperation Agency",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "undp-ifc-financial-literacy-roadmap",
+   "project_id": "financial-literacy-roadmap-2024-2028",
+   "funder": "un",
+   "funder_name": "UNDP and IFC",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-agri-entrepreneurship-villages",
+   "project_id": "agri-entrepreneurship-villages-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-nsb-slsbl-vrs",
+   "project_id": "nsb-slsbl-voluntary-retirement-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "adani-ppa-private",
+   "project_id": "adani-renewable-energy-ppa",
+   "funder": "private",
+   "funder_name": "Adani Group",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-funds-ai-buddhism-research",
+   "project_id": "ai-buddhism-research-fund",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "canada-kks-industrial-zone-private",
+   "project_id": "kankesanthurai-industrial-zone",
+   "funder": "private",
+   "funder_name": "Canada-based Sri Lankan diaspora investors",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "equity",
+   "purpose": "project"
+  },
+  {
+   "id": "india-grant-unique-id-advance",
+   "project_id": "india-unique-id-card-project",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-foreign-funds-sciap",
+   "project_id": "smart-climate-irrigated-agriculture-project",
+   "funder": "unknown",
+   "funder_name": "Unspecified foreign funder",
+   "funder_type": "unknown",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-japan-consultancy-settlement-lrt",
+   "project_id": "colombo-lrt-project",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-litro-mabima-facility",
+   "project_id": "litro-mabima-facility-refurbishment",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka (Litro Gas, state-owned)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "china-grant-digital-classroom",
+   "project_id": "china-digital-classroom-schools",
+   "funder": "china",
+   "funder_name": "Government of China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "adb-funding-smart-agriculture-package",
+   "project_id": "smart-agriculture-package-adb",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "usa-unodc-grant-virtual-courts",
+   "project_id": "virtual-courts-sri-lanka",
+   "funder": "usa",
+   "funder_name": "United States / UNODC",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "india-grant-kks-port-renovation",
+   "project_id": "kks-port-renovation",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "cbsl-green-finance-wb-ifc-agreement_signed-2024-05-29",
+   "line_id": "cbsl-green-finance-wb-ifc",
+   "date": "2024-05-29",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Central Bank signs cooperation agreement with IFC and World Bank on green finance",
+   "confidence": "medium",
+   "reports": [
+    "2024-05-29-economynextcom-d1a788c6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fertiliser-crs-gosl-funds-allocated-2024-05-29",
+   "line_id": "fertiliser-crs-gosl-funds",
+   "date": "2024-05-29",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 844000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet allocates Rs844m for fertiliser companies' retirement scheme",
+   "confidence": "high",
+   "reports": [
+    "2024-05-29-dailyftlk-78624fdb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-jica-kandy-sanitation-halted-2024-05-27",
+   "line_id": "japan-jica-kandy-sanitation",
+   "date": "2024-05-27",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "JICA withholds final tranche for Kandy sanitation project",
+   "confidence": "medium",
+   "reports": [
+    "2024-05-27-islandlk-e2828924"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "undp-ifc-financial-literacy-roadmap-launched-2024-05-21",
+   "line_id": "undp-ifc-financial-literacy-roadmap",
+   "date": "2024-05-21",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka unveils national financial literacy roadmap 2024-2028",
+   "confidence": "low",
+   "reports": [
+    "2024-05-23-islandlk-e571b15d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-agri-entrepreneurship-villages-allocated-2024-05-18",
+   "line_id": "gosl-agri-entrepreneurship-villages",
+   "date": "2024-05-18",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Allocated Rs1.6bn for 160 youth agri-entrepreneurship model farms",
+   "confidence": "high",
+   "reports": [
+    "2024-05-18-economynextcom-8d6bf42c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-nsb-slsbl-vrs-govt_authorised-2024-05-13",
+   "line_id": "gosl-nsb-slsbl-vrs",
+   "date": "2024-05-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves voluntary retirement scheme for NSB subsidiary staff",
+   "confidence": "medium",
+   "reports": [
+    "2024-05-15-dailymirrorlk-44043023"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adani-ppa-private-govt_authorised-2024-05-12",
+   "line_id": "adani-ppa-private",
+   "date": "2024-05-12",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 800000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved power purchase agreement for Adani renewable project",
+   "confidence": "medium",
+   "reports": [
+    "2024-05-12-economynextcom-16abda0f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-funds-ai-buddhism-research-proposed-2024-05-12",
+   "line_id": "gosl-funds-ai-buddhism-research",
+   "date": "2024-05-12",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President says Rs1bn to be allocated for Buddhism-AI research next year",
+   "confidence": "medium",
+   "reports": [
+    "2024-05-12-adaderanalk-83a28e6e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "canada-kks-industrial-zone-private-proposed-2024-05-10",
+   "line_id": "canada-kks-industrial-zone-private",
+   "date": "2024-05-10",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 500000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Canada-based investors in talks for Jaffna industrial park under PPP",
+   "confidence": "medium",
+   "reports": [
+    "2024-05-10-economynextcom-277e9a76"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-unique-id-advance-disbursed-2024-05-10",
+   "line_id": "india-grant-unique-id-advance",
+   "date": "2024-05-10",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 450000000,
+   "currency": "INR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India gave advance aid for digital ID card project",
+   "confidence": "medium",
+   "reports": [
+    "2024-05-10-economynextcom-f01ae11f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adani-ppa-private-govt_authorised-2024-05-10",
+   "line_id": "adani-ppa-private",
+   "date": "2024-05-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 442000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet cleared Adani wind power purchase agreement",
+   "confidence": "medium",
+   "reports": [
+    "2024-05-10-dbsjeyarajcom-93739481"
+   ],
+   "relation": "repeat_of:adani-ppa-private-govt_authorised-2024-05-12",
+   "notes": null
+  },
+  {
+   "id": "gosl-foreign-funds-sciap-allocated-2024-05-09",
+   "line_id": "gosl-foreign-funds-sciap",
+   "date": "2024-05-09",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 25000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government allocated funds for Smart Climate Irrigated Agriculture Project",
+   "confidence": "high",
+   "reports": [
+    "2024-05-09-dailymirrorlk-f3b48715"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-japan-consultancy-settlement-lrt-govt_authorised-2024-05-09",
+   "line_id": "gosl-japan-consultancy-settlement-lrt",
+   "date": "2024-05-09",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 3400000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka agreed to pay consultancy after LRT cancellation",
+   "confidence": "medium",
+   "reports": [
+    "2024-05-09-economynextcom-2a4771ef"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-litro-mabima-facility-completed-2024-05-09",
+   "line_id": "gosl-litro-mabima-facility",
+   "date": "2024-05-09",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Litro commissions refurbished Mabima LPG storage facility",
+   "confidence": "medium",
+   "reports": [
+    "2024-05-09-dailyftlk-e947c46e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-grant-digital-classroom-govt_authorised-2024-05-07",
+   "line_id": "china-grant-digital-classroom",
+   "date": "2024-05-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves China-funded school digital classroom project",
+   "confidence": "high",
+   "reports": [
+    "2024-05-07-economynextcom-5e6d55bb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-funding-smart-agriculture-package-launched-2024-05-03",
+   "line_id": "adb-funding-smart-agriculture-package",
+   "date": "2024-05-03",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 10000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB-funded smart agriculture kits distributed to Mahaweli farmers.",
+   "confidence": "medium",
+   "reports": [
+    "2024-05-03-dailyftlk-54b19206"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "usa-unodc-grant-virtual-courts-disbursed-2024-05-03",
+   "line_id": "usa-unodc-grant-virtual-courts",
+   "date": "2024-05-03",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "US and UNODC donate video units for virtual courts.",
+   "confidence": "medium",
+   "reports": [
+    "2024-05-03-dailyftlk-5514f0bd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-kks-port-renovation-govt_authorised-2024-05-02",
+   "line_id": "india-grant-kks-port-renovation",
+   "date": "2024-05-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 61500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves accepting Indian grant to renovate KKS port.",
+   "confidence": "high",
+   "reports": [
+    "2024-05-02-dailyftlk-175f9cff"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-05-29-economynextcom-d1a788c6": {
+   "date": "2024-05-29",
+   "title": "Sri Lanka central bank gets IFC, World Bank help to focus on green finance",
+   "url": "https://economynext.com/sri-lanka-central-bank-gets-ifc-world-bank-help-to-focus-on-green-finance-165302/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-05-29-dailyftlk-78624fdb": {
+   "date": "2024-05-29",
+   "title": "Govt. allocates Rs. 844 m for Compulsory Retirement Scheme to merge State-run fertiliser companies",
+   "url": "https://www.ft.lk/news/Govt-allocates-Rs-844-m-for-Compulsory-Retirement-Scheme-to-merge-State-run-fertiliser-companies/56-762310",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-05-27-islandlk-e2828924": {
+   "date": "2024-05-27",
+   "title": "SL’s debt restructuring issues disrupt Kandy city’s JICA-funded sanitation project",
+   "url": "http://island.lk/sls-debt-restructuring-issues-disrupt-kandy-citys-jica-funded-sanitation-project/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-05-23-islandlk-e571b15d": {
+   "date": "2024-05-23",
+   "title": "UNDP and IFC helping Sri Lanka to discover financial inclusion",
+   "url": "http://island.lk/undp-and-ifc-helping-sri-lanka-to-discover-financial-inclusion/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-05-18-economynextcom-8d6bf42c": {
+   "date": "2024-05-18",
+   "title": "Sri Lanka seeks to draw youth into agri-entrepreneurship with Rs1.6bn funding",
+   "url": "https://economynext.com/sri-lanka-seeks-to-draw-youth-into-agri-entrepreneurship-with-rs1-6bn-funding-163562/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-05-15-dailymirrorlk-44043023": {
+   "date": "2024-05-15",
+   "title": "VRS scheme for NSB subsidiary employees gets Cabinet nod",
+   "url": "https://www.dailymirror.lk/breaking-news/VRS-scheme-for-NSB-subsidiary-employees-gets-Cabinet-nod/108-282610",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-05-12-economynextcom-16abda0f": {
+   "date": "2024-05-12",
+   "title": "Sri Lanka strongly expects to sign up US$3.0 FDI in 2024, with China refinery",
+   "url": "https://economynext.com/sri-lanka-strongly-expects-to-sign-up-us3-0-fdi-in-2024-with-china-refinery-162667/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-05-12-adaderanalk-83a28e6e": {
+   "date": "2024-05-12",
+   "title": "Rs. 1 billion to be allocated for research on relationship between Buddha’s teachings and AI – President",
+   "url": "https://www.adaderana.lk/news/99162/rs-1-billion-to-be-allocated-for-research-on-relationship-between-buddhas-teachings-and-ai-president",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-05-10-economynextcom-277e9a76": {
+   "date": "2024-05-10",
+   "title": "Sri Lanka in talks with Canada investors for US$500mn industrial zone in Jaffna",
+   "url": "https://economynext.com/sri-lanka-in-talks-with-canada-investors-for-us500mn-industrial-zone-in-jaffna-162541/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-05-10-economynextcom-f01ae11f": {
+   "date": "2024-05-10",
+   "title": "Sri Lanka waits for clearance to implement India-funded Unique ID card project",
+   "url": "https://economynext.com/sri-lanka-waits-for-clearance-to-implement-india-funded-unique-id-card-project-162464/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-05-10-dbsjeyarajcom-93739481": {
+   "date": "2024-05-10",
+   "title": "Sri Lanka to Purchase Power at 8.26 cents per kWh from India’s Adani Green Energy which will generate  484 MW Power  Annually from a  442 $ millon wind power project at Mannar and Pooneryn in the Island’s Northern Province",
+   "url": "https://dbsjeyaraj.com/dbsj/?p=84006",
+   "outlet": "dbsjeyaraj.com",
+   "lang": "en"
+  },
+  "2024-05-09-dailymirrorlk-f3b48715": {
+   "date": "2024-05-09",
+   "title": "Govt. provides USD 25 million for Smart Climate Irrigation Agriculture Project",
+   "url": "https://www.dailymirror.lk/breaking-news/Govt-provides-USD-25-million-for-Smart-Climate-Irrigation-Agriculture-Project/108-282240",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-05-09-economynextcom-2a4771ef": {
+   "date": "2024-05-09",
+   "title": "Sri Lanka keen to resume unilaterally cancelled LRT, but no agreement from Japan: FM",
+   "url": "https://economynext.com/sri-lanka-keen-to-resume-unilaterally-cancelled-lrt-but-no-agreement-from-japan-fm-162182/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-05-09-dailyftlk-e947c46e": {
+   "date": "2024-05-09",
+   "title": "Litro commissions modern Mabima storage and bottling facility after Rs. 1 b investment",
+   "url": "https://www.ft.lk/business/Litro-commissions-modern-Mabima-storage-and-bottling-facility-after-Rs-1-b-investment/34-761573",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-05-07-economynextcom-5e6d55bb": {
+   "date": "2024-05-07",
+   "title": "China to support digital classroom project in Sri Lanka",
+   "url": "https://economynext.com/china-to-support-digital-classroom-project-in-sri-lanka-161829/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-05-03-dailyftlk-54b19206": {
+   "date": "2024-05-03",
+   "title": "Pavitra kicks off distribution of Smart Agriculture Package to farmers under ADB funding",
+   "url": "https://www.ft.lk/business/Pavitra-kicks-off-distribution-of-Smart-Agriculture-Package-to-farmers-under-ADB-funding/34-761387",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-05-03-dailyftlk-5514f0bd": {
+   "date": "2024-05-03",
+   "title": "Support for Justice Ministry’s virtual courts initiative",
+   "url": "https://www.ft.lk/news/Support-for-Justice-Ministry-s-virtual-courts-initiative/56-761363",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-05-02-dailyftlk-175f9cff": {
+   "date": "2024-05-02",
+   "title": "Cabinet nod to renovate KKS port with Indian funding",
+   "url": "https://www.ft.lk/business/Cabinet-nod-to-renovate-KKS-port-with-Indian-funding/34-761297",
+   "outlet": "Daily FT",
+   "lang": "en"
+  }
+ }
+}

@@ -1,0 +1,810 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-06-01",
+  "2024-06-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 79,
+ "rejected": 56,
+ "rejected_ids": [
+  "2024-06-01-dailyftlk-5c4429ce",
+  "2024-06-01-islandlk-b50ab9b9",
+  "2024-06-02-colombotelegraphcom-a56ba31f",
+  "2024-06-03-dailyftlk-f2ecc395",
+  "2024-06-03-dailymirrorlk-201b6eb4",
+  "2024-06-04-adaderanalk-dffae683",
+  "2024-06-04-dailyftlk-f99f046b",
+  "2024-06-04-economynextcom-39cf0425",
+  "2024-06-05-dailyftlk-899b9d56",
+  "2024-06-06-dailyftlk-264f1caa",
+  "2024-06-06-dailyftlk-2d0787d8",
+  "2024-06-06-dailyftlk-851b94f2",
+  "2024-06-06-dailymirrorlk-7912269a",
+  "2024-06-07-adaderanalk-3dadc7e8",
+  "2024-06-07-islandlk-6c23d8b4",
+  "2024-06-09-dailymirrorlk-4e2b9078",
+  "2024-06-10-economynextcom-977e6559",
+  "2024-06-10-islandlk-2b6bd370",
+  "2024-06-11-dailyftlk-e23eae5d",
+  "2024-06-12-adaderanalk-40dfeb72",
+  "2024-06-12-adaderanalk-5b76fd7c",
+  "2024-06-12-adaderanalk-6d951a6f",
+  "2024-06-12-islandlk-dd69ca53",
+  "2024-06-13-dailyftlk-0075e459",
+  "2024-06-13-dailyftlk-02a3ce80",
+  "2024-06-13-dailyftlk-0b716ed6",
+  "2024-06-13-dailyftlk-43bf0a20",
+  "2024-06-13-dailyftlk-553b216c",
+  "2024-06-13-dailyftlk-7d793988",
+  "2024-06-13-dailyftlk-b8c35223",
+  "2024-06-13-dailyftlk-b9ff78e2",
+  "2024-06-14-colombotelegraphcom-02ad3a5e",
+  "2024-06-14-economynextcom-8d717a8d",
+  "2024-06-14-islandlk-f1a61786",
+  "2024-06-15-dailyftlk-36859189",
+  "2024-06-16-adaderanalk-bd8146a4",
+  "2024-06-16-dailyftlk-2960c886",
+  "2024-06-17-adaderanalk-0fe7d327",
+  "2024-06-17-islandlk-2ff23f0a",
+  "2024-06-18-economynextcom-a724bfd8",
+  "2024-06-19-dbsjeyarajcom-9ce75af4",
+  "2024-06-19-economynextcom-17492774",
+  "2024-06-20-economynextcom-5fb58b34",
+  "2024-06-21-dailyftlk-82be97ad",
+  "2024-06-22-adaderanalk-04a6142a",
+  "2024-06-22-adaderanalk-aa9ec56b",
+  "2024-06-24-adaderanalk-757361cd",
+  "2024-06-24-dailyftlk-5321fb5c",
+  "2024-06-24-dailyftlk-af0ad506",
+  "2024-06-24-islandlk-36ac9133",
+  "2024-06-25-adaderanalk-992f2c23",
+  "2024-06-28-economynextcom-ee5b9254",
+  "2024-06-29-adaderanalk-60fdc2bc",
+  "2024-06-29-adaderanalk-a7834e7b",
+  "2024-06-29-dailyftlk-24725527",
+  "2024-06-29-dailyftlk-b02328d5"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "aswesuma-welfare-program",
+   "name": "Aswesuma Welfare Benefit Payment Program",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-exim-debt-restructuring-2024",
+   "name": "China EXIM Bank debt treatment agreement (2024)",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "higurakgoda-airport-development",
+   "name": "Development of Higurakgoda Airport",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Higurakgoda",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "paris-club-debt-restructuring-2024",
+   "name": "Paris Club debt restructuring agreements (2024)",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nic-polycarbonate-card-procurement",
+   "name": "Procurement of pre-printed Polycarbonate cards for NIC printing",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mrcc-maritime-rescue-centre",
+   "name": "Maritime Rescue Coordination Centre",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-housing-model-villages",
+   "name": "Indian Housing Project - model villages (Kandy, Nuwara Eliya, Matale)",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "Kandy, Nuwara Eliya and Matale",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "usaid-efficient-effective-justice",
+   "name": "USAID Efficient and Effective Justice (ADR mediation) project",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "flood-relief-cleanup-grant-2024",
+   "name": "Flood-affected household cleanup grant (June 2024)",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-sme-credit-line",
+   "name": "ADB concessional SME credit line via commercial banks",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "plantation-workers-arrears-settlement",
+   "name": "Settlement of statutory allowance arrears to plantation workers",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "aswesuma-govt-funds",
+   "project_id": "aswesuma-welfare-program",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "china-exim-debt-restructuring-2024",
+   "project_id": "china-exim-debt-restructuring-2024",
+   "funder": "china",
+   "funder_name": "Export-Import Bank of China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "higurakgoda-airport-gosl",
+   "project_id": "higurakgoda-airport-development",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "paris-club-debt-restructuring-2024",
+   "project_id": "paris-club-debt-restructuring-2024",
+   "funder": "other:paris_club",
+   "funder_name": "Paris Club creditor nations",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "nic-polycarbonate-cards-gosl",
+   "project_id": "nic-polycarbonate-card-procurement",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "mrcc-india-grant",
+   "project_id": "mrcc-maritime-rescue-centre",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "india-housing-model-villages-grant",
+   "project_id": "india-housing-model-villages",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "usaid-grant-eej",
+   "project_id": "usaid-efficient-effective-justice",
+   "funder": "usa",
+   "funder_name": "USAID",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "flood-relief-cleanup-grant-2024-gosl",
+   "project_id": "flood-relief-cleanup-grant-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "adb-sme-credit-line-gosl",
+   "project_id": "adb-sme-credit-line",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "plantation-workers-arrears-settlement-gosl",
+   "project_id": "plantation-workers-arrears-settlement",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "aswesuma-govt-funds-disbursed-2024-06-27",
+   "line_id": "aswesuma-govt-funds",
+   "date": "2024-06-27",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 11600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Aswesuma welfare payments disbursed to 622,495 beneficiaries",
+   "confidence": "high",
+   "reports": [
+    "2024-06-28-adaderanalk-4c1bbd9b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-exim-debt-restructuring-2024-agreement_signed-2024-06-26",
+   "line_id": "china-exim-debt-restructuring-2024",
+   "date": "2024-06-26",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 4200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka signs $4.2bn debt treatment deal with China EXIM Bank",
+   "confidence": "high",
+   "reports": [
+    "2024-06-26-adaderanalk-f563fda6",
+    "2024-06-26-economynextcom-426e562b",
+    "2024-06-26-economynextcom-b099a9a6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "higurakgoda-airport-gosl-govt_authorised-2024-06-25",
+   "line_id": "higurakgoda-airport-gosl",
+   "date": "2024-06-25",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves developing Higurakgoda Airport to international standards",
+   "confidence": "high",
+   "reports": [
+    "2024-06-25-adaderanalk-2efba450",
+    "2024-06-25-economynextcom-40fcf7dd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "paris-club-debt-restructuring-2024-govt_authorised-2024-06-25",
+   "line_id": "paris-club-debt-restructuring-2024",
+   "date": "2024-06-25",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves signing debt restructuring agreements with Paris Club",
+   "confidence": "high",
+   "reports": [
+    "2024-06-25-adaderanalk-fd606032"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "wb-p181564-wb-funder_approved-2024-06-25",
+   "line_id": "wb-p181564-wb",
+   "date": "2024-06-25",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 150000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "World Bank approved $150m for primary healthcare project.",
+   "confidence": "high",
+   "reports": [
+    "2024-06-25-adaderanalk-46421868"
+   ],
+   "relation": "repeat_of:wb-p181564-funder_approved",
+   "notes": null
+  },
+  {
+   "id": "nic-polycarbonate-cards-gosl-govt_authorised-2024-06-20",
+   "line_id": "nic-polycarbonate-cards-gosl",
+   "date": "2024-06-20",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved procurement of 2.3 million NIC cards",
+   "confidence": "high",
+   "reports": [
+    "2024-06-20-adaderanalk-ad5c76a2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mrcc-india-grant-launched-2024-06-20",
+   "line_id": "mrcc-india-grant",
+   "date": "2024-06-20",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 6000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India-funded Maritime Rescue Coordination Centre commissioned",
+   "confidence": "high",
+   "reports": [
+    "2024-06-20-economynextcom-e0c664b3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-housing-model-villages-grant-launched-2024-06-20",
+   "line_id": "india-housing-model-villages-grant",
+   "date": "2024-06-20",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "India launched 106 houses in three model villages",
+   "confidence": "medium",
+   "reports": [
+    "2024-06-20-economynextcom-e0c664b3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-funder_approved-2024-06-17",
+   "line_id": "imf-eff-loan",
+   "date": "2024-06-17",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 254000000,
+   "currency": "SDR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF board-level agreement on second EFF review financing",
+   "confidence": "medium",
+   "reports": [
+    "2024-06-17-islandlk-943f5fac"
+   ],
+   "relation": "repeat_of:imf-eff-purchase-2024-06-14",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-disbursed-2024-06-14",
+   "line_id": "imf-eff-loan",
+   "date": "2024-06-14",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 330000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF disburses third tranche after second review approval.",
+   "confidence": "medium",
+   "reports": [
+    "2024-06-14-economynextcom-2de5a54f"
+   ],
+   "relation": "repeat_of:imf-eff-purchase-2024-06-14",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-funder_approved-2024-06-12",
+   "line_id": "imf-eff-loan",
+   "date": "2024-06-12",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 254000000,
+   "currency": "SDR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF board completes second EFF review, approves tranche",
+   "confidence": "high",
+   "reports": [
+    "2024-06-13-adaderanalk-510590e1",
+    "2024-06-13-economynextcom-f27f2b66",
+    "2024-06-12-adaderanalk-64bac128",
+    "2024-06-12-economynextcom-773e0fad"
+   ],
+   "relation": "repeat_of:imf-eff-loan-funder_approved-2024-06-17",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-funder_approved-2024-06-13",
+   "line_id": "imf-eff-loan",
+   "date": "2024-06-13",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 336000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "State minister confirms IMF third tranche approval",
+   "confidence": "high",
+   "reports": [
+    "2024-06-13-adaderanalk-42bad95e"
+   ],
+   "relation": "repeat_of:imf-eff-loan-funder_approved-2024-06-17",
+   "notes": null
+  },
+  {
+   "id": "usaid-grant-eej-completed-2024-06-10",
+   "line_id": "usaid-grant-eej",
+   "date": "2024-06-10",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "USAID-funded training accredits 23 commercial mediators in Sri Lanka",
+   "confidence": "medium",
+   "reports": [
+    "2024-06-10-dailyftlk-1316bfc2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "flood-relief-cleanup-grant-2024-gosl-govt_authorised-2024-06-07",
+   "line_id": "flood-relief-cleanup-grant-2024-gosl",
+   "date": "2024-06-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 10000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government to pay Rs.10,000 per family to clean flood-hit homes",
+   "confidence": "medium",
+   "reports": [
+    "2024-06-07-adaderanalk-7e72b8e9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-sme-credit-line-gosl-agreement_signed-2024-06-07",
+   "line_id": "adb-sme-credit-line-gosl",
+   "date": "2024-06-07",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 20000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB Rs.20bn concessional credit line via banks for SMEs",
+   "confidence": "medium",
+   "reports": [
+    "2024-06-07-dailyftlk-7651f83c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "flood-relief-cleanup-grant-2024-gosl-govt_authorised-2024-06-03",
+   "line_id": "flood-relief-cleanup-grant-2024-gosl",
+   "date": "2024-06-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves relief and house rebuilding for flood victims",
+   "confidence": "medium",
+   "reports": [
+    "2024-06-04-adaderanalk-b665b0d2",
+    "2024-06-05-dailyftlk-24afd461"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "plantation-workers-arrears-settlement-gosl-govt_authorised-2024-06-01",
+   "line_id": "plantation-workers-arrears-settlement-gosl",
+   "date": "2024-06-01",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 5000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs5bn to settle plantation workers' provident fund arrears",
+   "confidence": "high",
+   "reports": [
+    "2024-06-01-dailyftlk-15a05b95"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-06-28-adaderanalk-4c1bbd9b": {
+   "date": "2024-06-28",
+   "title": "Govt says Rs. 11.6 billion disbursed to ‘Aswesuma’ beneficiaries for June",
+   "url": "https://www.adaderana.lk/news/100170/govt-says-rs-116-billion-disbursed-to-aswesuma-beneficiaries-for-june",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-06-26-adaderanalk-f563fda6": {
+   "date": "2024-06-26",
+   "title": "Sri Lanka signs debt treatment agreement with China’s EXIM Bank",
+   "url": "https://www.adaderana.lk/news/100124/sri-lanka-signs-debt-treatment-agreement-with-chinas-exim-bank",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-06-26-economynextcom-426e562b": {
+   "date": "2024-06-26",
+   "title": "Sri Lanka signs US$4.2bn Chinese debt deal",
+   "url": "https://economynext.com/sri-lanka-signs-us4-2bn-chinese-debt-deal-169710/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-06-26-economynextcom-b099a9a6": {
+   "date": "2024-06-26",
+   "title": "Sri Lanka reaches final agreement with Chinese EXIM Bank debt: State FinMin",
+   "url": "https://economynext.com/sri-lanka-reaches-final-agreement-with-chinese-exim-bank-debt-state-finmin-169668/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-06-25-adaderanalk-2efba450": {
+   "date": "2024-06-25",
+   "title": "Cabinet approval granted for development of Higurakgoda Airport",
+   "url": "https://www.adaderana.lk/news/100091/cabinet-approval-granted-for-development-of-higurakgoda-airport",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-06-25-adaderanalk-fd606032": {
+   "date": "2024-06-25",
+   "title": "Cabinet approves debt restructuring agreements with Paris Club & other stakeholders",
+   "url": "https://www.adaderana.lk/news/100090/cabinet-approves-debt-restructuring-agreements-with-paris-club-other-stakeholders",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-06-25-economynextcom-40fcf7dd": {
+   "date": "2024-06-25",
+   "title": "Cabinet nod for developing Sri Lanka’s World War II-era Hingurakkogda airbase",
+   "url": "https://economynext.com/cabinet-nod-for-developing-sri-lankas-world-war-ii-era-hingurakkogda-airbase-169432/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-06-25-adaderanalk-46421868": {
+   "date": "2024-06-25",
+   "title": "World Bank approves $150 million to improve primary healthcare services in Sri Lanka",
+   "url": "https://www.adaderana.lk/news/100081/world-bank-approves-150-million-to-improve-primary-healthcare-services-in-sri-lanka",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-06-20-adaderanalk-ad5c76a2": {
+   "date": "2024-06-20",
+   "title": "Cabinet greenlights procurement of pre-printed Polycarbonate cards for NIC printing",
+   "url": "https://www.adaderana.lk/news/99990/-cabinet-greenlights-procurement-of-pre-printed-polycarbonate-cards-for-nic-printing",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-06-20-economynextcom-e0c664b3": {
+   "date": "2024-06-20",
+   "title": "Sri Lanka, India launch maritime rescue coordination centre",
+   "url": "https://economynext.com/sri-lanka-india-launch-maritime-rescue-coordination-centre-168921/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-06-17-islandlk-943f5fac": {
+   "date": "2024-06-17",
+   "title": "Ceylon Chamber commends board-level agreement on second IMF review",
+   "url": "http://island.lk/ceylon-chamber-commends-board-level-agreement-on-second-imf-review/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-06-14-economynextcom-2de5a54f": {
+   "date": "2024-06-14",
+   "title": "US welcomes IMF approval of Sri Lanka’s second review",
+   "url": "https://economynext.com/us-welcomes-imf-approval-of-sri-lankas-second-review-168027/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-06-13-adaderanalk-42bad95e": {
+   "date": "2024-06-13",
+   "title": "IMF third tranche will pave the way for long-term sustainable growth in SL - state minister",
+   "url": "https://www.adaderana.lk/news/99851/imf-third-tranche-will-pave-the-way-for-long-term-sustainable-growth-in-sl-state-minister",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-06-13-adaderanalk-510590e1": {
+   "date": "2024-06-13",
+   "title": "IMF approves third tranche of Sri Lanka bailout after second review",
+   "url": "https://www.adaderana.lk/news/99847/imf-approves-third-tranche-of-sri-lanka-bailout-after-second-review",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-06-13-economynextcom-f27f2b66": {
+   "date": "2024-06-13",
+   "title": "IMF approves Sri Lanka review, calls for monetary policy for stability",
+   "url": "https://economynext.com/imf-approves-sri-lanka-review-calls-for-monetary-policy-for-stability-167761/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-06-12-adaderanalk-64bac128": {
+   "date": "2024-06-12",
+   "title": "IMF approves second review of Sri Lanka’s bailout package - FM",
+   "url": "https://www.adaderana.lk/news/99846/imf-approves-second-review-of-sri-lankas-bailout-package-fm",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-06-12-economynextcom-773e0fad": {
+   "date": "2024-06-12",
+   "title": "IMF approves Sri Lanka program review, Foreign Minister Sabry says",
+   "url": "https://economynext.com/imf-approves-sri-lanka-program-review-foreign-minister-sabry-says-167752/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-06-10-dailyftlk-1316bfc2": {
+   "date": "2024-06-10",
+   "title": "USAID supports SL in enhancing investment climate through commercial Alternative Dispute Resolution",
+   "url": "https://www.ft.lk/business/USAID-supports-SL-in-enhancing-investment-climate-through-commercial-Alternative-Dispute-Resolution/34-762861",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-06-07-adaderanalk-7e72b8e9": {
+   "date": "2024-06-07",
+   "title": "DMC explains how to obtain govt.’s Rs. 10,000 grant to clean flood-affected homes",
+   "url": "https://www.adaderana.lk/news/99727/dmc-explains-how-to-obtain-govts-rs-10000-grant-to-clean-flood-affected-homes",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-06-07-dailyftlk-7651f83c": {
+   "date": "2024-06-07",
+   "title": "ADB loan scheme: What about the construction industry?",
+   "url": "https://www.ft.lk/columns/ADB-loan-scheme-What-about-the-construction-industry/4-762756",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-06-05-dailyftlk-24afd461": {
+   "date": "2024-06-05",
+   "title": "Cabinet approves relief to families affected by floods",
+   "url": "https://www.ft.lk/news/Cabinet-approves-relief-to-families-affected-by-floods/56-762619",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-06-04-adaderanalk-b665b0d2": {
+   "date": "2024-06-04",
+   "title": "Cabinet approval to provide immediate relief for flood victims",
+   "url": "https://www.adaderana.lk/news/99647/cabinet-approval-to-provide-immediate-relief-for-flood-victims",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-06-01-dailyftlk-15a05b95": {
+   "date": "2024-06-01",
+   "title": "Siyambalapitiya says Cabinet approves Rs. 5 b to settle statutory allowance arrears to plantation workers",
+   "url": "https://www.ft.lk/business/Siyambalapitiya-says-Cabinet-approves-Rs-5-b-to-settle-statutory-allowance-arrears-to-plantation-workers/34-762476",
+   "outlet": "Daily FT",
+   "lang": "en"
+  }
+ }
+}

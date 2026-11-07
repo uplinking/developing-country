@@ -1,0 +1,2917 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-08-01",
+  "2024-08-31"
+ ],
+ "upstream": "nuuuwan/lk_news@7c98b51874e343a55176ce773acd06a36d320d1e",
+ "extracted_by": "Codex gpt-5.6-luna (medium reasoning)",
+ "extracted_at": "2026-11-06",
+ "language": "ta",
+ "articles_read": 134,
+ "rejected": 65,
+ "rejected_ids": [
+  "2024-08-01-tamilmirrorlk-52896fa9",
+  "2024-08-01-tamilmirrorlk-61c86815",
+  "2024-08-01-tamilmirrorlk-8b8af4e0",
+  "2024-08-01-tamilmirrorlk-fe273153",
+  "2024-08-01-virakesarilk-202102f6",
+  "2024-08-01-virakesarilk-6d63ded5",
+  "2024-08-01-virakesarilk-9b9f912e",
+  "2024-08-01-virakesarilk-d7c8ae1d",
+  "2024-08-02-tamilmirrorlk-63931927",
+  "2024-08-02-virakesarilk-25690c04",
+  "2024-08-03-tamilmirrorlk-eebc0ba0",
+  "2024-08-03-virakesarilk-21f3447e",
+  "2024-08-03-virakesarilk-48b67d9c",
+  "2024-08-05-virakesarilk-a3dd201b",
+  "2024-08-06-virakesarilk-78681416",
+  "2024-08-06-virakesarilk-7aa64777",
+  "2024-08-06-virakesarilk-b32614d8",
+  "2024-08-06-virakesarilk-fb571fd3",
+  "2024-08-07-tamilmirrorlk-52edfcc0",
+  "2024-08-07-virakesarilk-4cc39bc3",
+  "2024-08-08-tamilmirrorlk-59d11599",
+  "2024-08-08-virakesarilk-17c45066",
+  "2024-08-08-virakesarilk-6aecd498",
+  "2024-08-08-virakesarilk-e0d2249a",
+  "2024-08-09-virakesarilk-50bd5ab8",
+  "2024-08-10-tamilmirrorlk-10fef12a",
+  "2024-08-10-tamilmirrorlk-661dfad0",
+  "2024-08-10-virakesarilk-7804bffe",
+  "2024-08-10-virakesarilk-c8f20830",
+  "2024-08-11-virakesarilk-af6d7e8b",
+  "2024-08-12-tamilmirrorlk-c75d0402",
+  "2024-08-12-virakesarilk-3fbd30bc",
+  "2024-08-13-tamilmirrorlk-163d5e55",
+  "2024-08-13-tamilmirrorlk-b7a7c076",
+  "2024-08-13-tamilmirrorlk-d31f4fd7",
+  "2024-08-13-virakesarilk-0b42b8f0",
+  "2024-08-13-virakesarilk-83717c61",
+  "2024-08-13-virakesarilk-d7d7f178",
+  "2024-08-14-tamilmirrorlk-58d9666a",
+  "2024-08-14-tamilmirrorlk-8699c4a8",
+  "2024-08-14-tamilmirrorlk-a4e5673b",
+  "2024-08-14-tamilmirrorlk-a9fe51b7",
+  "2024-08-14-tamilmirrorlk-e232dcca",
+  "2024-08-14-virakesarilk-048040a8",
+  "2024-08-14-virakesarilk-286aa717",
+  "2024-08-14-virakesarilk-f760dcac",
+  "2024-08-15-tamilmirrorlk-c5a3ab36",
+  "2024-08-16-tamilmirrorlk-6b9b8d6c",
+  "2024-08-17-tamilmirrorlk-dfe769e3",
+  "2024-08-17-tamilmirrorlk-e5b54f70",
+  "2024-08-18-tamilmirrorlk-ea26a2f9",
+  "2024-08-18-tamilmirrorlk-ef0cc1be",
+  "2024-08-18-virakesarilk-40d5e44f",
+  "2024-08-18-virakesarilk-c8b903fe",
+  "2024-08-20-tamilmirrorlk-4eb2f84b",
+  "2024-08-20-virakesarilk-76e105ad",
+  "2024-08-21-virakesarilk-b6e2207f",
+  "2024-08-21-virakesarilk-e6b162eb",
+  "2024-08-22-tamilmirrorlk-a2c6b2a3",
+  "2024-08-22-virakesarilk-0a4130c9",
+  "2024-08-23-tamilmirrorlk-4cfd4cb5",
+  "2024-08-23-virakesarilk-0b9f8a93",
+  "2024-08-26-tamilmirrorlk-1535d985",
+  "2024-08-26-tamilmirrorlk-6b704e09",
+  "2024-08-26-tamilmirrorlk-84b44a85",
+  "2024-08-26-tamilmirrorlk-e829517d",
+  "2024-08-26-virakesarilk-7d4bed40",
+  "2024-08-28-virakesarilk-50ab527c",
+  "2024-08-28-virakesarilk-94f678f9"
+ ],
+ "unattributed_ids": [
+  "2024-08-14-tamilmirrorlk-a4e5673b",
+  "2024-08-15-tamilmirrorlk-c5a3ab36",
+  "2024-08-22-virakesarilk-0a4130c9",
+  "2024-08-26-virakesarilk-7d4bed40"
+ ],
+ "dropped": [
+  "event unknown-sigiriya-entry-suspension halted: no report in chunk",
+  "event gaza-children-fund-gosl spent: no report in chunk"
+ ],
+ "projects": [
+  {
+   "id": "yal-devi-rail-service-resumption",
+   "name": "Yal Devi railway service resumption",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Northern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "matara-kataragama-railway-completion",
+   "name": "Matara-Kataragama railway line completion",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Southern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ampara-production-factories-programme",
+   "name": "Ampara production factories programme",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Ampara District",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "farmer-fertilizer-and-fuel-support-pledge",
+   "name": "Farmer fertilizer and fuel support pledge",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "farmer-debt-cancellation-pledge",
+   "name": "Farmer agricultural debt cancellation pledge",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ampara-agricultural-modernisation-pledge",
+   "name": "Ampara agricultural modernization and water programme",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Ampara District",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "modern-schools-it-ampara-pledge",
+   "name": "Modern schools and information technology programme",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Ampara District",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "poverty-welfare-payment-pledge-2024",
+   "name": "Poverty-eradication household welfare payment pledge",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sugar-factory-revival-pledge",
+   "name": "Pelwatta and Sevanagala sugar factory revival pledge",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Sri Lanka",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kinnia-kurinchakeni-bridge-reconstruction",
+   "name": "Kinniya-Kurinchakeni Bridge Reconstruction",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kinniya, Trincomalee",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sri-lanka-national-ai-strategy",
+   "name": "Sri Lanka National Artificial Intelligence Strategy",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "opposition-public-sector-salary-increase-2025",
+   "name": "Opposition proposal to increase public-sector salaries in 2025",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "badulla-kandaketiya-narangala-road-reconstruction",
+   "name": "Badulla Kandaketiya Narangala road reconstruction",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Badulla",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "free-visa-facility-35-countries",
+   "name": "Free visa facility for citizens of 35 countries",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "musharraf-mp-development-allocation",
+   "name": "Development allocation to MP Musharraf",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mannar-hospital-patient-care-training",
+   "name": "Mannar District General Hospital patient-care training",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Mannar",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "airport-terminal-shuttle-service",
+   "name": "Airport Terminal Shuttle Service",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Katunayake, Colombo and Makumbura",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "civil-defence-force-housing-relief",
+   "name": "Civil Defence Force Housing Relief",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "six-district-rishad-development-projects",
+   "name": "Six-district development projects allocated to Rishad Bathiudeen",
+   "sector": "other",
+   "status": "unknown",
+   "place": "six districts",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "parakoda-navy-flood-relief-operation",
+   "name": "Parakoda Navy flood relief operation",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "Parakoda, Kalutara",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fuel-price-reduction-pledge",
+   "name": "Fuel price reduction pledge",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nagapattinam-kankesanthurai-passenger-ferry",
+   "name": "Nagapattinam-Kankesanthurai passenger ferry service",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kankesanthurai",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kirimale-krishna-temple-access",
+   "name": "Kirimale Krishna Temple public access initiative",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Kirimale",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "naguleswaram-temple-access",
+   "name": "Naguleswaram Narayana Swamy Temple public access initiative",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Naguleswaram",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "plantation-assistant-teacher-appointments",
+   "name": "Plantation-sector assistant teacher appointments",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Central Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kotagala-higher-education-institution",
+   "name": "Kotagala Higher Education Institution and planned university",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Kotagala",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sigiriya-entry-suspension-wasp-safety",
+   "name": "Sigiriya visitor-access suspension for wasp safety",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "Sigiriya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "small-season-farmer-damage-compensation",
+   "name": "Small-season farmer damage compensation programme",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-egg-imports-2024",
+   "name": "Indian egg imports to stabilize Sri Lankan prices",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "atlas-angel-joint-military-exercise",
+   "name": "Atlas Angel joint military exercise",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "express-pearl-environmental-compensation",
+   "name": "X-Press Pearl environmental damage compensation",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "anuradhapura-vavuniya-maho-railway-rehabilitation",
+   "name": "Anuradhapura-Vavuniya and Maho-Anuradhapura railway rehabilitation",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Anuradhapura and Vavuniya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "senior-citizen-fixed-deposit-interest-support",
+   "name": "Senior citizen fixed-deposit interest support",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "menikdiwela-school-upgrade",
+   "name": "Menikdiwela Central College smart classroom and sports-ground upgrade",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "free-fertilizer-vegetable-farmers",
+   "name": "Free fertilizer programme for vegetable farmers",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Kurunegala, Matale and Monaragala",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "suraksha-student-insurance-programme",
+   "name": "Suraksha student insurance programme",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "youth-employment-programme-2025",
+   "name": "Youth employment programme from 2025",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "plantation-workers-permanent-land-deeds",
+   "name": "Permanent land deed programme for plantation workers",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "presidential-fund-scholarship-programmes",
+   "name": "Presidential Fund Scholarship Programmes",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mullaitivu-mineral-sand-survey",
+   "name": "Mullaitivu mineral sand extraction preparatory survey",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Mullaitivu District",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "unknown-yal-devi-rail-service-resumption",
+   "project_id": "yal-devi-rail-service-resumption",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "unknown-matara-kataragama-railway-completion",
+   "project_id": "matara-kataragama-railway-completion",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "unknown-ampara-production-factories",
+   "project_id": "ampara-production-factories-programme",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "unknown-farmer-fertilizer-fuel-support",
+   "project_id": "farmer-fertilizer-and-fuel-support-pledge",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "unknown-farmer-debt-cancellation",
+   "project_id": "farmer-debt-cancellation-pledge",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "unknown-ampara-agricultural-modernisation",
+   "project_id": "ampara-agricultural-modernisation-pledge",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "unknown-modern-schools-it-ampara",
+   "project_id": "modern-schools-it-ampara-pledge",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "unknown-poverty-welfare-payment-pledge",
+   "project_id": "poverty-welfare-payment-pledge-2024",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "unknown-sugar-factory-revival",
+   "project_id": "sugar-factory-revival-pledge",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "ltl-petronet-sobadhanavi",
+   "project_id": "kerawalapitiya-lng-infrastructure",
+   "funder": "other:ltl_petronet",
+   "funder_name": "LTL Petronet",
+   "funder_type": "private",
+   "origin": "unknown",
+   "instrument": "equity",
+   "purpose": "project"
+  },
+  {
+   "id": "saudi-fund-kinnia-kurinchakeni-bridge",
+   "project_id": "kinnia-kurinchakeni-bridge-reconstruction",
+   "funder": "other:saudi_fund",
+   "funder_name": "Saudi Fund for Development",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-national-ai-strategy",
+   "project_id": "sri-lanka-national-ai-strategy",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-presidential-election-postal-voting-administration",
+   "project_id": "presidential-election-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "opposition-public-sector-salary-increase-2025",
+   "project_id": "opposition-public-sector-salary-increase-2025",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-badulla-kandaketiya-narangala-road",
+   "project_id": "badulla-kandaketiya-narangala-road-reconstruction",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-free-visa-35-countries",
+   "project_id": "free-visa-facility-35-countries",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-musharraf-mp-development-allocation",
+   "project_id": "musharraf-mp-development-allocation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "unknown-mannar-hospital-patient-care-training",
+   "project_id": "mannar-hospital-patient-care-training",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-airport-terminal-shuttle-service",
+   "project_id": "airport-terminal-shuttle-service",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-civil-defence-force-housing-relief",
+   "project_id": "civil-defence-force-housing-relief",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-six-district-rishad-development-projects",
+   "project_id": "six-district-rishad-development-projects",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-parakoda-navy-flood-relief-operation",
+   "project_id": "parakoda-navy-flood-relief-operation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "unknown-fuel-price-reduction-pledge",
+   "project_id": "fuel-price-reduction-pledge",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "unknown-nagapattinam-kankesanthurai-ferry",
+   "project_id": "nagapattinam-kankesanthurai-passenger-ferry",
+   "funder": "unknown",
+   "funder_name": "Not stated",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-kirimale-krishna-temple-access",
+   "project_id": "kirimale-krishna-temple-access",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "unknown"
+  },
+  {
+   "id": "gosl-naguleswaram-temple-access",
+   "project_id": "naguleswaram-temple-access",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "unknown"
+  },
+  {
+   "id": "unknown-plantation-assistant-teacher-appointments",
+   "project_id": "plantation-assistant-teacher-appointments",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-kotagala-higher-education-institution",
+   "project_id": "kotagala-higher-education-institution",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "india-kotagala-higher-education-institution",
+   "project_id": "kotagala-higher-education-institution",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "unknown-sigiriya-entry-suspension",
+   "project_id": "sigiriya-entry-suspension-wasp-safety",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-small-season-farmer-damage-compensation",
+   "project_id": "small-season-farmer-damage-compensation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "gosl-india-egg-imports-2024",
+   "project_id": "india-egg-imports-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-presidential-election-security-2024",
+   "project_id": "presidential-election-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "atlas-angel-joint-exercise-unknown",
+   "project_id": "atlas-angel-joint-military-exercise",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "express-pearl-compensation-private",
+   "project_id": "express-pearl-environmental-compensation",
+   "funder": "private",
+   "funder_name": "X-Press Pearl shipping company",
+   "funder_type": "private",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "relief"
+  },
+  {
+   "id": "anuradhapura-vavuniya-maho-railway-rehabilitation-unknown",
+   "project_id": "anuradhapura-vavuniya-maho-railway-rehabilitation",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gaza-children-fund-gosl",
+   "project_id": "gaza-children-fund",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "gaza-children-fund-public-donors",
+   "project_id": "gaza-children-fund",
+   "funder": "other:public_donors",
+   "funder_name": "Companies, organisations and the public",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "mixed",
+   "purpose": "relief"
+  },
+  {
+   "id": "senior-citizen-fixed-deposit-interest-support-gosl",
+   "project_id": "senior-citizen-fixed-deposit-interest-support",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "menikdiwela-school-upgrade-gosl",
+   "project_id": "menikdiwela-school-upgrade",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "free-fertilizer-vegetable-farmers-gosl",
+   "project_id": "free-fertilizer-vegetable-farmers",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "suraksha-student-insurance-programme-gosl",
+   "project_id": "suraksha-student-insurance-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-youth-employment-programme-2025",
+   "project_id": "youth-employment-programme-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-plantation-workers-permanent-land-deeds",
+   "project_id": "plantation-workers-permanent-land-deeds",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-presidential-fund-scholarship-programmes",
+   "project_id": "presidential-fund-scholarship-programmes",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-mullaitivu-mineral-sand-survey",
+   "project_id": "mullaitivu-mineral-sand-survey",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "unknown-yal-devi-rail-service-resumption-pledged-2024-08-28",
+   "line_id": "unknown-yal-devi-rail-service-resumption",
+   "date": "2024-08-28",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Nam​​al Rajapaksa pledged to restart suspended Yal Devi railway services.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-28-tamilmirrorlk-ba09577b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-matara-kataragama-railway-completion-pledged-2024-08-28",
+   "line_id": "unknown-matara-kataragama-railway-completion",
+   "date": "2024-08-28",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Nam​​al Rajapaksa pledged to complete the 114-kilometre Matara-Kataragama railway line.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-28-tamilmirrorlk-ba09577b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-ampara-production-factories-pledged-2024-08-27",
+   "line_id": "unknown-ampara-production-factories",
+   "date": "2024-08-27",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sajith Premadasa pledged four production factories in Ampara electorates.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-27-virakesarilk-d16468ec"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-farmer-fertilizer-fuel-support-pledged-2024-08-27",
+   "line_id": "unknown-farmer-fertilizer-fuel-support",
+   "date": "2024-08-27",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sajith Premadasa pledged subsidised fertilizer and fuel relief for farmers.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-27-virakesarilk-d16468ec",
+    "2024-08-29-virakesarilk-b0fdd572"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-farmer-debt-cancellation-pledged-2024-08-27",
+   "line_id": "unknown-farmer-debt-cancellation",
+   "date": "2024-08-27",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sajith Premadasa pledged cancellation of agricultural loans for affected farmers.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-27-virakesarilk-d16468ec",
+    "2024-08-29-virakesarilk-b0fdd572"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-ampara-agricultural-modernisation-pledged-2024-08-27",
+   "line_id": "unknown-ampara-agricultural-modernisation",
+   "date": "2024-08-27",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sajith Premadasa pledged agricultural modernization and a broad water-supply action plan.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-27-virakesarilk-d16468ec"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-modern-schools-it-ampara-pledged-2024-08-27",
+   "line_id": "unknown-modern-schools-it-ampara",
+   "date": "2024-08-27",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sajith Premadasa pledged to modernize all Ampara schools with information technology.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-27-virakesarilk-d16468ec"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-poverty-welfare-payment-pledge-pledged-2024-08-29",
+   "line_id": "unknown-poverty-welfare-payment-pledge",
+   "date": "2024-08-29",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 20000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sajith Premadasa pledged 20,000 rupees for poor families over 24 months.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-29-virakesarilk-b0fdd572"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-sugar-factory-revival-pledged-2024-08-29",
+   "line_id": "unknown-sugar-factory-revival",
+   "date": "2024-08-29",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sajith Premadasa pledged to revive Pelwatta and Sevanagala sugar factories.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-29-virakesarilk-b0fdd572"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ltl-petronet-sobadhanavi-launched-2024-08-28",
+   "line_id": "ltl-petronet-sobadhanavi",
+   "date": "2024-08-28",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President Ranil Wickremesinghe opened the Sobadhanavi combined-cycle power plant stage.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-28-virakesarilk-5eec77fa"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "saudi-fund-kinnia-kurinchakeni-bridge-contract_awarded-2024-08-27",
+   "line_id": "saudi-fund-kinnia-kurinchakeni-bridge",
+   "date": "2024-08-27",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved awarding the bridge reconstruction contract to a private company.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-27-virakesarilk-7a541c1b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-national-ai-strategy-govt_authorised-2024-08-27",
+   "line_id": "gosl-national-ai-strategy",
+   "date": "2024-08-27",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved implementing Sri Lanka's national artificial intelligence strategy.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-27-virakesarilk-77863cd2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-poverty-welfare-payment-pledge-pledged-2024-08-27",
+   "line_id": "unknown-poverty-welfare-payment-pledge",
+   "date": "2024-08-27",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 20000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Opposition leader pledged monthly welfare payments to eliminate poverty within 24 months.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-27-tamilmirrorlk-809cf0cb"
+   ],
+   "relation": "repeat_of:unknown-poverty-welfare-payment-pledge-pledged-2024-08-29",
+   "notes": null
+  },
+  {
+   "id": "unknown-farmer-fertilizer-fuel-support-pledged-2024-08-26",
+   "line_id": "unknown-farmer-fertilizer-fuel-support",
+   "date": "2024-08-26",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Opposition leader pledged affordable fertilizer and regulated agricultural input prices.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-26-tamilmirrorlk-e829517d",
+    "2024-08-26-tamilmirrorlk-7703b585"
+   ],
+   "relation": "repeat_of:unknown-farmer-fertilizer-fuel-support-pledged-2024-08-27",
+   "notes": null
+  },
+  {
+   "id": "unknown-farmer-debt-cancellation-pledged-2024-08-26",
+   "line_id": "unknown-farmer-debt-cancellation",
+   "date": "2024-08-26",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Opposition leader pledged cancellation of farmers’ agricultural debts.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-26-tamilmirrorlk-7703b585"
+   ],
+   "relation": "repeat_of:unknown-farmer-debt-cancellation-pledged-2024-08-26",
+   "notes": null
+  },
+  {
+   "id": "gosl-presidential-election-postal-voting-administration-unclear-2024-08-25",
+   "line_id": "gosl-presidential-election-postal-voting-administration",
+   "date": "2024-08-25",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Postal workers’ leave was suspended until completion of the presidential election.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-25-tamilmirrorlk-1d08d533",
+    "2024-08-25-virakesarilk-97ec4b0f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "opposition-public-sector-salary-increase-2025-proposed-2024-08-23",
+   "line_id": "opposition-public-sector-salary-increase-2025",
+   "date": "2024-08-23",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Opposition leader pledged a 24 percent public-sector basic salary increase from January 2025.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-23-virakesarilk-cf52ac16"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-badulla-kandaketiya-narangala-road-allocated-2024-08-23",
+   "line_id": "gosl-badulla-kandaketiya-narangala-road",
+   "date": "2024-08-23",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 15000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lankan funds were allocated to reconstruct a Badulla Kandaketiya Narangala road.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-23-virakesarilk-d246e720"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-public-sector-salary-hike-2025-govt_authorised-2024-08-22",
+   "line_id": "gosl-public-sector-salary-hike-2025",
+   "date": "2024-08-22",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved public-sector salary increases starting January 2025.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-22-tamilmirrorlk-2302aaf0"
+   ],
+   "relation": "repeat_of:gosl-public-sector-salary-hike-2025-govt_authorised-2024-08-22",
+   "notes": null
+  },
+  {
+   "id": "gosl-free-visa-35-countries-govt_authorised-2024-08-22",
+   "line_id": "gosl-free-visa-35-countries",
+   "date": "2024-08-22",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved visa-free entry for citizens of 35 countries for six months.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-22-virakesarilk-b3b3755b",
+    "2024-08-22-tamilmirrorlk-dbbc2635"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-fisherfolk-fuel-subsidy-2024-govt_authorised-2024-08-22",
+   "line_id": "gosl-fisherfolk-fuel-subsidy-2024",
+   "date": "2024-08-22",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 25,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved diesel and kerosene subsidies for fishermen.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-22-tamilmirrorlk-ae74d28c"
+   ],
+   "relation": "repeat_of:gosl-fisherfolk-fuel-subsidy-2024-govt_authorised-2024-08-21",
+   "notes": null
+  },
+  {
+   "id": "gosl-tea-grower-fertiliser-subsidy-2024-govt_authorised-2024-08-22",
+   "line_id": "gosl-tea-grower-fertiliser-subsidy-2024",
+   "date": "2024-08-22",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 4000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved a 4,000-rupee fertilizer subsidy for tea-sector participants.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-22-tamilmirrorlk-ae74d28c"
+   ],
+   "relation": "repeat_of:gosl-tea-grower-fertiliser-subsidy-2024-govt_authorised-2024-08-21",
+   "notes": null
+  },
+  {
+   "id": "gosl-musharraf-mp-development-allocation-allocated-2024-08-21",
+   "line_id": "gosl-musharraf-mp-development-allocation",
+   "date": "2024-08-21",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 300000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Opposition leader alleged 300 million rupees was newly allocated for MP Musharraf’s development work.",
+   "confidence": "low",
+   "reports": [
+    "2024-08-21-virakesarilk-1ec06b66"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-mannar-hospital-patient-care-training-proposed-2024-08-20",
+   "line_id": "unknown-mannar-hospital-patient-care-training",
+   "date": "2024-08-20",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Mannar hospital meeting decided to provide patient-friendly care training.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-21-virakesarilk-d447372b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ltl-petronet-lng-kerawalapitiya-agreement_signed-2024-08-20",
+   "line_id": "ltl-petronet-lng-kerawalapitiya",
+   "date": "2024-08-20",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "LTL Holdings and Petronet LNG signed an LNG infrastructure and supply MoU.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-21-virakesarilk-27a49bd8",
+    "2024-08-20-tamilmirrorlk-75630476",
+    "2024-08-20-virakesarilk-5e05fee5"
+   ],
+   "relation": "repeat_of:ltl-petronet-lng-kerawalapitiya-agreement_signed-2024-08-20",
+   "notes": null
+  },
+  {
+   "id": "gosl-airport-terminal-shuttle-service-launched-2024-08-15",
+   "line_id": "gosl-airport-terminal-shuttle-service",
+   "date": "2024-08-15",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Airport terminal shuttle service launched between Katunayake, Colombo Fort and Makumbura.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-20-virakesarilk-48c4aa48"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-airport-terminal-shuttle-service-halted-2024-08-19",
+   "line_id": "gosl-airport-terminal-shuttle-service",
+   "date": "2024-08-19",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Airport terminal shuttle service temporarily suspended after complaints and union opposition.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-20-virakesarilk-48c4aa48"
+   ],
+   "relation": "update_of:airport-terminal-shuttle-service-launched-2024-08-15",
+   "notes": null
+  },
+  {
+   "id": "gosl-civil-defence-force-housing-relief-govt_authorised-2024-08-19",
+   "line_id": "gosl-civil-defence-force-housing-relief",
+   "date": "2024-08-19",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government approved labour support to build or repair homes for 100 Civil Defence members.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-19-virakesarilk-fb126741"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-six-district-rishad-development-projects-halted-2024-08-19",
+   "line_id": "gosl-six-district-rishad-development-projects",
+   "date": "2024-08-19",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": 200000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Presidential Secretariat ordered suspension of development projects across six districts.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-19-virakesarilk-f85084cc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-public-sector-salary-hike-2025-govt_authorised-2024-08-19",
+   "line_id": "gosl-public-sector-salary-hike-2025",
+   "date": "2024-08-19",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 25000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet-approved public-sector salary proposal includes Rs. 25,000 allowance for three years.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-19-tamilmirrorlk-a8e58eab"
+   ],
+   "relation": "repeat_of:gosl-public-sector-salary-hike-2025-govt_authorised-2024-08-22",
+   "notes": null
+  },
+  {
+   "id": "gosl-parakoda-navy-flood-relief-operation-underway-2024-08-19",
+   "line_id": "gosl-parakoda-navy-flood-relief-operation",
+   "date": "2024-08-19",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Navy flood relief team deployed to assist affected residents in Parakoda.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-19-virakesarilk-e9ba8eae"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-fuel-price-reduction-pledge-pledged-2024-08-19",
+   "line_id": "unknown-fuel-price-reduction-pledge",
+   "date": "2024-08-19",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "NPP presidential candidate pledged to reduce fuel prices after reviewing fuel debt charges.",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-19-tamilmirrorlk-6fa11480"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-nagapattinam-kankesanthurai-ferry-proposed-2024-08-15",
+   "line_id": "unknown-nagapattinam-kankesanthurai-ferry",
+   "date": "2024-08-15",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Passenger ferry service between Nagapattinam and Kankesanthurai was officially announced to resume.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-15-virakesarilk-8a451298"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-nagapattinam-kankesanthurai-ferry-launched-2024-08-16",
+   "line_id": "unknown-nagapattinam-kankesanthurai-ferry",
+   "date": "2024-08-16",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Passenger ferry service from Nagapattinam arrived at Kankesanthurai after resuming operations.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-16-virakesarilk-36c8b566"
+   ],
+   "relation": "update_of:nagapattinam-kankesanthurai-passenger-ferry-proposed-2024-08-15",
+   "notes": null
+  },
+  {
+   "id": "gosl-kirimale-krishna-temple-access-govt_authorised-2024-08-16",
+   "line_id": "gosl-kirimale-krishna-temple-access",
+   "date": "2024-08-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Authorities permitted weekly public worship at Kirimale Krishna Temple after 34 years.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-16-tamilmirrorlk-fa54db68"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-naguleswaram-temple-access-govt_authorised-2024-08-16",
+   "line_id": "gosl-naguleswaram-temple-access",
+   "date": "2024-08-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Authorities permitted weekly public worship at Naguleswaram Narayana Swamy Temple.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-16-virakesarilk-5fa0be2b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-plantation-assistant-teacher-appointments-pledged-2024-08-14",
+   "line_id": "unknown-plantation-assistant-teacher-appointments",
+   "date": "2024-08-14",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President promised a Cabinet solution for plantation assistant teacher appointments.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-14-virakesarilk-afcc7122"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-kotagala-higher-education-institution-allocated-2024-08-14",
+   "line_id": "gosl-kotagala-higher-education-institution",
+   "date": "2024-08-14",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 100000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The ministry allocated approximately Rs. 100 million for Kotagala higher education infrastructure.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-14-virakesarilk-afcc7122"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-kotagala-higher-education-institution-proposed-2024-08-14",
+   "line_id": "india-kotagala-higher-education-institution",
+   "date": "2024-08-14",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka requested Indian assistance for Kotagala higher education infrastructure.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-14-virakesarilk-afcc7122"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-north-east-idp-land-release-2024-proposed-2024-08-13",
+   "line_id": "gosl-north-east-idp-land-release-2024",
+   "date": "2024-08-13",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Officials promised action to release residents’ lands after reviewing documents in Kuchchaveli.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-14-virakesarilk-048040a8"
+   ],
+   "relation": "update_of:gosl-north-east-idp-land-release-2024-underway-2024-06-18",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-govt-funds-govt_authorised-2024-08-13",
+   "line_id": "aswesuma-govt-funds",
+   "date": "2024-08-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved Aswesuma eligibility expansion for plantation-sector subfamilies.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-13-virakesarilk-74467cb3"
+   ],
+   "relation": "update_of:aswesuma-govt-funds-disbursed-2024-06-29",
+   "notes": null
+  },
+  {
+   "id": "gosl-presidential-election-2024-budget-allocation-cost_estimate-2024-08-13",
+   "line_id": "gosl-presidential-election-2024-budget-allocation",
+   "date": "2024-08-13",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 10000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Election Commission aims to conduct presidential election within Rs. 10 billion allocation.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-13-tamilmirrorlk-247dfe5a"
+   ],
+   "relation": "update_of:gosl-presidential-election-2024-budget-allocation-cost_estimate-2024-07-29",
+   "notes": null
+  },
+  {
+   "id": "gosl-funds-ginger-import-2024-govt_authorised-2024-08-13",
+   "line_id": "gosl-funds-ginger-import-2024",
+   "date": "2024-08-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved importing 3,000 metric tonnes of ginger over three months.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-13-virakesarilk-2b4d11cb"
+   ],
+   "relation": "repeat_of:gosl-funds-ginger-import-2024-govt_authorised-2024-08-14",
+   "notes": null
+  },
+  {
+   "id": "india-grant-civil-servants-capacity-building-underway-2024-08-12",
+   "line_id": "india-grant-civil-servants-capacity-building",
+   "date": "2024-08-12",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India conducted special training for Sri Lankan diplomats and officials.",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-12-virakesarilk-72b08a35"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-nagapattinam-kankesanthurai-ferry-halted-2024-08-12",
+   "line_id": "unknown-nagapattinam-kankesanthurai-ferry",
+   "date": "2024-08-12",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Passenger ferry service was delayed indefinitely because of technical and weather problems.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-12-tamilmirrorlk-f23fa582"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-presidential-election-2024-budget-allocation-underway-2024-08-12",
+   "line_id": "gosl-presidential-election-2024-budget-allocation",
+   "date": "2024-08-12",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Presidential election ballot printing began under strengthened Government Press security.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-12-virakesarilk-72bcfd6d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-small-season-farmer-damage-compensation-govt_authorised-2024-08-12",
+   "line_id": "gosl-small-season-farmer-damage-compensation",
+   "date": "2024-08-12",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government directed compensation measures for farmers affected during the minor cultivation season.",
+   "confidence": "medium",
+   "reports": [
+    "2024-08-12-tamilmirrorlk-adccb9cc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-india-egg-imports-2024-underway-2024-08-12",
+   "line_id": "gosl-india-egg-imports-2024",
+   "date": "2024-08-12",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka is procuring 30 million Indian eggs as local prices exceed Rs. 50.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-12-tamilmirrorlk-804ee2c7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-presidential-election-security-2024-proposed-2024-08-15",
+   "line_id": "gosl-presidential-election-security-2024",
+   "date": "2024-08-15",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Special security and traffic arrangements planned for presidential nomination day.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-12-tamilmirrorlk-1757b1bf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-plantation-workers-statutory-payments-proposed-2024-08-10",
+   "line_id": "gosl-plantation-workers-statutory-payments",
+   "date": "2024-08-10",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government plans to begin paying plantation workers’ unpaid EPF contributions next year.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-10-virakesarilk-6717f35a"
+   ],
+   "relation": "update_of:gosl-plantation-workers-statutory-payments-proposed-2024-04-17",
+   "notes": null
+  },
+  {
+   "id": "gosl-e-passport-launch-2025-proposed-2024-08-10",
+   "line_id": "gosl-e-passport-launch-2025",
+   "date": "2024-08-10",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister said electronic passports would be issued from October.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-10-tamilmirrorlk-7aed02e6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "atlas-angel-joint-exercise-unknown-completed-2024-08-09",
+   "line_id": "atlas-angel-joint-exercise-unknown",
+   "date": "2024-08-09",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Atlas Angel joint military exercise involving Sri Lanka, United States and Maldives ended.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-09-virakesarilk-021bb0dc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "express-pearl-compensation-private-spent-2024-08-09",
+   "line_id": "express-pearl-compensation-private",
+   "date": "2024-08-09",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 10200000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "X-Press Pearl company provided and ministry spent first compensation installment.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-09-virakesarilk-b9cc3fea"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "anuradhapura-vavuniya-maho-railway-rehabilitation-unknown-completed-2024-07-13",
+   "line_id": "anuradhapura-vavuniya-maho-railway-rehabilitation-unknown",
+   "date": "2024-07-13",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Anuradhapura-Vavuniya railway rehabilitation segment was completed and handed over.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-08-virakesarilk-e7e02c57"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gaza-children-fund-gosl-govt_authorised-2024-03-04",
+   "line_id": "gaza-children-fund-gosl",
+   "date": "2024-03-04",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved one million dollars in assistance for Gaza children.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-08-virakesarilk-e0d2249a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gaza-children-fund-public-donors-spent-2024-08-07",
+   "line_id": "gaza-children-fund-public-donors",
+   "date": "2024-08-07",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 590000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "The Gaza Children’s Fund handed 590,000 dollars to Palestine.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-08-virakesarilk-e0d2249a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-nagapattinam-kankesanthurai-ferry-proposed-2024-08-07",
+   "line_id": "unknown-nagapattinam-kankesanthurai-ferry",
+   "date": "2024-08-07",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Passenger ferry service between Nagapattinam and Kankesanthurai is planned to resume.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-07-tamilmirrorlk-5887a09d",
+    "2024-08-07-tamilmirrorlk-2f0c212c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "senior-citizen-fixed-deposit-interest-support-gosl-govt_authorised-2024-08-06",
+   "line_id": "senior-citizen-fixed-deposit-interest-support-gosl",
+   "date": "2024-08-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved 10% interest on senior citizens’ deposits up to Rs. 1 million.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-06-tamilmirrorlk-6004670c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "menikdiwela-school-upgrade-gosl-govt_authorised-2024-08-06",
+   "line_id": "menikdiwela-school-upgrade-gosl",
+   "date": "2024-08-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "President ordered a smart classroom and sports-ground modernization at Menikdiwela Central College.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-06-tamilmirrorlk-aef0e402"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "free-fertilizer-vegetable-farmers-gosl-proposed-2024-08-06",
+   "line_id": "free-fertilizer-vegetable-farmers-gosl",
+   "date": "2024-08-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Free fertilizer was announced for 3,476 vegetable farmers across three districts.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-06-tamilmirrorlk-f511906b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-presidential-election-security-2024-govt_authorised-2024-08-05",
+   "line_id": "gosl-presidential-election-security-2024",
+   "date": "2024-08-05",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved special security arrangements and appointed an oversight committee for candidates.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-05-virakesarilk-0f815632"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "suraksha-student-insurance-programme-gosl-halted-2024-08-05",
+   "line_id": "suraksha-student-insurance-programme-gosl",
+   "date": "2024-08-05",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Election Commission ordered temporary suspension of the Suraksha student insurance programme.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-05-tamilmirrorlk-e827419d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-urumaya-land-deed-programme-halted-2024-08-05",
+   "line_id": "gosl-urumaya-land-deed-programme",
+   "date": "2024-08-05",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Election Commission ordered temporary suspension of the Urumaya land-deed programme.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-05-tamilmirrorlk-e827419d"
+   ],
+   "relation": "update_of:gosl-urumaya-land-deed-programme-underway-2024-07-17",
+   "notes": null
+  },
+  {
+   "id": "visa-eta-outsourcing-private-halted-2024-08-04",
+   "line_id": "visa-eta-outsourcing-private",
+   "date": "2024-08-04",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Supreme Court halted the VFS visa outsourcing transaction.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-04-virakesarilk-86a31b41"
+   ],
+   "relation": "repeat_of:visa-eta-outsourcing-private-halted-2024-08-02",
+   "notes": null
+  },
+  {
+   "id": "pensioner-allowance-gosl-govt_authorised-2024-08-03",
+   "line_id": "pensioner-allowance-gosl",
+   "date": "2024-08-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 3000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government approved an additional Rs. 3,000 monthly interim pensioner allowance.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-03-tamilmirrorlk-f8651bf6"
+   ],
+   "relation": "repeat_of:pensioner-allowance-gosl-govt_authorised-2024-07-24",
+   "notes": null
+  },
+  {
+   "id": "adb-gosl-jaffna-kilinochchi-water-launched-2024-08-02",
+   "line_id": "adb-gosl-jaffna-kilinochchi-water",
+   "date": "2024-08-02",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 55000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Thalaiyadi desalination plant opened for public use in Jaffna.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-03-tamilmirrorlk-9fa0d09f",
+    "2024-08-02-virakesarilk-baae6bf3",
+    "2024-08-02-virakesarilk-8fd1a3bb",
+    "2024-08-02-virakesarilk-fd9e6ae2"
+   ],
+   "relation": "update_of:adb-gosl-jaffna-kilinochchi-water-completed-2024-08-02",
+   "notes": null
+  },
+  {
+   "id": "gosl-youth-employment-programme-2025-pledged-2024-08-03",
+   "line_id": "gosl-youth-employment-programme-2025",
+   "date": "2024-08-03",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President pledged a youth employment programme beginning in 2025.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-03-virakesarilk-8e979996"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-gosl-jaffna-kilinochchi-water-launched-2024-08-03",
+   "line_id": "adb-gosl-jaffna-kilinochchi-water",
+   "date": "2024-08-03",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Thalaiyadi desalination plant opening expanded safe water access in Northern Province.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-03-virakesarilk-516f790e"
+   ],
+   "relation": "repeat_of:adb-gosl-jaffna-kilinochchi-water-launched-2024-08-02",
+   "notes": null
+  },
+  {
+   "id": "adani-green-energy-mannar-pooneryn-ppa-unclear-2024-08-02",
+   "line_id": "adani-green-energy-mannar-pooneryn-ppa",
+   "date": "2024-08-02",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Supreme Court scheduled review of petitions challenging Adani wind project approval.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-02-virakesarilk-7023faeb"
+   ],
+   "relation": "update_of:adani-green-energy-mannar-pooneryn-ppa-govt_authorised-2024-05-07",
+   "notes": null
+  },
+  {
+   "id": "visa-eta-outsourcing-private-halted-2024-08-02",
+   "line_id": "visa-eta-outsourcing-private",
+   "date": "2024-08-02",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Supreme Court suspended Cabinet decision transferring electronic visa operations externally.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-02-virakesarilk-aab5aa64"
+   ],
+   "relation": "repeat_of:visa-eta-outsourcing-private-halted-2024-08-02",
+   "notes": null
+  },
+  {
+   "id": "gosl-plantation-workers-permanent-land-deeds-pledged-2024-08-01",
+   "line_id": "gosl-plantation-workers-permanent-land-deeds",
+   "date": "2024-08-01",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister pledged permanent land deeds for plantation workers under an ongoing presidential programme.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-01-tamilmirrorlk-85aa5364"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-presidential-fund-scholarship-programmes-spent-2024-08-01",
+   "line_id": "gosl-presidential-fund-scholarship-programmes",
+   "date": "2024-08-01",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Presidential Fund deposited August scholarship payments into eligible recipients’ bank accounts.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-01-tamilmirrorlk-61c86815"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-mullaitivu-mineral-sand-survey-halted-2024-07-31",
+   "line_id": "gosl-mullaitivu-mineral-sand-survey",
+   "date": "2024-07-31",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government mineral sand survey in Mullaitivu was abandoned after public opposition.",
+   "confidence": "high",
+   "reports": [
+    "2024-08-01-virakesarilk-78501ad8"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-08-29-virakesarilk-b0fdd572": {
+   "date": "2024-08-29",
+   "title": "விவசாயிகளுக்கு முழுமையான ஒத்துழைப்புக்களை வழங்கி, வறுமையை போக்குவதற்கான புதிய நடவடிக்கைகள் முன்னெடுப்போம் - சஜித் பிரேமதாச",
+   "url": "https://www.virakesari.lk/article/192271",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-28-tamilmirrorlk-ba09577b": {
+   "date": "2024-08-28",
+   "title": "”யாழ் தேவி சேவைகளை மீள ஆரம்பிப்போம்”",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/யாழ்-தேவி-சேவைகளை-மீள-ஆரம்பிப்போம்/175-342925",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-28-virakesarilk-5eec77fa": {
+   "date": "2024-08-28",
+   "title": "இயற்கை எரிவாயுவை பயன்படுத்தி இயங்கும் இலங்கையின் முதல் மின் உற்பத்தி நிலையத்தின் சுழற்சி கட்டம் ஜனாதிபதியால் திறப்பு",
+   "url": "https://www.virakesari.lk/article/192221",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-27-virakesarilk-d16468ec": {
+   "date": "2024-08-27",
+   "title": "அம்பாறையிலுள்ள 4 தொகுதிகளிலும் உற்பத்தி தொழிற்சாலைகள் அமைத்து வாழ்வாதாரத்தை மேம்படுத்துவோம் - எதிர்க்கட்சி தலைவர் சஜித் பிரேமமாச",
+   "url": "https://www.virakesari.lk/article/192166",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-27-virakesarilk-7a541c1b": {
+   "date": "2024-08-27",
+   "title": "கிண்ணியா - குறிஞ்சாக்கேணி பாலத்தை புனரமைக்க தனியார் நிறுவனத்திற்கு அமைச்சரவை அனுமதி",
+   "url": "https://www.virakesari.lk/article/192116",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-27-virakesarilk-77863cd2": {
+   "date": "2024-08-27",
+   "title": "செயற்கை நுண்ணறிவு தொடர்பாக இலங்கையின் தேசிய மூலோபாயத்திட்டத்தை நடைமுறைப்படுத்த அங்கீகாரம்",
+   "url": "https://www.virakesari.lk/article/192113",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-27-tamilmirrorlk-809cf0cb": {
+   "date": "2024-08-27",
+   "title": "’24 மாதங்களில் வறுமை ஒழிப்பு’",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/24-மாதங்களில்-வறுமை-ஒழிப்பு/175-342838",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-26-tamilmirrorlk-e829517d": {
+   "date": "2024-08-26",
+   "title": "’50 கிலோ உரத்தை 5 ஆயிரம் ரூபாவுக்கு வழங்க நடவடிக்கை’",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/50-கிலோ-உரத்தை-5-ஆயிரம்-ரூபாவுக்கு-வழங்க-நடவடிக்கை/175-342768",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-26-tamilmirrorlk-7703b585": {
+   "date": "2024-08-26",
+   "title": "’50 கிலோ உரத்தை ரூ. 5,000 வழங்க நடவடிக்கை’",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/50-கிலோ-உரத்தை-ரூ-5-000-வழங்க-நடவடிக்கை/175-342768",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-25-tamilmirrorlk-1d08d533": {
+   "date": "2024-08-25",
+   "title": "தபால் ஊழியர்களின் விடுமுறை  இடைநிறுத்தம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/தபால்-ஊழியர்களின்-விடுமுறை-இடைநிறுத்தம்/175-342744",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-25-virakesarilk-97ec4b0f": {
+   "date": "2024-08-25",
+   "title": "அஞ்சல் பணியாளர்களின் விடுமுறை உடன் அமுலாகும் வகையில் இரத்து",
+   "url": "https://www.virakesari.lk/article/191902",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-23-virakesarilk-cf52ac16": {
+   "date": "2024-08-23",
+   "title": "அரச உத்தியோகத்தர்களின் சம்பளத்தை நாமும் 24 சதவீதத்தால் அதிகரிப்போம் - சஜித் பிரேமதாச",
+   "url": "https://www.virakesari.lk/article/191821",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-23-virakesarilk-d246e720": {
+   "date": "2024-08-23",
+   "title": "பதுளை கந்தகெட்டிய நாரங்கல வீதி புனரமைப்பு",
+   "url": "https://www.virakesari.lk/article/191800",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-22-tamilmirrorlk-2302aaf0": {
+   "date": "2024-08-22",
+   "title": "“சம்பளத்தை அதிகரிக்க அமைச்சரவை அனுமதி  ”",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சம்பளத்தை-அதிகரிக்க-அமைச்சரவை-அனுமதி/175-342641",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-22-virakesarilk-b3b3755b": {
+   "date": "2024-08-22",
+   "title": "இலவச விசா வசதியின் கீழ் 35 நாடுகளின் குடிமக்களுக்கு நாட்டிற்குள் நுழைய வாய்ப்பு",
+   "url": "https://www.virakesari.lk/article/191674",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-22-tamilmirrorlk-dbbc2635": {
+   "date": "2024-08-22",
+   "title": "35 நாடுகளுக்கு இலங்கை வர இலவச விசா",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/35-நாடுகளுக்கு-இலங்கை-வர-இலவச-விசா/175-342611",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-22-tamilmirrorlk-ae74d28c": {
+   "date": "2024-08-22",
+   "title": "இன்று முதல் எரிபொருள், உரத்திற்கு மானியம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/இன்று-முதல்-எரிபொருள்-உரத்திற்கு-மானியம்/175-342609",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-21-virakesarilk-1ec06b66": {
+   "date": "2024-08-21",
+   "title": "ரிஷாத்தின் நிதியை இரத்துச்செய்து முஷாரப்புக்கு புதிதாக நிதி ஒதுக்கீடு செய்திருப்பதில் என்ன நியாயம் - சஜித் சபையில் கேள்வி",
+   "url": "https://www.virakesari.lk/article/191610",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-21-virakesarilk-d447372b": {
+   "date": "2024-08-21",
+   "title": "சிந்துஜாவின் மரணத்தின் எதிரொலி ; மன்னார் மாவட்ட பொது வைத்தியசாலையில் பல்வேறு தீர்மானங்கள் முன்னெடுப்பு",
+   "url": "https://www.virakesari.lk/article/191585",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-21-virakesarilk-27a49bd8": {
+   "date": "2024-08-21",
+   "title": "எல்ரீஎல் ஹோல்டிங்ஸ் மற்றும் இந்தியா பெட்ரோநெட் எல்என்ஜி நிறுவனத்திற்கு இடையில் புரிந்துணர்வு ஒப்பந்தம் கைச்சாத்து",
+   "url": "https://www.virakesari.lk/article/191578",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-20-tamilmirrorlk-75630476": {
+   "date": "2024-08-20",
+   "title": "’சொபாதனவி’ புரிந்துணர்வு ஒப்பந்தம் கைச்சாத்து",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சொபாதனவி-புரிந்துணர்வு-ஒப்பந்தம்-கைச்சாத்து/175-342520",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-20-virakesarilk-5e05fee5": {
+   "date": "2024-08-20",
+   "title": "கெரவலப்பிட்டிய ஒருங்கிணைந்த சுழற்சி மின் உற்பத்தி நிலையத்திற்கு திரவ இயற்கை எரிவாயுவை களஞ்சியப்படுத்த புரிந்துணர்வு ஒப்பந்தம் கைச்சாத்து",
+   "url": "https://www.virakesari.lk/article/191541",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-20-virakesarilk-48c4aa48": {
+   "date": "2024-08-20",
+   "title": "கட்டுநாயக்க விமான நிலையத்திலிருந்து ஆரம்பிக்கப்பட்ட புதிய சொகுசு பஸ் சேவை இடைநிறுத்தம் !",
+   "url": "https://www.virakesari.lk/article/191491",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-19-virakesarilk-fb126741": {
+   "date": "2024-08-19",
+   "title": "சிவில் பாதுகாப்பு படையணிக்கு அரசாங்கத்திடமிருந்து விசேட நிவாரணம்",
+   "url": "https://www.virakesari.lk/article/191463",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-19-virakesarilk-f85084cc": {
+   "date": "2024-08-19",
+   "title": "6 மாவட்டங்களின் அபிவிருத்திக்காக ரிஷாத்துக்கு ஒதுக்கப்பட்ட 200 மில்லியன் ரூபா பெறுமதியான வேலைத்திட்டங்கள் நிறுத்தம் !",
+   "url": "https://www.virakesari.lk/article/191447",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-19-tamilmirrorlk-a8e58eab": {
+   "date": "2024-08-19",
+   "title": "சம்பள உயர்வு குறித்து அரசாங்கம் பதில்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சம்பள-உயர்வு-குறித்து-அரசாங்கம்-பதில்/175-342445",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-19-virakesarilk-e9ba8eae": {
+   "date": "2024-08-19",
+   "title": "கடற்படையின் வெள்ள நிவாரணக் குழு பரகொடவுக்கு அனுப்பி வைப்பு",
+   "url": "https://www.virakesari.lk/article/191415",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-19-tamilmirrorlk-6fa11480": {
+   "date": "2024-08-19",
+   "title": "எரிபொருள் விலைகள் குறைக்கப்படும்;அநுர",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/எரிபொருள்-விலைகள்-குறைக்கப்படும்-அநுர/175-342425",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-16-virakesarilk-36c8b566": {
+   "date": "2024-08-16",
+   "title": "பயணிகள் சேவை கப்பலானது சற்றுமுன் நாகையிலிருந்து காங்கேசன் துறையை வந்தடைந்தது!",
+   "url": "https://www.virakesari.lk/article/191260",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-16-tamilmirrorlk-fa54db68": {
+   "date": "2024-08-16",
+   "title": "34 வருடங்களின் பின் வழிபட அனுமதி",
+   "url": "https://www.tamilmirror.lk/பிரதான-செய்திகள்/34-வருடங்களின்-பின்-வழிபட-அனுமதி/46-342288",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-16-virakesarilk-5fa0be2b": {
+   "date": "2024-08-16",
+   "title": "வலி வடக்கு நகுலேஸ்வரம் கிராம அலுவலர் பிரிவில் ஶ்ரீமத் நாராயன சுவாமி ஆலய வழிபாட்டிற்கு  அனுமதி",
+   "url": "https://www.virakesari.lk/article/191213",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-15-virakesarilk-8a451298": {
+   "date": "2024-08-15",
+   "title": "நாகபட்டினம் - காங்கேசன்துறை கப்பல் போக்குவரத்து நாளை முதல் மீள ஆரம்பம்",
+   "url": "https://www.virakesari.lk/article/191118",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-14-virakesarilk-afcc7122": {
+   "date": "2024-08-14",
+   "title": "சுயநல அரசியல் நோக்கத்தால் உதவி ஆசிரியர் நியமனத்துக்கு இடையூறு - அமைச்சர் ஜீவன்",
+   "url": "https://www.virakesari.lk/article/191104",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-14-virakesarilk-048040a8": {
+   "date": "2024-08-14",
+   "title": "திருகோணமலை, குச்சவெளி, இலந்தைக்குளம் பகுதியில் விகாரை அமைக்க காணி துப்புரவு ; அரச அதிகாரிகள் நேரடி விஜயம்",
+   "url": "https://www.virakesari.lk/article/191037",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-13-virakesarilk-74467cb3": {
+   "date": "2024-08-13",
+   "title": "பெருந்தோட்டப் பகுதிகளில் ஒரே வீட்டில் வசிக்கும் தனிக்குடும்பங்களுக்கும்  அஸ்வெசும கொடுப்பனவு - ஜனாதிபதியின் யோசனைக்கு அமைச்சரவை அங்கீகாரம்",
+   "url": "https://www.virakesari.lk/article/191010",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-13-tamilmirrorlk-247dfe5a": {
+   "date": "2024-08-13",
+   "title": "தேர்தல் செலவுகள் ஒதுக்கீட்டைத் தாண்டுமா?",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/தேர்தல்-செலவுகள்-ஒதுக்கீட்டைத்-தாண்டுமா/175-342092",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-13-virakesarilk-2b4d11cb": {
+   "date": "2024-08-13",
+   "title": "3 ஆயிரம் மெற்றிக் தொன் இஞ்சியை இறக்குமதி செய்ய அமைச்சரவை அனுமதி !",
+   "url": "https://www.virakesari.lk/article/190981",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-12-virakesarilk-72b08a35": {
+   "date": "2024-08-12",
+   "title": "இலங்கை இராஜதந்திரிகள் மற்றும் அதிகாரிகளுக்கான முதலாவது சிறப்புப் பாடப் பயிற்சித் திட்டம்",
+   "url": "https://www.virakesari.lk/article/190945",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-12-tamilmirrorlk-f23fa582": {
+   "date": "2024-08-12",
+   "title": "இலங்கை - இந்திய கப்பல் சேவை மீண்டும் தாமதம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/இலங்கை-இந்திய-கப்பல்-சேவை-மீண்டும்-தாமதம்/175-342044",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-12-virakesarilk-72bcfd6d": {
+   "date": "2024-08-12",
+   "title": "அரசாங்க அச்சகத்திற்கு பலத்த பாதுகாப்பு",
+   "url": "https://www.virakesari.lk/article/190913",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-12-tamilmirrorlk-adccb9cc": {
+   "date": "2024-08-12",
+   "title": "நிவாரணம் வழங்க உடனடி நடவ​டிக்கை",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/நிவாரணம்-வழங்க-உடனடி-நடவ-டிக்கை/175-342036",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-12-tamilmirrorlk-804ee2c7": {
+   "date": "2024-08-12",
+   "title": "3 கோடி இந்திய முட்டைகள் இறக்குமதி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/3-கோடி-இந்திய-முட்டைகள்-இறக்குமதி/175-341994",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-12-tamilmirrorlk-1757b1bf": {
+   "date": "2024-08-12",
+   "title": "வியாழனன்று விசேட பாதுகாப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/வியாழனன்று-விசேட-பாதுகாப்பு/175-341992",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-10-virakesarilk-6717f35a": {
+   "date": "2024-08-10",
+   "title": "தோட்டத் தொழிலாளர்களுக்கான சேமலாப நிதி அடுத்த வருடம் முதல் வழங்கப்படும் - கண்டியில் ஜனாதிபதி",
+   "url": "https://www.virakesari.lk/article/190764",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-10-tamilmirrorlk-7aed02e6": {
+   "date": "2024-08-10",
+   "title": "ஒக்டோபர் முதல் இலத்திரனியல் கடவுச்சீட்டுக்கள்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ஒக்டோபர்-முதல்-இலத்திரனியல்-கடவுச்சீட்டுக்கள்/175-341895",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-09-virakesarilk-021bb0dc": {
+   "date": "2024-08-09",
+   "title": "அமெரிக்க, இலங்கை, மாலைதீவு கூட்டு இராணுவப் பயிற்சி நிறைவு",
+   "url": "https://www.virakesari.lk/article/190694",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-09-virakesarilk-b9cc3fea": {
+   "date": "2024-08-09",
+   "title": "எக்ஸ்பிரஸ் பேர்ள் கப்பல் விபத்து : முதல் கட்ட நட்டஈடாக 10.2 மில்லியன் டொலர் கிடைத்தது !",
+   "url": "https://www.virakesari.lk/article/190646",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-08-virakesarilk-e7e02c57": {
+   "date": "2024-08-08",
+   "title": "ரயில் பாதை புனரமைப்பு திட்டத்தின் நஷ்டஈடாக  இந்திய நிறுவனம் இலங்கை அரசாங்கத்துக்காக செலுத்தவேண்டிய 9,20000 டொலரை மோசடி செய்ய திட்டம் - முஜிபுர்",
+   "url": "https://www.virakesari.lk/article/190575",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-08-virakesarilk-e0d2249a": {
+   "date": "2024-08-08",
+   "title": "\"\"\"காஸா சிறுவர் நிதியத்திற்கு\"\"  கிடைத்த மேலும் 05 இலட்சத்து 90 ஆயிரம்  அமெரிக்க டொலர்கள் உத்தியோகபூர்வமாக பலஸ்தீன அரசாங்கத்திடம் கையளிப்பு\"",
+   "url": "https://www.virakesari.lk/article/190582",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-07-tamilmirrorlk-5887a09d": {
+   "date": "2024-08-07",
+   "title": "மீண்டும் இலங்கை – இந்திய கப்பல் சேவை ஆரம்பம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மீண்டும்-இலங்கை-இந்திய-கப்பல்-சேவை-ஆரம்பம்/175-341742",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-07-tamilmirrorlk-2f0c212c": {
+   "date": "2024-08-07",
+   "title": "கப்பல் சேவை மீண்டும் ஆரம்பம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/கப்பல்-சேவை-மீண்டும்-ஆரம்பம்/175-341742",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-06-tamilmirrorlk-6004670c": {
+   "date": "2024-08-06",
+   "title": "மூத்த பிரஜைகளுக்கு சந்தோஷமான செய்தி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மூத்த-பிரஜைகளுக்கு-சந்தோஷமான-செய்தி/175-341679",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-06-tamilmirrorlk-aef0e402": {
+   "date": "2024-08-06",
+   "title": "மாணவர்கள் கோரிக்கையை நிறைவேற்றினார் ஜனாதிபதி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மாணவர்கள்-கோரிக்கையை-நிறைவேற்றினார்-ஜனாதிபதி/175-341663",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-06-tamilmirrorlk-f511906b": {
+   "date": "2024-08-06",
+   "title": "இலவச உரம் வழங்க நடவடிக்கை",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/இலவச-உரம்-வழங்க-நடவடிக்கை/175-341660",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-05-virakesarilk-0f815632": {
+   "date": "2024-08-05",
+   "title": "வேட்புமனு தாக்கலின் பின் வேட்பாளர்களுக்கு விசேட பாதுகாப்பு - பொதுமக்கள் பாதுகாப்பு அமைச்சு",
+   "url": "https://www.virakesari.lk/article/190372",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-05-tamilmirrorlk-e827419d": {
+   "date": "2024-08-05",
+   "title": "அரசாங்கத்தின் முக்கிய 2  திட்டங்களை நிறுத்தியது தேர்தல் ஆணையம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அரசாங்கத்தின்-முக்கிய-2-திட்டங்களை-நிறுத்தியது-தேர்தல்-ஆணையம்/175-341657",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-04-virakesarilk-86a31b41": {
+   "date": "2024-08-04",
+   "title": "1.2 பில்லியன் டொலர்கள் இழப்பை ஏற்படுத்திய ஒப்பந்தத்தை நீதிமன்றம் ஊடாக நாம் நிறுத்தினோம் - சஜித் பிரேமதாச",
+   "url": "https://www.virakesari.lk/article/190273",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-03-tamilmirrorlk-f8651bf6": {
+   "date": "2024-08-03",
+   "title": "செப்டம்பர் முதல் 5,500 ரூபாய்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/செப்டம்பர்-முதல்-5-500-ரூபாய்/175-341499",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-03-tamilmirrorlk-9fa0d09f": {
+   "date": "2024-08-03",
+   "title": "கடல் நீரை நன்னீராக்கும் சுத்திகரிப்பு நிலையம் திறந்து வைப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/கடல்-நீரை-நன்னீராக்கும்-சுத்திகரிப்பு-நிலையம்-திறந்து-வைப்பு/175-341494",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-03-virakesarilk-8e979996": {
+   "date": "2024-08-03",
+   "title": "2025 முதல் இளைஞர்களுக்குத் தொழில் வழங்கும் வேலைத்திட்டம் ஆரம்பம் - யாழ் இளைஞர்களுடனான சந்திப்பில் ஜனாதிபதி உறுதி",
+   "url": "https://www.virakesari.lk/article/190140",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-03-virakesarilk-516f790e": {
+   "date": "2024-08-03",
+   "title": "வடக்கின் குடிநீர் விநியோகம் 4 இலிருந்து 40 சதவீதமாக உயர்வடையும் - ஜீவன் தொண்டமான் நம்பிக்கை",
+   "url": "https://www.virakesari.lk/article/190138",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-02-virakesarilk-baae6bf3": {
+   "date": "2024-08-02",
+   "title": "ஜனாதிபதியின் அர்ப்பணிப்பின் பலனாக யாழ், கிளிநொச்சி மக்களின் நீண்டகால குடிநீர்த்தேவை பூர்த்தியடைந்துள்ளது - பி.எஸ்.எம்.சார்ல்ஸ்",
+   "url": "https://www.virakesari.lk/article/190135",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-02-virakesarilk-7023faeb": {
+   "date": "2024-08-02",
+   "title": "மன்னார் காற்றாலை மின்னுற்பத்தி நிலைய நிர்மாணம் : 5 அடிப்படை உரிமை மனுக்கள் மீதான பரிசீலனை ஒக்டோபரில்",
+   "url": "https://www.virakesari.lk/article/190132",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-02-virakesarilk-aab5aa64": {
+   "date": "2024-08-02",
+   "title": "இலத்திரனியல் விசா விநியோக நடைமுறை : உயர்நீதிமன்றத்தின் இடைக்காலத்தடையுத்தரவு",
+   "url": "https://www.virakesari.lk/article/190130",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-02-virakesarilk-8fd1a3bb": {
+   "date": "2024-08-02",
+   "title": "அடுத்த 5 - 10 வருடங்களில் வடக்கை அபிவிருத்தியடைந்த மாகாணமாக மாற்றுவோம் - யாழில் ஜனாதிபதி",
+   "url": "https://www.virakesari.lk/article/190119",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-02-virakesarilk-fd9e6ae2": {
+   "date": "2024-08-02",
+   "title": "யாழ். தாளையடி கடல் நீர் சுத்திகரிப்பு நிலையம் ஜனாதிபதியினால் திறப்பு",
+   "url": "https://www.virakesari.lk/article/190076",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-08-01-tamilmirrorlk-85aa5364": {
+   "date": "2024-08-01",
+   "title": "நிரந்தர காணி உறுதிப் பத்திரங்கள் குறித்து மகிழ்ச்சியான அறிவிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/நிரந்தர-காணி-உறுதிப்-பத்திரங்கள்-குறித்து-மகிழ்ச்சியான-அறிவிப்பு/175-341421",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-01-tamilmirrorlk-61c86815": {
+   "date": "2024-08-01",
+   "title": "விசேட அறிவிப்பை விடுத்தது ரயில்வே",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/விசேட-அறிவிப்பை-விடுத்தது-ரயில்வே/175-341403",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-08-01-virakesarilk-78501ad8": {
+   "date": "2024-08-01",
+   "title": "கனிய மணல் அகழ்வாய்விற்கு ரவிகரன் உள்ளிட்ட மக்கள்  எதிர்ப்பு : அவ்விடத்திலிருந்து வெளியேறிய திணைக்களங்கள்",
+   "url": "https://www.virakesari.lk/article/189952",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  }
+ }
+}

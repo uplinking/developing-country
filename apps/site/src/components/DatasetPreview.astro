@@ -1,0 +1,29 @@
+---
+interface Props {
+  kind: 'map' | 'chart'
+  title: string
+  url: string
+  exploreUrl: string
+}
+
+const { kind, title, url, exploreUrl } = Astro.props
+---
+
+<figure class="dataset-preview">
+  <div class="dataset-preview__frame">
+    <iframe
+      src={url}
+      title={`Interactive preview of ${title}`}
+      loading="lazy"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <figcaption>
+    <span>{kind === 'map'
+      ? 'Interactive data · select a feature for details · drag and zoom'
+      : 'Interactive data · hover or focus for values'}</span>
+    <a class="dataset-preview__explore" href={exploreUrl} target="_blank" rel="noreferrer">
+      {kind === 'map' ? 'Explore all' : 'Open chart'} <span aria-hidden="true">↗</span>
+    </a>
+  </figcaption>
+</figure>

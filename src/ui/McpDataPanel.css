@@ -1,0 +1,394 @@
+/* MCP App data surface. Station-signage material: one opaque paper slab over
+   the (hidden) map, hard ink rules, squared corners, mono for anything
+   measured. Route blue (--route-info) marks data and links. */
+
+.mcp-data {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+}
+.mcp-app.has-data > .map-root {
+  visibility: hidden;
+  pointer-events: none;
+}
+.mcp-app.has-data > .mcp-open-full { display: none; }
+
+.mcp-data-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 0 14px;
+  border-top: 4px solid var(--route-info);
+  border-bottom: 1px solid var(--panel-line);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.mcp-data-crumb {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mcp-data-back,
+.mcp-data-link {
+  border: 0;
+  padding: 4px 0;
+  background: none;
+  color: var(--route-info-ink);
+  font: inherit;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.mcp-data-back:hover,
+.mcp-data-link:hover { text-decoration: underline; }
+
+.mcp-data-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  /* Bottom room for the dc mark in the frame's corner. */
+  padding: 14px 14px 48px;
+}
+.mcp-data-status,
+.mcp-data-error {
+  margin: 0;
+  padding: 7px 14px;
+  border-bottom: 1px solid var(--panel-line-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.mcp-data-status { color: var(--ink-dim); }
+.mcp-data-status::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  background: var(--route-info);
+  animation: mcp-lamp 0.8s steps(2) infinite;
+}
+.mcp-data-error {
+  border-left: 4px solid var(--route-flag);
+  color: var(--route-flag-ink);
+}
+@keyframes mcp-lamp { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .mcp-data-status::before { animation: none; }
+}
+
+.mcp-label {
+  margin: 18px 0 6px;
+  color: var(--ink-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.mcp-label:first-child { margin-top: 0; }
+.mcp-meta {
+  color: var(--ink-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+/* The signage button (.mcp-data .btn) lives in App.css beside .mcp-open-full,
+   so the map and the data panel share one button material. */
+@media (prefers-reduced-motion: reduce) {
+  .mcp-presets button:hover, .mcp-presets button:active { transform: none; }
+}
+
+/* Search + theme chips */
+.mcp-search {
+  display: flex;
+  gap: 8px;
+}
+.mcp-search input {
+  flex: 1;
+  min-width: 0;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--panel-line);
+  border-radius: var(--dc-radius);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+.mcp-themes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.mcp-chip {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  height: 24px;
+  padding: 0 8px;
+  border: 1px solid var(--panel-line);
+  border-radius: var(--dc-radius);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  cursor: pointer;
+}
+.mcp-chip span { color: var(--ink-dim); }
+.mcp-chip.on {
+  border-color: var(--route-info);
+  background: var(--route-info);
+  color: var(--on-route);
+}
+.mcp-chip.on span { color: var(--on-route); }
+
+/* Lists of datasets / related */
+.mcp-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--panel-line);
+}
+.mcp-list li { border-bottom: 1px solid var(--panel-line-soft); }
+.mcp-list button {
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  padding: 9px 2px 9px 10px;
+  border: 0;
+  border-left: 3px solid transparent;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.mcp-list button:hover,
+.mcp-list button:focus-visible {
+  border-left-color: var(--route-info);
+  background: var(--paper-2);
+}
+.mcp-list strong { font-size: 14px; font-weight: 700; }
+.mcp-q { font-size: 13px; color: var(--ink-dim); }
+.mcp-match { color: var(--route-info-ink); }
+
+/* Dataset card */
+.mcp-card h2 {
+  margin: 0 0 4px;
+  font-family: var(--display);
+  font-size: 20px;
+  line-height: 1.2;
+}
+.mcp-card-q { margin: 0 0 8px; font-size: 14px; }
+.mcp-card .mcp-meta { margin: 2px 0; }
+.mcp-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+.mcp-presets {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mcp-presets button {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 10px;
+  border: 1px solid var(--panel-line);
+  border-radius: var(--dc-radius);
+  box-shadow: 4px 4px 0 var(--panel-line);
+  background: var(--paper);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.mcp-presets button:hover { transform: translate(1px, 1px); box-shadow: 3px 3px 0 var(--panel-line); }
+.mcp-presets button:active { transform: translate(4px, 4px); box-shadow: none; }
+.mcp-presets strong { display: block; font-size: 13px; }
+.mcp-roundel {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--route-info);
+  color: var(--on-route);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+}
+.mcp-fields {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid var(--panel-line);
+  font-size: 13px;
+}
+.mcp-fields th,
+.mcp-fields td {
+  padding: 6px 6px 6px 0;
+  border-bottom: 1px solid var(--panel-line-soft);
+  text-align: left;
+  vertical-align: top;
+}
+.mcp-fields th { width: 34%; font-weight: 400; }
+.mcp-fields code { font-family: var(--mono); font-size: 12px; word-break: break-all; }
+.mcp-values {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.mcp-role {
+  width: 1%;
+  color: var(--ink-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.mcp-caveat { margin: 0 0 6px; color: var(--ink-dim); font-size: 13px; }
+
+/* Table result */
+.mcp-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-bottom: 1px solid var(--panel-line);
+}
+.mcp-tabs button {
+  height: 30px;
+  padding: 0 14px;
+  border: 1px solid var(--panel-line);
+  border-bottom: 0;
+  border-radius: var(--dc-radius) var(--dc-radius) 0 0;
+  margin-right: -1px;
+  background: var(--paper);
+  color: var(--ink-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.mcp-tabs button[aria-selected='true'] {
+  border-top: 3px solid var(--route-info);
+  color: var(--ink);
+}
+.mcp-tabs button:disabled { opacity: 0.4; cursor: default; }
+.mcp-tabs .mcp-meta { margin-left: auto; }
+/* A result is a column: tabs, a plot (or grid) that takes the remaining
+   height and scrolls inside itself, then one row of actions. Horizontal
+   rankings set a per-category min-height on the canvas, so a long one
+   scrolls within its frame and never draws over the actions. */
+.mcp-data-body:has(> .mcp-table-result) {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 12px;
+}
+.mcp-table-result {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 300px;
+}
+.mcp-chart-frame,
+.mcp-grid-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  border-bottom: 1px solid var(--panel-line);
+}
+.mcp-chart-frame { padding-top: 10px; }
+.mcp-chart-frame .live-chart { width: 100%; height: 100%; min-height: 0; }
+.mcp-chart-frame .dcf-chart__canvas { min-height: 240px; }
+/* Two to four upright bars read best short and wide, not as tall slabs. */
+.mcp-chart-frame .dcf-chart[data-shape='few'] .dcf-chart__canvas { max-height: 380px; }
+
+/* One tidy row: the signage slab for the live view, an outlined twin to interpret. */
+.mcp-result-actions {
+  flex: none;
+  flex-wrap: nowrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.mcp-result-actions .mcp-data-link {
+  height: 32px;
+  padding: 0 14px;
+  border: 1px solid var(--panel-line);
+  border-radius: var(--dc-radius);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.mcp-result-actions .mcp-data-link:hover { background: var(--paper-2); text-decoration: none; }
+.mcp-grid {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.mcp-grid th {
+  position: sticky;
+  top: 0;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--panel-line);
+  background: var(--paper);
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+}
+.mcp-grid td {
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--panel-line-soft);
+  white-space: nowrap;
+}
+.mcp-grid td.num { font-family: var(--mono); text-align: right; }
+
+/* Next steps */
+.mcp-next { margin-top: 6px; }
+.mcp-next-step {
+  display: block;
+  width: 100%;
+  padding: 7px 0;
+  border: 0;
+  border-bottom: 1px solid var(--panel-line-soft);
+  background: none;
+  color: var(--route-info-ink);
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+.mcp-next-step span { font-family: var(--mono); }
+.mcp-next-step:hover { text-decoration: underline; }
+
+@media (max-width: 520px) {
+  .mcp-data-body { padding: 12px 12px 18px; }
+  .mcp-fields th { width: 42%; }
+}

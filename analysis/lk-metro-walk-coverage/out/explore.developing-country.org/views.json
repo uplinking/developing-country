@@ -1,0 +1,494 @@
+{
+  "stops_map": {
+    "args": "{\"op\":\"select\",\"dataset_id\":\"metro-coverage-stops\",\"fields\":[\"stop_id\",\"stop\",\"routes\",\"route_count\",\"lng\",\"lat\",\"pop_5min\",\"pop_10min\",\"schools_10min\",\"hospitals_10min\",\"offices_10min\",\"businesses_10min\"],\"limit\":200,\"presentation\":{\"kind\":\"map\",\"title\":\"The 110 Metro Bus stops\",\"camera\":{\"center\":[79.905,6.895],\"zoom\":10.2},\"layers\":[{\"id\":\"metro-coverage-stops\",\"label\":\"Metro Bus stop\",\"style\":{\"geometry\":\"circle\",\"color\":\"route-system\",\"radiusBy\":{\"field\":\"pop_10min\",\"range\":[3,15],\"label\":\"Residents within a 10-minute walk\"},\"opacity\":0.85,\"labelField\":\"stop\"}}]}}",
+    "publication": {
+      "dataView": {
+        "viewUrl": "https://explore.developing-country.org/views/view_6e1fe27a69fe41f1a798",
+        "queryId": "query_dc9af7f5b3a3460e8b4b",
+        "resultChecksum": "sha256:8131684be889acac6ba9483ca63a8ee53048ea46b6c4e7a13d70295a10a0d89e"
+      },
+      "datasetVersions": [
+        {
+          "datasetId": "metro-coverage-stops",
+          "versionId": "dsv_d73ba3f736414e7e567f262605726c8a",
+          "country": "LK",
+          "checksum": "sha256:869f1cfbafa87a416f47a202e97e0570ec321cdf4f92d08bfd2532272fd2f08d",
+          "vintage": "Census 2012 GN boundaries · 2024 · 2026 · 2026-10 · 2026-09-23.1",
+          "refreshedAt": "2026-08-20T00:00:00.000Z",
+          "sourceIds": [
+            "gig-data-gnd-boundaries",
+            "lk-census-2024",
+            "lk-metro",
+            "metro-coverage",
+            "osm",
+            "osm-walk-colombo",
+            "overture-places"
+          ]
+        }
+      ],
+      "sourceManifest": [
+        {
+          "sourceId": "gig-data-gnd-boundaries",
+          "title": "GN division boundaries (nuuuwan/gig-data geo/gnd)",
+          "url": "https://github.com/nuuuwan/gig-data"
+        },
+        {
+          "sourceId": "lk-census-2024",
+          "title": "Sri Lanka Census of Population & Housing 2024 (via nuuuwan/lk_census_2024)",
+          "url": "https://github.com/nuuuwan/lk_census_2024"
+        },
+        {
+          "sourceId": "lk-metro",
+          "title": "nuuuwan/lk_metro",
+          "url": "https://github.com/nuuuwan/lk_metro"
+        },
+        {
+          "sourceId": "metro-coverage",
+          "title": "Colombo Metro Bus walking coverage (derived analysis)",
+          "url": "https://developing-country.org/data/metro-coverage-lines"
+        },
+        {
+          "sourceId": "osm",
+          "title": "OpenStreetMap",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "osm-walk-colombo",
+          "title": "Colombo OSM foot graph (isochrone)",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "overture-places",
+          "title": "Overture Maps Places (release 2026-09-23.1)",
+          "url": "https://docs.overturemaps.org/guides/places/"
+        }
+      ]
+    }
+  },
+  "walkshed_compare": {
+    "args": "{\"op\":\"bbox\",\"entities\":\"metro_walkshed\",\"bbox\":[79.75,6.65,80.05,7.1],\"include_geometry\":true,\"where\":{\"kind\":\"network\",\"minutes\":10},\"presentation\":{\"kind\":\"map\",\"title\":\"A ten-minute walk, and an 800 m circle\",\"camera\":{\"center\":[79.868,6.925],\"zoom\":12.2},\"layers\":[{\"id\":\"metro_walkshed\",\"label\":\"Area within reach\",\"style\":{\"geometry\":\"fill\",\"opacity\":0.55,\"colorBy\":{\"field\":\"method\",\"scale\":\"categorical\",\"label\":\"Measured as\",\"categories\":{\"network\":\"route-system\",\"circle_800m\":\"ink-dim\"},\"labels\":{\"network\":\"10-minute walk on streets\",\"circle_800m\":\"800 m circle\"}}}}]}}",
+    "publication": {
+      "dataView": {
+        "viewUrl": "https://explore.developing-country.org/views/view_64290f3a9606441c842f",
+        "queryId": "query_952beffaa1804dcb9035",
+        "resultChecksum": "sha256:c28e52832cffe2332363ccb1ff9a76875ab8b700f64eb1c02111c072a643d209"
+      },
+      "datasetVersions": [
+        {
+          "datasetId": "metro_walksheds",
+          "versionId": "dsv_6343c6315e2b5f0a82653fbff61a617c",
+          "country": "LK",
+          "checksum": "sha256:6451e98ffd58e0a0c5ff2d057a3f440751216602509cb9d719a0058b058d85ba",
+          "vintage": "Census 2012 GN boundaries · 2024 · 2026 · 2026-10 · 2026-09-23.1",
+          "refreshedAt": "2026-08-20T00:00:00.000Z",
+          "sourceIds": [
+            "gig-data-gnd-boundaries",
+            "lk-census-2024",
+            "lk-metro",
+            "metro-coverage",
+            "osm",
+            "osm-walk-colombo",
+            "overture-places"
+          ]
+        }
+      ],
+      "sourceManifest": [
+        {
+          "sourceId": "gig-data-gnd-boundaries",
+          "title": "GN division boundaries (nuuuwan/gig-data geo/gnd)",
+          "url": "https://github.com/nuuuwan/gig-data"
+        },
+        {
+          "sourceId": "lk-census-2024",
+          "title": "Sri Lanka Census of Population & Housing 2024 (via nuuuwan/lk_census_2024)",
+          "url": "https://github.com/nuuuwan/lk_census_2024"
+        },
+        {
+          "sourceId": "lk-metro",
+          "title": "nuuuwan/lk_metro",
+          "url": "https://github.com/nuuuwan/lk_metro"
+        },
+        {
+          "sourceId": "metro-coverage",
+          "title": "Colombo Metro Bus walking coverage (derived analysis)",
+          "url": "https://developing-country.org/data/metro-coverage-lines"
+        },
+        {
+          "sourceId": "osm",
+          "title": "OpenStreetMap",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "osm-walk-colombo",
+          "title": "Colombo OSM foot graph (isochrone)",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "overture-places",
+          "title": "Overture Maps Places (release 2026-09-23.1)",
+          "url": "https://docs.overturemaps.org/guides/places/"
+        }
+      ]
+    }
+  },
+  "share_map": {
+    "args": "{\"op\":\"select\",\"dataset_id\":\"metro-coverage-gnd\",\"fields\":[\"gnd_id\",\"gnd\",\"dsd\",\"pop_2024\",\"share_10min\",\"share_10min_pct\",\"nearest_stop\",\"walk_m_to_stop\"],\"limit\":1000,\"presentation\":{\"kind\":\"map\",\"title\":\"Who can walk to a stop in ten minutes\",\"camera\":{\"center\":[79.895,6.905],\"zoom\":10.6},\"layers\":[{\"id\":\"metro-coverage-gnd\",\"label\":\"Share within 10 minutes\",\"join\":{\"tileset\":\"demographics\",\"sourceLayer\":\"gnd\",\"rowKey\":\"gnd_id\"},\"style\":{\"geometry\":\"fill\",\"opacity\":0.8,\"colorBy\":{\"field\":\"share_10min\",\"scale\":\"threshold\",\"label\":\"Share within a 10-minute walk\",\"breaks\":[0.01,0.25,0.5,0.75],\"colors\":[\"#efeee9\",\"#cfe9e4\",\"#8fd0c5\",\"#3fae9f\",\"#05776c\"],\"classLabels\":[\"Under 1%\",\"1–25%\",\"25–50%\",\"50–75%\",\"75% or more\"]}}}]}}",
+    "publication": {
+      "dataView": {
+        "viewUrl": "https://explore.developing-country.org/views/view_63a2c8caf6cd4cd897ee",
+        "queryId": "query_2615eaea15004b6cacd2",
+        "resultChecksum": "sha256:cef69f55c30d329247be374588a5d301e0445230cf64e4c6995b01b4144b2cb3"
+      },
+      "datasetVersions": [
+        {
+          "datasetId": "metro-coverage-gnd",
+          "versionId": "dsv_7d6e9703998375f624037044f2ba5cdf",
+          "country": "LK",
+          "checksum": "sha256:3a64f9e5437a1bd322cbd75182b7e20bfe770a8c9aecb627988e6d4661f751d0",
+          "vintage": "Census 2012 GN boundaries · 2024 · 2026 · 2026-10 · 2026-09-23.1",
+          "refreshedAt": "2026-08-20T00:00:00.000Z",
+          "sourceIds": [
+            "gig-data-gnd-boundaries",
+            "lk-census-2024",
+            "lk-metro",
+            "metro-coverage",
+            "osm",
+            "osm-walk-colombo",
+            "overture-places"
+          ]
+        }
+      ],
+      "sourceManifest": [
+        {
+          "sourceId": "gig-data-gnd-boundaries",
+          "title": "GN division boundaries (nuuuwan/gig-data geo/gnd)",
+          "url": "https://github.com/nuuuwan/gig-data"
+        },
+        {
+          "sourceId": "lk-census-2024",
+          "title": "Sri Lanka Census of Population & Housing 2024 (via nuuuwan/lk_census_2024)",
+          "url": "https://github.com/nuuuwan/lk_census_2024"
+        },
+        {
+          "sourceId": "lk-metro",
+          "title": "nuuuwan/lk_metro",
+          "url": "https://github.com/nuuuwan/lk_metro"
+        },
+        {
+          "sourceId": "metro-coverage",
+          "title": "Colombo Metro Bus walking coverage (derived analysis)",
+          "url": "https://developing-country.org/data/metro-coverage-lines"
+        },
+        {
+          "sourceId": "osm",
+          "title": "OpenStreetMap",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "osm-walk-colombo",
+          "title": "Colombo OSM foot graph (isochrone)",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "overture-places",
+          "title": "Overture Maps Places (release 2026-09-23.1)",
+          "url": "https://docs.overturemaps.org/guides/places/"
+        }
+      ]
+    }
+  },
+  "facilities_map": {
+    "args": "{\"op\":\"select\",\"dataset_id\":\"metro-coverage-facilities\",\"fields\":[\"facility_id\",\"name\",\"kind\",\"lng\",\"lat\",\"nearest_stop\",\"walk_m\",\"within_10min\"],\"where\":[{\"field\":\"kind\",\"op\":\"in\",\"value\":[\"school\",\"hospital\"]}],\"limit\":1000,\"presentation\":{\"kind\":\"map\",\"title\":\"Schools and hospitals near the lines\",\"camera\":{\"center\":[79.895,6.905],\"zoom\":10.8},\"layers\":[{\"id\":\"metro-coverage-facilities\",\"label\":\"School or hospital\",\"style\":{\"geometry\":\"circle\",\"radius\":3.5,\"opacity\":0.9,\"colorBy\":{\"field\":\"within_10min\",\"scale\":\"categorical\",\"label\":\"Within a 10-minute walk\",\"categories\":{\"true\":\"route-system\",\"false\":\"route-flag\"},\"labels\":{\"true\":\"Within a 10-minute walk\",\"false\":\"Beyond a 10-minute walk\"}}}}]}}",
+    "publication": {
+      "dataView": {
+        "viewUrl": "https://explore.developing-country.org/views/view_2892504ea7a34da188db",
+        "queryId": "query_f3ec66caeb834a608c52",
+        "resultChecksum": "sha256:5042609936e0384b8cd275c06ec4dd76bebf7c526d13ec815852abdbd5e4fb57"
+      },
+      "datasetVersions": [
+        {
+          "datasetId": "metro-coverage-facilities",
+          "versionId": "dsv_dc0c210a22d1ec6460e1d17f3eadc61a",
+          "country": "LK",
+          "checksum": "sha256:a6674c5eb0d9e9261242b181d5d0cba1c0f5177e113665c13fc261608a3303fb",
+          "vintage": "Census 2012 GN boundaries · 2024 · 2026 · 2026-10 · 2026-09-23.1",
+          "refreshedAt": "2026-08-20T00:00:00.000Z",
+          "sourceIds": [
+            "gig-data-gnd-boundaries",
+            "lk-census-2024",
+            "lk-metro",
+            "metro-coverage",
+            "osm",
+            "osm-walk-colombo",
+            "overture-places"
+          ]
+        }
+      ],
+      "sourceManifest": [
+        {
+          "sourceId": "gig-data-gnd-boundaries",
+          "title": "GN division boundaries (nuuuwan/gig-data geo/gnd)",
+          "url": "https://github.com/nuuuwan/gig-data"
+        },
+        {
+          "sourceId": "lk-census-2024",
+          "title": "Sri Lanka Census of Population & Housing 2024 (via nuuuwan/lk_census_2024)",
+          "url": "https://github.com/nuuuwan/lk_census_2024"
+        },
+        {
+          "sourceId": "lk-metro",
+          "title": "nuuuwan/lk_metro",
+          "url": "https://github.com/nuuuwan/lk_metro"
+        },
+        {
+          "sourceId": "metro-coverage",
+          "title": "Colombo Metro Bus walking coverage (derived analysis)",
+          "url": "https://developing-country.org/data/metro-coverage-lines"
+        },
+        {
+          "sourceId": "osm",
+          "title": "OpenStreetMap",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "osm-walk-colombo",
+          "title": "Colombo OSM foot graph (isochrone)",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "overture-places",
+          "title": "Overture Maps Places (release 2026-09-23.1)",
+          "url": "https://docs.overturemaps.org/guides/places/"
+        }
+      ]
+    }
+  },
+  "offices_map": {
+    "args": "{\"op\":\"select\",\"dataset_id\":\"metro-coverage-facilities\",\"fields\":[\"facility_id\",\"name\",\"kind\",\"office_type\",\"lng\",\"lat\",\"nearest_stop\",\"walk_m\",\"within_10min\"],\"where\":[{\"field\":\"kind\",\"op\":\"eq\",\"value\":\"office\"}],\"limit\":5000,\"presentation\":{\"kind\":\"map\",\"title\":\"Offices near the lines\",\"camera\":{\"center\":[79.87,6.91],\"zoom\":11.6},\"layers\":[{\"id\":\"metro-coverage-facilities\",\"label\":\"Office\",\"style\":{\"geometry\":\"circle\",\"radius\":2.6,\"opacity\":0.9,\"colorBy\":{\"field\":\"within_10min\",\"scale\":\"categorical\",\"label\":\"Within a 10-minute walk\",\"categories\":{\"true\":\"route-system\",\"false\":\"route-flag\"},\"labels\":{\"true\":\"Office within a 10-minute walk\",\"false\":\"Office beyond a 10-minute walk\"}}}}]}}",
+    "publication": {
+      "dataView": {
+        "viewUrl": "https://explore.developing-country.org/views/view_fa2d3cc7b55540929c82",
+        "queryId": "query_8a5c76956de7493fb28d",
+        "resultChecksum": "sha256:9537435bc984bc3e24bfa0c739b76f800371f7e19c24bb7a80e4eef13757ecbd"
+      },
+      "datasetVersions": [
+        {
+          "datasetId": "metro-coverage-facilities",
+          "versionId": "dsv_dc0c210a22d1ec6460e1d17f3eadc61a",
+          "country": "LK",
+          "checksum": "sha256:a6674c5eb0d9e9261242b181d5d0cba1c0f5177e113665c13fc261608a3303fb",
+          "vintage": "Census 2012 GN boundaries · 2024 · 2026 · 2026-10 · 2026-09-23.1",
+          "refreshedAt": "2026-08-20T00:00:00.000Z",
+          "sourceIds": [
+            "gig-data-gnd-boundaries",
+            "lk-census-2024",
+            "lk-metro",
+            "metro-coverage",
+            "osm",
+            "osm-walk-colombo",
+            "overture-places"
+          ]
+        }
+      ],
+      "sourceManifest": [
+        {
+          "sourceId": "gig-data-gnd-boundaries",
+          "title": "GN division boundaries (nuuuwan/gig-data geo/gnd)",
+          "url": "https://github.com/nuuuwan/gig-data"
+        },
+        {
+          "sourceId": "lk-census-2024",
+          "title": "Sri Lanka Census of Population & Housing 2024 (via nuuuwan/lk_census_2024)",
+          "url": "https://github.com/nuuuwan/lk_census_2024"
+        },
+        {
+          "sourceId": "lk-metro",
+          "title": "nuuuwan/lk_metro",
+          "url": "https://github.com/nuuuwan/lk_metro"
+        },
+        {
+          "sourceId": "metro-coverage",
+          "title": "Colombo Metro Bus walking coverage (derived analysis)",
+          "url": "https://developing-country.org/data/metro-coverage-lines"
+        },
+        {
+          "sourceId": "osm",
+          "title": "OpenStreetMap",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "osm-walk-colombo",
+          "title": "Colombo OSM foot graph (isochrone)",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "overture-places",
+          "title": "Overture Maps Places (release 2026-09-23.1)",
+          "url": "https://docs.overturemaps.org/guides/places/"
+        }
+      ]
+    }
+  },
+  "headline": {
+    "args": "{\"op\":\"select\",\"dataset_id\":\"metro-coverage-lines\",\"fields\":[\"line_code\",\"line_name\",\"study_area_pop\",\"pop_5min\",\"pop_10min\",\"pop_circle_800m\",\"share_5min_pct\",\"share_10min_pct\",\"share_circle_800m_pct\",\"study_area_offices\",\"offices_10min\",\"offices_share_10min_pct\"],\"order_by\":[{\"field\":\"pop_10min\",\"direction\":\"desc\"}],\"presentation\":{\"kind\":\"chart\",\"title\":\"Residents within a ten-minute walk of a stop, by line\",\"description\":\"Network-wide and per line. The network row counts each resident once.\",\"family\":\"ranking\",\"dimension\":{\"field\":\"line_name\",\"label\":\"Line\"},\"measure\":{\"field\":\"share_10min_pct\",\"label\":\"Share of residents within 2 km of a line\",\"unit\":\"%\"},\"orientation\":\"horizontal\",\"highlight\":[\"All seven CM lines\"]}}",
+    "publication": {
+      "dataView": {
+        "viewUrl": "https://explore.developing-country.org/views/view_14075544bee8423087ac",
+        "queryId": "query_78a8dd765b754767ad91",
+        "resultChecksum": "sha256:9c7fbf7eabd34402d4159d03a8a00c6202aa19caeffd7db6d9758031d2708aef"
+      },
+      "datasetVersions": [
+        {
+          "datasetId": "metro-coverage-lines",
+          "versionId": "dsv_1c596514c1cc2f1a685b5f3e9612f148",
+          "country": "LK",
+          "checksum": "sha256:09261536b367218aa0ea6d80e000752180e756264dead1f7b4565e4a2aa90ddc",
+          "vintage": "Census 2012 GN boundaries · 2024 · 2026 · 2026-10 · 2026-09-23.1",
+          "refreshedAt": "2026-08-20T00:00:00.000Z",
+          "sourceIds": [
+            "gig-data-gnd-boundaries",
+            "lk-census-2024",
+            "lk-metro",
+            "metro-coverage",
+            "osm",
+            "osm-walk-colombo",
+            "overture-places"
+          ]
+        }
+      ],
+      "sourceManifest": [
+        {
+          "sourceId": "gig-data-gnd-boundaries",
+          "title": "GN division boundaries (nuuuwan/gig-data geo/gnd)",
+          "url": "https://github.com/nuuuwan/gig-data"
+        },
+        {
+          "sourceId": "lk-census-2024",
+          "title": "Sri Lanka Census of Population & Housing 2024 (via nuuuwan/lk_census_2024)",
+          "url": "https://github.com/nuuuwan/lk_census_2024"
+        },
+        {
+          "sourceId": "lk-metro",
+          "title": "nuuuwan/lk_metro",
+          "url": "https://github.com/nuuuwan/lk_metro"
+        },
+        {
+          "sourceId": "metro-coverage",
+          "title": "Colombo Metro Bus walking coverage (derived analysis)",
+          "url": "https://developing-country.org/data/metro-coverage-lines"
+        },
+        {
+          "sourceId": "osm",
+          "title": "OpenStreetMap",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "osm-walk-colombo",
+          "title": "Colombo OSM foot graph (isochrone)",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "overture-places",
+          "title": "Overture Maps Places (release 2026-09-23.1)",
+          "url": "https://docs.overturemaps.org/guides/places/"
+        }
+      ]
+    }
+  },
+  "density_map": {
+    "args": "{\"op\":\"select\",\"dataset_id\":\"metro-coverage-gnd\",\"fields\":[\"gnd_id\",\"gnd\",\"dsd\",\"pop_2024\",\"density_per_km2\"],\"limit\":1000,\"presentation\":{\"kind\":\"map\",\"title\":\"Where people live\",\"camera\":{\"center\":[79.895,6.905],\"zoom\":10.6},\"layers\":[{\"id\":\"metro-coverage-gnd\",\"label\":\"Residents per km²\",\"join\":{\"tileset\":\"demographics\",\"sourceLayer\":\"gnd\",\"rowKey\":\"gnd_id\"},\"style\":{\"geometry\":\"fill\",\"opacity\":0.8,\"colorBy\":{\"field\":\"density_per_km2\",\"scale\":\"threshold\",\"label\":\"Residents per km²\",\"breaks\":[3000,6000,10000,20000],\"colors\":[\"#e7f3f1\",\"#b4dcd5\",\"#6fbfb3\",\"#23978a\",\"#05665c\"],\"classLabels\":[\"Under 3,000\",\"3,000–6,000\",\"6,000–10,000\",\"10,000–20,000\",\"20,000 or more\"]}}}]}}",
+    "publication": {
+      "dataView": {
+        "viewUrl": "https://explore.developing-country.org/views/view_c4038a8967ca4e0286be",
+        "queryId": "query_56937641fba54a6a9d14",
+        "resultChecksum": "sha256:ec3debe331c3c6d203d1f8d3466e7e0bbb35f74a24539ec8e98051e63967c3b7"
+      },
+      "datasetVersions": [
+        {
+          "datasetId": "metro-coverage-gnd",
+          "versionId": "dsv_7d6e9703998375f624037044f2ba5cdf",
+          "country": "LK",
+          "checksum": "sha256:3a64f9e5437a1bd322cbd75182b7e20bfe770a8c9aecb627988e6d4661f751d0",
+          "vintage": "Census 2012 GN boundaries · 2024 · 2026 · 2026-10 · 2026-09-23.1",
+          "refreshedAt": "2026-08-20T00:00:00.000Z",
+          "sourceIds": [
+            "gig-data-gnd-boundaries",
+            "lk-census-2024",
+            "lk-metro",
+            "metro-coverage",
+            "osm",
+            "osm-walk-colombo",
+            "overture-places"
+          ]
+        }
+      ],
+      "sourceManifest": [
+        {
+          "sourceId": "gig-data-gnd-boundaries",
+          "title": "GN division boundaries (nuuuwan/gig-data geo/gnd)",
+          "url": "https://github.com/nuuuwan/gig-data"
+        },
+        {
+          "sourceId": "lk-census-2024",
+          "title": "Sri Lanka Census of Population & Housing 2024 (via nuuuwan/lk_census_2024)",
+          "url": "https://github.com/nuuuwan/lk_census_2024"
+        },
+        {
+          "sourceId": "lk-metro",
+          "title": "nuuuwan/lk_metro",
+          "url": "https://github.com/nuuuwan/lk_metro"
+        },
+        {
+          "sourceId": "metro-coverage",
+          "title": "Colombo Metro Bus walking coverage (derived analysis)",
+          "url": "https://developing-country.org/data/metro-coverage-lines"
+        },
+        {
+          "sourceId": "osm",
+          "title": "OpenStreetMap",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "osm-walk-colombo",
+          "title": "Colombo OSM foot graph (isochrone)",
+          "url": "https://www.openstreetmap.org/"
+        },
+        {
+          "sourceId": "overture-places",
+          "title": "Overture Maps Places (release 2026-09-23.1)",
+          "url": "https://docs.overturemaps.org/guides/places/"
+        }
+      ]
+    }
+  },
+  "metro_lines": {
+    "args": "{\"op\":\"bbox\",\"entities\":\"metro_line\",\"bbox\":[79.75,6.65,80.05,7.15],\"include_geometry\":true,\"presentation\":{\"kind\":\"map\",\"title\":\"The seven Metro Bus lines\",\"camera\":{\"center\":[79.905,6.895],\"zoom\":10.2},\"layers\":[{\"id\":\"metro_line\",\"label\":\"Metro Bus line\",\"style\":{\"geometry\":\"line\",\"color\":\"ink-dim\",\"width\":2.5,\"opacity\":0.8}}]}}",
+    "publication": {
+      "dataView": {
+        "viewUrl": "https://explore.developing-country.org/views/view_0fbb5d83af674aeca7eb",
+        "queryId": "query_603ab0be9e4343ccb2a8",
+        "resultChecksum": "sha256:176f5533501c4c54959bab8abef9576c26dc5a034fd201276bb5838da7485a80"
+      },
+      "datasetVersions": [
+        {
+          "datasetId": "metro",
+          "versionId": "dsv_e06433f8f9c19803662f310d6d8ba502",
+          "country": "LK",
+          "checksum": "sha256:7f8e99638e09fc1723b650b11cb408c7f11cd155d60661c440d556f935078b23",
+          "vintage": "2026",
+          "refreshedAt": "2026-10-19T00:00:00.000Z",
+          "sourceIds": [
+            "lk-metro"
+          ]
+        }
+      ],
+      "sourceManifest": [
+        {
+          "sourceId": "lk-metro",
+          "title": "nuuuwan/lk_metro",
+          "url": "https://github.com/nuuuwan/lk_metro"
+        }
+      ]
+    }
+  }
+}

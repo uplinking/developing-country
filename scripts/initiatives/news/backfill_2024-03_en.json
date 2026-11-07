@@ -1,0 +1,1926 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-03-01",
+  "2024-03-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Codex gpt-5.6-luna (medium reasoning)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 96,
+ "rejected": 44,
+ "rejected_ids": [
+  "2024-03-01-islandlk-a73cdb7b",
+  "2024-03-04-adaderanalk-bf7aea8a",
+  "2024-03-05-dailymirrorlk-0befbf28",
+  "2024-03-05-dailymirrorlk-2c8f1f74",
+  "2024-03-05-economynextcom-8f11398d",
+  "2024-03-06-dailymirrorlk-1fa49956",
+  "2024-03-06-dailymirrorlk-6d1ab324",
+  "2024-03-07-adaderanalk-c773c876",
+  "2024-03-07-adaderanalk-d416b65a",
+  "2024-03-07-dailyftlk-b6beab7a",
+  "2024-03-07-dailymirrorlk-ab5313f3",
+  "2024-03-07-islandlk-47aa1afe",
+  "2024-03-11-adaderanalk-375a0648",
+  "2024-03-12-adaderanalk-005f2a44",
+  "2024-03-12-economynextcom-e5e38eeb",
+  "2024-03-13-dailyftlk-18fc6090",
+  "2024-03-13-dailymirrorlk-c57224df",
+  "2024-03-13-economynextcom-2049f560",
+  "2024-03-14-dailymirrorlk-0ff6d72b",
+  "2024-03-15-economynextcom-73a00935",
+  "2024-03-19-adaderanalk-085557db",
+  "2024-03-19-adaderanalk-13aeb632",
+  "2024-03-19-dailymirrorlk-08681f37",
+  "2024-03-19-dailymirrorlk-e227cd09",
+  "2024-03-19-economynextcom-e3a359b4",
+  "2024-03-20-dailyftlk-4ef53e75",
+  "2024-03-20-dailyftlk-8d8ad618",
+  "2024-03-20-dailymirrorlk-8c36c99c",
+  "2024-03-21-dailyftlk-2881bd3d",
+  "2024-03-21-dailymirrorlk-8209e946",
+  "2024-03-21-dailymirrorlk-90a00319",
+  "2024-03-21-economynextcom-06cb3642",
+  "2024-03-22-dailyftlk-2a83bd92",
+  "2024-03-22-dailyftlk-e08d9a3a",
+  "2024-03-22-economynextcom-c1c63229",
+  "2024-03-23-dailymirrorlk-a3b0e630",
+  "2024-03-25-dailymirrorlk-0c015ccc",
+  "2024-03-25-dailymirrorlk-d8ad2c70",
+  "2024-03-25-dbsjeyarajcom-ebce90e6",
+  "2024-03-26-dailymirrorlk-1bd3566a",
+  "2024-03-27-adaderanalk-5ba20911",
+  "2024-03-27-dailyftlk-6223407e",
+  "2024-03-30-adaderanalk-186ce18a",
+  "2024-03-30-adaderanalk-f540946e",
+  "2024-03-30-economynextcom-134912cc",
+  "2024-03-31-islandlk-87b1def9"
+ ],
+ "unattributed_ids": [
+  "2024-03-20-dailyftlk-4ef53e75",
+  "2024-03-21-dailymirrorlk-8209e946"
+ ],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "port-city-hambantota-development",
+   "name": "Port City Colombo and Hambantota Development Project",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo and Hambantota",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-airport-port-city-hambantota-assistance",
+   "name": "Chinese assistance for Katunayake Airport, Hambantota Port and Colombo Port City",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Katunayake, Hambantota and Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sri-lanka-flag-ship-registration-promotion",
+   "name": "Promotion of ship registration under the Sri Lankan flag",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "northern-farmers-electricity-charge-relief",
+   "name": "Electricity charge relief for Northern Province farmers",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Northern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "expressway-network-sahasya-management-transfer",
+   "name": "Expressway network transfer to Sahasya Investment Limited",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "foreign-employment-sector-digitisation",
+   "name": "Foreign employment sector digitisation",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "cargills-usaid-solar-ev-charging",
+   "name": "Solar-powered electric vehicle charging stations at Cargills locations",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-undp-anti-corruption-support",
+   "name": "Japan-UNDP financial support for Sri Lanka anti-corruption efforts",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "tropical-belt-initiative",
+   "name": "Tropical Belt Initiative",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-sri-lanka-sister-district-programme",
+   "name": "China-Sri Lanka Sister District Programme",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Kalutara",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-sri-lanka-vocational-training-programme",
+   "name": "China-Sri Lanka Vocational Training Programme",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "three-gorges-vocational-training-branch",
+   "name": "Three Gorges Institute Sri Lanka Branch",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "egg-import-market-stabilisation-2024",
+   "name": "Egg import market stabilisation programme",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-economic-social-development-grant-2024",
+   "name": "Japan Economic and Social Development Programme grant assistance 2024",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ceb-installment-electricity-connections",
+   "name": "CEB installment scheme for new electricity connections",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "undp-mobile-women-empowerment-space",
+   "name": "UNDP mobile interactive space on women’s empowerment",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "litro-gas-divestiture",
+   "name": "Litro Gas divestiture",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "paddy-purchase-programme-2024",
+   "name": "Paddy purchase programme 2024",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "renewable-energy-targets-2030",
+   "name": "Sri Lanka renewable energy targets and infrastructure through 2030",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "dp-education-it-campuses-jaffna",
+   "name": "DP Education IT campuses in Northern Province",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fertilizer-credit-arrears-settlement",
+   "name": "Settlement of farmers’ fertilizer credit arrears",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "school-food-programme-2024",
+   "name": "School Food Program 2024",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "overseas-workers-electric-vehicle-import-scheme",
+   "name": "Electric vehicle import scheme for Sri Lankans working abroad",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "galle-harbour-commercial-recreation-development",
+   "name": "Galle Harbour Commercial and Recreation Development Project",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Galle",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "honor-global-bedding-export-facility",
+   "name": "Honor Global Industry Lanka Export Bedding Manufacturing Facility",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "samanalawewa-mini-hydro-project",
+   "name": "Samanalawewa Tank Mini Hydro Project",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Samanalawewa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-northern-islands-hybrid-energy",
+   "name": "India-funded Northern Islands Hybrid Renewable Energy Project",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "imf-governance-action-plan",
+   "name": "Sri Lanka Government Action Plan based on IMF Governance Diagnostic",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "china-port-city-hambantota-development",
+   "project_id": "port-city-hambantota-development",
+   "funder": "china",
+   "funder_name": "China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "china-airport-port-city-hambantota-assistance-china",
+   "project_id": "china-airport-port-city-hambantota-assistance",
+   "funder": "china",
+   "funder_name": "China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-flag-ship-registration-promotion",
+   "project_id": "sri-lanka-flag-ship-registration-promotion",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-northern-farmers-electricity-charge-relief",
+   "project_id": "northern-farmers-electricity-charge-relief",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-expressway-network-sahasya-management-transfer",
+   "project_id": "expressway-network-sahasya-management-transfer",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-foreign-employment-sector-digitisation",
+   "project_id": "foreign-employment-sector-digitisation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "usa-cargills-solar-ev-charging",
+   "project_id": "cargills-usaid-solar-ev-charging",
+   "funder": "usa",
+   "funder_name": "United States via USAID",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "mixed",
+   "purpose": "project"
+  },
+  {
+   "id": "japan-undp-anti-corruption-support-grant",
+   "project_id": "japan-undp-anti-corruption-support",
+   "funder": "japan",
+   "funder_name": "Japan",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-tropical-belt-initiative",
+   "project_id": "tropical-belt-initiative",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "china-sister-district-programme",
+   "project_id": "china-sri-lanka-sister-district-programme",
+   "funder": "china",
+   "funder_name": "China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "china-vocational-training-programme",
+   "project_id": "china-sri-lanka-vocational-training-programme",
+   "funder": "china",
+   "funder_name": "China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "china-three-gorges-vocational-branch",
+   "project_id": "three-gorges-vocational-training-branch",
+   "funder": "china",
+   "funder_name": "China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-egg-import-market-stabilisation-2024",
+   "project_id": "egg-import-market-stabilisation-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "japan-economic-social-development-grant-2024-line",
+   "project_id": "japan-economic-social-development-grant-2024",
+   "funder": "japan",
+   "funder_name": "Government of Japan",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "ceb-installment-electricity-connections-line",
+   "project_id": "ceb-installment-electricity-connections",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "undp-mobile-women-empowerment-space-line",
+   "project_id": "undp-mobile-women-empowerment-space",
+   "funder": "other:canada_norway_undp",
+   "funder_name": "Canada, Norway and UNDP",
+   "funder_type": "unknown",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "litro-gas-divestiture-private",
+   "project_id": "litro-gas-divestiture",
+   "funder": "private",
+   "funder_name": "Private investors",
+   "funder_type": "private",
+   "origin": "unknown",
+   "instrument": "equity",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-paddy-purchase-programme-2024",
+   "project_id": "paddy-purchase-programme-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "unknown-renewable-energy-targets-2030",
+   "project_id": "renewable-energy-targets-2030",
+   "funder": "unknown",
+   "funder_name": "Unknown investors",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "unknown-dp-education-it-campuses-jaffna",
+   "project_id": "dp-education-it-campuses-jaffna",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-fertilizer-credit-arrears-settlement",
+   "project_id": "fertilizer-credit-arrears-settlement",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "gosl-school-food-programme-2024",
+   "project_id": "school-food-programme-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "save-the-children-school-food-programme-2024",
+   "project_id": "school-food-programme-2024",
+   "funder": "other:save_the_children",
+   "funder_name": "Save the Children",
+   "funder_type": "private",
+   "origin": "unknown",
+   "instrument": "in_kind",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-overseas-workers-electric-vehicle-import-scheme",
+   "project_id": "overseas-workers-electric-vehicle-import-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "galle-harbour-ppp-investor",
+   "project_id": "galle-harbour-commercial-recreation-development",
+   "funder": "private",
+   "funder_name": "Selected private investor",
+   "funder_type": "private",
+   "origin": "unknown",
+   "instrument": "equity",
+   "purpose": "project"
+  },
+  {
+   "id": "honor-global-bedding-export-investment",
+   "project_id": "honor-global-bedding-export-facility",
+   "funder": "private",
+   "funder_name": "Honor Global Industry Lanka",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "equity",
+   "purpose": "project"
+  },
+  {
+   "id": "samanalawewa-mini-hydro-project-unknown",
+   "project_id": "samanalawewa-mini-hydro-project",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "india-northern-islands-hybrid-energy-grant",
+   "project_id": "india-northern-islands-hybrid-energy",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "imf-governance-action-plan-gosl",
+   "project_id": "imf-governance-action-plan",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "china-port-city-hambantota-development-proposed-2024-03-30",
+   "line_id": "china-port-city-hambantota-development",
+   "date": "2024-03-30",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China and Sri Lanka agreed to promote Port City and Hambantota projects.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-30-adaderanalk-e7d872c0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-2023-funder_approved-2024-03-29",
+   "line_id": "imf-eff-2023",
+   "date": "2024-03-29",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 337000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF initially approved a US$337 million payout for Sri Lanka.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-29-dailymirrorlk-a934b7d8"
+   ],
+   "relation": "update_of:imf-eff-2023-disbursed-2024-01-15",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-2023-funder_approved-2024-03-28",
+   "line_id": "imf-eff-2023",
+   "date": "2024-03-28",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 337000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF initially approved a $337 million payout pending further debt restructuring progress.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-28-adaderanalk-28b21422"
+   ],
+   "relation": "repeat_of:imf-eff-2023-funder_approved-2024-03-29",
+   "notes": null
+  },
+  {
+   "id": "china-airport-port-city-hambantota-assistance-china-pledged-2024-03-27",
+   "line_id": "china-airport-port-city-hambantota-assistance-china",
+   "date": "2024-03-27",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China pledged assistance for Katunayake Airport, Hambantota Port and Colombo Port City development.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-28-economynextcom-c47ca49f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-sme-credit-line-gosl-agreement_signed-2024-03-25",
+   "line_id": "adb-sme-credit-line-gosl",
+   "date": "2024-03-25",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 100000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB and Sri Lanka signed a $100 million SME finance and guarantee loan.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-26-islandlk-791c3286"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-flag-ship-registration-promotion-govt_authorised-2024-03-26",
+   "line_id": "gosl-flag-ship-registration-promotion",
+   "date": "2024-03-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved seeking proposals to promote Sri Lankan-flag ship registration.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-26-islandlk-ba8fcd5b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-northern-farmers-electricity-charge-relief-proposed-2024-03-26",
+   "line_id": "gosl-northern-farmers-electricity-charge-relief",
+   "date": "2024-03-26",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet paper planned to reduce agricultural electricity charges for Northern farmers.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-26-dailymirrorlk-801f10bf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-expressway-network-sahasya-management-transfer-govt_authorised-2024-03-26",
+   "line_id": "gosl-expressway-network-sahasya-management-transfer",
+   "date": "2024-03-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government approved transferring expressway operations and assets to Sahasya Investment Limited.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-26-dailymirrorlk-7749ccb0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-foreign-employment-sector-digitisation-govt_authorised-2024-03-26",
+   "line_id": "gosl-foreign-employment-sector-digitisation",
+   "date": "2024-03-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved digitising the entire foreign employment sector.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-26-dailyftlk-5cb2616a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "usa-cargills-solar-ev-charging-launched-2024-03-21",
+   "line_id": "usa-cargills-solar-ev-charging",
+   "date": "2024-03-21",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cargills and USAID launched solar-supported EV charging stations in Colombo.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-25-islandlk-23e9fb6e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-halted-projects-resumption-loan-pledged-2024-03-25",
+   "line_id": "japan-halted-projects-resumption-loan",
+   "date": "2024-03-25",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan promised to resume suspended Sri Lankan development projects after creditor agreement",
+   "confidence": "high",
+   "reports": [
+    "2024-03-22-economynextcom-12115eca"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-undp-anti-corruption-support-grant-unclear-2024-03-22",
+   "line_id": "japan-undp-anti-corruption-support-grant",
+   "date": "2024-03-22",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan extended UNDP-mediated financial aid for Sri Lanka anti-corruption efforts",
+   "confidence": "medium",
+   "reports": [
+    "2024-03-22-economynextcom-12115eca"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-foreign-employment-sector-digitisation-govt_authorised-2024-03-25",
+   "line_id": "gosl-foreign-employment-sector-digitisation",
+   "date": "2024-03-25",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved digitisation of Sri Lanka’s foreign employment sector",
+   "confidence": "high",
+   "reports": [
+    "2024-03-25-dailymirrorlk-0d646e73"
+   ],
+   "relation": "repeat_of:gosl-foreign-employment-sector-digitisation-govt_authorised-2024-03-26",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-proposed-2024-03-21",
+   "line_id": "imf-eff-loan",
+   "date": "2024-03-21",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 254000000,
+   "currency": "SDR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF staff-level agreement could unlock the next EFF financing tranche.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-22-islandlk-9c46c71f",
+    "2024-03-21-dailymirrorlk-ac58f3ae",
+    "2024-03-21-adaderanalk-aed38327",
+    "2024-03-21-economynextcom-063d0c7b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-sobitha-nahimigama-agreement_signed-2024-03-21",
+   "line_id": "india-grant-sobitha-nahimigama",
+   "date": "2024-03-21",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 150000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "India formalised an additional grant for houses and infrastructure in Sobitha Thero Village.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-22-dailyftlk-49fa9897"
+   ],
+   "relation": "update_of:india-grant-sobitha-nahimigama-underway-2024-01-19",
+   "notes": null
+  },
+  {
+   "id": "adb-country-partnership-strategy-2024-2028-line-launched-2024-03-21",
+   "line_id": "adb-country-partnership-strategy-2024-2028-line",
+   "date": "2024-03-21",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB launched its 2024–2028 country partnership strategy for Sri Lanka.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-21-adaderanalk-0bc92939"
+   ],
+   "relation": "repeat_of:adb-country-partnership-strategy-2024-2028-line-launched-2024-04-03",
+   "notes": null
+  },
+  {
+   "id": "india-grant-kks-port-renovation-pledged-2024-03-21",
+   "line_id": "india-grant-kks-port-renovation",
+   "date": "2024-03-21",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 61500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India agreed to fund full development of Kankesanturai Port.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-21-adaderanalk-2608ab04"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-tropical-belt-initiative-launched-2024-03-20",
+   "line_id": "gosl-tropical-belt-initiative",
+   "date": "2024-03-20",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President unveiled an initiative for sustainable development across the tropical belt.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-20-islandlk-55cbfb39"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-sister-district-programme-agreement_signed-2024-03-20",
+   "line_id": "china-sister-district-programme",
+   "date": "2024-03-20",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka and Chongqing signed a sister-district agreement involving Kalutara.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-20-economynextcom-3584bdf1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-vocational-training-programme-agreement_signed-2024-03-20",
+   "line_id": "china-vocational-training-programme",
+   "date": "2024-03-20",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka signed agreements with 33 Chinese vocational training institutes.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-20-economynextcom-3584bdf1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-three-gorges-vocational-branch-proposed-2024-03-20",
+   "line_id": "china-three-gorges-vocational-branch",
+   "date": "2024-03-20",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Three Gorges Institute planned a Sri Lankan branch for vocational training.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-20-economynextcom-3584bdf1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-kks-port-renovation-pledged-2024-03-19",
+   "line_id": "india-grant-kks-port-renovation",
+   "date": "2024-03-19",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 61500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India pledged a grant to develop Kankesanthurai Port in Jaffna.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-19-economynextcom-8c981dc8",
+    "2024-03-19-dailymirrorlk-8bd230f3"
+   ],
+   "relation": "repeat_of:india-grant-kks-port-renovation-pledged-2024-03-21",
+   "notes": null
+  },
+  {
+   "id": "india-grant-kks-port-renovation-underway-2024-03-19",
+   "line_id": "india-grant-kks-port-renovation",
+   "date": "2024-03-19",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Construction of a new KKS port terminal was underway.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-19-economynextcom-8c981dc8",
+    "2024-03-19-dailymirrorlk-8bd230f3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-egg-import-market-stabilisation-2024-contract_awarded-2024-03-19",
+   "line_id": "gosl-egg-import-market-stabilisation-2024",
+   "date": "2024-03-19",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved procurement to import 42 million eggs for market stabilisation.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-19-dailymirrorlk-778f63fb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-economic-social-development-grant-2024-line-agreement_signed-2024-03-18",
+   "line_id": "japan-economic-social-development-grant-2024-line",
+   "date": "2024-03-18",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 1600000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan signed grant assistance covering marine, fishing, health and vocational training needs.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-19-dailyftlk-06c9e5d4",
+    "2024-03-18-adaderanalk-c252484e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ceb-installment-electricity-connections-line-launched-2024-03-18",
+   "line_id": "ceb-installment-electricity-connections-line",
+   "date": "2024-03-18",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "CEB introduced installment payments for new electricity connections.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-18-adaderanalk-aac72bfc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-sme-credit-line-gosl-funder_approved-2024-03-18",
+   "line_id": "adb-sme-credit-line-gosl",
+   "date": "2024-03-18",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 100000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approved a loan expanding SME finance access and resilience in Sri Lanka.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-18-dailymirrorlk-c3565cd0",
+    "2024-03-18-adaderanalk-53077ae0",
+    "2024-03-18-economynextcom-93c2156d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "undp-mobile-women-empowerment-space-line-launched-2024-03-13",
+   "line_id": "undp-mobile-women-empowerment-space-line",
+   "date": "2024-03-13",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "UNDP and partners inaugurated a mobile women’s empowerment exhibition in Jaffna.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-18-dailyftlk-7fd9a302"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "litro-gas-divestiture-private-proposed-2024-03-15",
+   "line_id": "litro-gas-divestiture-private",
+   "date": "2024-03-15",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Fourteen investors expressed interest in divesting Sri Lanka’s state-owned Litro Gas companies.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-15-economynextcom-00557686"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-paddy-purchase-programme-2024-allocated-2024-03-14",
+   "line_id": "gosl-paddy-purchase-programme-2024",
+   "date": "2024-03-14",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President ordered Rs. 500 million allocation for nationwide paddy purchases.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-14-adaderanalk-34defea8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-economic-social-development-grant-2024-line-govt_authorised-2024-03-13",
+   "line_id": "japan-economic-social-development-grant-2024-line",
+   "date": "2024-03-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1600000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved signing Japan’s grant for humanitarian and state-sector support.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-13-dailyftlk-281d8d65",
+    "2024-03-12-adaderanalk-8f5a3afc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-renewable-energy-targets-2030-cost_estimate-2024-03-12",
+   "line_id": "unknown-renewable-energy-targets-2030",
+   "date": "2024-03-12",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 11260000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "CEB estimates renewable energy infrastructure investment required through 2030.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-12-economynextcom-7a938d9e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-dp-education-it-campuses-jaffna-underway-2024-03-11",
+   "line_id": "unknown-dp-education-it-campuses-jaffna",
+   "date": "2024-03-11",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Four additional DP Education IT campuses are being established in Northern Province.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-11-dailyftlk-5a84c81a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-fertilizer-credit-arrears-settlement-allocated-2024-03-09",
+   "line_id": "gosl-fertilizer-credit-arrears-settlement",
+   "date": "2024-03-09",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 18000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government allocated funds to settle farmers’ fertilizer credit arrears.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-09-islandlk-e6839d55"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ceb-installment-electricity-connections-line-unclear-2024-03-07",
+   "line_id": "ceb-installment-electricity-connections-line",
+   "date": "2024-03-07",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": 40000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "CEB approved an instalment scheme for new electricity connection charges.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-07-dailymirrorlk-d87f14af"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-school-food-programme-2024-govt_authorised-2024-03-06",
+   "line_id": "gosl-school-food-programme-2024",
+   "date": "2024-03-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 110,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet increased the school meal allocation to Rs. 110 per meal.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-06-dailyftlk-8937a66a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "save-the-children-school-food-programme-2024-pledged-2024-03-06",
+   "line_id": "save-the-children-school-food-programme-2024",
+   "date": "2024-03-06",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Save the Children pledged three food items for 200,000 students.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-06-dailyftlk-8937a66a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-overseas-workers-electric-vehicle-import-scheme-govt_authorised-2024-03-05",
+   "line_id": "gosl-overseas-workers-electric-vehicle-import-scheme",
+   "date": "2024-03-05",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet extended the electric vehicle import scheme validity period.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-05-dailymirrorlk-b67147c8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "galle-harbour-ppp-investor-govt_authorised-2024-03-05",
+   "line_id": "galle-harbour-ppp-investor",
+   "date": "2024-03-05",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved inviting investors for Galle Harbour commercial and recreation development.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-05-adaderanalk-8e30e5eb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-school-food-programme-2024-govt_authorised-2024-03-05",
+   "line_id": "gosl-school-food-programme-2024",
+   "date": "2024-03-05",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 110,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved Rs. 110 meals for primary students under the 2024 school food programme.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-05-dailymirrorlk-cde0470b"
+   ],
+   "relation": "repeat_of:gosl-school-food-programme-2024-govt_authorised-2024-03-06",
+   "notes": null
+  },
+  {
+   "id": "save-the-children-school-food-programme-2024-pledged-2024-03-05",
+   "line_id": "save-the-children-school-food-programme-2024",
+   "date": "2024-03-05",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Save the Children agreed to provide food to 200,000 students in 917 schools.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-05-dailymirrorlk-cde0470b"
+   ],
+   "relation": "repeat_of:save-the-children-school-food-programme-2024-pledged-2024-03-06",
+   "notes": null
+  },
+  {
+   "id": "india-unique-id-card-india-disbursed-2024-03-04",
+   "line_id": "india-unique-id-card-india",
+   "date": "2024-03-04",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 450000000,
+   "currency": "INR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "India provided advance aid for Sri Lanka’s unique identity card project.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-04-economynextcom-2fc26daa"
+   ],
+   "relation": "update_of:india-unique-id-card-india-underway-2024-01-19",
+   "notes": null
+  },
+  {
+   "id": "honor-global-bedding-export-investment-agreement_signed-2024-03-04",
+   "line_id": "honor-global-bedding-export-investment",
+   "date": "2024-03-04",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 8000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "BOI signed an $8 million agreement for an export bedding manufacturing venture.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-04-dailyftlk-2fdc727a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "samanalawewa-mini-hydro-project-unknown-halted-2024-03-02",
+   "line_id": "samanalawewa-mini-hydro-project-unknown",
+   "date": "2024-03-02",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "District committee rejected approval for proposed Samanalawewa mini hydro project.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-02-dailymirrorlk-fc8f2286"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-northern-islands-hybrid-energy-grant-agreement_signed-2024-03-01",
+   "line_id": "india-northern-islands-hybrid-energy-grant",
+   "date": "2024-03-01",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 10995000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka and India signed agreement for hybrid renewable energy systems on three Jaffna islands.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-01-economynextcom-70eb6478",
+    "2024-03-01-dbsjeyarajcom-b1f176a4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-governance-action-plan-gosl-launched-2024-03-01",
+   "line_id": "imf-governance-action-plan-gosl",
+   "date": "2024-03-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Finance Ministry unveiled governance action plan based on IMF diagnostic recommendations.",
+   "confidence": "high",
+   "reports": [
+    "2024-03-01-adaderanalk-523795e7",
+    "2024-03-01-economynextcom-4682fe68"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-03-30-adaderanalk-e7d872c0": {
+   "date": "2024-03-30",
+   "title": "China reaffirms financial support for Sri Lanka",
+   "url": "https://www.adaderana.lk/news/98307/china-reaffirms-financial-support-for-sri-lanka",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-03-29-dailymirrorlk-a934b7d8": {
+   "date": "2024-03-29",
+   "title": "Sri Lanka confident of meeting conditions for IMF funding soon",
+   "url": "https://www.dailymirror.lk/breaking-news/Sri-Lanka-confident-of-meeting-conditions-for-IMF-funding-soon/108-279803",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-03-28-adaderanalk-28b21422": {
+   "date": "2024-03-28",
+   "title": "Sri Lanka confident of meeting conditions for IMF funding soon - report",
+   "url": "https://www.adaderana.lk/news/98261/sri-lanka-confident-of-meeting-conditions-for-imf-funding-soon-report",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-03-28-economynextcom-c47ca49f": {
+   "date": "2024-03-28",
+   "title": "Xi meets Sri Lanka PM as China eyes main Colombo airport development",
+   "url": "https://economynext.com/xi-meets-sri-lanka-pm-as-china-eyes-main-colombo-airport-development-156370/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-03-26-islandlk-791c3286": {
+   "date": "2024-03-26",
+   "title": "ADB loan to bolster financial capability of Lankan SMEs",
+   "url": "http://island.lk/adb-loan-to-bolster-financial-capability-of-lankan-smes/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-03-26-islandlk-ba8fcd5b": {
+   "date": "2024-03-26",
+   "title": "Cabinet nod to promote registration of ships under the Sri Lankan flag",
+   "url": "http://island.lk/cabinet-nod-to-promote-registration-of-ships-under-the-sri-lankan-flag/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-03-26-dailymirrorlk-801f10bf": {
+   "date": "2024-03-26",
+   "title": "Cabinet Paper to reduce electricity charges for Northern Province farmers",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-Paper-to-reduce-electricity-charges-for-Northern-Province-farmers/108-279634",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-03-26-dailymirrorlk-7749ccb0": {
+   "date": "2024-03-26",
+   "title": "Shifting of expressway network from RDA to Sahasya Investment Limited approved",
+   "url": "https://www.dailymirror.lk/breaking-news/Shifting-of-expressway-network-from-RDA-to-Sahasya-Investment-Limited-approved/108-279631",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-03-26-dailyftlk-5cb2616a": {
+   "date": "2024-03-26",
+   "title": "Cabinet approves digitising foreign employment sector: Manusha",
+   "url": "https://www.ft.lk/news/Cabinet-approves-digitising-foreign-employment-sector-Manusha/56-759948",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-03-25-islandlk-23e9fb6e": {
+   "date": "2024-03-25",
+   "title": "Cargills partners with USAID to launch innovative EV charging initiative",
+   "url": "http://island.lk/cargills-partners-with-usaid-to-launch-innovative-ev-charging-initiative/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-03-25-dailymirrorlk-0d646e73": {
+   "date": "2024-03-25",
+   "title": "Cabinet approval granted to digitize the foreign employment sector",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-approval-granted-to-digitize-the-foreign-employment-sector/108-279520",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-03-22-economynextcom-12115eca": {
+   "date": "2024-03-22",
+   "title": "Japan promises to financially back Sri Lanka after signing bilateral creditor deal: FM",
+   "url": "https://economynext.com/japan-promises-to-financially-back-sri-lanka-after-signing-bilateral-creditor-deal-fm-155779/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-03-22-islandlk-9c46c71f": {
+   "date": "2024-03-22",
+   "title": "IMF and Sri Lankan Authorities Reach Staff-Level Agreement on Economic Policies",
+   "url": "http://island.lk/imf-and-sri-lankan-authorities-reach-staff-level-agreement-on-economic-policies/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-03-22-dailyftlk-49fa9897": {
+   "date": "2024-03-22",
+   "title": "India infuses additional funds into ongoing grant projects",
+   "url": "https://www.ft.lk/news/India-infuses-additional-funds-into-ongoing-grant-projects/56-759793",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-03-21-dailymirrorlk-ac58f3ae": {
+   "date": "2024-03-21",
+   "title": "IMF reaches staff-level agreement with SL on second review",
+   "url": "https://www.dailymirror.lk/top-story/IMF-reaches-staff-level-agreement-with-SL-on-second-review/155-279326",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-03-21-adaderanalk-aed38327": {
+   "date": "2024-03-21",
+   "title": "IMF and Sri Lanka reaches staff-level agreement following second review",
+   "url": "https://www.adaderana.lk/news/98106/imf-and-sri-lanka-reaches-staff-level-agreement-following-second-review",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-03-21-economynextcom-063d0c7b": {
+   "date": "2024-03-21",
+   "title": "Sri Lanka reaches staff level agreement with IMF: Statement",
+   "url": "https://economynext.com/sri-lanka-reaches-staff-level-agreement-with-imf-statement-155581/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-03-21-adaderanalk-0bc92939": {
+   "date": "2024-03-21",
+   "title": "ADB launches new partnership strategy for Sri Lanka",
+   "url": "https://www.adaderana.lk/news/98104/adb-launches-new-partnership-strategy-for-sri-lanka",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-03-21-adaderanalk-2608ab04": {
+   "date": "2024-03-21",
+   "title": "Sri Lanka to get Indian grant of $61.5mn to fully develop KKS Port",
+   "url": "https://www.adaderana.lk/news/98100/sri-lanka-to-get-indian-grant-of-615mn-to-fully-develop-kks-port",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-03-20-islandlk-55cbfb39": {
+   "date": "2024-03-20",
+   "title": "Green Climate Fund reaches USD 12.8 bn; contributions from 31 countries",
+   "url": "http://island.lk/green-climate-fund-reaches-usd-12-8-bn-contributions-from-31-countries/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-03-20-economynextcom-3584bdf1": {
+   "date": "2024-03-20",
+   "title": "Sri Lanka to sign “sister district” deal with China’s Chongqing for investments",
+   "url": "https://economynext.com/sri-lankas-districts-to-sign-sister-district-deal-with-chinas-chongqing-for-investments-155373/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-03-19-economynextcom-8c981dc8": {
+   "date": "2024-03-19",
+   "title": "India pledges 61.5 million dollar grant for Jaffna KKS port Sri Lanka says",
+   "url": "https://economynext.com/india-pledges-61-5-million-dollar-grant-for-jaffna-kks-port-sri-lanka-says-155217/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-03-19-dailymirrorlk-778f63fb": {
+   "date": "2024-03-19",
+   "title": "Cabinet approves import of 42 million eggs till end April",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-approves-import-of-42-million-eggs-till-end-April/108-279152",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-03-19-dailymirrorlk-8bd230f3": {
+   "date": "2024-03-19",
+   "title": "India grants USD 61.5 million to develop KKS Port",
+   "url": "https://www.dailymirror.lk/breaking-news/India-grants-USD-61-5-million-to-develop-KKS-Port/108-279142",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-03-19-dailyftlk-06c9e5d4": {
+   "date": "2024-03-19",
+   "title": "Japan extends Rs. 3.3 b grant aid to support humanitarian relief amid economic woes",
+   "url": "https://www.ft.lk/news/Japan-extends-Rs-3-3-b-grant-aid-to-support-humanitarian-relief-amid-economic-woes/56-759674",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-03-18-adaderanalk-c252484e": {
+   "date": "2024-03-18",
+   "title": "Japan provides Rs. 3.3 billion grant assistance to Sri Lanka for several projects",
+   "url": "https://www.adaderana.lk/news/98034/japan-provides-rs-33-billion-grant-assistance-to-sri-lanka-for-several-projects-",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-03-18-adaderanalk-aac72bfc": {
+   "date": "2024-03-18",
+   "title": "CEB introduces new installment scheme to obtain electricity connections",
+   "url": "https://www.adaderana.lk/news/98030/ceb-introduces-new-installment-scheme-to-obtain-electricity-connections",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-03-18-dailymirrorlk-c3565cd0": {
+   "date": "2024-03-18",
+   "title": "ADB approves $100 million loan to support SMEs in Sri Lanka",
+   "url": "https://www.dailymirror.lk/breaking-news/ADB-approves-100-million-loan-to-support-SMEs-in-Sri-Lanka/108-279061",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-03-18-adaderanalk-53077ae0": {
+   "date": "2024-03-18",
+   "title": "ADB approves USD 100 million loan to support SMEs in Sri Lanka",
+   "url": "https://www.adaderana.lk/news/98024/adb-approves-usd-100-million-loan-to-support-smes-in-sri-lanka",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-03-18-economynextcom-93c2156d": {
+   "date": "2024-03-18",
+   "title": "ADB approves US$100mn Sri Lanka SME loan",
+   "url": "https://economynext.com/adb-approves-us100mn-sri-lanka-sme-loan-154972/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-03-18-dailyftlk-7fd9a302": {
+   "date": "2024-03-18",
+   "title": "Canada and JICA join UNDP to open mobile interactive space on women’s empowerment in Jaffna",
+   "url": "https://www.ft.lk/news/Canada-and-JICA-join-UNDP-to-open-mobile-interactive-space-on-women-s-empowerment-in-Jaffna/56-759622",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-03-15-economynextcom-00557686": {
+   "date": "2024-03-15",
+   "title": "Sri Lanka’s Litro Gas sale draws Vitol, Bharat Petro, China Aero among 14 investors",
+   "url": "https://economynext.com/sri-lankas-litro-gas-sale-draws-vitol-bharat-petro-china-aero-among-14-investors-154843/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-03-14-adaderanalk-34defea8": {
+   "date": "2024-03-14",
+   "title": "President orders immediate allocation of Rs. 500 mn for paddy purchase",
+   "url": "https://www.adaderana.lk/news/97943/president-orders-immediate-allocation-of-rs-500-mn-for-paddy-purchase-",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-03-13-dailyftlk-281d8d65": {
+   "date": "2024-03-13",
+   "title": "Japanese grant worth Rs. 3.3 b to extend humanitarian aid amid economic woes",
+   "url": "https://www.ft.lk/news/Japanese-grant-worth-Rs-3-3-b-to-extend-humanitarian-aid-amid-economic-woes/56-759405",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-03-12-adaderanalk-8f5a3afc": {
+   "date": "2024-03-12",
+   "title": "Sri Lanka to get Rs. 3.3bn Japanese grant under Economic and Social Development Program",
+   "url": "https://www.adaderana.lk/news/97908/sri-lanka-to-get-rs-33bn-japanese-grant-under-economic-and-social-development-program",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-03-12-economynextcom-7a938d9e": {
+   "date": "2024-03-12",
+   "title": "Sri Lanka looks for $11.26 bln investment to achieve renewable energy targets – CEB GM",
+   "url": "https://economynext.com/sri-lanka-looks-for-11-26-bln-investment-to-achieve-renewable-energy-targets-ceb-gm-154427/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-03-11-dailyftlk-5a84c81a": {
+   "date": "2024-03-11",
+   "title": "India’s Deputy High Commissioner visits DP Education IT Campus in Jaffna",
+   "url": "https://www.ft.lk/business/India-s-Deputy-High-Commissioner-visits-DP-Education-IT-Campus-in-Jaffna/34-759340",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-03-09-islandlk-e6839d55": {
+   "date": "2024-03-09",
+   "title": "Ministry of Agriculture pays bulk of fertilizer credit owed by farmers to private sector",
+   "url": "http://island.lk/ministry-of-agriculture-pays-bulk-of-fertilizer-credit-owed-by-farmers-to-private-sector/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-03-07-dailymirrorlk-d87f14af": {
+   "date": "2024-03-07",
+   "title": "CEB to introduce instalment payment scheme for new connections: Minister",
+   "url": "https://www.dailymirror.lk/breaking-news/CEB-to-introduce-instalment-payment-scheme-for-new-connections-Minister/108-278429",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-03-06-dailyftlk-8937a66a": {
+   "date": "2024-03-06",
+   "title": "Cabinet approves enhanced meal budget for School Food Program",
+   "url": "https://www.ft.lk/news/Cabinet-approves-enhanced-meal-budget-for-School-Food-Program/56-759206",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-03-05-dailymirrorlk-b67147c8": {
+   "date": "2024-03-05",
+   "title": "Cabinet extends validity of scheme for Sri Lankans abroad to import electric vehicles",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-extends-validity-of-scheme-for-Sri-Lankans-abroad-to-import-electric-vehicles/108-278289",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-03-05-adaderanalk-8e30e5eb": {
+   "date": "2024-03-05",
+   "title": "Cabinet nod to develop Galle Harbour for commercial and recreation activities",
+   "url": "https://www.adaderana.lk/news/97747/cabinet-nod-to-develop-galle-harbour-for-commercial-and-recreation-activities",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-03-05-dailymirrorlk-cde0470b": {
+   "date": "2024-03-05",
+   "title": "Government approves meals at Rs. 110 per student",
+   "url": "https://www.dailymirror.lk/breaking-news/Government-approves-meals-at-Rs-110-per-student/108-278277",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-03-04-economynextcom-2fc26daa": {
+   "date": "2024-03-04",
+   "title": "Amid security concerns, India-funded unique ID card project faces delay in Sri Lanka",
+   "url": "https://economynext.com/amid-security-concerns-india-funded-unique-id-card-project-faces-delay-in-sri-lanka-152966/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-03-04-dailyftlk-2fdc727a": {
+   "date": "2024-03-04",
+   "title": "$ 8 m investment to set up bedding ware for export",
+   "url": "https://www.ft.lk/business/8-m-investment-to-set-up-bedding-ware-for-export/34-759130",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-03-02-dailymirrorlk-fc8f2286": {
+   "date": "2024-03-02",
+   "title": "Cabinet approval for mini hydro project turned down",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-approval-for-mini-hydro-project-turned-down/108-278060",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2024-03-01-economynextcom-70eb6478": {
+   "date": "2024-03-01",
+   "title": "India funds electricity project in Sri Lanka’s northern islands",
+   "url": "https://economynext.com/india-funds-electricity-project-in-sri-lankas-northern-islands-152707/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-03-01-adaderanalk-523795e7": {
+   "date": "2024-03-01",
+   "title": "Sri Lanka unveils ‘Govt. Action Plan’ based on IMF governance diagnostic assessment",
+   "url": "https://www.adaderana.lk/news/97654/sri-lanka-unveils-govt-action-plan-based-on-imf-governance-diagnostic-assessment",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-03-01-economynextcom-4682fe68": {
+   "date": "2024-03-01",
+   "title": "Sri Lanka unveils action plan after IMF corruption report",
+   "url": "https://economynext.com/sri-lanka-unveils-action-plan-after-imf-corruption-report-152597/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-03-01-dbsjeyarajcom-b1f176a4": {
+   "date": "2024-03-01",
+   "title": "Three Years after Ousting China from Sri Lanka’s Northern Island Hybrid Energy Project,  India Signs “Hybrid Renewable Energy Systems” Power Project for Neduntheevu,Nainatheevu and Analaitheevu i Islands in Northern Sri Lanka",
+   "url": "https://dbsjeyaraj.com/dbsj/?p=83702",
+   "outlet": "dbsjeyaraj.com",
+   "lang": "en"
+  }
+ }
+}

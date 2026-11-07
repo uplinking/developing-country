@@ -1,0 +1,3020 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-11-01",
+  "2024-11-31"
+ ],
+ "upstream": "nuuuwan/lk_news@5d469f077cfe5207f3972e54d4bd0023cb2cbc19",
+ "extracted_by": "Codex gpt-6-luna (medium reasoning)",
+ "extracted_at": "2026-11-06",
+ "language": "ta",
+ "articles_read": 174,
+ "rejected": 90,
+ "rejected_ids": [
+  "2024-11-01-tamilmirrorlk-186f2efe",
+  "2024-11-01-tamilmirrorlk-49ebaa96",
+  "2024-11-01-tamilmirrorlk-61ce86b5",
+  "2024-11-01-tamilmirrorlk-656b670b",
+  "2024-11-01-tamilmirrorlk-8d27c587",
+  "2024-11-01-tamilmirrorlk-d1713916",
+  "2024-11-01-virakesarilk-02ad2657",
+  "2024-11-01-virakesarilk-752a1e51",
+  "2024-11-01-virakesarilk-de917e5c",
+  "2024-11-01-virakesarilk-f26989d9",
+  "2024-11-02-tamilmirrorlk-074e4d5b",
+  "2024-11-02-tamilmirrorlk-a30c84d0",
+  "2024-11-02-tamilmirrorlk-aa24e6e5",
+  "2024-11-02-virakesarilk-6017db40",
+  "2024-11-02-virakesarilk-f46eb228",
+  "2024-11-02-virakesarilk-fea52000",
+  "2024-11-03-tamilmirrorlk-8a81e49b",
+  "2024-11-03-virakesarilk-f026afc7",
+  "2024-11-05-tamilmirrorlk-1329f2f9",
+  "2024-11-05-tamilmirrorlk-e27a3d0e",
+  "2024-11-05-virakesarilk-519c1c3a",
+  "2024-11-05-virakesarilk-c3fff049",
+  "2024-11-05-virakesarilk-f0e9d85a",
+  "2024-11-05-virakesarilk-f23518d8",
+  "2024-11-06-virakesarilk-28b02549",
+  "2024-11-06-virakesarilk-6bc73206",
+  "2024-11-06-virakesarilk-a10f418f",
+  "2024-11-06-virakesarilk-b1eccc01",
+  "2024-11-06-virakesarilk-eb05403e",
+  "2024-11-07-tamilmirrorlk-8048403e",
+  "2024-11-07-virakesarilk-627c4013",
+  "2024-11-07-virakesarilk-a794efa4",
+  "2024-11-07-virakesarilk-cd1feab4",
+  "2024-11-07-virakesarilk-e9e205e7",
+  "2024-11-08-tamilmirrorlk-627de6ea",
+  "2024-11-08-tamilmirrorlk-738364aa",
+  "2024-11-08-tamilmirrorlk-90d010ca",
+  "2024-11-08-tamilmirrorlk-ae8da36e",
+  "2024-11-08-virakesarilk-38d40d76",
+  "2024-11-08-virakesarilk-703b2c21",
+  "2024-11-09-tamilmirrorlk-16847195",
+  "2024-11-09-tamilmirrorlk-1ffe69fc",
+  "2024-11-09-tamilmirrorlk-26c523b3",
+  "2024-11-09-tamilmirrorlk-a7ee9983",
+  "2024-11-09-virakesarilk-3be5fc6e",
+  "2024-11-10-tamilmirrorlk-4af6b50a",
+  "2024-11-10-virakesarilk-2701710a",
+  "2024-11-11-virakesarilk-ed510f59",
+  "2024-11-12-tamilmirrorlk-8985d452",
+  "2024-11-12-virakesarilk-2d053c02",
+  "2024-11-13-tamilmirrorlk-337da6e6",
+  "2024-11-13-tamilmirrorlk-46ce3616",
+  "2024-11-13-tamilmirrorlk-c7da65c6",
+  "2024-11-13-tamilmirrorlk-cfe9681e",
+  "2024-11-16-virakesarilk-14671384",
+  "2024-11-17-tamilmirrorlk-51c5fdf0",
+  "2024-11-17-tamilmirrorlk-7494af22",
+  "2024-11-17-tamilmirrorlk-8bb5cd38",
+  "2024-11-18-tamilmirrorlk-7d071235",
+  "2024-11-18-tamilmirrorlk-e19c1df1",
+  "2024-11-18-virakesarilk-249a3917",
+  "2024-11-18-virakesarilk-c7f97c10",
+  "2024-11-19-tamilmirrorlk-fb4e915d",
+  "2024-11-19-virakesarilk-8e18b1a1",
+  "2024-11-20-tamilmirrorlk-db015050",
+  "2024-11-20-virakesarilk-afbf74f6",
+  "2024-11-21-tamilmirrorlk-aabf3a18",
+  "2024-11-21-virakesarilk-0109151d",
+  "2024-11-21-virakesarilk-9027a590",
+  "2024-11-21-virakesarilk-b07115c4",
+  "2024-11-22-tamilmirrorlk-bdceb431",
+  "2024-11-22-tamilmirrorlk-db7eeafa",
+  "2024-11-22-virakesarilk-33fde968",
+  "2024-11-24-virakesarilk-88b971b8",
+  "2024-11-25-tamilmirrorlk-25bdfad3",
+  "2024-11-25-tamilmirrorlk-d5560f0e",
+  "2024-11-26-tamilmirrorlk-e5296906",
+  "2024-11-26-virakesarilk-1fbc1c0a",
+  "2024-11-26-virakesarilk-92a6ce3f",
+  "2024-11-26-virakesarilk-a669f457",
+  "2024-11-26-virakesarilk-f3fe08bc",
+  "2024-11-26-virakesarilk-fc3a9366",
+  "2024-11-27-tamilmirrorlk-1b84dab0",
+  "2024-11-27-tamilmirrorlk-4941e675",
+  "2024-11-27-tamilmirrorlk-8f223367",
+  "2024-11-27-virakesarilk-d4eb404f",
+  "2024-11-27-virakesarilk-ee363dff",
+  "2024-11-28-tamilmirrorlk-04711203",
+  "2024-11-28-tamilmirrorlk-064bfbe5",
+  "2024-11-28-tamilmirrorlk-bcb015fa",
+  "2024-11-28-virakesarilk-65c92ff5",
+  "2024-11-29-tamilmirrorlk-474bce37",
+  "2024-11-29-tamilmirrorlk-571fdf80",
+  "2024-11-29-tamilmirrorlk-59a66365",
+  "2024-11-29-tamilmirrorlk-7eb5e849",
+  "2024-11-29-tamilmirrorlk-881c6a53",
+  "2024-11-30-tamilmirrorlk-4e58a8b6",
+  "2024-11-30-virakesarilk-cfcfe2b5"
+ ],
+ "unattributed_ids": [
+  "2024-11-01-virakesarilk-02ad2657",
+  "2024-11-02-virakesarilk-6017db40",
+  "2024-11-05-tamilmirrorlk-e27a3d0e",
+  "2024-11-07-virakesarilk-a794efa4",
+  "2024-11-09-tamilmirrorlk-26c523b3",
+  "2024-11-12-virakesarilk-2d053c02",
+  "2024-11-21-tamilmirrorlk-aabf3a18",
+  "2024-11-26-tamilmirrorlk-e5296906"
+ ],
+ "dropped": [
+  "line imf-eff-2023",
+  "event gosl-general-election-2024-funding underway: unknown line",
+  "line gosl-general-election-special-transport-2024",
+  "event gosl-general-election-university-holidays-gosl proposed: unknown line"
+ ],
+ "projects": [
+  {
+   "id": "navy-flood-relief-response-nov-2024",
+   "name": "Navy Flood Relief Response, November 2024",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "Ampara, Puttalam, Anuradhapura",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "parliamentary-members-housing-renovation",
+   "name": "Renovation of Official Residences for Members of Parliament",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "maruthankerny-bridge-road-repairs",
+   "name": "Emergency Road Repairs near Maruthankerny Bridge",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Maruthankerny, Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-katunayake-airport-equipment-grant",
+   "name": "Japanese equipment grant for Katunayake Airport and other facilities",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Katunayake",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "vattuvakal-bridge-reconstruction",
+   "name": "Proposed reconstruction of Vattuvakal Bridge",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Vattuvakal",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "maruthankerny-bridge-heavy-vehicle-restriction",
+   "name": "Temporary heavy-vehicle restriction on Maruthankerny Bridge",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Maruthankerny",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rain-damaged-crop-compensation-2024",
+   "name": "Proposed compensation for farmers affected by heavy rain",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "navy-flood-relief-ampara-batticaloa-matara-nov-2024",
+   "name": "Navy flood relief operations in Ampara, Batticaloa and Matara",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "Ampara, Batticaloa and Matara",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nov-2024-disaster-relief-funding",
+   "name": "Government disaster relief funding for affected communities",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "police-weather-emergency-operations-centre",
+   "name": "24-hour Police Emergency Operations Centre for severe weather",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kalmunai-private-tuition-suspension-weather",
+   "name": "Temporary suspension of private tuition classes during severe weather",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Kalmunai",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nuwara-eliya-exam-transport-weather-response",
+   "name": "Transport arrangements for students attending examinations during severe weather",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Nuwara Eliya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "badulla-bandarawela-rail-service-weather-disruption",
+   "name": "Badulla-Bandarawela rail service weather disruption",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Badulla District",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "colombo-badulla-rail-service-weather-disruption",
+   "name": "Colombo-Badulla passenger rail service weather disruption",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Nanu Oya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "eastern-province-muslim-school-weather-closure",
+   "name": "Eastern Province Muslim school weather closure",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Eastern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mannar-flood-emergency-response-2024",
+   "name": "Mannar flood emergency response",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "Mannar",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "madathuwilankulam-dam-repair",
+   "name": "Madathuwilankulam tank bund repair",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Palamottai",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "thannimurippu-tank-protection",
+   "name": "Thannimurippu tank bund protection works",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Mullaitivu",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "police-officer-issues-response-programme",
+   "name": "Programme to address challenges facing lower-ranking police officers",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-unity-officers-equipment",
+   "name": "Telecommunications and technology equipment for national unity officers",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Rajagiriya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fuel-efficient-vehicles-for-mps",
+   "name": "Fuel-efficient vehicles for Members of Parliament",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-northern-province-livelihood-support",
+   "name": "Livelihood support for Northern Province residents",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "Northern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "school-equipment-payment-assistance",
+   "name": "School equipment payment assistance for low-income students",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "special-train-services-post-election-nov-2024",
+   "name": "Special train services after the November 2024 general election",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "netherlands-sri-lanka-multisector-cooperation",
+   "name": "Netherlands-Sri Lanka multisector cooperation",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "general-election-special-transport-2024",
+   "name": "Special transport services for the November 2024 general election",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Sri Lanka",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jaffna-election-special-ferry-services-2024",
+   "name": "Special ferry services between Kurikadduwan and Neduntheevu for the general election",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kurikadduwan and Neduntheevu",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kilinochchi-maha-fertilizer-subsidy-payment-2024",
+   "name": "Maha 2024/25 paddy fertilizer subsidy payment in Kilinochchi",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Kilinochchi",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "international-election-observation-2024",
+   "name": "International observation of Sri Lanka's November 2024 general election",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "talaimannar-colombo-rail-service-resumption",
+   "name": "Resumption of the Talaimannar-Colombo train service",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Talaimannar-Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "general-election-online-voter-card-access",
+   "name": "Online voter-card access for the 2024 General Election",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "general-election-disaster-response-plan",
+   "name": "Disaster response plan for the 2024 General Election",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "general-election-university-holidays",
+   "name": "University holidays for the 2024 General Election",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nationwide-measles-vaccination-campaign-2024",
+   "name": "Nationwide measles vaccination campaign, 2024",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "general-election-school-holidays-2024",
+   "name": "School closures for the November 2024 general election",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ministerial-residences-policy-2024",
+   "name": "Policy ending official Colombo residences for ministers",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "galle-face-public-use-policy-2024",
+   "name": "Expanded public use of Galle Face Green",
+   "sector": "urban",
+   "status": "unknown",
+   "place": "Galle Face Green",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "vehicle-number-plate-distribution",
+   "name": "Vehicle number plate distribution and temporary paper registration display",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "navy-flood-relief-response-nov-2024-gosl",
+   "project_id": "navy-flood-relief-response-nov-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "parliamentary-members-housing-renovation-gosl",
+   "project_id": "parliamentary-members-housing-renovation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "maruthankerny-bridge-road-repairs-gosl",
+   "project_id": "maruthankerny-bridge-road-repairs",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "japan-katunayake-airport-equipment-grant-japan",
+   "project_id": "japan-katunayake-airport-equipment-grant",
+   "funder": "japan",
+   "funder_name": "Government of Japan",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "vattuvakal-bridge-reconstruction-gosl",
+   "project_id": "vattuvakal-bridge-reconstruction",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "maruthankerny-bridge-heavy-vehicle-restriction-gosl",
+   "project_id": "maruthankerny-bridge-heavy-vehicle-restriction",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "rain-damaged-crop-compensation-2024-gosl",
+   "project_id": "rain-damaged-crop-compensation-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "navy-flood-relief-ampara-batticaloa-matara-nov-2024-gosl",
+   "project_id": "navy-flood-relief-ampara-batticaloa-matara-nov-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "nov-2024-disaster-relief-funding-gosl",
+   "project_id": "nov-2024-disaster-relief-funding",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "police-weather-emergency-operations-centre-gosl",
+   "project_id": "police-weather-emergency-operations-centre",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "kalmunai-private-tuition-suspension-weather-gosl",
+   "project_id": "kalmunai-private-tuition-suspension-weather",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "nuwara-eliya-exam-transport-weather-response-gosl",
+   "project_id": "nuwara-eliya-exam-transport-weather-response",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "badulla-bandarawela-rail-service-gosl",
+   "project_id": "badulla-bandarawela-rail-service-weather-disruption",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "colombo-badulla-rail-service-gosl",
+   "project_id": "colombo-badulla-rail-service-weather-disruption",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "eastern-province-school-closure-gosl",
+   "project_id": "eastern-province-muslim-school-weather-closure",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "mannar-flood-emergency-response-gosl",
+   "project_id": "mannar-flood-emergency-response-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "madathuwilankulam-dam-repair-gosl",
+   "project_id": "madathuwilankulam-dam-repair",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "thannimurippu-tank-protection-gosl",
+   "project_id": "thannimurippu-tank-protection",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-police-officer-issues-response",
+   "project_id": "police-officer-issues-response-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "un-national-unity-officers-equipment",
+   "project_id": "national-unity-officers-equipment",
+   "funder": "un",
+   "funder_name": "United Nations Development Programme (SCO programme)",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-fuel-efficient-vehicles-for-mps",
+   "project_id": "fuel-efficient-vehicles-for-mps",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "china-northern-province-livelihood-support-grant",
+   "project_id": "china-northern-province-livelihood-support",
+   "funder": "china",
+   "funder_name": "Government of China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-school-equipment-payment-assistance",
+   "project_id": "school-equipment-payment-assistance",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-special-train-services-post-election-nov-2024",
+   "project_id": "special-train-services-post-election-nov-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "netherlands-multisector-cooperation",
+   "project_id": "netherlands-sri-lanka-multisector-cooperation",
+   "funder": "other:netherlands",
+   "funder_name": "Government of the Netherlands",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-general-election-special-transport-2024",
+   "project_id": "general-election-special-transport-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-jaffna-election-special-ferry-2024",
+   "project_id": "jaffna-election-special-ferry-services-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-kilinochchi-maha-fertilizer-subsidy-2024",
+   "project_id": "maha-2024-25-paddy-fertilizer-subsidy",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "unknown-international-election-observation-2024",
+   "project_id": "international-election-observation-2024",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "unknown-talaimannar-colombo-rail-service",
+   "project_id": "talaimannar-colombo-rail-service-resumption",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "general-election-online-voter-card-access-gosl",
+   "project_id": "general-election-online-voter-card-access",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "general-election-disaster-response-plan-gosl",
+   "project_id": "general-election-disaster-response-plan",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "relief"
+  },
+  {
+   "id": "general-election-university-holidays-gosl",
+   "project_id": "general-election-university-holidays",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-nationwide-measles-vaccination-campaign-2024",
+   "project_id": "nationwide-measles-vaccination-campaign-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-general-election-school-holidays-2024",
+   "project_id": "general-election-school-holidays-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-ministerial-residences-policy-2024",
+   "project_id": "ministerial-residences-policy-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-galle-face-public-use-policy-2024",
+   "project_id": "galle-face-public-use-policy-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "vehicle-number-plate-distribution-gosl",
+   "project_id": "vehicle-number-plate-distribution",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "navy-flood-relief-response-nov-2024-gosl-launched-2024-11-30",
+   "line_id": "navy-flood-relief-response-nov-2024-gosl",
+   "date": "2024-11-30",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Navy assigned 16 disaster response teams to assist flood-affected residents.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-30-tamilmirrorlk-d15d271c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "parliamentary-members-housing-renovation-gosl-underway-2024-11-30",
+   "line_id": "parliamentary-members-housing-renovation-gosl",
+   "date": "2024-11-30",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Renovation is underway on 25 to 30 official residences returned by former MPs.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-30-tamilmirrorlk-fa5303c8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "maruthankerny-bridge-road-repairs-gosl-underway-2024-11-29",
+   "line_id": "maruthankerny-bridge-road-repairs-gosl",
+   "date": "2024-11-29",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Emergency repairs and sandbag reinforcement were carried out near Maruthankerny Bridge.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-29-virakesarilk-b08d3a20"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-crop-damage-compensation-yala-2024-govt_authorised-2024-11-29",
+   "line_id": "gosl-crop-damage-compensation-yala-2024",
+   "date": "2024-11-29",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 40000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Flood-affected crop growers to receive compensation of up to LKR 40,000 per acre.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-29-tamilmirrorlk-6c0579d5"
+   ],
+   "relation": "repeat_of:gosl-crop-damage-compensation-increase-2024-govt_authorised-2024-11-29",
+   "notes": null
+  },
+  {
+   "id": "japan-katunayake-airport-equipment-grant-japan-disbursed-2024-11-29",
+   "line_id": "japan-katunayake-airport-equipment-grant-japan",
+   "date": "2024-11-29",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 8400000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan handed over donated equipment valued at US$8.4 million at Katunayake Airport.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-29-virakesarilk-fffd3aba"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "vattuvakal-bridge-reconstruction-gosl-proposed-2024-11-29",
+   "line_id": "vattuvakal-bridge-reconstruction-gosl",
+   "date": "2024-11-29",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Deputy Minister said steps would be taken to build a new Vattuvakal Bridge.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-29-virakesarilk-4a93f5b7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "maruthankerny-bridge-heavy-vehicle-restriction-gosl-halted-2024-11-29",
+   "line_id": "maruthankerny-bridge-heavy-vehicle-restriction-gosl",
+   "date": "2024-11-29",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Heavy vehicles were temporarily barred from crossing the flood-damaged bridge.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-29-virakesarilk-5ce41087"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rain-damaged-crop-compensation-2024-gosl-proposed-2024-11-29",
+   "line_id": "rain-damaged-crop-compensation-2024-gosl",
+   "date": "2024-11-29",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government considered compensating farmers for additional crops damaged by heavy rain.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-29-tamilmirrorlk-e635b485"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-flood-relief-oct2024-colombo-gampaha-puttalam-kalutara-underway-2024-11-29",
+   "line_id": "gosl-flood-relief-oct2024-colombo-gampaha-puttalam-kalutara",
+   "date": "2024-11-29",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Committees monitored ongoing flood relief work in Northern and Eastern provinces.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-29-tamilmirrorlk-b347243a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rain-damaged-crop-compensation-2024-gosl-proposed-2024-11-28",
+   "line_id": "rain-damaged-crop-compensation-2024-gosl",
+   "date": "2024-11-28",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Relief for farmers affected by heavy rains was promised after assessments.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-28-virakesarilk-37dd719b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-parakoda-navy-flood-relief-operation-underway-2024-11-28",
+   "line_id": "gosl-parakoda-navy-flood-relief-operation",
+   "date": "2024-11-28",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Officials arranged medical services and distributed food and essential supplies to displaced people.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-28-virakesarilk-99d30379"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "navy-flood-relief-ampara-batticaloa-matara-nov-2024-gosl-underway-2024-11-28",
+   "line_id": "navy-flood-relief-ampara-batticaloa-matara-nov-2024-gosl",
+   "date": "2024-11-28",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Navy relief teams were deployed in three flood-affected districts.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-28-tamilmirrorlk-51dbadd0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nov-2024-disaster-relief-funding-gosl-allocated-2024-11-27",
+   "line_id": "nov-2024-disaster-relief-funding-gosl",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President directed officials to allocate funds for relief to weather-affected communities.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-27-virakesarilk-9f1f95e0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nov-2024-disaster-relief-funding-gosl-unclear-2024-11-27",
+   "line_id": "nov-2024-disaster-relief-funding-gosl",
+   "date": "2024-11-27",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Officials discussed emergency relief and preparedness measures for flood-affected Mannar residents.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-27-virakesarilk-d4eb404f",
+    "2024-11-27-virakesarilk-b8abf4ca"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "police-weather-emergency-operations-centre-gosl-launched-2024-11-26",
+   "line_id": "police-weather-emergency-operations-centre-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Police established a 24-hour centre to coordinate urgent disaster reports and response.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-virakesarilk-6a0f6760"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kalmunai-private-tuition-suspension-weather-gosl-halted-2024-11-26",
+   "line_id": "kalmunai-private-tuition-suspension-weather-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Kalmunai Municipal Council directed private education centres to suspend tuition for two days.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-tamilmirrorlk-6240a1b2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nuwara-eliya-exam-transport-weather-response-gosl-underway-2024-11-26",
+   "line_id": "nuwara-eliya-exam-transport-weather-response-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Disaster officials arranged heavy-vehicle transport to take students to examination centres.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-26-virakesarilk-a669f457"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "colombo-badulla-rail-service-gosl-halted-2024-11-26",
+   "line_id": "colombo-badulla-rail-service-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Passenger trains between Badulla and Colombo were suspended due to landslides and debris.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-26-tamilmirrorlk-fa20f5e5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "badulla-bandarawela-rail-service-gosl-halted-2024-11-26",
+   "line_id": "badulla-bandarawela-rail-service-gosl",
+   "date": "2024-11-26",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rail service between Badulla and Bandarawela was disrupted by landslides and falling rocks.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-26-virakesarilk-a658ecc0",
+    "2024-11-26-tamilmirrorlk-98f05dab"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "eastern-province-school-closure-gosl-halted-2024-11-25",
+   "line_id": "eastern-province-school-closure-gosl",
+   "date": "2024-11-25",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Muslim schools in the Eastern Province were closed for two days due to severe weather.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-25-virakesarilk-84c5bc23"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mannar-flood-emergency-response-gosl-underway-2024-11-25",
+   "line_id": "mannar-flood-emergency-response-gosl",
+   "date": "2024-11-25",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Authorities deployed emergency measures, shelters, food aid and water pumping to respond to flooding.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-25-virakesarilk-2e0d4bef"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "madathuwilankulam-dam-repair-gosl-underway-2024-11-24",
+   "line_id": "madathuwilankulam-dam-repair-gosl",
+   "date": "2024-11-24",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Farmer organisations and the Agrarian Development Department began repairing a breached tank bund.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-24-virakesarilk-4f501a17"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "thannimurippu-tank-protection-gosl-underway-2024-11-24",
+   "line_id": "thannimurippu-tank-protection-gosl",
+   "date": "2024-11-24",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Irrigation officials and the army placed sandbags and fencing to protect the tank bund.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-24-virakesarilk-23271a73"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-2023-proposed-2024-11-23",
+   "line_id": "imf-eff-2023",
+   "date": "2024-11-23",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 333000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF staff reached a third-review agreement; the fourth tranche awaits board approval and prior actions.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-23-virakesarilk-105b922b",
+    "2024-11-23-tamilmirrorlk-40a3d8ca",
+    "2024-11-23-tamilmirrorlk-8b64238f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-clean-sri-lanka-fund-proposed-2024-11-23",
+   "line_id": "gosl-clean-sri-lanka-fund",
+   "date": "2024-11-23",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Western Province plans short-term development of Kakkaithivu beach under the Clean Sri Lanka programme.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-23-virakesarilk-38fd43df"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-police-officer-issues-response-proposed-2024-11-23",
+   "line_id": "gosl-police-officer-issues-response",
+   "date": "2024-11-23",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The ministry plans an urgent programme to address challenges facing lower-ranking police officers.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-23-tamilmirrorlk-5184cc02"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-grant-low-income-housing-agreement_signed-2024-11-22",
+   "line_id": "china-grant-low-income-housing",
+   "date": "2024-11-22",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 552000000,
+   "currency": "CNY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka and China signed a supplementary agreement for 1,996 low-income and senior artists’ homes.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-23-virakesarilk-274b3fc5",
+    "2024-11-22-tamilmirrorlk-8489b97c"
+   ],
+   "relation": "update_of:china-grant-low-income-housing-contract_awarded-2024-11-06",
+   "notes": null
+  },
+  {
+   "id": "un-national-unity-officers-equipment-unclear-2024-11-22",
+   "line_id": "un-national-unity-officers-equipment",
+   "date": "2024-11-22",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "UNDP-supported programme handed 61 computers and other technology equipment to national unity officers.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-22-virakesarilk-0906bbbd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-proposed-2024-11-22",
+   "line_id": "rice-import-gosl",
+   "date": "2024-11-22",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister said a Cabinet paper would seek approval to import 70,000 tonnes of rice from India.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-22-virakesarilk-6dbdda36"
+   ],
+   "relation": "update_of:rice-import-gosl-govt_authorised-2024-11-20",
+   "notes": null
+  },
+  {
+   "id": "gosl-fuel-efficient-vehicles-for-mps-unclear-2024-11-22",
+   "line_id": "gosl-fuel-efficient-vehicles-for-mps",
+   "date": "2024-11-22",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ministry announced fuel-efficient vehicles would be provided to all Members of Parliament.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-22-tamilmirrorlk-ed08b8ee"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-school-education-structure-reform-2025-proposed-2024-11-21",
+   "line_id": "gosl-school-education-structure-reform-2025",
+   "date": "2024-11-21",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Education ministry will review prior reforms before proposing new reforms aligned with government policy.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-22-tamilmirrorlk-bdceb431"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-police-officer-issues-response-launched-2024-11-21",
+   "line_id": "gosl-police-officer-issues-response",
+   "date": "2024-11-21",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Agriculture ministry established a special unit to address crop damage caused by harmful animals.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-21-tamilmirrorlk-284b4f80"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-teacher-assistant-recruitment-govt_authorised-2024-11-19",
+   "line_id": "gosl-teacher-assistant-recruitment",
+   "date": "2024-11-19",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Northern Governor approved appointing senior teachers as teacher resource personnel.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-21-virakesarilk-4e717828"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nov-2024-disaster-relief-funding-gosl-unclear-2024-11-21",
+   "line_id": "nov-2024-disaster-relief-funding-gosl",
+   "date": "2024-11-21",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Jaffna district officials directed cooked meals for people sheltering in temporary accommodation.",
+   "confidence": "low",
+   "reports": [
+    "2024-11-21-virakesarilk-0109151d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-public-sector-salary-hike-2025-pledged-2024-11-21",
+   "line_id": "gosl-public-sector-salary-hike-2025",
+   "date": "2024-11-21",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President pledged a public-sector salary increase in the next budget.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-21-tamilmirrorlk-9872e780"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-aswesuma-benefit-increase-2024-pledged-2024-11-21",
+   "line_id": "gosl-aswesuma-benefit-increase-2024",
+   "date": "2024-11-21",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President pledged an increase in Aswesuma benefits in the next budget.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-21-tamilmirrorlk-9872e780"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-northern-province-livelihood-support-grant-disbursed-2024-11-20",
+   "line_id": "china-northern-province-livelihood-support-grant",
+   "date": "2024-11-20",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 12000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China handed Northern Province’s governor a cheque for residents’ livelihood support.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-20-virakesarilk-d44ae483"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-govt_authorised-2024-11-20",
+   "line_id": "rice-import-gosl",
+   "date": "2024-11-20",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government decided to import 70,000 tonnes of local rice to address a market shortage.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-20-tamilmirrorlk-0f776ece"
+   ],
+   "relation": "update_of:rice-import-gosl-proposed-2024-11-22",
+   "notes": null
+  },
+  {
+   "id": "gosl-school-equipment-payment-assistance-pledged-2024-11-20",
+   "line_id": "gosl-school-equipment-payment-assistance",
+   "date": "2024-11-20",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government announced payments for low-income students’ school books and supplies, starting next year.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-20-virakesarilk-a460ef78"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-financial-sector-reform-program-adb-funder_approved-2024-11-19",
+   "line_id": "adb-financial-sector-reform-program-adb",
+   "date": "2024-11-19",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approved a $200 million loan to strengthen Sri Lanka’s public financial sector.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-20-virakesarilk-1194d66b",
+    "2024-11-20-tamilmirrorlk-ed27b340"
+   ],
+   "relation": "repeat_of:adb-financial-sector-reform-program-adb-funder_approved-2024-11-19",
+   "notes": null
+  },
+  {
+   "id": "gosl-maha-2024-25-paddy-fertilizer-subsidy-spent-2024-11-19",
+   "line_id": "gosl-maha-2024-25-paddy-fertilizer-subsidy",
+   "date": "2024-11-19",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 1290000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "First phase paid fertilizer subsidies to 129,229 farmers for the Maha season.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-19-virakesarilk-c9d8cde0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-special-train-services-post-election-nov-2024-underway-2024-11-17",
+   "line_id": "gosl-special-train-services-post-election-nov-2024",
+   "date": "2024-11-17",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Railways operated extra trains on several routes after the election and long weekend.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-17-tamilmirrorlk-d327df45"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "netherlands-multisector-cooperation-pledged-2024-11-13",
+   "line_id": "netherlands-multisector-cooperation",
+   "date": "2024-11-13",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Dutch representatives agreed to provide technical and financial support for Sri Lankan sector programmes.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-14-virakesarilk-597153d4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-general-election-special-transport-2024-underway-2024-11-13",
+   "line_id": "gosl-general-election-special-transport-2024",
+   "date": "2024-11-13",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Extra buses and trains operated to help voters travel for the general election.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-13-tamilmirrorlk-119446c8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-general-election-special-transport-2024-underway-2024-11-12",
+   "line_id": "gosl-general-election-special-transport-2024",
+   "date": "2024-11-12",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Seventy extra buses operated in Colombo, Gampaha and Kalutara; 80 more were assigned for Colombo.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-12-virakesarilk-c7ead0f8",
+    "2024-11-12-tamilmirrorlk-638dec0d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-general-election-special-transport-2024-proposed-2024-11-12",
+   "line_id": "gosl-general-election-special-transport-2024",
+   "date": "2024-11-12",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Special ferry trips were arranged between Kurikattuwan and Neduntheevu for election day.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-12-virakesarilk-c3d1d0c3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-jaffna-election-special-ferry-2024-proposed-2024-11-12",
+   "line_id": "gosl-jaffna-election-special-ferry-2024",
+   "date": "2024-11-12",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Officials arranged special election-day ferry services between Kurikadduwan and Neduntheevu.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-12-tamilmirrorlk-864f6050"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-kilinochchi-maha-fertilizer-subsidy-2024-spent-2024-11-12",
+   "line_id": "gosl-kilinochchi-maha-fertilizer-subsidy-2024",
+   "date": "2024-11-12",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 127191000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "First Maha-season fertilizer subsidy payment was deposited for 9,064 Kilinochchi farmers.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-12-virakesarilk-1f29d2ab"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-international-election-observation-2024-underway-2024-11-12",
+   "line_id": "unknown-international-election-observation-2024",
+   "date": "2024-11-12",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "International election observers began monitoring duties after meeting Election Commission officials.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-12-virakesarilk-820fd823"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-talaimannar-colombo-rail-service-proposed-2024-11-11",
+   "line_id": "unknown-talaimannar-colombo-rail-service",
+   "date": "2024-11-11",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Talaimannar-Colombo train service was scheduled to resume after railway development work.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-11-tamilmirrorlk-9e1b0abb",
+    "2024-11-11-virakesarilk-148600cc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "general-election-online-voter-card-access-gosl-launched-2024-11-11",
+   "line_id": "general-election-online-voter-card-access-gosl",
+   "date": "2024-11-11",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Election Commission introduced online access to voter cards for the parliamentary election.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-11-virakesarilk-42ab8da4",
+    "2024-11-11-tamilmirrorlk-33ff0616"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "general-election-disaster-response-plan-gosl-underway-2024-11-11",
+   "line_id": "general-election-disaster-response-plan-gosl",
+   "date": "2024-11-11",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Disaster Management Centre implemented a five-day response plan for election-related emergencies.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-11-virakesarilk-9405d97e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "general-election-university-holidays-gosl-proposed-2024-11-11",
+   "line_id": "general-election-university-holidays-gosl",
+   "date": "2024-11-11",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "University Grants Commission decided to close universities on November 13 and 14 for the election.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-11-virakesarilk-61905016"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-general-election-special-transport-2024-unclear-2024-11-10",
+   "line_id": "gosl-general-election-special-transport-2024",
+   "date": "2024-11-10",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Police announced election security deployment and post-election patrols nationwide.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-11-tamilmirrorlk-3e4d87a3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-general-election-special-transport-2024-halted-2024-11-10",
+   "line_id": "gosl-general-election-special-transport-2024",
+   "date": "2024-11-10",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Police restricted Matara coastal road traffic for ballot transport and election security.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-10-virakesarilk-c9109fdd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "general-election-university-holidays-gosl-proposed-2024-11-09",
+   "line_id": "general-election-university-holidays-gosl",
+   "date": "2024-11-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Officials were instructed to grant election leave to university staff and students.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-09-tamilmirrorlk-bd4cbf3d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-grant-disaster-relief-monitoring-disbursed-2024-11-09",
+   "line_id": "china-grant-disaster-relief-monitoring",
+   "date": "2024-11-09",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 30000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China's disaster compensation assistance was sent to the Treasury.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-09-virakesarilk-4f89ceef",
+    "2024-11-08-virakesarilk-2b1fdb1e"
+   ],
+   "relation": "repeat_of:china-grant-disaster-relief-monitoring-disbursed-2024-11-09",
+   "notes": null
+  },
+  {
+   "id": "defence-disaster-restoration-gosl-allocated-2024-11-09",
+   "line_id": "defence-disaster-restoration-gosl",
+   "date": "2024-11-09",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Additional budget funds were allocated to rebuild disaster-damaged homes.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-09-virakesarilk-4f89ceef",
+    "2024-11-08-virakesarilk-2b1fdb1e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "defence-disaster-restoration-gosl-released-2024-11-09",
+   "line_id": "defence-disaster-restoration-gosl",
+   "date": "2024-11-09",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The Treasury released funds to the Defence Ministry for disaster recovery.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-09-virakesarilk-4f89ceef",
+    "2024-11-08-virakesarilk-2b1fdb1e"
+   ],
+   "relation": "repeat_of:defence-disaster-restoration-gosl-released-2024-11-09",
+   "notes": null
+  },
+  {
+   "id": "china-grant-disaster-relief-material-aid-pledged-2024-11-09",
+   "line_id": "china-grant-disaster-relief-material-aid",
+   "date": "2024-11-09",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 10000000,
+   "currency": "CNY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China's promised emergency goods will be distributed after receipt and accounting.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-09-virakesarilk-4f89ceef",
+    "2024-11-08-virakesarilk-2b1fdb1e"
+   ],
+   "relation": "repeat_of:china-grant-disaster-relief-material-aid-pledged-2024-11-09",
+   "notes": null
+  },
+  {
+   "id": "gosl-nationwide-measles-vaccination-campaign-2024-proposed-2024-11-09",
+   "line_id": "gosl-nationwide-measles-vaccination-campaign-2024",
+   "date": "2024-11-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Health Ministry announced nationwide measles vaccination activities would begin.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-08-virakesarilk-f232fd90"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-general-election-school-holidays-2024-govt_authorised-2024-11-06",
+   "line_id": "gosl-general-election-school-holidays-2024",
+   "date": "2024-11-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government ordered schools closed for the general election on November 13 and 14.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-06-tamilmirrorlk-6cdbc5b0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "cpc-petrol-import-vitol-private-contract_awarded-2024-11-06",
+   "line_id": "cpc-petrol-import-vitol-private",
+   "date": "2024-11-06",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved awarding Vitol Asia the 92-octane petrol supply tender.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-06-virakesarilk-eb05403e"
+   ],
+   "relation": "repeat_of:cpc-petrol-import-vitol-private-contract_awarded-2024-11-06",
+   "notes": null
+  },
+  {
+   "id": "gosl-ministerial-residences-policy-2024-govt_authorised-2024-11-06",
+   "line_id": "gosl-ministerial-residences-policy-2024",
+   "date": "2024-11-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President directed ministers to live in their own districts and end official Colombo residences.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-06-virakesarilk-d30972cf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-galle-face-public-use-policy-2024-govt_authorised-2024-11-06",
+   "line_id": "gosl-galle-face-public-use-policy-2024",
+   "date": "2024-11-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government relaxed restrictions on non-religious community events at Galle Face Green.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-06-virakesarilk-72b83d09"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-galle-face-public-use-policy-2024-cost_estimate-2024-11-06",
+   "line_id": "gosl-galle-face-public-use-policy-2024",
+   "date": "2024-11-06",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 2500000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Officials reported monthly Galle Face management and maintenance costs starting at Rs. 2.5 million.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-06-virakesarilk-72b83d09"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-grant-low-income-housing-contract_awarded-2024-11-06",
+   "line_id": "china-grant-low-income-housing",
+   "date": "2024-11-06",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved contracts for three batches of China-funded low-income housing.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-06-tamilmirrorlk-ab7cd14b"
+   ],
+   "relation": "repeat_of:china-grant-low-income-housing-contract_awarded-2024-11-06",
+   "notes": null
+  },
+  {
+   "id": "ceylon-electricity-tariff-reduction-2024-gosl-proposed-2024-11-04",
+   "line_id": "ceylon-electricity-tariff-reduction-2024-gosl",
+   "date": "2024-11-04",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Regulator directed CEB to submit a new tariff reduction proposal by November 8.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-04-tamilmirrorlk-8c9d2948"
+   ],
+   "relation": "update_of:ceylon-electricity-tariff-reduction-2024-gosl-proposed-2024-09-27",
+   "notes": null
+  },
+  {
+   "id": "gosl-e-passport-launch-2025-proposed-2024-11-04",
+   "line_id": "gosl-e-passport-launch-2025",
+   "date": "2024-11-04",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Immigration Department announced online appointment booking for passports, effective November 6.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-04-tamilmirrorlk-e6fa4dce"
+   ],
+   "relation": "update_of:gosl-e-passport-launch-2025-proposed-2024-07-17",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-govt-funds-underway-2024-11-03",
+   "line_id": "aswesuma-govt-funds",
+   "date": "2024-11-03",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ministerial secretary appointed a 10-member committee to investigate Aswesuma beneficiary selection complaints.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-03-tamilmirrorlk-e9e2cc13"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "vehicle-number-plate-distribution-gosl-halted-2024-11-03",
+   "line_id": "vehicle-number-plate-distribution-gosl",
+   "date": "2024-11-03",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Vehicle number plate distribution was temporarily suspended over delayed payment to the printing company.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-03-tamilmirrorlk-6e97f756",
+    "2024-11-03-tamilmirrorlk-51f4d173"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "vehicle-number-plate-distribution-gosl-launched-2024-11-03",
+   "line_id": "vehicle-number-plate-distribution-gosl",
+   "date": "2024-11-03",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Vehicle owners were temporarily permitted to display their registration numbers on paper.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-03-tamilmirrorlk-6e97f756",
+    "2024-11-03-tamilmirrorlk-51f4d173"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-presidential-election-ballot-distribution-2024-underway-2024-11-02",
+   "line_id": "gosl-presidential-election-ballot-distribution-2024",
+   "date": "2024-11-02",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Postal workers continued distributing official voter cards for the general election.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-02-virakesarilk-e22ce0f9"
+   ],
+   "relation": "update_of:gosl-presidential-election-ballot-distribution-2024-underway-2024-09-12",
+   "notes": null
+  },
+  {
+   "id": "gosl-presidential-election-ballot-distribution-2024-proposed-2024-11-02",
+   "line_id": "gosl-presidential-election-ballot-distribution-2024",
+   "date": "2024-11-02",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Postal Department designated November 3 for special delivery of general-election voter cards.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-02-tamilmirrorlk-292f821c"
+   ],
+   "relation": "update_of:gosl-presidential-election-ballot-distribution-2024-underway-2024-09-12",
+   "notes": null
+  },
+  {
+   "id": "epassport-interim-procurement-gosl-contract_awarded-2024-11-02",
+   "line_id": "epassport-interim-procurement-gosl",
+   "date": "2024-11-02",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "A foreign supplier delivered 50,000 blank passports under an awarded procurement contract.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-02-tamilmirrorlk-da2aa52f"
+   ],
+   "relation": "update_of:epassport-interim-procurement-gosl-govt_authorised-2024-10-11",
+   "notes": null
+  },
+  {
+   "id": "epassport-interim-procurement-gosl-underway-2024-11-02",
+   "line_id": "epassport-interim-procurement-gosl",
+   "date": "2024-11-02",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Procurement began for another batch of blank passports.",
+   "confidence": "high",
+   "reports": [
+    "2024-11-02-tamilmirrorlk-da2aa52f"
+   ],
+   "relation": "update_of:epassport-interim-procurement-gosl-govt_authorised-2024-10-11",
+   "notes": null
+  },
+  {
+   "id": "unknown-international-election-observation-2024-underway-2024-11-01",
+   "line_id": "unknown-international-election-observation-2024",
+   "date": "2024-11-01",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "EU election observers began monitoring Sri Lanka’s general election.",
+   "confidence": "medium",
+   "reports": [
+    "2024-11-01-tamilmirrorlk-a553f95b"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-11-30-tamilmirrorlk-d15d271c": {
+   "date": "2024-11-30",
+   "title": "4 மாவட்டங்களுக்கு 16 பேரிடர் மீட்பு குழுக்கள் நியமனம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/4-மாவட்டங்களுக்கு-16-பேரிடர்-மீட்பு-குழுக்கள்-நியமனம்/175-348007",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-30-tamilmirrorlk-fa5303c8": {
+   "date": "2024-11-30",
+   "title": "இல்லங்களுக்காக 35 எம்.பிக்கள் விண்ணப்பம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/இல்லங்களுக்காக-35-எம்-பிக்கள்-விண்ணப்பம்/175-348003",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-29-virakesarilk-b08d3a20": {
+   "date": "2024-11-29",
+   "title": "மருதங்கேணி பாலத்தை நேரில் சென்று பார்த்த கடற்றொழில் அமைச்சர்",
+   "url": "https://www.virakesari.lk/article/200048",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-29-tamilmirrorlk-6c0579d5": {
+   "date": "2024-11-29",
+   "title": "பாதிக்கப்பட்ட விவசாயிகளுக்கு இழப்பீடு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/பாதிக்கப்பட்ட-விவசாயிகளுக்கு-இழப்பீடு/175-347987",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-29-virakesarilk-fffd3aba": {
+   "date": "2024-11-29",
+   "title": "கட்டுநாயக்க விமான நிலையத்திற்கு ஜப்பானிய உதவி !",
+   "url": "https://www.virakesari.lk/article/200039",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-29-virakesarilk-4a93f5b7": {
+   "date": "2024-11-29",
+   "title": "வட்டுவாகல் பாலத்தை பார்வையிட்ட பிரதியமைச்சர் உபாலி : புதிய பாலம் அமைக்க நடவடிக்கை எடுக்கப்படுமெனவும் தெரிவிப்பு",
+   "url": "https://www.virakesari.lk/article/200022",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-29-virakesarilk-5ce41087": {
+   "date": "2024-11-29",
+   "title": "யாழ். மருதங்கேணி பாலத்தினூடாக கனரக வாகன போக்குவரத்துக்கு தடை",
+   "url": "https://www.virakesari.lk/article/200024",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-29-tamilmirrorlk-e635b485": {
+   "date": "2024-11-29",
+   "title": "மழையால் பாதிக்கப்பட்ட விவசாயிகளுக்கு நட்டஈடு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மழையால்-பாதிக்கப்பட்ட-விவசாயிகளுக்கு-நட்டஈடு/175-347983",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-29-tamilmirrorlk-b347243a": {
+   "date": "2024-11-29",
+   "title": "நிவாரண பணிகளை மேற்பார்வையிட குழுக்கள் நியமனம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/நிவாரண-பணிகளை-மேற்பார்வையிட-குழுக்கள்-நியமனம்/175-347977",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-28-virakesarilk-37dd719b": {
+   "date": "2024-11-28",
+   "title": "கடும் மழையுடனான காலநிலையால் 4800 ஏக்கர் நெற் பயிர்ச்செய்கை  பாதிப்பு  - விவசாயத்துறை அமைச்சு!",
+   "url": "https://www.virakesari.lk/article/199938",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-28-virakesarilk-99d30379": {
+   "date": "2024-11-28",
+   "title": "யாழில் பேரிடர் பணியில் கடற்றொழில் அமைச்சர் மற்றும் பாராளுமன்ற உறுப்பினர்கள் களத்தில்!",
+   "url": "https://www.virakesari.lk/article/199941",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-28-tamilmirrorlk-51dbadd0": {
+   "date": "2024-11-28",
+   "title": "நிவாரணம் வழங்க 11 கடற்படை குழுக்கள்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/நிவாரணம்-வழங்க-11-கடற்படை-குழுக்கள்/175-347900",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-27-virakesarilk-9f1f95e0": {
+   "date": "2024-11-27",
+   "title": "தொழில்நுட்ப தகவல்களை மாத்திரம் அடிப்படையாகக் கொள்ளாமல், அனர்த்தங்களை எதிர்கொண்ட பிரதேசங்களுக்கு சென்று மக்களுக்கு உடனடி நிவாரணங்களை வழங்க வேண்டும் - ஜனாதிபதி  அறிவுறுத்தல்",
+   "url": "https://www.virakesari.lk/article/199865",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-27-virakesarilk-d4eb404f": {
+   "date": "2024-11-27",
+   "title": "மன்னாரில் சீரற்ற வானிலையால் 50 ஆயிரம் பேர் பாதிப்பு : பாதுகாப்பு பிரதி  அமைச்சர் அநுர ஜெயசேகர தலைமையில் விசேட குழு மன்னார் விஜயம்",
+   "url": "https://www.virakesari.lk/article/199839",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-27-virakesarilk-b8abf4ca": {
+   "date": "2024-11-27",
+   "title": "நீர்ப்பாசன திணைக்களம், மகாவலி அதிகார சபை, நீர்ப்பாசன பொறியியலாளர்கள், தொழில்நுட்ப     உத்தியோகஸ்தர்களின் விடுமுறை இரத்து !",
+   "url": "https://www.virakesari.lk/article/199847",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-26-virakesarilk-6a0f6760": {
+   "date": "2024-11-26",
+   "title": "சீரற்ற காலநிலையால் அவசர புகாருக்கு காவல்துறையினரால் நடவடிக்கை",
+   "url": "https://www.virakesari.lk/article/199787",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-26-virakesarilk-a669f457": {
+   "date": "2024-11-26",
+   "title": "நுவரெலியாவில் அடை மழை ; விவசாய நிலங்கள், வீடுகளில் புகுந்த வெள்ளம் ;  பரீட்சார்த்திகளுக்கு விசேட ஏற்பாடு",
+   "url": "https://www.virakesari.lk/article/199711",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-26-tamilmirrorlk-6240a1b2": {
+   "date": "2024-11-26",
+   "title": "டியூசன் வகுப்புகளை இடைநிறுத்த அறிவுறுத்தல்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/டியூசன்-வகுப்புகளை-இடைநிறுத்த-அறிவுறுத்தல்/175-347795",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-26-tamilmirrorlk-fa20f5e5": {
+   "date": "2024-11-26",
+   "title": "நானுஓயா வரை மட்டுமே ரயில்கள் ஓடும்",
+   "url": "https://www.tamilmirror.lk/மலையகம்/நானுஓயா-வரை-மட்டுமே-ரயில்கள்-ஓடும்/76-347786",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-26-virakesarilk-a658ecc0": {
+   "date": "2024-11-26",
+   "title": "மலையக ரயில் மார்க்கத்தில் ரயில் சேவை பாதிப்பு !",
+   "url": "https://www.virakesari.lk/article/199692",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-26-tamilmirrorlk-98f05dab": {
+   "date": "2024-11-26",
+   "title": "புகையிரத சேவை தடை",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/புகையிரத-சேவை-தடை/175-347779",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-25-virakesarilk-84c5bc23": {
+   "date": "2024-11-25",
+   "title": "26,27ஆம் திகதிகளில் கிழக்கு மாகாணத்தில் உள்ள அனைத்து முஸ்லீம் பாடசாலைகளுக்கும் விடுமுறை",
+   "url": "https://www.virakesari.lk/article/199681",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-25-virakesarilk-2e0d4bef": {
+   "date": "2024-11-25",
+   "title": "மன்னார் நகர் பிரதேச செயலகப் பிரிவில் கனமழையால் 43 கிராமங்கள் பாதிப்பு; கட்டுப்படுத்த நடவடிக்கை முன்னெடுப்பு",
+   "url": "https://www.virakesari.lk/article/199675",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-24-virakesarilk-4f501a17": {
+   "date": "2024-11-24",
+   "title": "பேராறு நீர்த்தேக்கத்தின் இரண்டு வான்கதவுகள் திறப்பு",
+   "url": "https://www.virakesari.lk/article/199588",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-24-virakesarilk-23271a73": {
+   "date": "2024-11-24",
+   "title": "தண்ணிமுறிப்பு குளத்தினை பாதுகாக்கும் நடவடிக்கைகள் முன்னெடுப்பு",
+   "url": "https://www.virakesari.lk/article/199574",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-23-virakesarilk-105b922b": {
+   "date": "2024-11-23",
+   "title": "2025 ஆம் ஆண்டுக்கான வரவு, செலவுத்திட்டத்தைக் குறிவைக்கிறது நாணய நிதியம் ; பணிப்பாளர் சபையின் ஒப்புதலின் பின்னரே 333 மில்லியன் டொலர் நிதி விடுவிக்கப்படுமாம்",
+   "url": "https://www.virakesari.lk/article/199515",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-23-tamilmirrorlk-40a3d8ca": {
+   "date": "2024-11-23",
+   "title": "IMF எடுத்துள்ள முக்கிய தீர்மானம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/IMF-எடுத்துள்ள-முக்கிய-தீர்மானம்/175-347654",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-23-virakesarilk-38fd43df": {
+   "date": "2024-11-23",
+   "title": "கொழும்பு, காக்கைதீவு கடற்கரை பகுதியை சிறந்த இடமாக மாற்ற நடவடிக்கை : மேல் மாகாண ஆளுநர் நேரில் சென்று பார்வையிட்டார் !",
+   "url": "https://www.virakesari.lk/article/199465",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-23-tamilmirrorlk-5184cc02": {
+   "date": "2024-11-23",
+   "title": "கீழ்நிலை பொலிஸாரின் பிரச்சினைகளை தீர்க்க திட்டம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/கீழ்நிலை-பொலிஸாரின்-பிரச்சினைகளை-தீர்க்க-திட்டம்/175-347645",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-23-tamilmirrorlk-8b64238f": {
+   "date": "2024-11-23",
+   "title": "ஐ.எம்.எப். மூன்றாவது மீளாய்வு கலந்துரையாடல் வெற்றி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ஐ-எம்-எப்-மூன்றாவது-மீளாய்வு-கலந்துரையாடல்-வெற்றி/175-347642",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-23-virakesarilk-274b3fc5": {
+   "date": "2024-11-23",
+   "title": "சீன அரசாங்கத்தின் 1996 வீட்டுத் திட்டத்தின் இணை ஒப்பந்தம் கைச்சாத்தானது",
+   "url": "https://www.virakesari.lk/article/199459",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-22-tamilmirrorlk-8489b97c": {
+   "date": "2024-11-22",
+   "title": "குறைந்த வருமானம் பெறும் குடும்பங்களுக்கு வீடு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/குறைந்த-வருமானம்-பெறும்-குடும்பங்களுக்கு-வீடு/175-347628",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-22-virakesarilk-0906bbbd": {
+   "date": "2024-11-22",
+   "title": "சர்வதேச அபிவிருத்திக்கான ஐக்கிய நாடுகளின் வேலைத்திட்டத்தின் கீழ் தேசிய ஒருங்கிணைப்பு அதிகாரிகளுக்கு  தொழிநுட்ப உபகரணங்கள் கையளிப்பு",
+   "url": "https://www.virakesari.lk/article/199438",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-22-virakesarilk-6dbdda36": {
+   "date": "2024-11-22",
+   "title": "பண்டிகை காலத்தில் உணவு பொருட்களுக்கு தட்டுப்பாடு ஏற்படாது 70 ஆயிரம் மெற்றிக் தொன் அரிசி இறக்குமதி - விவசாயத்துறை அமைச்சு",
+   "url": "https://www.virakesari.lk/article/199426",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-22-tamilmirrorlk-ed08b8ee": {
+   "date": "2024-11-22",
+   "title": "எம்.பி.க்களுக்கு இனி சொகுசு வாகனங்கள் இல்லை",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/எம்-பி-க்களுக்கு-இனி-சொகுசு-வாகனங்கள்-இல்லை/175-347607",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-22-tamilmirrorlk-bdceb431": {
+   "date": "2024-11-22",
+   "title": "கல்வி சீர்திருத்த திட்டங்களை மதிப்பாய்வு செய்ய தீர்மானம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/கல்வி-சீர்திருத்த-திட்டங்களை-மதிப்பாய்வு-செய்ய-தீர்மானம்/175-347606",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-21-tamilmirrorlk-284b4f80": {
+   "date": "2024-11-21",
+   "title": "விலங்குகளால் ஏற்படும் சேதத்திற்கு தீர்வு காண குழு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/விலங்குகளால்-ஏற்படும்-சேதத்திற்கு-தீர்வு-காண-குழு/175-347597",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-21-virakesarilk-4e717828": {
+   "date": "2024-11-21",
+   "title": "இலக்கை நிர்ணயித்து செயற்பட அதிகாரிகளுக்கு வடக்கு ஆளுநர் பணிப்பு",
+   "url": "https://www.virakesari.lk/article/199366",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-21-virakesarilk-0109151d": {
+   "date": "2024-11-21",
+   "title": "யாழ்ப்பாண வெள்ள அனர்த்த நிலவரம் - அரசாங்க அதிபரின் அவசர அறிவிப்பு!",
+   "url": "https://www.virakesari.lk/article/199365",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-21-tamilmirrorlk-9872e780": {
+   "date": "2024-11-21",
+   "title": "சம்பள அதிகரிப்பு: அஸ்வெஸ்ம அதிகரிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சம்பள-அதிகரிப்பு-அஸ்வெஸ்ம-அதிகரிப்பு/175-347557",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-20-virakesarilk-d44ae483": {
+   "date": "2024-11-20",
+   "title": "வடக்கு மக்களின் வாழ்வாதாரத்துக்கு 12 மில்லியன் ரூபா நிதி உதவி சீனத்தூதுவரால் வடக்கு ஆளுநரிடம் கையளிப்பு",
+   "url": "https://www.virakesari.lk/article/199274",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-20-tamilmirrorlk-0f776ece": {
+   "date": "2024-11-20",
+   "title": "நாட்டு அரிசியை இறக்குமதி செய்ய அனுமதி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/நாட்டு-அரிசியை-இறக்குமதி-செய்ய-அனுமதி/175-347510",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-20-virakesarilk-a460ef78": {
+   "date": "2024-11-20",
+   "title": "பாடசாலை உபகரணங்களுக்கான கொடுப்பனவு ; தகுதியான மாணவர்களை அடையாளம் காணும் வேலைத்திட்டம் ஆரம்பம்",
+   "url": "https://www.virakesari.lk/article/199197",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-20-virakesarilk-1194d66b": {
+   "date": "2024-11-20",
+   "title": "ஆசிய அபிவிருத்தி வங்கி இலங்கைக்கு 200 மில்லியன் அ.டொலர் கடனுதவி!",
+   "url": "https://www.virakesari.lk/article/199192",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-20-tamilmirrorlk-ed27b340": {
+   "date": "2024-11-20",
+   "title": "ஆசிய அபிவிருத்தி வங்கியிடமிருந்து கடனுதவி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ஆசிய-அபிவிருத்தி-வங்கியிடமிருந்து-கடனுதவி/175-347470",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-19-virakesarilk-c9d8cde0": {
+   "date": "2024-11-19",
+   "title": "பெரும் போகத்திற்ககான உர மானியம் வழங்குவதற்கான  முதலாம்  கட்டம் நிறைவு",
+   "url": "https://www.virakesari.lk/article/199116",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-17-tamilmirrorlk-d327df45": {
+   "date": "2024-11-17",
+   "title": "சிறப்பு ரயில் சேவைகள்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சிறப்பு-ரயில்-சேவைகள்/175-347312",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-14-virakesarilk-597153d4": {
+   "date": "2024-11-14",
+   "title": "விவசாயம், கல்வி, சுற்றுலா மற்றும்  அரச சேவை மேம்பாட்டுக்கான தொழில்நுட்ப உதவி மற்றும் நிதி வசதிகளை வழங்குவது குறித்து நெதர்லாந்து அரசாங்கம் கவனம்",
+   "url": "https://www.virakesari.lk/article/198631",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-13-tamilmirrorlk-119446c8": {
+   "date": "2024-11-13",
+   "title": "விசேட போக்குவரத்து சேவைகள்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/விசேட-போக்குவரத்து-சேவைகள்/175-347040",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-12-virakesarilk-c7ead0f8": {
+   "date": "2024-11-12",
+   "title": "திங்கட்கிழமை வரை போதியளவு பஸ்கள் சேவையில்  : இலங்கை போக்குவரத்து சபை தலைவர்",
+   "url": "https://www.virakesari.lk/article/198528",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-12-virakesarilk-c3d1d0c3": {
+   "date": "2024-11-12",
+   "title": "தேர்தலை முன்னிட்டு நெடுந்தீவுக்கு விசேட படகு சேவைகள்",
+   "url": "https://www.virakesari.lk/article/198524",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-12-tamilmirrorlk-864f6050": {
+   "date": "2024-11-12",
+   "title": "குறிகாட்டுவான் – நெடுந்தீவுக்கு விசேட படகு சேவைகள்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/குறிகாட்டுவான்-நெடுந்தீவுக்கு-விசேட-படகு-சேவைகள்/175-347008",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-12-tamilmirrorlk-638dec0d": {
+   "date": "2024-11-12",
+   "title": "பஸ் டிப்போக்களுக்கு விசேட பணிப்புரை",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/பஸ்-டிப்போக்களுக்கு-விசேட-பணிப்புரை/175-347001",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-12-virakesarilk-1f29d2ab": {
+   "date": "2024-11-12",
+   "title": "கிளிநொச்சி மாவட்ட விவசாயிகளின் வங்கி  கணக்குகளில் பெரும் போகத்திற்கான கொடுப்பனவாக 127.191  மில்லியன் ரூபா நிதி  வைப்பு",
+   "url": "https://www.virakesari.lk/article/198486",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-12-virakesarilk-820fd823": {
+   "date": "2024-11-12",
+   "title": "பொதுத் தேர்தலை கண்காணிக்க 20க்கும் மேற்பட்ட வெளிநாட்டு தேர்தல் கண்காணிப்பாளர்கள்",
+   "url": "https://www.virakesari.lk/article/198477",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-11-tamilmirrorlk-9e1b0abb": {
+   "date": "2024-11-11",
+   "title": "தலைமன்னார் - கொழும்பு ரயில் நாளை மீண்டும் ஆரம்பம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/தலைமன்னார்-கொழும்பு-ரயில்-நாளை-மீண்டும்-ஆரம்பம்/175-346967",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-11-virakesarilk-148600cc": {
+   "date": "2024-11-11",
+   "title": "கொழும்பு – தலைமன்னார் புகையிரத சேவை இன்று முதல் மீள ஆரம்பம் - புகையிரத திணைக்களம்",
+   "url": "https://www.virakesari.lk/article/198466",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-11-virakesarilk-42ab8da4": {
+   "date": "2024-11-11",
+   "title": "தேர்தல்கள் ஆணைக்குழுவின் இ-சேவைக்குள் பிரவேசித்து வாக்காளர் அட்டைகளை பெற்றுக்கொள்ள முடியும் - தேர்தல்கள் ஆணைக்குழு",
+   "url": "https://www.virakesari.lk/article/198454",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-11-tamilmirrorlk-33ff0616": {
+   "date": "2024-11-11",
+   "title": "வாக்காளர் அட்டைகளை அணுக ஒன்லைன் முறை அறிமுகம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/வாக்காளர்-அட்டைகளை-அணுக-ஒன்லைன்-முறை-அறிமுகம்/175-346944",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-11-virakesarilk-9405d97e": {
+   "date": "2024-11-11",
+   "title": "தேர்தலின் போது ஏற்படும் அனர்த்தங்களை எதிர்கொள்ள விசேட வேலைத்திட்டம்",
+   "url": "https://www.virakesari.lk/article/198407",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-11-virakesarilk-61905016": {
+   "date": "2024-11-11",
+   "title": "13, 14 ஆம் திகதிகள் அனைத்து பல்கலைக்கழகங்களுக்கும் விடுமுறை",
+   "url": "https://www.virakesari.lk/article/198404",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-11-tamilmirrorlk-3e4d87a3": {
+   "date": "2024-11-11",
+   "title": "பாதுகாப்பு பணியில் இம்முறை 90,000 பேர்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/பாதுகாப்பு-பணியில்-இம்முறை-90-000-பேர்/175-346910",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-10-virakesarilk-c9109fdd": {
+   "date": "2024-11-10",
+   "title": "பாராளுமன்ற தேர்தலை முன்னிட்டு மாத்தறை கரையோர வீதியில் வாகனப் போக்குவரத்துக்கு மட்டுப்பாடு",
+   "url": "https://www.virakesari.lk/article/198376",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-09-tamilmirrorlk-bd4cbf3d": {
+   "date": "2024-11-09",
+   "title": "மாணவர்கள், ஊழியர்களுக்கும் விடுமுறை வழங்குமாறு அறிவுறுத்தல்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மாணவர்கள்-ஊழியர்களுக்கும்-விடுமுறை-வழங்குமாறு-அறிவுறுத்தல்/175-346831",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-09-virakesarilk-4f89ceef": {
+   "date": "2024-11-09",
+   "title": "சீனாவால் வழங்கப்பட்ட நிதி திறைசேரிக்கு அனுப்பி வைப்பு",
+   "url": "https://www.virakesari.lk/article/198269",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-08-virakesarilk-2b1fdb1e": {
+   "date": "2024-11-08",
+   "title": "அனர்த்த நிவாரணம் மற்றும் கண்காணிப்புத் திட்டத்திற்காக சீனக் குடியரசால் வழங்கப்பட்ட நிதி திறைசேரிக்கு அனுப்பப்பட்டுள்ளது",
+   "url": "https://www.virakesari.lk/article/198230",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-08-virakesarilk-f232fd90": {
+   "date": "2024-11-08",
+   "title": "மட்டக்களப்பில் சுகாதார அமைச்சினால் தட்டம்மை நோய்க்கெதிரான தடுப்பூசி ஏற்றல் நடவடிக்கைகள் ஆரம்பம்",
+   "url": "https://www.virakesari.lk/article/198184",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-06-tamilmirrorlk-6cdbc5b0": {
+   "date": "2024-11-06",
+   "title": "பாடசாலைகளுக்கு விடுமுறை - கல்வி அமைச்சு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/பாடசாலைகளுக்கு-விடுமுறை-கல்வி-அமைச்சு/175-346675",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-06-virakesarilk-eb05403e": {
+   "date": "2024-11-06",
+   "title": "எரிபொருள் விலை சூத்திரம் தொடர்பில் மாற்றுக்கருத்துக்களை வெளியிடும் அரசாங்கம்",
+   "url": "https://www.virakesari.lk/article/198049",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-06-virakesarilk-d30972cf": {
+   "date": "2024-11-06",
+   "title": "அமைச்சர்களுக்கு இனி கொழும்பில் வீடுகள் வழங்கப்படமாட்டாது…! - ஜனாதிபதி அநுரவின் அதிரடி முடிவு",
+   "url": "https://www.virakesari.lk/article/198031",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-06-virakesarilk-72b83d09": {
+   "date": "2024-11-06",
+   "title": "காலி முகத்திடலில் சமூக நிகழ்வுகளுக்கு விதிக்கப்பட்டிருந்த கட்டுப்பாடுகள்  தளர்வு",
+   "url": "https://www.virakesari.lk/article/198012",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-06-tamilmirrorlk-ab7cd14b": {
+   "date": "2024-11-06",
+   "title": "3 தொகுதி சீன வீடுகளுக்கு அங்கிகாரம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/3-தொகுதி-சீன-வீடுகளுக்கு-அங்கிகாரம்/175-346653",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-04-tamilmirrorlk-8c9d2948": {
+   "date": "2024-11-04",
+   "title": "மின் கட்டண குறைப்பு போதுமானதாக இல்லை",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மின்-கட்டண-குறைப்பு-போதுமானதாக-இல்லை/175-346551",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-04-tamilmirrorlk-e6fa4dce": {
+   "date": "2024-11-04",
+   "title": "கடவுச்சீட்டு நெருக்கடிக்கு தீர்வு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/கடவுச்சீட்டு-நெருக்கடிக்கு-தீர்வு/175-346547",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-03-tamilmirrorlk-e9e2cc13": {
+   "date": "2024-11-03",
+   "title": "அஸ்வெசுமவை ஆராய 10 பேரடங்கிய குழு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அஸ்வெசுமவை-ஆராய-10-பேரடங்கிய-குழு/175-346500",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-03-tamilmirrorlk-6e97f756": {
+   "date": "2024-11-03",
+   "title": "வாகன இலக்கத்தகடு விநியோகம் இடைநிறுத்தம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/வாகன-இலக்கத்தகடு-விநியோகம்-இடைநிறுத்தம்/175-346496",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-03-tamilmirrorlk-51f4d173": {
+   "date": "2024-11-03",
+   "title": "வாகன இலக்கத்தகடு விநியோகம் இடைநிறுத்தப்பட்டது",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/வாகன-இலக்கத்தகடு-விநியோகம்-இடைநிறுத்தப்பட்டது/175-346496",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-02-virakesarilk-e22ce0f9": {
+   "date": "2024-11-02",
+   "title": "உத்தியோகபூர்வ வாக்காளர் அட்டை விசேட விநியோகம்  - தபால் திணைக்களம்",
+   "url": "https://www.virakesari.lk/article/197741",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-11-02-tamilmirrorlk-292f821c": {
+   "date": "2024-11-02",
+   "title": "நாளை வாக்காளர் அட்டை விநியோக நாளாக பிரகடனம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/நாளை-வாக்காளர்-அட்டை-விநியோக-நாளாக-பிரகடனம்/175-346444",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-02-tamilmirrorlk-da2aa52f": {
+   "date": "2024-11-02",
+   "title": "வெளிநாட்டு கடவுச்சீட்டு பிரச்சினையை தீர்க்க புதிய திட்டம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/வெளிநாட்டு-கடவுச்சீட்டு-பிரச்சினையை-தீர்க்க-புதிய-திட்டம்/175-346430",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-11-01-tamilmirrorlk-a553f95b": {
+   "date": "2024-11-01",
+   "title": "வெளிநாட்டு கண்காணிப்பாளர்கள் விஜயம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/வெளிநாட்டு-கண்காணிப்பாளர்கள்-விஜயம்/175-346407",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  }
+ }
+}

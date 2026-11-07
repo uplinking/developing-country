@@ -1,0 +1,6030 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2025-09-01",
+  "2025-09-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Codex gpt-5.6-luna (medium reasoning)",
+ "extracted_at": "2026-11-06",
+ "language": "ta",
+ "articles_read": 223,
+ "rejected": 82,
+ "rejected_ids": [
+  "2025-09-01-virakesarilk-4c505537",
+  "2025-09-01-virakesarilk-f77eff8d",
+  "2025-09-02-virakesarilk-c98e76b0",
+  "2025-09-03-virakesarilk-6c3d6772",
+  "2025-09-04-tamilmirrorlk-4d39acea",
+  "2025-09-04-virakesarilk-911ff0c5",
+  "2025-09-05-tamilmirrorlk-37acfd83",
+  "2025-09-05-virakesarilk-e1840256",
+  "2025-09-07-tamilmirrorlk-3eb3a8a5",
+  "2025-09-07-virakesarilk-c4b65e25",
+  "2025-09-08-virakesarilk-28d554d3",
+  "2025-09-08-virakesarilk-36e6a479",
+  "2025-09-09-tamilmirrorlk-167ceb41",
+  "2025-09-09-tamilmirrorlk-37caf8f4",
+  "2025-09-09-tamilmirrorlk-397dd505",
+  "2025-09-09-tamilmirrorlk-e4689835",
+  "2025-09-09-virakesarilk-b89c0add",
+  "2025-09-11-tamilmirrorlk-83218905",
+  "2025-09-12-virakesarilk-676e61ec",
+  "2025-09-12-virakesarilk-7a3830e3",
+  "2025-09-12-virakesarilk-8b2b6c33",
+  "2025-09-13-virakesarilk-677582c4",
+  "2025-09-14-tamilmirrorlk-2beae98d",
+  "2025-09-14-tamilmirrorlk-ce204b0c",
+  "2025-09-14-virakesarilk-bb97cc64",
+  "2025-09-15-virakesarilk-990047cd",
+  "2025-09-16-virakesarilk-30270349",
+  "2025-09-16-virakesarilk-36850cd2",
+  "2025-09-16-virakesarilk-64f3a939",
+  "2025-09-16-virakesarilk-c6b09880",
+  "2025-09-17-tamilmirrorlk-22066ec0",
+  "2025-09-17-tamilmirrorlk-fc67ca10",
+  "2025-09-18-tamilmirrorlk-15b1a71e",
+  "2025-09-18-tamilmirrorlk-386dd8e2",
+  "2025-09-18-virakesarilk-b16aedb1",
+  "2025-09-18-virakesarilk-ba69841e",
+  "2025-09-19-virakesarilk-41c702e4",
+  "2025-09-19-virakesarilk-4d835400",
+  "2025-09-19-virakesarilk-be57b130",
+  "2025-09-20-virakesarilk-c7b063bf",
+  "2025-09-20-virakesarilk-e707d182",
+  "2025-09-21-tamilmirrorlk-9e0f1e54",
+  "2025-09-21-tamilmirrorlk-d66da78e",
+  "2025-09-21-virakesarilk-19a2ffbf",
+  "2025-09-21-virakesarilk-1dd90a09",
+  "2025-09-21-virakesarilk-4719fe79",
+  "2025-09-21-virakesarilk-58699bf5",
+  "2025-09-21-virakesarilk-5f0171b6",
+  "2025-09-22-tamilmirrorlk-2c79ec14",
+  "2025-09-22-tamilmirrorlk-7ca3cd13",
+  "2025-09-22-tamilmirrorlk-7e9cc188",
+  "2025-09-22-tamilmirrorlk-bcd48f7b",
+  "2025-09-22-virakesarilk-50b3134a",
+  "2025-09-22-virakesarilk-59c5d361",
+  "2025-09-22-virakesarilk-5dbad0bd",
+  "2025-09-23-tamilmirrorlk-34fd5b60",
+  "2025-09-23-tamilmirrorlk-66f1ad6a",
+  "2025-09-23-tamilmirrorlk-f8a8a235",
+  "2025-09-23-virakesarilk-1cd0007b",
+  "2025-09-25-virakesarilk-775e0a89",
+  "2025-09-26-virakesarilk-17fd294a",
+  "2025-09-26-virakesarilk-2d110c0a",
+  "2025-09-26-virakesarilk-79c968b9",
+  "2025-09-26-virakesarilk-bb09f734",
+  "2025-09-26-virakesarilk-fc948d86",
+  "2025-09-27-tamilmirrorlk-24b4a85a",
+  "2025-09-27-tamilmirrorlk-585bf913",
+  "2025-09-27-virakesarilk-3b799823",
+  "2025-09-27-virakesarilk-56f1e5c8",
+  "2025-09-27-virakesarilk-8a86c24f",
+  "2025-09-27-virakesarilk-fa26d143",
+  "2025-09-28-virakesarilk-39c01696",
+  "2025-09-28-virakesarilk-460eae73",
+  "2025-09-28-virakesarilk-574c1699",
+  "2025-09-28-virakesarilk-a8ec8d94",
+  "2025-09-28-virakesarilk-f1044f74",
+  "2025-09-29-tamilmirrorlk-7a027c79",
+  "2025-09-29-virakesarilk-499ba15f",
+  "2025-09-29-virakesarilk-5b0246e5",
+  "2025-09-29-virakesarilk-8d8df481",
+  "2025-09-29-virakesarilk-90b100b6",
+  "2025-09-29-virakesarilk-9af74c28",
+  "2025-09-29-virakesarilk-d23f1c39",
+  "2025-09-29-virakesarilk-daf35269",
+  "2025-09-30-tamilmirrorlk-e8a3533d",
+  "2025-09-30-virakesarilk-4c81238e",
+  "2025-09-30-virakesarilk-4ca156b6",
+  "2025-09-30-virakesarilk-6ef2178c",
+  "2025-09-30-virakesarilk-70c0a29b",
+  "2025-09-30-virakesarilk-82bf1024",
+  "2025-09-30-virakesarilk-b92f2593",
+  "2025-09-30-virakesarilk-e727879a"
+ ],
+ "unattributed_ids": [
+  "2025-09-04-tamilmirrorlk-4d39acea",
+  "2025-09-08-virakesarilk-28d554d3",
+  "2025-09-13-virakesarilk-677582c4",
+  "2025-09-19-virakesarilk-4d835400",
+  "2025-09-22-virakesarilk-50b3134a",
+  "2025-09-22-virakesarilk-59c5d361",
+  "2025-09-26-virakesarilk-2d110c0a",
+  "2025-09-26-virakesarilk-79c968b9",
+  "2025-09-29-tamilmirrorlk-7a027c79",
+  "2025-09-29-virakesarilk-d23f1c39"
+ ],
+ "dropped": [
+  "event neduntivu-fuel-filling-station-unknown proposed: date",
+  "event vehicle-number-plate-procurement-gosl proposed: date",
+  "event public-service-ai-training-series-gosl launched: no report in chunk"
+ ],
+ "projects": [
+  {
+   "id": "batticaloa-ramakrishna-school-handover",
+   "name": "Ramakrishna Mission School military camp removal and school handover",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Batticaloa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "northern-eastern-100-schools-japan",
+   "name": "Northern and Eastern 100 Schools Reconstruction and Modernisation Plan",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Northern and Eastern Provinces",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nuegoda-temporary-driving-licence-service",
+   "name": "Temporary Driving Licence Service at Nugegoda National Transport Medical Institute",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Nugegoda",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "university-disability-admission-quota",
+   "name": "University Admission Quota for Students with Disabilities",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "matuvil-special-economic-centre-reopening",
+   "name": "Matuvil Special Economic Centre Reopening",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Matuvil, Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-sri-lanka-renewable-energy-cooperation",
+   "name": "Sri Lanka-India Renewable Energy Cooperation",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "presidential-fund-migrant-workers-children-education-support",
+   "name": "Presidential Fund Education Support for Migrant Workers' Children",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "dickoya-hospital-outpatient-chair-donation",
+   "name": "Dickoya Clungn Hospital Outpatient Chair Donation",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Dickoya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "police-medical-doctors-recruitment-25",
+   "name": "Recruitment of 25 doctors for the Police Medical Services Division",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "student-free-ai-search-tools",
+   "name": "Free AI Search Tools for Sri Lankan Students",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "neduntivu-fuel-filling-station",
+   "name": "Neduntivu Fuel Filling Station",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Neduntivu",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "moon-memorial-botanical-museum",
+   "name": "Moon Memorial Botanical Museum at Peradeniya Royal Botanical Gardens",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Peradeniya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "narahenpita-railway-station-modernisation",
+   "name": "Narahenpita Railway Station Modernisation",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Narahenpita, Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fishermen-children-education-assistance",
+   "name": "Education assistance for fishermen's children",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jaffna-old-park-childrens-playground-upgrade",
+   "name": "Jaffna Old Park children's playground upgrade",
+   "sector": "urban",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-modern-product-testing-laboratory",
+   "name": "National modern laboratory for product testing",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-health-systems-development-vehicles",
+   "name": "ADB Health Systems Development Project vehicle provision",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sl-2026-budget-appropriation",
+   "name": "Sri Lanka 2026 Budget Appropriation",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "lgbtiq-tourism-promotion-sri-lanka",
+   "name": "LGBTIQ Tourism Promotion Initiative",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "govpay-environmental-authority-payments",
+   "name": "GovPay payments for Central Environmental Authority",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-elderly-policy-2025-2035",
+   "name": "National Policy for Older Persons 2025–2035",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "lotus-tower-bungee-jump",
+   "name": "Colombo Lotus Tower Bungee Jump Attraction",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "Colombo Lotus Tower",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gurukkalmadam-mass-grave-excavation",
+   "name": "Gurukkalmadam Human Mass Grave Excavation",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Gurukkalmadam, Batticaloa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ceb-restructuring-four-state-companies",
+   "name": "CEB Restructuring into Four State Companies",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "artham-child-living-allowance",
+   "name": "Artham monthly living allowance programme for children",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "paranthan-chlorine-production-plant",
+   "name": "Paranthan chlorine production plant public-private partnership",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Paranthan",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "integrated-fisheries-action-plan-2026",
+   "name": "2026 Integrated Fisheries Action Plan",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "epf-mobile-service-week",
+   "name": "Employees' Provident Fund Mobile Service Week",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sltb-driver-conductor-recruitment-2025",
+   "name": "Sri Lanka Transport Board recruitment of drivers and conductors",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "pettah-fire-response-operation",
+   "name": "Pettah commercial-area fire response operation",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "Pettah, Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "lanka-metro-bus-company",
+   "name": "Lanka Metro Bus Company",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sltb-long-distance-bus-seat-belts",
+   "name": "SLTB long-distance bus seat-belt installation",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "army-multisectoral-medical-camp-ampara-batticaloa",
+   "name": "Army multisectoral medical camp for veterans and families",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Ampara and Batticaloa districts",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "foreign-employment-special-investigation-unit",
+   "name": "Foreign Employment Special Investigation Unit",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kaluwanchikudy-post-office-new-building",
+   "name": "Kaluwanchikudy Post Office new building",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Kaluwanchikudy, Batticaloa District",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "birds-x-dragonfly-nanosatellite",
+   "name": "BIRDS-X Dragonfly nanosatellite",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "Moratuwa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kerawalapitiya-sobhadnavi-power-plant",
+   "name": "Kerawalapitiya Sobhadnavi power plant phase two",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Kerawalapitiya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sri-lanka-petroleum-exploration",
+   "name": "Sri Lanka Petroleum Exploration Initiative",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kolonnawa-oil-storage-tanks",
+   "name": "Six Additional Oil Storage Tanks at Kolonnawa",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Kolonnawa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jaffna-university-health-sciences-building",
+   "name": "Jaffna University Allied Health Sciences Faculty Building",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ruwanpura-expressway-ingiriya-section",
+   "name": "Ruwanpura Expressway Ingiriya Section",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Ingiriya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "udugawa-expressway-service-centre",
+   "name": "Udugawa Southern Expressway Service Centre",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Udugawa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "southern-expressway-toll-integration",
+   "name": "Katunayake–Matara Southern Expressway Toll Integration",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-highway-plan-sri-lanka",
+   "name": "National Highway Plan",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "us-navy-english-language-lab",
+   "name": "English Language Laboratory at Trincomalee Naval and Maritime Academy",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Trincomalee",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "valachchenai-fisheries-port-2026",
+   "name": "Valachchenai Fisheries Port",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Valachchenai",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-fisheries-pension-scheme",
+   "name": "National Fisheries Community Pension Scheme",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "us-cldp-port-law-ppp-training",
+   "name": "U.S. CLDP Port Law and PPP Training Programme",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "govpay-southern-province-integration",
+   "name": "GovPay Southern Province Government Services Integration",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "Southern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "government-digital-signature-initiative",
+   "name": "Government Digital Signature Initiative",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "deduru-oya-invasive-fish-control",
+   "name": "Deduru Oya Invasive Fish Control Project",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Deduru Oya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "paruthithurai-port-development",
+   "name": "Paruthithurai Port Development",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Paruthithurai",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "maradana-railway-station-modernisation",
+   "name": "Maradana Railway Station Modernisation Project",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "moratuwa-medical-faculty-construction",
+   "name": "Moratuwa University Medical Faculty Construction",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Moratuwa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nagoda-hospital-medical-nursing-buildings",
+   "name": "Nagoda Teaching Hospital Medical and Nursing Buildings",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Kalutara",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kalassa-maternity-hospital-new-building",
+   "name": "Kalassa Maternity Hospital New Building",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Kalutara",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "seventeen-abandoned-health-projects",
+   "name": "Seventeen Abandoned Health Projects",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kilinochchi-military-land-release",
+   "name": "Kilinochchi Military-Occupied Land Release",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Kilinochchi",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "akaragama-hospital-renovation",
+   "name": "Akaragama Regional Hospital Renovation",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Akaragama",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "colombo-central-bus-station-renovation",
+   "name": "Colombo Central Bus Station Renovation",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "multimodal-transport-stations-programme",
+   "name": "National Multimodal Transport Stations Programme",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "president-fund-kandy-school-scholarships",
+   "name": "President's Fund scholarships for low-income Kandy students",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Kandy-Mahayia",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "local-government-week-2025",
+   "name": "Local Government Week 2025: Reawakening City initiative",
+   "sector": "urban",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "vanni-unfinished-classroom-completion",
+   "name": "Completion of unfinished classroom buildings in Vanni District",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Vanni District",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "balapitiya-post-office-construction",
+   "name": "Balapitiya Post Office Construction",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Balapitiya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "long-distance-bus-quality-testing",
+   "name": "Long-Distance Bus Quality Testing Programme",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "electronic-court-system-sri-lanka",
+   "name": "Electronic Court System Project",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "state-bank-privatisation-plan",
+   "name": "State Bank Privatisation Plan",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "pregnant-women-nutrition-food-package",
+   "name": "Nutrition food packages for pregnant women",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "arogya-mobile-medical-camps",
+   "name": "Arogya mobile medical camp programme",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Ja-Ela, Gampaha",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "high-court-card-payment-facility",
+   "name": "High Court fee card payment facility",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nallur-female-dog-sterilization-campaign",
+   "name": "Nallur female dog sterilization campaign",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Nallur, Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kilinochchi-land-title-issuance-programme",
+   "name": "Kilinochchi land title issuance programme",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Kilinochchi",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jaffna-pond-dredging-groundwater-protection",
+   "name": "Jaffna pond dredging for groundwater protection",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "dental-surgery-training-recruitment",
+   "name": "Recruitment and limited-practice training for dental surgery graduates",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kala-wewa-invasive-plant-removal",
+   "name": "Kala Wewa invasive plant removal and elephant habitat restoration",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Kala Wewa, Anuradhapura",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "siyambalanduwa-rivithanavi-solar-park",
+   "name": "Siyambalanduwa Rivithanavi Solar Power Park",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Siyambalanduwa, Monaragala",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rural-small-train-development",
+   "name": "Rural three-car small train development",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "freshwater-reservoir-fish-protection-nets",
+   "name": "Protective nets for freshwater fish resources in 250 reservoirs",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "northern-province-sector-data-collection",
+   "name": "Northern Province livestock and sector data collection",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Northern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "children-homes-facilities-upgrade",
+   "name": "Upgrade of facilities and staffing in 379 children’s homes",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "child-court-transport-service",
+   "name": "Transport service for children attending court",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "lady-ridgeway-neurodevelopment-unit",
+   "name": "Lady Ridgeway Hospital neurodevelopment treatment unit",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "model-childcare-centre",
+   "name": "Model daycare centre for children with developmental disabilities",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ciaboc-whatsapp-complaints-channel",
+   "name": "CIABOC WhatsApp complaints channel",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "northern-coconut-seed-production-unit",
+   "name": "Northern Coconut Triangle seed coconut production unit",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Palai",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jaffna-passport-office-development",
+   "name": "Jaffna Passport Office Development",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jaffna-sports-ground-development",
+   "name": "Jaffna Sports Ground Development",
+   "sector": "urban",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jaffna-port-development",
+   "name": "Jaffna Port Development",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "foreign-workers-children-scholarships",
+   "name": "Scholarships for Children of Sri Lankan Migrant Workers",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mayilitti-fisheries-harbour-phase-three",
+   "name": "Mayilitti Fisheries Harbour Development, Phase Three",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Mayilitti",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jaffna-public-library-e-library",
+   "name": "Jaffna Public Library E-Library Project",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jaffna-international-cricket-stadium",
+   "name": "Jaffna International Cricket Stadium",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jaffna-passport-regional-office",
+   "name": "Jaffna Regional Passport Office",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "batticaloa-ramakrishna-school-handover-gosl",
+   "project_id": "batticaloa-ramakrishna-school-handover",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "northern-eastern-100-schools-nippon-foundation",
+   "project_id": "northern-eastern-100-schools-japan",
+   "funder": "other:nippon_foundation",
+   "funder_name": "Nippon Foundation",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "nuegoda-temporary-driving-licence-service-gosl",
+   "project_id": "nuegoda-temporary-driving-licence-service",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "university-disability-admission-quota-gosl",
+   "project_id": "university-disability-admission-quota",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "matuvil-special-economic-centre-reopening-gosl",
+   "project_id": "matuvil-special-economic-centre-reopening",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "india-sri-lanka-renewable-energy-cooperation-india",
+   "project_id": "india-sri-lanka-renewable-energy-cooperation",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "presidential-fund-migrant-workers-children-education-support-gosl",
+   "project_id": "presidential-fund-migrant-workers-children-education-support",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka Presidential Fund",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "dickoya-hospital-outpatient-chair-donation-private",
+   "project_id": "dickoya-hospital-outpatient-chair-donation",
+   "funder": "other:atton_lions_club",
+   "funder_name": "Atton Lions Club",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "police-medical-doctors-recruitment-25-gosl",
+   "project_id": "police-medical-doctors-recruitment-25",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "student-free-ai-search-tools-other-google",
+   "project_id": "student-free-ai-search-tools",
+   "funder": "other:google",
+   "funder_name": "Google",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "neduntivu-fuel-filling-station-unknown",
+   "project_id": "neduntivu-fuel-filling-station",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "moon-memorial-botanical-museum-unknown",
+   "project_id": "moon-memorial-botanical-museum",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "narahenpita-railway-station-modernisation-private",
+   "project_id": "narahenpita-railway-station-modernisation",
+   "funder": "private",
+   "funder_name": "Private sector, with NIO Engineering support",
+   "funder_type": "private",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "fishermen-children-education-assistance-gosl",
+   "project_id": "fishermen-children-education-assistance",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "kks-port-renovation-india-loan",
+   "project_id": "kks-port-renovation",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "jaffna-old-park-childrens-playground-upgrade-gosl",
+   "project_id": "jaffna-old-park-childrens-playground-upgrade",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "national-modern-product-testing-laboratory-gosl",
+   "project_id": "national-modern-product-testing-laboratory",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "adb-health-systems-development-vehicles-adb",
+   "project_id": "adb-health-systems-development-vehicles",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "sl-2026-budget-appropriation-gosl",
+   "project_id": "sl-2026-budget-appropriation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "lgbtiq-tourism-promotion-sri-lanka-unknown",
+   "project_id": "lgbtiq-tourism-promotion-sri-lanka",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "govpay-environmental-authority-payments-gosl",
+   "project_id": "govpay-environmental-authority-payments",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "national-elderly-policy-2025-2035-gosl",
+   "project_id": "national-elderly-policy-2025-2035",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "lotus-tower-bungee-jump-unknown",
+   "project_id": "lotus-tower-bungee-jump",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gurukkalmadam-mass-grave-excavation-unknown",
+   "project_id": "gurukkalmadam-mass-grave-excavation",
+   "funder": "unknown",
+   "funder_name": "unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "ceb-restructuring-four-state-companies-gosl",
+   "project_id": "ceb-restructuring-four-state-companies",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "artham-child-living-allowance-gosl",
+   "project_id": "artham-child-living-allowance",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "paranthan-chlorine-production-plant-unknown",
+   "project_id": "paranthan-chlorine-production-plant",
+   "funder": "unknown",
+   "funder_name": "Unknown investors",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "integrated-fisheries-action-plan-2026-gosl",
+   "project_id": "integrated-fisheries-action-plan-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "epf-mobile-service-week-gosl",
+   "project_id": "epf-mobile-service-week",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "sltb-driver-conductor-recruitment-2025-gosl",
+   "project_id": "sltb-driver-conductor-recruitment-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "pettah-fire-response-operation-gosl",
+   "project_id": "pettah-fire-response-operation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "relief"
+  },
+  {
+   "id": "lanka-metro-bus-company-gosl",
+   "project_id": "lanka-metro-bus-company",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "sltb-long-distance-bus-seat-belts-gosl",
+   "project_id": "sltb-long-distance-bus-seat-belts",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "army-multisectoral-medical-camp-ampara-batticaloa-gosl",
+   "project_id": "army-multisectoral-medical-camp-ampara-batticaloa",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "foreign-employment-special-investigation-unit-gosl",
+   "project_id": "foreign-employment-special-investigation-unit",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "kaluwanchikudy-post-office-new-building-gosl",
+   "project_id": "kaluwanchikudy-post-office-new-building",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "birds-x-dragonfly-nanosatellite-unknown",
+   "project_id": "birds-x-dragonfly-nanosatellite",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "kerawalapitiya-sobhadnavi-power-plant-unknown",
+   "project_id": "kerawalapitiya-sobhadnavi-power-plant",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "sri-lanka-petroleum-exploration-gosl",
+   "project_id": "sri-lanka-petroleum-exploration",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "kolonnawa-oil-storage-tanks-gosl",
+   "project_id": "kolonnawa-oil-storage-tanks",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "jaffna-university-health-sciences-building-gosl",
+   "project_id": "jaffna-university-health-sciences-building",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "central-expressway-kadawatha-mirigama-gosl",
+   "project_id": "central-expressway-kadawatha-mirigama",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "ruwanpura-expressway-ingiriya-section-gosl",
+   "project_id": "ruwanpura-expressway-ingiriya-section",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "udugawa-expressway-service-centre-gosl",
+   "project_id": "udugawa-expressway-service-centre",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "southern-expressway-toll-integration-gosl",
+   "project_id": "southern-expressway-toll-integration",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "national-highway-plan-sri-lanka-gosl",
+   "project_id": "national-highway-plan-sri-lanka",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "us-navy-english-language-lab-usa",
+   "project_id": "us-navy-english-language-lab",
+   "funder": "usa",
+   "funder_name": "United States",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "valachchenai-fisheries-port-2026-gosl",
+   "project_id": "valachchenai-fisheries-port-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "national-fisheries-pension-scheme-gosl",
+   "project_id": "national-fisheries-pension-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "us-cldp-port-law-ppp-training-usa",
+   "project_id": "us-cldp-port-law-ppp-training",
+   "funder": "usa",
+   "funder_name": "United States",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "programme"
+  },
+  {
+   "id": "govpay-southern-province-integration-gosl",
+   "project_id": "govpay-southern-province-integration",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "government-digital-signature-initiative-gosl",
+   "project_id": "government-digital-signature-initiative",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "deduru-oya-invasive-fish-control-gosl",
+   "project_id": "deduru-oya-invasive-fish-control",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "paruthithurai-port-development-india",
+   "project_id": "paruthithurai-port-development",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "maradana-railway-station-modernisation-unknown",
+   "project_id": "maradana-railway-station-modernisation",
+   "funder": "unknown",
+   "funder_name": "Unknown public-private partners",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "moratuwa-medical-faculty-construction-gosl",
+   "project_id": "moratuwa-medical-faculty-construction",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "nagoda-hospital-medical-nursing-buildings-gosl",
+   "project_id": "nagoda-hospital-medical-nursing-buildings",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "kalassa-maternity-hospital-new-building-gosl",
+   "project_id": "kalassa-maternity-hospital-new-building",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "seventeen-abandoned-health-projects-gosl",
+   "project_id": "seventeen-abandoned-health-projects",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "kilinochchi-military-land-release-gosl",
+   "project_id": "kilinochchi-military-land-release",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "akaragama-hospital-renovation-joint",
+   "project_id": "akaragama-hospital-renovation",
+   "funder": "other:usa_sri_lanka",
+   "funder_name": "United States and Sri Lanka",
+   "funder_type": "bilateral",
+   "origin": "unknown",
+   "instrument": "mixed",
+   "purpose": "project"
+  },
+  {
+   "id": "colombo-central-bus-station-renovation-gosl",
+   "project_id": "colombo-central-bus-station-renovation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "multimodal-transport-stations-programme-gosl",
+   "project_id": "multimodal-transport-stations-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "president-fund-kandy-school-scholarships-gosl",
+   "project_id": "president-fund-kandy-school-scholarships",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "local-government-week-2025-gosl",
+   "project_id": "local-government-week-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "vanni-unfinished-classroom-completion-gosl",
+   "project_id": "vanni-unfinished-classroom-completion",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "central-expressway-kadawatha-mirigama-china-exim-loan",
+   "project_id": "central-expressway-kadawatha-mirigama",
+   "funder": "china",
+   "funder_name": "China Exim Bank",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "balapitiya-post-office-construction-unknown",
+   "project_id": "balapitiya-post-office-construction",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "long-distance-bus-quality-testing-gosl",
+   "project_id": "long-distance-bus-quality-testing",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "electronic-court-system-sri-lanka-gosl",
+   "project_id": "electronic-court-system-sri-lanka",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "state-bank-privatisation-plan-gosl",
+   "project_id": "state-bank-privatisation-plan",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "pregnant-women-nutrition-food-package-gosl",
+   "project_id": "pregnant-women-nutrition-food-package",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "arogya-mobile-medical-camps-gosl",
+   "project_id": "arogya-mobile-medical-camps",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "high-court-card-payment-facility-gosl",
+   "project_id": "high-court-card-payment-facility",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "nallur-female-dog-sterilization-campaign-gosl",
+   "project_id": "nallur-female-dog-sterilization-campaign",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "kilinochchi-land-title-issuance-programme-gosl",
+   "project_id": "kilinochchi-land-title-issuance-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "jaffna-pond-dredging-groundwater-protection-unknown",
+   "project_id": "jaffna-pond-dredging-groundwater-protection",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "dental-surgery-training-recruitment-gosl",
+   "project_id": "dental-surgery-training-recruitment",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "kala-wewa-invasive-plant-removal-gosl",
+   "project_id": "kala-wewa-invasive-plant-removal",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "siyambalanduwa-rivithanavi-solar-park-unknown",
+   "project_id": "siyambalanduwa-rivithanavi-solar-park",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "rural-small-train-development-gosl",
+   "project_id": "rural-small-train-development",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "freshwater-reservoir-fish-protection-nets-gosl",
+   "project_id": "freshwater-reservoir-fish-protection-nets",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "northern-province-sector-data-collection-gosl",
+   "project_id": "northern-province-sector-data-collection",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "children-homes-facilities-upgrade-gosl",
+   "project_id": "children-homes-facilities-upgrade",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "child-court-transport-service-gosl",
+   "project_id": "child-court-transport-service",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "lady-ridgeway-neurodevelopment-unit-gosl",
+   "project_id": "lady-ridgeway-neurodevelopment-unit",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "model-childcare-centre-gosl",
+   "project_id": "model-childcare-centre",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "ciaboc-whatsapp-complaints-channel-gosl",
+   "project_id": "ciaboc-whatsapp-complaints-channel",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "northern-coconut-seed-production-unit-unknown",
+   "project_id": "northern-coconut-seed-production-unit",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "jaffna-passport-office-development-gosl",
+   "project_id": "jaffna-passport-office-development",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "jaffna-sports-ground-development-gosl",
+   "project_id": "jaffna-sports-ground-development",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "jaffna-port-development-gosl",
+   "project_id": "jaffna-port-development",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "foreign-workers-children-scholarships-gosl",
+   "project_id": "foreign-workers-children-scholarships",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "mayilitti-fisheries-harbour-phase-three-gosl",
+   "project_id": "mayilitti-fisheries-harbour-phase-three",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "jaffna-public-library-e-library-gosl",
+   "project_id": "jaffna-public-library-e-library",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "jaffna-international-cricket-stadium-unknown",
+   "project_id": "jaffna-international-cricket-stadium",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "jaffna-passport-regional-office-gosl",
+   "project_id": "jaffna-passport-regional-office",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "batticaloa-ramakrishna-school-handover-gosl-completed-2025-09-30",
+   "line_id": "batticaloa-ramakrishna-school-handover-gosl",
+   "date": "2025-09-30",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Military camp removed and Ramakrishna Mission School premises formally handed over.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-30-virakesarilk-a34bca8a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "northern-eastern-100-schools-nippon-foundation-pledged-2025-09-30",
+   "line_id": "northern-eastern-100-schools-nippon-foundation",
+   "date": "2025-09-30",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Nippon Foundation pledged future reconstruction and modernisation of 100 schools.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-30-tamilmirrorlk-32e41ec8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nuegoda-temporary-driving-licence-service-gosl-launched-2025-09-30",
+   "line_id": "nuegoda-temporary-driving-licence-service-gosl",
+   "date": "2025-09-30",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Temporary driving licence issuance launched at Nugegoda transport medical institute",
+   "confidence": "high",
+   "reports": [
+    "2025-09-30-tamilmirrorlk-81dcac38"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "university-disability-admission-quota-gosl-proposed-2025-09-26",
+   "line_id": "university-disability-admission-quota-gosl",
+   "date": "2025-09-26",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government decided to implement university admission quotas for students with disabilities",
+   "confidence": "high",
+   "reports": [
+    "2025-09-30-tamilmirrorlk-76074834"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "matuvil-special-economic-centre-reopening-gosl-launched-2025-09-30",
+   "line_id": "matuvil-special-economic-centre-reopening-gosl",
+   "date": "2025-09-30",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Matuvil Special Economic Centre reopened and wholesale trading launched",
+   "confidence": "high",
+   "reports": [
+    "2025-09-30-virakesarilk-06f94a32"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-sri-lanka-renewable-energy-cooperation-india-unclear-2025-09-29",
+   "line_id": "india-sri-lanka-renewable-energy-cooperation-india",
+   "date": "2025-09-29",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka and India reached initial renewable energy cooperation agreements.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-29-virakesarilk-ada1ab58"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "presidential-fund-migrant-workers-children-education-support-gosl-launched-2025-01-01",
+   "line_id": "presidential-fund-migrant-workers-children-education-support-gosl",
+   "date": "2025-01-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Presidential Fund launched monthly education aid for migrant workers' children.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-29-virakesarilk-2dd4fc8e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "dickoya-hospital-outpatient-chair-donation-private-completed-2025-09-29",
+   "line_id": "dickoya-hospital-outpatient-chair-donation-private",
+   "date": "2025-09-29",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Lions Club donated waiting chairs to Dickoya Clungn Hospital.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-29-virakesarilk-371265ec"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-osa-grant-drones-navy-agreement_signed-2025-09-29",
+   "line_id": "japan-osa-grant-drones-navy",
+   "date": "2025-09-29",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 500000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan signed grant agreement to provide surveillance and disaster-relief UAVs to Sri Lanka Navy",
+   "confidence": "high",
+   "reports": [
+    "2025-09-29-virakesarilk-16e29d66"
+   ],
+   "relation": "repeat_of:japan-osa-grant-drones-navy-agreement_signed-2025-09-30",
+   "notes": null
+  },
+  {
+   "id": "japan-grant-dairy-sector-tech-agreement_signed-2025-09-29",
+   "line_id": "japan-grant-dairy-sector-tech",
+   "date": "2025-09-29",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 463000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan signed grant agreement for dairy-sector equipment and technical support across five provinces",
+   "confidence": "high",
+   "reports": [
+    "2025-09-29-virakesarilk-16e29d66"
+   ],
+   "relation": "repeat_of:japan-grant-dairy-sector-tech-pledged-2025-09-30",
+   "notes": null
+  },
+  {
+   "id": "police-medical-doctors-recruitment-25-gosl-unclear-2025-09-29",
+   "line_id": "police-medical-doctors-recruitment-25-gosl",
+   "date": "2025-09-29",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Police medical services division to recruit 25 doctors",
+   "confidence": "high",
+   "reports": [
+    "2025-09-29-tamilmirrorlk-cd1eabb2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "police-medical-doctors-recruitment-25-gosl-proposed-2025-09-29",
+   "line_id": "police-medical-doctors-recruitment-25-gosl",
+   "date": "2025-09-29",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Police seek applications to fill 25 medical service vacancies.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-29-virakesarilk-422d9954"
+   ],
+   "relation": "update_of:police-medical-doctors-recruitment-25-gosl-unclear-2025-09-29",
+   "notes": null
+  },
+  {
+   "id": "student-free-ai-search-tools-other-google-proposed-2025-09-29",
+   "line_id": "student-free-ai-search-tools-other-google",
+   "date": "2025-09-29",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government announced plans for students to receive free Google AI search tools.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-29-virakesarilk-17990cbc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "matuvil-special-economic-centre-reopening-gosl-proposed-2025-09-30",
+   "line_id": "matuvil-special-economic-centre-reopening-gosl",
+   "date": "2025-09-30",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Matuvil Special Economic Centre scheduled to reopen after a three-year closure.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-29-virakesarilk-e64984f2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mannar-wind-power-project-unknown-govt_authorised-2025-09-29",
+   "line_id": "mannar-wind-power-project-unknown",
+   "date": "2025-09-29",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government reportedly authorised overnight commencement of Mannar wind project work.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-29-virakesarilk-7c4257e9"
+   ],
+   "relation": "update_of:mannar-wind-power-project-unknown-halted-2025-08-13",
+   "notes": null
+  },
+  {
+   "id": "mannar-wind-power-project-unknown-underway-2025-09-29",
+   "line_id": "mannar-wind-power-project-unknown",
+   "date": "2025-09-29",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Opposition members said Mannar wind project work had begun despite calls for suspension.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-29-virakesarilk-7c4257e9",
+    "2025-09-29-virakesarilk-493e4775"
+   ],
+   "relation": "update_of:mannar-wind-power-project-unknown-underway-2025-08-06",
+   "notes": null
+  },
+  {
+   "id": "mannar-wind-power-project-unknown-underway-2025-09-28",
+   "line_id": "mannar-wind-power-project-unknown",
+   "date": "2025-09-28",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Wind-turbine components arrived in Mannar as project work resumed.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-28-virakesarilk-a0840bab",
+    "2025-09-28-virakesarilk-879643d0"
+   ],
+   "relation": "repeat_of:mannar-wind-power-project-unknown-underway-2025-09-29",
+   "notes": null
+  },
+  {
+   "id": "norochcholai-coal-procurement-2025-26-gosl-contract_awarded-2025-09-29",
+   "line_id": "norochcholai-coal-procurement-2025-26-gosl",
+   "date": "2025-09-29",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "A company was reportedly awarded the Norochcholai coal-supply tender.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-29-virakesarilk-6602652c"
+   ],
+   "relation": "update_of:norochcholai-coal-procurement-2025-26-gosl-govt_authorised-2025-08-22",
+   "notes": null
+  },
+  {
+   "id": "moon-memorial-botanical-museum-unknown-launched-2025-09-28",
+   "line_id": "moon-memorial-botanical-museum-unknown",
+   "date": "2025-09-28",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Prime Minister opened the Moon Memorial Botanical Museum at Peradeniya.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-28-virakesarilk-981bd372"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "narahenpita-railway-station-modernisation-private-launched-2025-09-27",
+   "line_id": "narahenpita-railway-station-modernisation-private",
+   "date": "2025-09-27",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Narahenpita Railway Station modernisation works began with private-sector support.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-27-virakesarilk-04ca678b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "public-service-ai-training-series-gosl-launched-2025-09-26",
+   "line_id": "public-service-ai-training-series-gosl",
+   "date": "2025-09-26",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "First provincial awareness programme on government digitalisation and AI was held in Kandy.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-27-virakesarilk-34be2f5f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mannar-wind-power-project-unknown-underway-2025-09-27",
+   "line_id": "mannar-wind-power-project-unknown",
+   "date": "2025-09-27",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Wind-power equipment was transported toward Mannar under police protection.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-27-virakesarilk-90aa5e81"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fishermen-children-education-assistance-gosl-proposed-2025-09-25",
+   "line_id": "fishermen-children-education-assistance-gosl",
+   "date": "2025-09-25",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government announced monthly education assistance for fishermen’s children.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-ea2a74b1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kks-port-renovation-india-loan-cost_estimate-2025-09-26",
+   "line_id": "kks-port-renovation-india-loan",
+   "date": "2025-09-26",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 61500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Revised Kankesanthurai Port project estimate increased to 61.5 million dollars.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-6723e65c"
+   ],
+   "relation": "update_of:kks-port-renovation-india-loan-cost_estimate-unknown",
+   "notes": null
+  },
+  {
+   "id": "kks-port-renovation-india-loan-proposed-2025-09-26",
+   "line_id": "kks-port-renovation-india-loan",
+   "date": "2025-09-26",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka proposed seeking Indian financing to resume Kankesanthurai Port development.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-6723e65c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-old-park-childrens-playground-upgrade-gosl-proposed-2025-09-25",
+   "line_id": "jaffna-old-park-childrens-playground-upgrade-gosl",
+   "date": "2025-09-25",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Jaffna authorities proposed upgrading Old Park’s children’s playground facilities.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-6cc6440e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-modern-product-testing-laboratory-gosl-proposed-2025-09-25",
+   "line_id": "national-modern-product-testing-laboratory-gosl",
+   "date": "2025-09-25",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Health minister announced consultations on building a modern national testing laboratory.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-26-virakesarilk-6bbd3eea"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-health-systems-development-vehicles-adb-completed-2025-09-25",
+   "line_id": "adb-health-systems-development-vehicles-adb",
+   "date": "2025-09-25",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 154000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Seven ADB-funded vehicles handed to health offices for preventive services.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-d0206942"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sl-2026-budget-appropriation-gosl-proposed-2025-09-26",
+   "line_id": "sl-2026-budget-appropriation-gosl",
+   "date": "2025-09-26",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "2026 appropriation bill was presented to Parliament.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-b9623be6",
+    "2025-09-26-tamilmirrorlk-66da331e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "lgbtiq-tourism-promotion-sri-lanka-unknown-govt_authorised-2025-09-26",
+   "line_id": "lgbtiq-tourism-promotion-sri-lanka-unknown",
+   "date": "2025-09-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka Tourism officially recognized an LGBTIQ tourism promotion initiative.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-e3ff6adf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "govpay-environmental-authority-payments-gosl-launched-2025-09-26",
+   "line_id": "govpay-environmental-authority-payments-gosl",
+   "date": "2025-09-26",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Central Environmental Authority payments became available through GovPay.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-82b16bcd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-elderly-policy-2025-2035-gosl-proposed-2025-09-26",
+   "line_id": "national-elderly-policy-2025-2035-gosl",
+   "date": "2025-09-26",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka planned publication of its 2025–2035 national policy for older persons.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-4c589a0b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "education-module-reform-2026-gosl-underway-2025-09-26",
+   "line_id": "education-module-reform-2026-gosl",
+   "date": "2025-09-26",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Teacher training for the new Grade 1 and 6 curriculum is 80 percent complete.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-b89da3d8"
+   ],
+   "relation": "update_of:education-module-reform-2026-gosl-proposed-2025-07-23",
+   "notes": null
+  },
+  {
+   "id": "central-expressway-phase3-stage1-gosl-proposed-2025-09-26",
+   "line_id": "central-expressway-phase3-stage1-gosl",
+   "date": "2025-09-26",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government planned to complete Central Expressway works by 2028.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-dd7277ba"
+   ],
+   "relation": "update_of:central-expressway-phase3-stage1-gosl-contract_awarded-2025-08-19",
+   "notes": null
+  },
+  {
+   "id": "central-expressway-phase3-stage1-gosl-cost_estimate-2025-09-26",
+   "line_id": "central-expressway-phase3-stage1-gosl",
+   "date": "2025-09-26",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 6000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister cited a six-billion-rupee cost per kilometre caused by project delays.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-dd7277ba"
+   ],
+   "relation": "update_of:central-expressway-phase3-stage1-gosl-contract_awarded-2025-08-19",
+   "notes": null
+  },
+  {
+   "id": "public-service-ai-training-series-gosl-proposed-2025-09-26",
+   "line_id": "public-service-ai-training-series-gosl",
+   "date": "2025-09-26",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Provincial AI and digitalisation awareness programme planned for Central Province officials.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-26-virakesarilk-bed73e4f"
+   ],
+   "relation": "update_of:public-service-ai-training-series-gosl-proposed-2025-08-13",
+   "notes": null
+  },
+  {
+   "id": "matuvil-special-economic-centre-reopening-gosl-proposed-2025-09-25",
+   "line_id": "matuvil-special-economic-centre-reopening-gosl",
+   "date": "2025-09-25",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Officials planned to reopen Matuvil Economic Centre on September 30.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-25-virakesarilk-d3925283"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "lotus-tower-bungee-jump-unknown-proposed-2025-09-25",
+   "line_id": "lotus-tower-bungee-jump-unknown",
+   "date": "2025-09-25",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Commercial bungee-jumping attraction planned for Colombo Lotus Tower by 2026.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-25-virakesarilk-48caed7f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-mullaitivu-hospital-proposed-2025-09-24",
+   "line_id": "india-grant-mullaitivu-hospital",
+   "date": "2025-09-24",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India-assisted four-storey ward complex planned for Mullaitivu District General Hospital.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-24-virakesarilk-48b60589"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "southern-expressway-kottawa-dodangoda-repair-gosl-govt_authorised-2025-09-23",
+   "line_id": "southern-expressway-kottawa-dodangoda-repair-gosl",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1400000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved LKR 1.4 billion allocation for Southern Expressway repairs.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-23-virakesarilk-a577980e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "southern-expressway-kottawa-dodangoda-repair-gosl-contract_awarded-2025-09-23",
+   "line_id": "southern-expressway-kottawa-dodangoda-repair-gosl",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 1490960000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved awarding the repair contract to Access W.K.K. Group.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-23-virakesarilk-a577980e"
+   ],
+   "relation": "repeat_of:southern-expressway-kottawa-dodangoda-repair-gosl-contract_awarded-2025-09-22",
+   "notes": null
+  },
+  {
+   "id": "gurukkalmadam-mass-grave-excavation-unknown-cost_estimate-2025-09-23",
+   "line_id": "gurukkalmadam-mass-grave-excavation-unknown",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 2850000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Court accepted a cost estimate for excavating the Gurukkalmadam human mass grave.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-23-virakesarilk-4c5d41f5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ceb-restructuring-four-state-companies-gosl-unclear-2025-09-23",
+   "line_id": "ceb-restructuring-four-state-companies-gosl",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government plans to restructure CEB into four state-owned companies.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-23-tamilmirrorlk-0cb402f8",
+    "2025-09-23-tamilmirrorlk-029fefb2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "government-superapp-digital-platform-gosl-govt_authorised-2025-09-23",
+   "line_id": "government-superapp-digital-platform-gosl",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved development of a unified government digital services platform.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-23-virakesarilk-e18dc27f",
+    "2025-09-23-tamilmirrorlk-4407602d"
+   ],
+   "relation": "repeat_of:government-superapp-digital-platform-gosl-govt_authorised-2025-09-23",
+   "notes": null
+  },
+  {
+   "id": "artham-child-living-allowance-gosl-govt_authorised-2025-06-16",
+   "line_id": "artham-child-living-allowance-gosl",
+   "date": "2025-06-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved the Artham allowance programme for vulnerable children.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-23-tamilmirrorlk-2a7581e0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "artham-child-living-allowance-gosl-launched-2025-09-23",
+   "line_id": "artham-child-living-allowance-gosl",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Artham allowance payments began from July 2025.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-23-tamilmirrorlk-2a7581e0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "artham-child-living-allowance-gosl-govt_authorised-2025-09-23",
+   "line_id": "artham-child-living-allowance-gosl",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved backdating eligibility and depositing arrears from January 2025.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-23-tamilmirrorlk-2a7581e0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "eu-biodiversity-waste-grant-eu-agreement_signed-2025-09-23",
+   "line_id": "eu-biodiversity-waste-grant-eu",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 8000000,
+   "currency": "EUR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka and the EU signed an €8 million biodiversity and waste grant agreement.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-23-virakesarilk-989f5332"
+   ],
+   "relation": "repeat_of:eu-biodiversity-waste-grant-eu-agreement_signed-2025-09-23",
+   "notes": null
+  },
+  {
+   "id": "paranthan-chlorine-production-plant-unknown-govt_authorised-2025-09-23",
+   "line_id": "paranthan-chlorine-production-plant-unknown",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved seeking investor proposals for a PPP chlorine plant.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-23-tamilmirrorlk-91c98e75"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "integrated-fisheries-action-plan-2026-gosl-proposed-2025-09-22",
+   "line_id": "integrated-fisheries-action-plan-2026-gosl",
+   "date": "2025-09-22",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Officials decided to prepare an integrated national fisheries action plan for 2026.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-22-virakesarilk-4ea5aa9e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "epf-mobile-service-week-gosl-launched-2025-09-22",
+   "line_id": "epf-mobile-service-week-gosl",
+   "date": "2025-09-22",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Labour Ministry launched nationwide mobile services for Employees' Provident Fund members.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-22-virakesarilk-805b496b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-medicine-procurement-distribution-gosl-underway-2025-09-22",
+   "line_id": "national-medicine-procurement-distribution-gosl",
+   "date": "2025-09-22",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government medicine procurement is 80–85% complete to address shortages.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-22-virakesarilk-c9958363"
+   ],
+   "relation": "update_of:national-medicine-procurement-distribution-gosl-allocated-2025-07-23",
+   "notes": null
+  },
+  {
+   "id": "sltb-driver-conductor-recruitment-2025-gosl-proposed-2025-09-21",
+   "line_id": "sltb-driver-conductor-recruitment-2025-gosl",
+   "date": "2025-09-21",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Interviews are underway to recruit 450 drivers and 300 conductors.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-21-virakesarilk-ded765c8",
+    "2025-09-21-virakesarilk-1dd90a09"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "pettah-fire-response-operation-gosl-underway-2025-09-20",
+   "line_id": "pettah-fire-response-operation-gosl",
+   "date": "2025-09-20",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Military helicopter, vehicles, and firefighters deployed to control Pettah commercial-area fire.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-20-tamilmirrorlk-e431d908"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "lanka-metro-bus-company-gosl-proposed-2025-09-20",
+   "line_id": "lanka-metro-bus-company-gosl",
+   "date": "2025-09-20",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister announced a fully SLTB-owned Lanka Metro Bus Company from October 8.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-20-tamilmirrorlk-cccd63f3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sltb-long-distance-bus-seat-belts-gosl-proposed-2025-09-20",
+   "line_id": "sltb-long-distance-bus-seat-belts-gosl",
+   "date": "2025-09-20",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "SLTB technical divisions were instructed to develop seat belts for older buses.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-20-tamilmirrorlk-cccd63f3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "army-multisectoral-medical-camp-ampara-batticaloa-gosl-launched-2025-09-19",
+   "line_id": "army-multisectoral-medical-camp-ampara-batticaloa-gosl",
+   "date": "2025-09-19",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Army organized a seventh annual multisectoral medical camp serving veterans and families.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-19-virakesarilk-89b5d2db"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sl-2026-budget-appropriation-gosl-proposed-2025-09-19",
+   "line_id": "sl-2026-budget-appropriation-gosl",
+   "date": "2025-09-19",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 4434356468000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Gazette disclosed proposed 2026 government expenditure allocations before parliamentary budget presentation.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-19-virakesarilk-2000ee0b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "foreign-employment-special-investigation-unit-gosl-launched-2025-09-19",
+   "line_id": "foreign-employment-special-investigation-unit-gosl",
+   "date": "2025-09-19",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Special unit opened to investigate foreign employment complaints.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-19-tamilmirrorlk-645026fc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "epf-mobile-service-week-gosl-proposed-2025-09-18",
+   "line_id": "epf-mobile-service-week-gosl",
+   "date": "2025-09-18",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Labour Ministry announced mobile service to resolve EPF disputes nationwide.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-18-tamilmirrorlk-1f9223d8",
+    "2025-09-18-virakesarilk-60da0264"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kaluwanchikudy-post-office-new-building-gosl-launched-2025-09-18",
+   "line_id": "kaluwanchikudy-post-office-new-building-gosl",
+   "date": "2025-09-18",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 29500000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Foundation stone laid for a new Kaluwanchikudy Post Office building.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-18-tamilmirrorlk-c9b44c15"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "birds-x-dragonfly-nanosatellite-unknown-proposed-2025-09-19",
+   "line_id": "birds-x-dragonfly-nanosatellite-unknown",
+   "date": "2025-09-19",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka's BIRDS-X Dragonfly nanosatellite is scheduled for orbital launch.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-18-virakesarilk-289b0a78"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kerawalapitiya-sobhadnavi-power-plant-unknown-launched-2025-09-17",
+   "line_id": "kerawalapitiya-sobhadnavi-power-plant-unknown",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sobhadnavi phase two opened and connected 350 MW to the national grid.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-18-virakesarilk-46fbb63b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sri-lanka-petroleum-exploration-gosl-proposed-2025-09-17",
+   "line_id": "sri-lanka-petroleum-exploration-gosl",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government announced plans to begin petroleum exploration with scientists and experts.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-17-tamilmirrorlk-a8be2417"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kolonnawa-oil-storage-tanks-gosl-launched-2025-09-17",
+   "line_id": "kolonnawa-oil-storage-tanks-gosl",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Construction began on six additional oil storage tanks at Kolonnawa.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-17-tamilmirrorlk-a8be2417"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-university-health-sciences-building-gosl-govt_authorised-2025-09-16",
+   "line_id": "jaffna-university-health-sciences-building-gosl",
+   "date": "2025-09-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 2234000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved construction of a five-storey allied health sciences faculty building.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-17-tamilmirrorlk-e6cb57ec",
+    "2025-09-17-tamilmirrorlk-5f887758",
+    "2025-09-16-virakesarilk-296df3f1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sltb-driver-conductor-recruitment-2025-gosl-proposed-2025-09-17",
+   "line_id": "sltb-driver-conductor-recruitment-2025-gosl",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "SLTB plans to recruit 750 female drivers and conductors to address staffing shortages.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-17-tamilmirrorlk-8e6b447c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "central-expressway-kadawatha-mirigama-gosl-launched-2025-09-17",
+   "line_id": "central-expressway-kadawatha-mirigama-gosl",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The first section of the Kadawatha–Mirigama Central Expressway held its opening ceremony.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-17-tamilmirrorlk-fed19429",
+    "2025-09-17-tamilmirrorlk-2537f747"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ruwanpura-expressway-ingiriya-section-gosl-halted-2025-09-17",
+   "line_id": "ruwanpura-expressway-ingiriya-section-gosl",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ruwanpura Expressway construction was reported halted.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-17-tamilmirrorlk-fed19429"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ruwanpura-expressway-ingiriya-section-gosl-proposed-2025-09-17",
+   "line_id": "ruwanpura-expressway-ingiriya-section-gosl",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Construction to Ingiriya was announced for an imminent start.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-17-tamilmirrorlk-fed19429"
+   ],
+   "relation": "update_of:ruwanpura-expressway-ingiriya-section-gosl-halted-2025-09-17",
+   "notes": null
+  },
+  {
+   "id": "southern-expressway-kottawa-dodangoda-repair-gosl-underway-2025-09-17",
+   "line_id": "southern-expressway-kottawa-dodangoda-repair-gosl",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Reconstruction work on the Southern Expressway had started.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-17-tamilmirrorlk-fed19429"
+   ],
+   "relation": "update_of:southern-expressway-kottawa-dodangoda-repair-gosl-contract_awarded-2025-09-23",
+   "notes": null
+  },
+  {
+   "id": "udugawa-expressway-service-centre-gosl-proposed-2025-09-17",
+   "line_id": "udugawa-expressway-service-centre-gosl",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government plans to open a small additional service centre at Udugawa.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-17-tamilmirrorlk-fed19429"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "southern-expressway-toll-integration-gosl-underway-2025-09-17",
+   "line_id": "southern-expressway-toll-integration-gosl",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Work began to enable toll payment from Matara after entry at Katunayake.",
+   "confidence": "low",
+   "reports": [
+    "2025-09-17-tamilmirrorlk-fed19429"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-highway-plan-sri-lanka-gosl-proposed-2025-09-17",
+   "line_id": "national-highway-plan-sri-lanka-gosl",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The minister announced plans to prepare a national highway plan.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-17-tamilmirrorlk-fed19429"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "us-navy-english-language-lab-usa-launched-2025-09-15",
+   "line_id": "us-navy-english-language-lab-usa",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "United States and Sri Lanka opened an advanced English language laboratory for naval officers.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-17-virakesarilk-1e51318f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "presidential-residences-tourist-lodges-private-govt_authorised-2025-09-17",
+   "line_id": "presidential-residences-tourist-lodges-private",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Former presidential residences will be used for economically beneficial public purposes.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-17-tamilmirrorlk-6e9669f0"
+   ],
+   "relation": "update_of:presidential-residences-tourist-lodges-private-proposed-2025-08-29",
+   "notes": null
+  },
+  {
+   "id": "sl-2026-budget-appropriation-gosl-unclear-2025-09-16",
+   "line_id": "sl-2026-budget-appropriation-gosl",
+   "date": "2025-09-16",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved the timetable for presenting the 2026 Appropriation Bill to Parliament.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-virakesarilk-1d2d8c73"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "valachchenai-fisheries-port-2026-gosl-proposed-2025-09-16",
+   "line_id": "valachchenai-fisheries-port-2026-gosl",
+   "date": "2025-09-16",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Deputy minister announced plans to establish a fisheries port with ice-production facilities.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-virakesarilk-c541dbe8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-fisheries-pension-scheme-gosl-proposed-2025-09-16",
+   "line_id": "national-fisheries-pension-scheme-gosl",
+   "date": "2025-09-16",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government announced a contributory pension scheme for fishing communities nationwide.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-virakesarilk-c541dbe8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "us-cldp-port-law-ppp-training-usa-completed-2025-09-08",
+   "line_id": "us-cldp-port-law-ppp-training-usa",
+   "date": "2025-09-08",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "U.S. embassy conducted port law and public-private partnership training.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-virakesarilk-cfadc0f0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-grant-dairy-sector-tech-pledged-2025-09-16",
+   "line_id": "japan-grant-dairy-sector-tech",
+   "date": "2025-09-16",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 463000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan pledged dairy-sector equipment and technology support for Sri Lanka.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-tamilmirrorlk-74f20907"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-osa-grant-drones-navy-pledged-2025-09-16",
+   "line_id": "japan-osa-grant-drones-navy",
+   "date": "2025-09-16",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 500000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan pledged drones and surveillance technology for the Sri Lanka Navy.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-tamilmirrorlk-74f20907"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "govpay-southern-province-integration-gosl-launched-2025-09-15",
+   "line_id": "govpay-southern-province-integration-gosl",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Southern Province connected all district and divisional secretariats to GovPay.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-virakesarilk-a922b267"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "government-digital-signature-initiative-gosl-launched-2025-09-16",
+   "line_id": "government-digital-signature-initiative-gosl",
+   "date": "2025-09-16",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Public Administration Ministry introduced digital signatures for government officials.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-tamilmirrorlk-2a96e23b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "deduru-oya-invasive-fish-control-gosl-proposed-2025-09-15",
+   "line_id": "deduru-oya-invasive-fish-control-gosl",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Authorities proposed a public project to control invasive fish in Deduru Oya.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-virakesarilk-5f6dc615"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "paruthithurai-port-development-india-cost_estimate-2025-09-16",
+   "line_id": "paruthithurai-port-development-india",
+   "date": "2025-09-16",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 10000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India is studying development of Paruthithurai Port at an estimated cost.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-tamilmirrorlk-25872214"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "maradana-railway-station-modernisation-unknown-launched-2025-09-15",
+   "line_id": "maradana-railway-station-modernisation-unknown",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Maradana Railway Station modernisation began under the Clean Sri Lanka programme.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-tamilmirrorlk-7abedd9f",
+    "2025-09-15-virakesarilk-1b224682",
+    "2025-09-15-virakesarilk-54f58c2b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "moratuwa-medical-faculty-construction-gosl-proposed-2025-09-15",
+   "line_id": "moratuwa-medical-faculty-construction-gosl",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government said construction of Moratuwa University medical faculty would begin soon.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-15-virakesarilk-949e7b6c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nagoda-hospital-medical-nursing-buildings-gosl-allocated-2025-09-15",
+   "line_id": "nagoda-hospital-medical-nursing-buildings-gosl",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 45000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Treasury allocated Rs. 45 billion to complete Nagoda hospital projects by 2027.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-15-virakesarilk-949e7b6c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kalassa-maternity-hospital-new-building-gosl-proposed-2025-09-15",
+   "line_id": "kalassa-maternity-hospital-new-building-gosl",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government expected to construct a new building for Kalassa maternity hospital.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-15-virakesarilk-949e7b6c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "seventeen-abandoned-health-projects-gosl-halted-2025-09-15",
+   "line_id": "seventeen-abandoned-health-projects-gosl",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": 29000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Seventeen earlier projects were abandoned, creating about Rs. 29 billion additional costs.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-15-virakesarilk-949e7b6c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kilinochchi-military-land-release-gosl-completed-2025-09-07",
+   "line_id": "kilinochchi-military-land-release-gosl",
+   "date": "2025-09-07",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Authorities released military-held land in Kilinochchi and transferred it to officials.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-15-virakesarilk-bff8e073"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "akaragama-hospital-renovation-joint-completed-2025-09-15",
+   "line_id": "akaragama-hospital-renovation-joint",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 40500000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "United States and Sri Lanka completed renovation of Akaragama regional hospital.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-15-virakesarilk-6542b1a3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "colombo-central-bus-station-renovation-gosl-launched-2025-09-15",
+   "line_id": "colombo-central-bus-station-renovation-gosl",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Colombo Central Bus Station renovation project held its opening ceremony.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-15-virakesarilk-9d0b6c21",
+    "2025-09-15-tamilmirrorlk-6e233b88",
+    "2025-09-15-tamilmirrorlk-1c00cfd2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "multimodal-transport-stations-programme-gosl-proposed-2025-09-15",
+   "line_id": "multimodal-transport-stations-programme-gosl",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government targeted establishing 50 multimodal transport stations nationwide by 2029.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-15-virakesarilk-9d0b6c21",
+    "2025-09-15-tamilmirrorlk-e30885b9",
+    "2025-09-15-tamilmirrorlk-c13f1020"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "multimodal-transport-stations-programme-gosl-launched-2025-09-15",
+   "line_id": "multimodal-transport-stations-programme-gosl",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The multimodal transport-centre project was initiated under presidential leadership.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-15-tamilmirrorlk-e30885b9",
+    "2025-09-15-tamilmirrorlk-c13f1020"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "president-fund-kandy-school-scholarships-gosl-spent-2025-09-14",
+   "line_id": "president-fund-kandy-school-scholarships-gosl",
+   "date": "2025-09-14",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President’s Fund scholarships were provided to 28 low-income students in Kandy.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-15-virakesarilk-64db6d74"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "local-government-week-2025-gosl-launched-2025-09-15",
+   "line_id": "local-government-week-2025-gosl",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Local Government Week began nationwide under the Reawakening City theme.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-15-virakesarilk-124699c6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "vanni-unfinished-classroom-completion-gosl-pledged-2025-09-15",
+   "line_id": "vanni-unfinished-classroom-completion-gosl",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Prime Minister pledged funding to complete unfinished classroom buildings in Vanni District.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-15-virakesarilk-4b10c50d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "colombo-central-bus-station-renovation-gosl-launched-2025-09-14",
+   "line_id": "colombo-central-bus-station-renovation-gosl",
+   "date": "2025-09-14",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 424000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President launched Colombo Central Bus Station redevelopment under the 50-station national project.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-15-virakesarilk-54f58c2b"
+   ],
+   "relation": "repeat_of:colombo-central-bus-station-renovation-gosl-launched-2025-09-15",
+   "notes": null
+  },
+  {
+   "id": "central-expressway-kadawatha-mirigama-gosl-proposed-2025-09-17",
+   "line_id": "central-expressway-kadawatha-mirigama-gosl",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Central Expressway Kadawatha–Mirigama construction was scheduled to resume on September 17.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-14-virakesarilk-75bba7bb",
+    "2025-09-14-tamilmirrorlk-75d94707"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "central-expressway-kadawatha-mirigama-china-exim-loan-unclear-2025-09-14",
+   "line_id": "central-expressway-kadawatha-mirigama-china-exim-loan",
+   "date": "2025-09-14",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": 500000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China Exim Bank provided a reported $500 million loan to restart the expressway project.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-14-virakesarilk-75bba7bb",
+    "2025-09-14-tamilmirrorlk-75d94707"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "maradana-railway-station-modernisation-unknown-proposed-2025-09-15",
+   "line_id": "maradana-railway-station-modernisation-unknown",
+   "date": "2025-09-15",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Maradana Railway Station renovation is scheduled to begin.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-14-virakesarilk-d9333bcf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "long-distance-bus-quality-testing-gosl-proposed-2025-09-14",
+   "line_id": "long-distance-bus-quality-testing-gosl",
+   "date": "2025-09-14",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government plans mandatory pre-departure quality testing for long-distance buses.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-14-virakesarilk-64ecf781"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "balapitiya-post-office-construction-unknown-launched-2025-09-13",
+   "line_id": "balapitiya-post-office-construction-unknown",
+   "date": "2025-09-13",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Foundation stone ceremony was held for constructing a post office in Balapitiya.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-13-virakesarilk-b8a97b22"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "electronic-court-system-sri-lanka-gosl-launched-2025-09-12",
+   "line_id": "electronic-court-system-sri-lanka-gosl",
+   "date": "2025-09-12",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "First phase of electronic court system opened at Sri Lanka’s Supreme Court.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-13-virakesarilk-bddd61ac"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "state-bank-privatisation-plan-gosl-govt_authorised-2025-09-13",
+   "line_id": "state-bank-privatisation-plan-gosl",
+   "date": "2025-09-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet reportedly approved a plan to privatise state-owned banks.",
+   "confidence": "low",
+   "reports": [
+    "2025-09-13-virakesarilk-b7baefb4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "paruthithurai-port-development-india-proposed-2025-09-12",
+   "line_id": "paruthithurai-port-development-india",
+   "date": "2025-09-12",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Indian technical team conducted preliminary studies for proposed Paruthithurai fishing port development.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-12-virakesarilk-dab051fa"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "president-fund-kandy-school-scholarships-gosl-proposed-2025-09-12",
+   "line_id": "president-fund-kandy-school-scholarships-gosl",
+   "date": "2025-09-12",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 36000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President’s Fund planned assistance for 360 high-performing Central Province students.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-12-virakesarilk-eefd60a5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "netherlands-grant-rural-bridges-funder_approved-2025-09-12",
+   "line_id": "netherlands-grant-rural-bridges",
+   "date": "2025-09-12",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 730000,
+   "currency": "EUR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Netherlands approved an additional grant for Sri Lanka’s rural bridges project.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-12-virakesarilk-6b113fb5"
+   ],
+   "relation": "repeat_of:netherlands-grant-rural-bridges-funder_approved-2025-09-12",
+   "notes": null
+  },
+  {
+   "id": "pregnant-women-nutrition-food-package-gosl-allocated-2025-09-12",
+   "line_id": "pregnant-women-nutrition-food-package-gosl",
+   "date": "2025-09-12",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government allocated funds for nutrition food packages for 160,200 pregnant women.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-12-tamilmirrorlk-b9dcf4cc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "pregnant-women-nutrition-food-package-gosl-govt_authorised-2025-09-12",
+   "line_id": "pregnant-women-nutrition-food-package-gosl",
+   "date": "2025-09-12",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved ten-month food package assistance for undernourished pregnant and breastfeeding mothers.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-12-tamilmirrorlk-b9dcf4cc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "arogya-mobile-medical-camps-gosl-launched-2025-09-10",
+   "line_id": "arogya-mobile-medical-camps-gosl",
+   "date": "2025-09-10",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Health Ministry launched Arogya mobile medical camps for police officers and families.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-10-virakesarilk-94708a94"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "high-court-card-payment-facility-gosl-launched-2025-09-10",
+   "line_id": "high-court-card-payment-facility-gosl",
+   "date": "2025-09-10",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Colombo High Court launched card payments for court proceeding fees.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-10-virakesarilk-c4865ee3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "colombo-central-bus-station-renovation-gosl-allocated-2025-09-10",
+   "line_id": "colombo-central-bus-station-renovation-gosl",
+   "date": "2025-09-10",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 540000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government allocated nearly Rs. 540 million for Colombo Central Bus Station renovation.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-10-tamilmirrorlk-8b3910f6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nallur-female-dog-sterilization-campaign-gosl-proposed-2025-09-10",
+   "line_id": "nallur-female-dog-sterilization-campaign-gosl",
+   "date": "2025-09-10",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 600,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Nallur council proposed Rs. 600 rewards per female stray dog delivered for sterilization.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-10-virakesarilk-de59b276"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kilinochchi-land-title-issuance-programme-gosl-completed-2025-09-09",
+   "line_id": "kilinochchi-land-title-issuance-programme-gosl",
+   "date": "2025-09-09",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government has issued 1,850 land title deeds in Kilinochchi District.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-09-virakesarilk-baa6a7c8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kilinochchi-land-title-issuance-programme-gosl-proposed-2025-09-09",
+   "line_id": "kilinochchi-land-title-issuance-programme-gosl",
+   "date": "2025-09-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Deputy minister said measures would issue titles for 477 Kilinochchi applications.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-09-virakesarilk-baa6a7c8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-pond-dredging-groundwater-protection-unknown-proposed-2025-09-09",
+   "line_id": "jaffna-pond-dredging-groundwater-protection-unknown",
+   "date": "2025-09-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Northern officials agreed to expedite Kandarodai pond dredging and develop a permanent mechanism.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-09-virakesarilk-60dbc17b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "dental-surgery-training-recruitment-gosl-launched-2025-09-08",
+   "line_id": "dental-surgery-training-recruitment-gosl",
+   "date": "2025-09-08",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Health Ministry recruited 86 dental graduates for limited-practice training.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-09-virakesarilk-fcc4d850"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "central-expressway-kadawatha-mirigama-china-exim-loan-proposed-2025-09-08",
+   "line_id": "central-expressway-kadawatha-mirigama-china-exim-loan",
+   "date": "2025-09-08",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Chinese financing resumed for stalled Kadawatha–Mirigama Central Expressway construction.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-08-virakesarilk-023eb1d9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kala-wewa-invasive-plant-removal-gosl-completed-2025-09-07",
+   "line_id": "kala-wewa-invasive-plant-removal-gosl",
+   "date": "2025-09-07",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Invasive plants were removed from Kala Wewa-area tanks to restore elephant habitat.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-07-virakesarilk-95dff1ac"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "siyambalanduwa-rivithanavi-solar-park-unknown-launched-2025-09-06",
+   "line_id": "siyambalanduwa-rivithanavi-solar-park-unknown",
+   "date": "2025-09-06",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 140000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Construction began on a 100-megawatt solar park in Siyambalanduwa.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-07-tamilmirrorlk-b2ed4bda"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rural-small-train-development-gosl-proposed-2025-09-06",
+   "line_id": "rural-small-train-development-gosl",
+   "date": "2025-09-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka Railways planned three-car small trains for rural routes.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-06-virakesarilk-0c1a2a3b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rural-small-train-development-gosl-govt_authorised-2025-09-06",
+   "line_id": "rural-small-train-development-gosl",
+   "date": "2025-09-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved electronically controlled connections between small-train compartments.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-06-virakesarilk-0c1a2a3b"
+   ],
+   "relation": "update_of:rural-small-train-development-gosl-proposed-2025-09-06",
+   "notes": null
+  },
+  {
+   "id": "paddy-purchase-yala-2025-season-gosl-spent-2025-09-06",
+   "line_id": "paddy-purchase-yala-2025-season-gosl",
+   "date": "2025-09-06",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 55000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Paddy Marketing Board paid farmers Rs. 55 billion under government procurement scheme.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-06-virakesarilk-2434d294"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "paddy-purchase-yala-2025-season-gosl-underway-2025-09-06",
+   "line_id": "paddy-purchase-yala-2025-season-gosl",
+   "date": "2025-09-06",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government purchased over 40,000 metric tonnes under paddy procurement scheme.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-06-virakesarilk-2434d294"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "freshwater-reservoir-fish-protection-nets-gosl-govt_authorised-2025-09-05",
+   "line_id": "freshwater-reservoir-fish-protection-nets-gosl",
+   "date": "2025-09-05",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government approved protective nets for fish resources in 250 freshwater reservoirs.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-05-virakesarilk-b0723815"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-loan-habarana-veyangoda-transmission-launched-2025-09-03",
+   "line_id": "japan-loan-habarana-veyangoda-transmission",
+   "date": "2025-09-03",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 65000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan-funded Habarana–Veyangoda transmission project began construction to strengthen electricity distribution.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-04-virakesarilk-fd044519"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "northern-province-sector-data-collection-gosl-govt_authorised-2025-09-03",
+   "line_id": "northern-province-sector-data-collection-gosl",
+   "date": "2025-09-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Northern governor accepted funding request for livestock and sector data collection.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-04-virakesarilk-0310dec9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "artham-child-living-allowance-gosl-allocated-2025-09-03",
+   "line_id": "artham-child-living-allowance-gosl",
+   "date": "2025-09-03",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Budget allocated monthly support for children without parents or guardians.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-03-tamilmirrorlk-cab18a80"
+   ],
+   "relation": "update_of:artham-child-living-allowance-gosl-govt_authorised-2025-06-16",
+   "notes": null
+  },
+  {
+   "id": "children-homes-facilities-upgrade-gosl-allocated-2025-09-03",
+   "line_id": "children-homes-facilities-upgrade-gosl",
+   "date": "2025-09-03",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Budget allocated to improve facilities, infrastructure and staffing in 379 children’s homes.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-03-tamilmirrorlk-cab18a80"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "youth-marriage-assistance-fund-gosl-allocated-2025-09-03",
+   "line_id": "youth-marriage-assistance-fund-gosl",
+   "date": "2025-09-03",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Budget allocated housing and long-term support for care leavers marrying after adulthood.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-03-tamilmirrorlk-cab18a80"
+   ],
+   "relation": "update_of:youth-marriage-assistance-fund-gosl-govt_authorised-2025-08-18",
+   "notes": null
+  },
+  {
+   "id": "child-court-transport-service-gosl-allocated-2025-09-03",
+   "line_id": "child-court-transport-service-gosl",
+   "date": "2025-09-03",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 250000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Budget allocated suitable transport for children required to attend court.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-03-tamilmirrorlk-cab18a80"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "lady-ridgeway-neurodevelopment-unit-gosl-allocated-2025-09-03",
+   "line_id": "lady-ridgeway-neurodevelopment-unit-gosl",
+   "date": "2025-09-03",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 200000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Budget allocated a special neurodevelopment treatment unit at Lady Ridgeway Hospital.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-03-tamilmirrorlk-cab18a80"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "model-childcare-centre-gosl-allocated-2025-09-03",
+   "line_id": "model-childcare-centre-gosl",
+   "date": "2025-09-03",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 250000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Budget allocated a model daycare centre for early childhood development.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-03-tamilmirrorlk-cab18a80"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ciaboc-whatsapp-complaints-channel-gosl-launched-2025-09-02",
+   "line_id": "ciaboc-whatsapp-complaints-channel-gosl",
+   "date": "2025-09-02",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Anti-corruption commission launched a WhatsApp channel for public complaints.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-02-virakesarilk-da6c229f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "northern-coconut-seed-production-unit-unknown-launched-2025-09-02",
+   "line_id": "northern-coconut-seed-production-unit-unknown",
+   "date": "2025-09-02",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President opened the Northern Province’s first seed coconut production unit.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-02-tamilmirrorlk-49b66774"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-passport-office-development-gosl-launched-2025-09-01",
+   "line_id": "jaffna-passport-office-development-gosl",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President initiated preliminary work for a passport office in Jaffna.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-02-virakesarilk-f56f1610"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-sports-ground-development-gosl-launched-2025-09-01",
+   "line_id": "jaffna-sports-ground-development-gosl",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President initiated preliminary work for a sports ground in Jaffna.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-02-virakesarilk-f56f1610"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-port-development-gosl-launched-2025-09-01",
+   "line_id": "jaffna-port-development-gosl",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President initiated preliminary work for a port development project in Jaffna.",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-02-virakesarilk-f56f1610"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "foreign-workers-children-scholarships-gosl-spent-2025-08-30",
+   "line_id": "foreign-workers-children-scholarships-gosl",
+   "date": "2025-08-30",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Scholarships were awarded to 84 children of registered migrant workers.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-virakesarilk-c6d46cb5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "foreign-workers-children-scholarships-gosl-proposed-2025-09-01",
+   "line_id": "foreign-workers-children-scholarships-gosl",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 50880000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Scholarships worth Rs. 50.88 million were scheduled for later distribution.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-virakesarilk-c6d46cb5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mayilitti-fisheries-harbour-phase-three-gosl-launched-2025-09-01",
+   "line_id": "mayilitti-fisheries-harbour-phase-three-gosl",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Phase three of Mayilitti Fisheries Harbour development began.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-virakesarilk-ef860488",
+    "2025-09-01-virakesarilk-c058e1e5",
+    "2025-09-01-tamilmirrorlk-dcb8ec36"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-public-library-e-library-gosl-allocated-2025-09-01",
+   "line_id": "jaffna-public-library-e-library-gosl",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 100000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The 2025 budget allocated Rs. 100 million for Jaffna Public Library digitisation.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-tamilmirrorlk-ad30eeb1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-public-library-e-library-gosl-launched-2025-09-01",
+   "line_id": "jaffna-public-library-e-library-gosl",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The President launched Jaffna Public Library's e-library project.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-tamilmirrorlk-ad30eeb1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-international-cricket-stadium-unknown-proposed-2025-09-01",
+   "line_id": "jaffna-international-cricket-stadium-unknown",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Construction of Jaffna International Cricket Stadium was scheduled to begin.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-tamilmirrorlk-6955bf3e",
+    "2025-09-01-tamilmirrorlk-dcb8ec36"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-international-cricket-stadium-unknown-launched-2025-09-01",
+   "line_id": "jaffna-international-cricket-stadium-unknown",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Construction of Jaffna International Cricket Stadium began in Mandaitivu.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-tamilmirrorlk-45e63a7f"
+   ],
+   "relation": "update_of:jaffna-international-cricket-stadium-unknown-proposed-2025-09-01",
+   "notes": null
+  },
+  {
+   "id": "jaffna-passport-regional-office-gosl-launched-2025-09-01",
+   "line_id": "jaffna-passport-regional-office-gosl",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Jaffna regional passport office opened at the district secretariat complex.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-tamilmirrorlk-89638b8d",
+    "2025-09-01-tamilmirrorlk-3b211d01"
+   ],
+   "relation": "repeat_of:jaffna-passport-office-development-gosl-launched-2025-09-01",
+   "notes": null
+  },
+  {
+   "id": "mayilitti-fisheries-harbour-phase-three-gosl-allocated-2025-09-01",
+   "line_id": "mayilitti-fisheries-harbour-phase-three-gosl",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 298000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government allocated Rs. 298 million for Mayilitti harbour facilities.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-virakesarilk-c058e1e5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-passport-regional-office-gosl-proposed-2025-09-01",
+   "line_id": "jaffna-passport-regional-office-gosl",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Jaffna regional passport office was scheduled to open.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-tamilmirrorlk-dcb8ec36"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-public-library-e-library-gosl-proposed-2025-09-01",
+   "line_id": "jaffna-public-library-e-library-gosl",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Jaffna Public Library e-library project was scheduled to begin.",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-tamilmirrorlk-dcb8ec36"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2025-09-30-virakesarilk-a34bca8a": {
+   "date": "2025-09-30",
+   "title": "மட்டு. ராமகிருஷ்ண மிஷன் பள்ளியில் முகாமிட்டிருந்த இராணுவ முகாம் அகற்றம் ; கல்வி செயல்பாட்டிற்கு இடமளிக்கப்பட்டுள்ளது",
+   "url": "https://www.virakesari.lk/article/226529",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-30-tamilmirrorlk-32e41ec8": {
+   "date": "2025-09-30",
+   "title": "வடக்கு, கிழக்கில் பாடசாலைகளை புனரமைக்க ஜப்பான் உதவி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/வடக்கு-கிழக்கில்-பாடசாலைகளை-புனரமைக்க-ஜப்பான்-உதவி/175-365541",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-30-tamilmirrorlk-81dcac38": {
+   "date": "2025-09-30",
+   "title": "”7 நிமிடங்களில் ஓட்டுநர் உரிமத்தைப் புதுப்பிக்கலாம்”",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/7-நிமிடங்களில்-ஓட்டுநர்-உரிமத்தைப்-புதுப்பிக்கலாம்/175-365535",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-30-tamilmirrorlk-76074834": {
+   "date": "2025-09-30",
+   "title": "“ஆசிரியர், அதிபர் இடமாற்றங்களை சமநிலைப்படுத்துவதை  துரிதப்படுத்தவும்”",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ஆசிரியர்-அதிபர்-இடமாற்றங்களை-சமநிலைப்படுத்துவதை-துரிதப்படுத்தவும்/175-365530",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-30-virakesarilk-06f94a32": {
+   "date": "2025-09-30",
+   "title": "யாழ். மட்டுவில் விசேட பொருளாதார மத்திய நிலையம் மீள ஆரம்பம்",
+   "url": "https://www.virakesari.lk/article/226493",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-29-virakesarilk-ada1ab58": {
+   "date": "2025-09-29",
+   "title": "இலங்கை - இந்தியா வலுசக்தி ஒத்துழைப்பு குறித்து பேச்சுவார்த்தை",
+   "url": "https://www.virakesari.lk/article/226430",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-29-virakesarilk-2dd4fc8e": {
+   "date": "2025-09-29",
+   "title": "புலம்பெயர் தொழிலாளர்களின் பிள்ளைகளுக்காக ஜனாதிபதி நிதியத்தின் மூலம் மாதாந்த கல்வி உதவி – அமைச்சர் அருண் ஹேமச்சந்திர",
+   "url": "https://www.virakesari.lk/article/226429",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-29-virakesarilk-371265ec": {
+   "date": "2025-09-29",
+   "title": "கிளங்கன் வைத்தியசாலை வெளிநோயளர் பிரிவுக்கு வாங்குகதிரைகள் வழங்கி வைப்பு",
+   "url": "https://www.virakesari.lk/article/226433",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-29-virakesarilk-16e29d66": {
+   "date": "2025-09-29",
+   "title": "ஜப்பான் பிரதமர் - ஜனாதிபதி அநுர முன்னிலையில் இரு முக்கிய திட்டங்கள் கைச்சாத்து",
+   "url": "https://www.virakesari.lk/article/226416",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-29-tamilmirrorlk-cd1eabb2": {
+   "date": "2025-09-29",
+   "title": "பொலிஸ் வைத்திய சேவைப் பிரிவிற்கு 25 வைத்தியர்கள் ஆட்சேர்ப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/பொலிஸ்-வைத்திய-சேவைப்-பிரிவிற்கு-25-வைத்தியர்கள்-ஆட்சேர்ப்பு/175-365482",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-29-virakesarilk-422d9954": {
+   "date": "2025-09-29",
+   "title": "இலங்கை பொலிஸ் மருத்துவ சேவைகள் பிரிவிலுள்ள வெற்றிடங்களுக்கு 25 பேரை ஆட்சேர்ப்பு செய்ய நடவடிக்கை",
+   "url": "https://www.virakesari.lk/article/226392",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-29-virakesarilk-17990cbc": {
+   "date": "2025-09-29",
+   "title": "மாணவர்களுக்கு இலவச AI தேடுப்பொறி கருவிகளை வழங்க கூகிள் நிறுவனத்தை நாடும் இலங்கை",
+   "url": "https://www.virakesari.lk/article/226385",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-29-virakesarilk-e64984f2": {
+   "date": "2025-09-29",
+   "title": "திறந்து மறுநாளே மூடப்பட்ட மட்டுவில் பொருளாதார மத்திய நிலையம் ; மூன்றரை வருடங்களுக்கு பின் நாளை மீண்டும் அங்குரார்ப்பணம்",
+   "url": "https://www.virakesari.lk/article/226376",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-29-virakesarilk-7c4257e9": {
+   "date": "2025-09-29",
+   "title": "மன்னார் காற்றாலை திட்டத்தை உடன் நிறுத்துங்கள்; பொதுமக்கள் மீதான பொலிஸாரின் தாக்குதல் வன்மையாக கண்டிக்கத்தக்கது - மனோ கணேசன், காவிந்த ஜயவர்தன",
+   "url": "https://www.virakesari.lk/article/226358",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-29-virakesarilk-493e4775": {
+   "date": "2025-09-29",
+   "title": "மன்னார் காற்றாலை திட்டம் தொடர்பில் அரசியல் காய்நகர்த்தல் இடம்பெறுகிறது - அமைச்சர் இராமலிங்கம் சந்திரசேகர்",
+   "url": "https://www.virakesari.lk/article/226357",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-29-virakesarilk-6602652c": {
+   "date": "2025-09-29",
+   "title": "நிலக்கரி கொள்முதல் வழிகாட்டல் மீறப்பட்டதா? – புபுது ஜயகொடை சந்தேகம்",
+   "url": "https://www.virakesari.lk/article/226355",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-28-virakesarilk-981bd372": {
+   "date": "2025-09-28",
+   "title": "கல்விச் சீர்திருத்தங்கள் மூலம் சூழல்நேயப் பாடசாலைகளையும், சூழல்நேயச் சிறுவர்களையும் உருவாக்குவதே எமது இலக்காகும் - பிரதமர்",
+   "url": "https://www.virakesari.lk/article/226348",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-28-virakesarilk-a0840bab": {
+   "date": "2025-09-28",
+   "title": "மன்னாரில் காற்றாலைகளை நிறுவுவதற்கு முன்னர் அரசு மக்களுடன் கலந்துரையாடல்களுக்கு வர வேண்டும் ; வர தவறும் பட்சத்தில் மக்கள் தொடர்ந்தும் அரசுக்கு எதிராக போராடுவார்கள் - வி.எஸ்.சிவகரன்",
+   "url": "https://www.virakesari.lk/article/226341",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-28-virakesarilk-879643d0": {
+   "date": "2025-09-28",
+   "title": "காற்றாலைக்கு எதிராக கட்டைக்காட்டில் வெடித்தது போராட்டம்!",
+   "url": "https://www.virakesari.lk/article/226337",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-27-virakesarilk-04ca678b": {
+   "date": "2025-09-27",
+   "title": "நாரஹேன்பிட்டி புகையிரத நிலையத்தை நவீனமயப்படுத்தும் திட்டம் ஆரம்பம்",
+   "url": "https://www.virakesari.lk/article/226244",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-27-virakesarilk-34be2f5f": {
+   "date": "2025-09-27",
+   "title": "மத்திய மாகாண அரச அதிகாரிகளுக்கு டிஜிட்டல் மயமாக்கல் மற்றும் AI தொழில்நுட்பத்தின் பயன்பாடு குறித்து விழிப்புணர்வு நிகழ்ச்சி",
+   "url": "https://www.virakesari.lk/article/226238",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-27-virakesarilk-90aa5e81": {
+   "date": "2025-09-27",
+   "title": "பொலிஸ் பாதுகாப்புடன் காற்றாலை மின் கோபுரம் அமைப்பதற்கான பொருட்கள் மன்னாரை நோக்கி : மக்கள்,  அருட்தந்தையர்கள் மீது பொலிஸார் தாக்குதல் !",
+   "url": "https://www.virakesari.lk/article/226209",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-26-virakesarilk-ea2a74b1": {
+   "date": "2025-09-26",
+   "title": "கடற்றொழிலாளர்களின் பிள்ளைகளின் கல்விக்கு ஜனாதிபதி நிதியத்திலிருந்து விசேட நிதி உதவி – கடற்றொழில் அமைச்சர்",
+   "url": "https://www.virakesari.lk/article/226200",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-26-virakesarilk-6723e65c": {
+   "date": "2025-09-26",
+   "title": "காங்கேசன்துறை துறைமுக அபிவிருத்தி இறுதி தீர்மானம் ஏதும் எடுக்கப்படவில்லை - அமைச்சர் பிமல் ரத்நாயக்க",
+   "url": "https://www.virakesari.lk/article/226196",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-26-virakesarilk-6cc6440e": {
+   "date": "2025-09-26",
+   "title": "யாழ். பழைய பூங்காவில் உள்ள சிறுவர் பூங்காவை மேம்படுத்த நடவடிக்கை - அரசாங்க அதிபர்",
+   "url": "https://www.virakesari.lk/article/226187",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-26-virakesarilk-6bbd3eea": {
+   "date": "2025-09-26",
+   "title": "மருத்துவம், ஆயுர்வேதம், உணவு மற்றும் அழகு சாதன பரிசோதனைகளுக்கு நவீன ஆய்வுகூடம் - அமைச்சர் நளிந்த ஜயதிஸ்ஸ",
+   "url": "https://www.virakesari.lk/article/226192",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-26-virakesarilk-d0206942": {
+   "date": "2025-09-26",
+   "title": "ஆசிய அபிவிருத்தி வங்கியின் நிதியுதவியில் சுகாதார சேவைகளுக்கு பயன்படுத்த 7 வாகனங்கள் வழங்கி வைப்பு",
+   "url": "https://www.virakesari.lk/article/226194",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-26-virakesarilk-b9623be6": {
+   "date": "2025-09-26",
+   "title": "2026 நிதியாண்டுக்கான நிதி ஒதுக்கீட்டுச் சட்டமூலத்தை பாராளுமன்றத்தில் சமர்ப்பித்தார் அனில் ஜயந்த பெர்னாண்டோ",
+   "url": "https://www.virakesari.lk/article/226170",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-26-virakesarilk-e3ff6adf": {
+   "date": "2025-09-26",
+   "title": "LGBTIQ சுற்றுலாவை ஊக்குவிக்கும் திட்டத்திற்கு ஆதரவு",
+   "url": "https://www.virakesari.lk/article/226157",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-26-virakesarilk-82b16bcd": {
+   "date": "2025-09-26",
+   "title": "மத்திய சுற்றாடல் அதிகாரசபை கொடுப்பனவுகள் இன்று முதல் GovPay மூலம்...",
+   "url": "https://www.virakesari.lk/article/226148",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-26-virakesarilk-4c589a0b": {
+   "date": "2025-09-26",
+   "title": "முதியோருக்கான தேசியக் கொள்கை ஒக். 1இல் வெளியிடப்படும் ; துறைசார் மேற்பார்வைக் குழுவில் இறுதிக் கொள்கை பரிசீலனை",
+   "url": "https://www.virakesari.lk/article/226152",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-26-tamilmirrorlk-66da331e": {
+   "date": "2025-09-26",
+   "title": "2026 ஆம் ஆண்டுக்கான செலவீனம் 443,435 கோடியே 6,468,000 ரூபாயாகும்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/2026-ஆம்-ஆண்டுக்கான-செலவீனம்-443-435-கோடியே-6-468-000-ரூபாயாகும்/175-365328",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-26-virakesarilk-b89da3d8": {
+   "date": "2025-09-26",
+   "title": "தரம் 1 மற்றும் 6 ஆம் வகுப்புகளுக்கான புதிய பாடத்திட்டத்தின் ஆசிரியர் பயிற்சி திட்டங்கள் நவம்பர் மாதத்திற்குள் நிறைவடையும்!",
+   "url": "https://www.virakesari.lk/article/226141",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-26-virakesarilk-dd7277ba": {
+   "date": "2025-09-26",
+   "title": "மத்திய அதிவேக நெடுஞ்சாலையின் பணிகள் 2028ஆம் ஆண்டுக்குள் நிறைவடையும் : அமைச்சர் பிமல் ரத்நாயக்க",
+   "url": "https://www.virakesari.lk/article/226139",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-26-virakesarilk-bed73e4f": {
+   "date": "2025-09-26",
+   "title": "மத்திய மாகாண அரச அதிகாரிகளுக்கு டிஜிட்டல் மயமாக்கல் மற்றும் AI தொழில்நுட்பத்தின் பயன்பாடு குறித்து விழிப்புணர்வு ஏற்படுத்தும் நிகழ்ச்சி",
+   "url": "https://www.virakesari.lk/article/226092",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-25-virakesarilk-d3925283": {
+   "date": "2025-09-25",
+   "title": "மட்டுவில் பொருளாதார மத்திய நிலையத்தை 30ஆம் திகதி முதல் ஆரம்பிக்க நடவடிக்கை",
+   "url": "https://www.virakesari.lk/article/226085",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-25-virakesarilk-48caed7f": {
+   "date": "2025-09-25",
+   "title": "2026 இல் கொழும்பு தாமரை கோபுரத்தில் புதிய சாகச விளையாட்டு அறிமுகம்",
+   "url": "https://www.virakesari.lk/article/226054",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-24-virakesarilk-48b60589": {
+   "date": "2025-09-24",
+   "title": "முல்லைத்தீவு வைத்தியசாலையில் நோயாளர் விடுதி பற்றாக்குறை; நான்குமாடி நோயாளர் விடுதி விரைவில் அமைக்கப்படுமென்கிறார் - அமைச்சர் நளிந்த ஜெயதிஸ்ஸ",
+   "url": "https://www.virakesari.lk/article/225911",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-23-virakesarilk-a577980e": {
+   "date": "2025-09-23",
+   "title": "தெற்கு அதிவேக நெடுஞ்சாலையின் கொட்டாவ - தொடங்கொட புனரமைப்பிற்கு 1.4 பில்லியன் நிதி ஒதுக்கீட்டுக்கு அமைச்சரவை அங்கீகாரம்",
+   "url": "https://www.virakesari.lk/article/225904",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-23-virakesarilk-4c5d41f5": {
+   "date": "2025-09-23",
+   "title": "குருக்கள்மடம் மனித புதைகுழி அகழ்வாய்வுக்கு 2.8 மில்லியன் மதிப்பீடு!",
+   "url": "https://www.virakesari.lk/article/225902",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-23-tamilmirrorlk-0cb402f8": {
+   "date": "2025-09-23",
+   "title": "மின்சார சபை தொழிற்சங்க நடவடிக்கை - அமைச்சர் அதிரடி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மின்சார-சபை-தொழிற்சங்க-நடவடிக்கை-அமைச்சர்-அதிரடி/175-365147",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-23-tamilmirrorlk-029fefb2": {
+   "date": "2025-09-23",
+   "title": "CEB தொழிற்சங்க நடவடிக்கை - அமைச்சர் அதிரடி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/CEB-தொழிற்சங்க-நடவடிக்கை-அமைச்சர்-அதிரடி/175-365147",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-23-virakesarilk-e18dc27f": {
+   "date": "2025-09-23",
+   "title": "அரச சேவைகளை அணுக புதிய டிஜிட்டல் தளம்!",
+   "url": "https://www.virakesari.lk/article/225851",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-23-tamilmirrorlk-2a7581e0": {
+   "date": "2025-09-23",
+   "title": "வீதியோரச் சிறுவர்களுக்கு மாதாந்தம்   கொடுப்பனவு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/வீதியோரச்-சிறுவர்களுக்கு-மாதாந்தம்-கொடுப்பனவு/175-365138",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-23-virakesarilk-989f5332": {
+   "date": "2025-09-23",
+   "title": "பொருளாதார வளர்ச்சியை மேம்படுத்த இலங்கையும் ஐரோப்பிய ஒன்றியமும் மானிய ஒப்பந்தத்தில் கைச்சாத்து",
+   "url": "https://www.virakesari.lk/article/225861",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-23-tamilmirrorlk-4407602d": {
+   "date": "2025-09-23",
+   "title": "அரச சேவைகளை அணுக புதிய டிஜிட்டல் தளம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அரச-சேவைகளை-அணுக-புதிய-டிஜிட்டல்-தளம்/175-365134",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-23-tamilmirrorlk-91c98e75": {
+   "date": "2025-09-23",
+   "title": "பரந்தனில் முதலீடு செய்ய அங்கிகாரம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/பரந்தனில்-முதலீடு-செய்ய-அங்கிகாரம்/175-365132",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-22-virakesarilk-4ea5aa9e": {
+   "date": "2025-09-22",
+   "title": "அரசும் மாகாண சபைகளும் இணைந்து கடற்றொழில்துறையை வலுப்படுத்த வேண்டும் - மாகாண பிரதம செயலாளர்களுக்கு அமைச்சர் மற்றும் பிரதி அமைச்சர் வலியுறுத்தல்",
+   "url": "https://www.virakesari.lk/article/225796",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-22-virakesarilk-805b496b": {
+   "date": "2025-09-22",
+   "title": "யாழ்ப்பாணத்தில் ஊழியர் சேமலாப நிதியத்தின் நடமாடும் சேவை வாரம் இன்று ஆரம்பம்!",
+   "url": "https://www.virakesari.lk/article/225713",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-22-virakesarilk-c9958363": {
+   "date": "2025-09-22",
+   "title": "மருந்துகள் கொள்முதலில் ஏற்பட்டுள்ள சிக்கல்களை வெளிப்படையான நடவடிக்கைகள் ஊடாக இப்பிரச்சினைக்கு தீர்வு காணப்படும் - நளிந்த ஜயதிஸ்ஸ",
+   "url": "https://www.virakesari.lk/article/225697",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-21-virakesarilk-ded765c8": {
+   "date": "2025-09-21",
+   "title": "இலங்கை போக்குவரத்து சபைக்கு பெண்களை விமான பணிப்பெண்களைப் போன்ற சீருடையில் பணியமர்த்த நடவடிக்கை",
+   "url": "https://www.virakesari.lk/article/225667",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-21-virakesarilk-1dd90a09": {
+   "date": "2025-09-21",
+   "title": "அரச ஊழியர்களுக்கு அடுத்த ஜனவரியில் சம்பள உயர்வு",
+   "url": "https://www.virakesari.lk/article/225629",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-20-tamilmirrorlk-e431d908": {
+   "date": "2025-09-20",
+   "title": "தீயை கட்டுப்படுத்தும் பணிகளில் ஹெலிகொப்டர்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/தீயை-கட்டுப்படுத்தும்-பணிகளில்-ஹெலிகொப்டர்/175-364955",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-20-tamilmirrorlk-cccd63f3": {
+   "date": "2025-09-20",
+   "title": "மெட்ரோ பேருந்து சேவை குறித்து புதிய தகவல்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மெட்ரோ-பேருந்து-சேவை-குறித்து-புதிய-தகவல்/175-364949",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-19-virakesarilk-89b5d2db": {
+   "date": "2025-09-19",
+   "title": "அம்பாறை, மட்டக்களப்பில் இராணுவத்தால் ஏற்பாடு செய்யப்பட்ட 7 வது வருடாந்த பல்துறை மருத்துவ முகாம்",
+   "url": "https://www.virakesari.lk/article/225547",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-19-virakesarilk-2000ee0b": {
+   "date": "2025-09-19",
+   "title": "2026ஆம் ஆண்டுக்கான வரவு,செலவுத்திட்டத்தில் அரச செலவீனம் 21,611கோடி ரூபாவால் அதிகரிப்பு",
+   "url": "https://www.virakesari.lk/article/225546",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-19-tamilmirrorlk-645026fc": {
+   "date": "2025-09-19",
+   "title": "வெளிநாட்டு வேலைவாய்ப்பு புகார்களை விசாரிக்க சிறப்பு புலனாய்வு பிரிவு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/வெளிநாட்டு-வேலைவாய்ப்பு-புகார்களை-விசாரிக்க-சிறப்பு-புலனாய்வு-பிரிவு/175-364916",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-18-tamilmirrorlk-1f9223d8": {
+   "date": "2025-09-18",
+   "title": "EPF பிரச்சினைகளை  தீர்ப்பதற்கான நடமாடும் சேவை",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/EPF-பிரச்சினைகளை-தீர்ப்பதற்கான-நடமாடும்-சேவை/175-364863",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-18-tamilmirrorlk-c9b44c15": {
+   "date": "2025-09-18",
+   "title": "களுவாஞ்சிகுடி தபால் அலுவலகத்தின் புதிய கட்டிடத்திற்கு அடிக்கல்  நாட்டல்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/களுவாஞ்சிகுடி-தபால்-அலுவலகத்தின்-புதிய-கட்டிடத்திற்கு-அடிக்கல்-நாட்டல்/175-364857",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-18-virakesarilk-60da0264": {
+   "date": "2025-09-18",
+   "title": "ஊழியர் சேமலாப நிதியம் தொடர்பான பிரச்சினைகளைத் தீர்க்க, எதிர்வரும் வாரம் முதல் விசேட தொலைபெசி சேவை",
+   "url": "https://www.virakesari.lk/article/225414",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-18-virakesarilk-289b0a78": {
+   "date": "2025-09-18",
+   "title": "இலங்கையின் மூன்றாவது நானோ செயற்கைக்கோள் நாளை சுற்றுப்பாதையில் ஏவப்பட உள்ளது",
+   "url": "https://www.virakesari.lk/article/225377",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-18-virakesarilk-46fbb63b": {
+   "date": "2025-09-18",
+   "title": "கெரவலபிட்டிய சொபாதனவி மின் உற்பத்தி நிலையம்; தேசிய கட்டமைப்பில் இணைப்பு",
+   "url": "https://www.virakesari.lk/article/225368",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-17-tamilmirrorlk-a8be2417": {
+   "date": "2025-09-17",
+   "title": "”பெற்றோலிய ஆய்வுகளை அரசாங்கம் தொடங்கும்”",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/பெற்றோலிய-ஆய்வுகளை-அரசாங்கம்-தொடங்கும்/175-364795",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-17-tamilmirrorlk-e6cb57ec": {
+   "date": "2025-09-17",
+   "title": "யாழ்.பல்கலைக்கழகத்திற்கு 2,234 மில்லியன் செலவில் ஐந்து மாடி கட்டிடம் அமைக்க திட்டம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/யாழ்-பல்கலைக்கழகத்திற்கு-2-234-மில்லியன்-செலவில்-ஐந்து-மாடி-கட்டிடம்-அமைக்க-திட்டம்/175-364761",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-17-tamilmirrorlk-5f887758": {
+   "date": "2025-09-17",
+   "title": "யாழ்.பல்கலைக்கழகத்திற்கு  ஐந்து மாடி கட்டிடம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/யாழ்-பல்கலைக்கழகத்திற்கு-ஐந்து-மாடி-கட்டிடம்/175-364761",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-17-tamilmirrorlk-8e6b447c": {
+   "date": "2025-09-17",
+   "title": "இலங்கை பேருந்துகளில் விரைவில் பெண் ஓட்டுநர்கள்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/இலங்கை-பேருந்துகளில்-விரைவில்-பெண்-ஓட்டுநர்கள்/175-364757",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-17-tamilmirrorlk-fed19429": {
+   "date": "2025-09-17",
+   "title": "“தேசிய நெடுஞ்சாலை திட்டத்தை தயாரிப்போம்“;பிமல் விளக்கம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/தேசிய-நெடுஞ்சாலை-திட்டத்தை-தயாரிப்போம்-பிமல்-விளக்கம்/175-364756",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-17-virakesarilk-1e51318f": {
+   "date": "2025-09-17",
+   "title": "கடற்படையினருக்காக ஆங்கில மொழி ஆய்வுகூடத்தைத் ஆரம்பிக்கும் அமெரிக்க - இலங்கை பங்காண்மை !",
+   "url": "https://www.virakesari.lk/article/225291",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-17-tamilmirrorlk-2537f747": {
+   "date": "2025-09-17",
+   "title": "கடவத்தை-மீரிகம நெடுஞ்சாலைப் பிரிவின் கட்டுமானப் பணிகள் ஆரம்பம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/கடவத்தை-மீரிகம-நெடுஞ்சாலைப்-பிரிவின்-கட்டுமானப்-பணிகள்-ஆரம்பம்/175-364753",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-17-tamilmirrorlk-6e9669f0": {
+   "date": "2025-09-17",
+   "title": "முன்னாள் ஜனாதிபதிகளின் இல்லங்கள் குறித்து எடுக்கப்பட்ட தீர்மானம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/முன்னாள்-ஜனாதிபதிகளின்-இல்லங்கள்-குறித்து-எடுக்கப்பட்ட-தீர்மானம்/175-364733",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-16-virakesarilk-1d2d8c73": {
+   "date": "2025-09-16",
+   "title": "ஒதுக்கீட்டு சட்ட மூலத்தை பாராளுமன்றத்தில் சமர்ப்பிப்பதற்கு அமைச்சரவை அங்கீகாரம்",
+   "url": "https://www.virakesari.lk/article/225267",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-16-virakesarilk-c541dbe8": {
+   "date": "2025-09-16",
+   "title": "இலங்கை கடற்றொழில் கூட்டுத்தாபனத்தை மூடுவது தொடர்பான செய்தியில் எவ்வித உண்மையும் இல்லை - அமைச்சர் ராமலிங்கம் சந்திரசேகர்",
+   "url": "https://www.virakesari.lk/article/225260",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-16-virakesarilk-296df3f1": {
+   "date": "2025-09-16",
+   "title": "யாழ் பல்கலைக்கு 2,234 மில்லியன் செலவில் புதிய கட்டிடம் : துணை சுகாதார விஞ்ஞான பீடத்திற்கு நவீன வசதிகள் - அரசாங்கம்",
+   "url": "https://www.virakesari.lk/article/225259",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-16-virakesarilk-cfadc0f0": {
+   "date": "2025-09-16",
+   "title": "துறைமுக சட்டம் பற்றிய அனுமதிப்பத்திர உடன்படிக்கைகள் பயிற்சிக்காக இலங்கைக்கு உதவும் அமெரிக்கத் தூதரகம்",
+   "url": "https://www.virakesari.lk/article/225254",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-16-tamilmirrorlk-74f20907": {
+   "date": "2025-09-16",
+   "title": "ஜப்பானுடன் இருதரப்பு ஒப்பந்தங்களில் கையெழுத்து",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ஜப்பானுடன்-இருதரப்பு-ஒப்பந்தங்களில்-கையெழுத்து/175-364706",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-16-virakesarilk-a922b267": {
+   "date": "2025-09-16",
+   "title": "இலங்கையில் அனைத்து அரச சேவைகளும் GovPay ஊடாக செயற்படுத்தப்படும் மாகாணமாக மாறியுள்ளது தென் மாகாணம்",
+   "url": "https://www.virakesari.lk/article/225221",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-16-tamilmirrorlk-2a96e23b": {
+   "date": "2025-09-16",
+   "title": "அரச அதிகாரிகளுக்கு டிஜிட்டல் கையொப்பம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அரச-அதிகாரிகளுக்கு-டிஜிட்டல்-கையொப்பம்/175-364689",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-16-virakesarilk-5f6dc615": {
+   "date": "2025-09-16",
+   "title": "ஆக்கிரமிப்பு இயல்புடைய 4 மீன் இனங்களுக்குத் தடை விதிக்க நடவடிக்கை: தற்போதுள்ள மீன்களைச் சூழலில் விடுவிக்க வேண்டாம் என மக்களிடம் விசேட கோரிக்கை",
+   "url": "https://www.virakesari.lk/article/225181",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-16-tamilmirrorlk-25872214": {
+   "date": "2025-09-16",
+   "title": "’பருத்தித்துறை துறைமுகம் எமக்கு வேண்டாம்’",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/பருத்தித்துறை-துறைமுகம்-எமக்கு-வேண்டாம்/175-364662",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-16-tamilmirrorlk-7abedd9f": {
+   "date": "2025-09-16",
+   "title": "மருதானை ரயில் நிலையத்தை நவீனமயமாக்கும் திட்டம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மருதானை-ரயில்-நிலையத்தை-நவீனமயமாக்கும்-திட்டம்/175-364660",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-15-virakesarilk-949e7b6c": {
+   "date": "2025-09-15",
+   "title": "கடந்த கால ஆட்சியாளர்களால் ஆரம்பிக்கப்பட்ட 17  திட்டங்கள் இடைநடுவே கைவிடப்பட்டுள்ளன - அமைச்சர் நளிந்த ஜயதிஸ்ஸ",
+   "url": "https://www.virakesari.lk/article/225178",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-15-virakesarilk-bff8e073": {
+   "date": "2025-09-15",
+   "title": "கிளிநொச்சியில் பாதுகாப்புப் படையினர் வசமிருந்த 30 ஏக்கர் நிலங்கள் விடுவிப்பு",
+   "url": "https://www.virakesari.lk/article/225177",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-15-virakesarilk-1b224682": {
+   "date": "2025-09-15",
+   "title": "Clean Sri Lanka  வேலைத்திட்டத்தின் கீழ், மருதானை புகையிரத நிலையத்தை நவீனமயமாக்கும் திட்டம் ஆரம்பம்",
+   "url": "https://www.virakesari.lk/article/225176",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-15-virakesarilk-6542b1a3": {
+   "date": "2025-09-15",
+   "title": "அமெரிக்கா- இலங்கை கூட்டு முயற்சியில் அக்கரகம வைத்தியசாலை புனரமைப்பு",
+   "url": "https://www.virakesari.lk/article/225159",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-15-virakesarilk-9d0b6c21": {
+   "date": "2025-09-15",
+   "title": "2029 ஆம் ஆண்டுக்குள் 50 பல்வகைமை போக்குவரத்து நிலையங்கள் நிறுவ இலக்கு - அமைச்சர் பிமல் ரத்நாயக்க",
+   "url": "https://www.virakesari.lk/article/225138",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-15-tamilmirrorlk-e30885b9": {
+   "date": "2025-09-15",
+   "title": "’’நாட்டின் போக்குவரத்தை வலுப்படுத்துவதே எங்கள் முதன்மையான குறிக்கோள்“",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/நாட்டின்-போக்குவரத்தை-வலுப்படுத்துவதே-எங்கள்-முதன்மையான-குறிக்கோள்/175-364616",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-15-tamilmirrorlk-c13f1020": {
+   "date": "2025-09-15",
+   "title": "’’போக்குவரத்தை வலுப்படுத்துவதே  முதல் குறிக்கோள்“",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/போக்குவரத்தை-வலுப்படுத்துவதே-முதல்-குறிக்கோள்/175-364616",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-15-virakesarilk-64db6d74": {
+   "date": "2025-09-15",
+   "title": "குறைந்த வருமான மாணவர்களுக்கு ஜனாதிபதி நிதியிலிருந்து புலமைப்பரிசுகள் வழங்கப்பட்டன",
+   "url": "https://www.virakesari.lk/article/225121",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-15-tamilmirrorlk-6e233b88": {
+   "date": "2025-09-15",
+   "title": "புறக்கோட்டை  பேருந்து நிலையபுனரமைப்புப் பணிகளை ஆரம்பித்தார் ஜனாதிபதி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/புறக்கோட்டை-மத்திய-பேருந்து-நிலையத்தின்-புனரமைப்புப்-பணிகள்-ஆரம்பம்/175-364606",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-15-tamilmirrorlk-1c00cfd2": {
+   "date": "2025-09-15",
+   "title": "புறக்கோட்டை  பேருந்து நிலைய புனரமைப்புப் பணிகளை ஆரம்பித்தார் ஜனாதிபதி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/புறக்கோட்டை-பேருந்து-நிலைய-புனரமைப்புப்-பணிகளை-ஆரம்பித்தார்-ஜனாதிபதி/175-364606",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-15-virakesarilk-124699c6": {
+   "date": "2025-09-15",
+   "title": "'மறுமலர்ச்சி நகரம்' எனும் கருப்பொருளுடன் இன்று உள்ளூராட்சி மன்ற வாரம் ஆரம்பம் !",
+   "url": "https://www.virakesari.lk/article/225101",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-15-virakesarilk-4b10c50d": {
+   "date": "2025-09-15",
+   "title": "வன்னி மாவட்டத்தில்   கட்டுமானப் பணிகள் நிறைவாகாத  வகுப்பறை கட்டிடங்களை  நிறைவு செய்ய  நிதி ஒதுக்கீடு - காதர் மஸ்தான் எம்.பி.யிடம் பிரதமர் உறுதி",
+   "url": "https://www.virakesari.lk/article/225095",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-15-virakesarilk-54f58c2b": {
+   "date": "2025-09-15",
+   "title": "புறக்கோட்டை மத்திய பேருந்து நிலைய அபிவிருத்தி பணிகளைத் தொடங்கி வைக்கும் ஜனாதிபதி",
+   "url": "https://www.virakesari.lk/article/225087",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-14-virakesarilk-75bba7bb": {
+   "date": "2025-09-14",
+   "title": "கடவத்தை - மீரிகம அதிவேக நெடுஞ்சாலை பணிகள் 17 ஆம் திகதி மீண்டும் ஆரம்பம்",
+   "url": "https://www.virakesari.lk/article/225047",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-14-tamilmirrorlk-75d94707": {
+   "date": "2025-09-14",
+   "title": "கடவத்தை-மீரிகம அதிவேக நெடுஞ்சாலை பணிகள் ஆரம்பம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/கடவத்தை-மீரிகம-அதிவேக-நெடுஞ்சாலை-பணிகள்-ஆரம்பம்/175-364542",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-14-virakesarilk-d9333bcf": {
+   "date": "2025-09-14",
+   "title": "கொழும்பு - மருதானை ரயில் நிலையத்தின் புதுப்பித்தல் பணிகள் நாளை ஆரம்பம்",
+   "url": "https://www.virakesari.lk/article/225027",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-14-virakesarilk-64ecf781": {
+   "date": "2025-09-14",
+   "title": "தொலைதூர பஸ்களை பரிசோதனை செய்ய திட்டம்!",
+   "url": "https://www.virakesari.lk/article/225024",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-13-virakesarilk-b8a97b22": {
+   "date": "2025-09-13",
+   "title": "பாராளுமன்ற உறுப்பினர்களுக்கான ஓய்வூதியத்தை நீக்குவதற்கான சட்டம் விரைவில் நிறைவேற்றப்படும் - அமைச்சர் நளிந்த ஜயதிஸ்ஸ",
+   "url": "https://www.virakesari.lk/article/224980",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-13-virakesarilk-bddd61ac": {
+   "date": "2025-09-13",
+   "title": "இலத்திரனியல் நீதிமன்ற கருத்திட்டம் ; முதல் கட்ட நடவடிக்கை உயர்நீதிமன்றத்தில் ஆரம்பம்",
+   "url": "https://www.virakesari.lk/article/224958",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-13-virakesarilk-b7baefb4": {
+   "date": "2025-09-13",
+   "title": "அரச வங்கிகளை தனியார் மயமாக்கும் திட்டத்துக்கு எதிர்ப்பு தெரிவித்து ; அரச வங்கி ஊழியர்கள் கொழும்பில் ஆர்ப்பாட்டம்",
+   "url": "https://www.virakesari.lk/article/224957",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-12-virakesarilk-dab051fa": {
+   "date": "2025-09-12",
+   "title": "பருத்தித்துறை துறைமுக அபிவிருத்தி குறித்த ஆய்வினை மேற்கொண்ட இந்திய குழு",
+   "url": "https://www.virakesari.lk/article/224944",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-12-virakesarilk-eefd60a5": {
+   "date": "2025-09-12",
+   "title": "ஜனாதிபதி நிதியத்தினால் க.பொ.த  உயர்தரத்தில் சிறந்த பெறுபேறுகளைப் பெற்ற மாணவர்களை பாராட்டும் மத்திய மாகாண நிகழ்ச்சித்திட்டம்",
+   "url": "https://www.virakesari.lk/article/224899",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-12-virakesarilk-6b113fb5": {
+   "date": "2025-09-12",
+   "title": "இலங்கையின் கிராமப்புற பாலங்கள் கட்டுமானம்  ;  730,000 யூரோவை மானியமாக வழங்குகிறது நெதர்லாந்து",
+   "url": "https://www.virakesari.lk/article/224895",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-12-tamilmirrorlk-b9dcf4cc": {
+   "date": "2025-09-12",
+   "title": "’1,60,200 கர்ப்பிணிகளுக்கு உணவுப் பொதி’",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/1-60-200-கர்ப்பிணிகளுக்கு-உணவுப்-பொதி/175-364453",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-10-virakesarilk-94708a94": {
+   "date": "2025-09-10",
+   "title": "\"அரச ஊழியர்களின் நல்வாழ்வுக்காக \"\"ஆரோக்கியா\"\" நடமாடும் மருத்துவ முகாம்\"",
+   "url": "https://www.virakesari.lk/article/224760",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-10-virakesarilk-c4865ee3": {
+   "date": "2025-09-10",
+   "title": "உயர்நீதிமன்ற கட்டணங்களை வங்கி அட்டைகள் மூலம் செலுத்தும் புதிய வசதி தொடக்கம்",
+   "url": "https://www.virakesari.lk/article/224758",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-10-tamilmirrorlk-8b3910f6": {
+   "date": "2025-09-10",
+   "title": "கொழும்பு மத்திய பேருந்து முனையம் நாளை முதல் மூடப்படும்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/கொழும்பு-மத்திய-பேருந்து-முனையம்-நாளை-முதல்-மூடப்படும்/175-364336",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-10-virakesarilk-de59b276": {
+   "date": "2025-09-10",
+   "title": "யாழில் பெண் நாய்களை பிடித்து கொடுப்பவர்களுக்கு சன்மானம் - பிரதேச சபை அறிவிப்பு!",
+   "url": "https://www.virakesari.lk/article/224693",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-09-virakesarilk-baa6a7c8": {
+   "date": "2025-09-09",
+   "title": "கிளிநொச்சி மாவட்ட மக்களுக்கு முறையாக காணி அறுதி உறுதிப்பத்திரங்களை வழங்க அரசாங்கம் நடவடிக்கை எடுக்க வேண்டும் - சிறிதரன்",
+   "url": "https://www.virakesari.lk/article/224638",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-09-virakesarilk-60dbc17b": {
+   "date": "2025-09-09",
+   "title": "யாழில் நிலத்தடி நீரைப் பாதுகாக்கும் செயன்முறையின் கிழ் குளங்கள் தூர்வார நடவடிக்கை",
+   "url": "https://www.virakesari.lk/article/224612",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-09-virakesarilk-fcc4d850": {
+   "date": "2025-09-09",
+   "title": "மருந்து கொள்முதலில் உள்ள செயன்முறை சிக்கலால் மருந்து பொருட்களுக்கு தட்டுபாடு",
+   "url": "https://www.virakesari.lk/article/224577",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-08-virakesarilk-023eb1d9": {
+   "date": "2025-09-08",
+   "title": "மத்திய அதிவேக நெடுஞ்சாலையின் கட்டுமான பணிகளை மீண்டும் ஆரம்பிக்க நடவடிக்கை!",
+   "url": "https://www.virakesari.lk/article/224504",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-07-virakesarilk-95dff1ac": {
+   "date": "2025-09-07",
+   "title": "'கலா வெவாவை மீண்டும்  யானைகளிடம் கொடுப்போம்' திட்டம் மூன்று நாட்கள் வெற்றிகரமாக முன்னெடுப்பு",
+   "url": "https://www.virakesari.lk/article/224480",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-07-tamilmirrorlk-b2ed4bda": {
+   "date": "2025-09-07",
+   "title": "’ரிவிதனவி’ சூரிய மின்சக்தி பூங்கா நிர்மாணப் பணி ஆரம்பம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ரிவிதனவி-சூரிய-மின்சக்தி-பூங்கா-நிர்மாணப்-பணி-ஆரம்பம்/175-364112",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-06-virakesarilk-0c1a2a3b": {
+   "date": "2025-09-06",
+   "title": "சிறிய ரயில்களை உருவாக்க இலங்கை ரயில்வே திணைக்களம் திட்டம்!",
+   "url": "https://www.virakesari.lk/article/224388",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-06-virakesarilk-2434d294": {
+   "date": "2025-09-06",
+   "title": "அரசாங்கத்தின் நெல் கொள்முதல் திட்டத்தின் கீழ் 40 ஆயிரம் மெட்ரிக் தொன்னுக்கும் அதிகமான நெல் கொள்முதல்!",
+   "url": "https://www.virakesari.lk/article/224355",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-05-virakesarilk-b0723815": {
+   "date": "2025-09-05",
+   "title": "250 நீர்த்தேக்கங்களில் மீன் வளங்களைப் பாதுகாக்க நடவடிக்கை முன்னெடுப்பு",
+   "url": "https://www.virakesari.lk/article/224281",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-04-virakesarilk-fd044519": {
+   "date": "2025-09-04",
+   "title": "இலங்கையின் பொருளாதார வளர்ச்சிக்கு வெளிநாட்டு முதலீடுகளை ஈர்ப்பது முக்கியமானது - ஹபரணை - வேயாங்கொட மின் பரிமாற்றத் திட்ட ஆரம்ப நிகழ்வில் ஜப்பானிய தூதுவர்",
+   "url": "https://www.virakesari.lk/article/224161",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-04-virakesarilk-0310dec9": {
+   "date": "2025-09-04",
+   "title": "அடுத்த ஆண்டு ஆரம்பத்தில் செயற்றிட்டங்கள் மதிப்பீடு செய்யப்பட வேண்டும்  – வட மாகாண ஆளுநர்",
+   "url": "https://www.virakesari.lk/article/224151",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-03-tamilmirrorlk-cab18a80": {
+   "date": "2025-09-03",
+   "title": "”குழந்தைகளின் உரிமைகளை மேம்படுத்த அரச நிதியைப் பயன்படுத்த வேண்டும்”",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/குழந்தைகளின்-உரிமைகளை-மேம்படுத்த-அரச-நிதியைப்-பயன்படுத்த-வேண்டும்/175-363982",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-02-virakesarilk-da6c229f": {
+   "date": "2025-09-02",
+   "title": "முறைப்பாடுகளை தெரிவிக்க புதிய வட்ஸ்அப் இலக்கத்தை அறிமுகப்படுத்தியது இலஞ்ச ஊழல் விசாரணை ஆணைக்குழு",
+   "url": "https://www.virakesari.lk/article/224025",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-02-tamilmirrorlk-49b66774": {
+   "date": "2025-09-02",
+   "title": "வடக்கின் விதை தேங்காய் உற்பத்தி அலகு  திறந்து வைப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/வடக்கின்-விதை-தேங்காய்-உற்பத்தி-அலகு-திறந்து-வைப்பு/175-363905",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-02-virakesarilk-f56f1610": {
+   "date": "2025-09-02",
+   "title": "ஜனாதிபதியினால் திறந்துவைக்கும் திறப்புவிழா கற்களில் நிதி தொடர்பான வெளிப்படைத்தன்மை இல்லை - வலி கிழக்கு தவிசாளர் நிரோஷ்",
+   "url": "https://www.virakesari.lk/article/223980",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-01-virakesarilk-c6d46cb5": {
+   "date": "2025-09-01",
+   "title": "வெளிநாடுகளில் தொழில் செய்துவருபவர்களின் பிள்ளைகளுக்கு புலமைப்பரிசில்",
+   "url": "https://www.virakesari.lk/article/223977",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-01-virakesarilk-ef860488": {
+   "date": "2025-09-01",
+   "title": "கடற்துறையையும் சீரான திசையை நோக்கி கொண்டு செல்ல எமது அரசாங்கம் எதிர்பார்க்கிறது - அமைச்சர் இராமலிங்கம் சந்திரசேகர்",
+   "url": "https://www.virakesari.lk/article/223974",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-01-tamilmirrorlk-ad30eeb1": {
+   "date": "2025-09-01",
+   "title": "யாழில் ஜனாதிபதி தலைமையில் மின் நூலகத் திட்டம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/யாழில்-ஜனாதிபதி-தலைமையில்-மின்-நூலகத்-திட்டம்/175-363872",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-01-tamilmirrorlk-45e63a7f": {
+   "date": "2025-09-01",
+   "title": "யாழ். சர்வதேச கிரிக்கெட் மைதான நிர்மாணப் பணிகள் ஆரம்பம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/யாழ்-சர்வதேச-கிரிக்கெட்-மைதான-நிர்மாணப்-பணிகள்-ஆரம்பம்/175-363871",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-01-tamilmirrorlk-89638b8d": {
+   "date": "2025-09-01",
+   "title": "யாழில் கடவுச்சீட்டு பிராந்திய அலுவலகம் திறப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/யாழில்-கடவுச்சீட்டு-பிராந்திய-அலுவலகம்-திறப்பு/175-363869",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-01-tamilmirrorlk-3b211d01": {
+   "date": "2025-09-01",
+   "title": "யாழில் பிராந்திய அலுவலகம் திறப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/யாழில்-பிராந்திய-அலுவலகம்-திறப்பு/175-363869",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-01-virakesarilk-c058e1e5": {
+   "date": "2025-09-01",
+   "title": "இராணுவத்தின் பயன்பாட்டில் உள்ள காணிகள், வீதிகள் விடுவிக்கப்படும் - மயிட்டியில் ஜனாதிபதி தெரிவிப்பு",
+   "url": "https://www.virakesari.lk/article/223952",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-09-01-tamilmirrorlk-6955bf3e": {
+   "date": "2025-09-01",
+   "title": "யாழில் சர்வதேச கிரிக்கெட் மைதானம்: ஜனாதிபதி ஆரம்பித்து வைப்பார்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/யாழில்-சர்வதேச-கிரிக்கெட்-மைதானம்-ஜனாதிபதி-ஆரம்பித்து-வைப்பார்/175-363841",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-09-01-tamilmirrorlk-dcb8ec36": {
+   "date": "2025-09-01",
+   "title": "யாழ்.நூலகத்தின் ஈ-நூலக (E- Library) வேலைத்திட்டம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/யாழ்-நூலகத்தின்-ஈ-நூலக-E-Library-வேலைத்திட்டம்/175-363838",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  }
+ }
+}

@@ -1,0 +1,1749 @@
+{
+  "caveats": [
+    "This is a national table of newly registered vehicles. It is not a district map and must not be choroplethed.",
+    "These are new registrations, not the stock of vehicles already on the register.",
+    "Road length tables 7.1 and 7.2 were not published at this URL and are not inferred."
+  ],
+  "country": "LK",
+  "dataset_id": "new-vehicle-registrations-annual",
+  "description": "National new motor-vehicle registrations by published class and fuel type, 2020–2024, compiled by DCS from Department of Motor Traffic figures.",
+  "fields": [
+    {
+      "id": "year",
+      "label": "Year",
+      "role": "dimension",
+      "type": "year"
+    },
+    {
+      "id": "category",
+      "label": "Category",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "category_label",
+      "label": "Category label",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "fuel",
+      "label": "Fuel",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "fuel_label",
+      "label": "Fuel label",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "aggregation": "none",
+      "id": "vehicles",
+      "label": "New registrations",
+      "role": "measure",
+      "type": "integer",
+      "unit": "vehicles"
+    }
+  ],
+  "grain": "One row per calendar year, published vehicle class and fuel type, including the national total.",
+  "notes": [
+    "The source spells land vehicles as “vechicles”; labels here use the English spelling.",
+    "A double-dot in the source is stored as null, not zero.",
+    "The 2022 published total is one vehicle above the sum of published class/fuel cells; that residual is left explicit."
+  ],
+  "primary_key": [
+    "year",
+    "category",
+    "fuel"
+  ],
+  "rows": [
+    {
+      "category": "total",
+      "category_label": "Total",
+      "fuel": "all",
+      "fuel_label": "All fuels",
+      "vehicles": 202628,
+      "year": 2020
+    },
+    {
+      "category": "total",
+      "category_label": "Total",
+      "fuel": "all",
+      "fuel_label": "All fuels",
+      "vehicles": 33850,
+      "year": 2021
+    },
+    {
+      "category": "total",
+      "category_label": "Total",
+      "fuel": "all",
+      "fuel_label": "All fuels",
+      "vehicles": 20510,
+      "year": 2022
+    },
+    {
+      "category": "total",
+      "category_label": "Total",
+      "fuel": "all",
+      "fuel_label": "All fuels",
+      "vehicles": 27890,
+      "year": 2023
+    },
+    {
+      "category": "total",
+      "category_label": "Total",
+      "fuel": "all",
+      "fuel_label": "All fuels",
+      "vehicles": 74410,
+      "year": 2024
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 273,
+      "year": 2020
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 182,
+      "year": 2021
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 297,
+      "year": 2022
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 560,
+      "year": 2023
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 117,
+      "year": 2024
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 19021,
+      "year": 2020
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 2990,
+      "year": 2021
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 1093,
+      "year": 2022
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 1080,
+      "year": 2023
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 939,
+      "year": 2024
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 77,
+      "year": 2020
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 41,
+      "year": 2021
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 17,
+      "year": 2022
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 124,
+      "year": 2023
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 543,
+      "year": 2024
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "diesel_electric",
+      "fuel_label": "Diesel/electric",
+      "vehicles": 9,
+      "year": 2020
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "diesel_electric",
+      "fuel_label": "Diesel/electric",
+      "vehicles": 7,
+      "year": 2021
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "diesel_electric",
+      "fuel_label": "Diesel/electric",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "diesel_electric",
+      "fuel_label": "Diesel/electric",
+      "vehicles": 3,
+      "year": 2023
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "diesel_electric",
+      "fuel_label": "Diesel/electric",
+      "vehicles": 3,
+      "year": 2024
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": 1641,
+      "year": 2020
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": 275,
+      "year": 2021
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": 82,
+      "year": 2022
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": 49,
+      "year": 2023
+    },
+    {
+      "category": "motor_cars",
+      "category_label": "Motor cars",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": 42,
+      "year": 2024
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 78,
+      "year": 2020
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 41,
+      "year": 2021
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 15,
+      "year": 2022
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 16,
+      "year": 2023
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 42,
+      "year": 2024
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 6679,
+      "year": 2020
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 2034,
+      "year": 2021
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 14,
+      "year": 2022
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 5,
+      "year": 2023
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 11,
+      "year": 2024
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2020
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 3,
+      "year": 2021
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 1,
+      "year": 2023
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 30,
+      "year": 2024
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": null,
+      "year": 2020
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": null,
+      "year": 2021
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": 14,
+      "year": 2023
+    },
+    {
+      "category": "motor_tricycles",
+      "category_label": "Motor tricycles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": null,
+      "year": 2024
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 373,
+      "year": 2020
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 7,
+      "year": 2021
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 5,
+      "year": 2022
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 16,
+      "year": 2023
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 11,
+      "year": 2024
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 20,
+      "year": 2020
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 8,
+      "year": 2021
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 1,
+      "year": 2022
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 7,
+      "year": 2023
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2024
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2020
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2021
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 1,
+      "year": 2022
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 1,
+      "year": 2023
+    },
+    {
+      "category": "motor_tricycles_van",
+      "category_label": "Motor tricycle vans",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2024
+    },
+    {
+      "category": "quadricycle",
+      "category_label": "Quadricycle",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 470,
+      "year": 2020
+    },
+    {
+      "category": "quadricycle",
+      "category_label": "Quadricycle",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2021
+    },
+    {
+      "category": "quadricycle",
+      "category_label": "Quadricycle",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "quadricycle",
+      "category_label": "Quadricycle",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2023
+    },
+    {
+      "category": "quadricycle",
+      "category_label": "Quadricycle",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 1,
+      "year": 2024
+    },
+    {
+      "category": "motor_home",
+      "category_label": "Motor home",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2020
+    },
+    {
+      "category": "motor_home",
+      "category_label": "Motor home",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 3,
+      "year": 2021
+    },
+    {
+      "category": "motor_home",
+      "category_label": "Motor home",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "motor_home",
+      "category_label": "Motor home",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2023
+    },
+    {
+      "category": "motor_home",
+      "category_label": "Motor home",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2024
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 578,
+      "year": 2020
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 281,
+      "year": 2021
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 404,
+      "year": 2022
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 685,
+      "year": 2023
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 146,
+      "year": 2024
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2020
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2021
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2023
+    },
+    {
+      "category": "buses",
+      "category_label": "Buses",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2024
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 151372,
+      "year": 2020
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 7779,
+      "year": 2021
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 8326,
+      "year": 2022
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 18136,
+      "year": 2023
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 53283,
+      "year": 2024
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 261,
+      "year": 2020
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 229,
+      "year": 2021
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 728,
+      "year": 2022
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 2054,
+      "year": 2023
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 12003,
+      "year": 2024
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": 1,
+      "year": 2020
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": 3,
+      "year": 2021
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": 6,
+      "year": 2022
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": 10,
+      "year": 2023
+    },
+    {
+      "category": "motor_cycles",
+      "category_label": "Motor cycles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": 3,
+      "year": 2024
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 1561,
+      "year": 2020
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 324,
+      "year": 2021
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 47,
+      "year": 2022
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 25,
+      "year": 2023
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 44,
+      "year": 2024
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 4057,
+      "year": 2020
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 249,
+      "year": 2021
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 44,
+      "year": 2022
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 56,
+      "year": 2023
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 81,
+      "year": 2024
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 2,
+      "year": 2020
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2021
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 3,
+      "year": 2023
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": 1,
+      "year": 2024
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": null,
+      "year": 2020
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": null,
+      "year": 2021
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": null,
+      "year": 2023
+    },
+    {
+      "category": "dual_purpose_vehicles",
+      "category_label": "Dual purpose vehicles",
+      "fuel": "petrol_electric",
+      "fuel_label": "Petrol/electric",
+      "vehicles": null,
+      "year": 2024
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 3095,
+      "year": 2020
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 104,
+      "year": 2021
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 649,
+      "year": 2022
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 486,
+      "year": 2023
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 835,
+      "year": 2024
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 817,
+      "year": 2020
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 94,
+      "year": 2021
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 20,
+      "year": 2022
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 16,
+      "year": 2023
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 66,
+      "year": 2024
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2020
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2021
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2023
+    },
+    {
+      "category": "single_cab",
+      "category_label": "Single cab",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2024
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 645,
+      "year": 2020
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 1088,
+      "year": 2021
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 446,
+      "year": 2022
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 137,
+      "year": 2023
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 285,
+      "year": 2024
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 4,
+      "year": 2020
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 5,
+      "year": 2021
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 12,
+      "year": 2022
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 4,
+      "year": 2023
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 16,
+      "year": 2024
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2020
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2021
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2023
+    },
+    {
+      "category": "special_purpose_vehicles",
+      "category_label": "Special purpose vehicles",
+      "fuel": "electric",
+      "fuel_label": "Electric",
+      "vehicles": null,
+      "year": 2024
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 2986,
+      "year": 2020
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 2544,
+      "year": 2021
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 929,
+      "year": 2022
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 278,
+      "year": 2023
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 704,
+      "year": 2024
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2020
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2021
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2023
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": null,
+      "year": 2024
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "diesel_electric",
+      "fuel_label": "Diesel/electric",
+      "vehicles": 14,
+      "year": 2020
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "diesel_electric",
+      "fuel_label": "Diesel/electric",
+      "vehicles": 49,
+      "year": 2021
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "diesel_electric",
+      "fuel_label": "Diesel/electric",
+      "vehicles": 10,
+      "year": 2022
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "diesel_electric",
+      "fuel_label": "Diesel/electric",
+      "vehicles": 10,
+      "year": 2023
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "diesel_electric",
+      "fuel_label": "Diesel/electric",
+      "vehicles": 11,
+      "year": 2024
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "lp_gas",
+      "fuel_label": "LP gas",
+      "vehicles": null,
+      "year": 2020
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "lp_gas",
+      "fuel_label": "LP gas",
+      "vehicles": null,
+      "year": 2021
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "lp_gas",
+      "fuel_label": "LP gas",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "lp_gas",
+      "fuel_label": "LP gas",
+      "vehicles": null,
+      "year": 2023
+    },
+    {
+      "category": "lorry_proper",
+      "category_label": "Lorry — proper",
+      "fuel": "lp_gas",
+      "fuel_label": "LP gas",
+      "vehicles": null,
+      "year": 2024
+    },
+    {
+      "category": "lorry_prime_mover",
+      "category_label": "Lorry — tractors (prime mover)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 149,
+      "year": 2020
+    },
+    {
+      "category": "lorry_prime_mover",
+      "category_label": "Lorry — tractors (prime mover)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 359,
+      "year": 2021
+    },
+    {
+      "category": "lorry_prime_mover",
+      "category_label": "Lorry — tractors (prime mover)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 136,
+      "year": 2022
+    },
+    {
+      "category": "lorry_prime_mover",
+      "category_label": "Lorry — tractors (prime mover)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 36,
+      "year": 2023
+    },
+    {
+      "category": "lorry_prime_mover",
+      "category_label": "Lorry — tractors (prime mover)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 106,
+      "year": 2024
+    },
+    {
+      "category": "lorry_trailers",
+      "category_label": "Lorry — trailers",
+      "fuel": "non_fuel",
+      "fuel_label": "Non-fuel",
+      "vehicles": 137,
+      "year": 2020
+    },
+    {
+      "category": "lorry_trailers",
+      "category_label": "Lorry — trailers",
+      "fuel": "non_fuel",
+      "fuel_label": "Non-fuel",
+      "vehicles": 299,
+      "year": 2021
+    },
+    {
+      "category": "lorry_trailers",
+      "category_label": "Lorry — trailers",
+      "fuel": "non_fuel",
+      "fuel_label": "Non-fuel",
+      "vehicles": 216,
+      "year": 2022
+    },
+    {
+      "category": "lorry_trailers",
+      "category_label": "Lorry — trailers",
+      "fuel": "non_fuel",
+      "fuel_label": "Non-fuel",
+      "vehicles": 51,
+      "year": 2023
+    },
+    {
+      "category": "lorry_trailers",
+      "category_label": "Lorry — trailers",
+      "fuel": "non_fuel",
+      "fuel_label": "Non-fuel",
+      "vehicles": 145,
+      "year": 2024
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and hearses",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 5,
+      "year": 2020
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and hearses",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 87,
+      "year": 2021
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and hearses",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 79,
+      "year": 2022
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and hearses",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 2,
+      "year": 2023
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and hearses",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 9,
+      "year": 2024
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and hearses",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 1,
+      "year": 2020
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and hearses",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 1,
+      "year": 2021
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and hearses",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 3,
+      "year": 2022
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and hearses",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 5,
+      "year": 2023
+    },
+    {
+      "category": "ambulances_and_hearses",
+      "category_label": "Ambulances and hearses",
+      "fuel": "petrol",
+      "fuel_label": "Petrol",
+      "vehicles": 8,
+      "year": 2024
+    },
+    {
+      "category": "land_tractor_4_wheel",
+      "category_label": "Land vehicles — tractor (4 wheel)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 4482,
+      "year": 2020
+    },
+    {
+      "category": "land_tractor_4_wheel",
+      "category_label": "Land vehicles — tractor (4 wheel)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 8272,
+      "year": 2021
+    },
+    {
+      "category": "land_tractor_4_wheel",
+      "category_label": "Land vehicles — tractor (4 wheel)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 2725,
+      "year": 2022
+    },
+    {
+      "category": "land_tractor_4_wheel",
+      "category_label": "Land vehicles — tractor (4 wheel)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 1759,
+      "year": 2023
+    },
+    {
+      "category": "land_tractor_4_wheel",
+      "category_label": "Land vehicles — tractor (4 wheel)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 1821,
+      "year": 2024
+    },
+    {
+      "category": "land_trailer",
+      "category_label": "Land vehicles — trailer",
+      "fuel": "non_fuel",
+      "fuel_label": "Non-fuel",
+      "vehicles": 2277,
+      "year": 2020
+    },
+    {
+      "category": "land_trailer",
+      "category_label": "Land vehicles — trailer",
+      "fuel": "non_fuel",
+      "fuel_label": "Non-fuel",
+      "vehicles": 4344,
+      "year": 2021
+    },
+    {
+      "category": "land_trailer",
+      "category_label": "Land vehicles — trailer",
+      "fuel": "non_fuel",
+      "fuel_label": "Non-fuel",
+      "vehicles": 2560,
+      "year": 2022
+    },
+    {
+      "category": "land_trailer",
+      "category_label": "Land vehicles — trailer",
+      "fuel": "non_fuel",
+      "fuel_label": "Non-fuel",
+      "vehicles": 1236,
+      "year": 2023
+    },
+    {
+      "category": "land_trailer",
+      "category_label": "Land vehicles — trailer",
+      "fuel": "non_fuel",
+      "fuel_label": "Non-fuel",
+      "vehicles": 1887,
+      "year": 2024
+    },
+    {
+      "category": "land_trailer",
+      "category_label": "Land vehicles — trailer",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": null,
+      "year": 2020
+    },
+    {
+      "category": "land_trailer",
+      "category_label": "Land vehicles — trailer",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": null,
+      "year": 2021
+    },
+    {
+      "category": "land_trailer",
+      "category_label": "Land vehicles — trailer",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": null,
+      "year": 2022
+    },
+    {
+      "category": "land_trailer",
+      "category_label": "Land vehicles — trailer",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": null,
+      "year": 2023
+    },
+    {
+      "category": "land_trailer",
+      "category_label": "Land vehicles — trailer",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": null,
+      "year": 2024
+    },
+    {
+      "category": "land_tractor_2_wheel",
+      "category_label": "Land vehicles — tractor (2 wheel)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 1543,
+      "year": 2020
+    },
+    {
+      "category": "land_tractor_2_wheel",
+      "category_label": "Land vehicles — tractor (2 wheel)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 2148,
+      "year": 2021
+    },
+    {
+      "category": "land_tractor_2_wheel",
+      "category_label": "Land vehicles — tractor (2 wheel)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 1644,
+      "year": 2022
+    },
+    {
+      "category": "land_tractor_2_wheel",
+      "category_label": "Land vehicles — tractor (2 wheel)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 1025,
+      "year": 2023
+    },
+    {
+      "category": "land_tractor_2_wheel",
+      "category_label": "Land vehicles — tractor (2 wheel)",
+      "fuel": "diesel",
+      "fuel_label": "Diesel",
+      "vehicles": 1217,
+      "year": 2024
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "dcs-statistical-abstract-2025-new-vehicles"
+  ],
+  "title": "New vehicle registrations",
+  "vintage": "2020–2024"
+}

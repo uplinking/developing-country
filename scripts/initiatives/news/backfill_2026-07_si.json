@@ -1,0 +1,3228 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-07-01",
+  "2026-07-31"
+ ],
+ "upstream": "nuuuwan/lk_news@5d469f077cfe5207f3972e54d4bd0023cb2cbc19",
+ "extracted_by": "Codex gpt-6-luna (medium reasoning)",
+ "extracted_at": "2026-11-06",
+ "language": "si",
+ "articles_read": 90,
+ "rejected": 15,
+ "rejected_ids": [
+  "2026-07-01-adalk-cbe28b00",
+  "2026-07-02-adalk-5c63c0f7",
+  "2026-07-03-adalk-45bfcb83",
+  "2026-07-03-adalk-95a8c691",
+  "2026-07-05-adalk-4c7a1e05",
+  "2026-07-05-adalk-6daf186a",
+  "2026-07-05-adalk-a48660ac",
+  "2026-07-07-adalk-d2ae6aa5",
+  "2026-07-08-adalk-964a492f",
+  "2026-07-09-adalk-87d0340f",
+  "2026-07-11-adalk-33bb8b55",
+  "2026-07-11-adalk-351fbeae",
+  "2026-07-12-adalk-81a8539a",
+  "2026-07-16-adalk-2861b3f4",
+  "2026-07-16-adalk-45c05e03",
+  "2026-07-16-adalk-6ab47198",
+  "2026-07-16-adalk-9d5ef78a",
+  "2026-07-16-adalk-a217637c",
+  "2026-07-17-adalk-1b130527",
+  "2026-07-17-adalk-c5fdc41a",
+  "2026-07-20-adalk-5a4ace25",
+  "2026-07-20-adalk-6b44e80d",
+  "2026-07-20-adalk-ce07293f",
+  "2026-07-21-adalk-9cacc4e8",
+  "2026-07-21-adalk-c351b1f4",
+  "2026-07-21-adalk-ef81caae",
+  "2026-07-23-adalk-1259c645",
+  "2026-07-24-adalk-4a237b51",
+  "2026-07-26-adalk-8ea65d52",
+  "2026-07-28-adalk-fed33aaa",
+  "2026-07-30-adalk-11274dea",
+  "2026-07-31-adalk-3d2fb6ee",
+  "2026-07-31-adalk-f4be0764"
+ ],
+ "unattributed_ids": [
+  "2026-07-03-adalk-95a8c691",
+  "2026-07-11-adalk-33bb8b55",
+  "2026-07-12-adalk-81a8539a",
+  "2026-07-16-adalk-2861b3f4",
+  "2026-07-16-adalk-45c05e03",
+  "2026-07-16-adalk-6ab47198",
+  "2026-07-16-adalk-9d5ef78a",
+  "2026-07-16-adalk-a217637c",
+  "2026-07-17-adalk-c5fdc41a",
+  "2026-07-20-adalk-5a4ace25",
+  "2026-07-20-adalk-ce07293f",
+  "2026-07-23-adalk-1259c645",
+  "2026-07-24-adalk-4a237b51",
+  "2026-07-26-adalk-8ea65d52",
+  "2026-07-28-adalk-fed33aaa",
+  "2026-07-30-adalk-11274dea",
+  "2026-07-31-adalk-3d2fb6ee",
+  "2026-07-31-adalk-f4be0764"
+ ],
+ "dropped": [
+  "event india-suwasariya-ambulances underway: amount",
+  "event tata-foundation-suwasariya-ambulances proposed: amount",
+  "event gosl-trincomalee-tank-pipeline-upgrades completed: amount",
+  "event gosl-trincomalee-tank-pipeline-upgrades proposed: amount",
+  "event gosl-supplementary-medical-service-recruitment-392 proposed: amount",
+  "event new-line-badulla-ditwah-irrigation-restoration-gosl underway: unknown line",
+  "event prison-overcrowding-temporary-facilities-gosl underway: unknown line",
+  "event gosl unclear: unknown line",
+  "line cooperative-rice-drying-and-storage-upgrades-gosl",
+  "event health-service-support-staff-appointments-2652-gosl proposed: amount"
+ ],
+ "projects": [
+  {
+   "id": "trincomalee-oil-tank-and-pipeline-upgrades",
+   "name": "Trincomalee Oil Tank and Pipeline Upgrades",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Trincomalee",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "supplementary-medical-service-recruitment-392",
+   "name": "Recruitment of 392 Supplementary Medical Service Trainees",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "hendala-leprosy-hospital-tourism-development",
+   "name": "Hendala Leprosy Hospital Museum and Tourism Development",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "Hendala",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "health-service-appointments-1444",
+   "name": "Appointments for 1,444 Health-Service Personnel",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "presidential-mansions-tourism-leases",
+   "name": "Long-Term Tourism Leases for Five Presidential Mansions",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "multimodal-transport-centres-management-company",
+   "name": "State company to manage multimodal transport centres",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kandy-esala-perahera-intellectual-property-protection",
+   "name": "Intellectual property protection project proposal for Kandy Esala Perahera",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "provincial-local-roads-rda-development-plan",
+   "name": "Plan to transfer and develop 60 provincial and local authority roads",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "yala-pilgrim-services-2026",
+   "name": "Public services for pilgrims travelling through Yala to Kataragama",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Yala National Park",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kegalle-hospital-development",
+   "name": "Kegalle District General Hospital development",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Kegalle",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "paddy-millers-deposit-loan-scheme",
+   "name": "Deposit loan scheme for paddy millers purchasing farmers’ paddy",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "andadola-akurala-substation-reopening",
+   "name": "Reopening of Andadola and Akurala railway stations",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Andadola and Akurala",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "preschool-education-reforms-2027",
+   "name": "Preschool Education Reforms from 2027",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "anavilundawa-sub-railway-station-reopening",
+   "name": "Anavilundawa Sub-Railway Station Reopening",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Anavilundawa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-pichchamal-puja-special-trains",
+   "name": "Special Train Services for the National Pichchamal Puja",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo and Beliatta",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kataragama-polythene-free-sacred-zone-2030",
+   "name": "Polythene-Free Sacred Zone Programme 2030",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Kataragama",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gatambe-junction-flyover",
+   "name": "Gatambe Junction Flyover Development",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "william-gopallawa-road-development",
+   "name": "William Gopallawa Road Development",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mahaiyawa-underpass",
+   "name": "Mahaiyawa Underpass Development",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "louis-pieris-road-development",
+   "name": "Louis Pieris Road Development",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "aswesuma-july-2026-benefit-payments",
+   "name": "Aswesuma July 2026 Benefit Payments",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-livestock-policy-implementation",
+   "name": "National Livestock Policy Implementation",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "bandaranaike-airport-departure-terminal-expansion",
+   "name": "Bandaranaike Airport Departure Terminal Expansion",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Katunayake",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "warakapola-bypass-remaining-construction",
+   "name": "Warakapola Bypass Remaining Construction",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Warakapola",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "deniyaya-hospital-equipment-ditwah-recovery",
+   "name": "Medical Equipment for New Deniyaya Hospital",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Deniyaya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "deniyaya-new-hospital-construction",
+   "name": "New Deniyaya Base Hospital Construction",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Handford Estate, Deniyaya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ditwah-yala-crop-compensation",
+   "name": "Cyclone Ditwah Crop Compensation",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ditwah-irrigation-infrastructure-restoration",
+   "name": "Restoration of Irrigation Infrastructure for Cultivation",
+   "sector": "water",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "district-emergency-works-reserve",
+   "name": "District Funding Reserve for Urgent Infrastructure Repairs",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "temporary-prisons-mahamodara-bogambara",
+   "name": "Temporary Prisons at Mahamodara and Bogambara",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Mahamodara and Bogambara",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "colombo-university-online-lectures-dengue",
+   "name": "Temporary Online Lectures at the University of Colombo During Dengue Cases",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "aswesuma-beneficiary-economic-empowerment-2026",
+   "name": "Aswesuma Beneficiary Economic Empowerment Programme, 2026",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "daycare-centre-expansion-2026",
+   "name": "Daycare Centre Construction and Expansion Programme",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "public-accessibility-improvements-2026",
+   "name": "Accessibility Improvements at Public Facilities",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mahamodara-old-hospital-prison",
+   "name": "Conversion of Old Mahamodara Maternity Hospital Buildings into a Prison",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Galle",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "bus-sector-clustering-pilot",
+   "name": "Bus Sector Clustering Pilot Programme",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-archaeological-sites-conservation",
+   "name": "National Archaeological Sites Conservation Programme",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mannar-50mw-wind-power-plant",
+   "name": "Mannar 50 MW Wind Power Plant",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Mannar",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "government-agriculture-expenditure-2025",
+   "name": "Government Agriculture Expenditure, 2025",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rice-imports-2026",
+   "name": "Rice Imports, 2026",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "paddy-purchase-2025",
+   "name": "Paddy Purchases by the Paddy Marketing Board, 2025",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rice-buffer-stock-2025",
+   "name": "Rice Buffer Stock, 2025",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fertiliser-subsidy-2025",
+   "name": "Fertiliser Subsidy, 2025",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "dental-surgeon-transfer-management-system",
+   "name": "Dental Surgeon Transfer Management System",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "health-service-support-staff-appointments-2652",
+   "name": "Appointment of 2,652 Health-Service Support Staff",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mullaitivu-hospital-ambulance-transfer",
+   "name": "Ambulance Transfer to Mullaitivu District General Hospital",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Mullaitivu",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "colombo-district-divisional-secretariat-pos-payments",
+   "name": "POS Card Payments at Colombo District Divisional Secretariats",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "Colombo District",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kurunegala-dambulla-expressway-phase-one",
+   "name": "Kurunegala–Dambulla Expressway, Kurunegala–Galewela Section",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kurunegala–Galewela",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "government-utility-vehicle-procurement-535",
+   "name": "Procurement of 535 Utility Vehicles for Government Institutions",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "horana-district-general-hospital-transfer",
+   "name": "Transfer of Horana District General Hospital to Central Government",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Horana",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-dengue-operations-room",
+   "name": "National Dengue Operations Room and Hotline",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "india-suwasariya-ambulances",
+   "project_id": "suwasariya-ambulance-donation-2024",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "tata-foundation-suwasariya-ambulances",
+   "project_id": "suwasariya-ambulance-donation-2024",
+   "funder": "private",
+   "funder_name": "Tata Foundation",
+   "funder_type": "private",
+   "origin": "unknown",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-trincomalee-tank-pipeline-upgrades",
+   "project_id": "trincomalee-oil-tank-and-pipeline-upgrades",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-supplementary-medical-service-recruitment-392",
+   "project_id": "supplementary-medical-service-recruitment-392",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "hendala-leprosy-hospital-tourism-development-gosl",
+   "project_id": "hendala-leprosy-hospital-tourism-development",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "health-service-appointments-1444-gosl",
+   "project_id": "health-service-appointments-1444",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "presidential-mansions-tourism-leases-gosl",
+   "project_id": "presidential-mansions-tourism-leases",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "multimodal-transport-centres-management-company-gosl",
+   "project_id": "multimodal-transport-centres-management-company",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "kandy-esala-perahera-ip-proposal-wipo",
+   "project_id": "kandy-esala-perahera-intellectual-property-protection",
+   "funder": "other:wipo",
+   "funder_name": "World Intellectual Property Organization",
+   "funder_type": "unknown",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "provincial-local-roads-rda-development-gosl",
+   "project_id": "provincial-local-roads-rda-development-plan",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "yala-pilgrim-services-2026-gosl",
+   "project_id": "yala-pilgrim-services-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "kegalle-hospital-development-gosl",
+   "project_id": "kegalle-hospital-development",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "paddy-millers-deposit-loan-scheme-gosl",
+   "project_id": "paddy-millers-deposit-loan-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "mixed",
+   "purpose": "programme"
+  },
+  {
+   "id": "andadola-akurala-substation-reopening-gosl",
+   "project_id": "andadola-akurala-substation-reopening",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "preschool-education-reforms-2027-gosl",
+   "project_id": "preschool-education-reforms-2027",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "anavilundawa-sub-railway-station-reopening-gosl",
+   "project_id": "anavilundawa-sub-railway-station-reopening",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "national-pichchamal-puja-special-trains-gosl",
+   "project_id": "national-pichchamal-puja-special-trains",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "kataragama-polythene-free-sacred-zone-2030-gosl",
+   "project_id": "kataragama-polythene-free-sacred-zone-2030",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gatambe-junction-flyover-gosl",
+   "project_id": "gatambe-junction-flyover",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "william-gopallawa-road-development-gosl",
+   "project_id": "william-gopallawa-road-development",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "mahaiyawa-underpass-gosl",
+   "project_id": "mahaiyawa-underpass",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "louis-pieris-road-development-gosl",
+   "project_id": "louis-pieris-road-development",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "aswesuma-july-2026-benefit-payments-gosl",
+   "project_id": "aswesuma-july-2026-benefit-payments",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "national-livestock-policy-implementation-gosl",
+   "project_id": "national-livestock-policy-implementation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "bandaranaike-airport-departure-terminal-expansion-gosl",
+   "project_id": "bandaranaike-airport-departure-terminal-expansion",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "warakapola-bypass-remaining-construction-gosl",
+   "project_id": "warakapola-bypass-remaining-construction",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "rooftop-solar-grid-modernisation-japan",
+   "project_id": "rooftop-solar-grid-modernisation",
+   "funder": "japan",
+   "funder_name": "Japan Fund for the Joint Crediting Mechanism",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "deniyaya-hospital-equipment-india",
+   "project_id": "deniyaya-hospital-equipment-ditwah-recovery",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "deniyaya-new-hospital-construction-gosl",
+   "project_id": "deniyaya-new-hospital-construction",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "ditwah-yala-crop-compensation-gosl",
+   "project_id": "ditwah-yala-crop-compensation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "ditwah-irrigation-infrastructure-restoration-gosl",
+   "project_id": "ditwah-irrigation-infrastructure-restoration",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "district-emergency-works-reserve-gosl",
+   "project_id": "district-emergency-works-reserve",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "temporary-prisons-mahamodara-bogambara-gosl",
+   "project_id": "temporary-prisons-mahamodara-bogambara",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "colombo-university-online-lectures-dengue-gosl",
+   "project_id": "colombo-university-online-lectures-dengue",
+   "funder": "gosl",
+   "funder_name": "University of Colombo",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "aswesuma-beneficiary-economic-empowerment-2026-gosl",
+   "project_id": "aswesuma-beneficiary-economic-empowerment-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "daycare-centre-expansion-2026-gosl",
+   "project_id": "daycare-centre-expansion-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "public-accessibility-improvements-2026-gosl",
+   "project_id": "public-accessibility-improvements-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "mahamodara-old-hospital-prison-gosl",
+   "project_id": "mahamodara-old-hospital-prison",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "bus-sector-clustering-pilot-gosl",
+   "project_id": "bus-sector-clustering-pilot",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "national-archaeological-sites-conservation-gosl",
+   "project_id": "national-archaeological-sites-conservation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "mannar-50mw-wind-power-plant-unknown",
+   "project_id": "mannar-50mw-wind-power-plant",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "government-agriculture-expenditure-2025-gosl",
+   "project_id": "government-agriculture-expenditure-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "rice-imports-2026-gosl",
+   "project_id": "rice-imports-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "paddy-purchase-2025-gosl",
+   "project_id": "paddy-purchase-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "rice-buffer-stock-2025-gosl",
+   "project_id": "rice-buffer-stock-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "fertiliser-subsidy-2025-gosl",
+   "project_id": "fertiliser-subsidy-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "dental-surgeon-transfer-management-system-bistec",
+   "project_id": "dental-surgeon-transfer-management-system",
+   "funder": "private",
+   "funder_name": "BISTEC GLOBAL",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "health-service-support-staff-appointments-2652-gosl",
+   "project_id": "health-service-support-staff-appointments-2652",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "mullaitivu-hospital-ambulance-transfer-gosl",
+   "project_id": "mullaitivu-hospital-ambulance-transfer",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "colombo-district-divisional-secretariat-pos-payments-boc",
+   "project_id": "colombo-district-divisional-secretariat-pos-payments",
+   "funder": "other:boc",
+   "funder_name": "Bank of Ceylon",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "mixed",
+   "purpose": "project"
+  },
+  {
+   "id": "india-ditwah-reconstruction-assistance-package-loan-2026",
+   "project_id": "india-ditwah-reconstruction-assistance-package",
+   "funder": "india",
+   "funder_name": "India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "relief"
+  },
+  {
+   "id": "india-ditwah-reconstruction-assistance-package-grant-2026",
+   "project_id": "india-ditwah-reconstruction-assistance-package",
+   "funder": "india",
+   "funder_name": "India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "kurunegala-dambulla-expressway-phase-one-gosl",
+   "project_id": "kurunegala-dambulla-expressway-phase-one",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "government-utility-vehicle-procurement-535-gosl",
+   "project_id": "government-utility-vehicle-procurement-535",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "horana-district-general-hospital-transfer-gosl",
+   "project_id": "horana-district-general-hospital-transfer",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "adb-ditwah-reconstruction-livelihood-grant",
+   "project_id": "adb-ditwah-reconstruction-livelihood-project",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "national-dengue-operations-room-gosl",
+   "project_id": "national-dengue-operations-room",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "adb-loan-trade-investment-industry-funder_approved-2026-07-31",
+   "line_id": "adb-loan-trade-investment-industry",
+   "date": "2026-07-31",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approved a $200 million facility for economic pressures and trade, investment, and industry reforms.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-31-adalk-c97d1d1a"
+   ],
+   "relation": "repeat_of:adb-loan-trade-investment-industry-funder_approved-2026-07-31",
+   "notes": null
+  },
+  {
+   "id": "gosl-trincomalee-tank-pipeline-upgrades-underway-2026-07-31",
+   "line_id": "gosl-trincomalee-tank-pipeline-upgrades",
+   "date": "2026-07-31",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Initial work began to install a fuel pipeline from Trincomalee Port to the oil tanks.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-31-adalk-40785f08"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-elderly-allowance-gosl-proposed-2026-07-30",
+   "line_id": "aswesuma-elderly-allowance-gosl",
+   "date": "2026-07-30",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 3494000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "July Aswesuma elderly allowances for both beneficiary phases were scheduled for bank credit on July 31.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-30-adalk-2dddbca1"
+   ],
+   "relation": "update_of:aswesuma-elderly-allowance-gosl-disbursed-2026-04-22",
+   "notes": null
+  },
+  {
+   "id": "hendala-leprosy-hospital-tourism-development-gosl-proposed-2026-07-30",
+   "line_id": "hendala-leprosy-hospital-tourism-development-gosl",
+   "date": "2026-07-30",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government plans to preserve the historic hospital and develop it as a museum and tourism attraction.",
+   "confidence": "medium",
+   "reports": [
+    "2026-07-30-adalk-50e6fb15"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "health-service-appointments-1444-gosl-proposed-2026-07-30",
+   "line_id": "health-service-appointments-1444-gosl",
+   "date": "2026-07-30",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government scheduled appointments for 1,444 health-service personnel on August 1.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-30-adalk-aec260c7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "lanka-metro-transit-bus-procurement-104-gosl-underway-2026-07-29",
+   "line_id": "lanka-metro-transit-bus-procurement-104-gosl",
+   "date": "2026-07-29",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "104 government-purchased Metro buses arrived in Sri Lanka for future public transport service.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-29-adalk-af3b2c9a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sltb-scrap-metal-disposal-initiative-contract_awarded-2026-07-29",
+   "line_id": "sltb-scrap-metal-disposal-initiative",
+   "date": "2026-07-29",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 195890193.28,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Contracts to dispose of SLTB scrap metal were awarded to six companies for Rs. 195,890,193.28.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-29-adalk-d50ab3ea"
+   ],
+   "relation": "repeat_of:sltb-scrap-metal-disposal-initiative-contract_awarded-2026-07-29",
+   "notes": null
+  },
+  {
+   "id": "presidential-mansions-tourism-leases-gosl-govt_authorised-2026-07-28",
+   "line_id": "presidential-mansions-tourism-leases-gosl",
+   "date": "2026-07-28",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved long-term leases of five presidential mansions for tourism investment projects.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-28-adalk-f2edd800"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "multimodal-transport-centres-management-company-gosl-govt_authorised-2026-07-28",
+   "line_id": "multimodal-transport-centres-management-company-gosl",
+   "date": "2026-07-28",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved establishing a treasury-owned public company to manage multimodal transport centres.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-28-adalk-0d5c1870"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kandy-esala-perahera-ip-proposal-wipo-govt_authorised-2026-07-21",
+   "line_id": "kandy-esala-perahera-ip-proposal-wipo",
+   "date": "2026-07-21",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved a committee to prepare a WIPO project proposal protecting Kandy Esala Perahera intellectual property.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-21-adalk-9158dcf5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "provincial-local-roads-rda-development-gosl-govt_authorised-2026-07-21",
+   "line_id": "provincial-local-roads-rda-development-gosl",
+   "date": "2026-07-21",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved appointing a committee to recommend next steps for developing 60 provincial and local roads.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-21-adalk-6439eac8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "lanka-metro-transit-bus-procurement-104-gosl-govt_authorised-2026-07-21",
+   "line_id": "lanka-metro-transit-bus-procurement-104-gosl",
+   "date": "2026-07-21",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 14400000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved replacing 600 standard buses with air-conditioned deluxe buses for long-distance SLTB services.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-21-adalk-7f40f844"
+   ],
+   "relation": "update_of:lanka-metro-transit-bus-procurement-104-gosl-underway-2026-06-19",
+   "notes": null
+  },
+  {
+   "id": "yala-pilgrim-services-2026-gosl-underway-2026-07-19",
+   "line_id": "yala-pilgrim-services-2026-gosl",
+   "date": "2026-07-19",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Authorities arranged drinking water, food and sanitation for pilgrims travelling through Yala.",
+   "confidence": "medium",
+   "reports": [
+    "2026-07-19-adalk-18420250"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kegalle-hospital-development-gosl-cost_estimate-2026-07-18",
+   "line_id": "kegalle-hospital-development-gosl",
+   "date": "2026-07-18",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 1300000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The minister said the stalled five-storey emergency complex would resume construction at a cost exceeding Rs 1.3 billion.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-18-adalk-3c552169"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kegalle-hospital-development-gosl-proposed-2026-07-18",
+   "line_id": "kegalle-hospital-development-gosl",
+   "date": "2026-07-18",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 75000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The minister said Rs 75 million would be allocated soon for hospital development.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-18-adalk-3c552169"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "paddy-millers-deposit-loan-scheme-gosl-disbursed-2026-07-18",
+   "line_id": "paddy-millers-deposit-loan-scheme-gosl",
+   "date": "2026-07-18",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 13596000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Small and medium rice millers received Rs 13.596 billion in deposit loans to buy farmers’ paddy in 2025.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-18-adalk-31d35d6b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "paddy-millers-deposit-loan-scheme-gosl-spent-2026-07-18",
+   "line_id": "paddy-millers-deposit-loan-scheme-gosl",
+   "date": "2026-07-18",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 132000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The government provided Rs 132 million in interest subsidies for participating rice millers.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-18-adalk-31d35d6b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "andadola-akurala-substation-reopening-gosl-launched-2026-07-17",
+   "line_id": "andadola-akurala-substation-reopening-gosl",
+   "date": "2026-07-17",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The railway department reopened Andadola and Akurala stations with relief stationmasters after prolonged closures.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-17-adalk-7a830345"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "preschool-education-reforms-2027-gosl-proposed-2026-07-16",
+   "line_id": "preschool-education-reforms-2027-gosl",
+   "date": "2026-07-16",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Preschool reforms and teacher training are planned to begin in 2027.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-16-adalk-65d10a0e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "anavilundawa-sub-railway-station-reopening-gosl-launched-2026-07-16",
+   "line_id": "anavilundawa-sub-railway-station-reopening-gosl",
+   "date": "2026-07-16",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rail services resumed at Anavilundawa with a relief stationmaster assigned.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-16-adalk-fb4cd175"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-pichchamal-puja-special-trains-gosl-proposed-2026-07-16",
+   "line_id": "national-pichchamal-puja-special-trains-gosl",
+   "date": "2026-07-16",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Railway Department planned special trains for the National Pichchamal Puja on July 25 and 26.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-16-adalk-115bf13c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kataragama-polythene-free-sacred-zone-2030-gosl-launched-2026-07-16",
+   "line_id": "kataragama-polythene-free-sacred-zone-2030-gosl",
+   "date": "2026-07-16",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Environmental Authority launched a five-year programme for a plastic-free Kataragama sacred zone.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-16-adalk-6dbbef6d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gatambe-junction-flyover-gosl-cost_estimate-2026-07-16",
+   "line_id": "gatambe-junction-flyover-gosl",
+   "date": "2026-07-16",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 14000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Gatambe Junction flyover development costs Rs. 14 billion; work restarted in February 2025.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-16-adalk-f353589b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gatambe-junction-flyover-gosl-underway-2026-07-16",
+   "line_id": "gatambe-junction-flyover-gosl",
+   "date": "2026-07-16",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Gatambe Junction flyover development resumed in February 2025 and is under construction.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-16-adalk-f353589b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "william-gopallawa-road-development-gosl-allocated-2026-07-16",
+   "line_id": "william-gopallawa-road-development-gosl",
+   "date": "2026-07-16",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 675000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs. 675 million was allocated for widening and developing William Gopallawa Road.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-16-adalk-f353589b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mahaiyawa-underpass-gosl-cost_estimate-2026-07-16",
+   "line_id": "mahaiyawa-underpass-gosl",
+   "date": "2026-07-16",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 650000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The Mahaiyawa underpass development project is estimated to cost Rs. 650 million.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-16-adalk-f353589b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "louis-pieris-road-development-gosl-allocated-2026-07-16",
+   "line_id": "louis-pieris-road-development-gosl",
+   "date": "2026-07-16",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 539000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs. 539 million was allocated to develop Louis Pieris Road with dual lanes and sidewalks.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-16-adalk-f353589b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "anavilundawa-sub-railway-station-reopening-gosl-halted-2026-07-15",
+   "line_id": "anavilundawa-sub-railway-station-reopening-gosl",
+   "date": "2026-07-15",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Railway Department temporarily closed Anavilundawa Sub-Railway Station after its station master resigned.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-15-adalk-db24428a"
+   ],
+   "relation": "update_of:anavilundawa-sub-railway-station-reopening-gosl-launched-2026-07-16",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-july-2026-benefit-payments-gosl-disbursed-2026-07-15",
+   "line_id": "aswesuma-july-2026-benefit-payments-gosl",
+   "date": "2026-07-15",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 11825596250,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "July Aswesuma benefits for 1,224,459 families were credited to beneficiary bank accounts.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-15-adalk-77cd24ea"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-livestock-policy-implementation-gosl-govt_authorised-2026-07-14",
+   "line_id": "national-livestock-policy-implementation-gosl",
+   "date": "2026-07-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved implementation of the updated National Livestock Policy.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-14-adalk-ccff3ebd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-rooftop-solar-govt_authorised-2026-07-14",
+   "line_id": "adb-loan-rooftop-solar",
+   "date": "2026-07-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 35000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved an ADB loan agreement for rooftop solar and virtual net metering.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-14-adalk-2b0c09d4"
+   ],
+   "relation": "update_of:",
+   "notes": null
+  },
+  {
+   "id": "rooftop-solar-grid-modernisation-japan-govt_authorised-2026-07-14",
+   "line_id": "rooftop-solar-grid-modernisation-japan",
+   "date": "2026-07-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 5500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved a Japanese fund grant agreement for rooftop solar and virtual net metering.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-14-adalk-2b0c09d4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "bandaranaike-airport-departure-terminal-expansion-gosl-contract_awarded-2026-07-14",
+   "line_id": "bandaranaike-airport-departure-terminal-expansion-gosl",
+   "date": "2026-07-14",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "A contract was awarded to expand the Bandaranaike Airport departure terminal.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-14-adalk-80a47b0d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "warakapola-bypass-remaining-construction-gosl-govt_authorised-2026-07-14",
+   "line_id": "warakapola-bypass-remaining-construction-gosl",
+   "date": "2026-07-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 4990000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved awarding Maga Engineering the contract to complete remaining Warakapola bypass construction.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-14-adalk-f3d6bd52"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "deniyaya-hospital-equipment-india-agreement_signed-2026-07-14",
+   "line_id": "deniyaya-hospital-equipment-india",
+   "date": "2026-07-14",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "India signed an agreement to provide medical equipment for the new Deniyaya hospital.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-14-adalk-d125e19b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "deniyaya-new-hospital-construction-gosl-cost_estimate-2026-07-14",
+   "line_id": "deniyaya-new-hospital-construction-gosl",
+   "date": "2026-07-14",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 6000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The planned 300-bed Deniyaya hospital is estimated to require Rs. 6 billion investment.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-14-adalk-d125e19b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "preschool-curriculum-and-teacher-training-2027-gosl-underway-2026-07-13",
+   "line_id": "preschool-curriculum-and-teacher-training-2027-gosl",
+   "date": "2026-07-13",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Teacher training for the new preschool curriculum is underway.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-13-adalk-1f10f0fa"
+   ],
+   "relation": "update_of:preschool-curriculum-and-teacher-training-2027-gosl-proposed-2026-03-15",
+   "notes": null
+  },
+  {
+   "id": "yala-paddy-purchase-2026-gosl-launched-2026-07-13",
+   "line_id": "yala-paddy-purchase-2026-gosl",
+   "date": "2026-07-13",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government began purchasing Yala-season paddy at 143 warehouses nationwide.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-13-adalk-68fde28c"
+   ],
+   "relation": "update_of:yala-paddy-purchase-2026-gosl-proposed-2026-06-24",
+   "notes": null
+  },
+  {
+   "id": "meerigama-kidney-stone-surgery-centre-unknown-launched-2026-07-12",
+   "line_id": "meerigama-kidney-stone-surgery-centre-unknown",
+   "date": "2026-07-12",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The Meerigama kidney-stone treatment centre opened to the public.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-12-adalk-3628e3a4"
+   ],
+   "relation": "update_of:meerigama-kidney-stone-surgery-centre-unknown-proposed-2026-04-01",
+   "notes": null
+  },
+  {
+   "id": "fertiliser-subsidy-yala-2026-gosl-disbursed-2026-07-10",
+   "line_id": "fertiliser-subsidy-yala-2026-gosl",
+   "date": "2026-07-10",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 13492000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Fertiliser subsidy paid to 667,460 Yala-season farmers.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-10-adalk-b5b2d370"
+   ],
+   "relation": "update_of:fertiliser-subsidy-yala-2026-gosl-released-2026-06-05",
+   "notes": null
+  },
+  {
+   "id": "fertiliser-subsidy-yala-2026-gosl-spent-2026-07-10",
+   "line_id": "fertiliser-subsidy-yala-2026-gosl",
+   "date": "2026-07-10",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 1840000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government covered added costs to provide urea at a fixed price.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-10-adalk-b5b2d370"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fertiliser-subsidy-yala-2026-gosl-govt_authorised-2026-07-10",
+   "line_id": "fertiliser-subsidy-yala-2026-gosl",
+   "date": "2026-07-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 30000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Yala fertiliser subsidy increased to Rs. 30,000 per hectare.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-10-adalk-b5b2d370"
+   ],
+   "relation": "update_of:fertilizer-subsidy-increase-yala-2026-gosl-govt_authorised-2026-04-07",
+   "notes": null
+  },
+  {
+   "id": "ditwah-yala-crop-compensation-gosl-disbursed-2026-07-10",
+   "line_id": "ditwah-yala-crop-compensation-gosl",
+   "date": "2026-07-10",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 8886000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government paid crop compensation and assistance to 112,442 farmers after Cyclone Ditwah.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-10-adalk-b5b2d370"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ditwah-irrigation-infrastructure-restoration-gosl-allocated-2026-07-10",
+   "line_id": "ditwah-irrigation-infrastructure-restoration-gosl",
+   "date": "2026-07-10",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 5788000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funds allocated to restore tanks, anicuts and canals needed for cultivation.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-10-adalk-b5b2d370"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "yala-paddy-purchase-2026-gosl-proposed-2026-07-10",
+   "line_id": "yala-paddy-purchase-2026-gosl",
+   "date": "2026-07-10",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Paddy Marketing Board plans to begin Yala-season paddy purchases on July 13.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-10-adalk-3ae5d029"
+   ],
+   "relation": "update_of:yala-paddy-purchase-2026-gosl-launched-2026-07-13",
+   "notes": null
+  },
+  {
+   "id": "yala-paddy-purchase-2026-gosl-allocated-2026-07-10",
+   "line_id": "yala-paddy-purchase-2026-gosl",
+   "date": "2026-07-10",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 6000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government provided Rs. 6 billion to the Paddy Marketing Board for paddy purchases.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-10-adalk-3ae5d029"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "paddy-millers-deposit-loan-scheme-gosl-allocated-2026-07-10",
+   "line_id": "paddy-millers-deposit-loan-scheme-gosl",
+   "date": "2026-07-10",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 10000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs. 10 billion set aside under deposit loans for millers to stock paddy.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-10-adalk-3ae5d029"
+   ],
+   "relation": "update_of:paddy-millers-deposit-loan-scheme-gosl-disbursed-2026-07-18",
+   "notes": null
+  },
+  {
+   "id": "district-emergency-works-reserve-gosl-proposed-2026-07-09",
+   "line_id": "district-emergency-works-reserve-gosl",
+   "date": "2026-07-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government plans separate district reserves for urgent bridge, road and building repairs.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-09-adalk-cacdcc68"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "temporary-prisons-mahamodara-bogambara-gosl-govt_authorised-2026-07-09",
+   "line_id": "temporary-prisons-mahamodara-bogambara-gosl",
+   "date": "2026-07-09",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Orders issued to establish temporary prisons at Mahamodara and old Bogambara.",
+   "confidence": "medium",
+   "reports": [
+    "2026-07-09-adalk-29807e0a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "colombo-university-online-lectures-dengue-gosl-govt_authorised-2026-07-09",
+   "line_id": "colombo-university-online-lectures-dengue-gosl",
+   "date": "2026-07-09",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "University of Colombo decided to hold lectures online for one week amid dengue cases.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-09-adalk-50aba109"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ditwah-yala-crop-compensation-gosl-disbursed-2026-07-08",
+   "line_id": "ditwah-yala-crop-compensation-gosl",
+   "date": "2026-07-08",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 12341500000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government paid Rs. 12.3415 billion in crop compensation to 202,025 Ditwah-affected farmers.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-08-adalk-a300c0f8"
+   ],
+   "relation": "update_of:ditwah-yala-crop-compensation-gosl-disbursed-2026-07-10",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-beneficiary-economic-empowerment-2026-gosl-underway-2026-07-07",
+   "line_id": "aswesuma-beneficiary-economic-empowerment-2026-gosl",
+   "date": "2026-07-07",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Economic and psychosocial support programmes had started for 16,000 Aswesuma families.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-08-adalk-14c532dd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-beneficiary-economic-empowerment-2026-gosl-proposed-2026-07-07",
+   "line_id": "aswesuma-beneficiary-economic-empowerment-2026-gosl",
+   "date": "2026-07-07",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government planned to connect 200,000 Aswesuma beneficiary families to productive economic activity.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-08-adalk-14c532dd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "daycare-centre-expansion-2026-gosl-proposed-2026-07-07",
+   "line_id": "daycare-centre-expansion-2026-gosl",
+   "date": "2026-07-07",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Officials were directed to plan 50 daycare centres nationwide over the coming years.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-08-adalk-14c532dd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "public-accessibility-improvements-2026-gosl-underway-2026-07-07",
+   "line_id": "public-accessibility-improvements-2026-gosl",
+   "date": "2026-07-07",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 283000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Accessibility improvement projects were underway at police stations, hospitals and divisional secretariats.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-08-adalk-14c532dd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mahamodara-old-hospital-prison-gosl-govt_authorised-2026-07-08",
+   "line_id": "mahamodara-old-hospital-prison-gosl",
+   "date": "2026-07-08",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The old Mahamodara Maternity Hospital buildings were designated as a prison by gazette.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-08-adalk-efd9b41b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "bus-sector-clustering-pilot-gosl-govt_authorised-2026-07-07",
+   "line_id": "bus-sector-clustering-pilot-gosl",
+   "date": "2026-07-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet agreed to launch a bus clustering pilot on routes 170, 177 and 190.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-07-adalk-70272705"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-archaeological-sites-conservation-gosl-launched-2026-07-07",
+   "line_id": "national-archaeological-sites-conservation-gosl",
+   "date": "2026-07-07",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "National programme began conserving archaeological sites, starting work at 100 locations.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-07-adalk-c28f96a8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mannar-50mw-wind-power-plant-unknown-underway-2026-07-07",
+   "line_id": "mannar-50mw-wind-power-plant-unknown",
+   "date": "2026-07-07",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Construction of the 50 MW Mannar wind power plant is progressing.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-07-adalk-e16715f9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mannar-50mw-wind-power-plant-unknown-contract_awarded-2026-07-07",
+   "line_id": "mannar-50mw-wind-power-plant-unknown",
+   "date": "2026-07-07",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Hayleys Fentons was selected to install and maintain the wind turbines.",
+   "confidence": "medium",
+   "reports": [
+    "2026-07-07-adalk-e16715f9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-tax-week-badu-shakthi-2026-gosl-launched-2026-07-06",
+   "line_id": "national-tax-week-badu-shakthi-2026-gosl",
+   "date": "2026-07-06",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government agencies launched the Badu Shakthi National Tax Week.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-06-adalk-d6b3aa54"
+   ],
+   "relation": "update_of:national-tax-week-badu-shakthi-2026-gosl-proposed-2026-06-30",
+   "notes": null
+  },
+  {
+   "id": "government-agriculture-expenditure-2025-gosl-spent-2026-07-06",
+   "line_id": "government-agriculture-expenditure-2025-gosl",
+   "date": "2026-07-06",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 142000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government spending on agriculture totalled Rs. 142 billion in 2025.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-06-adalk-62ae3cc5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rice-imports-2026-gosl-spent-2026-07-06",
+   "line_id": "rice-imports-2026-gosl",
+   "date": "2026-07-06",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 90300000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka spent US$90.3 million on rice imports from January through May 2026.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-06-adalk-62ae3cc5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "paddy-purchase-2025-gosl-spent-2026-07-06",
+   "line_id": "paddy-purchase-2025-gosl",
+   "date": "2026-07-06",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 19633000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The Paddy Marketing Board spent Rs. 19.633 billion purchasing paddy from farmers in 2025.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-06-adalk-62ae3cc5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rice-buffer-stock-2025-gosl-spent-2026-07-06",
+   "line_id": "rice-buffer-stock-2025-gosl",
+   "date": "2026-07-06",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 6200000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The Paddy Marketing Board spent Rs. 6.2 billion maintaining a rice buffer stock in 2025.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-06-adalk-62ae3cc5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fertiliser-subsidy-2025-gosl-spent-2026-07-06",
+   "line_id": "fertiliser-subsidy-2025-gosl",
+   "date": "2026-07-06",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 37000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government spent Rs. 37 billion on the fertiliser subsidy programme in 2025.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-06-adalk-62ae3cc5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "dental-surgeon-transfer-management-system-bistec-launched-2026-07-05",
+   "line_id": "dental-surgeon-transfer-management-system-bistec",
+   "date": "2026-07-05",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "BISTEC GLOBAL donated a digital system for managing dental surgeons’ annual transfers.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-05-adalk-cfeca0b3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "cooperative-rice-drying-and-storage-upgrades-gosl-proposed-2026-07-03",
+   "line_id": "cooperative-rice-drying-and-storage-upgrades-gosl",
+   "date": "2026-07-03",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 10000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government decided to provide 50 rice dryers to cooperative societies nationwide.",
+   "confidence": "medium",
+   "reports": [
+    "2026-07-03-adalk-576b9c41"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "cooperative-rice-drying-and-storage-upgrades-gosl-allocated-2026-07-03",
+   "line_id": "cooperative-rice-drying-and-storage-upgrades-gosl",
+   "date": "2026-07-03",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government set aside decentralized funds to support active and stable cooperative societies.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-03-adalk-576b9c41"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mullaitivu-hospital-ambulance-transfer-gosl-completed-2026-07-03",
+   "line_id": "mullaitivu-hospital-ambulance-transfer-gosl",
+   "date": "2026-07-03",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "A presidentially assigned ambulance was transferred to Mullaitivu District General Hospital.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-03-adalk-5a09361e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "colombo-district-divisional-secretariat-pos-payments-boc-launched-2026-07-02",
+   "line_id": "colombo-district-divisional-secretariat-pos-payments-boc",
+   "date": "2026-07-02",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Card payment service launched across 13 Colombo District divisional secretariats.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-02-adalk-a1dcbbd9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-elderly-allowance-gosl-released-2026-07-03",
+   "line_id": "aswesuma-elderly-allowance-gosl",
+   "date": "2026-07-03",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 3489500000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "June Aswesuma elderly allowances scheduled for transfer in two payment phases.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-02-adalk-e60d79e9"
+   ],
+   "relation": "update_of:aswesuma-elderly-allowance-gosl-proposed-2026-07-30",
+   "notes": null
+  },
+  {
+   "id": "india-ditwah-reconstruction-assistance-package-loan-2026-pledged-2026-07-02",
+   "line_id": "india-ditwah-reconstruction-assistance-package-loan-2026",
+   "date": "2026-07-02",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 350000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India pledged a reconstruction loan following Cyclone Ditwah.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-02-adalk-b2e80ecf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-ditwah-reconstruction-assistance-package-grant-2026-pledged-2026-07-02",
+   "line_id": "india-ditwah-reconstruction-assistance-package-grant-2026",
+   "date": "2026-07-02",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 100000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India pledged grant assistance for Cyclone Ditwah recovery.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-02-adalk-b2e80ecf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-ditwah-reconstruction-assistance-package-loan-2026-govt_authorised-2026-07-02",
+   "line_id": "india-ditwah-reconstruction-assistance-package-loan-2026",
+   "date": "2026-07-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 450000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved signing agreements to receive India's recovery package.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-02-adalk-b2e80ecf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kurunegala-dambulla-expressway-phase-one-gosl-govt_authorised-2026-07-01",
+   "line_id": "kurunegala-dambulla-expressway-phase-one-gosl",
+   "date": "2026-07-01",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved the first expressway section using government funds and domestic contractors.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-01-adalk-505d6bf3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "government-utility-vehicle-procurement-535-gosl-govt_authorised-2026-07-01",
+   "line_id": "government-utility-vehicle-procurement-535-gosl",
+   "date": "2026-07-01",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved starting procurement for 535 utility vehicles for government institutions.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-01-adalk-6acf597a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "horana-district-general-hospital-transfer-gosl-govt_authorised-2026-07-01",
+   "line_id": "horana-district-general-hospital-transfer-gosl",
+   "date": "2026-07-01",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved transferring Horana District General Hospital and its assets to the Health Ministry.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-01-adalk-0c3d2930"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "yala-paddy-purchase-2026-gosl-allocated-2026-07-01",
+   "line_id": "yala-paddy-purchase-2026-gosl",
+   "date": "2026-07-01",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 6000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved Rs. 6 billion for the 2026 Yala paddy purchase programme.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-01-adalk-6d9d7089"
+   ],
+   "relation": "repeat_of:yala-paddy-purchase-2026-gosl-allocated-2026-07-10",
+   "notes": null
+  },
+  {
+   "id": "adb-post-ditwah-renovation-livelihood-adb-funder_approved-2026-07-01",
+   "line_id": "adb-post-ditwah-renovation-livelihood-adb",
+   "date": "2026-07-01",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approved a $200 million emergency loan package for Ditwah recovery and reconstruction.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-01-adalk-21074454"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-ditwah-reconstruction-livelihood-grant-funder_approved-2026-07-01",
+   "line_id": "adb-ditwah-reconstruction-livelihood-grant",
+   "date": "2026-07-01",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approved a $500,000 technical assistance grant for Ditwah reconstruction projects.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-01-adalk-21074454"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-health-systems-development-vehicles-adb-proposed-2026-07-01",
+   "line_id": "adb-health-systems-development-vehicles-adb",
+   "date": "2026-07-01",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "National Hospital Colombo cath lab complex was scheduled to enter patient services the next day.",
+   "confidence": "medium",
+   "reports": [
+    "2026-07-01-adalk-3d621895"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-dengue-operations-room-gosl-launched-2026-07-01",
+   "line_id": "national-dengue-operations-room-gosl",
+   "date": "2026-07-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Health Ministry established a dengue operations room and public hotline.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-01-adalk-835d0941"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-07-31-adalk-c97d1d1a": {
+   "date": "2026-07-31",
+   "title": "ආසියානු සංවර්ධන බැංකුවෙන් ලංකාවට ඩොලර් මිලියන 200ක මූල්‍ය පහසුකමක්",
+   "url": "https://www.ada.lk/breaking_news/ආසියානු-සංවර්ධන-බැංකුවෙන්-ලංකාවට-ඩොලර්-මිලියන-200ක-මූල්‍ය-පහසුකමක්/11-423522",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-31-adalk-40785f08": {
+   "date": "2026-07-31",
+   "title": "ත්‍රිකුණාමලය තෙල් ටැංකි දෙකක් නවීකරණය කර අවසන්",
+   "url": "https://www.ada.lk/breaking_news/ත්‍රිකුණාමලය-තෙල්-ටැංකි-දෙකක්-නවීකරණය-කර-අවසන්/11-423521",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-30-adalk-2dddbca1": {
+   "date": "2026-07-30",
+   "title": "අස්වැසුම වැඩිහිටි දීමනාව අද බැංකුවට",
+   "url": "https://www.ada.lk/breaking_news/අස්වැසුම-වැඩිහිටි-දීමනාව-අද-බැංකුවට/11-423508",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-30-adalk-50e6fb15": {
+   "date": "2026-07-30",
+   "title": "හැඳල ලාදුරු රෝහල සංචාරක කලාපයක් කිරීමට අවධානය",
+   "url": "https://www.ada.lk/breaking_news/හැඳල-ලාදුරු-රෝහල-සංචාරක-කලාපයක්-කිරීමට-අවධානය/11-423498",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-30-adalk-aec260c7": {
+   "date": "2026-07-30",
+   "title": "සෞඛ්‍යයට අලුතින් 1,444ක්",
+   "url": "https://www.ada.lk/breaking_news/සෞඛ්‍යයට-අලුතින්-1-444ක්/11-423497",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-29-adalk-af3b2c9a": {
+   "date": "2026-07-29",
+   "title": "මෙට්‍රෝ බස් 104 දිවයිනට",
+   "url": "https://www.ada.lk/picture_story/මෙට්‍රෝ-බස්-104-දිවයිනට/10-423485",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-29-adalk-d50ab3ea": {
+   "date": "2026-07-29",
+   "title": "ලංගමයේ අබලි ලෝහ බැහැර කිරිමෙන් රු. ලක්ෂ 1958ක ආදායමක්",
+   "url": "https://www.ada.lk/breaking_news/ලංගමයේ-අබලි-ලෝහ-බැහැර-කිරිමෙන්-රු--ලක්ෂ-1958ක-ආදායමක්/11-423480",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-28-adalk-f2edd800": {
+   "date": "2026-07-28",
+   "title": "ජනාධිපති මන්දිර පහක් ආයෝජන ව්‍යාපෘති සඳහා බද්දට දෙයි",
+   "url": "https://www.ada.lk/breaking_news/ජනාධිපති-මන්දිර-පහක්-ආයෝජන-ව්‍යාපෘති-සඳහා-බද්දට-දෙයි/11-423464",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-28-adalk-0d5c1870": {
+   "date": "2026-07-28",
+   "title": "බහුවිධ ප්‍රවාහන මධ්‍යස්ථාන කළමනාකරණයට සීමා සහිත පොදු සමාගමක්",
+   "url": "https://www.ada.lk/breaking_news/බහුවිධ-ප්‍රවාහන-මධ්‍යස්ථාන-කළමනාකරණයට-සීමා-සහිත-පොදු-සමාගමක්/11-423463",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-21-adalk-9158dcf5": {
+   "date": "2026-07-21",
+   "title": "මහනුවර  පෙරහැරේ බුද්ධිමය දේපළ හිමිකම් සුරැකීමට කමිටුවක්",
+   "url": "https://www.ada.lk/breaking_news/මහනුවර--පෙරහැරේ-බුද්ධිමය-දේපළ-හිමිකම්-සුරැකීමට-කමිටුවක්/11-423363",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-21-adalk-6439eac8": {
+   "date": "2026-07-21",
+   "title": "පළාත් සභා හා පළාත් පාලන ආයතනවලට අයත් මාර්ග 60ක් සංවර්ධනයට සැලසුම්",
+   "url": "https://www.ada.lk/breaking_news/පළාත්-සභා-හා-පළාත්-පාලන-ආයතනවලට-අයත්-මාර්ග-60ක්-සංවර්ධනයට-සැලසුම්/11-423362",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-21-adalk-7f40f844": {
+   "date": "2026-07-21",
+   "title": "දුරගමන් සේවා සඳහා ලංගමට වායු සමනය කළ බස් රථ 600ක්",
+   "url": "https://www.ada.lk/breaking_news/දුරගමන්-සේවා-සඳහා-ලංගමට-වායු-සමනය-කළ බස්-රථ-600ක්/11-423357",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-19-adalk-18420250": {
+   "date": "2026-07-19",
+   "title": "යාල වනෝද්‍යානය හරහා බැතිමතුන් 27180ක් කතරගමට",
+   "url": "https://www.ada.lk/breaking_news/යාල-වනෝද්‍යානය-හරහා-බැතිමතුන්-27180ක්-කතරගමට/11-423328",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-18-adalk-3c552169": {
+   "date": "2026-07-18",
+   "title": "කෑගල්ල රෝහලට සී.ටී. ස්කෑන් යන්ත්‍රයක්",
+   "url": "https://www.ada.lk/breaking_news/කෑගල්ල-රෝහලට-සී-ටී--ස්කෑන්-යන්ත්‍රයක්/11-423319",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-18-adalk-31d35d6b": {
+   "date": "2026-07-18",
+   "title": "වී මිලදී ගැනිමට සුළු ව්‍යාපාරිකයන්ට මිලියන 13596ක ඔඩපණ ණය දීලා",
+   "url": "https://www.ada.lk/breaking_news/වී-මිලදී-ගැනිමට-සුළු-ව්‍යාපාරිකයන්ට-මිලියන-13596ක-ඔඩපණ-ණය-දීලා/11-423317",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-17-adalk-7a830345": {
+   "date": "2026-07-17",
+   "title": "ආඳාදොල හා අකුරළ උප දුම්රිය ස්ථාන යලි විවෘත වේ",
+   "url": "https://www.ada.lk/breaking_news/ආඳාදොල-හා-අකුරළ-උප-දුම්රිය-ස්ථාන-යලි-විවෘත-වේ/11-423314",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-16-adalk-fb4cd175": {
+   "date": "2026-07-16",
+   "title": "ආනවිලුන්දාව උප දුම්රිය ස්ථානය යළි විවෘත කෙරේ",
+   "url": "https://www.ada.lk/breaking_news/ආනවිලුන්දාව-උප-දුම්රිය-ස්ථානය-යළි-විවෘත-කෙරේ/11-423291",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-16-adalk-65d10a0e": {
+   "date": "2026-07-16",
+   "title": "පෙර පාසල් අධ්‍යාපන ප්‍රතිසංස්කරණ 2027 වසරේ සිට",
+   "url": "https://www.ada.lk/breaking_news/පෙර-පාසල්-අධ්‍යාපන-ප්‍රතිසංස්කරණ-2027-වසරේ-සිට/11-423289",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-16-adalk-115bf13c": {
+   "date": "2026-07-16",
+   "title": "ජාතික පිච්චමල් පූජාව සඳහා විශේෂ දුම්රිය ගමන් වාර කිහිපයක්",
+   "url": "https://www.ada.lk/breaking_news/ජාතික-පිච්චමල්-පූජාව-සඳහා-විශේෂ-දුම්රිය-ගමන්-වාර-කිහිපයක්/11-423288",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-16-adalk-6dbbef6d": {
+   "date": "2026-07-16",
+   "title": "“ප්ලාස්ටික් වලින් තොර පුදබිමක් - 2030”",
+   "url": "https://www.ada.lk/breaking_news/“ප්ලාස්ටික්-වලින්-තොර-පුදබිමක්---2030”/11-423287",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-16-adalk-f353589b": {
+   "date": "2026-07-16",
+   "title": "නුවර ට්‍රැෆික් අඩුකරන ව්‍යාපෘති හතරක් වසර දෙකකින් අවසන්",
+   "url": "https://www.ada.lk/breaking_news/නුවර-ට්‍රැෆික්-අඩුකරන-ව්‍යාපෘති-හතරක්-වසර-දෙකකින්-අවසන්/11-423285",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-15-adalk-db24428a": {
+   "date": "2026-07-15",
+   "title": "ආනවිලුන්දාව උප දුම්රිය ස්ථානය තාවකාලික වසා දමයි",
+   "url": "https://www.ada.lk/breaking_news/ආනවිලුන්දාව-උප-දුම්රිය-ස්ථානය-තාවකාලික-වසා-දමයි/11-423277",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-15-adalk-77cd24ea": {
+   "date": "2026-07-15",
+   "title": "අස්වැසුම අද බැංකුවට",
+   "url": "https://www.ada.lk/breaking_news/අස්වැසුම-අද-බැංකුවට/11-423270",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-14-adalk-ccff3ebd": {
+   "date": "2026-07-14",
+   "title": "ජාතික පශු සම්පත් ප්‍රතිපත්තිය ක්‍රියාත්මක කිරීමට කැබිනට් අනුමැතිය",
+   "url": "https://www.ada.lk/breaking_news/ජාතික-පශු-සම්පත්-ප්‍රතිපත්තිය-ක්‍රියාත්මක-කිරීමට-කැබිනට්-අනුමැතිය/11-423258",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-14-adalk-2b0c09d4": {
+   "date": "2026-07-14",
+   "title": "පියැසි පාදක සූර්ය බලශක්ති ව්‍යාපෘතියට ජාත්‍යන්තර මූල්‍ය සහාය ලබා ගැනීමට අනුමැතිය",
+   "url": "https://www.ada.lk/breaking_news/පියැසි-පාදක-සූර්ය-බලශක්ති-ව්‍යාපෘතියට-ජාත්‍යන්තර-මූල්‍ය-සහාය-ලබා-ගැනීමට-අනුමැතිය/11-423256",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-14-adalk-80a47b0d": {
+   "date": "2026-07-14",
+   "title": "කටුනායක  පිටත්වන ගුවන් මගීන් රැදී සිටින පර්යන්තය පුළුල් කරයි",
+   "url": "https://www.ada.lk/breaking_news/කටුනායක--පිටත්වන-ගුවන්-මගීන්-රැදී-සිටින-පර්යන්තය-පුළුල්-කරයි/11-423253",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-14-adalk-f3d6bd52": {
+   "date": "2026-07-14",
+   "title": "වරකාපොල අතුරු මාර්ගයේ ඉතිරි වැඩ නිමකිරීමට කොන්ත්‍රාත්තුව පිරිනමයි",
+   "url": "https://www.ada.lk/breaking_news/වරකාපොල-අතුරු-මාර්ගයේ-ඉතිරි-වැඩ-නිමකිරීමට-කොන්ත්‍රාත්තුව-පිරිනමයි/11-423252",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-14-adalk-d125e19b": {
+   "date": "2026-07-14",
+   "title": "දෙනියාය නව යෝජිත රෝහලට ඉන්දියවෙන් රු. මි. 600ක වෛද්‍ය උපකරණ",
+   "url": "https://www.ada.lk/breaking_news/දෙනියාය-නව-යෝජිත-රෝහලට-ඉන්දියවෙන්-රු--මි--600ක-වෛද්‍ය උපකරණ/11-423244",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-13-adalk-1f10f0fa": {
+   "date": "2026-07-13",
+   "title": "මුල් ළමාවිය රැකවරණය පිළිබඳ ජාතික සතිය ජූලි 14දා ඇරඹෙයි",
+   "url": "https://www.ada.lk/breaking_news/මුල්-ළමාවිය-රැකවරණය-පිළිබඳ-ජාතික-සතිය-ජූලි-14දා-ඇරඹෙයි/11-423239",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-13-adalk-68fde28c": {
+   "date": "2026-07-13",
+   "title": "රජය මගින් වී මිලදී ගැනීම අරඹයි",
+   "url": "https://www.ada.lk/breaking_news/රජය-මගින්-වී-මිලදී-ගැනීම-අරඹයි/11-423234",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-12-adalk-3628e3a4": {
+   "date": "2026-07-12",
+   "title": "“මීරිගම වකුගඩු ගල් ඉවත් කිරීමේ ප්‍රතිකාර මධ්‍යස්ථානය”ජනතා අයිතියට",
+   "url": "https://www.ada.lk/breaking_news/“මීරිගම-වකුගඩු-ගල්-ඉවත්-කිරීමේ-ප්‍රතිකාර-මධ්‍යස්ථානය”ජනතා-අයිතියට/11-423226",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-10-adalk-b5b2d370": {
+   "date": "2026-07-10",
+   "title": "පොහොර සහනාධාරය ලෙස රු.බි. 13.4ක් ගෙවලා",
+   "url": "https://www.ada.lk/breaking_news/පොහොර-සහනාධාරය-ලෙස-රු-බි--13-4ක්-ගෙවලා/11-423208",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-10-adalk-3ae5d029": {
+   "date": "2026-07-10",
+   "title": "රජය වී මිලදී ගැනීම ලබන සඳුදා අරඹයි",
+   "url": "https://www.ada.lk/breaking_news/රජය-වී-මිලදී-ගැනීම-ලබන-සඳුදා-අරඹයි/11-423203",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-09-adalk-cacdcc68": {
+   "date": "2026-07-09",
+   "title": "ඉදිරි අයවැයෙන් දිස්ත්‍රික්කයකට වෙනමම මුදල් සංචිතයක්",
+   "url": "https://www.ada.lk/breaking_news/ඉදිරි-අයවැයෙන්-දිස්ත්‍රික්කයකට-වෙනමම-මුදල්-සංචිතයක්/11-423190",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-09-adalk-29807e0a": {
+   "date": "2026-07-09",
+   "title": "පැරණි බෝගම්බර යලි සුද්දකරයි",
+   "url": "https://www.ada.lk/breaking_news/පැරණි-බෝගම්බර-යලි-සුද්දකරයි/11-423189",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-09-adalk-50aba109": {
+   "date": "2026-07-09",
+   "title": "කොළඹ සරසවිය ඔන්ලයින් ක්‍රමයට",
+   "url": "https://www.ada.lk/breaking_news/කොළඹ-සරසවිය-ඔන්ලයින්-ක්‍රමයට/11-423185",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-08-adalk-a300c0f8": {
+   "date": "2026-07-08",
+   "title": "දිත්වා කෘෂිකාර්මික හානි වෙනුවෙන් රු. මිලියන 12000ක වන්දි ගෙවලා",
+   "url": "https://www.ada.lk/breaking_news/දිත්වා-කෘෂිකාර්මික-හානි-වෙනුවෙන්-රු--මිලියන-12000ක-වන්දි-ගෙවලා/11-423172",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-08-adalk-14c532dd": {
+   "date": "2026-07-08",
+   "title": "අස්වැසුම ප්‍රතිලාභීන් ලක්ෂ 2ක් සවිබල ගැන්වීමට යයි",
+   "url": "https://www.ada.lk/breaking_news/අස්වැසුම-ප්‍රතිලාභීන්-ලක්ෂ 2ක්-සවිබල-ගැන්වීමට-යයි/11-423164",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-08-adalk-efd9b41b": {
+   "date": "2026-07-08",
+   "title": "මහ මෝදර මාතෘ රෝහලේ පැරණි රෝහල් පද්ධතිය බන්ධනාගාරයක් කරයි",
+   "url": "https://www.ada.lk/breaking_news/මහ-මෝදර-මාතෘ-රෝහලේ-පැරණි-රෝහල්-පද්ධතිය-බන්ධනාගාරයක්-කරයි/11-423162",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-07-adalk-70272705": {
+   "date": "2026-07-07",
+   "title": "මාර්ග අංක තුනකට බස් රථ ක්ෂේත්‍ර පොකුරුකරණ නියමු ව්‍යාපෘතියක්",
+   "url": "https://www.ada.lk/breaking_news/මාර්ග-අංක-තුනකට-බස්-රථ-ක්ෂේත්‍ර-පොකුරුකරණ-නියමු-ව්‍යාපෘතියක්/11-423155",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-07-adalk-c28f96a8": {
+   "date": "2026-07-07",
+   "title": "පුරාවිද්‍යා දෙසතිය අදින් ඇරඹෙයි",
+   "url": "https://www.ada.lk/breaking_news/පුරාවිද්‍යා-දෙසතිය-අදින්-ඇරඹෙයි/11-423142",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-07-adalk-e16715f9": {
+   "date": "2026-07-07",
+   "title": "මන්නාරම සුළං විදුලි බලාගාරයේ ඉදිකිරීම් කඩිනම් කරයි",
+   "url": "https://www.ada.lk/breaking_news/මන්නාරම-සුළං-විදුලි-බලාගාරයේ-ඉදිකිරීම්-කඩිනම්-කරයි/11-423141",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-06-adalk-d6b3aa54": {
+   "date": "2026-07-06",
+   "title": "ජාතික බදු සතිය අද සිට",
+   "url": "https://www.ada.lk/breaking_news/ජාතික-බදු-සතිය-අද-සිට/11-423132",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-06-adalk-62ae3cc5": {
+   "date": "2026-07-06",
+   "title": "2025දී කෘෂිකර්මයට රජය රු.බි. 142ක් වැය කරලා",
+   "url": "https://www.ada.lk/breaking_news/2025දී-කෘෂිකර්මයට-රජය-රු-බි--142ක්-වැය-කරලා/11-423125",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-05-adalk-cfeca0b3": {
+   "date": "2026-07-05",
+   "title": "දන්ත වෛද්‍ය සේවාවේ ස්ථාන මාරු කිරීමේ ක්‍රියාවලිය ඩිජිටල්කරණයට",
+   "url": "https://www.ada.lk/breaking_news/දන්ත-වෛද්‍ය-සේවාවේ-ස්ථාන-මාරු-කිරීමේ-ක්‍රියාවලිය-ඩිජිටල්කරණයට/11-423118",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-03-adalk-576b9c41": {
+   "date": "2026-07-03",
+   "title": "වී වේලන යන්ත්‍ර 50ක් සමූපකාර සමිති වෙත",
+   "url": "https://www.ada.lk/breaking_news/වී-වේලන-යන්ත්‍ර-50ක්-සමූපකාර-සමිති-වෙත/11-423103",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-03-adalk-5a09361e": {
+   "date": "2026-07-03",
+   "title": "ජනපතිට වෙන්කර තිබූ ගිලන් රථයක් මුලතිව් රෝහලට දෙයි",
+   "url": "https://www.ada.lk/breaking_news/ජනපතිට-වෙන්කර-තිබූ-ගිලන්-රථයක්-මුලතිව්-රෝහලට-දෙයි/11-423091",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-02-adalk-a1dcbbd9": {
+   "date": "2026-07-02",
+   "title": "කොළඹ සියලු ප්‍රාදේශීය ලේකම් කාර්යාල ගෙවීම් ක්‍රෙඩිට් සහ ඩෙබිට් කාඩ්පත් මඟින්",
+   "url": "https://www.ada.lk/breaking_news/කොළඹ-සියලු-ප්‍රාදේශීය-ලේකම්-කාර්යාල-ගෙවීම්-ක්‍රෙඩිට්-සහ-ඩෙබිට්-කාඩ්පත්-මඟින්/11-423088",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-02-adalk-e60d79e9": {
+   "date": "2026-07-02",
+   "title": "අස්වැසුම වැඩිහිටි දීමනාව හෙට බැංකු ගිණුම්වලට",
+   "url": "https://www.ada.lk/breaking_news/අස්වැසුම-වැඩිහිටි-දීමනාව-හෙට-බැංකු-ගිණුම්වලට/11-423087",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-02-adalk-b2e80ecf": {
+   "date": "2026-07-02",
+   "title": "ඉන්දියාවෙන් ඩොලර් මිලියන 450ක ණය ආධාර පැකේජයක්",
+   "url": "https://www.ada.lk/breaking_news/ඉන්දියාවෙන්-ඩොලර්-මිලියන-450ක-ණය-ආධාර-පැකේජයක්/11-423074",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-01-adalk-505d6bf3": {
+   "date": "2026-07-01",
+   "title": "කුරුණෑගල දඹුල්ල අධිවේගයේ පළමු කොටස රජයේ මුදලින් ඉදිකරයි",
+   "url": "https://www.ada.lk/breaking_news/කුරුණෑගල-දඹුල්ල-අධිවේගයේ-පළමු-කොටස-රජයේ-මුදලින්-ඉදිකරයි/11-423073",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-01-adalk-6acf597a": {
+   "date": "2026-07-01",
+   "title": "රජයට උපයෝගීතා වාහන 535ක් මිලට ගැනීමට යයි",
+   "url": "https://www.ada.lk/breaking_news/රජයට-උපයෝගීතා-වාහන-535ක්-මිලට-ගැනීමට-යයි/11-423072",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-01-adalk-0c3d2930": {
+   "date": "2026-07-01",
+   "title": "හොරණ රෝහල මධ්‍යම රජයට",
+   "url": "https://www.ada.lk/breaking_news/හොරණ-රෝහල-මධ්‍යම-රජයට/11-423071",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-01-adalk-6d9d7089": {
+   "date": "2026-07-01",
+   "title": "2026 යල කන්නයේ වී මිලදි ගැනිමට රු. මිලියන 6000ක්",
+   "url": "https://www.ada.lk/breaking_news/2026-යල-කන්නයේ-වී-මිලදි-ගැනිමට-රු--මිලියන-6000ක්/11-423069",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-01-adalk-21074454": {
+   "date": "2026-07-01",
+   "title": "ආසියානු සංවර්ධන බැංකුවෙන්ඩොලර් මිලියන 200ක්",
+   "url": "https://www.ada.lk/breaking_news/ආසියානු-සංවර්ධන-බැංකුවෙන්ඩොලර්-මිලියන-200ක්/11-423064",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-01-adalk-3d621895": {
+   "date": "2026-07-01",
+   "title": "ජාතික රෝහලට නවීනතම කැත් ලැබ් දෙකක්",
+   "url": "https://www.ada.lk/breaking_news/ජාතික-රෝහලට-නවීනතම-කැත්-ලැබ්-දෙකක්/11-423061",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-07-01-adalk-835d0941": {
+   "date": "2026-07-01",
+   "title": "ඩෙංගු මෙහෙයුම් මැදිරියක්",
+   "url": "https://www.ada.lk/breaking_news/ඩෙංගු-මෙහෙයුම්-මැදිරියක්/11-423055",
+   "outlet": "Ada",
+   "lang": "si"
+  }
+ }
+}

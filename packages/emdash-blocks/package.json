@@ -1,0 +1,21 @@
+{
+  "name": "@developing-country/emdash-blocks",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./astro": "./src/astro/index.ts",
+    "./figure-blocks": "./src/figure-blocks.ts"
+  },
+  "peerDependencies": {
+    "astro": ">=7.0.0",
+    "emdash": ">=0.35.0",
+    "react": "^19.0.0"
+  },
+  "dependencies": {
+    "@developing-country/figures": "workspace:*",
+    "@developing-country/views": "workspace:*",
+    "zod": "4.4.3"
+  }
+}

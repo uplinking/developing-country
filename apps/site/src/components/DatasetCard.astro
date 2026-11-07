@@ -1,0 +1,98 @@
+---
+import type { PublicDataTheme } from '@developing-country/datasets'
+import {
+  datasetLicenceSignal,
+  formatRefreshDate,
+  type DatasetPublisher,
+  type SourceLicenceDisclosure,
+} from '../lib/datasets'
+
+interface CardSource {
+  publisher: string
+  licenceDisclosure: SourceLicenceDisclosure
+}
+
+interface Props {
+  href: string
+  title: string
+  dek?: string | null
+  country?: string | null
+  refreshedAt: string
+  themes: PublicDataTheme[]
+  publisher: DatasetPublisher
+  sources: CardSource[]
+}
+
+const {
+  href,
+  title,
+  dek,
+  country = 'LK',
+  refreshedAt,
+  themes,
+  publisher,
+  sources,
+} = Astro.props
+const licences = [...new Map(
+  sources.map((source) => [
+    `${source.licenceDisclosure.status}\u0000${source.licenceDisclosure.text}`,
+    source.licenceDisclosure,
+  ]),
+).values()]
+const licenceSignal = datasetLicenceSignal(licences)
+const licenceTooltipId = `licence-${href.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '')}`
+---
+
+<article class="dataset-card">
+  <a href={href} aria-label={title} aria-describedby={licenceTooltipId}>
+    <div class="dataset-card__topline">
+      <span>{country || 'LK'}</span>
+      <time datetime={refreshedAt}>Last refreshed on {formatRefreshDate(refreshedAt)}</time>
+    </div>
+
+    <div class="dataset-card__themes" aria-label="Public data themes">
+      {themes.map((theme) => (
+        <span data-theme={theme.id} data-theme-uri={theme.uri}>{theme.label}</span>
+      ))}
+    </div>
+
+    <div class="dataset-card__body">
+      <h3>{title}</h3>
+      {dek && <p>{dek}</p>}
+    </div>
+
+    <dl class="dataset-card__provenance">
+      <div>
+        <dt>Published by</dt>
+        <dd class="dataset-card__provenance-compact">
+          <span class="dataset-card__publisher">
+            <span data-publisher-type={publisher.type.id}>{publisher.type.label}</span>
+            <strong>{publisher.name}</strong>
+          </span>
+          <span
+            class="dataset-card__licence-signal"
+            data-licence-status={licenceSignal.status}
+            aria-label={licenceSignal.label}
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.5 3.5h7l4 4v13h-11z"></path>
+              <path d="M13.5 3.5v4h4"></path>
+              <circle cx="12" cy="14.5" r="3"></circle>
+              <path d="M10.5 17v2l1.5-1 1.5 1v-2"></path>
+            </svg>
+            <span class="dataset-card__licence-tooltip" id={licenceTooltipId} role="tooltip">
+              <strong>{licenceSignal.label}</strong>
+              {licences.map((licence) => (
+                <span>
+                  <b>{licence.label}</b>
+                  <span>{licence.text}</span>
+                  {licence.caveat && <em>{licence.caveat}</em>}
+                </span>
+              ))}
+            </span>
+          </span>
+        </dd>
+      </div>
+    </dl>
+  </a>
+</article>

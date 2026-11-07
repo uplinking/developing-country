@@ -1,0 +1,1769 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-06-01",
+  "2026-06-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 99,
+ "rejected": 58,
+ "rejected_ids": [
+  "2026-06-01-dailymirrorlk-2926c237",
+  "2026-06-01-dailymirrorlk-5bb24cc1",
+  "2026-06-02-islandlk-7fe44dbd",
+  "2026-06-03-dailyftlk-fdd4b184",
+  "2026-06-03-dailymirrorlk-0b57b707",
+  "2026-06-03-dailymirrorlk-1420ea84",
+  "2026-06-03-dailymirrorlk-4be4ac77",
+  "2026-06-03-dailymirrorlk-974530a3",
+  "2026-06-03-dailymirrorlk-d9db30d7",
+  "2026-06-03-islandlk-d029bb09",
+  "2026-06-03-islandlk-d0a5b30a",
+  "2026-06-05-dailymirrorlk-22eb424c",
+  "2026-06-05-dailymirrorlk-bf501073",
+  "2026-06-08-dailymirrorlk-709a0bc7",
+  "2026-06-09-dailymirrorlk-62cf8f03",
+  "2026-06-09-dailymirrorlk-c0718dfd",
+  "2026-06-10-dailyftlk-56a06c27",
+  "2026-06-10-dailyftlk-604832a8",
+  "2026-06-10-dailyftlk-d3f6bb4a",
+  "2026-06-10-dailymirrorlk-1ef521de",
+  "2026-06-10-dailymirrorlk-57a4d5a7",
+  "2026-06-12-dailyftlk-8fa45a4a",
+  "2026-06-12-dailyftlk-a086b317",
+  "2026-06-12-dailyftlk-fe32fbc9",
+  "2026-06-12-dailymirrorlk-9ffae3fa",
+  "2026-06-14-islandlk-9e0793c4",
+  "2026-06-15-dailymirrorlk-339f9288",
+  "2026-06-15-dailymirrorlk-61699a94",
+  "2026-06-15-dailymirrorlk-8e6cb21a",
+  "2026-06-15-islandlk-b6c34ebc",
+  "2026-06-16-dailymirrorlk-4eb08434",
+  "2026-06-16-dailymirrorlk-b3ce342e",
+  "2026-06-17-dailyftlk-99c88d4c",
+  "2026-06-18-dailyftlk-cd4a4f12",
+  "2026-06-18-dailymirrorlk-789fe68b",
+  "2026-06-18-dailymirrorlk-8de99121",
+  "2026-06-19-dailymirrorlk-c05835c5",
+  "2026-06-21-dailymirrorlk-9ad892ed",
+  "2026-06-22-dailyftlk-a44782f7",
+  "2026-06-23-dailymirrorlk-19c3158c",
+  "2026-06-23-dailymirrorlk-4d4e94cc",
+  "2026-06-23-dailymirrorlk-54c66fa8",
+  "2026-06-23-dailymirrorlk-8ca2aedf",
+  "2026-06-23-dailymirrorlk-bca64785",
+  "2026-06-24-dailymirrorlk-1b5c03c9",
+  "2026-06-25-dailyftlk-2d741608",
+  "2026-06-25-dailyftlk-eb3f7b5a",
+  "2026-06-25-dailymirrorlk-4957e0df",
+  "2026-06-25-dailymirrorlk-72f3b614",
+  "2026-06-25-dailymirrorlk-75c3778d",
+  "2026-06-25-dailymirrorlk-c8486e44",
+  "2026-06-26-dailymirrorlk-c4797ae8",
+  "2026-06-27-islandlk-c3c3d035",
+  "2026-06-28-islandlk-07dc1c09",
+  "2026-06-28-islandlk-6090a970",
+  "2026-06-29-dailymirrorlk-5be51a6e",
+  "2026-06-29-dailymirrorlk-68f1046b",
+  "2026-06-30-dailymirrorlk-630edb3d"
+ ],
+ "unattributed_ids": [],
+ "dropped": [
+  "line eu-grant-rooftop-solar"
+ ],
+ "projects": [
+  {
+   "id": "env-ministry-whatsapp-service",
+   "name": "Environment Ministry WhatsApp complaint reporting service",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "railway-electrification-program-colombo-corridors",
+   "name": "Railway electrification of Main, Kelani Valley and Coastal lines",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "aasl-amhs-upgrade",
+   "name": "Aeronautical Message Handling System upgrade, Ratmalana",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Ratmalana",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "srilankan-airlines-delhi-ground-handling-contract",
+   "name": "SriLankan Airlines ground handling contract, Delhi IGI Airport",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Delhi, India",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "wb-cpf-sri-lanka-2026",
+   "name": "World Bank Country Partnership Framework for jobs and growth",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "housing-reallocation-flood-cpc-pipeline",
+   "name": "Reallocation of 408 housing units for flood and CPC pipeline-affected families",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "Kolonnawa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "school-hostels-upgrade-2026-2028",
+   "name": "Upgrade of 126 school hostels nationwide (2026-2028)",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "undp-cbsl-financial-literacy-phase2",
+   "name": "UNDP-Central Bank financial literacy partnership, phase two",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "badulla-haliela-road-upgrade",
+   "name": "Badulla-Hali Ela road upgrade (A05 highway)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Badulla",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-post-ditwah-renovation-livelihood-project",
+   "name": "Post-Ditwah Cyclone Renovation and Livelihood Assistance Project",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-trade-investment-industries-development-program",
+   "name": "Trade, Investment and Industries Development Program",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-export-development-plan-2026-2030",
+   "name": "National Export Development Plan 2026-2030",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "bia-terminal1-upgrade",
+   "name": "Upgrade of BIA Terminal 1 passenger facilities",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Katunayake",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "religious-sites-reconstruction-ditwah",
+   "name": "Reconstruction of Ditwah-damaged religious sites",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "korea-undp-anti-corruption-assessment-aia",
+   "name": "Korea-UNDP Anti-Corruption Initiative Assessment (AIA) pilot",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-women-empowerment-program-2026",
+   "name": "Women Empowerment Program 2026 (entrepreneurship development)",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-undp-ditwah-waste-recovery",
+   "name": "Sri Lanka-Japan-UNDP Cyclone Ditwah waste clearance and recovery project",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "Central Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-clean-sri-lanka-sanitation-2026",
+   "name": "Clean Sri Lanka Program public sanitation projects 2026",
+   "sector": "water",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "colombo-katunayake-expressway-street-lighting",
+   "name": "Street lighting restoration, Colombo-Katunayake Expressway",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo-Katunayake Expressway",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-green-reporting-system-guidelines-eu",
+   "name": "Revised National Green Reporting System Guidelines",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "eu-eip-capacity-building",
+   "name": "EU-funded Eco-Industrial Park capacity building programme",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-relief-measures-2026",
+   "name": "Cabinet-approved additional relief measures 2026",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-national-school-development-2026",
+   "name": "National school physical resources development and renovation, 2026 Budget",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sapugaskanda-lubricating-oil-procurement-2026-27",
+   "name": "Lubricating oil procurement for Sapugaskanda Power Plant 2026/27",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Sapugaskanda",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mullikulam-wind-power-transmission",
+   "name": "Mullikulam Wind Power Transmission Project",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Mullikulam",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-mepa-oil-chemical-spill-plan",
+   "name": "National oil and hazardous chemical spill response plan and digital platform",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "env-ministry-whatsapp-service",
+   "project_id": "env-ministry-whatsapp-service",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-railway-electrification-colombo-corridors",
+   "project_id": "railway-electrification-program-colombo-corridors",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-aasl-amhs-upgrade",
+   "project_id": "aasl-amhs-upgrade",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-srilankan-delhi-ground-handling-contract",
+   "project_id": "srilankan-airlines-delhi-ground-handling-contract",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "wb-cpf-sri-lanka-2026-wb",
+   "project_id": "wb-cpf-sri-lanka-2026",
+   "funder": "world_bank",
+   "funder_name": "World Bank Group",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "mixed",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-housing-reallocation-flood-cpc-pipeline",
+   "project_id": "housing-reallocation-flood-cpc-pipeline",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-school-hostels-upgrade-2026-2028",
+   "project_id": "school-hostels-upgrade-2026-2028",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "undp-cbsl-financial-literacy-phase2-un",
+   "project_id": "undp-cbsl-financial-literacy-phase2",
+   "funder": "un",
+   "funder_name": "UNDP",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "badulla-haliela-road-upgrade-sfd",
+   "project_id": "badulla-haliela-road-upgrade",
+   "funder": "other:saudi_fund_development",
+   "funder_name": "Saudi Fund for Development",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "adb-post-ditwah-renovation-livelihood-adb",
+   "project_id": "adb-post-ditwah-renovation-livelihood-project",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "adb-trade-investment-industries-development-program-adb",
+   "project_id": "adb-trade-investment-industries-development-program",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "national-export-development-plan-2026-2030-adb",
+   "project_id": "national-export-development-plan-2026-2030",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-bia-terminal1-upgrade",
+   "project_id": "bia-terminal1-upgrade",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-religious-sites-reconstruction-ditwah",
+   "project_id": "religious-sites-reconstruction-ditwah",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "korea-undp-anti-corruption-assessment-aia",
+   "project_id": "korea-undp-anti-corruption-assessment-aia",
+   "funder": "korea",
+   "funder_name": "Government of South Korea / UNDP",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-women-empowerment-program-2026",
+   "project_id": "gosl-women-empowerment-program-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "japan-undp-ditwah-waste-recovery",
+   "project_id": "japan-undp-ditwah-waste-recovery",
+   "funder": "japan",
+   "funder_name": "Government of Japan / UNDP",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "gosl-icdp-ditwah-roads-ella-passara",
+   "project_id": "icdp-ditwah-roads",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-clean-sri-lanka-sanitation-2026",
+   "project_id": "gosl-clean-sri-lanka-sanitation-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-colombo-katunayake-expressway-lighting",
+   "project_id": "colombo-katunayake-expressway-street-lighting",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "eu-grant-national-green-reporting-system",
+   "project_id": "national-green-reporting-system-guidelines-eu",
+   "funder": "eu",
+   "funder_name": "European Union",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "eu-eip-capacity-building-grant",
+   "project_id": "eu-eip-capacity-building",
+   "funder": "eu",
+   "funder_name": "European Union",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-relief-measures-2026",
+   "project_id": "gosl-relief-measures-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "gosl-national-school-development-2026",
+   "project_id": "gosl-national-school-development-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-sapugaskanda-lubricant-procurement",
+   "project_id": "sapugaskanda-lubricating-oil-procurement-2026-27",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-mullikulam-wind-transmission-lota",
+   "project_id": "mullikulam-wind-power-transmission",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-mepa-oil-chemical-spill-plan",
+   "project_id": "gosl-mepa-oil-chemical-spill-plan",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "japan-grant-jds-govt_authorised-2026-06-30",
+   "line_id": "japan-grant-jds",
+   "date": "2026-06-30",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 282000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved Japan grant for civil service scholarships",
+   "confidence": "high",
+   "reports": [
+    "2026-06-30-dailyftlk-e139a080"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-rooftop-solar-funder_approved-2026-06-29",
+   "line_id": "adb-loan-rooftop-solar",
+   "date": "2026-06-29",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 35000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approved concessional loan for rooftop solar project",
+   "confidence": "high",
+   "reports": [
+    "2026-06-29-islandlk-0985915d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-jfjcm-grant-rooftop-solar-funder_approved-2026-06-29",
+   "line_id": "japan-jfjcm-grant-rooftop-solar",
+   "date": "2026-06-29",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 5500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan Fund grant approved for rooftop solar project",
+   "confidence": "high",
+   "reports": [
+    "2026-06-29-islandlk-0985915d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "eu-grant-rooftop-solar-funder_approved-2026-06-29",
+   "line_id": "eu-grant-rooftop-solar",
+   "date": "2026-06-29",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 16900000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "EU grant approved for Sri Lanka rooftop solar project",
+   "confidence": "high",
+   "reports": [
+    "2026-06-29-islandlk-0985915d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "env-ministry-whatsapp-service-launched-2026-06-27",
+   "line_id": "env-ministry-whatsapp-service",
+   "date": "2026-06-27",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Environment Ministry launches WhatsApp complaint reporting service",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-27-dailymirrorlk-c4ac48ed"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-rooftop-solar-funder_approved-2026-06-26",
+   "line_id": "adb-loan-rooftop-solar",
+   "date": "2026-06-26",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 35000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approved concessional loan for rooftop solar aggregation project",
+   "confidence": "high",
+   "reports": [
+    "2026-06-26-dailymirrorlk-ecd9ef9d",
+    "2026-06-26-dailymirrorlk-a84159a4"
+   ],
+   "relation": "repeat_of:adb-loan-rooftop-solar-funder_approved-2026-06-29",
+   "notes": null
+  },
+  {
+   "id": "eu-grant-rooftop-solar-funder_approved-2026-06-26",
+   "line_id": "eu-grant-rooftop-solar",
+   "date": "2026-06-26",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 16900000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "EU grant approved for rooftop solar aggregation project",
+   "confidence": "high",
+   "reports": [
+    "2026-06-26-dailymirrorlk-ecd9ef9d",
+    "2026-06-26-dailymirrorlk-a84159a4"
+   ],
+   "relation": "repeat_of:eu-grant-rooftop-solar-funder_approved-2026-06-29",
+   "notes": null
+  },
+  {
+   "id": "japan-jfjcm-grant-rooftop-solar-funder_approved-2026-06-26",
+   "line_id": "japan-jfjcm-grant-rooftop-solar",
+   "date": "2026-06-26",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 5500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan JFJCM grant approved for rooftop solar aggregation project",
+   "confidence": "high",
+   "reports": [
+    "2026-06-26-dailymirrorlk-ecd9ef9d",
+    "2026-06-26-dailymirrorlk-a84159a4"
+   ],
+   "relation": "repeat_of:japan-jfjcm-grant-rooftop-solar-funder_approved-2026-06-29",
+   "notes": null
+  },
+  {
+   "id": "gosl-railway-electrification-colombo-corridors-govt_authorised-2026-06-24",
+   "line_id": "gosl-railway-electrification-colombo-corridors",
+   "date": "2026-06-24",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves railway electrification of Main, Kelani Valley, Coastal lines.",
+   "confidence": "high",
+   "reports": [
+    "2026-06-24-dailyftlk-623453b2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-aasl-amhs-upgrade-govt_authorised-2026-06-24",
+   "line_id": "gosl-aasl-amhs-upgrade",
+   "date": "2026-06-24",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs. 1 bn aviation message handling system procurement.",
+   "confidence": "high",
+   "reports": [
+    "2026-06-24-dailyftlk-3015d0f0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-srilankan-delhi-ground-handling-contract-contract_awarded-2026-06-24",
+   "line_id": "gosl-srilankan-delhi-ground-handling-contract",
+   "date": "2026-06-24",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 332850000,
+   "currency": "INR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Delhi ground handling contract for SriLankan Airlines.",
+   "confidence": "high",
+   "reports": [
+    "2026-06-24-dailyftlk-fc620f5b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "wb-cpf-sri-lanka-2026-wb-launched-2026-06-22",
+   "line_id": "wb-cpf-sri-lanka-2026-wb",
+   "date": "2026-06-22",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 2000000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "World Bank launches 5-year $2bn jobs and growth framework",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-22-dailymirrorlk-4b410855"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "wb-cpf-sri-lanka-2026-wb-proposed-2026-06-22",
+   "line_id": "wb-cpf-sri-lanka-2026-wb",
+   "date": "2026-06-22",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 1200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "World Bank aims to mobilise $1.2bn more private investment",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-22-dailymirrorlk-4b410855"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-housing-reallocation-flood-cpc-pipeline-govt_authorised-2026-06-20",
+   "line_id": "gosl-housing-reallocation-flood-cpc-pipeline",
+   "date": "2026-06-20",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet reallocates 408 housing units to flood, pipeline-affected families",
+   "confidence": "high",
+   "reports": [
+    "2026-06-20-dailyftlk-226f04c1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-school-hostels-upgrade-2026-2028-govt_authorised-2026-06-17",
+   "line_id": "gosl-school-hostels-upgrade-2026-2028",
+   "date": "2026-06-17",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1008000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs. 1 billion to upgrade 126 school hostels",
+   "confidence": "high",
+   "reports": [
+    "2026-06-17-dailymirrorlk-d73a8769"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "undp-cbsl-financial-literacy-phase2-un-launched-2026-06-17",
+   "line_id": "undp-cbsl-financial-literacy-phase2-un",
+   "date": "2026-06-17",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "UNDP and Central Bank launch phase two of financial literacy partnership",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-17-islandlk-23881ad9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "badulla-haliela-road-upgrade-sfd-govt_authorised-2026-06-15",
+   "line_id": "badulla-haliela-road-upgrade-sfd",
+   "date": "2026-06-15",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs.600m Badulla-Hali Ela road upgrade from surplus SFD loan funds",
+   "confidence": "high",
+   "reports": [
+    "2026-06-17-dailyftlk-7f8f7c24"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-post-ditwah-renovation-livelihood-adb-govt_authorised-2026-06-15",
+   "line_id": "adb-post-ditwah-renovation-livelihood-adb",
+   "date": "2026-06-15",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves $200m ADB loan for post-Ditwah recovery and livelihoods",
+   "confidence": "high",
+   "reports": [
+    "2026-06-17-dailyftlk-c5676739"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-trade-investment-industries-development-program-adb-govt_authorised-2026-06-15",
+   "line_id": "adb-trade-investment-industries-development-program-adb",
+   "date": "2026-06-15",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 100000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves extra $100m ADB funding, doubling trade programme to $200m",
+   "confidence": "high",
+   "reports": [
+    "2026-06-17-dailyftlk-f028234c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-export-development-plan-2026-2030-adb-launched-2026-06-16",
+   "line_id": "national-export-development-plan-2026-2030-adb",
+   "date": "2026-06-16",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka launches National Export Development Plan 2026-2030",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-16-dailymirrorlk-6c6d1316"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-trade-investment-industries-development-program-adb-govt_authorised-2026-06-16",
+   "line_id": "adb-trade-investment-industries-development-program-adb",
+   "date": "2026-06-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves doubling ADB trade program loan to $200m",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-16-islandlk-bfaaeab5"
+   ],
+   "relation": "update_of:adb-trade-investment-industries-development-program-adb-govt_authorised-2026-06-15",
+   "notes": null
+  },
+  {
+   "id": "gosl-bia-terminal1-upgrade-launched-2026-06-16",
+   "line_id": "gosl-bia-terminal1-upgrade",
+   "date": "2026-06-16",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 15000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Domestic-funded Rs 15bn upgrade of BIA Terminal 1 launched",
+   "confidence": "high",
+   "reports": [
+    "2026-06-16-dailymirrorlk-d76b9e97"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-religious-sites-reconstruction-ditwah-govt_authorised-2026-06-16",
+   "line_id": "gosl-religious-sites-reconstruction-ditwah",
+   "date": "2026-06-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves rebuilding 90 more Ditwah-damaged religious sites",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-16-dailymirrorlk-82091dd7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "badulla-haliela-road-upgrade-sfd-govt_authorised-2026-06-16",
+   "line_id": "badulla-haliela-road-upgrade-sfd",
+   "date": "2026-06-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Badulla-Hali Ela road rehab using loan surplus",
+   "confidence": "high",
+   "reports": [
+    "2026-06-16-dailymirrorlk-9d826cb1"
+   ],
+   "relation": "repeat_of:badulla-haliela-road-upgrade-sfd-govt_authorised-2026-06-15",
+   "notes": null
+  },
+  {
+   "id": "gosl-school-hostels-upgrade-2026-2028-govt_authorised-2026-06-16",
+   "line_id": "gosl-school-hostels-upgrade-2026-2028",
+   "date": "2026-06-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1008000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs 1.008bn to modernize 126 school hostels",
+   "confidence": "high",
+   "reports": [
+    "2026-06-16-dailymirrorlk-6338e158"
+   ],
+   "relation": "repeat_of:gosl-school-hostels-upgrade-2026-2028-govt_authorised-2026-06-17",
+   "notes": null
+  },
+  {
+   "id": "national-export-development-plan-2026-2030-adb-proposed-2026-06-12",
+   "line_id": "national-export-development-plan-2026-2030-adb",
+   "date": "2026-06-12",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka to launch national export plan targeting $36bn by 2030",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-12-dailymirrorlk-95155cde"
+   ],
+   "relation": "repeat_of:national-export-development-plan-2026-2030-adb-launched-2026-06-16",
+   "notes": null
+  },
+  {
+   "id": "korea-undp-anti-corruption-assessment-aia-launched-2026-06-05",
+   "line_id": "korea-undp-anti-corruption-assessment-aia",
+   "date": "2026-06-05",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 100000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Korea-UNDP anti-corruption assessment pilot launched in Sri Lanka",
+   "confidence": "high",
+   "reports": [
+    "2026-06-10-islandlk-eee0bcd9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-women-empowerment-program-2026-allocated-2026-06-10",
+   "line_id": "gosl-women-empowerment-program-2026",
+   "date": "2026-06-10",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 200000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs. 200 million allocated for women entrepreneurship programme",
+   "confidence": "high",
+   "reports": [
+    "2026-06-10-dailymirrorlk-53ac1cb2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-undp-ditwah-waste-recovery-agreement_signed-2026-06-10",
+   "line_id": "japan-undp-ditwah-waste-recovery",
+   "date": "2026-06-10",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan-UNDP agreement signed for Ditwah waste clearance recovery project",
+   "confidence": "high",
+   "reports": [
+    "2026-06-10-dailymirrorlk-e8d67cb7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-icdp-ditwah-roads-ella-passara-launched-2026-06-09",
+   "line_id": "gosl-icdp-ditwah-roads-ella-passara",
+   "date": "2026-06-09",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 254650000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ella-Namunukula-Passara road rehabilitation launched under Ditwah programme",
+   "confidence": "high",
+   "reports": [
+    "2026-06-10-dailyftlk-9599f732"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-clean-sri-lanka-sanitation-2026-govt_authorised-2026-06-10",
+   "line_id": "gosl-clean-sri-lanka-sanitation-2026",
+   "date": "2026-06-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 150000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs.150m for 26 public sanitation projects",
+   "confidence": "high",
+   "reports": [
+    "2026-06-10-dailyftlk-54310e92"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-disbursed-2026-05-29",
+   "line_id": "imf-eff-loan",
+   "date": "2026-05-29",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 695000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF Board approved review enabling further tranche release",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-09-dailymirrorlk-63f25a30",
+    "2026-06-03-dailymirrorlk-cca46566"
+   ],
+   "relation": "repeat_of:imf-eff-purchase-2026-05-29",
+   "notes": null
+  },
+  {
+   "id": "gosl-colombo-katunayake-expressway-lighting-govt_authorised-2026-06-06",
+   "line_id": "gosl-colombo-katunayake-expressway-lighting",
+   "date": "2026-06-06",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1098500000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves street lighting restoration on Colombo-Katunayake Expressway",
+   "confidence": "high",
+   "reports": [
+    "2026-06-06-dailyftlk-ea0f2d5d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "eu-grant-national-green-reporting-system-launched-2026-06-05",
+   "line_id": "eu-grant-national-green-reporting-system",
+   "date": "2026-06-05",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "EU-funded revised National Green Reporting System guidelines launched",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-06-dailyftlk-16e3b35d",
+    "2026-06-05-dailymirrorlk-e093554e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "eu-eip-capacity-building-grant-launched-2026-06-05",
+   "line_id": "eu-eip-capacity-building-grant",
+   "date": "2026-06-05",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "EU launches eco-industrial park capacity-building program for Sri Lanka",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-05-dailyftlk-259d61bb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-relief-measures-2026-govt_authorised-2026-06-03",
+   "line_id": "gosl-relief-measures-2026",
+   "date": "2026-06-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 20000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves additional Rs.20 billion for relief measures",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-03-dailymirrorlk-cca46566"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-national-school-development-2026-allocated-2026-06-03",
+   "line_id": "gosl-national-school-development-2026",
+   "date": "2026-06-03",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 13500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs.13.5 billion allocated for national school physical resources in 2026",
+   "confidence": "high",
+   "reports": [
+    "2026-06-03-dailymirrorlk-f0308059"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-sapugaskanda-lubricant-procurement-contract_awarded-2026-06-03",
+   "line_id": "gosl-sapugaskanda-lubricant-procurement",
+   "date": "2026-06-03",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 392470000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awards lubricating oil contract to Lanka IOC, Plant A",
+   "confidence": "high",
+   "reports": [
+    "2026-06-03-dailyftlk-1428a85a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-mullikulam-wind-transmission-lota-contract_awarded-2026-06-03",
+   "line_id": "gosl-mullikulam-wind-transmission-lota",
+   "date": "2026-06-03",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 6040000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awards Mullikulam Wind Power Transmission Lot A contract",
+   "confidence": "high",
+   "reports": [
+    "2026-06-03-dailyftlk-0f794678"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-mepa-oil-chemical-spill-plan-govt_authorised-2026-06-02",
+   "line_id": "gosl-mepa-oil-chemical-spill-plan",
+   "date": "2026-06-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves national oil and chemical spill response plan",
+   "confidence": "medium",
+   "reports": [
+    "2026-06-02-dailymirrorlk-c54d6761"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-colombo-katunayake-expressway-lighting-govt_authorised-2026-06-02",
+   "line_id": "gosl-colombo-katunayake-expressway-lighting",
+   "date": "2026-06-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1098500000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs1.09bn Colombo-Katunayake Expressway lighting restoration",
+   "confidence": "high",
+   "reports": [
+    "2026-06-02-dailymirrorlk-3da9d0e5"
+   ],
+   "relation": "repeat_of:gosl-colombo-katunayake-expressway-lighting-govt_authorised-2026-06-06",
+   "notes": null
+  },
+  {
+   "id": "gosl-sapugaskanda-lubricant-procurement-contract_awarded-2026-06-02",
+   "line_id": "gosl-sapugaskanda-lubricant-procurement",
+   "date": "2026-06-02",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 827330000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awards lubricant supply contracts for Sapugaskanda Power Station",
+   "confidence": "high",
+   "reports": [
+    "2026-06-02-dailymirrorlk-0122bc74"
+   ],
+   "relation": "update_of:gosl-sapugaskanda-lubricant-procurement-contract_awarded-2026-06-03",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-disbursed-2026-06-01",
+   "line_id": "imf-eff-loan",
+   "date": "2026-06-01",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 695000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF completes fifth/sixth EFF reviews, releases $695mn",
+   "confidence": "high",
+   "reports": [
+    "2026-06-01-dailyftlk-4152ad46",
+    "2026-06-01-dailymirrorlk-7ca73cbf"
+   ],
+   "relation": "repeat_of:imf-eff-loan-disbursed-2026-05-29",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-06-30-dailyftlk-e139a080": {
+   "date": "2026-06-30",
+   "title": "Cabinet clears Rs. 575 m Japanese grant for civil service scholarship program",
+   "url": "https://www.ft.lk/news/Cabinet-clears-Rs-575-m-Japanese-grant-for-civil-service-scholarship-program/56-793980",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-29-islandlk-0985915d": {
+   "date": "2026-06-29",
+   "title": "ADB approves financing to boost clean energy access in Sri Lanka",
+   "url": "http://island.lk/adb-approves-financing-to-boost-clean-energy-access-in-sri-lanka/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2026-06-27-dailymirrorlk-c4ac48ed": {
+   "date": "2026-06-27",
+   "title": "Environment Ministry launches WhatsApp service for complaints",
+   "url": "https://www.dailymirror.lk/breaking-news/Environment-Ministry-launches-WhatsApp-service-for-complaints/108-344091",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-26-dailymirrorlk-ecd9ef9d": {
+   "date": "2026-06-26",
+   "title": "ADB approves financing for rooftop solar and virtual net metering to boost clean energy access in Sri Lanka",
+   "url": "https://www.dailymirror.lk/business-news/ADB-approves-financing-for-rooftop-solar-and-virtual-net-metering-to-boost-clean-energy-access-in-Sri-Lanka/273-344036",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-26-dailymirrorlk-a84159a4": {
+   "date": "2026-06-26",
+   "title": "ADB approves USD 57m for Sri Lanka rooftop solar aggregation project",
+   "url": "https://www.dailymirror.lk/breaking-news/ADB-approves-USD-57m-for-Sri-Lanka-rooftop-solar-aggregation-project/108-344006",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-24-dailyftlk-623453b2": {
+   "date": "2026-06-24",
+   "title": "Cabinet approves next steps  for railway electrification program",
+   "url": "https://www.ft.lk/business/Cabinet-approves-next-steps-for-railway-electrification-program/34-793734",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-24-dailyftlk-3015d0f0": {
+   "date": "2026-06-24",
+   "title": "Cabinet clears procurement for Rs. 1 b aviation communications system upgrade",
+   "url": "https://www.ft.lk/business/Cabinet-clears-procurement-for-Rs-1-b-aviation-communications-system-upgrade/34-793712",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-24-dailyftlk-fc620f5b": {
+   "date": "2026-06-24",
+   "title": "Cabinet approves Rs. 1.1 b Delhi ground handling contract for SriLankan Airlines",
+   "url": "https://www.ft.lk/business/Cabinet-approves-Rs-1-1-b-Delhi-ground-handling-contract-for-SriLankan-Airlines/34-793710",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-22-dailymirrorlk-4b410855": {
+   "date": "2026-06-22",
+   "title": "World Bank Group targets 1mn jobs for youth with US $ 3.2bn financing and private capital push",
+   "url": "https://www.dailymirror.lk/business-main/World-Bank-Group-targets-1mn-jobs-for-youth-with-US-3-2bn-financing-and-private-capital-push/245-343625",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-20-dailyftlk-226f04c1": {
+   "date": "2026-06-20",
+   "title": "Cabinet reallocates 408 housing units for flood victims, families living on CPC pipeline route",
+   "url": "https://www.ft.lk/news/Cabinet-reallocates-408-housing-units-for-flood-victims-families-living-on-CPC-pipeline-route/56-793582",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-17-dailymirrorlk-d73a8769": {
+   "date": "2026-06-17",
+   "title": "Rs. 1bn approved to upgrade school hostels",
+   "url": "https://www.dailymirror.lk/breaking-news/Rs-1bn-approved-to-upgrade-school-hostels/108-343181",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-17-islandlk-23881ad9": {
+   "date": "2026-06-17",
+   "title": "UNDP, Central Bank deepen financial literacy drive to build economic resilience",
+   "url": "http://island.lk/undp-central-bank-deepen-financial-literacy-drive-to-build-economic-resilience/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2026-06-17-dailyftlk-7f8f7c24": {
+   "date": "2026-06-17",
+   "title": "Cabinet clears Rs. 600 m upgrade of Badulla-Hali Ela road using surplus foreign loan funds",
+   "url": "https://www.ft.lk/news/Cabinet-clears-Rs-600-m-upgrade-of-Badulla-Hali-Ela-road-using-surplus-foreign-loan-funds/56-793410",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-17-dailyftlk-c5676739": {
+   "date": "2026-06-17",
+   "title": "Govt. requests for $ 200 m ADB loan for post-Ditwah recovery and livelihood restoration",
+   "url": "https://www.ft.lk/news/Govt-requests-for-200-m-ADB-loan-for-post-Ditwah-recovery-and-livelihood-restoration/56-793409",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-17-dailyftlk-f028234c": {
+   "date": "2026-06-17",
+   "title": "Cabinet green lights additional $ 100 m ADB financing",
+   "url": "https://www.ft.lk/news/Cabinet-green-lights-additional-100-m-ADB-financing/56-793408",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-16-dailymirrorlk-6c6d1316": {
+   "date": "2026-06-16",
+   "title": "Sri Lanka launches export roadmap targeting US$ 36bn by 2030",
+   "url": "https://www.dailymirror.lk/breaking-news/Sri-Lanka-launches-export-roadmap-targeting-US-36bn-by-2030/108-343123",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-16-islandlk-bfaaeab5": {
+   "date": "2026-06-16",
+   "title": "Cabinet nod to accept increased Loan Grant provided by the Asian Development Bank under Policy Based Loan Facilities – 2026",
+   "url": "http://island.lk/cabinet-nod-to-accept-increased-loan-grant-provided-by-the-asian-development-bank-under-policy-based-loan-facilities-2026/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2026-06-16-dailymirrorlk-d76b9e97": {
+   "date": "2026-06-16",
+   "title": "Rs. 15Bn project launched to upgrade BIA Terminal 1",
+   "url": "https://www.dailymirror.lk/breaking-news/Rs-15Bn-project-launched-to-upgrade-BIA-Terminal-1/108-343093",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-16-dailymirrorlk-82091dd7": {
+   "date": "2026-06-16",
+   "title": "Cabinet nod to rebuild more religious sites damaged by Ditwah",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-nod-to-rebuild-more-religious-sites-damaged-by-Ditwah/108-343072",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-16-dailymirrorlk-9d826cb1": {
+   "date": "2026-06-16",
+   "title": "Cabinet approves Badulla–Hali-Ela road rehabilitation using surplus loan funds",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-approves-BadullaHali-Ela-road-rehabilitation-using-surplus-loan-funds/108-343067",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-16-dailymirrorlk-6338e158": {
+   "date": "2026-06-16",
+   "title": "Rs. 1 billion allocated to modernize school hostels",
+   "url": "https://www.dailymirror.lk/breaking-news/Rs-1-billion-allocated-to-modernize-school-hostels/108-343066",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-12-dailymirrorlk-95155cde": {
+   "date": "2026-06-12",
+   "title": "Govt. to launch export blueprint targeting  US$ 36bn revenue by 2030",
+   "url": "https://www.dailymirror.lk/business-main/Govt-to-launch-export-blueprint-targeting-US-36bn-revenue-by-2030/245-342685",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-10-islandlk-eee0bcd9": {
+   "date": "2026-06-10",
+   "title": "Korea partners with Sri Lanka for “Anti-Corruption Assessment (AIA)” under SDG Partnership Project on Transparency and Accountability",
+   "url": "http://island.lk/korea-partners-with-sri-lanka-for-anti-corruption-assessment-aia-under-sdg-partnership-project-on-transparency-and-accountability/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2026-06-10-dailymirrorlk-53ac1cb2": {
+   "date": "2026-06-10",
+   "title": "Rs. 200 mn allocated to boost women entrepreneurship under 2026 budget",
+   "url": "https://www.dailymirror.lk/breaking-news/Rs-200-mn-allocated-to-boost-women-entrepreneurship-under-2026-budget/108-342536",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-10-dailymirrorlk-e8d67cb7": {
+   "date": "2026-06-10",
+   "title": "Sri Lanka–Japan UNDP project to aid cyclone Ditwah recovery for over 900,000 people",
+   "url": "https://www.dailymirror.lk/breaking-news/Sri-LankaJapan-UNDP-project-to-aid-cyclone-Ditwah-recovery-for-over-900-000-people/108-342527",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-10-dailyftlk-9599f732": {
+   "date": "2026-06-10",
+   "title": "Rs. 255 m road rehabilitation project launched on Ella–Namunukula–Passara route",
+   "url": "https://www.ft.lk/news/Rs-255-m-road-rehabilitation-project-launched-on-EllaNamunukulaPassara-route/56-793117",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-10-dailyftlk-54310e92": {
+   "date": "2026-06-10",
+   "title": "Cabinet approves Rs. 150 m  for 26 public sanitation projects under Clean Sri Lanka Program",
+   "url": "https://www.ft.lk/news/Cabinet-approves-Rs-150-m-for-26-public-sanitation-projects-under-Clean-Sri-Lanka-Program/56-793115",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-09-dailymirrorlk-63f25a30": {
+   "date": "2026-06-09",
+   "title": "Ravi K questions Govt on IMF programme outcomes, future plans",
+   "url": "https://www.dailymirror.lk/breaking-news/Ravi-K-questions-Govt-on-IMF-programme-outcomes-future-plans/108-342398",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-06-dailyftlk-ea0f2d5d": {
+   "date": "2026-06-06",
+   "title": "Cabinet approves Rs. 1.09 b plan to restore street  lighting on Colombo –Katunayake Expressway",
+   "url": "https://www.ft.lk/news/Cabinet-approves-Rs-1-09-b-plan-to-restore-street-lighting-on-Colombo-Katunayake-Expressway/56-792949",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-06-dailyftlk-16e3b35d": {
+   "date": "2026-06-06",
+   "title": "EU supports launch of Sri Lanka’s revised National Green  Reporting System Guidelines",
+   "url": "https://www.ft.lk/business/EU-supports-launch-of-Sri-Lanka-s-revised-National-Green-Reporting-System-Guidelines/34-792943",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-05-dailymirrorlk-e093554e": {
+   "date": "2026-06-05",
+   "title": "Sri Lanka launches EU-backed green reporting guidelines",
+   "url": "https://www.dailymirror.lk/breaking-news/Sri-Lanka-launches-EU-backed-green-reporting-guidelines/108-342113",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-05-dailyftlk-259d61bb": {
+   "date": "2026-06-05",
+   "title": "EU-backed initiative to drive eco-industrial transformation in Sri Lanka",
+   "url": "https://www.ft.lk/business/EU-backed-initiative-to-drive-eco-industrial-transformation-in-Sri-Lanka/34-792931",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-03-dailymirrorlk-cca46566": {
+   "date": "2026-06-03",
+   "title": "Treasury receives US $ 695mn under IMF bailout programme",
+   "url": "https://www.dailymirror.lk/business-news/Treasury-receives-US-695mn-under-IMF-bailout-programme/273-341925",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-03-dailymirrorlk-f0308059": {
+   "date": "2026-06-03",
+   "title": "Rs. 13.5 billion allocated for national school development in 2026",
+   "url": "https://www.dailymirror.lk/breaking-news/Rs-13-5-billion-allocated-for-national-school-development-in-2026/108-341898",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-03-dailyftlk-1428a85a": {
+   "date": "2026-06-03",
+   "title": "Cabinet approves awarding Rs. 827 m lubricating oil procurement contracts to Lanka IOC and Chevron Lubricants",
+   "url": "https://www.ft.lk/business/Cabinet-approves-awarding-Rs-827-m-lubricating-oil-procurement-contracts-to-Lanka-IOC-and-Chevron-Lubricants/34-792804",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-03-dailyftlk-0f794678": {
+   "date": "2026-06-03",
+   "title": "India’s RS Infraprojects gets $ 6.04 m contract for Mullikulam Wind Power Transmission Project Lot A",
+   "url": "https://www.ft.lk/business/India-s-RS-Infraprojects-gets-6-04-m-contract-for-Mullikulam-Wind-Power-Transmission-Project-Lot-A/34-792803",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-02-dailymirrorlk-c54d6761": {
+   "date": "2026-06-02",
+   "title": "Cabinet approves new plan to tackle oil, chemical spills",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-approves-new-plan-to-tackle-oil-chemical-spills/108-341790",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-02-dailymirrorlk-3da9d0e5": {
+   "date": "2026-06-02",
+   "title": "Rs. 1.09bn approved to restore Colombo-Katunayake Expressway lighting",
+   "url": "https://www.dailymirror.lk/breaking-news/Rs-1-09bn-approved-to-restore-Colombo-Katunayake-Expressway-lighting/108-341789",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-02-dailymirrorlk-0122bc74": {
+   "date": "2026-06-02",
+   "title": "Cabinet approves lubricant supply contracts for Sapugaskanda Power Station",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-approves-lubricant-supply-contracts-for-Sapugaskanda-Power-Station/108-341788",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-06-01-dailyftlk-4152ad46": {
+   "date": "2026-06-01",
+   "title": "Ceylon Chamber welcomes IMF review approval, urges continued reform momentum amid external pressures",
+   "url": "https://www.ft.lk/business/Ceylon-Chamber-welcomes-IMF-review-approval-urges-continued-reform-momentum-amid-external-pressures/34-792709",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-06-01-dailymirrorlk-7ca73cbf": {
+   "date": "2026-06-01",
+   "title": "Ceylon Chamber welcomes IMF review approval",
+   "url": "https://www.dailymirror.lk/business-news/Ceylon-Chamber-welcomes-IMF-review-approval/273-341623",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  }
+ }
+}

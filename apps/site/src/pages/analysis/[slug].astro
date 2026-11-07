@@ -1,0 +1,179 @@
+---
+import { decodeSlug, getEmDashEntry, getSeoMeta, getSiteSettings } from 'emdash'
+import { PortableText } from 'emdash/ui'
+import { Figure } from '@developing-country/emdash-blocks/astro'
+import { viewUrlsInContent } from '@developing-country/emdash-blocks/figure-blocks'
+import SiteLayout from '../../layouts/SiteLayout.astro'
+import { sourceLinks } from '../../lib/claims'
+import { articleFields } from '../../lib/content'
+import { ESSAY_OG_IMAGES } from '../../lib/ogImages.generated'
+
+const slug = decodeSlug(Astro.params.slug)
+if (!slug) return Astro.rewrite('/404')
+const { entry: article, cacheHint } = await getEmDashEntry('articles', slug)
+if (!article) return Astro.rewrite('/404')
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint)
+
+const settings = await getSiteSettings()
+const data = articleFields(article.data)
+if (data.format === 'dataset_note') return Astro.redirect(`/data/${slug}`)
+const seo = getSeoMeta(article, {
+  siteTitle: settings.title || 'developing-country.org',
+  siteUrl: 'https://developing-country.org',
+  path: `/analysis/${slug}`,
+})
+if (data.analysisKind === 'tracked_claim') return Astro.redirect('/data?tab=missing', 301)
+const sources = sourceLinks(data.sourceManifest)
+const evidenceViews = evidenceViewList(data.evidenceBundle, data.primaryViewUrl, viewUrlsInContent(data.content))
+const sections = contentsOf(data.content)
+
+/** Section headings (Portable Text h2 blocks) for the in-article contents list. */
+function contentsOf(content: unknown): Array<{ id: string; text: string }> {
+  if (!Array.isArray(content)) return []
+  const seen = new Set<string>()
+  return content.flatMap((block) => {
+    if (!block || typeof block !== 'object') return []
+    const node = block as { _type?: unknown; style?: unknown; children?: unknown }
+    if (node._type !== 'block' || node.style !== 'h2' || !Array.isArray(node.children)) return []
+    const text = node.children.map((child) => (child && typeof child === 'object' && typeof (child as { text?: unknown }).text === 'string' ? (child as { text: string }).text : '')).join('').trim()
+    if (!text) return []
+    let id = sectionId(text)
+    while (seen.has(id)) id = `${id}-x`
+    seen.add(id)
+    return [{ id, text }]
+  })
+}
+
+function sectionId(text: string): string {
+  return `s-${text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60)}`
+}
+
+/** Every Data View the article cites, in body order, with how often the body uses it. */
+function evidenceViewList(bundle: unknown, primary: string | undefined, bodyUrls: string[]) {
+  let parsed: unknown = bundle
+  if (typeof bundle === 'string') {
+    try { parsed = JSON.parse(bundle) } catch { parsed = null }
+  }
+  const views = parsed && typeof parsed === 'object' && Array.isArray((parsed as { dataViews?: unknown }).dataViews)
+    ? (parsed as { dataViews: unknown[] }).dataViews
+    : []
+  const entries = views.flatMap((view) => {
+    if (!view || typeof view !== 'object') return []
+    const record = view as Record<string, unknown>
+    const url = typeof record.viewUrl === 'string' ? record.viewUrl : ''
+    if (!/^https:\/\/[^/]+\/views\/view_[a-z0-9]+$/.test(url)) return []
+    return [{
+      url,
+      id: url.split('/').pop() ?? url,
+      queryId: typeof record.queryId === 'string' ? record.queryId : '',
+      checksum: typeof record.resultChecksum === 'string' ? record.resultChecksum.slice(0, 19) : '',
+      uses: bodyUrls.filter((bodyUrl) => bodyUrl === url).length,
+      primary: url === primary,
+    }]
+  })
+  const order = (url: string) => {
+    const index = bodyUrls.indexOf(url)
+    return index === -1 ? Number.MAX_SAFE_INTEGER : index
+  }
+  return entries.sort((a, b) => (a.primary ? -1 : b.primary ? 1 : order(a.url) - order(b.url)))
+}
+const published = data.publishedAt?.toLocaleDateString('en-GB', {
+  day: '2-digit', month: 'long', year: 'numeric',
+})
+---
+
+<SiteLayout
+  title={data.title}
+  description={seo.description || data.dek}
+  image={seo.ogImage || (ESSAY_OG_IMAGES.has(slug) ? `/og/analysis/${slug}.jpg` : undefined)}
+  type="article"
+  publishedTime={data.publishedAt?.toISOString()}
+  modifiedTime={data.updatedAt.toISOString()}
+  content={{ collection: 'articles', id: data.id, slug }}
+>
+  <article class="page-shell article-shell">
+    <header class="article-header article-header--title">
+      <div class="article-header__summary">
+        <p class="page-kicker">{data.countryCode} / Thoughts</p>
+        <h1 {...article.edit.title}>{data.title}</h1>
+      </div>
+    </header>
+
+    {data.primaryViewUrl && (
+      <div class="article-lead">
+        <Figure value={{ view_url: data.primaryViewUrl, size: 'full' }} />
+      </div>
+    )}
+
+    <aside class="article-meta">
+      <dl>
+        {published && <div><dt>Published</dt><dd>{published}</dd></div>}
+        <div><dt>Country</dt><dd>{data.countryCode}</dd></div>
+        <div><dt>Format</dt><dd>Essay</dd></div>
+        <div><dt>Evidence</dt><dd><a href="#method-sources">Method &amp; sources ↓</a></dd></div>
+      </dl>
+    </aside>
+
+
+    {sections.length > 1 && (
+      <nav class="article-contents" aria-label="In this article">
+        <p class="page-kicker">In this article</p>
+        <ol>
+          {sections.map((section) => <li><a href={`#${section.id}`}>{section.text}</a></li>)}
+          <li><a href="#method-sources">Method &amp; sources</a></li>
+        </ol>
+      </nav>
+    )}
+
+    <section class="article-summary" aria-labelledby="article-summary-title">
+      <p class="page-kicker" id="article-summary-title">Summary</p>
+      <p class="article-dek" {...article.edit.dek}>{data.dek}</p>
+    </section>
+
+    <div class="article-content" {...article.edit.content}>
+      <PortableText value={data.content} />
+    </div>
+    {sections.length > 0 && (
+      <script type="application/json" id="article-section-ids" set:html={JSON.stringify(sections)} />
+    )}
+    <script>
+      // Portable Text renders h2 without ids; give each the id the contents list links to.
+      const raw = document.getElementById('article-section-ids')?.textContent
+      if (raw) {
+        const sections: Array<{ id: string; text: string }> = JSON.parse(raw)
+        const headings = [...document.querySelectorAll<HTMLHeadingElement>('.article-content > h2')]
+        sections.forEach((section) => {
+          const heading = headings.find((h) => !h.id && h.textContent?.trim() === section.text)
+          if (heading) heading.id = section.id
+        })
+      }
+    </script>
+
+
+    <aside class="article-evidence" id="method-sources" aria-labelledby="method-sources-title">
+      <h2 id="method-sources-title">Method &amp; sources</h2>
+      {sources.length > 0 && <ul class="source-list">{sources.map((source) => <li><a href={source.url}>{source.title}</a>{source.note && <p>{source.note}</p>}</li>)}</ul>}
+      {data.researchQuestion && <><h3>Question</h3><p>{data.researchQuestion}</p></>}
+      {data.methodology && <><h3>Method</h3><p>{data.methodology}</p></>}
+      {evidenceViews.length > 0 && (
+        <div class="article-evidence__views">
+          <h3>Data views behind the figures</h3>
+          <ol class="evidence-view-list">
+            {evidenceViews.map((view) => (
+              <li>
+                <a href={view.url}>{view.id} <span aria-hidden="true">↗</span></a>
+                <span>{view.primary ? 'Primary view' : view.uses === 1 ? 'Used once' : view.uses > 1 ? `Used ${view.uses} times` : 'Cited'}</span>
+                <code>{view.queryId}</code>
+                <code>{view.checksum}…</code>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+      <div>
+        <h3>Review</h3>
+        <p>Read and approved by a human editor before publication. Interactive views keep their own source and date information.</p>
+      </div>
+    </aside>
+  </article>
+</SiteLayout>

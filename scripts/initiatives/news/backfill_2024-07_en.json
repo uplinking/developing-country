@@ -1,0 +1,1568 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-07-01",
+  "2024-07-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 88,
+ "rejected": 52,
+ "rejected_ids": [
+  "2024-07-02-economynextcom-68325845",
+  "2024-07-04-adaderanalk-36217e15",
+  "2024-07-05-dailyftlk-374203fe",
+  "2024-07-05-economynextcom-31a0651f",
+  "2024-07-08-dailyftlk-900b0286",
+  "2024-07-08-dailyftlk-f19b57f6",
+  "2024-07-09-adaderanalk-f87c20ae",
+  "2024-07-10-adaderanalk-aebbe122",
+  "2024-07-10-adaderanalk-bc75549c",
+  "2024-07-11-dailyftlk-53d3a333",
+  "2024-07-12-adaderanalk-fd22ba01",
+  "2024-07-12-dailyftlk-e2b402d3",
+  "2024-07-12-economynextcom-3cca36d5",
+  "2024-07-12-economynextcom-95cc03c8",
+  "2024-07-14-islandlk-6e01c46b",
+  "2024-07-16-adaderanalk-7141a960",
+  "2024-07-16-adaderanalk-adcdd929",
+  "2024-07-16-dailyftlk-3322dab8",
+  "2024-07-17-dailyftlk-657fde2c",
+  "2024-07-17-dailyftlk-b3d8a8ee",
+  "2024-07-17-economynextcom-42096179",
+  "2024-07-18-dailyftlk-39081daa",
+  "2024-07-19-dailyftlk-056a4f4d",
+  "2024-07-19-dailyftlk-24f21ab8",
+  "2024-07-19-dailyftlk-5ee5e455",
+  "2024-07-19-islandlk-be421522",
+  "2024-07-20-economynextcom-3d3d0b01",
+  "2024-07-22-economynextcom-6cf1bbe3",
+  "2024-07-22-economynextcom-c53b598f",
+  "2024-07-22-islandlk-3e7075ad",
+  "2024-07-23-adaderanalk-2ac3b89c",
+  "2024-07-23-adaderanalk-3462e756",
+  "2024-07-23-adaderanalk-5a2fc5b9",
+  "2024-07-24-adaderanalk-b1eed933",
+  "2024-07-24-dailyftlk-050278e0",
+  "2024-07-24-dailyftlk-3f950f36",
+  "2024-07-24-dailyftlk-86a0f900",
+  "2024-07-24-dailyftlk-949658ea",
+  "2024-07-24-dailyftlk-d283fd9b",
+  "2024-07-24-economynextcom-1f4e4052",
+  "2024-07-24-economynextcom-a33ceaa7",
+  "2024-07-25-adaderanalk-b99d6124",
+  "2024-07-25-adaderanalk-dffb059d",
+  "2024-07-25-economynextcom-005f7ea9",
+  "2024-07-26-dailyftlk-8fb73878",
+  "2024-07-27-adaderanalk-c600cb40",
+  "2024-07-28-adaderanalk-e3fd10ec",
+  "2024-07-29-adaderanalk-c8bcb661",
+  "2024-07-30-adaderanalk-7dd0710a",
+  "2024-07-30-islandlk-a8d860dd",
+  "2024-07-31-dailyftlk-0f55602d",
+  "2024-07-31-dailyftlk-548abc27"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "sme-revolving-fund-loan-scheme",
+   "name": "SME revolving fund loan scheme (leadership and entrepreneurship)",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "environmental-revolving-fund-loan-scheme",
+   "name": "Environment-friendly project revolving fund loan scheme",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nsdi-building-seeduwa",
+   "name": "National Social Development Institute building complex, Seeduwa",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "Seeduwa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "colombo-airport-second-terminal",
+   "name": "Colombo Airport second terminal (Japan-funded resumption)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-tourism-sustainability-project",
+   "name": "ADB tourism sector resilience and sustainability project",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "pensioner-allowance-2024",
+   "name": "Special monthly allowance for pensioners",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-resumed-projects-2024",
+   "name": "Japan resumption of suspended loan disbursements (11 projects)",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "msme-financial-aid-package-2024",
+   "name": "MSME concessional financial aid package",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "godagama-homagama-road-project",
+   "name": "Godagama-Homagama road project",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Godagama-Homagama",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gender-harassment-action-plan-ii",
+   "name": "National Action Plan II against sexual and gender-based harassment",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "strike-duty-allowance-2024",
+   "name": "One-time allowance for employees who reported during strike",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-power-sector-reforms-program",
+   "name": "Power Sector Reforms and Financial Sustainability Program",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "hospital-radiation-therapy-upgrade",
+   "name": "Hospital radiation therapy equipment upgrade",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-digital-education-transformation",
+   "name": "Digital Transformation of General Education Project (China-Aid)",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "school-clusters-grouping-china",
+   "name": "School clusters grouping into 1,220 clusters (China loan pledge)",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "education-administration-system-reform",
+   "name": "Education Administration System reform measures",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-smart-classrooms-estates",
+   "name": "Smart classrooms for estate schools (Nuwara-Eliya, Kandy, Badulla)",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Nuwara-Eliya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mahaweli-water-security-opec-fund",
+   "name": "Mahaweli irrigation and water security project (OPEC Fund financing)",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Mahaweli River basin",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-agrivoltaics-hanthana",
+   "name": "ADB Agrivoltaics Demonstration Project, Hanthana",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Hanthana, Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gef-pop-mercury-disposal-project",
+   "name": "GEF project on POP pesticide and mercury waste disposal",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-unique-id-card-project",
+   "name": "India-funded Unique Identity Card project",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-smart-classrooms-southern-province",
+   "name": "India smart classrooms project, Southern Province",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Southern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "e-mobility-system-project",
+   "name": "Sustainable electric mobility (e-mobility) system project",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "usaid-disaster-resilience-prosperity-program",
+   "name": "Program for a Sri Lanka with Democracy, Prosperity and the Capability to Face Disasters",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jaffna-rainwater-tanks-india-project",
+   "name": "Rainwater harvesting tanks project, Jaffna",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "sme-revolving-fund-gosl",
+   "project_id": "sme-revolving-fund-loan-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "environmental-revolving-fund-gosl",
+   "project_id": "environmental-revolving-fund-loan-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "nsdi-building-gosl",
+   "project_id": "nsdi-building-seeduwa",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "japan-loan-second-terminal",
+   "project_id": "colombo-airport-second-terminal",
+   "funder": "japan",
+   "funder_name": "Japan International Cooperation Agency",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "adb-loan-tourism-sustainability",
+   "project_id": "adb-tourism-sustainability-project",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "pensioner-allowance-gosl",
+   "project_id": "pensioner-allowance-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "japan-resumed-projects-2024-loan",
+   "project_id": "japan-resumed-projects-2024",
+   "funder": "japan",
+   "funder_name": "Japan (JICA)",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "msme-financial-aid-package-2024-gosl",
+   "project_id": "msme-financial-aid-package-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "godagama-homagama-road-saudi-fund",
+   "project_id": "godagama-homagama-road-project",
+   "funder": "other:saudi_fund",
+   "funder_name": "Saudi Fund for Development",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "gender-harassment-action-plan-ii-gosl",
+   "project_id": "gender-harassment-action-plan-ii",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "strike-duty-allowance-gosl",
+   "project_id": "strike-duty-allowance-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "adb-loan-power-sector-reforms",
+   "project_id": "adb-power-sector-reforms-program",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "adb-grant-power-sector-reforms-ta",
+   "project_id": "adb-power-sector-reforms-program",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "hospital-radiation-therapy-upgrade-gosl",
+   "project_id": "hospital-radiation-therapy-upgrade",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "china-digital-education-transformation-china-grant",
+   "project_id": "china-digital-education-transformation",
+   "funder": "china",
+   "funder_name": "China International Development Cooperation Agency",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "school-clusters-grouping-china-loan",
+   "project_id": "school-clusters-grouping-china",
+   "funder": "china",
+   "funder_name": "Government of China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "education-administration-system-reform-gosl",
+   "project_id": "education-administration-system-reform",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "india-smart-classrooms-estates-india",
+   "project_id": "india-smart-classrooms-estates",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "mahaweli-water-security-opec-fund",
+   "project_id": "mahaweli-water-security-opec-fund",
+   "funder": "opec_fund",
+   "funder_name": "OPEC Fund for Development",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "adb-agrivoltaics-hanthana-adb",
+   "project_id": "adb-agrivoltaics-hanthana",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gef-pop-mercury-disposal-gef",
+   "project_id": "gef-pop-mercury-disposal-project",
+   "funder": "other:gef",
+   "funder_name": "Global Environment Facility",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "india-unique-id-card-india",
+   "project_id": "india-unique-id-card-project",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "mixed",
+   "purpose": "project"
+  },
+  {
+   "id": "india-smart-classrooms-southern-province-india",
+   "project_id": "india-smart-classrooms-southern-province",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "e-mobility-project-unep",
+   "project_id": "e-mobility-system-project",
+   "funder": "un",
+   "funder_name": "United Nations Environment Programme",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "usaid-disaster-resilience-prosperity-program-grant",
+   "project_id": "usaid-disaster-resilience-prosperity-program",
+   "funder": "usa",
+   "funder_name": "USAID",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "jaffna-rainwater-tanks-india",
+   "project_id": "jaffna-rainwater-tanks-india-project",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "sme-revolving-fund-gosl-allocated-2024-07-31",
+   "line_id": "sme-revolving-fund-gosl",
+   "date": "2024-07-31",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1647000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "SME revolving fund loan scheme allocated funds for 179 projects in 2024",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-31-islandlk-5feb2889"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "environmental-revolving-fund-gosl-allocated-2024-07-31",
+   "line_id": "environmental-revolving-fund-gosl",
+   "date": "2024-07-31",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 256000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Environment-friendly revolving fund loan scheme allocated funds in 2024",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-31-islandlk-5feb2889"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nsdi-building-gosl-allocated-2024-07-29",
+   "line_id": "nsdi-building-gosl",
+   "date": "2024-07-29",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 63680000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved extra funds for National Social Development Institute building",
+   "confidence": "high",
+   "reports": [
+    "2024-07-31-dailyftlk-f2ecedc2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-loan-second-terminal-funder_approved-2024-07-29",
+   "line_id": "japan-loan-second-terminal",
+   "date": "2024-07-29",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "JICA agrees gap funding to resume Colombo airport terminal",
+   "confidence": "low",
+   "reports": [
+    "2024-07-29-economynextcom-c28e4e88"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-tourism-sustainability-proposed-2024-07-29",
+   "line_id": "adb-loan-tourism-sustainability",
+   "date": "2024-07-29",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB preparing tourism resilience and sustainability project",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-29-economynextcom-6c721ccd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "pensioner-allowance-gosl-govt_authorised-2024-07-24",
+   "line_id": "pensioner-allowance-gosl",
+   "date": "2024-07-24",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 3000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs.3,000 monthly allowance for pensioners",
+   "confidence": "high",
+   "reports": [
+    "2024-07-24-adaderanalk-515d5810"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-resumed-projects-2024-loan-disbursed-2024-07-24",
+   "line_id": "japan-resumed-projects-2024-loan",
+   "date": "2024-07-24",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 75000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan to immediately disburse $75m for suspended project bills",
+   "confidence": "high",
+   "reports": [
+    "2024-07-24-economynextcom-6ff1a81c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-resumed-projects-2024-loan-released-2024-07-24",
+   "line_id": "japan-resumed-projects-2024-loan",
+   "date": "2024-07-24",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan officially announces release of funds to resume suspended projects",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-24-adaderanalk-98786f8a"
+   ],
+   "relation": "repeat_of:japan-resumed-projects-2024-loan-disbursed-2024-07-24",
+   "notes": null
+  },
+  {
+   "id": "japan-resumed-projects-2024-loan-proposed-2024-07-18",
+   "line_id": "japan-resumed-projects-2024-loan",
+   "date": "2024-07-18",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan signals readiness to resume suspended ODA infrastructure projects",
+   "confidence": "low",
+   "reports": [
+    "2024-07-19-islandlk-69783a65",
+    "2024-07-19-adaderanalk-459e1da6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "msme-financial-aid-package-2024-gosl-allocated-2024-07-18",
+   "line_id": "msme-financial-aid-package-2024-gosl",
+   "date": "2024-07-18",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 13000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs13bn concessional loan package allocated for MSME support",
+   "confidence": "high",
+   "reports": [
+    "2024-07-18-economynextcom-df1247d9",
+    "2024-07-18-adaderanalk-63b46b76"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "godagama-homagama-road-saudi-fund-govt_authorised-2024-07-17",
+   "line_id": "godagama-homagama-road-saudi-fund",
+   "date": "2024-07-17",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 10500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved using remaining Saudi loan balance for road",
+   "confidence": "high",
+   "reports": [
+    "2024-07-17-dailyftlk-a590ec26"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "godagama-homagama-road-saudi-fund-funder_approved-2024-07-17",
+   "line_id": "godagama-homagama-road-saudi-fund",
+   "date": "2024-07-17",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 1500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Saudi Fund agreed additional funding for road completion",
+   "confidence": "high",
+   "reports": [
+    "2024-07-17-dailyftlk-a590ec26"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gender-harassment-action-plan-ii-gosl-govt_authorised-2024-07-09",
+   "line_id": "gender-harassment-action-plan-ii-gosl",
+   "date": "2024-07-09",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved second national plan against gender-based harassment",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-17-dailyftlk-9667e18f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "strike-duty-allowance-gosl-govt_authorised-2024-07-15",
+   "line_id": "strike-duty-allowance-gosl",
+   "date": "2024-07-15",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs.10,000 allowance for strike-day workers",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-15-adaderanalk-dfe532f0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-power-sector-reforms-funder_approved-2024-07-11",
+   "line_id": "adb-loan-power-sector-reforms",
+   "date": "2024-07-11",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 100000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approves $100m loan for power sector reform programme",
+   "confidence": "high",
+   "reports": [
+    "2024-07-15-islandlk-a80df8c7",
+    "2024-07-12-adaderanalk-c43f2ba6",
+    "2024-07-11-economynextcom-382be636"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-grant-power-sector-reforms-ta-funder_approved-2024-07-11",
+   "line_id": "adb-grant-power-sector-reforms-ta",
+   "date": "2024-07-11",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 1000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approves $1m technical assistance grant for power reforms",
+   "confidence": "high",
+   "reports": [
+    "2024-07-15-islandlk-a80df8c7",
+    "2024-07-12-adaderanalk-c43f2ba6",
+    "2024-07-11-economynextcom-382be636"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "hospital-radiation-therapy-upgrade-gosl-govt_authorised-2024-07-13",
+   "line_id": "hospital-radiation-therapy-upgrade-gosl",
+   "date": "2024-07-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves radiation therapy equipment upgrades at hospitals",
+   "confidence": "high",
+   "reports": [
+    "2024-07-13-dailyftlk-7a80f258"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-digital-education-transformation-china-grant-agreement_signed-2024-07-11",
+   "line_id": "china-digital-education-transformation-china-grant",
+   "date": "2024-07-11",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka signs China grant deal for digital education transformation",
+   "confidence": "high",
+   "reports": [
+    "2024-07-12-dailyftlk-b44cc1c1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "school-clusters-grouping-china-loan-pledged-2024-07-12",
+   "line_id": "school-clusters-grouping-china-loan",
+   "date": "2024-07-12",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 20000000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China pledges loan to group schools into clusters",
+   "confidence": "low",
+   "reports": [
+    "2024-07-12-dailyftlk-b44cc1c1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "education-administration-system-reform-gosl-govt_authorised-2024-06-03",
+   "line_id": "education-administration-system-reform-gosl",
+   "date": "2024-06-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves measures to restructure education administration system",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-12-dailyftlk-b44cc1c1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-loan-second-terminal-funder_approved-2024-07-11",
+   "line_id": "japan-loan-second-terminal",
+   "date": "2024-07-11",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 170000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "JICA agrees to resume Rs.170bn loan for airport terminal.",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-11-dailyftlk-170ba6b7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-smart-classrooms-estates-india-proposed-2024-07-10",
+   "line_id": "india-smart-classrooms-estates-india",
+   "date": "2024-07-10",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India to fund 60 smart classrooms in estate schools.",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-10-economynextcom-765308a7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gender-harassment-action-plan-ii-gosl-govt_authorised-2024-07-10",
+   "line_id": "gender-harassment-action-plan-ii-gosl",
+   "date": "2024-07-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves national action plan II against harassment.",
+   "confidence": "high",
+   "reports": [
+    "2024-07-10-adaderanalk-25dda1f6"
+   ],
+   "relation": "repeat_of:gender-harassment-action-plan-ii-gosl-govt_authorised-2024-07-09",
+   "notes": null
+  },
+  {
+   "id": "japan-loan-second-terminal-funder_approved-2024-07-10",
+   "line_id": "japan-loan-second-terminal",
+   "date": "2024-07-10",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "JICA agrees to resume funding for BIA terminal 2",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-10-adaderanalk-4ad6f2ab",
+    "2024-07-10-adaderanalk-10841a6f"
+   ],
+   "relation": "repeat_of:japan-loan-second-terminal-funder_approved-2024-07-11",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-tourism-sustainability-proposed-2024-07-09",
+   "line_id": "adb-loan-tourism-sustainability",
+   "date": "2024-07-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 100000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB plans $100mn this year for tourism project",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-09-islandlk-a7e67e66"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mahaweli-water-security-opec-fund-proposed-2024-07-09",
+   "line_id": "mahaweli-water-security-opec-fund",
+   "date": "2024-07-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 100000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "OPEC Fund discussing $100mn for Mahaweli water security project",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-09-economynextcom-14f078b7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-agrivoltaics-hanthana-adb-launched-2024-07-09",
+   "line_id": "adb-agrivoltaics-hanthana-adb",
+   "date": "2024-07-09",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB-financed agrivoltaics demonstration project inaugurated in Kandy",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-09-dailyftlk-2237efff"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gef-pop-mercury-disposal-gef-launched-2024-07-09",
+   "line_id": "gef-pop-mercury-disposal-gef",
+   "date": "2024-07-09",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 5000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "GEF grant project launched for chemical and healthcare waste disposal",
+   "confidence": "high",
+   "reports": [
+    "2024-07-09-dailyftlk-6198adab"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-unique-id-card-india-govt_authorised-2024-07-08",
+   "line_id": "india-unique-id-card-india",
+   "date": "2024-07-08",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved revised India-funded unique ID card project",
+   "confidence": "high",
+   "reports": [
+    "2024-07-08-economynextcom-146f6d61"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-unique-id-card-india-disbursed-2024-07-08",
+   "line_id": "india-unique-id-card-india",
+   "date": "2024-07-08",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 450000000,
+   "currency": "INR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "India disbursed advance aid for digital ID card project",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-08-economynextcom-146f6d61"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-smart-classrooms-southern-province-india-completed-2024-07-08",
+   "line_id": "india-smart-classrooms-southern-province-india",
+   "date": "2024-07-08",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "India handed over digital equipment for 200 smart classrooms, Southern Province",
+   "confidence": "high",
+   "reports": [
+    "2024-07-08-dailyftlk-8cda0919"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-funder_approved-2024-07-05",
+   "line_id": "imf-eff-loan",
+   "date": "2024-07-05",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 336000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF review approved, making $336mn available to Sri Lanka",
+   "confidence": "low",
+   "reports": [
+    "2024-07-05-economynextcom-e0be82b6"
+   ],
+   "relation": "repeat_of:imf-eff-purchase-2024-06-14",
+   "notes": null
+  },
+  {
+   "id": "e-mobility-project-unep-govt_authorised-2024-07-03",
+   "line_id": "e-mobility-project-unep",
+   "date": "2024-07-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1090000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet reassigns UNEP e-mobility grant to Transport Ministry",
+   "confidence": "high",
+   "reports": [
+    "2024-07-03-dailyftlk-c72af78e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "usaid-disaster-resilience-prosperity-program-grant-govt_authorised-2024-07-03",
+   "line_id": "usaid-disaster-resilience-prosperity-program-grant",
+   "date": "2024-07-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 52835000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves raising USAID disaster resilience grant to $52.8mn",
+   "confidence": "high",
+   "reports": [
+    "2024-07-03-dailyftlk-46b1984d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jaffna-rainwater-tanks-india-govt_authorised-2024-07-01",
+   "line_id": "jaffna-rainwater-tanks-india",
+   "date": "2024-07-01",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves 924 more rainwater tanks in Jaffna",
+   "confidence": "medium",
+   "reports": [
+    "2024-07-03-dailyftlk-2a3124ee"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "msme-financial-aid-package-2024-gosl-govt_authorised-2024-07-01",
+   "line_id": "msme-financial-aid-package-2024-gosl",
+   "date": "2024-07-01",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 2000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet allocates Rs. 2bn special loan scheme for women entrepreneurs",
+   "confidence": "high",
+   "reports": [
+    "2024-07-03-dailyftlk-08526ec9",
+    "2024-07-02-islandlk-77514583"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-07-31-islandlk-5feb2889": {
+   "date": "2024-07-31",
+   "title": "National Industrial Policy and 2023-2027 Strategic Plan will build a globally competitive industrial base – Secretary to the Ministry of Industries",
+   "url": "http://island.lk/national-industrial-policy-and-2023-2027-strategic-plan-will-build-a-globally-competitive-industrial-base-secretary-to-the-ministry-of-industries/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-07-31-dailyftlk-f2ecedc2": {
+   "date": "2024-07-31",
+   "title": "Cabinet green lights additional Rs. 63.68 m to complete National Social Development Institute project",
+   "url": "https://www.ft.lk/news/Cabinet-green-lights-additional-Rs-63-68-m-to-complete-National-Social-Development-Institute-project/56-764938",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-29-economynextcom-c28e4e88": {
+   "date": "2024-07-29",
+   "title": "Sri Lanka plans new tender for Japan funded airport terminal in September",
+   "url": "https://economynext.com/sri-lanka-plans-new-tender-for-japan-funded-airport-terminal-in-september-174228/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-07-29-economynextcom-6c721ccd": {
+   "date": "2024-07-29",
+   "title": "ADB developing project to support Sri Lanka tourism sustainably",
+   "url": "https://economynext.com/adb-developing-project-to-support-sri-lanka-tourism-sustainably-173998/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-07-24-adaderanalk-515d5810": {
+   "date": "2024-07-24",
+   "title": "Cabinet approves special monthly allowance for pensioners",
+   "url": "https://www.adaderana.lk/news/100753/cabinet-approves-special-monthly-allowance-for-pensioners",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-07-24-economynextcom-6ff1a81c": {
+   "date": "2024-07-24",
+   "title": "Japan decides on immediate disbursement of suspended Sri Lanka loans",
+   "url": "https://economynext.com/japan-decides-on-immediate-disbursement-of-suspended-sri-lanka-loans-173625/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-07-24-adaderanalk-98786f8a": {
+   "date": "2024-07-24",
+   "title": "Japan officially announces release of funds to resume projects in Sri Lanka",
+   "url": "https://www.adaderana.lk/news/100747/japan-officially-announces-release-of-funds-to-resume-projects-in-sri-lanka",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-07-19-islandlk-69783a65": {
+   "date": "2024-07-19",
+   "title": "Japan ready to resume suspended Official Development Assistance projects",
+   "url": "http://island.lk/japan-ready-to-resume-suspended-official-development-assistance-projects/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-07-19-adaderanalk-459e1da6": {
+   "date": "2024-07-19",
+   "title": "Japan ready to resume suspended official development assistance projects",
+   "url": "https://www.adaderana.lk/news/100611/japan-ready-to-resume-suspended-official-development-assistance-projects",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-07-18-economynextcom-df1247d9": {
+   "date": "2024-07-18",
+   "title": "Sri Lanka announces Rs13bn financial aid package to boost MSMEs",
+   "url": "https://economynext.com/sri-lanka-announces-rs13bn-financial-aid-package-to-boost-msmes-172800/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-07-18-adaderanalk-63b46b76": {
+   "date": "2024-07-18",
+   "title": "Finance Ministry to offer financial support for MSMEs facing hardships",
+   "url": "https://www.adaderana.lk/news/100603/finance-ministry-to-offer-financial-support-for-msmes-facing-hardships",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-07-17-dailyftlk-9667e18f": {
+   "date": "2024-07-17",
+   "title": "Cabinet approves second national action plan to eliminate sexual and gender-based harassment",
+   "url": "https://www.ft.lk/news/Cabinet-approves-second-national-action-plan-to-eliminate-sexual-and-gender-based-harassment/56-764348",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-17-dailyftlk-a590ec26": {
+   "date": "2024-07-17",
+   "title": "Cabinet green lights to utilise Saudi Fund to complete Godagama-Homagama road project",
+   "url": "https://www.ft.lk/news/Cabinet-green-lights-to-utilise-Saudi-Fund-to-complete-Godagama-Homagama-road-project/56-764346",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-15-adaderanalk-dfe532f0": {
+   "date": "2024-07-15",
+   "title": "Cabinet nod for one-time allowance to govt workers who reported to duty despite strike",
+   "url": "https://www.adaderana.lk/news/100538/cabinet-nod-for-one-time-allowance-to-govt-workers-who-reported-to-duty-despite-strike",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-07-15-islandlk-a80df8c7": {
+   "date": "2024-07-15",
+   "title": "ADB approves support for power sector reforms in Sri Lanka",
+   "url": "http://island.lk/adb-approves-support-for-power-sector-reforms-in-sri-lanka/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-07-13-dailyftlk-7a80f258": {
+   "date": "2024-07-13",
+   "title": "Cabinet approves upgrade of radiation therapy equipment across hospitals",
+   "url": "https://www.ft.lk/news/Cabinet-approves-upgrade-of-radiation-therapy-equipment-across-hospitals/56-764223",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-12-adaderanalk-c43f2ba6": {
+   "date": "2024-07-12",
+   "title": "ADB approves $100mn loan for power sector reforms in Sri Lanka",
+   "url": "https://www.adaderana.lk/news/100468/adb-approves-100mn-loan-for-power-sector-reforms-in-sri-lanka",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-07-12-dailyftlk-b44cc1c1": {
+   "date": "2024-07-12",
+   "title": "Sri Lanka and China sign agreement to transform education sector",
+   "url": "https://www.ft.lk/news/Sri-Lanka-and-China-sign-agreement-to-transform-education-sector/56-764190",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-11-economynextcom-382be636": {
+   "date": "2024-07-11",
+   "title": "ADB approves Sri Lanka US$100mn power sector policy loan",
+   "url": "https://economynext.com/adb-approves-sri-lanka-us100mn-power-sector-policy-loan-171775/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-07-11-dailyftlk-170ba6b7": {
+   "date": "2024-07-11",
+   "title": "Siripala says JICA agrees to resume work on 2nd BIA terminal with Rs. 170 b loan",
+   "url": "https://www.ft.lk/business/Siripala-says-JICA-agrees-to-resume-work-on-2ndBIA-terminal-with-Rs-170-b-loan/34-764131",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-10-economynextcom-765308a7": {
+   "date": "2024-07-10",
+   "title": "India funds Sri Lanka smart classroom project in estates",
+   "url": "https://economynext.com/india-funds-sri-lanka-smart-classroom-project-in-estates-171660/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-07-10-adaderanalk-25dda1f6": {
+   "date": "2024-07-10",
+   "title": "Cabinet approves new action plan to combat gender-based harassment",
+   "url": "https://www.adaderana.lk/news/100424/cabinet-approves-new-action-plan-to-combat-gender-based-harassment",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-07-10-adaderanalk-4ad6f2ab": {
+   "date": "2024-07-10",
+   "title": "JICA agrees to resume funding for BIA’s terminal 2",
+   "url": "https://www.adaderana.lk/news/100412/jica-agrees-to-resume-funding-for-bias-terminal-2-",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-07-10-adaderanalk-10841a6f": {
+   "date": "2024-07-10",
+   "title": "JICA agrees to resume construction of BIA terminal 2",
+   "url": "https://www.adaderana.lk/news/100412/jica-agrees-to-resume-construction-of-bia-terminal-2-",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-07-09-islandlk-a7e67e66": {
+   "date": "2024-07-09",
+   "title": "ADB financial heft for sustainable tourism development",
+   "url": "http://island.lk/adb-financial-heft-for-sustainable-tourism-development/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-07-09-economynextcom-14f078b7": {
+   "date": "2024-07-09",
+   "title": "Sri Lanka discussing US$100mn in financing from OPEC Fund",
+   "url": "https://economynext.com/sri-lanka-discussing-us100mn-in-financing-from-opec-fund-171459/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-07-09-dailyftlk-2237efff": {
+   "date": "2024-07-09",
+   "title": "Hayleys Solar selected for first-of-its-kind ADB-developed and financed Agrivoltaics project",
+   "url": "https://www.ft.lk/business/Hayleys-Solar-selected-for-first-of-its-kind-ADB-developed-and-financed-Agrivoltaics-project/34-764007",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-09-dailyftlk-6198adab": {
+   "date": "2024-07-09",
+   "title": "$ 5 m grant to implement project on chemical disposal in Sri Lanka",
+   "url": "https://www.ft.lk/news/5-m-grant-to-implement-project-on-chemical-disposal-in-Sri-Lanka/56-764005",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-08-economynextcom-146f6d61": {
+   "date": "2024-07-08",
+   "title": "Sri Lanka cabinet nod for India-funded ID card project; proposal sent to Indian HC: State Min",
+   "url": "https://economynext.com/sri-lanka-cabinet-nod-for-india-funded-id-card-project-proposal-sent-to-indian-hc-state-min-171293/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-07-08-dailyftlk-8cda0919": {
+   "date": "2024-07-08",
+   "title": "India funds 200 smart classrooms in Southern Province",
+   "url": "https://www.ft.lk/news/India-funds-200-smart-classrooms-in-Southern-Province/56-763967",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-05-economynextcom-e0be82b6": {
+   "date": "2024-07-05",
+   "title": "Sri Lanka foreign reserves rise to $5642mn June after IMF loan",
+   "url": "https://economynext.com/sri-lanka-foreign-reserves-rise-to-5642mn-june-after-imf-loan-171100/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-07-03-dailyftlk-c72af78e": {
+   "date": "2024-07-03",
+   "title": "Cabinet clears to reassign $ 1.09 m grant of UNEP to e-mobility project",
+   "url": "https://www.ft.lk/business/Cabinet-clears-to-reassign-1-09-m-grant-of-UNEP-to-e-mobility-project/34-763779",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-03-dailyftlk-46b1984d": {
+   "date": "2024-07-03",
+   "title": "Cabinet approves securing increased USAID grant for disaster resilience and economic prosperity program",
+   "url": "https://www.ft.lk/business/Cabinet-approves-securing-increased-USAID-grant-for-disaster-resilience-and-economic-prosperity-program/34-763777",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-03-dailyftlk-2a3124ee": {
+   "date": "2024-07-03",
+   "title": "India-funded project facilitates 924 rainwater harvesting tanks for Jaffna",
+   "url": "https://www.ft.lk/business/India-funded-project-facilitates-924-rainwater-harvesting-tanks-for-Jaffna/34-763776",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-03-dailyftlk-08526ec9": {
+   "date": "2024-07-03",
+   "title": "Govt. moves to boost women’s economic participation via Rs. 2 b special loan scheme",
+   "url": "https://www.ft.lk/news/Govt-moves-to-boost-women-s-economic-participation-via-Rs-2-b-special-loan-scheme/56-763771",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-07-02-islandlk-77514583": {
+   "date": "2024-07-02",
+   "title": "Cabinet nod to empower women in the Micro, Small and Medium Business sectors",
+   "url": "http://island.lk/cabinet-nod-to-empower-women-in-the-micro-small-and-medium-business-sectors/",
+   "outlet": "The Island",
+   "lang": "en"
+  }
+ }
+}

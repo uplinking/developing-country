@@ -1,0 +1,29 @@
+---
+import { CLAIM_STATUSES, type ClaimStatus } from '../lib/claims'
+interface Props {
+  href: string
+  title: string
+  dek?: string | null
+  country?: string | null
+  publishedAt?: Date | null
+  analysisKind?: 'essay' | 'tracked_claim'
+  claimStatus?: ClaimStatus
+  format?: 'analysis' | 'dataset_note'
+}
+
+const { href, title, dek, country = 'LK', publishedAt, format = 'analysis', analysisKind = 'essay', claimStatus } = Astro.props
+const date = publishedAt?.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+---
+
+<article class="article-card">
+  <a href={href} aria-label={title}>
+    <div class="article-card__meta">
+      <span>{country || 'LK'}</span>
+      {date && <time>{date}</time>}
+    </div>
+    {claimStatus && analysisKind === 'tracked_claim' && <span class="evidence-badge" data-status={claimStatus}>{CLAIM_STATUSES[claimStatus]}</span>}
+    <h3>{title}</h3>
+    {dek && <p>{dek}</p>}
+    <span class="article-card__read">{analysisKind === 'tracked_claim' ? 'Read the claim' : format === 'dataset_note' ? 'Read the note' : 'Read the essay'} <span aria-hidden="true">→</span></span>
+  </a>
+</article>

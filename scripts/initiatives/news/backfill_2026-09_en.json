@@ -1,0 +1,385 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-09-01",
+  "2026-09-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 37,
+ "rejected": 30,
+ "rejected_ids": [
+  "2026-09-02-dailyftlk-b85ca826",
+  "2026-09-02-dailymirrorlk-94104949",
+  "2026-09-03-dailymirrorlk-10c9d86e",
+  "2026-09-04-dailyftlk-155ed128",
+  "2026-09-04-dailyftlk-b42aeebf",
+  "2026-09-05-dailyftlk-92c3f6eb",
+  "2026-09-05-dailymirrorlk-a6ab323e",
+  "2026-09-08-dailyftlk-f415a22f",
+  "2026-09-08-dailyftlk-f9b6fa81",
+  "2026-09-08-dailymirrorlk-7c421d8b",
+  "2026-09-09-dailymirrorlk-63e20aa5",
+  "2026-09-09-dailymirrorlk-6c49e647",
+  "2026-09-09-dailymirrorlk-785b8c62",
+  "2026-09-10-dailyftlk-eb915371",
+  "2026-09-11-dailymirrorlk-b63e2e7c",
+  "2026-09-11-dailymirrorlk-f6fba63f",
+  "2026-09-16-dailymirrorlk-01e44f19",
+  "2026-09-16-dailymirrorlk-f84cb21f",
+  "2026-09-17-dailyftlk-0f8badeb",
+  "2026-09-18-dailyftlk-c17f3e9b",
+  "2026-09-19-dailymirrorlk-e85bb3e2",
+  "2026-09-20-dailymirrorlk-8f7cc2fe",
+  "2026-09-23-dailymirrorlk-4f1b7aff",
+  "2026-09-25-dailymirrorlk-3ca156c7",
+  "2026-09-25-dailymirrorlk-d6bed026",
+  "2026-09-25-dailymirrorlk-f20293f9",
+  "2026-09-25-dailymirrorlk-f4c7181f",
+  "2026-09-29-dailymirrorlk-2069a2a7",
+  "2026-09-29-dailymirrorlk-2cbb3aa8",
+  "2026-09-30-dailymirrorlk-70549985"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "el-nino-disaster-preparedness-drills",
+   "name": "El Niño disaster preparedness drills and public awareness",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-provincial-health-padp-2027",
+   "name": "ADB Provincial Annual Development Plans for health, 2027",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ethera-diriya-migrant-housing-loan-scheme",
+   "name": "Ethera Diriya Migrant Workers Housing Loan Scheme",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "road-safety-presidential-awards-2026",
+   "name": "Road Safety Presidential Awards 2026",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-sri-lanka-defence-cooperation-mous-2026",
+   "name": "Sri Lanka-India defence cooperation MoUs (NCC, defence colleges, air defence maintenance)",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "undp-rare-medicines-procurement",
+   "name": "UNDP procurement mechanism for rare and hard-to-source medicines",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "gosl-el-nino-preparedness",
+   "project_id": "el-nino-disaster-preparedness-drills",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "adb-provincial-health-padp-2027",
+   "project_id": "adb-provincial-health-padp-2027",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "mixed",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-ethera-diriya",
+   "project_id": "ethera-diriya-migrant-housing-loan-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka / SLBFE",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-road-safety-awards",
+   "project_id": "road-safety-presidential-awards-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "india-defence-mou-cooperation",
+   "project_id": "india-sri-lanka-defence-cooperation-mous-2026",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "programme"
+  },
+  {
+   "id": "undp-rare-medicines-procurement-un",
+   "project_id": "undp-rare-medicines-procurement",
+   "funder": "un",
+   "funder_name": "United Nations Development Programme",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "gosl-road-safety-allocated-2026-09-19",
+   "line_id": "gosl-road-safety",
+   "date": "2026-09-19",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs. 60m per district for road safety improvements",
+   "confidence": "high",
+   "reports": [
+    "2026-09-19-dailymirrorlk-7ce5aed4"
+   ],
+   "relation": "repeat_of:road-safety-allocation",
+   "notes": null
+  },
+  {
+   "id": "gosl-el-nino-preparedness-govt_authorised-2026-09-14",
+   "line_id": "gosl-el-nino-preparedness",
+   "date": "2026-09-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet subcommittee orders El Niño disaster drills, awareness drive",
+   "confidence": "medium",
+   "reports": [
+    "2026-09-16-dailyftlk-4f9883de"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-provincial-health-padp-2027-allocated-2026-09-13",
+   "line_id": "adb-provincial-health-padp-2027",
+   "date": "2026-09-13",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 6700000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB to fund Rs.6.7bn provincial health development in 2027",
+   "confidence": "high",
+   "reports": [
+    "2026-09-13-dailymirrorlk-54a02034"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-ethera-diriya-launched-2026-09-10",
+   "line_id": "gosl-ethera-diriya",
+   "date": "2026-09-10",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Migrant worker housing loan scheme launched with bank MoUs",
+   "confidence": "high",
+   "reports": [
+    "2026-09-10-dailymirrorlk-d416b837"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-ethera-diriya-allocated-2026-09-10",
+   "line_id": "gosl-ethera-diriya",
+   "date": "2026-09-10",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 126000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Govt allocates interest reimbursement funds for migrant housing loans 2027",
+   "confidence": "high",
+   "reports": [
+    "2026-09-10-dailymirrorlk-d416b837"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-road-safety-awards-govt_authorised-2026-09-10",
+   "line_id": "gosl-road-safety-awards",
+   "date": "2026-09-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves inaugural Road Safety Presidential Awards 2026",
+   "confidence": "high",
+   "reports": [
+    "2026-09-10-dailyftlk-701ababd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-defence-mou-cooperation-agreement_signed-2026-09-09",
+   "line_id": "india-defence-mou-cooperation",
+   "date": "2026-09-09",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka and India sign three defence cooperation MoUs",
+   "confidence": "high",
+   "reports": [
+    "2026-09-09-dailymirrorlk-003b7a14"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "undp-rare-medicines-procurement-un-agreement_signed-2026-09-01",
+   "line_id": "undp-rare-medicines-procurement-un",
+   "date": "2026-09-01",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Tripartite deal lets Treasury use UNDP to procure rare medicines",
+   "confidence": "medium",
+   "reports": [
+    "2026-09-03-dailyftlk-2a1e3be1"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-09-19-dailymirrorlk-7ce5aed4": {
+   "date": "2026-09-19",
+   "title": "Rs. 60m for each district under road safety programme",
+   "url": "https://www.dailymirror.lk/breaking-news/Rs-60m-for-each-district-under-road-safety-programme/108-350701",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-09-16-dailyftlk-4f9883de": {
+   "date": "2026-09-16",
+   "title": "Cabinet Subcommittee on El Niño orders disaster drills, public awareness drive",
+   "url": "https://www.ft.lk/news/Cabinet-Subcommittee-on-El-Niño-orders-disaster-drills-public-awareness-drive/56-797276",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-09-13-dailymirrorlk-54a02034": {
+   "date": "2026-09-13",
+   "title": "ADB to provide Rs.6.7 billion for provincial health development in 2027",
+   "url": "https://www.dailymirror.lk/breaking-news/ADB-to-provide-Rs-6-7-billion-for-provincial-health-development-in-2027/108-350181",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-09-10-dailymirrorlk-d416b837": {
+   "date": "2026-09-10",
+   "title": "Migrant workers to get housing loans up to Rs.10m under ‘Ethera Diriya’ scheme",
+   "url": "https://www.dailymirror.lk/breaking-news/Migrant-workers-to-get-housing-loans-up-to-Rs-10m-under-Ethera-Diriya-scheme/108-349975",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-09-10-dailyftlk-701ababd": {
+   "date": "2026-09-10",
+   "title": "Cabinet approves inaugural ‘Road Safety Presidential Awards 2026’ to recognise road safety champions",
+   "url": "https://www.ft.lk/news/Cabinet-approves-inaugural-Road-Safety-Presidential-Awards-2026-to-recognise-road-safety-champions/56-797057",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-09-09-dailymirrorlk-003b7a14": {
+   "date": "2026-09-09",
+   "title": "Sri Lanka, India sign defence MoUs",
+   "url": "https://www.dailymirror.lk/caption-story/Sri-Lanka-India-sign-defence-MoUs/110-349853",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-09-03-dailyftlk-2a1e3be1": {
+   "date": "2026-09-03",
+   "title": "Govt., UNDP sign deal to secure hard-to-source medicines",
+   "url": "https://www.ft.lk/news/Govt-UNDP-sign-deal-to-secure-hard-to-source-medicines/56-796728",
+   "outlet": "Daily FT",
+   "lang": "en"
+  }
+ }
+}

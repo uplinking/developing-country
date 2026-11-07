@@ -1,0 +1,182 @@
+name: Refresh due datasets
+
+# This workflow prepares evidence for review. It never deploys Workers, uploads
+# R2 objects, migrates D1, or publishes editorial content.
+on:
+  schedule:
+    - cron: '23 3 * * 1'
+  workflow_dispatch:
+    inputs:
+      source:
+        description: Optional scheduled source id (blank checks every due source)
+        required: false
+        type: string
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+
+env:
+  CI: 'true'
+  FORCE_COLOR: '0'
+
+jobs:
+  plan:
+    if: github.repository == 'uplinking/developing-country'
+    runs-on: ubuntu-latest
+    outputs:
+      has_sources: ${{ steps.sources.outputs.has_sources }}
+      sources: ${{ steps.sources.outputs.sources }}
+    steps:
+      # Always execute refresh code from trusted main, including manual runs.
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+
+      - name: Select opted-in due sources
+        id: sources
+        shell: bash
+        env:
+          REQUESTED_SOURCE: ${{ inputs.source }}
+        run: |
+          if [[ -n "$REQUESTED_SOURCE" ]]; then
+            if ! jq -e --arg id "$REQUESTED_SOURCE" '.sources[] | select(.id == $id and .scheduled == true)' scripts/data-sources.json >/dev/null; then
+              echo "Unknown or unscheduled source: $REQUESTED_SOURCE" >&2
+              exit 1
+            fi
+            selected="$REQUESTED_SOURCE"
+          else
+            selected="$(bun scripts/refresh.mjs due --scheduled --ids)"
+          fi
+
+          if [[ -z "$selected" ]]; then
+            echo 'has_sources=false' >> "$GITHUB_OUTPUT"
+            echo 'sources=[]' >> "$GITHUB_OUTPUT"
+          else
+            echo 'has_sources=true' >> "$GITHUB_OUTPUT"
+            printf 'sources=%s\n' "$(printf '%s\n' "$selected" | jq -Rsc 'split("\n") | map(select(length > 0))')" >> "$GITHUB_OUTPUT"
+          fi
+
+  refresh:
+    needs: plan
+    if: needs.plan.outputs.has_sources == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        source: ${{ fromJSON(needs.plan.outputs.sources) }}
+    concurrency:
+      group: refresh-data-${{ matrix.source }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+
+      - name: Install (frozen lockfile)
+        run: bun install --frozen-lockfile
+
+      - name: Install PDF extraction tooling
+        if: startsWith(matrix.source, 'treasury-')
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Refresh source
+        env:
+          SOURCE_ID: ${{ matrix.source }}
+        shell: bash
+        run: |
+          mkdir -p .context/refresh
+          set -o pipefail
+          bun scripts/refresh.mjs run "$SOURCE_ID" 2>&1 | tee ".context/refresh/$SOURCE_ID.log"
+
+      - name: Preserve refresh diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: refresh-${{ matrix.source }}-diagnostics
+          path: .context/refresh/
+          include-hidden-files: true
+          retention-days: 14
+
+      - name: Stamp verified artifacts and derive Dataset Versions
+        env:
+          SOURCE_ID: ${{ matrix.source }}
+        run: |
+          bun scripts/refresh.mjs touch "$SOURCE_ID"
+          git add public/data
+          bun run build:dataset-versions
+          bun run datasets:sync
+
+      - name: Validate complete repository
+        run: bun run check
+
+      - name: Commit source-specific review branch
+        id: commit
+        shell: bash
+        env:
+          SOURCE_ID: ${{ matrix.source }}
+        run: |
+          branch="automated-refresh/$SOURCE_ID"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/data scripts/data-sources.json scripts/dataset-versions.json packages/datasets/src/registry.generated.ts apps/site/seed apps/site/data/dataset-catalog.json apps/site/src/generated/datasetCatalogPointer.ts
+          if git diff --cached --quiet; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "data: refresh $SOURCE_ID"
+          remote_sha="$(git ls-remote --heads origin "refs/heads/$branch" | cut -f1)"
+          if [[ -n "$remote_sha" ]]; then
+            git fetch origin "refs/heads/$branch:refs/remotes/origin/$branch"
+            remote_email="$(git log -1 --format=%ae "refs/remotes/origin/$branch")"
+            if [[ "$remote_email" != '41898282+github-actions[bot]@users.noreply.github.com' ]]; then
+              echo "Refusing to overwrite $branch because its tip was not authored by github-actions[bot]." >&2
+              exit 1
+            fi
+            git push --force-with-lease="refs/heads/$branch:$remote_sha" origin "HEAD:refs/heads/$branch"
+          else
+            git push origin "HEAD:refs/heads/$branch"
+          fi
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update review PR
+        if: steps.commit.outputs.changed == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_ID: ${{ matrix.source }}
+          BRANCH: ${{ steps.commit.outputs.branch }}
+        run: |
+          existing="$(gh pr list --head "$BRANCH" --base main --state open --json url --jq '.[0].url // empty')"
+          if [[ -n "$existing" ]]; then
+            echo "Updated $existing"
+          else
+            gh pr create \
+              --base main \
+              --head "$BRANCH" \
+              --title "data: refresh $SOURCE_ID" \
+              --body "Automated refresh candidate for **$SOURCE_ID**. The deterministic adapter and full repository checks succeeded. Review the artifact, schema, feature-count, provenance, and Dataset Version diff before merging. This workflow did not deploy or publish anything."
+          fi
+
+      # Pull requests opened by GITHUB_TOKEN do not emit a pull_request event.
+      # Explicit workflow_dispatch associates the normal CI suite with the new
+      # branch head, without requiring a long-lived PAT or GitHub App secret.
+      - name: Dispatch required CI on the review branch
+        if: steps.commit.outputs.changed == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ steps.commit.outputs.branch }}
+        run: gh workflow run ci.yml --ref "$BRANCH"

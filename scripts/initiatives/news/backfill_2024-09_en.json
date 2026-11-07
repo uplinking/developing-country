@@ -1,0 +1,651 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-09-01",
+  "2024-09-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 44,
+ "rejected": 31,
+ "rejected_ids": [
+  "2024-09-09-dailyftlk-97eeafac",
+  "2024-09-10-economynextcom-b9ad8af7",
+  "2024-09-11-dailyftlk-7314204e",
+  "2024-09-11-economynextcom-f01b1985",
+  "2024-09-12-adaderanalk-6e56f272",
+  "2024-09-12-dailyftlk-42e926a1",
+  "2024-09-13-adaderanalk-13312db7",
+  "2024-09-13-economynextcom-8a0aaf4b",
+  "2024-09-14-adaderanalk-1fea31f9",
+  "2024-09-14-adaderanalk-abef1c6a",
+  "2024-09-14-economynextcom-39a5659d",
+  "2024-09-16-adaderanalk-2999c673",
+  "2024-09-16-adaderanalk-9bc49c77",
+  "2024-09-16-dailyftlk-f21435dd",
+  "2024-09-19-economynextcom-10078d68",
+  "2024-09-20-dailyftlk-5d3ba2d4",
+  "2024-09-20-economynextcom-a3f71a63",
+  "2024-09-23-adaderanalk-4be58882",
+  "2024-09-23-dailyftlk-6bc1b522",
+  "2024-09-24-adaderanalk-956e7941",
+  "2024-09-24-adaderanalk-9d390803",
+  "2024-09-24-adaderanalk-ac36d100",
+  "2024-09-24-adaderanalk-b8f0990f",
+  "2024-09-24-dbsjeyarajcom-663979ef",
+  "2024-09-24-economynextcom-f846cac6",
+  "2024-09-25-adaderanalk-842fc4d5",
+  "2024-09-27-dailyftlk-99b5edd0",
+  "2024-09-28-economynextcom-58d8891c",
+  "2024-09-29-economynextcom-46497bf5",
+  "2024-09-30-adaderanalk-fa40d92f",
+  "2024-09-30-islandlk-8ceeb84e"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "koica-anticorruption-transparency-support",
+   "name": "KOICA support for anti-corruption and transparency initiative",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-halted-projects-resumption",
+   "name": "Japan resumption of 11 halted ODA projects",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "isb-debt-restructuring-2024",
+   "name": "International Sovereign Bond restructuring agreement",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "cdb-debt-restructuring-2024",
+   "name": "China Development Bank debt restructuring agreement",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mannar-mangrove-restoration-sgp",
+   "name": "Mannar mangrove restoration project (GEF Small Grants Programme)",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Mannar",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ceb-floating-solar-reservoirs",
+   "name": "Floating solar power plants at Randenigala, Moragahakanda and Kalawewa",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Randenigala, Moragahakanda and Kalawewa reservoirs",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "itc-she-trades-hub-sri-lanka",
+   "name": "ITC She Trades Hub Sri Lanka",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "trade-facilitation-action-plan-2025-2028",
+   "name": "Trade Facilitation Action Plan 2025-2028",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ird-it-strategic-plan-2025-2027",
+   "name": "Inland Revenue Department IT Strategic Plan 2025-2027",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mahaweli-water-conservation-program",
+   "name": "Mahaweli Water Conservation Investment Program",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Mahaweli region",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-financial-sector-reform-program",
+   "name": "ADB Financial Sector Reform Program",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "koica-anticorruption-loan",
+   "project_id": "koica-anticorruption-transparency-support",
+   "funder": "korea",
+   "funder_name": "KOICA",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "japan-halted-projects-resumption-loan",
+   "project_id": "japan-halted-projects-resumption",
+   "funder": "japan",
+   "funder_name": "Government of Japan",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "isb-restructuring-2024-bondholders",
+   "project_id": "isb-debt-restructuring-2024",
+   "funder": "other:bondholders",
+   "funder_name": "International Sovereign Bondholders (Ad Hoc Group & Local Consortium)",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "unknown"
+  },
+  {
+   "id": "cdb-debt-restructuring-2024",
+   "project_id": "cdb-debt-restructuring-2024",
+   "funder": "china",
+   "funder_name": "China Development Bank",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "unknown"
+  },
+  {
+   "id": "undp-gef-sgp-mannar-mangrove",
+   "project_id": "mannar-mangrove-restoration-sgp",
+   "funder": "un",
+   "funder_name": "UNDP / Global Environment Facility Small Grants Programme",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "ceb-floating-solar-reservoirs-private",
+   "project_id": "ceb-floating-solar-reservoirs",
+   "funder": "private",
+   "funder_name": "Private investors (to be selected)",
+   "funder_type": "private",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "itc-she-trades-hub-un",
+   "project_id": "itc-she-trades-hub-sri-lanka",
+   "funder": "un",
+   "funder_name": "International Trade Center",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "programme"
+  },
+  {
+   "id": "trade-facilitation-action-plan-gosl",
+   "project_id": "trade-facilitation-action-plan-2025-2028",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-ird-it-strategic-plan",
+   "project_id": "ird-it-strategic-plan-2025-2027",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "adb-loan-mahaweli-water-conservation",
+   "project_id": "mahaweli-water-conservation-program",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "adb-financial-sector-reform-program-adb",
+   "project_id": "adb-financial-sector-reform-program",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "koica-anticorruption-loan-pledged-2024-09-27",
+   "line_id": "koica-anticorruption-loan",
+   "date": "2024-09-27",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "KOICA pledges loan support for anti-corruption projects",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-27-adaderanalk-96366c77"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-halted-projects-resumption-loan-pledged-2024-09-27",
+   "line_id": "japan-halted-projects-resumption-loan",
+   "date": "2024-09-27",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan reaffirms committing to resume 11 halted projects",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-27-economynextcom-7a735121"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "isb-restructuring-2024-bondholders-agreement_signed-2024-09-19",
+   "line_id": "isb-restructuring-2024-bondholders",
+   "date": "2024-09-19",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 14200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka reaches debt restructuring agreement with ISB bondholders",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-19-economynextcom-a9c3a3ac"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "cdb-debt-restructuring-2024-agreement_signed-2024-09-19",
+   "line_id": "cdb-debt-restructuring-2024",
+   "date": "2024-09-19",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka finalises debt restructuring agreement with China Development Bank",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-19-economynextcom-a9c3a3ac"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "undp-gef-sgp-mannar-mangrove-agreement_signed-2024-09-18",
+   "line_id": "undp-gef-sgp-mannar-mangrove",
+   "date": "2024-09-18",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "UNDP, Ministry of Crab sign mangrove restoration agreement in Mannar",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-18-economynextcom-40815362"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ceb-floating-solar-reservoirs-private-govt_authorised-2024-09-15",
+   "line_id": "ceb-floating-solar-reservoirs-private",
+   "date": "2024-09-15",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves CEB seeking investors for floating solar plants",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-15-economynextcom-4995e482"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "itc-she-trades-hub-un-govt_authorised-2024-09-14",
+   "line_id": "itc-she-trades-hub-un",
+   "date": "2024-09-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves MoU to launch ITC She Trades Hub",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-14-islandlk-2ab34c8c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "trade-facilitation-action-plan-gosl-govt_authorised-2024-09-14",
+   "line_id": "trade-facilitation-action-plan-gosl",
+   "date": "2024-09-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves implementing Trade Facilitation Action Plan 2025-2028",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-14-islandlk-e0b11673"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-pbl-water-sp2-funder_approved-2024-09-11",
+   "line_id": "adb-pbl-water-sp2",
+   "date": "2024-09-11",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 100000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approves $100m loan for water/sanitation reforms",
+   "confidence": "high",
+   "reports": [
+    "2024-09-12-economynextcom-dba06d53",
+    "2024-09-12-economynextcom-acefaad9",
+    "2024-09-12-adaderanalk-69eb1ffe"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-pbl-water-sp2-funder_approved-2024-09-12",
+   "line_id": "adb-pbl-water-sp2",
+   "date": "2024-09-12",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 800000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB technical assistance grant for water sector reforms",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-12-economynextcom-acefaad9",
+    "2024-09-12-adaderanalk-69eb1ffe"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-ird-it-strategic-plan-govt_authorised-2024-09-11",
+   "line_id": "gosl-ird-it-strategic-plan",
+   "date": "2024-09-11",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves IRD IT Strategic Plan 2025-2027",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-11-dailyftlk-489716f7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-mahaweli-water-conservation-govt_authorised-2024-09-11",
+   "line_id": "adb-loan-mahaweli-water-conservation",
+   "date": "2024-09-11",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 93000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves final $93m ADB tranche for Mahaweli water project",
+   "confidence": "high",
+   "reports": [
+    "2024-09-11-dailyftlk-dc4604af"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-financial-sector-reform-program-adb-govt_authorised-2024-09-10",
+   "line_id": "adb-financial-sector-reform-program-adb",
+   "date": "2024-09-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 300000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves $300mn ADB loan for financial sector reform",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-10-economynextcom-78844bbc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-pbl-water-sp2-govt_authorised-2024-09-10",
+   "line_id": "adb-pbl-water-sp2",
+   "date": "2024-09-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 100000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves $100mn ADB loan for water sector reform",
+   "confidence": "medium",
+   "reports": [
+    "2024-09-10-economynextcom-78844bbc"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-09-27-adaderanalk-96366c77": {
+   "date": "2024-09-27",
+   "title": "KOICA commits support to strengthen govt’s transparency initiative",
+   "url": "https://www.adaderana.lk/news/102309/koica-commits-support-to-strengthen-govts-transparency-initiative",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-09-27-economynextcom-7a735121": {
+   "date": "2024-09-27",
+   "title": "Japan reiterates commitment to initiate 11 halted projects in Sri Lanka: AKD",
+   "url": "https://economynext.com/japan-reiterates-commitment-to-initiate-11-halted-projects-in-sri-lanka-akd-181293/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-09-19-economynextcom-a9c3a3ac": {
+   "date": "2024-09-19",
+   "title": "Sri Lanka reaches ISB restructuring deal, finalises agreement with China Dev Bank: official",
+   "url": "https://economynext.com/sri-lanka-reaches-isb-restructuring-deal-finalises-agreement-with-china-dev-bank-official-180060/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-09-18-economynextcom-40815362": {
+   "date": "2024-09-18",
+   "title": "UNDP Sri Lanka, Ministry of Crab restaurant in mangrove restoration project",
+   "url": "https://economynext.com/undp-sri-lanka-ministry-of-crab-restaurant-in-mangrove-restoration-project-179877/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-09-15-economynextcom-4995e482": {
+   "date": "2024-09-15",
+   "title": "Sri Lanka CEB to seek floating solar investors for three reservoirs",
+   "url": "https://economynext.com/sri-lanka-ceb-to-seek-floating-solar-investors-for-three-reservoirs-179678/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-09-14-islandlk-2ab34c8c": {
+   "date": "2024-09-14",
+   "title": "Cabinet nod to launch ‘ITC She Trades Hub’",
+   "url": "http://island.lk/cabinet-nod-launch-itc-she-trades-hub/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-09-14-islandlk-e0b11673": {
+   "date": "2024-09-14",
+   "title": "Cabinet approves implementing ‘Trade Facilitation Action Plan 2025-2028”’",
+   "url": "http://island.lk/cabinet-approves-implementing-trade-facilitation-action-plan-2025-2028/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-09-12-economynextcom-dba06d53": {
+   "date": "2024-09-12",
+   "title": "Sri Lanka bond yields rise ahead of auction; ADB approves $100mn loan",
+   "url": "https://economynext.com/sri-lanka-bond-yields-rise-ahead-of-auction-adb-approves-100mn-loan-179338/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-09-12-economynextcom-acefaad9": {
+   "date": "2024-09-12",
+   "title": "ADB approves $100mn Sri Lanka budget support loan",
+   "url": "https://economynext.com/adb-approves-100mn-sri-lanka-budget-support-loan-179337/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-09-12-adaderanalk-69eb1ffe": {
+   "date": "2024-09-12",
+   "title": "ADB approves $100 million loan to support Sri Lanka’s water supply and sanitation",
+   "url": "https://www.adaderana.lk/news/101907/adb-approves-100-million-loan-to-support-sri-lankas-water-supply-and-sanitation",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-09-11-dailyftlk-489716f7": {
+   "date": "2024-09-11",
+   "title": "Inland Revenue Department’s IT Strategic Plan 2025-2027 gets Cabinet nod",
+   "url": "https://www.ft.lk/business/Inland-Revenue-Department-s-IT-Strategic-Plan-2025-2027-gets-Cabinet-nod/34-766602",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-09-11-dailyftlk-dc4604af": {
+   "date": "2024-09-11",
+   "title": "Cabinet approves $ 93 m ADB loan for Mahaweli water conservation project",
+   "url": "https://www.ft.lk/news/Cabinet-approves-93-m-ADB-loan-for-Mahaweli-water-conservation-project/56-766589",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-09-10-economynextcom-78844bbc": {
+   "date": "2024-09-10",
+   "title": "Sri Lanka to borrow US$300mn for budget support from ADB",
+   "url": "https://economynext.com/sri-lanka-to-borrow-us300mn-for-budget-support-from-adb-179092/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  }
+ }
+}

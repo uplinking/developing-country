@@ -1,0 +1,1496 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-03-01",
+  "2026-03-31"
+ ],
+ "upstream": "nuuuwan/lk_news@7c98b51874e343a55176ce773acd06a36d320d1e",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-06",
+ "language": "si",
+ "articles_read": 114,
+ "rejected": 85,
+ "rejected_ids": [
+  "2026-03-01-adalk-10a77977",
+  "2026-03-01-adalk-83cc99b0",
+  "2026-03-02-adalk-0adf6dc7",
+  "2026-03-03-adalk-60b73e04",
+  "2026-03-03-adalk-6dbc5ef5",
+  "2026-03-03-adalk-a07e4166",
+  "2026-03-03-adalk-f98f3d5c",
+  "2026-03-04-adalk-29bc2a19",
+  "2026-03-04-adalk-c2e259ef",
+  "2026-03-06-adalk-064f83de",
+  "2026-03-06-adalk-2a14e2bf",
+  "2026-03-08-adalk-4eeed6d5",
+  "2026-03-08-adalk-818971b6",
+  "2026-03-10-adalk-07da41da",
+  "2026-03-10-adalk-412f97c3",
+  "2026-03-10-adalk-4c304b67",
+  "2026-03-10-adalk-7dc6b86e",
+  "2026-03-10-adalk-ab1f0a0b",
+  "2026-03-10-adalk-fe538c33",
+  "2026-03-11-adalk-1940124a",
+  "2026-03-11-adalk-82b88f3a",
+  "2026-03-11-adalk-89db01ff",
+  "2026-03-11-adalk-92781c78",
+  "2026-03-12-adalk-946ad51b",
+  "2026-03-12-adalk-ac0f6eb0",
+  "2026-03-12-adalk-d4c4d49e",
+  "2026-03-13-adalk-29608aab",
+  "2026-03-13-adalk-5fc37678",
+  "2026-03-13-adalk-b7e4e9af",
+  "2026-03-13-adalk-e86b1606",
+  "2026-03-15-adalk-3d21049f",
+  "2026-03-15-adalk-58be91a8",
+  "2026-03-16-adalk-4847afb6",
+  "2026-03-16-adalk-cf3d675a",
+  "2026-03-16-adalk-df18062d",
+  "2026-03-17-adalk-02e1ad9b",
+  "2026-03-17-adalk-32f8c532",
+  "2026-03-17-adalk-3badc96b",
+  "2026-03-17-adalk-4b6027a9",
+  "2026-03-17-adalk-a36393d9",
+  "2026-03-17-adalk-b4eb37fa",
+  "2026-03-17-adalk-f31d70c6",
+  "2026-03-18-adalk-48117434",
+  "2026-03-18-adalk-4847afb6",
+  "2026-03-18-adalk-4b612f3e",
+  "2026-03-18-adalk-6c8c6e6b",
+  "2026-03-18-adalk-7c27df26",
+  "2026-03-18-adalk-a1bc7be5",
+  "2026-03-18-adalk-d46c6770",
+  "2026-03-18-adalk-f29952a6",
+  "2026-03-19-adalk-104a8001",
+  "2026-03-19-adalk-18a031e3",
+  "2026-03-19-adalk-31b0fb88",
+  "2026-03-19-adalk-93e8bb40",
+  "2026-03-19-adalk-c5d0e216",
+  "2026-03-20-adalk-7d32911e",
+  "2026-03-20-adalk-e5ff7ddc",
+  "2026-03-20-adalk-fe60f024",
+  "2026-03-21-adalk-18ebe211",
+  "2026-03-22-adalk-f38a0131",
+  "2026-03-23-adalk-1c8d2964",
+  "2026-03-23-adalk-4a8e8126",
+  "2026-03-24-adalk-1826d305",
+  "2026-03-24-adalk-366c7783",
+  "2026-03-24-adalk-7f2919e6",
+  "2026-03-24-adalk-ad1a9c78",
+  "2026-03-25-adalk-be5fc7dd",
+  "2026-03-25-adalk-dc3b91dd",
+  "2026-03-25-adalk-f3724c7d",
+  "2026-03-26-adalk-01b26bea",
+  "2026-03-26-adalk-3cf1b050",
+  "2026-03-26-adalk-8f857a68",
+  "2026-03-26-adalk-cb183490",
+  "2026-03-27-adalk-55566499",
+  "2026-03-27-adalk-f88d519f",
+  "2026-03-29-adalk-1e4ffd2f",
+  "2026-03-30-adalk-0615eda8",
+  "2026-03-30-adalk-51790e2d",
+  "2026-03-30-adalk-53d1029f",
+  "2026-03-30-adalk-ca6d6efb",
+  "2026-03-31-adalk-5b3c8742",
+  "2026-03-31-adalk-abd90891",
+  "2026-03-31-adalk-b38e9162",
+  "2026-03-31-adalk-bfd47110",
+  "2026-03-31-adalk-f77fbf01"
+ ],
+ "unattributed_ids": [
+  "2026-03-08-adalk-4eeed6d5"
+ ],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "fuel-price-stabilisation-subsidy-2026",
+   "name": "2026 Fuel Price Stabilisation Subsidy to Importers",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "supreme-court-efiling-system",
+   "name": "Supreme Court E-Filing Digital Court System",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "aswesuma-march-2026-elderly-payments",
+   "name": "Aswesuma March 2026 Elderly Allowance Payments",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sjp-hospital-4d-angio-ct-dental-unit",
+   "name": "Sri Jayewardenepura Hospital 4D Angio CT and Dental Health Unit",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "bus-fare-increase-2026",
+   "name": "2026 national bus fare increase",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fuel-needs-data-collection-food-transport",
+   "name": "Fuel needs data collection for food and transport sector",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sapugaskanda-refinery-expansion",
+   "name": "Sapugaskanda refinery expansion feasibility and land acquisition",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Sapugaskanda",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "new-oil-refinery-100000bpd",
+   "name": "New 100,000 barrel/day oil refinery tender",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "hatton-fuel-station-security-deployment",
+   "name": "Hatton Fuel Station Military-Police Security Deployment",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Hatton",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mannar-dorni-gas-exploration",
+   "name": "Mannar Dorni Natural Gas Field Exploration and Investor Search",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Mannar",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sarp-small-scale-agri-resilience-project",
+   "name": "Small-scale Agri-business Partnerships and Resilience-building Project (SARP)",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "export-priority-fuel-allocation",
+   "name": "Priority fuel allocation programme for exporters",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fuel-gas-coal-emergency-procurement-mideast-2026",
+   "name": "Emergency non-standard procurement of fuel, gas and coal amid Middle East conflict",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "russia-oil-procurement-negotiation-2026",
+   "name": "Sri Lanka-Russia oil procurement negotiation amid Middle East crisis",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "bribery-commission-staff-salary-structure",
+   "name": "Salary and service structure for Bribery Commission staff",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kandy-hisathel-gaama-state-festival",
+   "name": "State Hisathel Gaama (hair-oiling) ceremony, Kandy",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "student-nurse-trainee-recruitment-2918",
+   "name": "Recruitment of 2,918 Student Nurse Trainees",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "litro-lpg-price-increase-2026",
+   "name": "Litro LPG gas price increase March 2026",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "retail-fuel-price-increase-march2026",
+   "name": "Retail fuel price increase amid Middle East crisis, March 2026",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mahapola-scholarship-increase-2026",
+   "name": "Mahapola Higher Education Scholarship Allowance Increase 2026",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "spice-cluster-villages-programme-2026",
+   "name": "Spice Cluster Villages Programme 2026",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "muthurajawela-fuel-storage-tank-construction",
+   "name": "Muthurajawela Fuel Storage Tank Construction",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Muthurajawela",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "motor-traffic-department-corruption-investigation",
+   "name": "Department of Motor Traffic corruption investigation",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-low-floor-bus-donation",
+   "name": "Japan donation of used low-floor buses to Sri Lanka",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "accident-emergency-care-directorate",
+   "name": "Directorate of Accident and Emergency Care System",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "fuel-price-stabilisation-subsidy-2026-gosl",
+   "project_id": "fuel-price-stabilisation-subsidy-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "supreme-court-efiling-system-gosl",
+   "project_id": "supreme-court-efiling-system",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka / Sri Lanka Telecom",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "aswesuma-march-2026-elderly-payments-gosl",
+   "project_id": "aswesuma-march-2026-elderly-payments",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "sjp-hospital-4d-angio-ct-dental-unit-japan",
+   "project_id": "sjp-hospital-4d-angio-ct-dental-unit",
+   "funder": "japan",
+   "funder_name": "Government of Japan",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "bus-fare-increase-2026-gosl",
+   "project_id": "bus-fare-increase-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "fuel-needs-data-collection-food-transport-gosl",
+   "project_id": "fuel-needs-data-collection-food-transport",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "sapugaskanda-refinery-expansion-gosl",
+   "project_id": "sapugaskanda-refinery-expansion",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "new-oil-refinery-100000bpd-gosl",
+   "project_id": "new-oil-refinery-100000bpd",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "hatton-fuel-station-security-deployment-gosl",
+   "project_id": "hatton-fuel-station-security-deployment",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "in_kind",
+   "purpose": "programme"
+  },
+  {
+   "id": "mannar-dorni-gas-exploration-gosl",
+   "project_id": "mannar-dorni-gas-exploration",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "sarp-sdb-moa-signing",
+   "project_id": "sarp-small-scale-agri-resilience-project",
+   "funder": "private",
+   "funder_name": "Sanasa Development Bank (SDB)",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "export-priority-fuel-allocation-gosl",
+   "project_id": "export-priority-fuel-allocation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "fuel-gas-coal-emergency-procurement-mideast-2026-gosl",
+   "project_id": "fuel-gas-coal-emergency-procurement-mideast-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "russia-oil-procurement-negotiation-2026-russia",
+   "project_id": "russia-oil-procurement-negotiation-2026",
+   "funder": "other:russia",
+   "funder_name": "Russian Government",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "bribery-commission-staff-salary-structure-gosl",
+   "project_id": "bribery-commission-staff-salary-structure",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "kandy-hisathel-gaama-state-festival-gosl",
+   "project_id": "kandy-hisathel-gaama-state-festival",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "student-nurse-trainee-recruitment-2918-gosl",
+   "project_id": "student-nurse-trainee-recruitment-2918",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "litro-lpg-price-increase-2026-gosl",
+   "project_id": "litro-lpg-price-increase-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka / Litro Gas Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "unknown"
+  },
+  {
+   "id": "retail-fuel-price-increase-march2026-gosl",
+   "project_id": "retail-fuel-price-increase-march2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "unknown"
+  },
+  {
+   "id": "mahapola-scholarship-increase-2026-gosl",
+   "project_id": "mahapola-scholarship-increase-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "spice-cluster-villages-programme-2026-gosl",
+   "project_id": "spice-cluster-villages-programme-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "muthurajawela-fuel-storage-tank-construction-gosl",
+   "project_id": "muthurajawela-fuel-storage-tank-construction",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "motor-traffic-department-corruption-investigation-gosl",
+   "project_id": "motor-traffic-department-corruption-investigation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "unknown"
+  },
+  {
+   "id": "japan-low-floor-bus-donation-japan",
+   "project_id": "japan-low-floor-bus-donation",
+   "funder": "japan",
+   "funder_name": "Government of Japan",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "accident-emergency-care-directorate-gosl",
+   "project_id": "accident-emergency-care-directorate",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "fuel-price-stabilisation-subsidy-2026-gosl-govt_authorised-2026-03-31",
+   "line_id": "fuel-price-stabilisation-subsidy-2026-gosl",
+   "date": "2026-03-31",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves subsidy payments to fuel importers to cap prices",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-31-adalk-84b3d17b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "q2-2026-electricity-tariff-revision-gosl-govt_authorised-2026-03-30",
+   "line_id": "q2-2026-electricity-tariff-revision-gosl",
+   "date": "2026-03-30",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "PUCSL approves Q2 2026 electricity tariff increase effective April 1",
+   "confidence": "high",
+   "reports": [
+    "2026-03-30-adalk-f74462c1"
+   ],
+   "relation": "update_of:q2-2026-electricity-tariff-revision-gosl-proposed-2026-02-14",
+   "notes": null
+  },
+  {
+   "id": "supreme-court-efiling-system-gosl-launched-2026-03-26",
+   "line_id": "supreme-court-efiling-system-gosl",
+   "date": "2026-03-26",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Supreme Court holds first paperless e-filing court hearing",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-29-adalk-1753b21a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-march-2026-elderly-payments-gosl-released-2026-03-26",
+   "line_id": "aswesuma-march-2026-elderly-payments-gosl",
+   "date": "2026-03-26",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 3112310000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "March elderly allowance paid to 622,462 Aswesuma beneficiaries",
+   "confidence": "high",
+   "reports": [
+    "2026-03-26-adalk-5d9c65ff"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-march-2026-elderly-payments-gosl-allocated-2026-03-26",
+   "line_id": "aswesuma-march-2026-elderly-payments-gosl",
+   "date": "2026-03-26",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 356695000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Second phase elderly allowance planned for 71,339 beneficiaries",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-26-adalk-5d9c65ff"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sjp-hospital-4d-angio-ct-dental-unit-japan-launched-2026-03-25",
+   "line_id": "sjp-hospital-4d-angio-ct-dental-unit-japan",
+   "date": "2026-03-25",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 1016000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan grant funds 4D Angio CT and dental unit at Sri Jayawardenepura Hospital",
+   "confidence": "high",
+   "reports": [
+    "2026-03-25-adalk-c2cdb20d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "bus-fare-increase-2026-gosl-proposed-2026-03-22",
+   "line_id": "bus-fare-increase-2026-gosl",
+   "date": "2026-03-22",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet to approve 10% bus fare increase",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-22-adalk-d5744770"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fuel-needs-data-collection-food-transport-gosl-launched-2026-03-22",
+   "line_id": "fuel-needs-data-collection-food-transport-gosl",
+   "date": "2026-03-22",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government launches fuel-needs data collection for food transport",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-22-adalk-6474db90"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "microfinance-credit-regulatory-authority-gosl-govt_authorised-2026-03-20",
+   "line_id": "microfinance-credit-regulatory-authority-gosl",
+   "date": "2026-03-20",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Microfinance and Credit Regulatory Authority Act certified into law",
+   "confidence": "high",
+   "reports": [
+    "2026-03-20-adalk-14101f4d"
+   ],
+   "relation": "update_of:microfinance-credit-regulatory-authority-gosl-proposed-2025-11-23",
+   "notes": null
+  },
+  {
+   "id": "sapugaskanda-refinery-expansion-gosl-spent-2026-03-20",
+   "line_id": "sapugaskanda-refinery-expansion-gosl",
+   "date": "2026-03-20",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 1684530000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Spent on unimplemented Sapugaskanda refinery expansion feasibility, land",
+   "confidence": "high",
+   "reports": [
+    "2026-03-20-adalk-a2fac8e3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "new-oil-refinery-100000bpd-gosl-proposed-2026-03-20",
+   "line_id": "new-oil-refinery-100000bpd-gosl",
+   "date": "2026-03-20",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Expressions of interest called for new 100,000-barrel refinery",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-20-adalk-a2fac8e3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "hatton-fuel-station-security-deployment-gosl-launched-2026-03-20",
+   "line_id": "hatton-fuel-station-security-deployment-gosl",
+   "date": "2026-03-20",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Military deployed alongside police at Hatton fuel stations",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-20-adalk-05479111"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mannar-dorni-gas-exploration-gosl-govt_authorised-2025-05-01",
+   "line_id": "mannar-dorni-gas-exploration-gosl",
+   "date": "2025-05-01",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved licensing round for Mannar gas exploration blocks",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-20-adalk-0d45488e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mannar-dorni-gas-exploration-gosl-spent-2016-01-01",
+   "line_id": "mannar-dorni-gas-exploration-gosl",
+   "date": "2016-01-01",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 46610000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Spent on consultant to find investor for Mannar gas field",
+   "confidence": "low",
+   "reports": [
+    "2026-03-20-adalk-0d45488e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sarp-sdb-moa-signing-agreement_signed-2026-03-19",
+   "line_id": "sarp-sdb-moa-signing",
+   "date": "2026-03-19",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "SDB Bank signs MoU to co-finance IFAD-backed rural agri project",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-19-adalk-4fd1e74c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "export-priority-fuel-allocation-gosl-launched-2026-03-19",
+   "line_id": "export-priority-fuel-allocation-gosl",
+   "date": "2026-03-19",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government launches priority fuel allocation program for exporters",
+   "confidence": "low",
+   "reports": [
+    "2026-03-19-adalk-eb06906d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fuel-gas-coal-emergency-procurement-mideast-2026-gosl-govt_authorised-2026-03-17",
+   "line_id": "fuel-gas-coal-emergency-procurement-mideast-2026-gosl",
+   "date": "2026-03-17",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves non-standard procurement of fuel, gas, coal",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-17-adalk-dd81fe5e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fuel-gas-coal-emergency-procurement-mideast-2026-gosl-launched-2026-03-15",
+   "line_id": "fuel-gas-coal-emergency-procurement-mideast-2026-gosl",
+   "date": "2026-03-15",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Energy Ministry reactivates fuel QR code rationing system",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-15-adalk-edf3cd1e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fuel-gas-coal-emergency-procurement-mideast-2026-gosl-launched-2026-03-16",
+   "line_id": "fuel-gas-coal-emergency-procurement-mideast-2026-gosl",
+   "date": "2026-03-16",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "CPC confirms QR fuel rationing underway, no shortage",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-16-adalk-88e0a32d"
+   ],
+   "relation": "repeat_of:fuel-gas-coal-emergency-procurement-mideast-2026-gosl-launched-2026-03-15",
+   "notes": null
+  },
+  {
+   "id": "russia-oil-procurement-negotiation-2026-russia-proposed-2026-03-15",
+   "line_id": "russia-oil-procurement-negotiation-2026-russia",
+   "date": "2026-03-15",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka requests Russia's help to buy oil amid crisis",
+   "confidence": "low",
+   "reports": [
+    "2026-03-15-adalk-443a3d90"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "bribery-commission-staff-salary-structure-gosl-govt_authorised-2026-03-14",
+   "line_id": "bribery-commission-staff-salary-structure-gosl",
+   "date": "2026-03-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Finance Committee approves salary structure for Bribery Commission staff",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-14-adalk-bc181228"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kandy-hisathel-gaama-state-festival-gosl-proposed-2026-03-13",
+   "line_id": "kandy-hisathel-gaama-state-festival-gosl",
+   "date": "2026-03-13",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "State Hisathel Gaama ceremony planned at Kandy Nata Devalaya",
+   "confidence": "low",
+   "reports": [
+    "2026-03-13-adalk-9392fab9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "student-nurse-trainee-recruitment-2918-gosl-launched-2026-03-14",
+   "line_id": "student-nurse-trainee-recruitment-2918-gosl",
+   "date": "2026-03-14",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Health Ministry issues appointment letters to 2,918 student nurses",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-12-adalk-54cda4bb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "vehicle-number-plate-printing-gosl-agreement_signed-2026-03-10",
+   "line_id": "vehicle-number-plate-printing-gosl",
+   "date": "2026-03-10",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "New company contracted to print vehicle number plates",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-11-adalk-47dc8136"
+   ],
+   "relation": "update_of:vehicle-number-plate-printing-gosl-contract_awarded-2026-02-08",
+   "notes": null
+  },
+  {
+   "id": "litro-lpg-price-increase-2026-gosl-govt_authorised-2026-03-10",
+   "line_id": "litro-lpg-price-increase-2026-gosl",
+   "date": "2026-03-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Litro raises domestic LPG cylinder prices by Rs. 300",
+   "confidence": "high",
+   "reports": [
+    "2026-03-11-adalk-890ad943"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "retail-fuel-price-increase-march2026-gosl-govt_authorised-2026-03-09",
+   "line_id": "retail-fuel-price-increase-march2026-gosl",
+   "date": "2026-03-09",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Fuel pump prices raised amid depleted reserves and Mideast crisis",
+   "confidence": "low",
+   "reports": [
+    "2026-03-10-adalk-525fd7cd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mahapola-scholarship-increase-2026-gosl-released-2026-03-10",
+   "line_id": "mahapola-scholarship-increase-2026-gosl",
+   "date": "2026-03-10",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 10000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Increased Mahapola scholarship allowance released to students' accounts",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-09-adalk-108f9442"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "spice-cluster-villages-programme-2026-gosl-launched-2026-03-10",
+   "line_id": "spice-cluster-villages-programme-2026-gosl",
+   "date": "2026-03-10",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Export Agriculture Dept launches 200 spice cluster villages programme",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-09-adalk-e8c21581"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kolonnawa-fuel-tank-replacement-cpstc-gosl-underway-2026-03-08",
+   "line_id": "kolonnawa-fuel-tank-replacement-cpstc-gosl",
+   "date": "2026-03-08",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 3374000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Construction of six new fuel tanks at Kolonnawa terminal underway",
+   "confidence": "high",
+   "reports": [
+    "2026-03-08-adalk-6db865ed"
+   ],
+   "relation": "update_of:kolonnawa-fuel-tank-replacement-cpstc-gosl-govt_authorised-2025-11-11",
+   "notes": null
+  },
+  {
+   "id": "kolonnawa-fuel-tank-replacement-cpstc-gosl-cost_estimate-2026-03-08",
+   "line_id": "kolonnawa-fuel-tank-replacement-cpstc-gosl",
+   "date": "2026-03-08",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 1470400000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Planned two more fuel tanks at Kolonnawa terminal estimated",
+   "confidence": "medium",
+   "reports": [
+    "2026-03-08-adalk-6db865ed"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "muthurajawela-fuel-storage-tank-construction-gosl-govt_authorised-2026-03-08",
+   "line_id": "muthurajawela-fuel-storage-tank-construction-gosl",
+   "date": "2026-03-08",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 3496000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves three new fuel storage tanks at Muthurajawela",
+   "confidence": "high",
+   "reports": [
+    "2026-03-08-adalk-6db865ed"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "motor-traffic-department-corruption-investigation-gosl-govt_authorised-2026-03-04",
+   "line_id": "motor-traffic-department-corruption-investigation-gosl",
+   "date": "2026-03-04",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "COPE approves sending DMT corruption report to Attorney General",
+   "confidence": "high",
+   "reports": [
+    "2026-03-06-adalk-4e4b163a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-low-floor-bus-donation-japan-govt_authorised-2026-03-04",
+   "line_id": "japan-low-floor-bus-donation-japan",
+   "date": "2026-03-04",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves accepting 8 used low-floor buses from Japan",
+   "confidence": "high",
+   "reports": [
+    "2026-03-04-adalk-42630253"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "accident-emergency-care-directorate-gosl-govt_authorised-2026-03-04",
+   "line_id": "accident-emergency-care-directorate-gosl",
+   "date": "2026-03-04",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves new accident and emergency healthcare directorate",
+   "confidence": "high",
+   "reports": [
+    "2026-03-04-adalk-a67bbeff"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-03-31-adalk-84b3d17b": {
+   "date": "2026-03-31",
+   "title": "ඉන්ධන මිලට රජයෙන් සහනයක්",
+   "url": "https://www.ada.lk/breaking_news/ඉන්ධන-මිලට-රජයෙන්-සහනයක්/11-421908",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-30-adalk-f74462c1": {
+   "date": "2026-03-30",
+   "title": "විදුලි ගාස්තු ඉහළට",
+   "url": "https://www.ada.lk/breaking_news/විදුලි-ගාස්තු-ඉහළට/11-421889",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-29-adalk-1753b21a": {
+   "date": "2026-03-29",
+   "title": "ශ්‍රේෂ්ඨාධිකරණය භෞතික නඩු ගොනු රහිතව නඩු විමසයි",
+   "url": "https://www.ada.lk/breaking_news/ශ්‍රේෂ්ඨාධිකරණය-භෞතික-නඩු-ගොනු-රහිතව-නඩු-විමසයි/11-421874",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-26-adalk-5d9c65ff": {
+   "date": "2026-03-26",
+   "title": "වැඩිහිටියන්ගේ අස්වැසුම ප්‍රතිලාභය අද බැංකු ගිණුම්වලට",
+   "url": "https://www.ada.lk/breaking_news/වැඩිහිටියන්ගේ-අස්වැසුම-ප්‍රතිලාභය-අද-බැංකු-ගිණුම්වලට/11-421844",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-25-adalk-c2cdb20d": {
+   "date": "2026-03-25",
+   "title": "දකුණු ආසියාවටම එකයි ඒකත් ජපුර රෝහලට",
+   "url": "https://www.ada.lk/breaking_news/දකුණු-ආසියාවටම-එකයි-ඒකත්-ජපුර-රෝහලට/11-421818",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-22-adalk-d5744770": {
+   "date": "2026-03-22",
+   "title": "බස් ගාස්තුව සියයට 10කින් ඉහළට?",
+   "url": "https://www.ada.lk/breaking_news/බස්-ගාස්තුව-සියයට-10කින්-ඉහළට-/11-421781",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-22-adalk-6474db90": {
+   "date": "2026-03-22",
+   "title": "ආහාර බෙදාහැරීම් සහ ප්‍රවාහන අංශයේ  ඉන්ධන අවශ්‍යතා පිළිබඳ දත්ත රැස්කරයි",
+   "url": "https://www.ada.lk/breaking_news/ආහාර-බෙදාහැරීම්-සහ-ප්‍රවාහන-අංශයේ--ඉන්ධන-අවශ්‍යතා-පිළිබඳ-දත්ත-රැස්කරයි/11-421778",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-20-adalk-14101f4d": {
+   "date": "2026-03-20",
+   "title": "ක්ෂුද්‍ර මුල්‍ය සහ ණය නියාමන අධිකාරිය පනතට කථානායක සහතිකය",
+   "url": "https://www.ada.lk/breaking_news/ක්ෂුද්‍ර-මුල්‍ය-සහ-ණය-නියාමන-අධිකාරිය-පනතට-කථානායක-සහතිකය/11-421760",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-20-adalk-a2fac8e3": {
+   "date": "2026-03-20",
+   "title": "සපුගස්කන්ද ලොකු කරන්න රු මි 1684ක් වැය කළත් ව්‍යාපෘතියක් ක්‍රියාත්මක වෙලා නෑ",
+   "url": "https://www.ada.lk/breaking_news/සපුගස්කන්ද-ලොකු-කරන්න-රු-මි-1684ක්-වැය-කළත්-ව්‍යාපෘතියක්-ක්‍රියාත්මක-වෙලා-නෑ/11-421759",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-20-adalk-05479111": {
+   "date": "2026-03-20",
+   "title": "ඉන්ධන පිරවුම්හල්වලට පොලිසියට අමතරව යුධ හමුදා ආරක්ෂාව",
+   "url": "https://www.ada.lk/breaking_news/ඉන්ධන-පිරවුම්හල්වලට-පොලිසියට-අමතරව-යුධ-හමුදා-ආරක්ෂාව/11-421751",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-20-adalk-0d45488e": {
+   "date": "2026-03-20",
+   "title": "මන්නාරමෙන් ගෑස් ගන්න තවමත් ආයෝජකයෙක් හොයා ගන්න බැරිවෙලා",
+   "url": "https://www.ada.lk/breaking_news/මන්නාරමෙන්-ගෑස්-ගන්න-තවමත්-ආයෝජකයෙක්-හොයා-ගන්න-බැරිවෙලා/11-421750",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-19-adalk-4fd1e74c": {
+   "date": "2026-03-19",
+   "title": "ග්‍රාමීය කෘෂි ව්‍යාපාර ශක්තිමත් කිරීමට SDB බැංකුව පෙරට එයි",
+   "url": "https://www.ada.lk/business/ග්‍රාමීය-කෘෂි-ව්‍යාපාර-ශක්තිමත්-කිරීමට-SDB-බැංකුව-පෙරට-එයි/7-421729",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-19-adalk-eb06906d": {
+   "date": "2026-03-19",
+   "title": "අපනයනකරුවන් සඳහා ප්‍රමුඛතා පදනම මත ඉන්ධන දීමට පියවර",
+   "url": "https://www.ada.lk/business/අපනයනකරුවන්-සඳහා-ප්‍රමුඛතා-පදනම-මත-ඉන්ධන-දීමට-පියවර/7-421728",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-17-adalk-dd81fe5e": {
+   "date": "2026-03-17",
+   "title": "සම්මත ප්‍රසම්පාදනයෙන් තොරව ගෑස්, තෙල් හා ගල් ඇඟුරු මිලදී ගන්න අනුමැතිය",
+   "url": "https://www.ada.lk/breaking_news/සම්මත-ප්‍රසම්පාදනයෙන්-තොරව-ගෑස්--තෙල්-හා-ගල්-ඇඟුරු-මිලදී-ගන්න-අනුමැතිය/11-421699",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-16-adalk-88e0a32d": {
+   "date": "2026-03-16",
+   "title": "පෝලිම්වල ඉන්න එපා, ඉන්ධන හිඟයක් හෝ සැපයුමේ බාධාවක් නෑ",
+   "url": "https://www.ada.lk/breaking_news/පෝලිම්වල-ඉන්න-එපා--ඉන්ධන-හිඟයක්-හෝ-සැපයුමේ-බාධාවක්-නෑ/11-421669",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-15-adalk-443a3d90": {
+   "date": "2026-03-15",
+   "title": "රුසියානු තෙල් ගන්න සාකච්ඡාවක්",
+   "url": "https://www.ada.lk/breaking_news/රුසියානු-තෙල්-ගන්න-සාකච්ඡාවක්/11-421660",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-15-adalk-edf3cd1e": {
+   "date": "2026-03-15",
+   "title": "ඉන්ධන සඳහා QR කේතය යළි අද සිට ක්‍රියාත්මකයි",
+   "url": "https://www.ada.lk/breaking_news/ඉන්ධන-සඳහා-QR-කේතය-යළි-අද-සිට-ක්‍රියාත්මකයි/11-421657",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-14-adalk-bc181228": {
+   "date": "2026-03-14",
+   "title": "අල්ලස් ‍කොමිසමේ වැටුප් යෝජනාවට මුදල් කාරක සභාවේ අනුමතිය",
+   "url": "https://www.ada.lk/breaking_news/අල්ලස්-‍කොමිසමේ-වැටුප්-යෝජනාවට-මුදල්-කාරක-සභාවේ-අනුමතිය/11-421656",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-13-adalk-9392fab9": {
+   "date": "2026-03-13",
+   "title": "හිසතෙල් ගෑමේ රාජ්‍ය උත්සවය මහනුවර නාථ දේවාලයේදී",
+   "url": "https://www.ada.lk/breaking_news/හිසතෙල්-ගෑමේ-රාජ්‍ය-උත්සවය-මහනුවර-නාථ-දේවාලයේදී/11-421649",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-12-adalk-54cda4bb": {
+   "date": "2026-03-12",
+   "title": "සිසු හෙද පුහුණුවට 2918 කට පත්වීම් ලිපි ප්‍රදානය අනිද්දා",
+   "url": "https://www.ada.lk/breaking_news/සිසු-හෙද-පුහුණුවට-2918-කට-පත්වීම්-ලිපි-ප්‍රදානය-අනිද්දා/11-421632",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-11-adalk-47dc8136": {
+   "date": "2026-03-11",
+   "title": "වාහන අංක තහඩු මුද්‍රණය කඩිනමින්",
+   "url": "https://www.ada.lk/breaking_news/වාහන-අංක-තහඩු-මුද්‍රණය-කඩිනමින්/11-421611",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-11-adalk-890ad943": {
+   "date": "2026-03-11",
+   "title": "ලිට්‍රෝ ගෑස් මිල ඉහළට",
+   "url": "https://www.ada.lk/breaking_news/ලිට්‍රෝ-ගෑස්-මිල-ඉහළට/11-421605",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-10-adalk-525fd7cd": {
+   "date": "2026-03-10",
+   "title": "තෙල්මිල වැඩි කිරීම මගින් ජනතාව තෙල් පරිභෝජනය සීමා කරාවි",
+   "url": "https://www.ada.lk/breaking_news/තෙල්මිල-වැඩි-කිරීම-මගින්-ජනතාව-තෙල්-පරිභෝජනය-සීමා-කරාවි/11-421601",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-09-adalk-108f9442": {
+   "date": "2026-03-09",
+   "title": "රු. 10000ක මහපොළ දිමනාව හෙට බැංකුවට",
+   "url": "https://www.ada.lk/breaking_news/රු--10000ක-මහපොළ-දිමනාව-හෙට-බැංකුවට/11-421584",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-09-adalk-e8c21581": {
+   "date": "2026-03-09",
+   "title": "2026 වසර තුළ කුළුබඩු පොකුරු ගම්මාන 200 ක් ඇරඹීමට පියවර",
+   "url": "https://www.ada.lk/breaking_news/2026-වසර-තුළ-කුළුබඩු-පොකුරු-ගම්මාන-200-ක්-ඇරඹීමට-පියවර/11-421575",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-08-adalk-6db865ed": {
+   "date": "2026-03-08",
+   "title": "තොග ගබඩා පර්යන්තය සතුව ඇත්තේ ටොන් 440147ක ගබඩා ධාරිතාවක් පමණයි",
+   "url": "https://www.ada.lk/breaking_news/තොග-ගබඩා-පර්යන්තය-සතුව-ඇත්තේ-ටොන්-440147ක-ගබඩා-ධාරිතාවක්-පමණයි/11-421558",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-06-adalk-4e4b163a": {
+   "date": "2026-03-06",
+   "title": "ඩී.එම්.ටී. අක්‍රමිකතා වාර්තාව නීතිපතිට",
+   "url": "https://www.ada.lk/breaking_news/ඩී-එම්-ටී--අක්‍රමිකතා-වාර්තාව-නීතිපතිට/11-421548",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-04-adalk-42630253": {
+   "date": "2026-03-04",
+   "title": "පත්ල පහත් භාවිත කළ බස් රථ 8ක් ජපානය ප්‍රදානයක් ලෙස දෙයි",
+   "url": "https://www.ada.lk/breaking_news/පත්ල-පහත්-භාවිත-කළ-බස්-රථ-8ක්-ජපානය-ප්‍රදානයක්-ලෙස-දෙයි/11-421512",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-03-04-adalk-a67bbeff": {
+   "date": "2026-03-04",
+   "title": "හදිසි අනතුරු සහ හදිසි ප්‍රතිකාර පද්ධතියේ ගුණාත්මක වැඩිකිරීමක්",
+   "url": "https://www.ada.lk/breaking_news/හදිසි-අනතුරු-සහ-හදිසි-ප්‍රතිකාර-පද්ධතියේ-ගුණාත්මක-වැඩිකිරීමක්/11-421506",
+   "outlet": "Ada",
+   "lang": "si"
+  }
+ }
+}

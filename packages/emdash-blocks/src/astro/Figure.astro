@@ -1,0 +1,38 @@
+---
+import { Figure as FigureIsland } from '@developing-country/figures'
+import '@developing-country/figures/styles.css'
+import { figureIslandConfig, safeFigureViewUrl, safeUnderlayUrls } from '../figure-view'
+
+interface Props {
+  node?: Record<string, unknown>
+  value?: Record<string, unknown>
+  /** Dev fixtures only; ignored outside `astro dev`. */
+  devApiBase?: string
+}
+
+const node = Astro.props.node ?? Astro.props.value ?? {}
+const configuredOrigin = import.meta.env.PUBLIC_DATA_VIEW_ORIGIN || undefined
+const viewUrl = safeFigureViewUrl(node.view_url, Astro.url.origin, configuredOrigin)
+// Fail closed: one non-canonical underlay disables the whole figure.
+const underlayUrls = safeUnderlayUrls(node.underlay_urls, Astro.url.origin, configuredOrigin)
+const config = figureIslandConfig({
+  configuredOrigin,
+  tileBase: import.meta.env.PUBLIC_TILE_BASE,
+  devApiBase: import.meta.env.DEV ? Astro.props.devApiBase : undefined,
+})
+const size = node.size === 'wide' || node.size === 'full' ? node.size : 'inline'
+const title = typeof node.title === 'string' && node.title.trim() ? node.title.trim() : undefined
+const caption = typeof node.caption === 'string' && node.caption.trim() ? node.caption.trim() : undefined
+---
+
+{viewUrl && underlayUrls ? (
+  <div class={`dc-block dc-block--${size}`} data-dc-block="figure">
+    <FigureIsland client:only="react" viewUrl={viewUrl} underlayUrls={underlayUrls} title={title} caption={caption} size={size} config={config} >
+      <div slot="fallback" class="dcf-island-fallback" data-kind="figure" aria-hidden="true"></div>
+    </FigureIsland>
+  </div>
+) : (
+  <aside class="dc-live-view dc-live-view--invalid" role="note">
+    Figure unavailable: the view and every underlay need a canonical <code>/views/view_…</code> link from the platform.
+  </aside>
+)}

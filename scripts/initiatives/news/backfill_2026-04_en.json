@@ -1,0 +1,276 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-04-01",
+  "2026-04-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 14,
+ "rejected": 8,
+ "rejected_ids": [
+  "2026-04-02-dailyftlk-88d60dd2",
+  "2026-04-03-dailyftlk-91d1e3fb",
+  "2026-04-19-islandlk-39be9c6c",
+  "2026-04-23-dailyftlk-f6e27c8c",
+  "2026-04-27-dailyftlk-173d0745",
+  "2026-04-27-islandlk-fd04b641",
+  "2026-04-30-dailyftlk-4ed036df",
+  "2026-04-30-dailyftlk-dd7677a9"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "estate-workers-ditwah-housing-scheme",
+   "name": "Housing scheme for estate workers affected by Cyclone Ditwah",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jure-justice-sector-project",
+   "name": "Support to Justice Sector Project (JURE) - Management Information System",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "vulnerable-youth-housing-assistance-scheme",
+   "name": "Housing assistance scheme for vulnerable youth and families leaving institutional care",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "peoples-bank-donation-rebuilding-sl",
+   "project_id": "rebuilding-sri-lanka-fund-ditwah",
+   "funder": "private",
+   "funder_name": "People's Bank",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "ftzma-donation-rebuilding-sl",
+   "project_id": "rebuilding-sri-lanka-fund-ditwah",
+   "funder": "private",
+   "funder_name": "Free Trade Zone Manufacturers Association (FTZMA)",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "estate-workers-ditwah-housing-scheme-gosl",
+   "project_id": "estate-workers-ditwah-housing-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "jure-eu-mis-line",
+   "project_id": "jure-justice-sector-project",
+   "funder": "eu",
+   "funder_name": "European Union",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "vulnerable-youth-housing-assistance-scheme-gosl",
+   "project_id": "vulnerable-youth-housing-assistance-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "peoples-bank-donation-rebuilding-sl-disbursed-2026-04-24",
+   "line_id": "peoples-bank-donation-rebuilding-sl",
+   "date": "2026-04-24",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 300000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "People's Bank donates Rs. 300 million to housing fund",
+   "confidence": "high",
+   "reports": [
+    "2026-04-24-islandlk-c1ede586"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ftzma-donation-rebuilding-sl-disbursed-2026-04-11",
+   "line_id": "ftzma-donation-rebuilding-sl",
+   "date": "2026-04-11",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 5000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "FTZMA donates Rs. 5 million to Rebuilding Sri Lanka Fund",
+   "confidence": "high",
+   "reports": [
+    "2026-04-11-dailyftlk-2cd6f408"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-proposed-2026-04-09",
+   "line_id": "imf-eff-loan",
+   "date": "2026-04-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 700000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka reaches IMF staff-level deal for next tranche",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-09-islandlk-6b4e9cf6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "estate-workers-ditwah-housing-scheme-gosl-govt_authorised-2026-04-08",
+   "line_id": "estate-workers-ditwah-housing-scheme-gosl",
+   "date": "2026-04-08",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 5000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs. 5m per household housing scheme for estate workers",
+   "confidence": "high",
+   "reports": [
+    "2026-04-08-dailyftlk-37c2b194"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jure-eu-mis-line-launched-2026-04-03",
+   "line_id": "jure-eu-mis-line",
+   "date": "2026-04-03",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Justice Ministry launches EU-funded case management information system",
+   "confidence": "high",
+   "reports": [
+    "2026-04-03-islandlk-0d86ba14"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "vulnerable-youth-housing-assistance-scheme-gosl-govt_authorised-2026-04-02",
+   "line_id": "vulnerable-youth-housing-assistance-scheme-gosl",
+   "date": "2026-04-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 2000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet expands housing assistance scheme for vulnerable youth",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-02-dailyftlk-315be6b3"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-04-24-islandlk-c1ede586": {
+   "date": "2026-04-24",
+   "title": "People’s Bank donates Rs. 300 million to the Rebuilding Sri Lanka Fund",
+   "url": "http://island.lk/peoples-bank-donates-rs-300-million-to-the-rebuilding-sri-lanka-fund/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2026-04-11-dailyftlk-2cd6f408": {
+   "date": "2026-04-11",
+   "title": "FTZMA contributes Rs. 5 m to ‘Rebuilding Sri Lanka’ Fund",
+   "url": "https://www.ft.lk/news/FTZMA-contributes-Rs-5-m-to-Rebuilding-Sri-Lanka-Fund/56-790783",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-04-09-islandlk-6b4e9cf6": {
+   "date": "2026-04-09",
+   "title": "Sri Lanka secures IMF staff-level deal for USD 700 million tranche",
+   "url": "http://island.lk/sri-lanka-secures-imf-staff-level-deal-for-usd-700-million-tranche/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2026-04-08-dailyftlk-37c2b194": {
+   "date": "2026-04-08",
+   "title": "Cabinet approves Rs. 5 m housing scheme for estate workers hit by Cyclone Ditwah",
+   "url": "https://www.ft.lk/news/Cabinet-approves-Rs-5-m-housing-scheme-for-estate-workers-hit-by-Cyclone-Ditwah/56-790622",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-04-03-islandlk-0d86ba14": {
+   "date": "2026-04-03",
+   "title": "Ministry of Justice launches management information system to enhance efficiency",
+   "url": "http://island.lk/ministry-of-justice-launches-management-information-system-to-enhance-efficiency/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2026-04-02-dailyftlk-315be6b3": {
+   "date": "2026-04-02",
+   "title": "Cabinet expands housing assistance scheme for vulnerable youth and families",
+   "url": "https://www.ft.lk/news/Cabinet-expands-housing-assistance-scheme-for-vulnerable-youth-and-families/56-790403",
+   "outlet": "Daily FT",
+   "lang": "en"
+  }
+ }
+}

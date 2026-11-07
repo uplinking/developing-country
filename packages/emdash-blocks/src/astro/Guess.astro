@@ -1,0 +1,53 @@
+---
+import { Guess as GuessIsland } from '@developing-country/figures'
+import '@developing-country/figures/styles.css'
+import { figureIslandConfig, numberField, safeFigureViewUrl, textField } from '../figure-view'
+
+interface Props {
+  node?: Record<string, unknown>
+  value?: Record<string, unknown>
+  devApiBase?: string
+}
+
+const node = Astro.props.node ?? Astro.props.value ?? {}
+const configuredOrigin = import.meta.env.PUBLIC_DATA_VIEW_ORIGIN || undefined
+const viewUrl = safeFigureViewUrl(node.view_url, Astro.url.origin, configuredOrigin)
+const config = figureIslandConfig({
+  configuredOrigin,
+  devApiBase: import.meta.env.DEV ? Astro.props.devApiBase : undefined,
+})
+const guessId = textField(node, 'guess_id')
+const question = textField(node, 'question')
+const field = textField(node, 'field')
+const min = numberField(node, 'min')
+const max = numberField(node, 'max')
+---
+
+{viewUrl && guessId && question && field && min !== undefined && max !== undefined && max > min ? (
+  <div class="dc-block dc-block--inline" data-dc-block="guess">
+    <GuessIsland
+      client:only="react"
+      view_url={viewUrl}
+      guess_id={guessId}
+      question={question}
+      field={field}
+      min={min}
+      max={max}
+      step={numberField(node, 'step')}
+      unit={textField(node, 'unit')}
+      format={textField(node, 'format')}
+      reveal_hint={textField(node, 'reveal_hint')}
+      where_field={textField(node, 'where_field')}
+      where_value={textField(node, 'where_value')}
+      aggregate={textField(node, 'aggregate')}
+      scale={numberField(node, 'scale')}
+      config={config}
+    >
+      <div slot="fallback" class="dcf-island-fallback" data-kind="guess" aria-hidden="true"></div>
+    </GuessIsland>
+  </div>
+) : (
+  <aside class="dc-live-view dc-live-view--invalid" role="note">
+    Guess unavailable: it needs a guess id, a question, a field, a min below its max and a canonical <code>/views/view_…</code> link.
+  </aside>
+)}

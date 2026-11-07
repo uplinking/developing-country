@@ -1,0 +1,1583 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-04-01",
+  "2026-04-31"
+ ],
+ "upstream": "nuuuwan/lk_news@7c98b51874e343a55176ce773acd06a36d320d1e",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-06",
+ "language": "si",
+ "articles_read": 72,
+ "rejected": 40,
+ "rejected_ids": [
+  "2026-04-02-adalk-929f2cdb",
+  "2026-04-03-adalk-5402b3c0",
+  "2026-04-05-adalk-35812898",
+  "2026-04-06-adalk-355a8034",
+  "2026-04-07-adalk-9c880941",
+  "2026-04-07-adalk-ff37eca0",
+  "2026-04-08-adalk-f42b83ab",
+  "2026-04-08-adalk-f933816a",
+  "2026-04-09-adalk-5ff73dfd",
+  "2026-04-09-adalk-d1a9677b",
+  "2026-04-10-adalk-15347f4d",
+  "2026-04-10-adalk-4b4b577a",
+  "2026-04-12-adalk-a20a43e0",
+  "2026-04-16-adalk-211d43cb",
+  "2026-04-16-adalk-e98b8125",
+  "2026-04-21-adalk-ab0b2cec",
+  "2026-04-22-adalk-0ce4522f",
+  "2026-04-22-adalk-c92f7fb7",
+  "2026-04-23-adalk-27c84733",
+  "2026-04-23-adalk-8ba49282",
+  "2026-04-23-adalk-8c3cc252",
+  "2026-04-23-adalk-9cbac6a1",
+  "2026-04-23-adalk-fc37ffd2",
+  "2026-04-24-adalk-0506b0f5",
+  "2026-04-24-adalk-aeb1a565",
+  "2026-04-24-adalk-cf5a0b82",
+  "2026-04-25-adalk-09174ea8",
+  "2026-04-26-adalk-155da2b1",
+  "2026-04-27-adalk-d97ec637",
+  "2026-04-28-adalk-4f427640",
+  "2026-04-29-adalk-09e4a5af",
+  "2026-04-29-adalk-11d6ea40",
+  "2026-04-29-adalk-2a11541f",
+  "2026-04-29-adalk-549a7842",
+  "2026-04-29-adalk-99e6837c",
+  "2026-04-29-adalk-c8502b9a",
+  "2026-04-30-adalk-419b577b",
+  "2026-04-30-adalk-ac306290",
+  "2026-04-30-adalk-b5d3dfda",
+  "2026-04-30-adalk-c6b277a9"
+ ],
+ "unattributed_ids": [],
+ "dropped": [
+  "line aswesuma-elderly-allowance-gosl"
+ ],
+ "projects": [
+  {
+   "id": "central-highlands-protection-authority",
+   "name": "New Authority for Central Highlands Environmental Protection",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Central Highlands",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "colombo-suburban-railway-electrification",
+   "name": "Colombo Suburban Railway Electrification Project",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ditwah-interim-housing-project",
+   "name": "Interim Housing Project for Cyclone Ditwah-Displaced Families",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "dambulla-hospital-central-transfer",
+   "name": "Dambulla Hospital Relocation and Transfer to Central Government",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Dambulla",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "temporary-staff-permanent-appointment-9800",
+   "name": "Permanent Appointment of 9,800 Temporary Public Servants",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "vehicle-number-plate-special-fee",
+   "name": "Special Vehicle Number Plate Fee Scheme",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kelani-valley-ratnapura-railway-extension",
+   "name": "Kelani Valley Railway Extension to Ratnapura",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Ratnapura",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "easter-sunday-commission-recommendations-implementation",
+   "name": "Implementation of Easter Sunday Attack Commission Recommendations",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-jsb-climate-resilience-gender-projects",
+   "name": "Japan Supplementary Budget projects for climate resilience and gender equality",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "coal-import-irregularities-presidential-commission",
+   "name": "Presidential Commission on coal import irregularities",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "victoria-reservoir-water-release-power-generation",
+   "name": "Decision to release Victoria reservoir water for power generation",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "health-ministry-154-staff-appointments",
+   "name": "Appointment of 154 new health sector staff",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "athlete-government-employment-programme",
+   "name": "State-Sector Employment Programme for Elite Athletes",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sl-2026-adb-financing-pledge",
+   "name": "ADB 2026 financing discussions with Sri Lanka",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "aswesuma-april-2026-special-allowance",
+   "name": "Aswesuma April 2026 Special Relief Allowance",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "electricity-low-usage-subsidy-2026",
+   "name": "Electricity subsidy for low-usage consumers (2026)",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fertilizer-subsidy-increase-yala-2026",
+   "name": "Fertiliser subsidy increase for Yala 2026 season",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fisheries-fuel-subsidy-2026",
+   "name": "Fuel subsidy for fishing boats (2026)",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fuel-petrol-diesel-price-relief-package-2026",
+   "name": "2026 Fuel Price Relief Package (Diesel/Petrol subsidy)",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "uva-temple-development-monaragala-badulla",
+   "name": "Uva Province Temple Development in Monaragala and Badulla",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Uva Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ceb-unauthorised-payments-audit-2024",
+   "name": "CEB Unauthorised Allowance and Interest Payments (2024 Audit)",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fertilizer-stock-unsold-2021-2022",
+   "name": "Unsold Organic Fertiliser Stock Purchase 2021-2022",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "wb-country-partnership-framework-2026-2030",
+   "name": "World Bank Country Partnership Framework for Sri Lanka 2026-2030",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "hisathel-gelveema-national-festival-2026",
+   "name": "Hisathel Gelveema National Festival 2026",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nwsdb-drought-water-management-plan",
+   "name": "NWSDB Drought Water Management Plan",
+   "sector": "water",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "national-oxygen-usage-guidelines-health",
+   "name": "National Guidelines for Hospital Oxygen Use",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "hambantota-port-container-capacity-expansion",
+   "name": "Hambantota Port Container Capacity Expansion",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Hambantota",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "russia-sri-lanka-energy-cooperation-2026",
+   "name": "Russia-Sri Lanka Energy Cooperation 2026",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "central-highlands-protection-authority-gosl",
+   "project_id": "central-highlands-protection-authority",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "colombo-suburban-railway-electrification-gosl",
+   "project_id": "colombo-suburban-railway-electrification",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "ditwah-interim-housing-project-gosl",
+   "project_id": "ditwah-interim-housing-project",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "mixed",
+   "purpose": "project"
+  },
+  {
+   "id": "dambulla-hospital-central-transfer-gosl",
+   "project_id": "dambulla-hospital-central-transfer",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "temporary-staff-permanent-appointment-9800-gosl",
+   "project_id": "temporary-staff-permanent-appointment-9800",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "vehicle-number-plate-special-fee-gosl",
+   "project_id": "vehicle-number-plate-special-fee",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "kelani-valley-ratnapura-railway-extension-gosl",
+   "project_id": "kelani-valley-ratnapura-railway-extension",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "easter-sunday-commission-recommendations-implementation-gosl",
+   "project_id": "easter-sunday-commission-recommendations-implementation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "unknown"
+  },
+  {
+   "id": "japan-jsb-climate-resilience-gender-projects-japan",
+   "project_id": "japan-jsb-climate-resilience-gender-projects",
+   "funder": "japan",
+   "funder_name": "Government of Japan",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "coal-import-irregularities-presidential-commission-gosl",
+   "project_id": "coal-import-irregularities-presidential-commission",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "unknown"
+  },
+  {
+   "id": "victoria-reservoir-water-release-power-generation-gosl",
+   "project_id": "victoria-reservoir-water-release-power-generation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "health-ministry-154-staff-appointments-gosl",
+   "project_id": "health-ministry-154-staff-appointments",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "athlete-government-employment-programme-gosl",
+   "project_id": "athlete-government-employment-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "sl-2026-adb-financing-pledge",
+   "project_id": "sl-2026-adb-financing-pledge",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "aswesuma-april-2026-special-allowance-gosl",
+   "project_id": "aswesuma-april-2026-special-allowance",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "electricity-low-usage-subsidy-2026-gosl",
+   "project_id": "electricity-low-usage-subsidy-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "fertilizer-subsidy-increase-yala-2026-gosl",
+   "project_id": "fertilizer-subsidy-increase-yala-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "fisheries-fuel-subsidy-2026-gosl",
+   "project_id": "fisheries-fuel-subsidy-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "fuel-petrol-diesel-price-relief-package-2026-gosl",
+   "project_id": "fuel-petrol-diesel-price-relief-package-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "uva-temple-development-monaragala-badulla-gosl",
+   "project_id": "uva-temple-development-monaragala-badulla",
+   "funder": "gosl",
+   "funder_name": "Uva Provincial Council",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "ceb-unauthorised-payments-audit-2024-gosl",
+   "project_id": "ceb-unauthorised-payments-audit-2024",
+   "funder": "gosl",
+   "funder_name": "Ceylon Electricity Board",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "fertilizer-stock-unsold-2021-2022-gosl",
+   "project_id": "fertilizer-stock-unsold-2021-2022",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka / State Fertiliser Company",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "wb-country-partnership-framework-2026-2030-wb",
+   "project_id": "wb-country-partnership-framework-2026-2030",
+   "funder": "world_bank",
+   "funder_name": "World Bank Group / IFC",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "mixed",
+   "purpose": "programme"
+  },
+  {
+   "id": "hisathel-gelveema-national-festival-2026-gosl",
+   "project_id": "hisathel-gelveema-national-festival-2026",
+   "funder": "gosl",
+   "funder_name": "Ministry of Health and Mass Media",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "wb-cpf-2026-2030-ifc",
+   "project_id": "wb-country-partnership-framework-2026-2030",
+   "funder": "world_bank",
+   "funder_name": "International Finance Corporation (IFC)",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "mixed",
+   "purpose": "programme"
+  },
+  {
+   "id": "nwsdb-drought-water-management-plan-gosl",
+   "project_id": "nwsdb-drought-water-management-plan",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka / NWSDB",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "national-oxygen-usage-guidelines-unicef",
+   "project_id": "national-oxygen-usage-guidelines-health",
+   "funder": "other:unicef",
+   "funder_name": "UNICEF",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "programme"
+  },
+  {
+   "id": "hambantota-port-hipg-zpmc-crane-contract",
+   "project_id": "hambantota-port-container-capacity-expansion",
+   "funder": "other:hipg",
+   "funder_name": "Hambantota International Port Group",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "russia-sri-lanka-energy-cooperation-2026-russia",
+   "project_id": "russia-sri-lanka-energy-cooperation-2026",
+   "funder": "other:russia",
+   "funder_name": "Government of Russia",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "budget_support"
+  }
+ ],
+ "events": [
+  {
+   "id": "central-highlands-protection-authority-gosl-proposed-2026-04-29",
+   "line_id": "central-highlands-protection-authority-gosl",
+   "date": "2026-04-29",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President reviews plan for new Central Highlands protection authority",
+   "confidence": "low",
+   "reports": [
+    "2026-04-30-adalk-f3890165"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "colombo-suburban-railway-electrification-gosl-proposed-2026-04-29",
+   "line_id": "colombo-suburban-railway-electrification-gosl",
+   "date": "2026-04-29",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President discusses electrifying Colombo suburban railway, start planned next year",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-29-adalk-a6cea6a3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "q2-2026-electricity-tariff-revision-gosl-proposed-2026-04-29",
+   "line_id": "q2-2026-electricity-tariff-revision-gosl",
+   "date": "2026-04-29",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Electricity tariff revision decision to be announced May 9",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-29-adalk-a8d9ecff"
+   ],
+   "relation": "update_of:q2-2026-electricity-tariff-revision-gosl-proposed-2026-02-14",
+   "notes": null
+  },
+  {
+   "id": "ditwah-interim-housing-project-gosl-govt_authorised-2026-04-28",
+   "line_id": "ditwah-interim-housing-project-gosl",
+   "date": "2026-04-28",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved interim housing for 1,000 cyclone Ditwah-displaced families",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-28-adalk-73df89c3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "dambulla-hospital-central-transfer-gosl-cost_estimate-2026-04-28",
+   "line_id": "dambulla-hospital-central-transfer-gosl",
+   "date": "2026-04-28",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 7000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Dambulla Hospital relocation to central government estimated at Rs 7 billion",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-28-adalk-a828086a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "temporary-staff-permanent-appointment-9800-gosl-govt_authorised-2026-04-28",
+   "line_id": "temporary-staff-permanent-appointment-9800-gosl",
+   "date": "2026-04-28",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved permanent appointments for 9,800 temporary public servants",
+   "confidence": "high",
+   "reports": [
+    "2026-04-28-adalk-ddb10cbc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "vehicle-number-plate-special-fee-gosl-govt_authorised-2026-04-21",
+   "line_id": "vehicle-number-plate-special-fee-gosl",
+   "date": "2026-04-21",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Parliament approves fee for special vehicle number plates",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-23-adalk-8b6d364c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-school-uniform-fabric-2026-china-completed-2026-04-23",
+   "line_id": "china-school-uniform-fabric-2026-china",
+   "date": "2026-04-23",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China completes 2026 school uniform fabric donation to Sri Lanka",
+   "confidence": "high",
+   "reports": [
+    "2026-04-23-adalk-05f48509"
+   ],
+   "relation": "update_of:china-school-uniform-fabric-2026-china-released-2026-01-13",
+   "notes": null
+  },
+  {
+   "id": "kelani-valley-ratnapura-railway-extension-gosl-contract_awarded-2026-04-22",
+   "line_id": "kelani-valley-ratnapura-railway-extension-gosl",
+   "date": "2026-04-22",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 356220000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves consultancy contract for Ratnapura railway extension study",
+   "confidence": "high",
+   "reports": [
+    "2026-04-22-adalk-441ed6ca"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "easter-sunday-commission-recommendations-implementation-gosl-govt_authorised-2026-04-22",
+   "line_id": "easter-sunday-commission-recommendations-implementation-gosl",
+   "date": "2026-04-22",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves implementing Easter Sunday attack commission recommendations",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-22-adalk-ab096fc2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-elderly-allowance-gosl-disbursed-2026-04-22",
+   "line_id": "aswesuma-elderly-allowance-gosl",
+   "date": "2026-04-22",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 3087030000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Aswesuma elderly allowance first-phase payment to 617,406 recipients",
+   "confidence": "high",
+   "reports": [
+    "2026-04-21-adalk-f5458eed"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "accessible-bus-pilot-clean-sri-lanka-gosl-launched-2026-04-21",
+   "line_id": "accessible-bus-pilot-clean-sri-lanka-gosl",
+   "date": "2026-04-21",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Low-floor accessible bus pilot service launched with 10 buses",
+   "confidence": "high",
+   "reports": [
+    "2026-04-21-adalk-3a8abf29"
+   ],
+   "relation": "update_of:accessible-bus-pilot-clean-sri-lanka-gosl-contract_awarded-2026-02-10",
+   "notes": null
+  },
+  {
+   "id": "japan-jsb-climate-resilience-gender-projects-japan-funder_approved-2026-04-21",
+   "line_id": "japan-jsb-climate-resilience-gender-projects-japan",
+   "date": "2026-04-21",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 2500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan pledges $2.5m via supplementary budget for two UNDP projects",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-21-adalk-a6f1069b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "coal-import-irregularities-presidential-commission-gosl-govt_authorised-2026-04-16",
+   "line_id": "coal-import-irregularities-presidential-commission-gosl",
+   "date": "2026-04-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President appoints commission to probe coal import irregularities",
+   "confidence": "high",
+   "reports": [
+    "2026-04-17-adalk-33631e94"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "victoria-reservoir-water-release-power-generation-gosl-govt_authorised-2026-03-24",
+   "line_id": "victoria-reservoir-water-release-power-generation-gosl",
+   "date": "2026-03-24",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ministers decide to release reservoir water for extra power generation",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-16-adalk-a1e87332"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-2023-proposed-2026-04-09",
+   "line_id": "imf-eff-2023",
+   "date": "2026-04-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 700000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF-Sri Lanka staff agree on 5th, 6th EFF tranches",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-09-adalk-13cfb044"
+   ],
+   "relation": "update_of:imf-rfi-2025-disbursed-2026-02-14",
+   "notes": null
+  },
+  {
+   "id": "health-ministry-154-staff-appointments-gosl-launched-2026-04-10",
+   "line_id": "health-ministry-154-staff-appointments-gosl",
+   "date": "2026-04-10",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Health Ministry appoints 154 new staff across professions",
+   "confidence": "high",
+   "reports": [
+    "2026-04-09-adalk-2b50e8de"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "athlete-government-employment-programme-gosl-govt_authorised-2026-04-07",
+   "line_id": "athlete-government-employment-programme-gosl",
+   "date": "2026-04-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves state-sector jobs for elite athletes",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-07-adalk-ee87dcc2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-2023-proposed-2026-04-07",
+   "line_id": "imf-eff-2023",
+   "date": "2026-04-07",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 700000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "President expects $700m IMF 5th and 6th tranches by May",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-07-adalk-b79e7372"
+   ],
+   "relation": "repeat_of:imf-eff-2023-proposed-2026-04-09",
+   "notes": null
+  },
+  {
+   "id": "sl-2026-adb-financing-pledge-pledged-2026-04-07",
+   "line_id": "sl-2026-adb-financing-pledge",
+   "date": "2026-04-07",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 1200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB talks yield agreement on about $1.2bn this year",
+   "confidence": "low",
+   "reports": [
+    "2026-04-07-adalk-b79e7372"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-april-2026-special-allowance-gosl-govt_authorised-2026-04-07",
+   "line_id": "aswesuma-april-2026-special-allowance-gosl",
+   "date": "2026-04-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves extra Aswesuma payments for April 2026",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-07-adalk-f37f40e2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "electricity-low-usage-subsidy-2026-gosl-govt_authorised-2026-04-07",
+   "line_id": "electricity-low-usage-subsidy-2026-gosl",
+   "date": "2026-04-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government to absorb extra electricity cost for low users 3 months",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-07-adalk-f37f40e2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fertilizer-subsidy-increase-yala-2026-gosl-govt_authorised-2026-04-07",
+   "line_id": "fertilizer-subsidy-increase-yala-2026-gosl",
+   "date": "2026-04-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 30000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet raises fertiliser subsidy per hectare for Yala season",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-07-adalk-f37f40e2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fisheries-fuel-subsidy-2026-gosl-govt_authorised-2026-04-07",
+   "line_id": "fisheries-fuel-subsidy-2026-gosl",
+   "date": "2026-04-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 150000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves fuel subsidy for multi-day fishing boats",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-07-adalk-f37f40e2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fuel-petrol-diesel-price-relief-package-2026-gosl-govt_authorised-2026-04-07",
+   "line_id": "fuel-petrol-diesel-price-relief-package-2026-gosl",
+   "date": "2026-04-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government cuts diesel by Rs100, petrol by Rs20 per litre",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-07-adalk-106a7279",
+    "2026-04-07-adalk-3e440310"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "uva-temple-development-monaragala-badulla-gosl-allocated-2026-04-04",
+   "line_id": "uva-temple-development-monaragala-badulla-gosl",
+   "date": "2026-04-04",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 100000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Uva province allocates Rs100 million for temple development",
+   "confidence": "high",
+   "reports": [
+    "2026-04-05-adalk-6963aa69"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ceb-unauthorised-payments-audit-2024-gosl-spent-2024-12-31",
+   "line_id": "ceb-unauthorised-payments-audit-2024-gosl",
+   "date": "2024-12-31",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 1060020000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "CEB paid Rs1.06bn unauthorised allowances in 2024 without approval",
+   "confidence": "high",
+   "reports": [
+    "2026-04-05-adalk-1ed3f9a4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fertilizer-stock-unsold-2021-2022-gosl-spent-2026-04-04",
+   "line_id": "fertilizer-stock-unsold-2021-2022-gosl",
+   "date": "2026-04-04",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 32835355,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "State fertiliser firm bought Rs32.8m organic fertiliser, still unsold",
+   "confidence": "high",
+   "reports": [
+    "2026-04-04-adalk-13540ccd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "wb-country-partnership-framework-2026-2030-wb-launched-2026-04-04",
+   "line_id": "wb-country-partnership-framework-2026-2030-wb",
+   "date": "2026-04-04",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 1000000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "World Bank launches 2026-2030 Country Partnership Framework for Sri Lanka",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-04-adalk-70a84824"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "hisathel-gelveema-national-festival-2026-gosl-launched-2026-04-15",
+   "line_id": "hisathel-gelveema-national-festival-2026-gosl",
+   "date": "2026-04-15",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Health Ministry organises 2026 national hair-oil ceremony festival",
+   "confidence": "high",
+   "reports": [
+    "2026-04-03-adalk-076dc4eb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "wb-country-partnership-framework-2026-2030-wb-launched-2026-04-03",
+   "line_id": "wb-country-partnership-framework-2026-2030-wb",
+   "date": "2026-04-03",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 1000000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "World Bank, Sri Lanka launch 2026-2030 Country Partnership Framework",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-03-adalk-287c6414"
+   ],
+   "relation": "repeat_of:wb-country-partnership-framework-2026-2030-wb-launched-2026-04-04",
+   "notes": null
+  },
+  {
+   "id": "wb-cpf-2026-2030-ifc-pledged-2026-04-03",
+   "line_id": "wb-cpf-2026-2030-ifc",
+   "date": "2026-04-03",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 1000000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "IFC to provide over $1bn direct and mobilized investment over 5 years",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-03-adalk-287c6414"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nwsdb-drought-water-management-plan-gosl-proposed-2026-04-02",
+   "line_id": "nwsdb-drought-water-management-plan-gosl",
+   "date": "2026-04-02",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Water board to implement drought water management plan",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-02-adalk-3f807e8b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "national-oxygen-usage-guidelines-unicef-launched-2026-04-02",
+   "line_id": "national-oxygen-usage-guidelines-unicef",
+   "date": "2026-04-02",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Health Ministry launches national hospital oxygen use guidelines",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-02-adalk-e9d12aca"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "hambantota-port-hipg-zpmc-crane-contract-contract_awarded-2026-03-26",
+   "line_id": "hambantota-port-hipg-zpmc-crane-contract",
+   "date": "2026-03-26",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 108000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Hambantota port signs $108m crane equipment contract with ZPMC",
+   "confidence": "medium",
+   "reports": [
+    "2026-04-02-adalk-7b741b6f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "russia-sri-lanka-energy-cooperation-2026-russia-pledged-2026-04-01",
+   "line_id": "russia-sri-lanka-energy-cooperation-2026-russia",
+   "date": "2026-04-01",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Russia pledges full support to resolve Sri Lanka energy crisis",
+   "confidence": "low",
+   "reports": [
+    "2026-04-01-adalk-d3eaf9b7"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-04-30-adalk-f3890165": {
+   "date": "2026-04-30",
+   "title": "මධ්‍යම කඳුකරය ආරක්ෂා කරන්න නව අධිකාරියක්",
+   "url": "https://www.ada.lk/breaking_news/මධ්‍යම-කඳුකරය-ආරක්ෂා-කරන්න-නව-අධිකාරියක්/11-422251",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-29-adalk-a6cea6a3": {
+   "date": "2026-04-29",
+   "title": "කොළඹ අවට විදුලි දුම්රිය දුවන්න මාර්ග සකස් කිරීම ලබන වසරේ සිට",
+   "url": "https://www.ada.lk/breaking_news/කොළඹ-අවට-විදුලි-දුම්රිය-දුවන්න-මාර්ග-සකස්-කිරීම-ලබන-වසරේ-සිට/11-422244",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-29-adalk-a8d9ecff": {
+   "date": "2026-04-29",
+   "title": "විදුලි බිල සංශෝධන තීරණය මැයි 09",
+   "url": "https://www.ada.lk/breaking_news/විදුලි-බිල-සංශෝධන-තීරණය-මැයි-09/11-422239",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-28-adalk-73df89c3": {
+   "date": "2026-04-28",
+   "title": "දිට්වා සුළි කුණාටුවෙන් විපතට පත් පවුල් සඳහා අන්තර්කාලීන නිවාස",
+   "url": "https://www.ada.lk/breaking_news/දිට්වා-සුළි-කුණාටුවෙන්-විපතට-පත්-පවුල්-සඳහා-අන්තර්කාලීන-නිවාස/11-422228",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-28-adalk-a828086a": {
+   "date": "2026-04-28",
+   "title": "දඹුල්ල රෝහල මධ්‍යම රජයට පවරා ගනී",
+   "url": "https://www.ada.lk/breaking_news/දඹුල්ල-රෝහල-මධ්‍යම-රජයට-පවරා-ගනී/11-422224",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-28-adalk-ddb10cbc": {
+   "date": "2026-04-28",
+   "title": "රාජ්‍ය සේවයේ 9800ට ස්ථිර පත්වීම්",
+   "url": "https://www.ada.lk/breaking_news/රාජ්‍ය-සේවයේ-9800ට-ස්ථිර-පත්වීම්/11-422222",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-23-adalk-8b6d364c": {
+   "date": "2026-04-23",
+   "title": "වාහන සඳහා විශේෂ අංකයක් ලබා ගැනීමේ නියෝගවලට අනුමැතිය",
+   "url": "https://www.ada.lk/breaking_news/වාහන-සඳහා-විශේෂ-අංකයක්-ලබා-ගැනීමේ-නියෝගවලට-අනුමැතිය/11-422164",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-23-adalk-05f48509": {
+   "date": "2026-04-23",
+   "title": "2026 වසරට අවශ්‍ය පාසල් නිල ඇදුම් ප්‍රමාණය සම්පූර්ණ කරයි",
+   "url": "https://www.ada.lk/breaking_news/2026-වසරට-අවශ්‍ය-පාසල්-නිල-ඇදුම්-ප්‍රමාණය-සම්පූර්ණ-කරයි/11-422155",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-22-adalk-441ed6ca": {
+   "date": "2026-04-22",
+   "title": "කැළණිවැලි දුම්රිය රත්නපුරට යන්න පළමු පියවර තබයි",
+   "url": "https://www.ada.lk/breaking_news/කැළණිවැලි-දුම්රිය-රත්නපුරට-යන්න-පළමු-පියවර-තබයි/11-422153",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-22-adalk-ab096fc2": {
+   "date": "2026-04-22",
+   "title": "පාස්කු දා ප්‍රහාරය විමර්ශනය කළ ජනපති කොමිෂමේ නිර්දේශ ක්‍රියාත්මක කිරීමට යයි",
+   "url": "https://www.ada.lk/breaking_news/පාස්කු-දා-ප්‍රහාරය-විමර්ශනය-කළ-ජනපති-කොමිෂමේ-නිර්දේශ-ක්‍රියාත්මක-කිරීමට-යයි/11-422151",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-21-adalk-f5458eed": {
+   "date": "2026-04-21",
+   "title": "අස්වැසුම වැඩිහිටි දීමනාව හෙට බැංකුවට",
+   "url": "https://www.ada.lk/breaking_news/අස්වැසුම-වැඩිහිටි-දීමනාව-හෙට-බැංකුවට/11-422135",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-21-adalk-3a8abf29": {
+   "date": "2026-04-21",
+   "title": "පත්ල පහත් බස් රථ සේවාව ඇරඹෙයි, වසර අවසන්වන විට නව බස් 122ක්",
+   "url": "https://www.ada.lk/breaking_news/පත්ල-පහත්-බස්-රථ-සේවාව-ඇරඹෙයි--වසර-අවසන්වන-විට-නව-බස්-122ක්/11-422134",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-21-adalk-a6f1069b": {
+   "date": "2026-04-21",
+   "title": "ජපානයෙන් ලංකාවට ඩොලර් මිලියන 2.5ක්",
+   "url": "https://www.ada.lk/breaking_news/ජපානයෙන්-ලංකාවට-ඩොලර්-මිලියන-2-5ක්/11-422130",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-17-adalk-33631e94": {
+   "date": "2026-04-17",
+   "title": "ගල් අඟුරු ආනයනයේදී සිදුව ඇති අක්‍රමිකතා හොයන්න පූර්ණ බලැති ජනපති කොමිෂමක්",
+   "url": "https://www.ada.lk/breaking_news/ගල්-අඟුරු-ආනයනයේදී-සිදුව-ඇති-අක්‍රමිකතා-හොයන්න-පූර්ණ-බලැති-ජනපති-කොමිෂමක්/11-422095",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-16-adalk-a1e87332": {
+   "date": "2026-04-16",
+   "title": "බාල ගල් අඟුරු නිසා ජල විදුලිය වැඩියෙන් නිපදවන්න ගොස් තවත් ගැටලුවක්",
+   "url": "https://www.ada.lk/breaking_news/බාල-ගල්-අඟුරු-නිසා-ජල-විදුලිය-වැඩියෙන්-නිපදවන්න-ගොස්-තවත්-ගැටලුවක්/11-422071",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-09-adalk-13cfb044": {
+   "date": "2026-04-09",
+   "title": "විස්තීර්ණ ණය පහසුකමේ පස්වැනි හා හයවැනි වාරික වෙනුවෙන් කාර්ය මණ්ඩල එකගතාව",
+   "url": "https://www.ada.lk/breaking_news/විස්තීර්ණ-ණය-පහසුකමේ-පස්වැනි-හා-හයවැනි-වාරික-වෙනුවෙන්-කාර්ය-මණ්ඩල-එකගතාව/11-422026",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-09-adalk-2b50e8de": {
+   "date": "2026-04-09",
+   "title": "සෞඛ්‍යයට හෙට 154ක් බඳවා ගනියි",
+   "url": "https://www.ada.lk/breaking_news/සෞඛ්‍යයට-හෙට-154ක්-බඳවා-ගනියි/11-422024",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-07-adalk-ee87dcc2": {
+   "date": "2026-04-07",
+   "title": "ජාතික මට්ටමේ ක්‍රීඩා කුසලතා දක්වන ක්‍රීඩක ක්‍රීඩිකාවන්ට රාජ්‍ය අංශයේ රැකියා",
+   "url": "https://www.ada.lk/sports/ජාතික-මට්ටමේ-ක්‍රීඩා-කුසලතා-දක්වන-ක්‍රීඩක-ක්‍රීඩිකාවන්ට-රාජ්‍ය-අංශයේ-රැකියා/9-421991",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-07-adalk-b79e7372": {
+   "date": "2026-04-07",
+   "title": "විදෙස් සංචිත වැඩි කර ගන්නා හැටි ජනපති කියයි",
+   "url": "https://www.ada.lk/breaking_news/විදෙස්-සංචිත-වැඩි-කර-ගන්නා-හැටි-ජනපති-කියයි/11-421990",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-07-adalk-f37f40e2": {
+   "date": "2026-04-07",
+   "title": "කෘෂිකර්ම, ධීවර හා අඩු ආදායම් ලාභින්ට හිමිවන සහන මෙන්න",
+   "url": "https://www.ada.lk/breaking_news/කෘෂිකර්ම--ධීවර-හා-අඩු-ආදායම්-ලාභින්ට-හිමිවන-සහන-මෙන්න/11-421986",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-07-adalk-106a7279": {
+   "date": "2026-04-07",
+   "title": "ඩීසල් සඳහා රැපියල් 100ක හා පෙට්‍රල් සඳහා රැපියල් 20ක සහනයක්",
+   "url": "https://www.ada.lk/breaking_news/ඩීසල්-සඳහා-රැපියල්-100ක-හා-පෙට්‍රල්-සඳහා-රැපියල්-20ක-සහනයක්/11-421985",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-07-adalk-3e440310": {
+   "date": "2026-04-07",
+   "title": "ජනපතිගෙන් සහන පැකේජයක්",
+   "url": "https://www.ada.lk/breaking_news/ජනපතිගෙන්-සහන-පැකේජයක්/11-421981",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-05-adalk-6963aa69": {
+   "date": "2026-04-05",
+   "title": "ඌවේ විහාරස්ථාන සංවර්ධනයට රුපියල් කෝටි 10",
+   "url": "https://www.ada.lk/breaking_news/ඌවේ-විහාරස්ථාන-සංවර්ධනයට-රුපියල්-කෝටි-10/11-421959",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-05-adalk-1ed3f9a4": {
+   "date": "2026-04-05",
+   "title": "අනුමැතියකින් තොරව ලංවිම 2024දී විවිධ දීමනා ලෙස රු.මි. 1060ක් ගෙවලා",
+   "url": "https://www.ada.lk/breaking_news/අනුමැතියකින්-තොරව-ලංවිම-2024දී-විවිධ-දීමනා-ලෙස-රු-මි--1060ක්-ගෙවලා/11-421956",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-04-adalk-13540ccd": {
+   "date": "2026-04-04",
+   "title": "2021දී මිලට ගත් රු. කෝටි 3ක දේශීය පොහොර තවමත් ගබඩාවල",
+   "url": "https://www.ada.lk/breaking_news/2021දී-මිලට-ගත්-රු--කෝටි-3ක-දේශීය-පොහොර-තවමත්-ගබඩාවල/11-421953",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-04-adalk-70a84824": {
+   "date": "2026-04-04",
+   "title": "ලංකාවේ ආර්ථික වර්ධනයට ලෝක  බැංකුවෙන් නව සැලැස්මක්",
+   "url": "https://www.ada.lk/breaking_news/ලංකාවේ-ආර්ථික-වර්ධනයට-ලෝක--බැංකුවෙන්-නව-සැලැස්මක්/11-421949",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-03-adalk-076dc4eb": {
+   "date": "2026-04-03",
+   "title": "හිසතෙල් ගැල්වීමේ රාජ්‍ය උත්සවය මහනුවර ශ්‍රී නාථ දේවාලයේදී",
+   "url": "https://www.ada.lk/breaking_news/හිසතෙල්-ගැල්වීමේ-රාජ්‍ය-උත්සවය-මහනුවර-ශ්‍රී-නාථ-දේවාලයේදී/11-421938",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-03-adalk-287c6414": {
+   "date": "2026-04-03",
+   "title": "ගෙවුණු වසර තුන පුරා ශ්‍රී ලංකාව යථාවත් වීම ආකර්ෂණීයයි - WB",
+   "url": "https://www.ada.lk/business/ගෙවුණු-වසර-තුන-පුරා-ශ්‍රී-ලංකාව-යථාවත්-වීම-ආකර්ෂණීයයි---WB/7-421935",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-02-adalk-3f807e8b": {
+   "date": "2026-04-02",
+   "title": "ජල කළමණාකරණ සැලැස්මක්",
+   "url": "https://www.ada.lk/breaking_news/ජල-කළමණාකරණ-සැලැස්මක්/11-421931",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-02-adalk-e9d12aca": {
+   "date": "2026-04-02",
+   "title": "රෝහල්වල ඔක්සිජන් භාවිතය ගැන මාර්ගෝපදේශ මාලාවක්",
+   "url": "https://www.ada.lk/breaking_news/රෝහල්වල-ඔක්සිජන්-භාවිතය-ගැන-මාර්ගෝපදේශ-මාලාවක්/11-421926",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-02-adalk-7b741b6f": {
+   "date": "2026-04-02",
+   "title": "හම්බන්තොට ජාත්‍යන්තර වරායේ බහාලුම් ධාරිතාව තවදුරටත් ඉහළට",
+   "url": "https://www.ada.lk/business/හම්බන්තොට-ජාත්‍යන්තර-වරායේ-බහාලුම්-ධාරිතාව-තවදුරටත්-ඉහළට/7-421921",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-04-01-adalk-d3eaf9b7": {
+   "date": "2026-04-01",
+   "title": "ලංකාවේ බලශක්ති ගැටලුව විසදාගැනීමට රුසියාවේ පූර්ණ සහාය",
+   "url": "https://www.ada.lk/breaking_news/ලංකාවේ-බලශක්ති-ගැටලුව-විසදාගැනීමට-රුසියාවේ-පූර්ණ-සහාය/11-421917",
+   "outlet": "Ada",
+   "lang": "si"
+  }
+ }
+}

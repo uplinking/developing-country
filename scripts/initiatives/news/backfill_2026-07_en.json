@@ -1,0 +1,1484 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-07-01",
+  "2026-07-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 83,
+ "rejected": 52,
+ "rejected_ids": [
+  "2026-07-01-dailymirrorlk-2dcd77af",
+  "2026-07-01-dailymirrorlk-3db96d44",
+  "2026-07-01-dailymirrorlk-e0479932",
+  "2026-07-01-islandlk-b3b50d97",
+  "2026-07-02-dailymirrorlk-8ddc3b37",
+  "2026-07-02-dailymirrorlk-dea437e4",
+  "2026-07-03-dailyftlk-36344995",
+  "2026-07-04-dailymirrorlk-9167fb31",
+  "2026-07-05-dailymirrorlk-37d102b2",
+  "2026-07-06-dailyftlk-d1917d81",
+  "2026-07-06-dailymirrorlk-cf77ed65",
+  "2026-07-07-dailymirrorlk-9f01293d",
+  "2026-07-08-dailyftlk-5f3d6738",
+  "2026-07-08-dailymirrorlk-2212494e",
+  "2026-07-09-dailymirrorlk-370bc455",
+  "2026-07-09-dailymirrorlk-e2c79938",
+  "2026-07-10-dailyftlk-81b7eac8",
+  "2026-07-10-dailymirrorlk-4e91c227",
+  "2026-07-10-dailymirrorlk-593ddbb0",
+  "2026-07-12-islandlk-6a76d2b1",
+  "2026-07-14-dailymirrorlk-1a4aa31a",
+  "2026-07-16-dailyftlk-6cbcd9ae",
+  "2026-07-16-dailyftlk-bffa6af2",
+  "2026-07-17-dailyftlk-59f72674",
+  "2026-07-17-dailymirrorlk-f6fd13cc",
+  "2026-07-19-islandlk-fd4af8a3",
+  "2026-07-20-dailyftlk-fd4af8a3",
+  "2026-07-20-dailymirrorlk-07a0b72d",
+  "2026-07-20-dailymirrorlk-5e6e74b2",
+  "2026-07-21-dailymirrorlk-86608862",
+  "2026-07-22-dailyftlk-a0a7a4ce",
+  "2026-07-22-dailymirrorlk-a87472c9",
+  "2026-07-22-dailymirrorlk-c92bbfed",
+  "2026-07-23-dailyftlk-2ef082cf",
+  "2026-07-23-dailymirrorlk-320ad9e2",
+  "2026-07-23-dailymirrorlk-8b12b677",
+  "2026-07-24-dailyftlk-3938d67b",
+  "2026-07-24-dailyftlk-b95348c6",
+  "2026-07-24-dailyftlk-f6993952",
+  "2026-07-24-dailymirrorlk-1cd5e7b9",
+  "2026-07-24-dailymirrorlk-668c4ffb",
+  "2026-07-24-dailymirrorlk-cf5dd409",
+  "2026-07-26-islandlk-892e773e",
+  "2026-07-27-dailymirrorlk-8c9a47b8",
+  "2026-07-27-dailymirrorlk-aa6ffaf5",
+  "2026-07-28-dailyftlk-3e190ed8",
+  "2026-07-28-dailymirrorlk-62a0e2d7",
+  "2026-07-30-dailyftlk-e2b8a3c3",
+  "2026-07-31-dailyftlk-40b4db21",
+  "2026-07-31-dailyftlk-e23c8c3d",
+  "2026-07-31-dailymirrorlk-1a9ad637",
+  "2026-07-31-dailymirrorlk-e1a9adc4"
+ ],
+ "unattributed_ids": [],
+ "dropped": [
+  "line eu-grant-rooftop-solar"
+ ],
+ "projects": [
+  {
+   "id": "adb-trade-investment-industry-development-programme",
+   "name": "ADB Trade, Investment and Industry Development Programme",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sltb-scrap-metal-disposal",
+   "name": "SLTB scrap metal disposal contracts",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ruwanpura-expressway-phase1",
+   "name": "Ruwanpura Expressway Phase I (Kahathuduwa-Ingiriya)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kahathuduwa-Ingiriya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-bamboo-biofence-elephant",
+   "name": "Bamboo bio-fence for human-elephant conflict (China support)",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "chartered-institute-computing-sl",
+   "name": "Chartered Institute of Computing Sri Lanka",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sltb-fleet-renewal-deluxe",
+   "name": "SLTB fleet renewal with 600 air-conditioned deluxe buses",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "anuradhapura-water-supply-phase2-japan",
+   "name": "Northern Anuradhapura Water Supply Project Phase II",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Anuradhapura",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "deniyaya-hospital-relocation-equipment",
+   "name": "Deniyaya Base Hospital relocation and medical equipment",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Deniyaya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ceylon-tea-village-gosl",
+   "name": "Ceylon Tea Village program for smallholder tea sector",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "germany-giz-energy-efficient-buildings",
+   "name": "Energy-efficient and climate-resilient buildings program",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "zero-waste-cinnamon-processing-centre-ruhuna",
+   "name": "Zero-Waste Biomass Cinnamon Processing Centre, University of Ruhuna",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Mapalana, Matara",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "bia-terminal-expansion",
+   "name": "Bandaranaike International Airport passenger terminal expansion",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Katunayake",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mercury-pops-waste-management-project",
+   "name": "Integrated mercury, POPs pesticides and healthcare waste management project",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "presidents-fund-special-needs-students-grant",
+   "name": "President's Fund grants for special needs university students",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rataviru-pension-scheme-migrant-workers",
+   "name": "Rataviru Pension Scheme for Sri Lankan migrant workers",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ncgi-credit-guarantee-scheme",
+   "name": "National Credit Guarantee Institution collateral-free loan guarantee scheme",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sri-lanka-expo-2027",
+   "name": "Sri Lanka Expo 2027 international exhibition",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fishing-vessels-vms-expansion",
+   "name": "Vessel Monitoring System expansion for 1,500 fishing vessels",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "saudi-medical-faculty-sabaragamuwa",
+   "name": "Faculty of Medicine, Sabaragamuwa University",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Sabaragamuwa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "utility-vehicles-procurement-2026",
+   "name": "Procurement of 535 utility vehicles for government development projects",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "cbsl-banking-supervision-digitisation",
+   "name": "Digital technology-based supervisory solution for CBSL Banking Supervision Department",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "boc-core-banking-system",
+   "name": "New core banking system for Bank of Ceylon",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "yala-paddy-purchase-program-2026",
+   "name": "2026 Yala season paddy purchasing program",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "urea-procurement-maha-2026-27",
+   "name": "Urea import procurement for 2026/27 Maha season",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "central-expressway-phase4-stage1",
+   "name": "Central Expressway Phase 4 Stage 1 (Kurunegala-Galewela)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kurunegala-Galewela",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-student-shoe-programme-2027",
+   "name": "2027 student footwear voucher programme",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-ditwah-reconstruction-livelihood-project",
+   "name": "Post-Cyclone Ditwah Reconstruction and Livelihood Support Project",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "adb-loan-trade-investment-industry",
+   "project_id": "adb-trade-investment-industry-development-programme",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "sltb-scrap-metal-disposal-initiative",
+   "project_id": "sltb-scrap-metal-disposal",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "ruwanpura-expressway-phase1-gosl",
+   "project_id": "ruwanpura-expressway-phase1",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "china-bamboo-biofence-elephant-china",
+   "project_id": "china-bamboo-biofence-elephant",
+   "funder": "china",
+   "funder_name": "China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "cicsl-establishment-gosl",
+   "project_id": "chartered-institute-computing-sl",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "sltb-fleet-renewal-deluxe-gosl",
+   "project_id": "sltb-fleet-renewal-deluxe",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "japan-loan-anuradhapura-water-phase2",
+   "project_id": "anuradhapura-water-supply-phase2-japan",
+   "funder": "japan",
+   "funder_name": "Japan (JICA)",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "india-grant-deniyaya-hospital-equipment",
+   "project_id": "deniyaya-hospital-relocation-equipment",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "ceylon-tea-village-gosl",
+   "project_id": "ceylon-tea-village-gosl",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "germany-giz-energy-efficient-buildings",
+   "project_id": "germany-giz-energy-efficient-buildings",
+   "funder": "other:germany",
+   "funder_name": "Government of Germany (GIZ)",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-cinnamon-centre-ruhuna",
+   "project_id": "zero-waste-cinnamon-processing-centre-ruhuna",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "bia-terminal-expansion-gosl",
+   "project_id": "bia-terminal-expansion",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gef-grant-mercury-pops-waste",
+   "project_id": "mercury-pops-waste-management-project",
+   "funder": "other:gef",
+   "funder_name": "Global Environment Facility",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "presidents-fund-special-needs-students-grant-gosl",
+   "project_id": "presidents-fund-special-needs-students-grant",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka (President's Fund)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "kuwait-fund-rataviru-pension-scheme",
+   "project_id": "rataviru-pension-scheme-migrant-workers",
+   "funder": "other:kuwait_fund",
+   "funder_name": "Kuwait Fund for Arab Economic Development",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "ncgi-adb-support",
+   "project_id": "ncgi-credit-guarantee-scheme",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "guarantee",
+   "purpose": "programme"
+  },
+  {
+   "id": "sri-lanka-expo-2027-gosl",
+   "project_id": "sri-lanka-expo-2027",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "fishing-vessels-vms-expansion-gosl",
+   "project_id": "fishing-vessels-vms-expansion",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "saudi-medical-faculty-sabaragamuwa-sfd",
+   "project_id": "saudi-medical-faculty-sabaragamuwa",
+   "funder": "other:saudi_fund_for_development",
+   "funder_name": "Saudi Fund for Development",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "utility-vehicles-procurement-2026-gosl",
+   "project_id": "utility-vehicles-procurement-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "cbsl-banking-supervision-digitisation-gosl",
+   "project_id": "cbsl-banking-supervision-digitisation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "boc-core-banking-system-gosl",
+   "project_id": "boc-core-banking-system",
+   "funder": "gosl",
+   "funder_name": "Bank of Ceylon (state-owned)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "yala-paddy-purchase-program-2026-gosl",
+   "project_id": "yala-paddy-purchase-program-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "urea-procurement-maha-2026-27-gosl",
+   "project_id": "urea-procurement-maha-2026-27",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "central-expressway-phase4-stage1-gosl",
+   "project_id": "central-expressway-phase4-stage1",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-student-shoe-programme-2027",
+   "project_id": "gosl-student-shoe-programme-2027",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "adb-loan-ditwah-recovery-reconstruction",
+   "project_id": "adb-ditwah-reconstruction-livelihood-project",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "mixed",
+   "purpose": "relief"
+  }
+ ],
+ "events": [
+  {
+   "id": "adb-loan-trade-investment-industry-funder_approved-2026-07-31",
+   "line_id": "adb-loan-trade-investment-industry",
+   "date": "2026-07-31",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB doubles Sri Lanka trade and investment reform loan to $200m",
+   "confidence": "high",
+   "reports": [
+    "2026-07-31-dailymirrorlk-7cbd9c20"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sltb-scrap-metal-disposal-initiative-contract_awarded-2026-07-29",
+   "line_id": "sltb-scrap-metal-disposal-initiative",
+   "date": "2026-07-29",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 195890193.28,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves SLTB scrap metal disposal contracts",
+   "confidence": "high",
+   "reports": [
+    "2026-07-29-dailymirrorlk-c90725ee"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ruwanpura-expressway-phase1-gosl-govt_authorised-2026-07-28",
+   "line_id": "ruwanpura-expressway-phase1-gosl",
+   "date": "2026-07-28",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 15000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs.15bn procurement for Ruwanpura Expressway Phase I",
+   "confidence": "high",
+   "reports": [
+    "2026-07-28-dailymirrorlk-bbfe0857"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ruwanpura-expressway-phase1-gosl-govt_authorised-2026-07-29",
+   "line_id": "ruwanpura-expressway-phase1-gosl",
+   "date": "2026-07-29",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 15000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs.15bn procurement for Ruwanpura Expressway Phase I",
+   "confidence": "high",
+   "reports": [
+    "2026-07-29-dailymirrorlk-164b501d"
+   ],
+   "relation": "repeat_of:ruwanpura-expressway-phase1-gosl-2026-07-28",
+   "notes": null
+  },
+  {
+   "id": "china-bamboo-biofence-elephant-china-proposed-2026-07-28",
+   "line_id": "china-bamboo-biofence-elephant-china",
+   "date": "2026-07-28",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China agrees technical support for bamboo bio-fence vs elephants",
+   "confidence": "medium",
+   "reports": [
+    "2026-07-28-dailymirrorlk-7c73186d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "cicsl-establishment-gosl-govt_authorised-2026-07-23",
+   "line_id": "cicsl-establishment-gosl",
+   "date": "2026-07-23",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves establishing Chartered Institute of Computing Sri Lanka",
+   "confidence": "high",
+   "reports": [
+    "2026-07-23-dailyftlk-0840ff60"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sltb-fleet-renewal-deluxe-gosl-govt_authorised-2026-07-21",
+   "line_id": "sltb-fleet-renewal-deluxe-gosl",
+   "date": "2026-07-21",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 21600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves 600 AC deluxe buses, Rs 21.6bn SLTB fleet renewal",
+   "confidence": "high",
+   "reports": [
+    "2026-07-22-dailyftlk-725b657f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-loan-anuradhapura-water-phase2-launched-2026-07-18",
+   "line_id": "japan-loan-anuradhapura-water-phase2",
+   "date": "2026-07-18",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 23000000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Foundation laid for Japan-funded Anuradhapura water supply project phase II",
+   "confidence": "high",
+   "reports": [
+    "2026-07-18-dailyftlk-371ade50"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-deniyaya-hospital-equipment-agreement_signed-2026-07-13",
+   "line_id": "india-grant-deniyaya-hospital-equipment",
+   "date": "2026-07-13",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India MoU to fund medical equipment for Deniyaya Base Hospital",
+   "confidence": "high",
+   "reports": [
+    "2026-07-18-dailyftlk-f216c14d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ceylon-tea-village-gosl-launched-2026-07-15",
+   "line_id": "ceylon-tea-village-gosl",
+   "date": "2026-07-15",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Govt launches Ceylon Tea Village program for smallholder tea sector",
+   "confidence": "medium",
+   "reports": [
+    "2026-07-16-dailyftlk-2e6aa3bc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "germany-giz-energy-efficient-buildings-govt_authorised-2026-07-15",
+   "line_id": "germany-giz-energy-efficient-buildings",
+   "date": "2026-07-15",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 924063,
+   "currency": "EUR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves German grant for energy-efficient buildings program",
+   "confidence": "high",
+   "reports": [
+    "2026-07-15-dailyftlk-765b3090"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-cinnamon-centre-ruhuna-govt_authorised-2026-07-15",
+   "line_id": "gosl-cinnamon-centre-ruhuna",
+   "date": "2026-07-15",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves zero-waste cinnamon processing centre at Ruhuna",
+   "confidence": "medium",
+   "reports": [
+    "2026-07-15-dailyftlk-0d370402"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-rooftop-solar-govt_authorised-2026-07-14",
+   "line_id": "adb-loan-rooftop-solar",
+   "date": "2026-07-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 35000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves $35m ADB loan for rooftop solar project",
+   "confidence": "high",
+   "reports": [
+    "2026-07-14-dailymirrorlk-32708da1",
+    "2026-07-14-dailymirrorlk-477b5148",
+    "2026-07-15-dailyftlk-10839857",
+    "2026-07-15-dailymirrorlk-a3c37258"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "eu-grant-rooftop-solar-govt_authorised-2026-07-14",
+   "line_id": "eu-grant-rooftop-solar",
+   "date": "2026-07-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 15400000,
+   "currency": "EUR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves EU grant for rooftop solar project",
+   "confidence": "high",
+   "reports": [
+    "2026-07-14-dailymirrorlk-32708da1",
+    "2026-07-14-dailymirrorlk-477b5148",
+    "2026-07-15-dailyftlk-10839857"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-jfjcm-grant-rooftop-solar-govt_authorised-2026-07-14",
+   "line_id": "japan-jfjcm-grant-rooftop-solar",
+   "date": "2026-07-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 5500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Japan grant for rooftop solar project",
+   "confidence": "high",
+   "reports": [
+    "2026-07-14-dailymirrorlk-32708da1",
+    "2026-07-14-dailymirrorlk-477b5148",
+    "2026-07-15-dailyftlk-10839857"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "bia-terminal-expansion-gosl-contract_awarded-2026-07-15",
+   "line_id": "bia-terminal-expansion-gosl",
+   "date": "2026-07-15",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 7260000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Contract awarded to expand BIA passenger terminal",
+   "confidence": "high",
+   "reports": [
+    "2026-07-15-dailymirrorlk-a3c37258"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "bia-terminal-expansion-gosl-contract_awarded-2026-07-14",
+   "line_id": "bia-terminal-expansion-gosl",
+   "date": "2026-07-14",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves BIA departure terminal contract to Maga Engineering",
+   "confidence": "medium",
+   "reports": [
+    "2026-07-14-dailymirrorlk-aff4b7f5"
+   ],
+   "relation": "repeat_of:bia-terminal-expansion-gosl-contract_awarded-2026-07-15",
+   "notes": null
+  },
+  {
+   "id": "gef-grant-mercury-pops-waste-launched-2026-07-13",
+   "line_id": "gef-grant-mercury-pops-waste",
+   "date": "2026-07-13",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 38200000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Environment Ministry launches mercury and waste management project",
+   "confidence": "high",
+   "reports": [
+    "2026-07-13-dailymirrorlk-425722f0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "presidents-fund-special-needs-students-grant-gosl-disbursed-2026-07-11",
+   "line_id": "presidents-fund-special-needs-students-grant-gosl",
+   "date": "2026-07-11",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 23600000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "President's Fund gives Rs100,000 grants to 236 special needs students",
+   "confidence": "medium",
+   "reports": [
+    "2026-07-11-dailymirrorlk-577c9b72"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kuwait-fund-rataviru-pension-scheme-allocated-2026-07-11",
+   "line_id": "kuwait-fund-rataviru-pension-scheme",
+   "date": "2026-07-11",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 2100000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Kuwait Fund allocates Rs2.1bn for migrant workers' pension scheme",
+   "confidence": "high",
+   "reports": [
+    "2026-07-11-dailymirrorlk-d5b14750"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ncgi-adb-support-underway-2026-07-08",
+   "line_id": "ncgi-adb-support",
+   "date": "2026-07-08",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 14000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "NCGI facilitated Rs 14 billion in SME loan guarantees",
+   "confidence": "medium",
+   "reports": [
+    "2026-07-08-dailyftlk-c729464c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sri-lanka-expo-2027-gosl-contract_awarded-2026-07-08",
+   "line_id": "sri-lanka-expo-2027-gosl",
+   "date": "2026-07-08",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 178710000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awards Sri Lanka Expo 2027 event management contract.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-08-dailyftlk-e555e98f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fishing-vessels-vms-expansion-gosl-govt_authorised-2026-07-07",
+   "line_id": "fishing-vessels-vms-expansion-gosl",
+   "date": "2026-07-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves VMS installation for 1,500 fishing vessels.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-07-dailymirrorlk-46ebfabc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "saudi-medical-faculty-sabaragamuwa-sfd-completed-2026-07-06",
+   "line_id": "saudi-medical-faculty-sabaragamuwa-sfd",
+   "date": "2026-07-06",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 50000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Saudi Fund inaugurates USD 50 million medical faculty, Sabaragamuwa University.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-06-islandlk-1abcf356"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "utility-vehicles-procurement-2026-gosl-govt_authorised-2026-07-03",
+   "line_id": "utility-vehicles-procurement-2026-gosl",
+   "date": "2026-07-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves procurement of 535 utility vehicles for development projects",
+   "confidence": "high",
+   "reports": [
+    "2026-07-03-dailyftlk-b1c9837d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "cbsl-banking-supervision-digitisation-gosl-govt_authorised-2026-07-02",
+   "line_id": "cbsl-banking-supervision-digitisation-gosl",
+   "date": "2026-07-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves procurement for CBSL digital banking supervision system.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-02-dailymirrorlk-7efc5658"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "boc-core-banking-system-gosl-govt_authorised-2026-07-02",
+   "line_id": "boc-core-banking-system-gosl",
+   "date": "2026-07-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 10000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves procurement for new BOC core banking system.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-02-dailymirrorlk-2fee45d3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "yala-paddy-purchase-program-2026-gosl-allocated-2026-07-02",
+   "line_id": "yala-paddy-purchase-program-2026-gosl",
+   "date": "2026-07-02",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 6000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet allocates funds for 2026 Yala season paddy purchases.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-02-dailyftlk-f4ae7311"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "urea-procurement-maha-2026-27-gosl-govt_authorised-2026-07-02",
+   "line_id": "urea-procurement-maha-2026-27-gosl",
+   "date": "2026-07-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves urea import procurement for Maha season.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-02-dailyftlk-f4ae7311"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "central-expressway-phase4-stage1-gosl-govt_authorised-2026-07-02",
+   "line_id": "central-expressway-phase4-stage1-gosl",
+   "date": "2026-07-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Central Expressway Kurunegala-Galewela stage, govt funded.",
+   "confidence": "high",
+   "reports": [
+    "2026-07-02-dailyftlk-fce05f79"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-student-shoe-programme-2027-govt_authorised-2026-07-01",
+   "line_id": "gosl-student-shoe-programme-2027",
+   "date": "2026-07-01",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves 2027 footwear voucher programme for students",
+   "confidence": "high",
+   "reports": [
+    "2026-07-01-dailymirrorlk-ed0a8e3a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-ditwah-recovery-reconstruction-funder_approved-2026-07-01",
+   "line_id": "adb-loan-ditwah-recovery-reconstruction",
+   "date": "2026-07-01",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approves $200m emergency package for Cyclone Ditwah recovery",
+   "confidence": "high",
+   "reports": [
+    "2026-07-01-dailymirrorlk-420d32f6"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-07-31-dailymirrorlk-7cbd9c20": {
+   "date": "2026-07-31",
+   "title": "ADB expands Sri Lanka reform loan to US$ 200mn as Middle East conflict strains recovery",
+   "url": "https://www.dailymirror.lk/business/ADB-expands-Sri-Lanka-reform-loan-to-US-200mn-as-Middle-East-conflict-strains-recovery/215-347016",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-29-dailymirrorlk-c90725ee": {
+   "date": "2026-07-29",
+   "title": "Cabinet approves SLTB scrap metal disposal contracts worth nearly Rs.196mn",
+   "url": "https://www.dailymirror.lk/business-news/Cabinet-approves-SLTB-scrap-metal-disposal-contracts-worth-nearly-Rs-196mn/273-346894",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-29-dailymirrorlk-164b501d": {
+   "date": "2026-07-29",
+   "title": "Cabinet approves Rs. 15bn procurement for Ruwanpura expressway phase I",
+   "url": "https://www.dailymirror.lk/business-news/Cabinet-approves-Rs-15bn-procurement-for-Ruwanpura-expressway-phase-I/273-346857",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-28-dailymirrorlk-bbfe0857": {
+   "date": "2026-07-28",
+   "title": "Cabinet approves Rs. 15 Bn for phase 1 of Ruwanpura Expressway",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-approves-Rs-15-Bn-for-phase-1-of-Ruwanpura-Expressway/108-346824",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-28-dailymirrorlk-7c73186d": {
+   "date": "2026-07-28",
+   "title": "China to help construct bamboo ’Bio-fence’ as solution to human-elephant conflict",
+   "url": "https://www.dailymirror.lk/breaking-news/China-to-help-construct-bamboo-Bio-fence-as-solution-to-human-elephant-conflict/108-346810",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-23-dailyftlk-0840ff60": {
+   "date": "2026-07-23",
+   "title": "Cabinet nod for Chartered Institute of Computing Sri Lanka",
+   "url": "https://www.ft.lk/news/Cabinet-nod-for-Chartered-Institute-of-Computing-Sri-Lanka/56-795003",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-22-dailyftlk-725b657f": {
+   "date": "2026-07-22",
+   "title": "Cabinet approves shift to 600  air-conditioned deluxe buses under  Rs. 21.6 b SLTB fleet renewal plan",
+   "url": "https://www.ft.lk/business/Cabinet-approves-shift-to-600-air-conditioned-deluxe-buses-under-Rs-21-6-b-SLTB-fleet-renewal-plan/34-794968",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-18-dailyftlk-371ade50": {
+   "date": "2026-07-18",
+   "title": "Work begins on $ 143 m Japan funded Northern Anuradhapura Water Supply Project Phase II",
+   "url": "https://www.ft.lk/news/Work-begins-on-143-m-Japan-funded-Northern-Anuradhapura-Water-Supply-Project-Phase-II/56-794800",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-18-dailyftlk-f216c14d": {
+   "date": "2026-07-18",
+   "title": "India extends Rs. 600 m Grant Assistance for supply of medical equipment to Deniyaya Base Hospital",
+   "url": "https://www.ft.lk/news/India-extends-Rs-600-m-Grant-Assistance-for-supply-of-medical-equipment-to-Deniyaya-Base-Hospital/56-794798",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-16-dailyftlk-2e6aa3bc": {
+   "date": "2026-07-16",
+   "title": "Govt. launches ‘Ceylon Tea Village’ program to drive $ 2.5 b export target by 2030",
+   "url": "https://www.ft.lk/business/Govt-launches-Ceylon-Tea-Village-program-to-drive-2-5-b-export-target-by-2030/34-794721",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-15-dailyftlk-765b3090": {
+   "date": "2026-07-15",
+   "title": "Cabinet approves € 924,063 German grant for energy-efficient buildings program",
+   "url": "https://www.ft.lk/business/Cabinet-approves-924-063-German-grant-for-energy-efficient-buildings-program/34-794658",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-15-dailyftlk-0d370402": {
+   "date": "2026-07-15",
+   "title": "Cabinet approves establishment of Zero-Waste Cinnamon Processing Centre in University of Ruhuna",
+   "url": "https://www.ft.lk/business/Cabinet-approves-establishment-of-Zero-Waste-Cinnamon-Processing-Centre-in-University-of-Ruhuna/34-794656",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-15-dailyftlk-10839857": {
+   "date": "2026-07-15",
+   "title": "Cabinet clears financing agreements for $ 35 m  ADB-backed rooftop solar project",
+   "url": "https://www.ft.lk/business/Cabinet-clears-financing-agreements-for-35-m-ADB-backed-rooftop-solar-project/34-794654",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-15-dailymirrorlk-a3c37258": {
+   "date": "2026-07-15",
+   "title": "Maga Engineering awarded US$ 7.26mn contract to expand BIA passenger terminal",
+   "url": "https://www.dailymirror.lk/business-news/Maga-Engineering-awarded-US-7-26mn-contract-to-expand-BIA-passenger-terminal/273-345644",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-14-dailymirrorlk-32708da1": {
+   "date": "2026-07-14",
+   "title": "Sri Lanka secures US $ 35mn ADB loan for rooftop solar project",
+   "url": "https://www.dailymirror.lk/business-news/Sri-Lanka-secures-US-35mn-ADB-loan-for-rooftop-solar-project/273-345631",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-14-dailymirrorlk-477b5148": {
+   "date": "2026-07-14",
+   "title": "Sri Lanka secures US$55.9 million in foreign funding to boost solar energy sector",
+   "url": "https://www.dailymirror.lk/breaking-news/Sri-Lanka-secures-US-55-9-million-in-foreign-funding-to-boost-solar-energy-sector/108-345610",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-14-dailymirrorlk-aff4b7f5": {
+   "date": "2026-07-14",
+   "title": "Cabinet approves contract for new BIA departure terminal expansion",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-approves-contract-for-new-BIA-departure-terminal-expansion/108-345608",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-13-dailymirrorlk-425722f0": {
+   "date": "2026-07-13",
+   "title": "Environment Ministry unveils USD 38.2m mercury and waste management project",
+   "url": "https://www.dailymirror.lk/breaking-news/Environment-Ministry-unveils-USD-38-2m-mercury-and-waste-management-project/108-345515",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-11-dailymirrorlk-577c9b72": {
+   "date": "2026-07-11",
+   "title": "President’s Fund supports 370 special needs students with Rs. 100,000 grants",
+   "url": "https://www.dailymirror.lk/breaking-news/Presidents-Fund-supports-370-special-needs-students-with-Rs-100-000-grants/108-345409",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-11-dailymirrorlk-d5b14750": {
+   "date": "2026-07-11",
+   "title": "Kuwait fund to provide Rs. 2.1 bn for Rataviru pension scheme",
+   "url": "https://www.dailymirror.lk/breaking-news/Kuwait-fund-to-provide-Rs-2-1-bn-for-Rataviru-pension-scheme/108-345361",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-08-dailyftlk-c729464c": {
+   "date": "2026-07-08",
+   "title": "NCGI issues 2,000 collateral-free loan guarantees for more than Rs. 14 b within 15 months",
+   "url": "https://www.ft.lk/business/NCGI-issues-2-000-collateral-free-loan-guarantees-for-more-than-Rs-14-b-within-15-months/34-794355",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-08-dailyftlk-e555e98f": {
+   "date": "2026-07-08",
+   "title": "LECS–ASTL partnership gets Rs. 178.7 m contract for Sri Lanka Expo 2027 event management",
+   "url": "https://www.ft.lk/business/LECSASTL-partnership-gets-Rs-178-7-m-contract-for-Sri-Lanka-Expo-2027-event-management/34-794351",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-07-dailymirrorlk-46ebfabc": {
+   "date": "2026-07-07",
+   "title": "Cabinet approves VMS for 1,500 fishing vessels",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-approves-VMS-for-1-500-fishing-vessels/108-344939",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-06-islandlk-1abcf356": {
+   "date": "2026-07-06",
+   "title": "Saudi Arabia deepens investment in Sri Lanka with USD 50 mn medical faculty",
+   "url": "http://island.lk/saudi-arabia-deepens-investment-in-sri-lanka-with-usd-50-mn-medical-faculty/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2026-07-03-dailyftlk-b1c9837d": {
+   "date": "2026-07-03",
+   "title": "Cabinet clears procurement of 535 utility vehicles for development projects",
+   "url": "https://www.ft.lk/news/Cabinet-clears-procurement-of-535-utility-vehicles-for-development-projects/56-794117",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-02-dailymirrorlk-7efc5658": {
+   "date": "2026-07-02",
+   "title": "CBSL banking supervision to go digital following Cabinet approval",
+   "url": "https://www.dailymirror.lk/business-news/CBSL-banking-supervision-to-go-digital-following-Cabinet-approval/273-344432",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-02-dailymirrorlk-2fee45d3": {
+   "date": "2026-07-02",
+   "title": "Cabinet approves new core banking system for BOC",
+   "url": "https://www.dailymirror.lk/business-news/Cabinet-approves-new-core-banking-system-for-BOC/273-344428",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-02-dailyftlk-f4ae7311": {
+   "date": "2026-07-02",
+   "title": "Cabinet allocates Rs. 6 b for Yala paddy purchases, clears urea imports for Maha season",
+   "url": "https://www.ft.lk/news/Cabinet-allocates-Rs-6-b-for-Yala-paddy-purchases-clears-urea-imports-for-Maha-season/56-794089",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-02-dailyftlk-fce05f79": {
+   "date": "2026-07-02",
+   "title": "Cabinet approves Kurunegala-to-Galewela phase of Central Expressway",
+   "url": "https://www.ft.lk/news/Cabinet-approves-Kurunegala-to-Galewela-phase-of-Central-Expressway/56-794086",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-07-01-dailymirrorlk-ed0a8e3a": {
+   "date": "2026-07-01",
+   "title": "Cabinet green lights to 2027 student shoe programme",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-green-lights-to-2027-student-shoe-programme/108-344371",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-07-01-dailymirrorlk-420d32f6": {
+   "date": "2026-07-01",
+   "title": "ADB approves US$200Mn for Sri Lanka’s Cyclone Ditwah recovery",
+   "url": "https://www.dailymirror.lk/breaking-news/ADB-approves-US-200Mn-for-Sri-Lankas-Cyclone-Ditwah-recovery/108-344353",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  }
+ }
+}

@@ -1,0 +1,3367 @@
+@import '@developing-country/ui/tokens.css';
+
+.app {
+  position: fixed;
+  inset: 0;
+}
+
+.app > .map-root {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.dataset-embed-selection {
+  position: absolute;
+  z-index: 12;
+  top: 16px;
+  left: 16px;
+  min-width: min(260px, calc(100% - 32px));
+  max-width: 300px;
+  padding: 0;
+  border: 1px solid #050505;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: none;
+  color: #050505;
+  pointer-events: none;
+}
+
+.dataset-embed-selection header {
+  display: grid;
+  padding: 12px 15px 13px;
+  grid-template-columns: 11px 1fr;
+  gap: 11px;
+  align-items: center;
+}
+
+.dataset-embed-selection__mark {
+  width: 11px;
+  height: 11px;
+  border: 0;
+  border-radius: 0;
+  background: #fe7141;
+  box-shadow: none;
+}
+
+.dataset-embed-selection small,
+.dataset-embed-selection strong {
+  display: block;
+}
+
+.dataset-embed-selection small {
+  margin-bottom: 3px;
+  color: #6f6d68;
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.dataset-embed-selection strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.dataset-embed-selection ul {
+  display: grid;
+  margin: 0;
+  padding: 10px 15px 12px 37px;
+  gap: 7px;
+  border-top: 1px solid rgba(5, 5, 5, 0.22);
+  list-style: none;
+}
+
+.dataset-embed-selection li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 8px;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 9px;
+  line-height: 1.25;
+  letter-spacing: 0.025em;
+}
+
+.dataset-embed-selection__swatch {
+  display: block;
+  width: 16px;
+  height: 7px;
+  background: var(--swatch);
+}
+
+.dataset-embed-selection__swatch--dashed,
+.dataset-embed-selection__swatch--dotted {
+  height: 0;
+  border-top: 2px dashed var(--swatch);
+  background: transparent;
+}
+
+.dataset-embed-selection__swatch--dotted { border-top-style: dotted; }
+
+@media (max-width: 560px) {
+  .dataset-embed-selection {
+    top: 10px;
+    left: 10px;
+    min-width: min(230px, calc(100% - 20px));
+  }
+}
+
+html[data-mcp-app] .app.mcp-app {
+  position: fixed;
+  inset: 0;
+}
+
+/* Durable live views: one composition for standalone links, article embeds,
+   and the MCP App. The data surface gets the room; provenance stays visible. */
+.live-view-page {
+  height: 100%;
+  min-height: 100%;
+  overflow: auto;
+  background: var(--paper);
+  color: var(--ink);
+  padding: clamp(18px, 3vw, 42px);
+}
+.live-view-header,
+.live-view-footer {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+.live-view-header {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.32fr) minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: start;
+  border-top: 6px solid var(--route-flag);
+  padding-top: 15px;
+}
+.live-view-brand {
+  color: inherit;
+  font-family: var(--display);
+  font-size: 15px;
+  text-decoration: none;
+}
+.live-view-kicker,
+.live-view-footer {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.live-view-kicker { color: var(--route-flag); margin: 0 0 10px; }
+.live-view-header h1 {
+  max-width: 850px;
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(26px, 4.4vw, 62px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+.live-view-deck {
+  max-width: 720px;
+  margin: 16px 0 0;
+  color: var(--ink-dim);
+  font-size: clamp(15px, 1.5vw, 19px);
+  line-height: 1.55;
+}
+.live-view-stage {
+  position: relative;
+  overflow: auto;
+  max-width: 1180px;
+  height: min(68vh, 680px);
+  min-height: 410px;
+  margin: clamp(28px, 5vw, 64px) auto 0;
+  border: 1px solid var(--panel-line-soft);
+  background: var(--paper);
+  box-shadow: none;
+}
+.live-chart,
+.live-map,
+.live-map > .map-root,
+.live-map-canvas { width: 100%; height: 100%; }
+.live-map { position: relative; overflow: hidden; }
+.live-view-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin-top: 22px;
+  padding-block: 14px;
+  border-top: 1px solid var(--panel-line-soft);
+  color: var(--ink-dim);
+}
+.live-view-state {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+}
+@media (max-width: 700px) {
+  .live-view-header { grid-template-columns: 1fr; gap: 28px; }
+  .live-view-stage { min-height: 360px; height: 62vh; }
+  .live-view-page { padding: 16px; }
+}
+html[data-mcp-app] .feature-sheet {
+  top: 10px;
+  right: 10px;
+  max-height: calc(100% - 20px);
+}
+html[data-mcp-app] .mcp-open-full {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 26;
+}
+/* Brand mark: bottom-right of every frame. Under the readout sheets on the
+   map, over the data panel when a table, chart or dataset owns the frame. */
+html[data-mcp-app] .mcp-brand {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 24;
+}
+html[data-mcp-app] .mcp-app.has-data .mcp-brand {
+  z-index: 31;
+}
+/* The map's zoom and credits stack above the mark; the credits plate drops
+   its "dc" label because the mark now carries the name. */
+html[data-mcp-app] .maplibregl-ctrl-bottom-right {
+  bottom: 38px;
+}
+html[data-mcp-app] .maplibregl-ctrl-attrib.maplibregl-compact::before {
+  content: none;
+}
+html[data-mcp-app] .maplibregl-ctrl-attrib.maplibregl-compact {
+  padding: 1px !important;
+}
+html[data-mcp-app] .feature-sheet {
+  max-height: calc(100% - 56px);
+}
+/* MCP App signage button: the constant board slab with a hard offset shadow,
+   presses flat. --board stays dark in both themes, so it never reads as a
+   light button on a dark band. */
+html[data-mcp-app] .mcp-open-full,
+.mcp-data .btn {
+  height: 32px;
+  padding: 0 14px;
+  border: 1px solid var(--panel-line);
+  border-radius: var(--dc-radius);
+  box-shadow: 3px 3px 0 var(--panel-line);
+  background: var(--board);
+  color: var(--board-ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+html[data-mcp-app] .mcp-open-full:hover,
+.mcp-data .btn:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--panel-line); }
+html[data-mcp-app] .mcp-open-full:active,
+.mcp-data .btn:active { transform: translate(3px, 3px); box-shadow: none; }
+@media (prefers-reduced-motion: reduce) {
+  html[data-mcp-app] .mcp-open-full:hover,
+  html[data-mcp-app] .mcp-open-full:active,
+  .mcp-data .btn:hover,
+  .mcp-data .btn:active { transform: none; }
+}
+/* Provenance for a saved view lives on its live page ("Open live view"); the
+   shell keeps the bottom band clear for that button. */
+.mcp-chart-shell {
+  position: absolute;
+  overflow: auto;
+  inset: 0;
+  padding: 18px 18px 56px;
+  background: var(--paper);
+}
+.mcp-app.has-chart > .map-root {
+  visibility: hidden;
+  pointer-events: none;
+}
+.mcp-chart-shell .live-chart { width: 100%; height: 100%; }
+@media (max-width: 520px) {
+  html[data-mcp-app] .feature-sheet {
+    left: 10px;
+    width: auto;
+  }
+}
+
+/* Keyboard focus is a route-blue plate — visible on any surface, both themes. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Loading veil — the station board before the trains run. Constant ink, the
+   wordmark, and a length of barrier tape crawling past. */
+.map-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: var(--board);
+  color: var(--board-dim);
+}
+.map-loading .loading-mark {
+  font-family: var(--display);
+  font-size: 21px;
+  letter-spacing: 0.04em;
+  color: var(--board-ink);
+}
+.loading-tape {
+  width: 210px;
+  height: 8px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--route-sun) 0 12px,
+    #26272c 12px 24px
+  );
+  background-size: 34px 8px;
+  animation: tape-crawl 1.1s linear infinite;
+}
+@keyframes tape-crawl {
+  to {
+    background-position: 34px 0;
+  }
+}
+.map-spinner {
+  width: 12px;
+  height: 15px;
+  border-radius: 1px;
+  background: var(--route-sun);
+  animation: lamp-blink 0.9s steps(2, start) infinite;
+}
+@keyframes lamp-blink {
+  50% {
+    opacity: 0.15;
+  }
+}
+.map-loading .map-spinner {
+  display: none;
+}
+
+/* ==========================================================================
+   THE NAMEBOARD — the one constant surface.
+   Full-width, docked to the top edge, always ink regardless of theme. Its
+   route tab (teal) sits on the leading edge. Holds brand · search · actions.
+   NO overflow:hidden here, ever: the search results hang from inside it.
+   ========================================================================== */
+.nameboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  height: 52px;
+  padding-left: 10px;
+  background: var(--board);
+  color: var(--board-ink);
+  border-bottom: 1px solid var(--board-line);
+}
+/* The route tab: a teal plate on the leading edge, full height. */
+.nameboard::before {
+  content: '';
+  flex: none;
+  width: 5px;
+  align-self: stretch;
+  background: var(--route-system);
+}
+
+.nb-mark {
+  flex: none;
+  color: var(--route-system);
+}
+/* Live agent: an indicator lamp on the conductor's panel. More visible now
+   — filled amber on ink so a staged agent session is obvious at a glance. */
+.agent-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--route-sun);
+  padding: 3px 9px;
+  background: color-mix(in srgb, var(--route-sun) 14%, transparent);
+  border: 1px solid var(--route-sun);
+  border-radius: 2px;
+}
+.agent-live::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--route-sun);
+  animation: lamp-blink 1.4s steps(2, start) infinite;
+}
+
+/* Search rides on the board as a compact, inset field — smaller than the
+   full bar so the MCP action reads as its own thing rather than sharing a sea
+   of ink. */
+.chrome-search {
+  position: relative;
+  flex: 0 1 340px;
+  min-width: 0;
+  max-width: 380px;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  height: 34px;
+  margin: 0 14px;
+  padding: 0 10px;
+  background: rgba(242, 240, 233, 0.07);
+  border: 1px solid var(--board-line);
+  border-radius: 2px;
+}
+.search-glyph {
+  flex: none;
+  color: var(--board-dim);
+  margin-right: 10px;
+}
+.chrome-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--board-ink);
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  outline: none;
+}
+.chrome-search input::placeholder {
+  color: var(--board-dim);
+}
+/* The native search-cancel glyph renders as a bright ✕ that fights the board;
+   drop it — clearing is one backspace, and the field keeps its quiet look. */
+.chrome-search input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.search-busy {
+  flex: none;
+  width: 8px;
+  height: 12px;
+  border-radius: 1px;
+  background: var(--route-sun);
+  animation: lamp-blink 0.9s steps(2, start) infinite;
+}
+
+/* Results drop BELOW the board as a sign panel — data lives on panels,
+   never on the nameboard itself. */
+.search-results {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  z-index: 40;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--panel-line);
+  border-top: 3px solid var(--route-system);
+  box-shadow: var(--shadow);
+  max-height: min(380px, 60vh);
+  overflow-y: auto;
+}
+.search-empty {
+  padding: 12px 14px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: var(--ink-dim);
+}
+.search-hit {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-top: 1px solid var(--panel-line-soft);
+  background: none;
+  color: var(--ink);
+  border-radius: 0;
+  padding: 9px 12px 9px 14px;
+  cursor: pointer;
+}
+.search-hit:first-child {
+  border-top: 0;
+}
+/* Selection reveals a route tab on the row's leading edge — the same move as
+   the band, one level down. */
+.search-hit.on,
+.search-hit:hover {
+  background: var(--paper-2);
+  box-shadow: inset 3px 0 0 var(--route-system);
+}
+.search-hit-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.search-hit-layer {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.nb-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  margin-left: auto;
+  align-self: stretch;
+  padding: 0 12px 0 14px;
+  background: var(--board-ink);
+  border-left: none;
+}
+/* Theme toggle on the white actions slab — dark ink, not board-dim on ink. */
+.nb-actions .chrome-btn:not(.mcp-trigger) {
+  color: rgba(16, 18, 22, 0.58);
+}
+.nb-actions .chrome-btn:not(.mcp-trigger):hover {
+  background: rgba(16, 18, 22, 0.07);
+  color: var(--board);
+}
+.nb-actions .account-signin {
+  background: var(--board);
+  color: var(--board-ink);
+  border: 1px solid var(--board);
+}
+.nb-actions .account-signin:hover {
+  background: #1e2127;
+  border-color: #1e2127;
+  color: var(--board-ink);
+}
+/* Board buttons: ghost plates on ink. Quiet until touched. */
+.chrome-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 11px;
+  border: 0;
+  background: transparent;
+  color: var(--board-dim);
+  border-radius: 2px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.chrome-btn:hover {
+  background: rgba(242, 240, 233, 0.09);
+  color: var(--board-ink);
+}
+/* MCP / agent connection — standout via scale, not a filled teal slab.
+   Bigger logos, no conforming paddings — the row bleeds to the edge. Teal
+   fill removed per feedback; lives on the white actions slab as an outlined
+   ghost so the logos do the talking. Live glows amber. */
+.mcp-trigger {
+  height: 44px;
+  padding: 0 14px 0 4px;
+  gap: 8px;
+  border: 1px solid rgba(16, 18, 22, 0.14);
+  background: transparent;
+  color: var(--board);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  border-radius: 2px;
+  box-shadow: none;
+}
+.mcp-trigger:hover {
+  background: rgba(16, 18, 22, 0.06);
+  border-color: rgba(16, 18, 22, 0.14);
+  color: var(--board);
+  transform: none;
+  box-shadow: none;
+}
+.mcp-trigger.live {
+  background: var(--route-sun);
+  border-color: var(--route-sun);
+  color: #1a1100;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--route-sun) 24%, transparent);
+}
+.mcp-trigger.live:hover {
+  background: color-mix(in srgb, var(--route-sun) 92%, white 8%);
+  border-color: var(--route-sun);
+  color: #1a1100;
+}
+/* Stacked client marks — no borders, no extra padding, so the row reads
+   bigger without growing the button. */
+.mcp-avatars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+.mcp-av {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 0;
+  margin-left: -4px;
+  flex: none;
+  color: #fff;
+}
+.mcp-av:first-child {
+  margin-left: 0;
+}
+.mcp-av svg {
+  width: 17px;
+  height: 17px;
+}
+.mcp-av.face-grok {
+  background: #18181b;
+}
+.mcp-av.face-claude {
+  background: #c96442;
+}
+.mcp-av.face-gpt {
+  background: #0f766e;
+}
+.mcp-av.face-cursor {
+  background: #52525b;
+}
+
+/* ==========================================================================
+   THE LAYER RAIL — the concourse directory.
+   Docked to the left edge under the nameboard. Its band names the surface;
+   the body lists the lines. Collapsed, only the band remains — a sign, not a
+   drawer handle.
+   ========================================================================== */
+.layer-rail {
+  position: fixed;
+  z-index: 20;
+  top: 66px;
+  bottom: 14px;
+  left: 14px;
+  width: 324px;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--panel-line);
+  box-shadow: var(--shadow);
+}
+.rail-band {
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--panel-line);
+  background: var(--board);
+  color: var(--board-ink);
+  padding: 0 12px 0 0;
+  height: 42px;
+  cursor: pointer;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+/* The route tab, on the band's leading edge. */
+.rail-band::before {
+  content: '';
+  flex: none;
+  width: 5px;
+  align-self: stretch;
+  margin-right: 8px;
+  background: var(--route-system);
+}
+.rail-band .chevron {
+  margin-left: auto;
+  color: var(--board-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.layer-rail.collapsed {
+  bottom: auto;
+  width: auto;
+  min-width: 180px;
+}
+.layer-rail.collapsed .rail-body {
+  display: none;
+}
+.rail-body {
+  overflow-y: auto;
+  padding: 2px 14px 16px;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* Section heading: uppercase mono micro-label with a rule running to the edge
+   — the directory dividing its regions. */
+.layer-cat h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 18px 0 2px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.layer-cat h3::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--panel-line-soft);
+}
+
+.layer-card {
+  padding: 11px 0 12px;
+  border-top: 1px solid var(--panel-line-soft);
+}
+.layer-cat h3 + .layer-card {
+  border-top: 0;
+}
+.layer-card.locked {
+  opacity: 0.55;
+}
+.layer-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.layer-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.layer-label {
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  color: var(--ink);
+}
+.layer-blurb {
+  margin: 6px 0 0 42px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-dim);
+}
+
+/* Badges: squared chips in the data voice. */
+.badge {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 1px;
+  background: var(--paper-2);
+  color: var(--ink-dim);
+  border: 1px solid var(--panel-line-soft);
+}
+.count-badge {
+  background: var(--route-system-ink);
+  color: var(--on-route);
+  border-color: var(--route-system-ink);
+  font-variant-numeric: tabular-nums;
+}
+.badge-warn {
+  background: transparent;
+  color: var(--route-sun-ink);
+  border-color: var(--route-sun-ink);
+}
+:root[data-theme='dark'] .badge-warn,
+:root:not([data-theme]) .badge-warn {
+  color: var(--route-sun);
+  border-color: var(--route-sun);
+}
+
+/* Roundel — the numbered circle of transit wayfinding. Marks the flagship,
+   counts timeline steps, names the instrument. */
+.roundel {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1;
+}
+.roundel-flag {
+  color: var(--route-flag-ink);
+}
+.roundel-sun {
+  color: var(--route-sun-ink);
+}
+:root[data-theme='dark'] .roundel-flag,
+:root:not([data-theme]) .roundel-flag {
+  color: var(--route-flag);
+}
+:root[data-theme='dark'] .roundel-sun,
+:root:not([data-theme]) .roundel-sun {
+  color: var(--route-sun);
+}
+
+/* Toggle switch — mechanical, squared, snaps. No springs. */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 18px;
+  flex: none;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  inset: 0;
+  background: var(--switch-off);
+  border-radius: 2px;
+}
+.slider::before {
+  content: '';
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  left: 3px;
+  top: 3px;
+  background: var(--switch-knob);
+  border-radius: 1px;
+  box-shadow: inset 0 0 0 1px var(--panel-line-soft);
+}
+.switch input:checked + .slider {
+  background: var(--route-system-ink);
+}
+.switch input:checked + .slider::before {
+  transform: translateX(14px);
+  background: var(--on-route);
+}
+.switch input:disabled + .slider {
+  opacity: 0.45;
+}
+
+.legend {
+  list-style: none;
+  margin: 8px 0 0 42px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink);
+}
+.swatch {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+}
+.swatch-fill {
+  width: 16px;
+  height: 12px;
+  border-radius: 1px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+}
+.swatch-line {
+  width: 20px;
+  height: 12px;
+  justify-content: center;
+}
+.swatch-pin {
+  width: 17px;
+  height: 17px;
+  overflow: visible;
+}
+.swatch-line-bar {
+  width: 20px;
+  height: 3px;
+  border-radius: 1px;
+}
+.swatch-line.dashed .swatch-line-bar {
+  mask: repeating-linear-gradient(90deg, #000 0 5px, transparent 5px 8px);
+}
+.swatch-line.dotted .swatch-line-bar {
+  mask: repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 5px);
+}
+
+/* Per-tier sub-toggles (e.g. road classes) */
+.subunits {
+  list-style: none;
+  margin: 8px 0 0 42px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.subunits li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--ink);
+}
+
+.terrain-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 2px 42px;
+  font-size: 12.5px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.panel-foot {
+  margin: 16px 0 0;
+  font-size: 10.5px;
+  color: var(--ink-dim);
+  line-height: 1.5;
+}
+
+/* Segmented variable selector — pressed sign buttons. */
+.segmented {
+  display: flex;
+  gap: 0;
+  margin: 10px 0 0 42px;
+  border: 1px solid var(--panel-line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.seg {
+  flex: 1;
+  border: none;
+  border-right: 1px solid var(--panel-line);
+  background: transparent;
+  color: var(--ink-dim);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 4px;
+  border-radius: 0;
+  cursor: pointer;
+}
+.seg:last-child {
+  border-right: 0;
+}
+.seg:hover {
+  color: var(--ink);
+  background: var(--paper-2);
+}
+.seg-on {
+  background: var(--ink);
+  color: var(--paper);
+}
+.seg-on:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Scrubbers — square thumb on a hairline track. */
+.scrubber {
+  margin: 12px 0 2px 42px;
+}
+.scrubber-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.scrub-play {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--panel-line);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 2px;
+  font-size: 10px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.scrub-play.playing {
+  background: var(--ink);
+  color: var(--paper);
+}
+.scrubber-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.scrubber-range {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 18px;
+  background: transparent;
+  cursor: pointer;
+}
+.scrubber-range::-webkit-slider-runnable-track {
+  height: 2px;
+  background: var(--panel-line-soft);
+}
+.scrubber-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  margin-top: -5.5px;
+  border-radius: 2px;
+  background: var(--ink);
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--ink);
+}
+.scrubber-range::-moz-range-track {
+  height: 2px;
+  background: var(--panel-line-soft);
+}
+.scrubber-range::-moz-range-thumb {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--ink);
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--ink);
+}
+.scrub-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+.scrub-tick {
+  flex: 1;
+  padding: 1px 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--ink-dim);
+  text-align: center;
+}
+.scrub-tick:first-child {
+  text-align: left;
+}
+.scrub-tick:last-child {
+  text-align: right;
+}
+.scrub-tick.on {
+  color: var(--ink);
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--route-system-ink);
+}
+:root[data-theme='dark'] .scrub-tick.on,
+:root:not([data-theme]) .scrub-tick.on {
+  box-shadow: inset 0 -2px 0 var(--route-system);
+}
+
+/* Time-of-day scrubber inside the sun sheet */
+.sun-time {
+  margin: 12px 0 2px;
+}
+.sun-time .sun-live-alt {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.layer-card.sun-on .layer-label {
+  color: var(--route-sun-ink);
+}
+:root[data-theme='dark'] .layer-card.sun-on .layer-label,
+:root:not([data-theme]) .layer-card.sun-on .layer-label {
+  color: var(--route-sun);
+}
+.sun-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink);
+  margin: 14px 0 2px;
+}
+.sun-date > span {
+  min-width: 48px;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.sun-date input[type='range'] {
+  flex: 1;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 18px;
+  background: transparent;
+  cursor: pointer;
+}
+.sun-date input[type='range']::-webkit-slider-runnable-track {
+  height: 2px;
+  background: var(--panel-line-soft);
+}
+.sun-date input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  margin-top: -5.5px;
+  border-radius: 2px;
+  background: var(--ink);
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--ink);
+}
+.sun-date input[type='range']::-moz-range-track {
+  height: 2px;
+  background: var(--panel-line-soft);
+}
+.sun-date input[type='range']::-moz-range-thumb {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--ink);
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--ink);
+}
+.sun-today {
+  border: 1px solid var(--panel-line);
+  background: var(--paper);
+  color: var(--ink-dim);
+  border-radius: 2px;
+  padding: 2px 7px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+.sun-today:hover {
+  color: var(--ink);
+  background: var(--paper-2);
+}
+.sun-hint {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  color: var(--ink-dim);
+  line-height: 1.45;
+}
+
+/* Provenance "i" + popover -------------------------------------------------
+   The product's conscience, set as a specimen plate: route-tab top edge,
+   mono throughout, nothing decorative. */
+.info-corner {
+  margin-left: auto;
+  position: relative;
+  flex: none;
+}
+.info-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  color: var(--ink-dim);
+  font-family: var(--mono);
+  font-style: italic;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.info-btn:hover {
+  color: var(--ink);
+}
+.info-btn.open {
+  background: var(--route-info-ink);
+  border-color: var(--route-info-ink);
+  color: var(--on-route);
+}
+:root[data-theme='dark'] .info-btn.open,
+:root:not([data-theme]) .info-btn.open {
+  background: var(--route-info);
+  border-color: var(--route-info);
+}
+.info-pop {
+  position: absolute;
+  top: 27px;
+  right: 0;
+  width: 244px;
+  z-index: 30;
+  background: var(--paper);
+  border: 1px solid var(--panel-line);
+  border-top: 3px solid var(--route-info);
+  box-shadow: var(--shadow);
+  padding: 10px 12px 11px;
+}
+.info-src {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+.info-detail {
+  margin: 5px 0 0;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ink-dim);
+}
+.info-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+}
+.info-year {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--ink-dim);
+  background: var(--paper-2);
+  border: 1px solid var(--panel-line-soft);
+  border-radius: 1px;
+  padding: 2px 6px;
+}
+.info-link {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--route-info-ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+:root[data-theme='dark'] .info-link,
+:root:not([data-theme]) .info-link {
+  color: var(--route-info);
+}
+.info-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   READOUT SHEETS — docked right, banded like platform signs.
+   The .feature-head IS the nameboard band: kind + title reversed out of ink,
+   the close button riding on it. data-route on the sheet recolours the tab.
+   ========================================================================== */
+.feature-sheet {
+  position: fixed;
+  z-index: 25;
+  top: 66px;
+  right: 14px;
+  width: 344px;
+  max-height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--panel-line);
+  box-shadow: var(--shadow);
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Body sits on paper — leave a frame so rows/links/images don't kiss the
+     border. The sticky head bleeds to the edge via negative margins. */
+  padding: 0 16px 16px;
+}
+.feature-head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--board);
+  color: var(--board-ink);
+  border-bottom: 1px solid var(--panel-line);
+  padding: 11px 12px 12px 0;
+  margin: 0 -16px 0;
+}
+.feature-head::before {
+  content: '';
+  flex: none;
+  width: 5px;
+  align-self: stretch;
+  background: var(--route-system);
+}
+.feature-sheet[data-route='sun'] .feature-head::before {
+  background: var(--route-sun);
+}
+.feature-sheet[data-route='flag'] .feature-head::before {
+  background: var(--route-flag);
+}
+.feature-sheet[data-route='info'] .feature-head::before {
+  background: var(--route-info);
+}
+.feature-kind {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--board-dim);
+  font-weight: 500;
+  padding-left: 13px;
+}
+.feature-title {
+  margin: 3px 0 0;
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: var(--board-ink);
+  padding-left: 13px;
+  overflow-wrap: anywhere;
+}
+.feature-close {
+  border: 1px solid var(--board-line);
+  background: transparent;
+  color: var(--board-dim);
+  width: 26px;
+  height: 26px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 12px;
+  flex: none;
+  margin-top: 1px;
+}
+.feature-close:hover {
+  background: rgba(242, 240, 233, 0.12);
+  color: var(--board-ink);
+}
+
+/* Status timeline — numbered roundels on a route line. */
+.timeline {
+  list-style: none;
+  margin: 14px 0 4px;
+  padding: 0;
+}
+.tl-step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 0 14px 0;
+  font-size: 12.5px;
+}
+.tl-step:last-child {
+  padding-bottom: 0;
+}
+.tl-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 24px;
+  bottom: 2px;
+  width: 2px;
+  background: var(--panel-line-soft);
+}
+.tl-dot {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--panel-line-soft);
+  background: var(--paper);
+  color: var(--ink-dim);
+  display: inline-grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  z-index: 1;
+}
+.tl-label {
+  color: var(--ink-dim);
+}
+.tl-date {
+  margin-left: auto;
+  padding-left: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+.tl-current .tl-date,
+.tl-done .tl-date {
+  color: var(--ink);
+}
+.tl-done .tl-dot {
+  background: var(--route-system-ink);
+  border-color: var(--route-system-ink);
+  color: var(--on-route);
+}
+:root[data-theme='dark'] .tl-done .tl-dot,
+:root:not([data-theme]) .tl-done .tl-dot {
+  background: var(--route-system);
+  border-color: var(--route-system);
+}
+.tl-done .tl-label {
+  color: var(--ink);
+}
+.tl-current .tl-dot {
+  background: var(--route-sun);
+  border-color: var(--route-sun);
+  color: #16181d;
+}
+.tl-current .tl-label {
+  color: var(--ink);
+  font-weight: 700;
+}
+.tl-current .tl-label::after {
+  content: ' • now';
+  color: var(--route-sun-ink);
+  font-weight: 600;
+}
+:root[data-theme='dark'] .tl-current .tl-label::after,
+:root:not([data-theme]) .tl-current .tl-label::after {
+  color: var(--route-sun);
+}
+
+.feature-rows {
+  margin: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.feature-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+}
+.feature-row dt {
+  color: var(--ink-dim);
+  /* No min-width: 0 — letting dt keep min-content means long values wrap, not
+     the label splitting mid-word. */
+  overflow-wrap: break-word;
+}
+.feature-row dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-weight: 600;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.feature-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--route-info-ink);
+  text-decoration: none;
+}
+:root[data-theme='dark'] .feature-link,
+:root:not([data-theme]) .feature-link {
+  color: var(--route-info);
+}
+.feature-link:hover {
+  text-decoration: underline;
+}
+.feature-coords {
+  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-dim);
+  font-variant-numeric: tabular-nums;
+}
+.layer-empty {
+  margin: 6px 0 0 42px;
+  font-size: 11.5px;
+  color: var(--ink-dim);
+  font-style: italic;
+}
+
+.feature-image {
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 0;
+  margin-top: 12px;
+  border: 1px solid var(--panel-line);
+}
+.feature-blurb {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink-dim);
+}
+.feature-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+.feature-link.btn {
+  display: block;
+  margin-top: 0;
+  padding: 9px 12px;
+  text-align: center;
+  background: var(--paper);
+  border: 1px solid var(--panel-line);
+  border-radius: 2px;
+  color: var(--route-info-ink);
+  font-weight: 700;
+}
+:root[data-theme='dark'] .feature-link.btn,
+:root:not([data-theme]) .feature-link.btn {
+  color: var(--route-info);
+}
+.feature-link.btn:hover {
+  background: var(--paper-2);
+  text-decoration: none;
+  box-shadow: inset 3px 0 0 var(--route-info);
+}
+.feature-attribution {
+  display: block;
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--ink-dim);
+  text-decoration: none;
+  font-style: italic;
+}
+.feature-attribution:hover {
+  color: var(--ink);
+}
+
+.feature-sections {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.feature-section {
+  border-top: 1px solid var(--panel-line-soft);
+  padding-top: 10px;
+}
+.feature-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.feature-section-head h3 {
+  margin: 0;
+  min-width: 0;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.feature-section .feature-rows {
+  margin-top: 8px;
+}
+.feature-section-empty {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--ink-dim);
+  font-style: italic;
+}
+
+.coverage-sheet .coverage-row {
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--panel-line-soft);
+}
+.coverage-sheet .coverage-row h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+.coverage-sheet .coverage-row code {
+  font-size: 10.5px;
+  color: var(--ink-dim);
+  font-weight: 500;
+}
+
+/* Analyze card — THE FLAGSHIP. The one counter-inverse block on the rail:
+   ink ground like a band, vermillion route tab, armed state lights the lamp. */
+.analyze-card {
+  position: relative;
+  border: 1px solid var(--panel-line);
+  border-left: 4px solid var(--route-flag);
+  border-radius: 0;
+  padding: 12px 12px 12px 13px;
+  background: var(--board);
+  margin-top: 10px;
+}
+.analyze-card .layer-label {
+  color: var(--board-ink);
+  font-weight: 700;
+}
+.analyze-card .layer-blurb {
+  color: var(--board-dim);
+}
+.analyze-card .slider {
+  background: rgba(242, 240, 233, 0.24);
+}
+.analyze-card .slider::before {
+  background: var(--board);
+  box-shadow: inset 0 0 0 1px rgba(242, 240, 233, 0.35);
+}
+.analyze-card .switch input:checked + .slider {
+  background: var(--route-flag);
+}
+.analyze-card .switch input:checked + .slider::before {
+  background: var(--on-route);
+}
+.analyze-card.analyze-on {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--route-flag) 55%, transparent);
+}
+.analyze-card .roundel {
+  color: var(--route-flag);
+}
+
+/* Analyze sheet loading / error states */
+.analyze-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  font-size: 12.5px;
+  color: var(--ink-dim);
+}
+.analyze-error {
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  color: var(--route-flag-ink);
+  line-height: 1.4;
+}
+:root[data-theme='dark'] .analyze-error,
+:root:not([data-theme]) .analyze-error {
+  color: var(--route-flag);
+}
+
+/* ==========================================================================
+   ACCOUNT — identity chip on the board; menu drops as a sign panel.
+   ========================================================================== */
+.account {
+  position: relative;
+}
+.account-pending {
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: 2px;
+  background: rgba(242, 240, 233, 0.12);
+}
+/* The single filled control on the board: the thing to do next. */
+.account-signin {
+  height: 32px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--board);
+  background: var(--board-ink);
+  border: 0;
+  border-radius: 2px;
+  padding: 0 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.account-signin:hover {
+  background: var(--route-system);
+  color: #06231f;
+}
+.account-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  max-width: 170px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--board-dim);
+  background: transparent;
+  border: 0;
+  border-radius: 2px;
+  padding: 0 10px 0 3px;
+  cursor: pointer;
+}
+.account-btn:hover {
+  background: rgba(242, 240, 233, 0.09);
+  color: var(--board-ink);
+}
+.account-initial {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 2px;
+  display: grid;
+  place-items: center;
+  background: var(--route-system);
+  color: #06231f;
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
+}
+.account-email {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.account-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 232px;
+  z-index: 40;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--panel-line);
+  border-top: 3px solid var(--route-system);
+  box-shadow: var(--shadow);
+  padding: 8px;
+}
+.account-menu-head {
+  font-size: 11.5px;
+  color: var(--ink-dim);
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 8px 8px;
+  border-bottom: 1px solid var(--panel-line-soft);
+  margin-bottom: 6px;
+  word-break: break-all;
+}
+.account-menu-head strong {
+  color: var(--ink);
+}
+.account-menu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 13px;
+  color: var(--ink);
+  background: none;
+  border: none;
+  border-radius: 2px;
+  padding: 8px;
+  cursor: pointer;
+}
+.account-menu-item:hover {
+  background: var(--paper-2);
+}
+.account-menu-item.danger {
+  color: var(--route-flag-ink);
+}
+:root[data-theme='dark'] .account-menu-item.danger,
+:root:not([data-theme]) .account-menu-item.danger {
+  color: var(--route-flag);
+}
+.account-menu-hint {
+  font-size: 10.5px;
+  color: var(--ink-dim);
+  padding: 2px 8px 8px;
+  line-height: 1.5;
+  border-bottom: 1px solid var(--panel-line-soft);
+  margin-bottom: 6px;
+}
+.account-menu-hint code {
+  font-size: 10px;
+  color: var(--route-info-ink);
+  word-break: break-all;
+}
+
+/* "Sign in to use" on a locked API layer card */
+.layer-signin {
+  margin: 6px 0 0 42px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  background: none;
+  border: 1px solid var(--panel-line);
+  border-radius: 2px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.layer-signin:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ==========================================================================
+   DIALOGS — auth modal & MCP dialog: centred sign cabinets with a band.
+   ========================================================================== */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(8, 9, 12, 0.58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  animation: veil-in 150ms steps(3, end);
+}
+.auth-modal {
+  position: relative;
+  width: 100%;
+  max-width: 404px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--panel-line);
+  box-shadow: none;
+  max-height: 92vh;
+  overflow-y: auto;
+  animation: cabinet-in 200ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+/* The cabinet's own nameboard band. */
+.surf-band {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 42px;
+  background: var(--board);
+  color: var(--board-ink);
+  border-bottom: 1px solid var(--panel-line);
+  padding: 0 12px 0 0;
+}
+.surf-band::before {
+  content: '';
+  flex: none;
+  width: 5px;
+  align-self: stretch;
+  margin-right: 4px;
+  background: var(--route-system);
+}
+.surf-band[data-route='flag']::before {
+  background: var(--route-flag);
+}
+.surf-band[data-route='sun']::before {
+  background: var(--route-sun);
+}
+.band-title {
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--board-ink);
+}
+.surf-band .feature-close {
+  margin-left: auto;
+  margin-top: 0;
+}
+.auth-sheet-grip {
+  display: none;
+  width: 36px;
+  height: 4px;
+  border-radius: 1px;
+  background: var(--panel-line-soft);
+  margin: 0 auto 14px;
+}
+.auth-sheet-grip {
+  display: none;
+  width: 36px;
+  height: 4px;
+  border-radius: 1px;
+  background: var(--panel-line-soft);
+  margin: 0 auto 14px;
+}
+/* The cabinet's content padding, under its band. */
+.cabinet-body {
+  padding: 18px 20px 20px;
+}
+.auth-kicker {
+  margin: 16px 0 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.auth-modal .auth-kicker,
+.connect-card .auth-kicker {
+  margin-top: 0;
+}
+.auth-title {
+  margin: 0 0 8px;
+  font-family: var(--display);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+.auth-sub {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: var(--ink-dim);
+  line-height: 1.5;
+}
+.auth-modes {
+  display: flex;
+  gap: 0;
+  margin: 0 0 16px;
+  padding: 0;
+  border: 1px solid var(--panel-line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.auth-mode {
+  flex: 1;
+  border: none;
+  border-right: 1px solid var(--panel-line);
+  background: transparent;
+  color: var(--ink-dim);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  padding: 9px 8px;
+  border-radius: 0;
+  cursor: pointer;
+}
+.auth-mode:last-child {
+  border-right: 0;
+}
+.auth-mode:hover {
+  color: var(--ink);
+}
+.auth-mode.on {
+  background: var(--ink);
+  color: var(--paper);
+}
+.auth-social {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.auth-social-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--panel-line);
+  border-radius: 2px;
+  padding: 11px 12px;
+  cursor: pointer;
+}
+.auth-social-btn svg {
+  flex: none;
+}
+.auth-social-btn:hover:not(:disabled) {
+  background: var(--paper-2);
+  box-shadow: inset 3px 0 0 var(--route-system);
+}
+.auth-social-btn:disabled,
+.auth-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.auth-divider {
+  position: relative;
+  text-align: center;
+  margin: 16px 0 12px;
+}
+.auth-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--panel-line-soft);
+}
+.auth-divider span {
+  position: relative;
+  background: var(--paper);
+  padding: 0 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.auth-field > span:first-child {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.auth-field input {
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--panel-line);
+  border-radius: 2px;
+  padding: 11px 12px;
+  outline: none;
+}
+.auth-field input:focus {
+  border-color: var(--focus);
+  box-shadow: inset 0 0 0 1px var(--focus);
+}
+.auth-password {
+  position: relative;
+  display: block;
+}
+.auth-password input {
+  padding-right: 64px;
+}
+.auth-eye {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: var(--route-info-ink);
+  font-size: 12px;
+  font-weight: 650;
+  padding: 4px 6px;
+  cursor: pointer;
+}
+:root[data-theme='dark'] .auth-eye,
+:root:not([data-theme]) .auth-eye {
+  color: var(--route-info);
+}
+.auth-error {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--route-flag-ink);
+  background: color-mix(in srgb, var(--route-flag) 9%, var(--paper));
+  border: 1px solid color-mix(in srgb, var(--route-flag) 45%, var(--panel-line));
+  border-radius: 2px;
+  padding: 8px 10px;
+}
+:root[data-theme='dark'] .auth-error,
+:root:not([data-theme]) .auth-error {
+  color: var(--route-flag);
+}
+/* The commit action everywhere: an ink plate with a route tab. */
+.auth-submit {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  padding: 13px;
+  cursor: pointer;
+  margin-top: 4px;
+  box-shadow: inset 4px 0 0 var(--route-system);
+}
+.auth-submit:hover:not(:disabled) {
+  background: var(--route-system-ink);
+  border-color: var(--route-system-ink);
+  color: var(--on-route);
+}
+:root[data-theme='dark'] .auth-submit:hover:not(:disabled),
+:root:not([data-theme]) .auth-submit:hover:not(:disabled) {
+  background: var(--route-system);
+  border-color: var(--route-system);
+  color: #06231f;
+}
+
+/* MCP dialog body: three numbered steps, one client recipe at a time. */
+.mcp-dialog {
+  max-width: 520px;
+}
+.mcp-live {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a1100;
+  background: var(--route-sun);
+  padding: 3px 7px;
+  border-radius: 1px;
+}
+.mcp-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.mcp-step {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  padding-bottom: 20px;
+}
+.mcp-step:last-child {
+  padding-bottom: 0;
+}
+/* The route line joining the roundels. */
+.mcp-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 24px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--brand-coral);
+}
+.mcp-step > .roundel {
+  color: var(--ink);
+  background: var(--paper);
+}
+/* min-width: 0 lets snippets scroll inside the step instead of widening it. */
+.mcp-step-body {
+  flex: 1;
+  min-width: 0;
+}
+.mcp-step-title {
+  margin: 1px 0 8px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.mcp-step-text {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-dim);
+}
+.mcp-url-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 6px 6px 12px;
+  background: var(--paper-2);
+  border: 1px solid var(--panel-line);
+}
+.mcp-url {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mcp-copy {
+  flex: none;
+  border: 1px solid var(--panel-line);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--dc-radius);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.mcp-copy:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.mcp-copy.primary {
+  background: var(--board);
+  border-color: var(--board);
+  color: var(--board-ink);
+  min-width: 76px;
+}
+.mcp-copy.primary:hover {
+  background: var(--brand-coral);
+  border-color: var(--brand-coral);
+  color: var(--on-brand);
+}
+.mcp-copy:focus-visible,
+.mcp-pick:focus-visible,
+.mcp-prompt:focus-visible,
+.mcp-open:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+/* Client picker: five equal tabs, mark over name, route tab on the chosen one. */
+.mcp-picker {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border: 1px solid var(--panel-line);
+  border-bottom: 0;
+}
+.mcp-pick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 9px 2px 8px;
+  border: 0;
+  border-right: 1px solid var(--panel-line-soft);
+  border-top: 3px solid transparent;
+  background: var(--paper);
+  color: var(--ink-dim);
+  cursor: pointer;
+}
+.mcp-pick:last-child {
+  border-right: 0;
+}
+.mcp-pick:hover {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+.mcp-pick[aria-selected='true'] {
+  border-top-color: var(--brand-coral);
+  background: var(--paper-raised);
+  color: var(--ink);
+}
+.mcp-pick-face {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #18181b;
+}
+.mcp-pick-face svg {
+  width: 15px;
+  height: 15px;
+}
+.mcp-pick-face.face-claude {
+  background: #c96442;
+}
+.mcp-pick-face.face-chatgpt {
+  background: #10a37f;
+}
+.mcp-pick-face.face-other {
+  background: var(--paper-3);
+  color: var(--ink);
+}
+.mcp-pick-dots {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+.mcp-pick-name {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mcp-recipe-panel {
+  border: 1px solid var(--panel-line);
+  background: var(--paper-raised);
+  padding: 12px 14px 14px;
+}
+.mcp-recipe {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.mcp-recipe li::marker {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-dim);
+}
+.mcp-recipe strong {
+  font-weight: 650;
+}
+.mcp-recipe code {
+  font-family: var(--mono);
+  font-size: 11.5px;
+}
+.mcp-open {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 12px;
+  border: 1px solid var(--panel-line);
+  border-radius: var(--dc-radius);
+  background: var(--board);
+  color: var(--board-ink);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 650;
+  text-decoration: none;
+}
+.mcp-open:hover {
+  background: var(--brand-coral);
+  border-color: var(--brand-coral);
+  color: var(--on-brand);
+}
+.mcp-recipe-note {
+  margin: 14px 0 6px;
+  font-size: 12.5px;
+  color: var(--ink-dim);
+}
+.mcp-snippet-wrap {
+  display: flex;
+  align-items: stretch;
+  margin-top: 10px;
+  background: var(--board);
+}
+.mcp-snippet {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.5;
+  background: var(--board);
+  color: var(--board-ink);
+  border: 0;
+  border-left: 3px solid var(--brand-coral);
+  border-radius: 0;
+  /* Scroll rather than wrap: these are meant to be copied, not read. */
+  overflow-x: auto;
+  white-space: pre;
+}
+.mcp-snippet-wrap .mcp-copy {
+  align-self: flex-start;
+  margin: 6px;
+  background: var(--board);
+  color: var(--board-ink);
+  border-color: var(--board-dim);
+}
+.mcp-snippet-wrap .mcp-copy:hover {
+  background: var(--board-ink);
+  color: var(--board);
+}
+.mcp-prompts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mcp-prompt {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--panel-line-soft);
+  border-radius: var(--dc-radius);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+}
+.mcp-prompt:hover {
+  border-color: var(--panel-line);
+  background: var(--paper-2);
+}
+.mcp-prompt > span:first-child {
+  flex: 1;
+  min-width: 0;
+}
+.mcp-prompt-copy {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.mcp-foot {
+  margin: 18px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--panel-line-soft);
+  font-size: 12px;
+  color: var(--ink-dim);
+  line-height: 1.5;
+}
+.mcp-inline {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--route-info-ink);
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+:root[data-theme='dark'] .mcp-inline,
+:root:not([data-theme]) .mcp-inline {
+  color: var(--route-info);
+}
+.mcp-inline:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   MCP CONSENT PAGE — standalone, owns the viewport. One big cabinet centred
+   on constant ink.
+   ========================================================================== */
+.connect-page {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  background: var(--board);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px calc(24px + env(safe-area-inset-bottom));
+}
+.connect-card {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--panel-line);
+  box-shadow: none;
+}
+.connect-card .surf-band::before {
+  margin-right: 8px;
+}
+.connect-wordmark {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--board-ink);
+}
+.connect-card .auth-title {
+  font-size: 19px;
+}
+.connect-scopes {
+  margin: 0 0 16px;
+  padding: 12px 14px 12px 30px;
+  list-style: disc;
+  background: var(--paper-2);
+  border: 1px solid var(--panel-line-soft);
+  border-radius: 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.connect-scopes li::marker {
+  color: var(--route-system-ink);
+}
+:root[data-theme='dark'] .connect-scopes li::marker,
+:root:not([data-theme]) .connect-scopes li::marker {
+  color: var(--route-system);
+}
+.connect-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 8px;
+  font-size: 11.5px;
+}
+.connect-meta span {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.connect-meta code {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 11.5px;
+  color: var(--ink);
+}
+.connect-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 18px;
+}
+.connect-actions .auth-submit {
+  margin: 0;
+}
+.connect-cancel {
+  height: 38px;
+  border: 1px solid var(--panel-line);
+  background: transparent;
+  color: var(--ink-dim);
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.connect-cancel:hover {
+  color: var(--ink);
+  background: var(--paper-2);
+}
+
+/* ==========================================================================
+   MAPLIBRE CONTROLS — dressed as small sign plates, bottom-right; the scale
+   bar alone sits bottom-centre, where distances are measured.
+   ========================================================================== */
+.maplibregl-ctrl-bottom-right {
+  right: 6px;
+  bottom: 6px;
+}
+.maplibregl-ctrl-bottom-center {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  z-index: 2;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.maplibregl-ctrl-group {
+  background: var(--paper) !important;
+  border: 1px solid var(--panel-line) !important;
+  border-radius: 0 !important;
+  box-shadow: var(--shadow) !important;
+  overflow: hidden;
+}
+.maplibregl-ctrl-group button {
+  width: 32px !important;
+  height: 32px !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+.maplibregl-ctrl-group button + button {
+  border-top: 1px solid var(--panel-line-soft) !important;
+}
+.maplibregl-ctrl-group button:hover {
+  background: var(--paper-2) !important;
+}
+/* Control glyphs are baked as dark SVG data-URIs: on dark panels they must be
+   inverted or they vanish. */
+:root[data-theme='dark'] .maplibregl-ctrl-group button .maplibregl-ctrl-icon,
+:root:not([data-theme]) .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: invert(1);
+}
+.maplibregl-ctrl-scale {
+  background: var(--paper) !important;
+  border-color: var(--panel-line) !important;
+  border-top: 0 !important;
+  color: var(--ink-dim) !important;
+  font-family: var(--mono) !important;
+  font-size: 10px !important;
+  letter-spacing: 0.06em;
+  border-radius: 0 !important;
+  box-shadow: var(--shadow) !important;
+}
+/* Attribution: collapsed to a single ⓘ by default; everything it holds is a
+   licence obligation, trimmed and tucked, never dropped. Per-dataset
+   provenance lives in each layer's "i" popover. */
+.maplibregl-ctrl-attrib {
+  background: var(--paper) !important;
+  border-radius: 0 !important;
+  border: 1px solid var(--panel-line) !important;
+  box-shadow: var(--shadow) !important;
+  font-family: var(--mono);
+  font-size: 10px;
+}
+.maplibregl-ctrl-attrib.maplibregl-compact {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  width: auto !important;
+  min-width: 0 !important;
+  padding: 1px 2px 1px 6px !important;
+  min-height: 22px;
+  overflow: visible;
+}
+.maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-button {
+  position: static !important;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 0 !important;
+  background-size: 20px 20px;
+}
+/* Resting label is the lowercase "dc" wordmark; one click opens the credits. */
+.maplibregl-ctrl-attrib.maplibregl-compact::before {
+  content: 'dc';
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--ink);
+  white-space: nowrap;
+  order: -1;
+}
+.maplibregl-ctrl-attrib.maplibregl-compact:not([open]) .maplibregl-ctrl-attrib-inner {
+  display: none;
+}
+.maplibregl-ctrl-attrib.maplibregl-compact[open] .maplibregl-ctrl-attrib-inner {
+  max-width: min(60vw, 560px);
+}
+.maplibregl-ctrl-attrib a,
+.maplibregl-ctrl-attrib {
+  color: var(--ink-dim) !important;
+}
+.maplibregl-ctrl-attrib-button {
+  background-color: transparent !important;
+}
+:root[data-theme='dark'] .maplibregl-ctrl-attrib-button,
+:root:not([data-theme]) .maplibregl-ctrl-attrib-button {
+  filter: invert(1);
+}
+
+/* ==========================================================================
+   MOTION — mechanical and stepped. One arrival sequence; state changes snap.
+   Everything guarded by prefers-reduced-motion.
+   ========================================================================== */
+@keyframes board-drop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes rail-slide {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes cabinet-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes veil-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes tab-wipe {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+.nameboard {
+  animation: board-drop 320ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+.layer-rail,
+.feature-sheet {
+  animation: rail-slide 380ms cubic-bezier(0.2, 0.9, 0.25, 1) 120ms both;
+}
+.nameboard::before,
+.rail-band::before,
+.feature-head::before,
+.surf-band::before {
+  transform-origin: top center;
+  animation: tab-wipe 420ms steps(4, end) 300ms backwards;
+}
+/* Results and menus arrive with a step, not a fade. */
+.search-results,
+.account-menu,
+.info-pop {
+  animation: cabinet-in 130ms steps(3, end) both;
+}
+@keyframes sheet-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nameboard,
+  .layer-rail,
+  .feature-sheet,
+  .auth-overlay,
+  .auth-modal,
+  .search-results,
+  .account-menu,
+  .info-pop,
+  .nameboard::before,
+  .rail-band::before,
+  .feature-head::before,
+  .surf-band::before,
+  .loading-tape,
+  .map-spinner,
+  .agent-live::before,
+  .search-busy {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 900px) {
+  .chrome-btn-label {
+    display: none;
+  }
+  .chrome-btn {
+    padding: 0 9px;
+  }
+  .account-email {
+    display: none;
+  }
+  .account-btn {
+    padding: 0 3px;
+  }
+}
+
+@media (max-width: 767px) {
+  .nameboard {
+    height: 46px;
+    padding-left: 8px;
+  }
+  .chrome-search {
+    flex: 1 1 auto;
+    max-width: none;
+    height: 32px;
+    margin: 0 8px;
+    padding: 0 10px;
+  }
+  .nb-actions {
+    padding: 0 4px 0 2px;
+  }
+  /* The rail becomes the bottom sheet: rises from the thumb zone. */
+  .layer-rail {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    max-height: 62vh;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    animation-name: sheet-rise;
+  }
+  .rail-band {
+    height: 44px;
+  }
+  .rail-band::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 4px;
+    border-radius: 1px;
+    background: rgba(242, 240, 233, 0.35);
+  }
+  /* Readouts dock straight under the board, full-bleed. */
+  .feature-sheet {
+    top: 60px;
+    left: 0;
+    right: 0;
+    width: auto;
+    max-height: calc(100vh - 200px);
+  }
+  .maplibregl-ctrl-bottom-right {
+    right: 4px;
+    bottom: 4px;
+  }
+  .auth-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .auth-modal {
+    max-width: none;
+    padding-bottom: env(safe-area-inset-bottom);
+    animation-name: sheet-rise;
+  }
+  .auth-sheet-grip {
+    display: block;
+    margin: 12px auto 12px;
+  }
+}
+
+/* ==========================================================================
+   EDITORIAL CHROME
+   The explorer uses the same visual grammar as developing-country.org:
+   Overpass + M PLUS 1 Code, flat paper, black rules, and one coral accent.
+   Route colours remain reserved for data on the map and in legends.
+   ========================================================================== */
+.nameboard {
+  height: 56px;
+  padding: 0;
+  align-items: stretch;
+  background: #fff;
+  color: #050505;
+  border-bottom: 1px solid #050505;
+  animation: none;
+  overflow: visible;
+}
+.nameboard::before { display: none; }
+.explorer-nav { height: 100%; }
+.agent-live {
+  padding: 3px 7px;
+  border: 1px solid #050505;
+  border-radius: 0;
+  background: transparent;
+  color: #050505;
+  font-size: 9px;
+}
+.agent-live::before { background: #050505; }
+.nb-rail {
+  display: flex;
+  min-width: 0;
+  padding: 0 12px 0 0;
+  align-items: center;
+  background: #fff;
+  overflow: visible;
+}
+.chrome-search {
+  flex: 1 1 280px;
+  width: auto;
+  min-width: 160px;
+  max-width: 360px;
+  height: 34px;
+  margin: 0 16px;
+  padding: 0 10px;
+  background: #fff;
+  border: 1px solid #050505;
+  border-radius: 0;
+  overflow: visible;
+}
+.search-glyph,
+.chrome-search input::placeholder { color: #6f6d68; }
+.chrome-search input {
+  color: #050505;
+  font-family: var(--sans);
+  font-size: 13px;
+}
+.search-busy { background: #fe7141; }
+.search-results {
+  top: calc(100% + 11px);
+  color: #050505;
+  background: #fff;
+  border: 1px solid #050505;
+  border-top: 3px solid #fe7141;
+  box-shadow: none;
+}
+.search-hit.on,
+.search-hit:hover {
+  background: rgba(5, 5, 5, 0.05);
+  box-shadow: inset 3px 0 0 #fe7141;
+}
+.nb-site-links,
+.nb-actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+}
+.nb-site-links { gap: 18px; }
+.nb-site-links a {
+  color: #050505;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.nb-site-links a:hover { opacity: 0.58; }
+.nb-actions {
+  gap: 6px;
+  margin-left: 14px;
+  padding: 0;
+  background: transparent;
+}
+.chrome-btn,
+.mcp-trigger {
+  height: 32px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #050505;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.chrome-btn:hover,
+.mcp-trigger:hover {
+  border-color: transparent;
+  background: rgba(5, 5, 5, 0.06);
+  color: #050505;
+}
+.mcp-avatars { display: none; }
+.mcp-trigger.live {
+  border: 1px solid #050505;
+  background: #fe7141;
+  color: #050505;
+  box-shadow: none;
+}
+.account-pending { background: rgba(5, 5, 5, 0.08); }
+.nb-actions .account-signin,
+.account-signin {
+  height: 32px;
+  padding: 0 13px;
+  border: 1px solid #101010;
+  border-radius: 0;
+  background: #101010;
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.nb-actions .account-signin:hover,
+.account-signin:hover { border-color: #2a2928; background: #2a2928; color: #fff; }
+.account-btn {
+  color: #050505;
+  font-family: var(--mono);
+  border-radius: 0;
+}
+.account-btn:hover { background: rgba(5, 5, 5, 0.06); color: #050505; }
+.account-initial {
+  border-radius: 0;
+  background: #101010;
+  color: #fff;
+  font-family: var(--sans);
+  font-weight: 600;
+}
+/* Everything below the nameboard is panel material, and panel material flips
+   with <html data-theme> (the MCP App follows its host into dark). Tokens
+   only from here on: a literal light hex beside a token ink is what turned
+   the MCP App's layer rail into pale text on a pale slab. */
+.account-menu,
+.info-pop {
+  border: 1px solid var(--panel-line);
+  border-top: 3px solid var(--brand-coral);
+  background: var(--paper-raised);
+  box-shadow: none;
+}
+.switch input:checked + .slider { background: var(--ink); }
+.switch input:checked + .slider::before { background: var(--paper); }
+.count-badge { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.info-btn.open,
+:root[data-theme] .info-btn.open,
+:root:not([data-theme]) .info-btn.open {
+  border-color: var(--brand-coral);
+  background: var(--brand-coral);
+  color: var(--on-brand);
+}
+.analyze-card {
+  padding: 11px 0 12px;
+  margin-top: 0;
+  border: 0;
+  border-top: 1px solid var(--panel-line-soft);
+  background: transparent;
+}
+.layer-cat h3 + .analyze-card { border-top: 0; }
+.analyze-card .layer-label { color: var(--ink); }
+.analyze-card .layer-blurb { color: var(--ink-dim); }
+.analyze-card .slider { background: var(--switch-off); }
+.analyze-card .slider::before { background: var(--switch-knob); box-shadow: inset 0 0 0 1px var(--panel-line-soft); }
+.analyze-card .switch input:checked + .slider { background: var(--brand-coral); }
+.analyze-card .switch input:checked + .slider::before { background: var(--on-route); }
+.analyze-card.analyze-on { box-shadow: none; }
+.analyze-card .roundel {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--brand-coral);
+  border-radius: 0;
+  color: var(--ink);
+}
+
+.layer-rail,
+.feature-sheet {
+  top: 72px;
+  border: 1px solid var(--panel-line);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: none;
+  animation: none;
+}
+.layer-rail { bottom: 16px; left: 16px; }
+.feature-sheet { right: 16px; max-height: calc(100vh - 88px); }
+.rail-band,
+.feature-head,
+.surf-band {
+  background: var(--paper-raised);
+  color: var(--ink);
+  border-bottom: 1px solid var(--panel-line);
+}
+.rail-band {
+  height: 44px;
+  padding: 0 14px;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+}
+.rail-band::before,
+.feature-head::before,
+.surf-band::before { display: none; }
+.rail-band .chevron { color: var(--ink-dim); }
+.feature-head {
+  padding: 12px 12px 12px 16px;
+  margin: 0 -16px;
+}
+.feature-kind { padding-left: 0; color: var(--ink-dim); }
+.feature-title {
+  padding-left: 0;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.feature-link,
+:root[data-theme] .feature-link,
+:root:not([data-theme]) .feature-link { color: var(--ink); }
+.feature-link.btn,
+:root[data-theme] .feature-link.btn,
+:root:not([data-theme]) .feature-link.btn {
+  border-radius: 0;
+  color: var(--ink);
+}
+.feature-link.btn:hover { background: var(--ink); color: var(--paper); box-shadow: none; }
+.feature-close {
+  border: 1px solid var(--panel-line-soft);
+  border-radius: 0;
+  color: var(--ink);
+}
+.feature-close:hover { background: var(--paper-2); color: var(--ink); }
+.surf-band { height: 44px; padding: 0 12px 0 16px; }
+.band-title {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+}
+.surf-band .feature-close { margin-left: auto; }
+.auth-overlay { background: rgba(5, 5, 5, 0.56); }
+.auth-modal,
+.connect-card {
+  border: 1px solid #050505;
+  border-radius: 0;
+  background: #f7f6f4;
+  box-shadow: none;
+}
+.auth-title {
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.auth-social-btn:hover:not(:disabled),
+.auth-submit,
+.mcp-url-row,
+.mcp-snippet { box-shadow: none; }
+.auth-submit:hover:not(:disabled) {
+  border-color: #fe7141;
+  background: #fe7141;
+  color: #050505;
+}
+.mcp-url-row { border-left: 1px solid #050505; }
+.mcp-snippet { border-left: 3px solid #fe7141; }
+.connect-page { background: #f7f6f4; }
+.connect-wordmark { color: #050505; font-size: 36px; font-weight: 700; letter-spacing: -.075em; }
+.maplibregl-ctrl-group,
+.maplibregl-ctrl-scale,
+.maplibregl-ctrl-attrib { box-shadow: none !important; }
+
+.live-view-stage { border-color: var(--panel-line); box-shadow: none; }
+.map-loading { background: var(--paper); color: var(--ink-dim); }
+.map-loading .loading-mark { color: var(--ink); font-family: var(--sans); font-weight: 600; letter-spacing: -0.02em; }
+.loading-tape { background: var(--brand-coral); }
+
+@media (max-width: 1180px) {
+  .explorer-nav { grid-template-columns: 235px 205px minmax(0, 1fr); }
+  .nb-site-links { display: none; }
+  .chrome-search { max-width: none; }
+}
+
+@media (max-width: 767px) {
+  .nameboard { height: 92px; }
+  .explorer-nav {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 44px 48px;
+  }
+  .nb-brand { grid-column: 1; grid-row: 1; width: auto; padding: 0 14px; font-size: 14px; }
+  .nb-edition { grid-column: 2; grid-row: 1; padding: 0 14px; font-size: 12px; }
+  .nb-edition__arrow { display: none; }
+  .nb-rail {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding: 0 8px;
+    border-top: 1px solid #050505;
+  }
+  .chrome-search { height: 34px; margin: 0 8px 0 0; min-width: 0; }
+  .nb-actions { margin-left: 0; }
+  .chrome-btn-label { display: inline; }
+  .chrome-btn,
+  .mcp-trigger { padding: 0 8px; }
+  .layer-rail {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+  }
+  .rail-band::after { background: var(--panel-line-soft); }
+  .feature-sheet { top: 104px; max-height: calc(100vh - 212px); }
+}
+
+@media (max-width: 480px) {
+  .explorer-nav { grid-template-columns: 1fr; }
+  .nb-brand { grid-column: 1 / -1; }
+  .nb-edition { display: none; }
+  .account-email { display: none; }
+}
+
+/* Article embeds reuse the same feature sheet as the full explorer, but their
+   map begins at the top edge and has no navigation chrome to reserve space for. */
+.app--dataset-embed .feature-sheet {
+  top: 16px;
+  right: 16px;
+  width: min(360px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  z-index: 25;
+}
+
+@media (max-width: 560px) {
+  .app--dataset-embed .feature-sheet {
+    top: 10px;
+    right: 10px;
+    width: calc(100vw - 20px);
+    max-height: calc(100vh - 20px);
+  }
+
+  .app--dataset-embed:has(.feature-sheet) .dataset-embed-selection {
+    visibility: hidden;
+  }
+}
+
+/* Product navigation is shared with the site. Map tools occupy their own row. */
+.explorer-chrome { position: absolute; top: 0; left: 0; width: 100%; z-index: 80; }
+.explorer-toolbar { display: flex; align-items: center; justify-content: space-between; height: 50px; padding: 0 16px; background: #fff; border-bottom: 1px solid #050505; }
+.explorer-toolbar .chrome-search { margin: 0 16px 0 0; }
+.app:not(.app--dataset-embed) .feature-sheet { top: calc(var(--dc-header-height) + 62px); max-height: calc(100dvh - var(--dc-header-height) - 78px); }
+.app:not(.app--dataset-embed) .maplibregl-ctrl-top-right { top: calc(var(--dc-header-height) + 50px); }
+@media (min-width: 768px) { .app:not(.app--dataset-embed) .layer-rail { top: calc(var(--dc-header-height) + 62px); } }
+@media (max-width: 767px) { .explorer-toolbar { padding-inline: 8px; } .explorer-toolbar .chrome-search { min-width: 0; } }
+
+/* ==========================================================================
+   LAYER RAIL — every presentation state, stated once.
+   The rules above set the rail's material; this block owns where it sits.
+   Invariant: in every state the band stays on screen, so the panel can be
+   reopened from where it was closed.
+     .rail-dock     explorer: left sidebar (desktop) / bottom sheet (phone)
+     .rail-overlay  MCP App: a plate over the map that opens as a popover
+     .rail-collapsed | .rail-half | .rail-full   sheet heights
+   ========================================================================== */
+.rail-count {
+  color: var(--ink-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.layer-rail .rail-body[hidden] { display: none; }
+
+/* Desktop dock: collapsed is a sign plate in the same top-left spot. */
+@media (min-width: 768px) {
+  .app .layer-rail.rail-dock.rail-collapsed {
+    bottom: auto;
+    width: auto;
+    min-width: 200px;
+  }
+}
+
+/* Phone dock: a bottom sheet with a peek bar that never leaves the screen. */
+@media (max-width: 767px) {
+  .app .layer-rail.rail-dock {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    min-width: 0;
+    max-height: none;
+    padding-bottom: env(safe-area-inset-bottom);
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    transition: height 160ms steps(4, end);
+  }
+  .app .layer-rail.rail-dock.rail-collapsed { height: calc(52px + env(safe-area-inset-bottom)); }
+  .app .layer-rail.rail-dock.rail-half { height: 52dvh; }
+  .app .layer-rail.rail-dock.rail-full { height: calc(100dvh - var(--dc-header-height) - 58px); }
+  .app .layer-rail.rail-dock .rail-band {
+    height: 52px;
+    touch-action: none;
+    cursor: grab;
+  }
+  .app .layer-rail.rail-dock .chevron { transform: rotate(180deg); }
+  /* Map controls ride above the peek bar instead of under it. */
+  .app:has(.layer-rail.rail-dock) .maplibregl-ctrl-bottom-right { bottom: calc(56px + env(safe-area-inset-bottom)); }
+  .app:has(.layer-rail.rail-dock) .maplibregl-ctrl-bottom-left { bottom: calc(56px + env(safe-area-inset-bottom)); }
+  .app:has(.layer-rail.rail-dock) .maplibregl-ctrl-bottom-center { bottom: calc(56px + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .app .layer-rail.rail-dock { transition: none; }
+}
+
+/* MCP App overlay: the iframe is often narrower than 767px, so it must not
+   inherit the phone sheet. A plate top-left that opens downward as a popover,
+   leaving the "Open full map" button and the readout sheet room. */
+html[data-mcp-app] .layer-rail.rail-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: auto;
+  bottom: auto;
+  z-index: 24;
+  width: min(320px, calc(100% - 20px));
+  max-height: calc(100% - 64px);
+  min-width: 0;
+  border: 1px solid var(--panel-line);
+  box-shadow: 4px 4px 0 var(--panel-line);
+  animation: none;
+}
+html[data-mcp-app] .layer-rail.rail-overlay.rail-collapsed {
+  width: auto;
+  min-width: 0;
+  max-height: none;
+}
+html[data-mcp-app] .layer-rail.rail-overlay .rail-band {
+  height: 36px;
+  min-width: 150px;
+  padding-right: 10px;
+}
+/* Readouts in the MCP App keep to the right column unless the frame is a phone. */
+@media (min-width: 521px) {
+  html[data-mcp-app] .feature-sheet {
+    left: auto;
+    width: min(360px, calc(100% - 20px));
+  }
+}
+@media (max-width: 520px) {
+  /* A phone-width frame has no room beside "Open full map": the ruler rides above it. */
+  html[data-mcp-app] .maplibregl-ctrl-bottom-center { bottom: 50px; }
+  html[data-mcp-app] .feature-sheet { max-height: calc(100% - 64px); }
+  html[data-mcp-app] .app.mcp-app:has(.feature-sheet) .layer-rail.rail-overlay { display: none; }
+}

@@ -1,0 +1,73 @@
+---
+/**
+ * DEV-ONLY visual fixture for the interactive article blocks (ADR 0009).
+ * Renders the real block components against synthetic Data Views served by
+ * ./figures/api/views. Production requests get a 404.
+ */
+import { Explorer, Figure, Guess, Scrolly, Stat } from '@developing-country/emdash-blocks/astro'
+import SiteLayout from '../../layouts/SiteLayout.astro'
+import { DEV_GND_HIGHLIGHT, devViewUrl } from '../../dev/figureFixtures'
+
+if (!import.meta.env.DEV) return new Response(null, { status: 404 })
+const devApiBase = `${Astro.url.origin}/dev/figures`
+const gnd = devViewUrl('view_devgnd')
+const points = devViewUrl('view_devpoints')
+const walkshed = devViewUrl('view_devwalkshed')
+const rank = devViewUrl('view_devrank')
+const densityView = devViewUrl('view_devdensity')
+const clusters = devViewUrl('view_devclusters')
+const paragraph = 'Synthetic fixture text. Colombo’s metro line runs along the coast from Fort; how many people can walk to it in ten minutes depends on where the stops are and how the street network bends around canals and rail yards.'
+---
+
+<SiteLayout title="Figure fixtures (dev)">
+  <article class="page-shell article-shell">
+    <aside class="article-meta">
+      <dl>
+        <div><dt>Fixture</dt><dd>Dev only</dd></div>
+        <div><dt>Country</dt><dd>LK</dd></div>
+        <div><dt>Data</dt><dd>Synthetic</dd></div>
+        <div><dt>Evidence</dt><dd><a href="#method-sources">Method &amp; sources ↓</a></dd></div>
+      </dl>
+    </aside>
+    <section class="article-summary">
+      <p class="page-kicker">Summary</p>
+      <p class="article-dek">Every interactive block, rendered from synthetic Data Views, inside the real article layout.</p>
+    </section>
+    <div class="article-content">
+      <p>{paragraph}</p>
+      <Guess devApiBase={devApiBase} node={{ guess_id: 'dev-colombo-share', question: 'What share of Colombo DS division residents live within a ten-minute walk of a stop?', min: '0', max: '100', step: '1', format: 'percent', view_url: rank, field: 'share', where_field: 'dsd', where_value: 'Colombo', reveal_hint: 'Keep scrolling to check.' }} />
+      <p>{paragraph}</p>
+      <Figure devApiBase={devApiBase} node={{ view_url: gnd, caption: 'GN divisions joined to demographics.pmtiles by id; colour classes from the view style.', size: 'wide' }} />
+      <p>{paragraph}</p>
+      <Stat devApiBase={devApiBase} node={{ view_url: rank, label: 'of Colombo DS division residents within ten minutes', field: 'share', where_field: 'dsd', where_value: 'Colombo', format: 'percent', guess_id: 'dev-colombo-share', note: 'Bound to the ranking view; never typed by hand.' }} />
+      <Figure devApiBase={devApiBase} node={{ view_url: rank, size: 'inline', caption: 'Highlight comes from the view’s presentation.highlight.' }} />
+      <p>{paragraph}</p>
+      <Scrolly devApiBase={devApiBase} node={{ title: 'Walking to the metro', steps: [
+        { text: 'All GN divisions in the five central DS divisions, coloured by the share of residents within ten minutes.', view_url: gnd },
+        { text: 'Zoom into Colombo 1–3.\n\nSix divisions are highlighted; everything else recedes.', view_url: gnd, center_lng: '79.852', center_lat: '6.925', zoom: '13', highlight: DEV_GND_HIGHLIGHT.join(',') },
+        { text: 'The same divisions as points sized by population, coloured by a boolean field.', view_url: points, zoom: '11.6' },
+        { text: 'Ten-minute walksheds as polygons (the 15-minute shed is filtered out by the layer filter).', view_url: walkshed },
+        { text: 'Ranked by DS division, with Kolonnawa highlighted by the step.', view_url: rank, highlight: 'Kolonnawa' },
+      ] }} />
+      <p>{paragraph}</p>
+      <Explorer devApiBase={devApiBase} node={{ view_url: gnd, title: 'Find your GN division', title_field: 'name', subtitle_field: 'dsd', search_fields: 'name,dsd,gnd_id', metrics: [{ field: 'share', label: 'Within 10 min', format: 'percent' }, { field: 'pop', label: 'Residents', format: 'compact' }], sort_field: 'share', sort_dir: 'desc' }} />
+      <Figure devApiBase={devApiBase} node={{ view_url: walkshed, size: 'full', caption: 'Full-bleed polygon geometry from result.geometry.' }} />
+      <p>{paragraph}</p>
+      <Figure devApiBase={devApiBase} node={{ view_url: clusters, underlay_urls: densityView, size: 'wide', caption: 'Gap-cluster outlines (main view) drawn over the density choropleth (underlay).' }} />
+      <Scrolly devApiBase={devApiBase} node={{ title: 'Gaps over density', steps: [
+        { text: 'Population density alone.', view_url: densityView },
+        { text: 'The gap clusters over density: density stays mounted, the outlines fade in.', view_url: clusters, underlay_urls: densityView },
+        { text: 'Closer on Kotte: same views, new camera, no flicker.', view_url: clusters, underlay_urls: densityView, center_lng: '79.912', center_lat: '6.885', zoom: '13', highlight: 'gap-kotte' },
+        { text: 'Coverage replaces the outlines; density still underneath.', view_url: gnd, underlay_urls: densityView },
+      ] }} />
+      <Figure devApiBase={devApiBase} node={{ view_url: clusters, underlay_urls: `${densityView},https://evil.example/views/view_x` }} />
+      <Figure devApiBase={devApiBase} node={{ view_url: rank, underlay_urls: densityView, caption: 'Chart main view: the underlay is ignored (dev warning).' }} />
+      <Figure devApiBase={devApiBase} node={{ view_url: 'https://evil.example/views/view_x' }} />
+      <p>{paragraph}</p>
+    </div>
+    <aside class="article-evidence" id="method-sources">
+      <h2>Method &amp; sources</h2>
+      <p>Synthetic fixture. Not data.</p>
+    </aside>
+  </article>
+</SiteLayout>

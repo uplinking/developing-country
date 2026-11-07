@@ -1,0 +1,379 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-10-01",
+  "2026-10-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 41,
+ "rejected": 32,
+ "rejected_ids": [
+  "2026-10-05-dailymirrorlk-14e86560",
+  "2026-10-05-dailymirrorlk-48804874",
+  "2026-10-05-dailymirrorlk-c3933479",
+  "2026-10-06-dailyftlk-4eb0223e",
+  "2026-10-06-dailyftlk-6fbe2dae",
+  "2026-10-06-dailymirrorlk-0d6b001e",
+  "2026-10-06-dailymirrorlk-917684a6",
+  "2026-10-06-dailymirrorlk-d5d92936",
+  "2026-10-08-dailymirrorlk-5cc8c82b",
+  "2026-10-09-dailymirrorlk-661ad0e7",
+  "2026-10-12-dailymirrorlk-705707ee",
+  "2026-10-13-dailyftlk-3c988ba9",
+  "2026-10-13-dailymirrorlk-09c7b5c0",
+  "2026-10-14-dailyftlk-54b14ada",
+  "2026-10-14-dailymirrorlk-3fe8dc32",
+  "2026-10-14-dailymirrorlk-ec1958f3",
+  "2026-10-15-dailyftlk-f249a3f2",
+  "2026-10-15-dailymirrorlk-8d35c368",
+  "2026-10-16-dailymirrorlk-48b9865a",
+  "2026-10-16-dailymirrorlk-5eed7cbf",
+  "2026-10-17-dailymirrorlk-117e77fd",
+  "2026-10-21-dailyftlk-a233ec37",
+  "2026-10-21-dailymirrorlk-890b66de",
+  "2026-10-22-dailymirrorlk-77b6a95b",
+  "2026-10-23-dailyftlk-8b327c24",
+  "2026-10-23-economynextcom-da6693c4",
+  "2026-10-26-dailyftlk-1d4f79c9",
+  "2026-10-26-dailymirrorlk-f455de65",
+  "2026-10-27-dailymirrorlk-77ed8fa7",
+  "2026-10-27-dailymirrorlk-9585d86c",
+  "2026-10-27-dailymirrorlk-c99a0f9a",
+  "2026-10-28-dailyftlk-10811526",
+  "2026-10-29-dailyftlk-46108c9f"
+ ],
+ "unattributed_ids": [
+  "2026-10-05-dailymirrorlk-14e86560"
+ ],
+ "dropped": [
+  "event imf-7th-review-sla proposed: unknown line"
+ ],
+ "projects": [
+  {
+   "id": "sachl-colombo-logistics-hub",
+   "name": "South Asia Commercial and Logistics Hub, Colombo Port City",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo Port City",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fifa-football-development-plan",
+   "name": "FIFA-Sri Lanka national football development plan",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "suraksha-student-insurance-scheme",
+   "name": "Suraksha Student Insurance Scheme",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "police-pickup-trucks-procurement",
+   "name": "Procurement of 200 police pickup trucks",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "delft-jaffna-ferry",
+   "name": "Passenger sea ferry for Delft-Jaffna route (Prajashakthi program)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Delft, Jaffna",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "china-merchants-sachl-jv",
+   "project_id": "sachl-colombo-logistics-hub",
+   "funder": "other:china_merchants",
+   "funder_name": "China Merchants Holdings",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "equity",
+   "purpose": "project"
+  },
+  {
+   "id": "fifa-football-development-plan-line",
+   "project_id": "fifa-football-development-plan",
+   "funder": "other:fifa",
+   "funder_name": "FIFA",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "suraksha-student-insurance-gosl",
+   "project_id": "suraksha-student-insurance-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "police-trucks-procurement-gosl",
+   "project_id": "police-pickup-trucks-procurement",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "delft-jaffna-ferry-gosl",
+   "project_id": "delft-jaffna-ferry",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "china-merchants-sachl-jv-halted-2026-10-31",
+   "line_id": "china-merchants-sachl-jv",
+   "date": "2026-10-31",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": 392000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China Merchants exits $392mn Colombo Port City logistics hub project",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-31-dailymirrorlk-82b94cde"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fifa-football-development-plan-line-proposed-2026-10-26",
+   "line_id": "fifa-football-development-plan-line",
+   "date": "2026-10-26",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 25000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "FIFA and Sri Lanka discuss $25mn football development funding",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-27-economynextcom-b6c920e3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "suraksha-student-insurance-gosl-govt_authorised-2026-10-21",
+   "line_id": "suraksha-student-insurance-gosl",
+   "date": "2026-10-21",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet extends student insurance scheme with expanded benefits",
+   "confidence": "high",
+   "reports": [
+    "2026-10-21-dailyftlk-eaaf8213"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "police-trucks-procurement-gosl-govt_authorised-2026-02-23",
+   "line_id": "police-trucks-procurement-gosl",
+   "date": "2026-02-23",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 957000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves 200 police pickup trucks purchase",
+   "confidence": "high",
+   "reports": [
+    "2026-10-20-dailymirrorlk-ed65874f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-proposed-2026-10-13",
+   "line_id": "imf-eff-loan",
+   "date": "2026-10-13",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 345000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF staff-level agreement on seventh review financing",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-13-dailymirrorlk-8861161e"
+   ],
+   "relation": "repeat_of:imf-7th-review-sla",
+   "notes": null
+  },
+  {
+   "id": "delft-jaffna-ferry-gosl-govt_authorised-2026-10-07",
+   "line_id": "delft-jaffna-ferry-gosl",
+   "date": "2026-10-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves passenger sea ferry for Delft-Jaffna route",
+   "confidence": "high",
+   "reports": [
+    "2026-10-07-dailyftlk-041200e3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "imf-eff-loan-proposed-2026-10-06",
+   "line_id": "imf-eff-loan",
+   "date": "2026-10-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 254000000,
+   "currency": "SDR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "IMF staff-level agreement reached on seventh EFF review",
+   "confidence": "high",
+   "reports": [
+    "2026-10-06-dailymirrorlk-1b7a735b"
+   ],
+   "relation": "repeat_of:imf-7th-review-sla",
+   "notes": null
+  },
+  {
+   "id": "heritage-restoration-committee-initiative-govt_authorised-2026-10-02",
+   "line_id": "heritage-restoration-committee-initiative",
+   "date": "2026-10-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet names committee to reclaim overseas artefacts",
+   "confidence": "medium",
+   "reports": [
+    "2026-10-03-dailyftlk-62c50b58"
+   ],
+   "relation": "repeat_of:heritage-committee-cabinet",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-10-31-dailymirrorlk-82b94cde": {
+   "date": "2026-10-31",
+   "title": "Why are investors fleeing? China SOE Exit From Colombo Logistical Hub",
+   "url": "https://www.dailymirror.lk/opinion/Why-are-investors-fleeing-China-SOE-Exit-From-Colombo-Logistical-Hub/172-353851",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-10-27-economynextcom-b6c920e3": {
+   "date": "2026-10-27",
+   "title": "Sri Lanka, FIFA discuss $25mn football development plan",
+   "url": "https://economynext.com/sri-lanka-fifa-discuss-25mn-football-development-plan-287997/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2026-10-21-dailyftlk-eaaf8213": {
+   "date": "2026-10-21",
+   "title": "Cabinet approves extension of Suraksha Student Insurance Scheme with expanded benefits",
+   "url": "https://www.ft.lk/news/Cabinet-approves-extension-of-Suraksha-Student-Insurance-Scheme-with-expanded-benefits/56-798919",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-10-20-dailymirrorlk-ed65874f": {
+   "date": "2026-10-20",
+   "title": "Cabinet approves purchase of 200 single-cab trucks for Police",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-approves-purchase-of-200-single-cab-trucks-for-Police/108-352970",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-10-13-dailymirrorlk-8861161e": {
+   "date": "2026-10-13",
+   "title": "President leaves fresh IMF agreement on the table",
+   "url": "https://www.dailymirror.lk/business-main/President-leaves-fresh-IMF-agreement-on-the-table/245-352400",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-10-07-dailyftlk-041200e3": {
+   "date": "2026-10-07",
+   "title": "Cabinet green lights passenger sea ferry for Delft-Jaffna route under “Prajashakthi” program",
+   "url": "https://www.ft.lk/news/Cabinet-green-lights-passenger-sea-ferry-for-Delft-Jaffna-route-under-Prajashakthi-program/56-798334",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-10-06-dailymirrorlk-1b7a735b": {
+   "date": "2026-10-06",
+   "title": "IMF staff-level agreement unrelated to any agreement on successor programme",
+   "url": "https://www.dailymirror.lk/breaking-news/IMF-staff-level-agreement-unrelated-to-any-agreement-on-successor-programme/108-351853",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-10-03-dailyftlk-62c50b58": {
+   "date": "2026-10-03",
+   "title": "Cabinet names panel to reclaim Sri Lankan  artefacts held overseas",
+   "url": "https://www.ft.lk/news/Cabinet-names-panel-to-reclaim-Sri-Lankan-artefacts-held-overseas/56-798131",
+   "outlet": "Daily FT",
+   "lang": "en"
+  }
+ }
+}

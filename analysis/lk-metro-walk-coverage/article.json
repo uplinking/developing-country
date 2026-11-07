@@ -1,0 +1,83 @@
+{
+  "slug": "how-far-colombos-metro-bus-reaches",
+  "taxonomies": {},
+  "fields": {
+    "title": "How far Colombo's Metro Bus reaches",
+    "dek": "We walked ten minutes from every Metro Bus stop along real streets and counted the homes, schools, hospitals and offices within reach.",
+    "research_question": "How many residents, schools, hospitals and offices are within a ten-minute walk of a Colombo Metro Bus stop?",
+    "methodology": "We built a walking network from OpenStreetMap streets and footpaths and walked it outward from each of the 110 Metro Bus stops compiled by the open lk_metro project, at 80 metres a minute, so 400 m in five minutes and 800 m in ten. Every street reached was buffered 50 m on each side, the frontage a pedestrian can reach, and the buffers were merged on a 5 m grid so overlapping walksheds are never counted twice. Residents come from the 2024 Census of Population and Housing for each GN division, shared out by the fraction of the division's area inside a walkshed, which assumes people are spread evenly within a division. The study area is every GN division within 2 km of a line: 568 divisions and 2.58 million residents. We compare the walk with the 800 m straight-line circle often used to describe a stop's catchment. Schools and hospitals are named amenities in OpenStreetMap. Offices are business, professional, financial and government office listings in Overture Maps Places (release 2026-09-23.1, confidence 0.5 or higher). Every school, hospital and office is assigned to its nearest stop by walking distance. Every figure is a saved query on the platform, pinned to the Dataset Versions listed below, and can be reopened in the explorer.",
+    "editorial_notes": "First piece in the Colombo Metro Bus series, authored through the platform MCP with scripts/analysis-article.ts (recipe in analysis/lk-metro-walk-coverage). Rewritten into the slide-deck shape in the house style: plain title, short opening, one six-step deck, one bound number, one lookup, limits, and an 'In short' conclusion. The earlier draft led with an offices-versus-homes finding and five standalone charts; those views were dropped from the recipe rather than left unused. Numbers in prose come from the pinned metro-coverage Dataset Versions; the one stat is bound to the 'headline' view. The neighbourhoods the walk misses are the second piece. Reviewed by dc-editor after the rewrite; its edits were applied (circle radius wording, no ridership claim in 'In short', plain explorer labels). Rejected: none. This draft is a revision of the published article 'colombo-metro-bus-walking-reach'; if it is approved, the editor should replace or unpublish that one. The stop lookup was removed after publication: it was too large for the piece. Every map slide draws the seven Metro Bus lines underneath, so readers can see where the buses run. The limits section was removed at the publisher's request; the data's known gaps stay in Method & sources. Slide notes rewritten to describe places, not map colours or shading."
+  },
+  "primary_view": "stops_map",
+  "content": [
+    "Colombo's Metro Bus has seven lines and 110 stops. The lines run from Kadawatha in the north to Panadura in the south, and from Ekala to Kesbewa. They follow the main roads into the city.",
+    "A bus is only useful if you can get to a stop, and for most people that means walking. So we asked a simple question: who lives within a ten-minute walk of a stop?",
+    "We measured the walk on the real street map, from OpenStreetMap, at a steady pace of about 800 metres in ten minutes. The slides below build up the picture one layer at a time.",
+    {
+      "_type": "dcScrolly",
+      "title": "A ten-minute walk from every stop",
+      "steps": [
+        {
+          "view": "stops_map",
+          "text": "These are the 110 stops on the seven lines. The stops with the most people living close by are at Maradana railway station and around Wellawatta and Dehiwala.",
+          "underlay": [
+            "metro_lines"
+          ]
+        },
+        {
+          "view": "walkshed_compare",
+          "text": "From every stop we walked ten minutes along real streets and mapped everything you can reach. A plan usually draws a simple circle 800 metres out from each stop instead. The real walk covers about half the area the circles do.",
+          "underlay": [
+            "metro_lines"
+          ]
+        },
+        {
+          "view": "density_map",
+          "text": "Now add the people, from the 2024 census. The inner north of Colombo, around Kotahena, Grandpass and Modara, is the most crowded part of the city.",
+          "underlay": [
+            "metro_lines"
+          ]
+        },
+        {
+          "view": "share_map",
+          "text": "Put the two together. Neighbourhoods along Galle Road do best, with many residents a short walk from a stop. Much of the crowded north is beyond the walk.",
+          "underlay": [
+            "metro_lines"
+          ]
+        },
+        {
+          "view": "facilities_map",
+          "text": "Schools and hospitals near the lines. About three in five hospitals are within a ten-minute walk of a stop, and a little under half the schools.",
+          "underlay": [
+            "metro_lines"
+          ]
+        },
+        {
+          "view": "offices_map",
+          "text": "Offices near the lines. Most sit on the same main roads the buses run along, so three in five are within a ten-minute walk of a stop.",
+          "underlay": [
+            "metro_lines"
+          ]
+        }
+      ]
+    },
+    {
+      "_type": "dcStat",
+      "label": "of the people living along the lines can walk to a stop in ten minutes",
+      "view": "headline",
+      "field": "share_10min_pct",
+      "where_field": "line_code",
+      "where_value": "ALL",
+      "aggregate": "first",
+      "format": "percent",
+      "note": "About 510,000 of the 2.6 million people who live within 2 km of a line, from the 2024 census."
+    },
+    {
+      "h2": "In short"
+    },
+    "The Metro Bus goes where the main roads go. That is a sensible place to start. The main roads carry most of the offices and hospitals, and a bus on Galle Road is easy to find.",
+    "But people live in the streets behind those roads, and the walk from home is the one most riders have to make first. Today, one person in five along the lines can walk to a stop in ten minutes. The other four cannot.",
+    "We think the lesson for the next line is in the second slide. Measure the walk, not the circle. A circle drawn around a stop counts almost twice as many people as can really get there, and the extra people are exactly the ones the bus misses.",
+    "The biggest of those gaps is the crowded north of the city, a few kilometres from Fort. We think that is where a new stop would reach the most people, and it is where our next piece goes."
+  ]
+}

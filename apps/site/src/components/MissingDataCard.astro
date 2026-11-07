@@ -1,0 +1,38 @@
+---
+import { GAP_STATUSES, type DataGap, type ClaimLink } from '../lib/claims'
+import { formatRefreshDate } from '../lib/datasets'
+interface Props { gap: DataGap; claims: ClaimLink[] }
+const { gap, claims } = Astro.props
+---
+<article class="dataset-card missing-data-card" id={`gap-${gap.id}`}>
+  <div class="dataset-card__topline">
+    <span>{gap.country}</span>
+    <time datetime={gap.checkedAt}>Checked {formatRefreshDate(gap.checkedAt)}</time>
+  </div>
+  <div class="dataset-card__themes" aria-label="Public data themes">
+    {gap.themes.map((theme) => <span data-theme={theme.id} data-theme-uri={theme.uri}>{theme.label}</span>)}
+  </div>
+  <span class="evidence-badge" data-status={gap.status}>{GAP_STATUSES[gap.status]}</span>
+  <h3>{gap.title}</h3>
+  <p>{gap.summary}</p>
+  {claims.some((claim) => claim.summary) && <div class="missing-data-card__news">
+    <h4>In the news</h4>
+    {claims.filter((claim) => claim.summary).map((claim) => <div><p>{claim.summary}</p>{claim.sourceUrl && <a href={claim.sourceUrl}>{claim.sourceTitle || 'Original report'} ↗</a>}</div>)}
+  </div>}
+  <dl class="missing-data-card__details">
+    <div><dt>Data needed</dt><dd>{gap.neededFields}</dd></div>
+    <div><dt>What exists</dt><dd>{gap.availableEvidence}</dd></div>
+    <div><dt>Next step</dt><dd>{gap.nextSteps}</dd></div>
+  </dl>
+  <div class="dataset-card__provenance">
+    <div>
+      <span class="page-kicker">Expected data holder</span>
+      <span class="dataset-card__publisher"><span data-publisher-type={gap.publisher.type.id}>{gap.publisher.type.label}</span><strong>{gap.publisher.name}</strong></span>
+    </div>
+  </div>
+  <div class="missing-data-card__links">
+    <h4>Original reporting</h4>
+    <ul>{claims.map((claim) => <li><a href={claim.href}>{claim.title} <span aria-hidden="true">→</span></a></li>)}</ul>
+    {gap.sources.length > 0 && <details><summary>Source records ({gap.sources.length})</summary><ul>{gap.sources.map((source) => <li><a href={source.url}>{source.title}</a>{source.note && <p>{source.note}</p>}</li>)}</ul></details>}
+  </div>
+</article>

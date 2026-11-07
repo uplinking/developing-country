@@ -1,0 +1,688 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-10-01",
+  "2024-10-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 50,
+ "rejected": 35,
+ "rejected_ids": [
+  "2024-10-01-islandlk-ea627870",
+  "2024-10-02-dailyftlk-80a598d9",
+  "2024-10-02-dailyftlk-89af96c0",
+  "2024-10-02-dailyftlk-d6a48bd4",
+  "2024-10-02-economynextcom-310f44a0",
+  "2024-10-04-dailyftlk-bf1f29a2",
+  "2024-10-04-islandlk-b8197cda",
+  "2024-10-06-economynextcom-e9aeb311",
+  "2024-10-07-dailyftlk-c2043f30",
+  "2024-10-07-islandlk-83cbdb5d",
+  "2024-10-08-economynextcom-7787a317",
+  "2024-10-09-adaderanalk-04bc3765",
+  "2024-10-10-dailyftlk-cc9d06cb",
+  "2024-10-14-adaderanalk-4373d2c9",
+  "2024-10-14-islandlk-697f5413",
+  "2024-10-16-economynextcom-a799df0b",
+  "2024-10-17-adaderanalk-4d698dbd",
+  "2024-10-17-economynextcom-69ca350b",
+  "2024-10-17-economynextcom-7e72df11",
+  "2024-10-18-economynextcom-28971dea",
+  "2024-10-18-economynextcom-f8996a8f",
+  "2024-10-21-adaderanalk-ef529d14",
+  "2024-10-22-dailyftlk-ce3fc0e1",
+  "2024-10-23-dailyftlk-4ad71e03",
+  "2024-10-26-dailyftlk-58547852",
+  "2024-10-27-economynextcom-a0dadf2f",
+  "2024-10-28-adaderanalk-249a8f50",
+  "2024-10-28-islandlk-9f0b681a",
+  "2024-10-28-islandlk-d944bef5",
+  "2024-10-29-economynextcom-d80dd5a9",
+  "2024-10-29-islandlk-c63a5cfb",
+  "2024-10-31-dailyftlk-43e4e0a4",
+  "2024-10-31-dailyftlk-f49386bf",
+  "2024-10-31-economynextcom-31674404",
+  "2024-10-31-economynextcom-9dc189a3"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "china-flood-relief-aid-2024",
+   "name": "China emergency humanitarian aid for flood relief",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-rooftop-solar-religious-sites",
+   "name": "India-funded rooftop solar project for religious sites",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adapt4r-climate-adaptation",
+   "name": "Adaptation for Resilience (ADAPT4R) project",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-climate-investment-ta9700",
+   "name": "ADB TA9700 climate and disaster risk resilience programme",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "moragolla-hydropower-project",
+   "name": "Moragolla hydropower project",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Moragolla",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-plantation-schools-upgrade-2024",
+   "name": "Upgrade of 9 plantation sector schools",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "health-ministry-security-services-contract",
+   "name": "Security services contract for Health Ministry institutions",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "epassport-interim-procurement",
+   "name": "Interim procurement of e-passport books from previous supplier",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "korea-eximbank-development-support",
+   "name": "Exim Bank of Korea resumption of development project financing",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "netherlands-ilo-gampaha-batik-project",
+   "name": "Netherlands-funded ILO project for Gampaha batik/apparel SMEs recovery",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Gampaha",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "general-election-2024-funding",
+   "name": "Funding for the 2024 General Election",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "china-flood-relief-aid-china-grant",
+   "project_id": "china-flood-relief-aid-2024",
+   "funder": "china",
+   "funder_name": "Government of China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "india-rooftop-solar-religious-sites-india",
+   "project_id": "india-rooftop-solar-religious-sites",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "adapt4r-adaptation-fund-grant",
+   "project_id": "adapt4r-climate-adaptation",
+   "funder": "other:adaptation_fund",
+   "funder_name": "Adaptation Fund",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "adb-climate-investment-ta9700-adb",
+   "project_id": "adb-climate-investment-ta9700",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "moragolla-hydropower-adb-loan",
+   "project_id": "moragolla-hydropower-project",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "india-plantation-schools-upgrade-india-grant",
+   "project_id": "india-plantation-schools-upgrade-2024",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "health-ministry-security-contract-gosl",
+   "project_id": "health-ministry-security-services-contract",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "epassport-interim-procurement-gosl",
+   "project_id": "epassport-interim-procurement",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "korea-eximbank-development-support",
+   "project_id": "korea-eximbank-development-support",
+   "funder": "korea",
+   "funder_name": "Exim Bank of Korea",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "netherlands-ilo-gampaha-batik-grant",
+   "project_id": "netherlands-ilo-gampaha-batik-project",
+   "funder": "other:netherlands",
+   "funder_name": "Government of the Netherlands",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "general-election-2024-funding-gosl",
+   "project_id": "general-election-2024-funding",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "china-flood-relief-aid-china-grant-pledged-2024-10-31",
+   "line_id": "china-flood-relief-aid-china-grant",
+   "date": "2024-10-31",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 400000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China to send Rs.400mn emergency humanitarian materials for floods",
+   "confidence": "high",
+   "reports": [
+    "2024-10-31-adaderanalk-34872abb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-flood-relief-aid-china-grant-disbursed-2024-10-31",
+   "line_id": "china-flood-relief-aid-china-grant",
+   "date": "2024-10-31",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 30000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "China already handed over Rs.30mn cash for flood relief",
+   "confidence": "high",
+   "reports": [
+    "2024-10-31-adaderanalk-34872abb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-rooftop-solar-religious-sites-india-completed-2024-10-27",
+   "line_id": "india-rooftop-solar-religious-sites-india",
+   "date": "2024-10-27",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "India hands over rooftop solar systems to four religious sites",
+   "confidence": "medium",
+   "reports": [
+    "2024-10-27-economynextcom-9d1c8860"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adapt4r-adaptation-fund-grant-launched-2024-10-24",
+   "line_id": "adapt4r-adaptation-fund-grant",
+   "date": "2024-10-24",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 14000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "WFP launches climate adaptation project for Sri Lanka, India farmers",
+   "confidence": "high",
+   "reports": [
+    "2024-10-24-dailyftlk-2854ce49"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-climate-investment-ta9700-adb-launched-2024-10-23",
+   "line_id": "adb-climate-investment-ta9700-adb",
+   "date": "2024-10-23",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB launches technical assistance to prepare climate investment portfolio",
+   "confidence": "medium",
+   "reports": [
+    "2024-10-23-islandlk-4a0a6d9b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "moragolla-hydropower-adb-loan-govt_authorised-2024-10-22",
+   "line_id": "moragolla-hydropower-adb-loan",
+   "date": "2024-10-22",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 30000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves $30mn ADB loan for Moragolla hydropower project",
+   "confidence": "high",
+   "reports": [
+    "2024-10-22-adaderanalk-1fc23dce"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-plantation-schools-upgrade-india-grant-agreement_signed-2024-10-18",
+   "line_id": "india-plantation-schools-upgrade-india-grant",
+   "date": "2024-10-18",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "India doubles grant for 9 plantation sector schools upgrade",
+   "confidence": "high",
+   "reports": [
+    "2024-10-19-economynextcom-18959fc5",
+    "2024-10-19-adaderanalk-ace8c0db"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "health-ministry-security-contract-gosl-contract_awarded-2024-10-17",
+   "line_id": "health-ministry-security-contract-gosl",
+   "date": "2024-10-17",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awards six-month hospital security contract to LRDC",
+   "confidence": "medium",
+   "reports": [
+    "2024-10-17-dailyftlk-77cd5c73"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "epassport-interim-procurement-gosl-govt_authorised-2024-10-11",
+   "line_id": "epassport-interim-procurement-gosl",
+   "date": "2024-10-11",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet orders 750,000 passports from previous supplier",
+   "confidence": "medium",
+   "reports": [
+    "2024-10-15-economynextcom-cb8cedd6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "wb-p180549-wb-agreement_signed-2024-10-07",
+   "line_id": "wb-p180549-wb",
+   "date": "2024-10-07",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "World Bank signs $200m loan for second RESET budget support",
+   "confidence": "high",
+   "reports": [
+    "2024-10-07-economynextcom-a492d050",
+    "2024-10-07-adaderanalk-f66df419"
+   ],
+   "relation": "update_of:wb-p180549-funder_approved",
+   "notes": null
+  },
+  {
+   "id": "korea-eximbank-development-support-pledged-2024-10-04",
+   "line_id": "korea-eximbank-development-support",
+   "date": "2024-10-04",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Korea Exim Bank agrees to resume subsidised loans for projects",
+   "confidence": "medium",
+   "reports": [
+    "2024-10-04-dailyftlk-c884d7a2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "netherlands-ilo-gampaha-batik-grant-completed-2024-10-02",
+   "line_id": "netherlands-ilo-gampaha-batik-grant",
+   "date": "2024-10-02",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 300000,
+   "currency": "EUR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Netherlands grant equips Gampaha batik SMEs with e-vehicles, solar",
+   "confidence": "medium",
+   "reports": [
+    "2024-10-02-dailyftlk-73c9fdc8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "general-election-2024-funding-gosl-govt_authorised-2024-09-30",
+   "line_id": "general-election-2024-funding-gosl",
+   "date": "2024-09-30",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 11000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs. 11 billion for 2024 General Election",
+   "confidence": "high",
+   "reports": [
+    "2024-10-02-dailyftlk-743898a8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "general-election-2024-funding-gosl-released-2024-10-01",
+   "line_id": "general-election-2024-funding-gosl",
+   "date": "2024-10-01",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 5000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves releasing Rs5bn for general election",
+   "confidence": "medium",
+   "reports": [
+    "2024-10-01-economynextcom-88029fc8"
+   ],
+   "relation": "update_of:general-election-2024-funding-gosl-govt_authorised-2024-09-30",
+   "notes": null
+  },
+  {
+   "id": "general-election-2024-funding-gosl-allocated-2024-10-01",
+   "line_id": "general-election-2024-funding-gosl",
+   "date": "2024-10-01",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 6000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves additional Rs6bn from 2025 budget for election",
+   "confidence": "medium",
+   "reports": [
+    "2024-10-01-economynextcom-88029fc8"
+   ],
+   "relation": "update_of:general-election-2024-funding-gosl-govt_authorised-2024-09-30",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-10-31-adaderanalk-34872abb": {
+   "date": "2024-10-31",
+   "title": "China to provide emergency humanitarian aid worth Rs. 400M to Sri Lanka",
+   "url": "https://www.adaderana.lk/news/103064/china-to-provide-emergency-humanitarian-aid-worth-rs-400m-to-sri-lanka",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-10-27-economynextcom-9d1c8860": {
+   "date": "2024-10-27",
+   "title": "India financing 35MW rooftop solar systems to Sri Lanka multi-religious sites",
+   "url": "https://economynext.com/india-financing-35mw-rooftop-solar-systems-to-sri-lanka-multi-religious-sites-185075/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-10-24-dailyftlk-2854ce49": {
+   "date": "2024-10-24",
+   "title": "WFP launches regional project to strengthen climate change adaptation across Sri Lanka and India",
+   "url": "https://www.ft.lk/news/WFP-launches-regional-project-to-strengthen-climate-change-adaptation-across-Sri-Lanka-and-India/56-768337",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-10-23-islandlk-4a0a6d9b": {
+   "date": "2024-10-23",
+   "title": "ADB to help Sri Lanka realise its aspirations on climate investments",
+   "url": "http://island.lk/adb-to-help-sri-lanka-realise-its-aspirations-on-climate-investments/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-10-22-adaderanalk-1fc23dce": {
+   "date": "2024-10-22",
+   "title": "Sri Lanka to obtain $30 mln loan from ADB for Moragolla hydropower project",
+   "url": "https://www.adaderana.lk/news/102850/sri-lanka-to-obtain-30-mln-loan-from-adb-for-moragolla-hydropower-project",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-10-19-economynextcom-18959fc5": {
+   "date": "2024-10-19",
+   "title": "India doubles grant to upgrade Sri Lanka plantation sector schools: former minister",
+   "url": "https://economynext.com/india-doubles-grant-to-upgrade-sri-lanka-plantation-sector-schools-former-minister-184217/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-10-19-adaderanalk-ace8c0db": {
+   "date": "2024-10-19",
+   "title": "India doubles grant to support education in Sri Lanka’s plantation community",
+   "url": "https://www.adaderana.lk/news/102793/india-doubles-grant-to-support-education-in-sri-lankas-plantation-community",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-10-17-dailyftlk-77cd5c73": {
+   "date": "2024-10-17",
+   "title": "L.R.D.C. gets six-month contract to provide security services to institutions under Health Ministry",
+   "url": "https://www.ft.lk/business/L-R-D-C-gets-six-month-contract-to-provide-security-services-to-institutions-under-Health-Ministry/34-768073",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-10-15-economynextcom-cb8cedd6": {
+   "date": "2024-10-15",
+   "title": "Sri Lanka Cabinet decides to order passports from old vendor",
+   "url": "https://economynext.com/sri-lanka-cabinet-decides-to-order-passports-from-old-vendor-183615/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-10-07-economynextcom-a492d050": {
+   "date": "2024-10-07",
+   "title": "Sri Lanka inks US$200mn World Bank loan for budget support",
+   "url": "https://economynext.com/sri-lanka-inks-us200mn-world-bank-loan-for-budget-support-182637/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-10-07-adaderanalk-f66df419": {
+   "date": "2024-10-07",
+   "title": "World Bank signs additional $200M to support Sri Lanka’s economic reforms",
+   "url": "https://www.adaderana.lk/news/102503/world-bank-signs-additional-200m-to-support-sri-lankas-economic-reforms",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-10-04-dailyftlk-c884d7a2": {
+   "date": "2024-10-04",
+   "title": "Exim Bank of Korea to provide financial support for SL’s development projects",
+   "url": "https://www.ft.lk/news/Exim-Bank-of-Korea-to-provide-financial-support-for-SL-s-development-projects/56-767523",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-10-02-dailyftlk-73c9fdc8": {
+   "date": "2024-10-02",
+   "title": "Netherlands funded € 300,000 project grants electric three-wheelers to Gampaha’s batik SMEs",
+   "url": "https://www.ft.lk/business/Netherlands-funded-300-000-project-grants-electric-three-wheelers-to-Gampaha-s-batik-SMEs/34-767463",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-10-02-dailyftlk-743898a8": {
+   "date": "2024-10-02",
+   "title": "Cabinet nod to allocate Rs. 11 b for General Election",
+   "url": "https://www.ft.lk/news/Cabinet-nod-to-allocate-Rs-11-b-for-General-Election/56-767434",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-10-01-economynextcom-88029fc8": {
+   "date": "2024-10-01",
+   "title": "Sri Lanka President allocates Rs5bn for general elections",
+   "url": "https://economynext.com/sri-lanka-president-allocates-rs5bn-for-general-elections-181786/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  }
+ }
+}

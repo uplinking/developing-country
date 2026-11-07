@@ -1,0 +1,6 @@
+{
+  "extends": "../../tsconfig.worker.json",
+  "compilerOptions": { "tsBuildInfoFile": "../../node_modules/.tmp/ingestion.tsbuildinfo" },
+  "include": ["./index.ts", "../../packages/ingestion/src"],
+  "exclude": ["../../packages/ingestion/src/**/*.test.ts"]
+}

@@ -1,0 +1,9 @@
+# CORS so MCP Apps (null-origin iframe) can load the SPA bundle and GeoJSON.
+/*
+  Content-Security-Policy: frame-ancestors 'self' https://developing-country.org
+
+/data/*
+  Access-Control-Allow-Origin: *
+
+/assets/*
+  Access-Control-Allow-Origin: *

@@ -1,0 +1,3051 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-12-01",
+  "2024-12-31"
+ ],
+ "upstream": "nuuuwan/lk_news@5d469f077cfe5207f3972e54d4bd0023cb2cbc19",
+ "extracted_by": "Codex gpt-6-luna (medium reasoning)",
+ "extracted_at": "2026-11-06",
+ "language": "ta",
+ "articles_read": 205,
+ "rejected": 111,
+ "rejected_ids": [
+  "2024-12-01-tamilmirrorlk-b43ce206",
+  "2024-12-01-tamilmirrorlk-d33ec237",
+  "2024-12-01-tamilmirrorlk-d68e935e",
+  "2024-12-01-virakesarilk-655c6d35",
+  "2024-12-01-virakesarilk-eab2fe2c",
+  "2024-12-02-tamilmirrorlk-423d523f",
+  "2024-12-04-virakesarilk-99a6b50d",
+  "2024-12-04-virakesarilk-aaa0e124",
+  "2024-12-04-virakesarilk-b54b8a4f",
+  "2024-12-05-tamilmirrorlk-7e6deac8",
+  "2024-12-05-virakesarilk-273cc167",
+  "2024-12-05-virakesarilk-8c23d5a6",
+  "2024-12-05-virakesarilk-c783188f",
+  "2024-12-06-tamilmirrorlk-3765309a",
+  "2024-12-06-tamilmirrorlk-44a363a9",
+  "2024-12-06-tamilmirrorlk-b87f0864",
+  "2024-12-06-tamilmirrorlk-d49b3f19",
+  "2024-12-06-tamilmirrorlk-dbdae86b",
+  "2024-12-06-tamilmirrorlk-e251040b",
+  "2024-12-06-tamilmirrorlk-fc76c8ae",
+  "2024-12-06-virakesarilk-7a5e1fc1",
+  "2024-12-08-tamilmirrorlk-253a2a7f",
+  "2024-12-08-tamilmirrorlk-27f69031",
+  "2024-12-08-tamilmirrorlk-29d30a33",
+  "2024-12-09-tamilmirrorlk-448374fc",
+  "2024-12-09-tamilmirrorlk-663c646c",
+  "2024-12-09-tamilmirrorlk-aec3146d",
+  "2024-12-09-tamilmirrorlk-c8c94895",
+  "2024-12-10-tamilmirrorlk-777f972b",
+  "2024-12-10-virakesarilk-2dd90969",
+  "2024-12-10-virakesarilk-6447f49e",
+  "2024-12-10-virakesarilk-7f871b4f",
+  "2024-12-11-tamilmirrorlk-a505024c",
+  "2024-12-11-virakesarilk-36ea11a8",
+  "2024-12-12-tamilmirrorlk-32345daf",
+  "2024-12-12-tamilmirrorlk-bd69133f",
+  "2024-12-12-tamilmirrorlk-df8d072e",
+  "2024-12-12-virakesarilk-87febd71",
+  "2024-12-12-virakesarilk-c56050c6",
+  "2024-12-13-virakesarilk-2336033c",
+  "2024-12-13-virakesarilk-cf54ef64",
+  "2024-12-14-tamilmirrorlk-66897da5",
+  "2024-12-15-virakesarilk-385b18c7",
+  "2024-12-15-virakesarilk-82c4e31e",
+  "2024-12-15-virakesarilk-8c576045",
+  "2024-12-16-virakesarilk-366de0a5",
+  "2024-12-17-tamilmirrorlk-0469bfe0",
+  "2024-12-17-tamilmirrorlk-23f1fd38",
+  "2024-12-17-tamilmirrorlk-92bfc9e5",
+  "2024-12-17-tamilmirrorlk-9d03f0f2",
+  "2024-12-17-virakesarilk-13535df9",
+  "2024-12-17-virakesarilk-8f2cfb99",
+  "2024-12-17-virakesarilk-a1b23a2c",
+  "2024-12-17-virakesarilk-c31c464b",
+  "2024-12-18-tamilmirrorlk-12212c02",
+  "2024-12-18-tamilmirrorlk-1b264182",
+  "2024-12-18-tamilmirrorlk-ceed9939",
+  "2024-12-18-virakesarilk-ca93be80",
+  "2024-12-19-tamilmirrorlk-0c28fe4c",
+  "2024-12-19-virakesarilk-41cd756e",
+  "2024-12-19-virakesarilk-e85ec228",
+  "2024-12-19-virakesarilk-ec92d431",
+  "2024-12-20-tamilmirrorlk-f5955915",
+  "2024-12-20-virakesarilk-18824ed5",
+  "2024-12-20-virakesarilk-5b86351d",
+  "2024-12-20-virakesarilk-b5a8e23c",
+  "2024-12-20-virakesarilk-b859df00",
+  "2024-12-20-virakesarilk-d83c0b3b",
+  "2024-12-21-tamilmirrorlk-8908dff7",
+  "2024-12-21-tamilmirrorlk-a21df8e9",
+  "2024-12-21-tamilmirrorlk-dab797a6",
+  "2024-12-21-virakesarilk-a1b71a40",
+  "2024-12-21-virakesarilk-d3d5089f",
+  "2024-12-22-tamilmirrorlk-2a15befd",
+  "2024-12-22-tamilmirrorlk-d0df905f",
+  "2024-12-22-tamilmirrorlk-f2c6d56d",
+  "2024-12-22-virakesarilk-7d52fce7",
+  "2024-12-23-tamilmirrorlk-2792f380",
+  "2024-12-23-tamilmirrorlk-7d2ba4c7",
+  "2024-12-23-tamilmirrorlk-a0f21169",
+  "2024-12-23-virakesarilk-6b069c84",
+  "2024-12-23-virakesarilk-9ae5f94a",
+  "2024-12-23-virakesarilk-c3152ec7",
+  "2024-12-24-virakesarilk-3f62eaef",
+  "2024-12-24-virakesarilk-d14502df",
+  "2024-12-25-tamilmirrorlk-dbca8e91",
+  "2024-12-25-virakesarilk-82b605f3",
+  "2024-12-25-virakesarilk-e691afcc",
+  "2024-12-26-tamilmirrorlk-a19f7edb",
+  "2024-12-26-tamilmirrorlk-c12dc38b",
+  "2024-12-27-virakesarilk-4e26769b",
+  "2024-12-27-virakesarilk-c58aac97",
+  "2024-12-28-tamilmirrorlk-08650133",
+  "2024-12-28-virakesarilk-fd280710",
+  "2024-12-29-tamilmirrorlk-8598a28f",
+  "2024-12-29-virakesarilk-7c4ccda9",
+  "2024-12-29-virakesarilk-b74be3c5",
+  "2024-12-29-virakesarilk-e6dfdb57",
+  "2024-12-30-tamilmirrorlk-047a58ac",
+  "2024-12-30-tamilmirrorlk-48c768fe",
+  "2024-12-30-tamilmirrorlk-94f7b5b4",
+  "2024-12-30-tamilmirrorlk-970abed8",
+  "2024-12-30-tamilmirrorlk-abc1d713",
+  "2024-12-30-tamilmirrorlk-ea4bdd08",
+  "2024-12-30-virakesarilk-0fc4bcda",
+  "2024-12-30-virakesarilk-7fb8f073",
+  "2024-12-30-virakesarilk-a3cc2971",
+  "2024-12-30-virakesarilk-ce358926",
+  "2024-12-31-tamilmirrorlk-870f54a6",
+  "2024-12-31-tamilmirrorlk-949275e3",
+  "2024-12-31-tamilmirrorlk-ad1b073e",
+  "2024-12-31-tamilmirrorlk-f9d58951",
+  "2024-12-31-tamilmirrorlk-fe8ce903",
+  "2024-12-31-virakesarilk-609e4291",
+  "2024-12-31-virakesarilk-887a28cf",
+  "2024-12-31-virakesarilk-ba52f742",
+  "2024-12-31-virakesarilk-bca620d7",
+  "2024-12-31-virakesarilk-f7706783"
+ ],
+ "unattributed_ids": [
+  "2024-12-06-tamilmirrorlk-e251040b",
+  "2024-12-08-tamilmirrorlk-27f69031",
+  "2024-12-17-tamilmirrorlk-9d03f0f2",
+  "2024-12-19-virakesarilk-41cd756e",
+  "2024-12-27-virakesarilk-c58aac97",
+  "2024-12-30-tamilmirrorlk-ea4bdd08",
+  "2024-12-30-virakesarilk-a3cc2971"
+ ],
+ "dropped": [
+  "event gosl-prison-case-system-infrastructure unclear: unknown line",
+  "event gosl-clean-sri-lanka-fund launched: date",
+  "event gosl-neville-fernando-hospital-development proposed: unknown line",
+  "event gosl-presidential-offices-relocation-gosl halted: unknown line",
+  "event unknown-ramanathapuram-talaimannar-ferry pledged: unknown line",
+  "event gosl-sathosa-coconut-distribution underway: amount"
+ ],
+ "projects": [
+  {
+   "id": "review-of-public-sector-appointments",
+   "name": "Review and redeployment of public-sector appointments",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mullaitivu-air-force-detention-centre",
+   "name": "Mullaitivu Air Force Base detention centre",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Mullaitivu",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "elpitiyapradhiya-sabha-2025-budget",
+   "name": "Elpitiya Pradeshiya Sabha 2025 budget",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Elpitiya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "government-cybersecurity-awareness-programme",
+   "name": "Cybersecurity awareness programme for government institutions",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-postal-service-modernisation",
+   "name": "Sri Lanka postal service modernisation",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "christmas-new-year-extra-bus-services-2024",
+   "name": "Extra bus services for Christmas and New Year travel",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adverse-weather-crop-compensation-dec2024",
+   "name": "Crop compensation for farmers affected by adverse weather",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "usaid-ecct-migration-law-course",
+   "name": "USAID-supported migration law and policy certificate course",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Nawala",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "public-sector-digitalisation-programme",
+   "name": "Sri Lanka public-sector digitalisation programme",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sugathadasa-stadium-rehabilitation",
+   "name": "Sugathadasa National Sports Complex rehabilitation",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "preschool-breakfast-programme-allowance-increase",
+   "name": "Preschool breakfast programme allowance increase",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "myanmar-refugee-boat-transfer-trincomalee",
+   "name": "Transfer of Myanmar refugees from Mullivaikkal to Trincomalee",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "Mullivaikkal",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sri-lanka-raw-salt-import-2025",
+   "name": "Import of up to 30,000 tonnes of raw salt for domestic supply",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "boralla-hindu-crematorium-modernisation",
+   "name": "Reconstruction and modernisation of Borella Hindu crematorium",
+   "sector": "urban",
+   "status": "unknown",
+   "place": "Borella, Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sri-lanka-vehicle-import-permit-mechanisms",
+   "name": "Three vehicle import permit mechanisms",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "presidential-offices-relocation",
+   "name": "Relocation of presidential and government offices",
+   "sector": "urban",
+   "status": "unknown",
+   "place": "Sri Jayawardenepura Kotte",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sri-lanka-refugee-repatriation-support",
+   "name": "Return and livelihood support for Sri Lankan refugees in Tamil Nadu",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "government-paddy-procurement-2025",
+   "name": "Government paddy procurement from farmers beginning in 2025",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "coconut-fertiliser-subsidy-2024",
+   "name": "Subsidised fertiliser for registered small coconut growers",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "matalle-monkey-sterilisation-programme",
+   "name": "Pilot monkey sterilisation programme to reduce crop damage",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Matale",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "boc-post-office-agent-banking-partnership",
+   "name": "BOC and Sri Lanka Post agent banking partnership",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "electricity-tariff-proposal-2025-h1",
+   "name": "Electricity tariff proposal for January–June 2025",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-presidential-residences-use-committee",
+   "name": "Committee to develop productive uses for government residences",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-national-food-security-policy-committee",
+   "name": "National Food Policy and Security Committee",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sathosa-coconut-distribution-increase",
+   "name": "Increased coconut distribution through Lanka Sathosa",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rice-price-controls-dec-2024",
+   "name": "Rice price controls and enforcement",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-disaster-relief-dec2024",
+   "name": "Government relief for people affected by severe weather disasters",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "uwar-malai-circular-road-public-opening",
+   "name": "Uvarmalai Valaimunai circular road public access",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Trincomalee",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "batticaloa-sand-mining-permit-suspension",
+   "name": "Temporary suspension of sand-mining permits in Sengkallady",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Batticaloa District",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ministerial-benefits-reform",
+   "name": "Reform of benefits and privileges for ministers and parliamentarians",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "weather-damaged-roads-bridges-repair",
+   "name": "Repair of roads and bridges damaged by heavy rain",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "northern-investors-forum",
+   "name": "Northern Province investors forum",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Northern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gurunagar-port",
+   "name": "Gurunagar Port construction proposal",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Gurunagar",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "review-of-public-sector-appointments-gosl",
+   "project_id": "review-of-public-sector-appointments",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "mullaitivu-air-force-detention-centre-gosl",
+   "project_id": "mullaitivu-air-force-detention-centre",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "elpitiyapradhiya-sabha-2025-budget-gosl",
+   "project_id": "elpitiyapradhiya-sabha-2025-budget",
+   "funder": "gosl",
+   "funder_name": "Elpitiya Pradeshiya Sabha",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "government-cybersecurity-awareness-programme-gosl",
+   "project_id": "government-cybersecurity-awareness-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-postal-service-modernisation-gosl",
+   "project_id": "gosl-postal-service-modernisation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-christmas-new-year-extra-bus-services-2024",
+   "project_id": "christmas-new-year-extra-bus-services-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-adverse-weather-crop-compensation-dec2024",
+   "project_id": "adverse-weather-crop-compensation-dec2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "usaid-ecct-migration-law-course-usa",
+   "project_id": "usaid-ecct-migration-law-course",
+   "funder": "usa",
+   "funder_name": "United States Agency for International Development",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "public-sector-digitalisation-programme-gosl",
+   "project_id": "public-sector-digitalisation-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-sugathadasa-stadium-rehabilitation",
+   "project_id": "sugathadasa-stadium-rehabilitation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-preschool-breakfast-programme-allowance-increase",
+   "project_id": "preschool-breakfast-programme-allowance-increase",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "unknown-myanmar-refugee-boat-transfer",
+   "project_id": "myanmar-refugee-boat-transfer-trincomalee",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "relief"
+  },
+  {
+   "id": "gosl-raw-salt-import-2025",
+   "project_id": "sri-lanka-raw-salt-import-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-borella-crematorium-modernisation",
+   "project_id": "boralla-hindu-crematorium-modernisation",
+   "funder": "gosl",
+   "funder_name": "Colombo Municipal Council",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "sri-lanka-vehicle-import-permit-mechanisms-gosl",
+   "project_id": "sri-lanka-vehicle-import-permit-mechanisms",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "presidential-offices-relocation-gosl",
+   "project_id": "presidential-offices-relocation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "sri-lanka-refugee-repatriation-support-gosl",
+   "project_id": "sri-lanka-refugee-repatriation-support",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-government-paddy-procurement-2025",
+   "project_id": "government-paddy-procurement-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-coconut-fertiliser-subsidy-2024",
+   "project_id": "coconut-fertiliser-subsidy-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "matalle-monkey-sterilisation-gosl",
+   "project_id": "matalle-monkey-sterilisation-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka, Ministry of Agriculture",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "boc-post-office-agent-banking-unknown",
+   "project_id": "boc-post-office-agent-banking-partnership",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "electricity-tariff-proposal-2025-h1-gosl",
+   "project_id": "electricity-tariff-proposal-2025-h1",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka, Ceylon Electricity Board",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "aswesuma-benefits-december-2024-gosl",
+   "project_id": "gosl-aswesuma-benefit-increase-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-presidential-residences-use-committee-line",
+   "project_id": "gosl-presidential-residences-use-committee",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-national-food-security-policy-committee-line",
+   "project_id": "gosl-national-food-security-policy-committee",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-sathosa-coconut-distribution",
+   "project_id": "sathosa-coconut-distribution-increase",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "in_kind",
+   "purpose": "programme"
+  },
+  {
+   "id": "rice-price-controls-dec-2024-gosl",
+   "project_id": "rice-price-controls-dec-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-disaster-relief-dec2024-gosl",
+   "project_id": "gosl-disaster-relief-dec2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "uwar-malai-road-gosl",
+   "project_id": "uwar-malai-circular-road-public-opening",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "batticaloa-sand-mining-permit-suspension-gosl",
+   "project_id": "batticaloa-sand-mining-permit-suspension",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "ministerial-benefits-reform-gosl",
+   "project_id": "ministerial-benefits-reform",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "weather-damaged-roads-bridges-gosl",
+   "project_id": "weather-damaged-roads-bridges-repair",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "northern-investors-forum-gosl",
+   "project_id": "northern-investors-forum",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gurunagar-port-gosl",
+   "project_id": "gurunagar-port",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "review-of-public-sector-appointments-gosl-govt_authorised-2024-12-31",
+   "line_id": "review-of-public-sector-appointments-gosl",
+   "date": "2024-12-31",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved a committee to review public-sector staffing and identify essential recruitment needs.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-31-virakesarilk-a25d26fd"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-underway-2024-12-31",
+   "line_id": "rice-import-gosl",
+   "date": "2024-12-31",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The government reported 77,000 metric tonnes of rice had been imported to address shortages.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-31-virakesarilk-1601eec8"
+   ],
+   "relation": "repeat_of:rice-import-gosl-underway-2024-12-30",
+   "notes": null
+  },
+  {
+   "id": "gosl-paddy-concessional-loan-scheme-govt_authorised-2024-12-31",
+   "line_id": "gosl-paddy-concessional-loan-scheme",
+   "date": "2024-12-31",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 50000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved annual concessional paddy purchase loans, capped at Rs. 50 million per mill.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-31-virakesarilk-fb005b17"
+   ],
+   "relation": "repeat_of:gosl-paddy-concessional-loan-scheme-govt_authorised-2024-12-31",
+   "notes": null
+  },
+  {
+   "id": "mullaitivu-air-force-detention-centre-gosl-launched-2024-12-31",
+   "line_id": "mullaitivu-air-force-detention-centre-gosl",
+   "date": "2024-12-31",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Mullaitivu Air Force Base began operating as a detention centre for Myanmar refugees.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-31-tamilmirrorlk-f5685d6b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "stationery-voucher-expansion-gosl-proposed-2024-12-31",
+   "line_id": "stationery-voucher-expansion-gosl",
+   "date": "2024-12-31",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 6000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Finance Ministry considered extending the school stationery allowance to eligible students outside Aswesuma.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-31-tamilmirrorlk-ddc357dd",
+    "2024-12-31-tamilmirrorlk-405fb307"
+   ],
+   "relation": "repeat_of:stationery-voucher-expansion-gosl-proposed-2024-12-30",
+   "notes": null
+  },
+  {
+   "id": "elpitiyapradhiya-sabha-2025-budget-gosl-allocated-2024-12-30",
+   "line_id": "elpitiyapradhiya-sabha-2025-budget-gosl",
+   "date": "2024-12-30",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Elpitiya Pradeshiya Sabha unanimously passed its 2025 budget.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-30-tamilmirrorlk-dca01ef1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "stationery-voucher-expansion-gosl-allocated-2024-12-30",
+   "line_id": "stationery-voucher-expansion-gosl",
+   "date": "2024-12-30",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 6000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Funding was allocated for learning materials for Aswesuma students; support for other students was expected.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-30-virakesarilk-c906c687"
+   ],
+   "relation": "update_of:stationery-voucher-expansion-gosl-govt_authorised-2025-01-06",
+   "notes": null
+  },
+  {
+   "id": "koica-sigiriya-tourism-conservation-korea-pledged-2024-12-30",
+   "line_id": "koica-sigiriya-tourism-conservation-korea",
+   "date": "2024-12-30",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 2400000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "KOICA expressed willingness to provide Rs. 2.4 billion for Sigiriya conservation and visitor facilities.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-30-virakesarilk-fe46f9b5"
+   ],
+   "relation": "update_of:koica-sigiriya-tourism-conservation-korea-proposed-2024-12-29",
+   "notes": null
+  },
+  {
+   "id": "government-cybersecurity-awareness-programme-gosl-launched-2024-12-28",
+   "line_id": "government-cybersecurity-awareness-programme-gosl",
+   "date": "2024-12-28",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "CERT launched cybersecurity awareness training for government staff.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-28-virakesarilk-d6e1a26a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-underway-2024-12-28",
+   "line_id": "rice-import-gosl",
+   "date": "2024-12-28",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sathosa was releasing 300 metric tonnes of rice daily to the market.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-28-tamilmirrorlk-14ac2292"
+   ],
+   "relation": "update_of:rice-import-gosl-underway-2024-12-30",
+   "notes": null
+  },
+  {
+   "id": "gosl-aswesuma-benefit-increase-2024-released-2024-12-28",
+   "line_id": "gosl-aswesuma-benefit-increase-2024",
+   "date": "2024-12-28",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 1314000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Welfare Benefits Board said it would deposit overdue Aswesuma payments for first-phase families.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-28-tamilmirrorlk-6a9cb45f"
+   ],
+   "relation": "repeat_of:gosl-aswesuma-benefit-increase-2024-released-2024-12-27",
+   "notes": null
+  },
+  {
+   "id": "gosl-crop-damage-compensation-yala-2024-unclear-2024-12-27",
+   "line_id": "gosl-crop-damage-compensation-yala-2024",
+   "date": "2024-12-27",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Officials assessed flood damage to paddy lands in Vavuniya for farmer compensation.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-27-virakesarilk-f8993ac9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-annual-budget-2025-proposed-2024-12-27",
+   "line_id": "gosl-annual-budget-2025",
+   "date": "2024-12-27",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister said the budget would allocate more funding to education and health.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-27-virakesarilk-5d1fafc6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-badulla-colombo-special-train-service-launched-2024-12-27",
+   "line_id": "gosl-badulla-colombo-special-train-service",
+   "date": "2024-12-27",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Railways began special Colombo–Badulla train services for three days.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-27-virakesarilk-4e85cfb4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-govt_authorised-2024-12-26",
+   "line_id": "rice-import-gosl",
+   "date": "2024-12-26",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government extended private rice-import permission through January 10 to address shortages.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-26-tamilmirrorlk-d28b0cc2",
+    "2024-12-26-tamilmirrorlk-12423983"
+   ],
+   "relation": "update_of:rice-import-gosl-govt_authorised-2024-12-24",
+   "notes": null
+  },
+  {
+   "id": "gosl-postal-service-modernisation-gosl-proposed-2024-12-25",
+   "line_id": "gosl-postal-service-modernisation-gosl",
+   "date": "2024-12-25",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government decided to modernise postal services using technology and long-term planning.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-25-virakesarilk-411ac3eb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "railway-smart-ticketing-contract-private-proposed-2024-12-25",
+   "line_id": "railway-smart-ticketing-contract-private",
+   "date": "2024-12-25",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Railways plans to introduce prepaid access cards before April.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-25-tamilmirrorlk-ff826f64"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-aswesuma-benefit-increase-2024-govt_authorised-2024-12-21",
+   "line_id": "gosl-aswesuma-benefit-increase-2024",
+   "date": "2024-12-21",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Gazette revised monthly Aswesuma benefit rates for eligible households and individuals.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-25-tamilmirrorlk-fc9e09dc"
+   ],
+   "relation": "repeat_of:gosl-aswesuma-benefit-increase-2024-govt_authorised-2024-12-21",
+   "notes": null
+  },
+  {
+   "id": "gosl-crop-damage-compensation-increase-2024-govt_authorised-2024-12-24",
+   "line_id": "gosl-crop-damage-compensation-increase-2024",
+   "date": "2024-12-24",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 40000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved crop insurance compensation of up to LKR 40,000 per hectare for weather-damaged crops.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-24-virakesarilk-6a3ff313"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-adverse-weather-crop-compensation-dec2024-govt_authorised-2024-12-24",
+   "line_id": "gosl-adverse-weather-crop-compensation-dec2024",
+   "date": "2024-12-24",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 100000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet decided to compensate farmers LKR 100,000 per hectare for weather-damaged crops.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-24-virakesarilk-6837d51a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-christmas-new-year-extra-bus-services-2024-underway-2024-12-24",
+   "line_id": "gosl-christmas-new-year-extra-bus-services-2024",
+   "date": "2024-12-24",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka Transport Board deployed around 50 extra long-distance buses for holiday travel.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-24-virakesarilk-387e2322"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-govt_authorised-2024-12-24",
+   "line_id": "rice-import-gosl",
+   "date": "2024-12-24",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet extended the import permission period for private rice importers through 1 October 2025.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-24-virakesarilk-fddef6f3",
+    "2024-12-24-tamilmirrorlk-94d6f634"
+   ],
+   "relation": "update_of:rice-import-gosl-govt_authorised-2024-12-24",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-govt_authorised-2024-12-23",
+   "line_id": "rice-import-gosl",
+   "date": "2024-12-23",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister agreed to extend rice import deadline to January 10.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-23-tamilmirrorlk-5f9195a7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-badulla-colombo-special-train-service-proposed-2024-12-23",
+   "line_id": "gosl-badulla-colombo-special-train-service",
+   "date": "2024-12-23",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Railways scheduled additional special trains between Colombo and Badulla.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-23-tamilmirrorlk-0d4aec0f"
+   ],
+   "relation": "update_of:gosl-badulla-colombo-special-train-service-launched-2024-12-27",
+   "notes": null
+  },
+  {
+   "id": "usaid-ecct-migration-law-course-usa-completed-2024-12-23",
+   "line_id": "usaid-ecct-migration-law-course-usa",
+   "date": "2024-12-23",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sixty-nine professionals completed a USAID-supported migration law certificate course.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-23-virakesarilk-414acbb3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "public-sector-digitalisation-programme-gosl-proposed-2024-12-23",
+   "line_id": "public-sector-digitalisation-programme-gosl",
+   "date": "2024-12-23",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Deputy minister said a public-sector digitalisation programme would begin next year.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-23-tamilmirrorlk-024c81bf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-underway-2024-12-21",
+   "line_id": "rice-import-gosl",
+   "date": "2024-12-21",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Distribution of 22,000 metric tons of imported rice is underway.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-21-tamilmirrorlk-572be333"
+   ],
+   "relation": "update_of:rice-import-gosl-underway-2024-12-31",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-proposed-2024-12-20",
+   "line_id": "rice-import-gosl",
+   "date": "2024-12-20",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government decided to extend private rice import permission until January 10, pending Cabinet decision.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-20-virakesarilk-542c7178",
+    "2024-12-20-tamilmirrorlk-3bcc492d",
+    "2024-12-20-virakesarilk-92240228"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-released-2024-12-20",
+   "line_id": "rice-import-gosl",
+   "date": "2024-12-20",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "State trading corporation rice stock was released to Sathosa for sale.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-20-virakesarilk-92240228"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-clean-sri-lanka-fund-govt_authorised-2024-12-02",
+   "line_id": "gosl-clean-sri-lanka-fund",
+   "date": "2024-12-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet decided to establish a task force to implement the Clean Sri Lanka programme.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-20-virakesarilk-3e00b9fc",
+    "2024-12-20-tamilmirrorlk-0ddf5003"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-sugathadasa-stadium-rehabilitation-govt_authorised-2024-12-19",
+   "line_id": "gosl-sugathadasa-stadium-rehabilitation",
+   "date": "2024-12-19",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved rehabilitation of Sugathadasa National Sports Complex facilities.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-19-tamilmirrorlk-8093a595"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-preschool-breakfast-programme-allowance-increase-govt_authorised-2024-12-19",
+   "line_id": "gosl-preschool-breakfast-programme-allowance-increase",
+   "date": "2024-12-19",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 100,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved raising the daily preschool breakfast allowance from Rs. 60 to Rs. 100.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-19-virakesarilk-7bcc7bab",
+    "2024-12-19-tamilmirrorlk-5cb276da"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "unknown-myanmar-refugee-boat-transfer-underway-2024-12-20",
+   "line_id": "unknown-myanmar-refugee-boat-transfer",
+   "date": "2024-12-20",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Navy transported the refugee boat from Mullivaikkal toward Trincomalee.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-20-virakesarilk-41fbcc14"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-police-vehicles-govt_authorised-2024-12-19",
+   "line_id": "india-grant-police-vehicles",
+   "date": "2024-12-19",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 300000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved accepting India's Rs. 300 million grant for police vehicles.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-19-tamilmirrorlk-ecca5351",
+    "2024-12-19-tamilmirrorlk-82a4f470"
+   ],
+   "relation": "repeat_of:india-grant-police-vehicles-govt_authorised-2024-12-19",
+   "notes": null
+  },
+  {
+   "id": "gosl-raw-salt-import-2025-govt_authorised-2024-12-19",
+   "line_id": "gosl-raw-salt-import-2025",
+   "date": "2024-12-19",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet authorised importing up to 30,000 tonnes of raw salt through the State Trading Corporation.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-19-tamilmirrorlk-a19309a5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-borella-crematorium-modernisation-proposed-2024-12-19",
+   "line_id": "gosl-borella-crematorium-modernisation",
+   "date": "2024-12-19",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Colombo Municipal Council officials promised budget funding and renovation works for the Borella Hindu crematorium.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-19-virakesarilk-44683ab9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-free-visa-35-countries-proposed-2024-12-18",
+   "line_id": "gosl-free-visa-35-countries",
+   "date": "2024-12-18",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister said free visas would be offered to visitors from 39 countries from early 2025.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-18-tamilmirrorlk-9b1a797d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "stationery-voucher-expansion-gosl-allocated-2024-12-18",
+   "line_id": "stationery-voucher-expansion-gosl",
+   "date": "2024-12-18",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 6000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Parliament passed a supplementary estimate for a 6,000-rupee school allowance for vulnerable students.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-18-tamilmirrorlk-5297f457"
+   ],
+   "relation": "update_of:stationery-voucher-expansion-gosl-allocated-2024-12-30",
+   "notes": null
+  },
+  {
+   "id": "gosl-vehicle-import-liberalization-roadmap-proposed-2024-12-18",
+   "line_id": "gosl-vehicle-import-liberalization-roadmap",
+   "date": "2024-12-18",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President said vehicle import permits would be issued through three mechanisms.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-18-virakesarilk-8c25fbac"
+   ],
+   "relation": "update_of:gosl-vehicle-import-liberalization-roadmap-govt_authorised-2024-09-14",
+   "notes": null
+  },
+  {
+   "id": "presidential-offices-relocation-gosl-halted-2024-12-18",
+   "line_id": "presidential-offices-relocation-gosl",
+   "date": "2024-12-18",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government shelved plans to relocate presidential and government offices to Sri Jayawardenepura Kotte.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-18-tamilmirrorlk-92bfe504"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nuwara-eliya-post-office-building-gosl-halted-2024-12-18",
+   "line_id": "nuwara-eliya-post-office-building-gosl",
+   "date": "2024-12-18",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government retained the post office building for postal department use, ending its proposed tourism use.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-18-tamilmirrorlk-92bfe504"
+   ],
+   "relation": "update_of:nuwara-eliya-post-office-building-gosl-halted-2024-10-09",
+   "notes": null
+  },
+  {
+   "id": "unknown-yal-devi-rail-service-resumption-unclear-2024-12-17",
+   "line_id": "unknown-yal-devi-rail-service-resumption",
+   "date": "2024-12-17",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Court ordered month-long air quality monitoring in Jaffna and asked CEA to assess public alerts.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-17-tamilmirrorlk-937744d3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sri-lanka-refugee-repatriation-support-gosl-proposed-2024-12-17",
+   "line_id": "sri-lanka-refugee-repatriation-support-gosl",
+   "date": "2024-12-17",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Northern Province Governor said plans would be prepared to support refugees returning from Tamil Nadu.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-17-virakesarilk-e94f1ffb"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-kks-port-renovation-pledged-2024-12-17",
+   "line_id": "india-grant-kks-port-renovation",
+   "date": "2024-12-17",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India pledged financial assistance to renovate Kankesanthurai Port.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-17-tamilmirrorlk-a78447ed"
+   ],
+   "relation": "update_of:india-grant-kks-port-renovation-pledged-2024-12-16",
+   "notes": null
+  },
+  {
+   "id": "gosl-government-paddy-procurement-2025-proposed-2024-12-12",
+   "line_id": "gosl-government-paddy-procurement-2025",
+   "date": "2024-12-12",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government plans to buy more paddy directly from farmers from 2025.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-12-virakesarilk-41b0516f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-coconut-fertiliser-subsidy-2024-govt_authorised-2024-12-12",
+   "line_id": "gosl-coconut-fertiliser-subsidy-2024",
+   "date": "2024-12-12",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President instructed that imported fertiliser be supplied to coconut cultivation; small growers will receive subsidised fertiliser.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-12-virakesarilk-41b0516f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "matalle-monkey-sterilisation-gosl-allocated-2024-12-12",
+   "line_id": "matalle-monkey-sterilisation-gosl",
+   "date": "2024-12-12",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 4500000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Agriculture Ministry allocated funds for the pilot monkey sterilisation programme.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-12-tamilmirrorlk-919319d4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "matalle-monkey-sterilisation-gosl-launched-2024-12-12",
+   "line_id": "matalle-monkey-sterilisation-gosl",
+   "date": "2024-12-12",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Pilot monkey sterilisation programme began in Matale.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-12-tamilmirrorlk-919319d4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "boc-post-office-agent-banking-unknown-launched-2024-12-12",
+   "line_id": "boc-post-office-agent-banking-unknown",
+   "date": "2024-12-12",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "BOC and Sri Lanka Post introduced agent banking at 100 post offices.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-12-virakesarilk-9ea129a9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "electricity-tariff-proposal-2025-h1-gosl-proposed-2024-12-12",
+   "line_id": "electricity-tariff-proposal-2025-h1-gosl",
+   "date": "2024-12-12",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "CEB proposed keeping electricity tariffs unchanged for January through June 2025.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-12-virakesarilk-09d8b52a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-benefits-december-2024-gosl-released-2024-12-12",
+   "line_id": "aswesuma-benefits-december-2024-gosl",
+   "date": "2024-12-12",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "December Aswesuma benefits were credited to beneficiaries’ bank accounts.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-12-tamilmirrorlk-2d56001d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "opec-fund-policy-loan-govt_authorised-2024-12-10",
+   "line_id": "opec-fund-policy-loan",
+   "date": "2024-12-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 50000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved agreements for a $50 million OPEC Fund policy-based loan.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-10-tamilmirrorlk-6265be61"
+   ],
+   "relation": "update_of:opec-fund-policy-loan-govt_authorised-2024-12-10",
+   "notes": null
+  },
+  {
+   "id": "china-grant-school-uniform-fabric-2025-disbursed-2024-12-10",
+   "line_id": "china-grant-school-uniform-fabric-2025",
+   "date": "2024-12-10",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China handed over school uniform fabric for all students in 2025.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-10-tamilmirrorlk-9414520f"
+   ],
+   "relation": "update_of:china-grant-school-uniform-fabric-2025-disbursed-2024-12-10",
+   "notes": null
+  },
+  {
+   "id": "gosl-digital-driving-licence-govt_authorised-2024-12-10",
+   "line_id": "gosl-digital-driving-licence",
+   "date": "2024-12-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved introducing a digital driving licence.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-10-tamilmirrorlk-dcd51806"
+   ],
+   "relation": "repeat_of:gosl-digital-driving-licence-govt_authorised-2024-12-11",
+   "notes": null
+  },
+  {
+   "id": "gosl-presidential-residences-use-committee-line-govt_authorised-2024-12-10",
+   "line_id": "gosl-presidential-residences-use-committee-line",
+   "date": "2024-12-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved a committee to develop economically beneficial uses for government residences.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-10-tamilmirrorlk-9d246209"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-national-food-security-policy-committee-line-govt_authorised-2024-12-10",
+   "line_id": "gosl-national-food-security-policy-committee-line",
+   "date": "2024-12-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved establishing a committee for national food policy and security.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-10-virakesarilk-9f3ab49c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-underway-2024-12-09",
+   "line_id": "rice-import-gosl",
+   "date": "2024-12-09",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "A 10,000-tonne rice shipment from India approached Colombo amid government imports to address shortages.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-09-virakesarilk-eef2fd89"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-sathosa-coconut-distribution-underway-2024-12-08",
+   "line_id": "gosl-sathosa-coconut-distribution",
+   "date": "2024-12-08",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 130,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Lanka Sathosa increased daily coconut sales to 200,000, pricing each at Rs. 130.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-08-virakesarilk-f2756d4b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-flood-relief-dec2024-disbursed-2024-12-07",
+   "line_id": "india-grant-flood-relief-dec2024",
+   "date": "2024-12-07",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India delivered essential flood relief supplies to about 2,100 families in Northern Province.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-08-virakesarilk-049c9314"
+   ],
+   "relation": "update_of:india-grant-flood-relief-dec2024-disbursed-2024-12-08",
+   "notes": null
+  },
+  {
+   "id": "japan-grant-flood-relief-dec2024-disbursed-2024-12-07",
+   "line_id": "japan-grant-flood-relief-dec2024",
+   "date": "2024-12-07",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 300000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan handed emergency relief supplies to Sri Lankan authorities for weather-affected communities.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-08-tamilmirrorlk-6078e9ab",
+    "2024-12-08-tamilmirrorlk-1d26d83c"
+   ],
+   "relation": "repeat_of:japan-grant-flood-relief-dec2024-disbursed-2024-12-08",
+   "notes": null
+  },
+  {
+   "id": "rice-price-controls-dec-2024-gosl-govt_authorised-2024-12-07",
+   "line_id": "rice-price-controls-dec-2024-gosl",
+   "date": "2024-12-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 230,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "President directed mills to supply local rice at set wholesale and retail prices.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-07-tamilmirrorlk-86339869"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "electricity-tariff-proposal-2025-h1-gosl-proposed-2024-12-06",
+   "line_id": "electricity-tariff-proposal-2025-h1-gosl",
+   "date": "2024-12-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "CEB submitted its electricity tariff revision proposal to the public utilities regulator.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-06-tamilmirrorlk-3b11f54b"
+   ],
+   "relation": "repeat_of:electricity-tariff-proposal-2025-h1-gosl-proposed-2024-12-12",
+   "notes": null
+  },
+  {
+   "id": "interim-budget-2025-h1-gosl-allocated-2024-12-06",
+   "line_id": "interim-budget-2025-h1-gosl",
+   "date": "2024-12-06",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 9605000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Parliament approved the Vote on Account for the first four months of 2025.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-06-virakesarilk-dc4a2cb8"
+   ],
+   "relation": "update_of:gosl-vote-on-account-ministries-2025-allocated-2024-12-05",
+   "notes": null
+  },
+  {
+   "id": "gosl-sathosa-coconut-distribution-launched-2024-12-05",
+   "line_id": "gosl-sathosa-coconut-distribution",
+   "date": "2024-12-05",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 130,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Lanka Sathosa began selling rice and coconuts with per-customer purchase limits.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-06-virakesarilk-43b10656"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-sathosa-coconut-distribution-underway-2024-12-05",
+   "line_id": "gosl-sathosa-coconut-distribution",
+   "date": "2024-12-05",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 130,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Lanka Sathosa began selling coconuts at the controlled price through its outlets.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-05-tamilmirrorlk-620de1fb",
+    "2024-12-05-tamilmirrorlk-272ea872"
+   ],
+   "relation": "update_of:gosl-sathosa-coconut-distribution-launched-2024-12-05",
+   "notes": null
+  },
+  {
+   "id": "interim-budget-2025-h1-gosl-allocated-2024-12-05",
+   "line_id": "interim-budget-2025-h1-gosl",
+   "date": "2024-12-05",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 9605000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Parliament received the four-month Vote on Account appropriation for January to April 2025.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-05-virakesarilk-1312ddb7",
+    "2024-12-05-virakesarilk-b730c23e",
+    "2024-12-04-tamilmirrorlk-0bd952fc"
+   ],
+   "relation": "repeat_of:interim-budget-2025-h1-gosl-allocated-2024-12-06",
+   "notes": null
+  },
+  {
+   "id": "gosl-sathosa-coconut-distribution-proposed-2024-12-04",
+   "line_id": "gosl-sathosa-coconut-distribution",
+   "date": "2024-12-04",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 130,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister said Sathosa would sell coconuts at Rs. 130 each within two weeks.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-04-tamilmirrorlk-6f0f6108"
+   ],
+   "relation": "update_of:gosl-sathosa-coconut-distribution-launched-2024-12-05",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-govt_authorised-2024-12-03",
+   "line_id": "rice-import-gosl",
+   "date": "2024-12-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet authorised rice imports without import control licences through December 20.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-03-virakesarilk-14294de5",
+    "2024-12-03-virakesarilk-1bdbbfaa"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-disaster-relief-dec2024-gosl-allocated-2024-12-03",
+   "line_id": "gosl-disaster-relief-dec2024-gosl",
+   "date": "2024-12-03",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 345000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Treasury allocated relief funds for people affected by severe weather disasters.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-03-virakesarilk-c6713029"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-aswesuma-benefit-increase-2024-govt_authorised-2024-12-03",
+   "line_id": "gosl-aswesuma-benefit-increase-2024",
+   "date": "2024-12-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 10000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved increasing monthly Aswesuma payments for poor households to Rs. 10,000.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-03-tamilmirrorlk-09a48fd2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "stationery-voucher-expansion-gosl-govt_authorised-2024-12-03",
+   "line_id": "stationery-voucher-expansion-gosl",
+   "date": "2024-12-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 6000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government approved a Rs. 6,000 schoolbook allowance for eligible students.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-03-tamilmirrorlk-c0ff891b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "uwar-malai-road-gosl-launched-2024-12-01",
+   "line_id": "uwar-malai-road-gosl",
+   "date": "2024-12-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Military opened the Uvarmalai circular road for public use after 36 years.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-03-tamilmirrorlk-27da8e4e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "batticaloa-sand-mining-permit-suspension-gosl-halted-2024-12-02",
+   "line_id": "batticaloa-sand-mining-permit-suspension-gosl",
+   "date": "2024-12-02",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Authorities decided to temporarily suspend sand-mining permits in Sengkallady.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-02-virakesarilk-0ca254b1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ministerial-benefits-reform-gosl-unclear-2024-12-02",
+   "line_id": "ministerial-benefits-reform-gosl",
+   "date": "2024-12-02",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "A committee report on reviewing officials’ benefits was handed to the President.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-02-tamilmirrorlk-ab8018ef"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ministerial-benefits-reform-gosl-govt_authorised-2024-12-01",
+   "line_id": "ministerial-benefits-reform-gosl",
+   "date": "2024-12-01",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government decided not to allocate state bungalows to current ministers.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-02-tamilmirrorlk-8b5f4a3b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ministerial-benefits-reform-gosl-proposed-2024-12-02",
+   "line_id": "ministerial-benefits-reform-gosl",
+   "date": "2024-12-02",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government intends to auction or repurpose 344 luxury vehicles used by former officials.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-02-tamilmirrorlk-8b5f4a3b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "weather-damaged-roads-bridges-gosl-underway-2024-12-02",
+   "line_id": "weather-damaged-roads-bridges-gosl",
+   "date": "2024-12-02",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "A special committee began collecting information on roads and bridges damaged by heavy rain.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-02-tamilmirrorlk-4da731bf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "weather-damaged-roads-bridges-gosl-proposed-2024-12-02",
+   "line_id": "weather-damaged-roads-bridges-gosl",
+   "date": "2024-12-02",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The Road Development Authority said damaged roads and bridges would be repaired quickly.",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-02-tamilmirrorlk-4da731bf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "northern-investors-forum-gosl-proposed-2024-12-01",
+   "line_id": "northern-investors-forum-gosl",
+   "date": "2024-12-01",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Governor said preparations would be made to establish a Northern Province investors forum.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-01-virakesarilk-a4f8bf7f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gurunagar-port-gosl-proposed-2024-12-01",
+   "line_id": "gurunagar-port-gosl",
+   "date": "2024-12-01",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Governor said he would discuss Gurunagar port construction with the Fisheries Minister.",
+   "confidence": "high",
+   "reports": [
+    "2024-12-01-virakesarilk-b76cd121"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-12-31-virakesarilk-a25d26fd": {
+   "date": "2024-12-31",
+   "title": "கடந்த அரசாங்கத்தின் அரச நியமனங்கள்  தொடர்பில் மீளாய்வுக்கு விசேட குழு  - அரசாங்கம்",
+   "url": "https://www.virakesari.lk/article/202643",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-31-virakesarilk-1601eec8": {
+   "date": "2024-12-31",
+   "title": "அரிசிக்கான இறக்குமதி குறைக்கப்பட மாட்டாது :கட்டுப்பாட்டு விலையையும் இரத்து செய்ய முடியாது - அரசாங்கம் திட்டவட்டம்",
+   "url": "https://www.virakesari.lk/article/202640",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-31-virakesarilk-fb005b17": {
+   "date": "2024-12-31",
+   "title": "நெல் ஆலை உரிமையாளர்களுக்கு நெற் கொள்வனவுக்கான  50 மில்லியன் அடகுக் கடன் முறைமை - அரசாங்கம்",
+   "url": "https://www.virakesari.lk/article/202619",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-31-tamilmirrorlk-f5685d6b": {
+   "date": "2024-12-31",
+   "title": "முல்லைத்தீவு முகாம் தடுப்பு மையமானது",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/முல்லைத்தீவு-முகாம்-தடுப்பு-மையமானது/175-349565",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-31-tamilmirrorlk-ddc357dd": {
+   "date": "2024-12-31",
+   "title": "மாணவர்களுக்கும்  ரூ 6,000",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மாணவர்களுக்கும்-ரூ-6-000/175-349538",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-31-tamilmirrorlk-405fb307": {
+   "date": "2024-12-31",
+   "title": "மாணவர்களுக்கும் 6,000 ரூபாய்: நிதியமைச்சு கவனம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மாணவர்களுக்கும்-6-000-ரூபாய்-நிதியமைச்சு-கவனம்/175-349538",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-30-tamilmirrorlk-dca01ef1": {
+   "date": "2024-12-30",
+   "title": "எல்பிட்டிய பட்ஜெட் ஏகமனதாக நிறைவேற்றம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/எல்பிட்டிய-பட்ஜெட்-ஏகமனதாக-நிறைவேற்றம்/175-349508",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-30-virakesarilk-c906c687": {
+   "date": "2024-12-30",
+   "title": "மாணவர்களுக்கு கற்றல் உபகரணங்களை பெற்றுக்கொள்வதற்கு கொடுப்பனவு",
+   "url": "https://www.virakesari.lk/article/202530",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-30-virakesarilk-fe46f9b5": {
+   "date": "2024-12-30",
+   "title": "சிகிரியாவை பாதுகாக்கும் விசேட திட்டம் - கொரியாவிடமிருந்து நிதி உதவி",
+   "url": "https://www.virakesari.lk/article/202519",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-28-virakesarilk-d6e1a26a": {
+   "date": "2024-12-28",
+   "title": "அரச நிறுவனங்களை சைபர் தாக்குதலிலிருந்து பாதுகாப்பதற்கு விசேட திட்டம் அறிமுகம்",
+   "url": "https://www.virakesari.lk/article/202370",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-28-tamilmirrorlk-14ac2292": {
+   "date": "2024-12-28",
+   "title": "நாளாந்தம் 300 மெட்ரிக் டொன் அரிசி வெளியீடு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/நாளாந்தம்-300-மெட்ரிக்-டொன்-அரிசி-வெளியீடு/175-349394",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-28-tamilmirrorlk-6a9cb45f": {
+   "date": "2024-12-28",
+   "title": "அஸ்வெசும நிலுவைத்தொகையை வழங்கத் தீர்மானம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அஸ்வெசும-நிலுவைத்தொகையை-வழங்கத்-தீர்மானம்/175-349391",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-27-virakesarilk-f8993ac9": {
+   "date": "2024-12-27",
+   "title": "வவுனியாவில் 1,387 ஏக்கர் நெற்காணிகளுக்கு இழப்பீடு வழங்க நடவடிக்கை",
+   "url": "https://www.virakesari.lk/article/202301",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-27-virakesarilk-5d1fafc6": {
+   "date": "2024-12-27",
+   "title": "இம்முறை வரவு செலவு திட்டத்தில் கல்விக்கும், சுகாதாரத்திற்கும் அதிக நிதி ஒதுக்கீடு - அமைச்சர் சந்திரசேகர்",
+   "url": "https://www.virakesari.lk/article/202283",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-27-virakesarilk-4e85cfb4": {
+   "date": "2024-12-27",
+   "title": "கோட்டை - பதுளை விசேட ரயில் சேவைகள் ஆரம்பம் !",
+   "url": "https://www.virakesari.lk/article/202254",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-26-tamilmirrorlk-d28b0cc2": {
+   "date": "2024-12-26",
+   "title": "அரிசி இறக்குமதி :விசேட வர்த்தமானி வௌியீடு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அரிசி-இறக்குமதி-விசேட-வர்த்தமானி-வௌியீடு/175-349316",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-26-tamilmirrorlk-12423983": {
+   "date": "2024-12-26",
+   "title": "அரிசியை இறக்குமதி :விசேட வர்த்தமானி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அரிசியை-இறக்குமதி-விசேட-வர்த்தமானி/175-349316",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-25-virakesarilk-411ac3eb": {
+   "date": "2024-12-25",
+   "title": "தபால் சேவையை நவீன மயப்படுத்த  அரசாங்கம் தீர்மானம் - அமைச்சர் நளிந்த",
+   "url": "https://www.virakesari.lk/article/202157",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-25-tamilmirrorlk-ff826f64": {
+   "date": "2024-12-25",
+   "title": "ரயில் டிக்கெட்டுக்கு பதிலாக ப்ரீபெய்டு கார்டு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ரயில்-டிக்கெட்டுக்கு-பதிலாக-ப்ரீபெய்டு-கார்டு/175-349284",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-25-tamilmirrorlk-fc9e09dc": {
+   "date": "2024-12-25",
+   "title": "அஸ்வெசும தொடர்பில் அதிரடி வர்த்தமானி",
+   "url": "https://www.tamilmirror.lk/பிரசித்த-செய்தி/அஸ்வெசும-தொடர்பில்-அதிரடி-வர்த்தமானி/150-349251",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-24-virakesarilk-6a3ff313": {
+   "date": "2024-12-24",
+   "title": "சீரற்ற வானிலையால் பாதிக்கப்பட்ட விவசாயிகளுக்கு இழப்பீடு",
+   "url": "https://www.virakesari.lk/article/202071",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-24-virakesarilk-387e2322": {
+   "date": "2024-12-24",
+   "title": "பண்டிகை காலத்தை முன்னிட்டு விசேட போக்குவரத்து சேவைகள்",
+   "url": "https://www.virakesari.lk/article/202029",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-24-virakesarilk-6837d51a": {
+   "date": "2024-12-24",
+   "title": "சீரற்ற காலநிலையால் பாதிக்கப்பட்ட விவசாயிகளுக்கு இழப்பீடு வழங்கத் தீர்மானம்",
+   "url": "https://www.virakesari.lk/article/202027",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-24-virakesarilk-fddef6f3": {
+   "date": "2024-12-24",
+   "title": "அரிசி இறக்குமதிக்கான கால அவகாசம் நீடிப்பு",
+   "url": "https://www.virakesari.lk/article/202022",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-24-tamilmirrorlk-94d6f634": {
+   "date": "2024-12-24",
+   "title": "அரிசி இறக்குமதி காலம் நீடிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அரிசி-இறக்குமதி-காலம்-நீடிப்பு/175-349195",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-23-tamilmirrorlk-5f9195a7": {
+   "date": "2024-12-23",
+   "title": "அரிசி இறக்குமதிக்கான கால அவகாசம் மேலும் நீடிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அரிசி-இறக்குமதிக்கான-கால-அவகாசம்-மேலும்-நீடிப்பு/175-349186",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-23-tamilmirrorlk-0d4aec0f": {
+   "date": "2024-12-23",
+   "title": "’’மேலதிக புகையிரத சேவைகளை மேற்கொள்ள முடியாது’’",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மேலதிக-புகையிரத-சேவைகளை-மேற்கொள்ள-முடியாது/175-349168",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-23-virakesarilk-414acbb3": {
+   "date": "2024-12-23",
+   "title": "புலம்பெயர்வு சட்டம் மற்றும் கொள்கை பற்றிய சான்றிதழ் கற்கைநெறி : திறந்த பல்கலைக்கழகத்துடன் கூட்டிணையும் USAID",
+   "url": "https://www.virakesari.lk/article/201973",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-23-tamilmirrorlk-024c81bf": {
+   "date": "2024-12-23",
+   "title": "புதுவருடத்தில் டிஜிட்டல் மயமாகும் பொதுத்துறை",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/புதுவருடத்தில்-டிஜிட்டல்-மயமாகும்-பொதுத்துறை/175-349136",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-21-tamilmirrorlk-572be333": {
+   "date": "2024-12-21",
+   "title": "22,000 மெற்றிக் தொன் அரிசி இறக்குமதி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/22-000-மெற்றிக்-தொன்-அரிசி-இறக்குமதி/175-349030",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-20-virakesarilk-542c7178": {
+   "date": "2024-12-20",
+   "title": "அரிசி இறக்குமதிக்கான காலவகாசம் ஜனவரி 10 வரை நீட்டிப்பு 40,500 மெற்றிக் தொன் அரிசி இறக்குமதி - சுங்கத் திணைக்களம்",
+   "url": "https://www.virakesari.lk/article/201766",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-20-virakesarilk-3e00b9fc": {
+   "date": "2024-12-20",
+   "title": "தூய்மையான இலங்கை நிகழ்ச்சித் திட்டத்துக்காக 18 உறுப்பினர்களுடன் ஜனாதிபதி செயலணி ஸ்தாபிப்பு",
+   "url": "https://www.virakesari.lk/article/201756",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-20-tamilmirrorlk-3bcc492d": {
+   "date": "2024-12-20",
+   "title": "அரிசியை இறக்குமதி செய்வதற்கான அனுமதி காலம் நீடிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அரிசியை-இறக்குமதி-செய்வதற்கான-அனுமதி-காலம்-நீடிப்பு/175-349007",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-20-virakesarilk-92240228": {
+   "date": "2024-12-20",
+   "title": "அரிசி இறக்குமதி செய்வதற்கான கால அவகாசத்தை நீடிக்க தீர்மானம்",
+   "url": "https://www.virakesari.lk/article/201709",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-20-tamilmirrorlk-0ddf5003": {
+   "date": "2024-12-20",
+   "title": "Clean Sri Lanka - வர்த்தமானி அறிவித்தல் வெளியீடு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/Clean-Sri-Lanka-வர்த்தமானி-அறிவித்தல்-வெளியீடு/175-348998",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-20-virakesarilk-41fbcc14": {
+   "date": "2024-12-20",
+   "title": "முள்ளிவாய்க்காலில் 100 ற்கும்  அதிகமான மியன்மார் அகதிகளுடன் கரையொதுங்கிய நாட்டுப்படகை திருகோணமலைக்கு கொண்டு செல்லும் கடற்படை",
+   "url": "https://www.virakesari.lk/article/201699",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-19-tamilmirrorlk-8093a595": {
+   "date": "2024-12-19",
+   "title": "சுகததாச விளையாட்டு வளாகத்தை புனரமைக்க அனுமதி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சுகததாச-விளையாட்டு-வளாகத்தை-புனரமைக்க-அனுமதி/175-348977",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-19-virakesarilk-7bcc7bab": {
+   "date": "2024-12-19",
+   "title": "முன்பள்ளிப் பிள்ளைகளுக்கான காலை உணவு வேலைத்திட்டத்தை முன்னெடுக்க அரசாங்கம் தீர்மானம்",
+   "url": "https://www.virakesari.lk/article/201657",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-19-tamilmirrorlk-5cb276da": {
+   "date": "2024-12-19",
+   "title": "முன்பள்ளி சிறார்களுக்கு உணவு கொடுப்பனவு அதிகரிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/முன்பள்ளி-சிறார்களுக்கு-உணவு-கொடுப்பனவு-அதிகரிப்பு/175-348963",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-19-tamilmirrorlk-ecca5351": {
+   "date": "2024-12-19",
+   "title": "இலங்கை பொலிஸாருக்கு வாகனங்கள் வாங்க இந்தியா நிதியுதவி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/இலங்கை-பொலிஸாருக்கு-வாகனங்கள்-வாங்க-இந்தியா-நிதியுதவி/175-348959",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-19-tamilmirrorlk-82a4f470": {
+   "date": "2024-12-19",
+   "title": "பொலிஸாருக்கு வாகனங்கள் வாங்க இந்தியா நிதியுதவி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/பொலிஸாருக்கு-வாகனங்கள்-வாங்க-இந்தியா-நிதியுதவி/175-348959",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-19-tamilmirrorlk-a19309a5": {
+   "date": "2024-12-19",
+   "title": "உப்புத் தட்டுப்பாடு; இறக்குமதிக்கு அனுமதி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/உப்புத்-தட்டுப்பாடு-இறக்குமதிக்கு-அனுமதி/175-348951",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-19-virakesarilk-44683ab9": {
+   "date": "2024-12-19",
+   "title": "பொரளையிலுள்ள இந்துக்களின் தகனசாலை நவீனமயப்படுத்தப்படும் : லயன் மனோகரனிடம் கொழும்பு மாநகர சபையின் பிரதான வைத்திய அதிகாரி உறுதி",
+   "url": "https://www.virakesari.lk/article/201618",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-18-tamilmirrorlk-9b1a797d": {
+   "date": "2024-12-18",
+   "title": "39 நாடுகளுக்கு இலவச விசா",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/39-நாடுகளுக்கு-இலவச-விசா/175-348929",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-18-tamilmirrorlk-5297f457": {
+   "date": "2024-12-18",
+   "title": "2025 தொடக்கம் மாணவர்களுக்கு கொடுப்பனவு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/2025-தொடக்கம்-மாணவர்களுக்கு-கொடுப்பனவு/175-348919",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-18-virakesarilk-8c25fbac": {
+   "date": "2024-12-18",
+   "title": "வாகன இறக்குமதிக்கான அனுமதி மூன்று வழிமுறைகளில் வழங்கப்படும் : ஜனாதிபதி",
+   "url": "https://www.virakesari.lk/article/201564",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-18-tamilmirrorlk-92bfe504": {
+   "date": "2024-12-18",
+   "title": "ஜனாதிபதி மாளிகையை இடமாற்றும் திட்டம் ஒத்திவைப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ஜனாதிபதி-மாளிகையை-இடமாற்றும்-திட்டம்-ஒத்திவைப்பு/175-348901",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-17-tamilmirrorlk-937744d3": {
+   "date": "2024-12-17",
+   "title": "யாழ். மாவட்டத்தின் காற்றின் தரத்தை ஆராய உத்தரவு",
+   "url": "https://www.tamilmirror.lk/யாழ்ப்பாணம்/யாழ்-மாவட்டத்தின்-காற்றின்-தரத்தை-ஆராய-உத்தரவு/71-348874",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-17-virakesarilk-e94f1ffb": {
+   "date": "2024-12-17",
+   "title": "தமிழகத்திலுள்ள இலங்கையைச் சேர்ந்த அகதிகளை மீளவும் வரவழைப்பதே எமது விருப்பம் -  வடக்கு மாகாண ஆளுநர்",
+   "url": "https://www.virakesari.lk/article/201538",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-17-tamilmirrorlk-a78447ed": {
+   "date": "2024-12-17",
+   "title": "இராமேஸ்வரம்- தலைமன்னார் கப்பல் போக்குவரத்து விரைவில்...",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/இராமேஸ்வரம்-தலைமன்னார்-கப்பல்-போக்குவரத்து-விரைவில்/175-348835",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-12-virakesarilk-41b0516f": {
+   "date": "2024-12-12",
+   "title": "விவசாயிகளிடமிருந்து நேரடியாக நெல்லை கொள்வனவு செய்ய நடவடிக்கை - பெருந்தோட்டத்துறை அமைச்சர்",
+   "url": "https://www.virakesari.lk/article/201107",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-12-tamilmirrorlk-919319d4": {
+   "date": "2024-12-12",
+   "title": "குரங்குகளுக்கு கருத்தடை செய்யும் வேலைத்திட்டம் ஆரம்பம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/குரங்குகளுக்கு-கருத்தடை-செய்யும்-வேலைத்திட்டம்-ஆரம்பம்/175-348628",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-12-virakesarilk-9ea129a9": {
+   "date": "2024-12-12",
+   "title": "வங்கி அணுகலைப் புரட்சிகரமாக்குவதற்கு இலங்கை வங்கியும் இலங்கை தபாலும்  ஒன்றிணைகின்றன",
+   "url": "https://www.virakesari.lk/article/201067",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-12-virakesarilk-09d8b52a": {
+   "date": "2024-12-12",
+   "title": "மின்கட்டண திருத்தம் தொடர்பான இறுதி தீர்மானம் - மக்களிடம் பொது ஆலோசனைகளை கேட்டல் !",
+   "url": "https://www.virakesari.lk/article/201054",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-12-tamilmirrorlk-2d56001d": {
+   "date": "2024-12-12",
+   "title": "அஸ்வெசும பயனாளிகளுக்கு இன்று கொடுப்பனவு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அஸ்வெசும-பயனாளிகளுக்கு-இன்று-கொடுப்பனவு/175-348599",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-10-tamilmirrorlk-6265be61": {
+   "date": "2024-12-10",
+   "title": "ஒபெக் நிதியத்துடன் உடன்படிக்கை: அமைச்சரவை அனுமதி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ஒபெக்-நிதியத்துடன்-உடன்படிக்கை-அமைச்சரவை-அனுமதி/175-348558",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-10-tamilmirrorlk-9414520f": {
+   "date": "2024-12-10",
+   "title": "சீருடைகளை வழங்கிய சீன அரசாங்கத்திற்கு பிரதமர் நன்றி தெரிவிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சீருடைகளை-வழங்கிய-சீன-அரசாங்கத்திற்கு-பிரதமர்-நன்றி-தெரிவிப்பு/175-348553",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-10-tamilmirrorlk-dcd51806": {
+   "date": "2024-12-10",
+   "title": "டிஜிட்டல் சாரதி அனுமதிப் பத்திரம்: அமைச்சின் அறிவிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/டிஜிட்டல்-சாரதி-அனுமதிப்-பத்திரம்-அமைச்சின்-அறிவிப்பு/175-348534",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-10-tamilmirrorlk-9d246209": {
+   "date": "2024-12-10",
+   "title": "ஜனாதிபதி மாளிகைகளைப் பயன்படுத்த அனுமதி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ஜனாதிபதி-மாளிகைகளைப்-பயன்படுத்த-அனுமதி/175-348531",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-10-virakesarilk-9f3ab49c": {
+   "date": "2024-12-10",
+   "title": "சகலருக்கும் குறைந்தபட்ச உணவுத்தேவை : உணவுக் கொள்கை, பாதுகாப்புக் குழுவை நியமிக்க அமைச்சரவை அனுமதி",
+   "url": "https://www.virakesari.lk/article/200905",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-09-virakesarilk-eef2fd89": {
+   "date": "2024-12-09",
+   "title": "10ஆயிரம் மெற்றிக்தொன் அரிசியுடன் இந்தியக் கப்பல் வருகிறது",
+   "url": "https://www.virakesari.lk/article/200832",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-08-virakesarilk-f2756d4b": {
+   "date": "2024-12-08",
+   "title": "சதொச விற்பனை நிலையங்கள் ஊடாக நாளாந்தம் 2 இலட்சம் தேங்காய்கள் விநியோகம் - வர்த்தகம், உணவு பாதுகாப்பு மற்றும் கூட்டுறவு அபிவிருத்தி அமைச்சு",
+   "url": "https://www.virakesari.lk/article/200754",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-08-virakesarilk-049c9314": {
+   "date": "2024-12-08",
+   "title": "யாழில் வெள்ள நிவாரணப் பொருட்களை இந்திய துணைத் தூதரகம் வழங்கிவைப்பு",
+   "url": "https://www.virakesari.lk/article/200740",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-08-tamilmirrorlk-6078e9ab": {
+   "date": "2024-12-08",
+   "title": "ஜப்பானிலிருந்து ரூ.300 மில்லியன்  நிவாரணம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ஜப்பானிலிருந்து-ரூ-300-மில்லியன்-நிவாரணம்/175-348430",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-08-tamilmirrorlk-1d26d83c": {
+   "date": "2024-12-08",
+   "title": "ஜப்பானிலிருந்து 300 மில்லியன் பெறுமதியான நிவாரணம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ஜப்பானிலிருந்து-300-மில்லியன்-பெறுமதியான-நிவாரணம்/175-348430",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-07-tamilmirrorlk-86339869": {
+   "date": "2024-12-07",
+   "title": "அரிசி விலை தொடர்பில் ஜனாதிபதியின் அதிரடி தீர்மானம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அரிசி-விலை-தொடர்பில்-ஜனாதிபதியின்-அதிரடி-தீர்மானம்/175-348400",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-06-tamilmirrorlk-3b11f54b": {
+   "date": "2024-12-06",
+   "title": "மின்கட்டண திருத்தம் தொடர்பில் வெளியான அறிவிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மின்கட்டண-திருத்தம்-தொடர்பில்-வெளியான-அறிவிப்பு/175-348361",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-06-virakesarilk-dc4a2cb8": {
+   "date": "2024-12-06",
+   "title": "அரசாங்கத்தின் கணக்கு வாக்குப்பதிவு சபையில் ஏகமனதாக நிறைவேற்றம்",
+   "url": "https://www.virakesari.lk/article/200616",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-06-virakesarilk-43b10656": {
+   "date": "2024-12-06",
+   "title": "அரிசி, தேங்காய் கொள்வனவில் கட்டுப்பாடு - சதொச அறிவிப்பு",
+   "url": "https://www.virakesari.lk/article/200550",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-05-tamilmirrorlk-620de1fb": {
+   "date": "2024-12-05",
+   "title": "சதொசவில் ஒரு வாடிக்கையாளருக்கு 3 தேங்காய்,5 கிலோ அரிசி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சதொசவில்-ஒரு-வாடிக்கையாளருக்கு-3-தேங்காய்-5-கிலோ-அரிசி/175-348295",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-05-tamilmirrorlk-272ea872": {
+   "date": "2024-12-05",
+   "title": "சதொசவில் ஒருவருக்கு 3 தேங்காய்,5 கிலோ அரிசி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சதொசவில்-ஒருவருக்கு-3-தேங்காய்-5-கிலோ-அரிசி/175-348295",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-05-virakesarilk-1312ddb7": {
+   "date": "2024-12-05",
+   "title": "அரசாங்கத்தின் இடைக்கால வாக்குப் பதிவு கணக்கு சபையில் சமர்ப்பிப்பு",
+   "url": "https://www.virakesari.lk/article/200512",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-05-virakesarilk-b730c23e": {
+   "date": "2024-12-05",
+   "title": "அரசாங்கத்தின் இடைக்கால கணக்கு வாக்குப்பதிவாக 9,60,500 கோடி ரூபா ஒதுக்கீடு",
+   "url": "https://www.virakesari.lk/article/200458",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-04-tamilmirrorlk-0bd952fc": {
+   "date": "2024-12-04",
+   "title": "4 மாதங்களுக்கு 9,60,500 கோடி ரூபாய் ஒதுக்கீடு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/4-மாதங்களுக்கு-9-60-500-கோடி-ரூபாய்-ஒதுக்கீடு/175-348243",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-04-tamilmirrorlk-6f0f6108": {
+   "date": "2024-12-04",
+   "title": "சதொச தேங்காய் ரூ.130",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சதொச-தேங்காய்-ரூ-130/175-348241",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-03-virakesarilk-14294de5": {
+   "date": "2024-12-03",
+   "title": "அரிசி இறக்குமதிக்கு அனுமதிக்கு அமைச்சரவை அங்கீகாரம்",
+   "url": "https://www.virakesari.lk/article/200357",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-03-virakesarilk-c6713029": {
+   "date": "2024-12-03",
+   "title": "இயற்கை அனர்த்தங்களில் பாதிக்கப்பட்ட மக்களுக்கு நிவாரணம் வழங்க அரசாங்கம் 345 மில்லியன் ரூபா ஒதுக்கீடு - பாதுகாப்பு பிரதி அமைச்சர் அருண ஜயசேகர",
+   "url": "https://www.virakesari.lk/article/200345",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-03-virakesarilk-1bdbbfaa": {
+   "date": "2024-12-03",
+   "title": "இறக்குமதிக் கட்டுப்பாட்டு அனுமதிப்பத்திரமின்றி அரிசி இறக்குமதிக்கு அனுமதி - அமைச்சரவை அங்கீகாரம்",
+   "url": "https://www.virakesari.lk/article/200355",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-03-tamilmirrorlk-09a48fd2": {
+   "date": "2024-12-03",
+   "title": "ஆறுதல் அஸ்வெசும கொடுப்பனவு அதிகரிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ஆறுதல்-அஸ்வெசும-கொடுப்பனவு-அதிகரிப்பு/175-348182",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-03-tamilmirrorlk-c0ff891b": {
+   "date": "2024-12-03",
+   "title": "மாணவர்களுக்கு 6,000 ரூபாய் கொடுப்பனவு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மாணவர்களுக்கு-6-000-ரூபாய்-கொடுப்பனவு/175-348178",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-03-tamilmirrorlk-27da8e4e": {
+   "date": "2024-12-03",
+   "title": "36 வருடங்களுக்குப் பின் வீதி ஒப்படைப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/36-வருடங்களுக்குப்-பின்-வீதி-ஒப்படைப்பு/175-348171",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-02-virakesarilk-0ca254b1": {
+   "date": "2024-12-02",
+   "title": "மட்டக்களப்பில் இடம்பெற்ற அனர்த்த முகாமைத்துவ குழு கூட்டத்தில் மணல் அகழ்விற்கு தற்காலிக தடை!",
+   "url": "https://www.virakesari.lk/article/200266",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-02-tamilmirrorlk-ab8018ef": {
+   "date": "2024-12-02",
+   "title": "அமைச்சர்களின் சலுகைகள் தொடர்பில் விசேட அறிவிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அமைச்சர்களின்-சலுகைகள்-தொடர்பில்-விசேட-அறிவிப்பு/175-348126",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-02-tamilmirrorlk-8b5f4a3b": {
+   "date": "2024-12-02",
+   "title": "அமைச்சர்களுக்கு இனி பங்களாக்கள் வழங்கப்படாது",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அமைச்சர்களுக்கு-இனி-பங்களாக்கள்-வழங்கப்படாது/175-348099",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-02-tamilmirrorlk-4da731bf": {
+   "date": "2024-12-02",
+   "title": "சேதமடைந்த வீதிகள் தொடர்பில் தகவல் சேகரிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சேதமடைந்த-வீதிகள்-தொடர்பில்-தகவல்-சேகரிப்பு/175-348079",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2024-12-01-virakesarilk-a4f8bf7f": {
+   "date": "2024-12-01",
+   "title": "வடக்கு மாகாண முதலீட்டாளர்கள் மன்றத்தை உருவாக்க நடவடிக்கை எடுக்கப்படும் - ஆளுநர் நா.வேதநாயகன்",
+   "url": "https://www.virakesari.lk/article/200184",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2024-12-01-virakesarilk-b76cd121": {
+   "date": "2024-12-01",
+   "title": "குருநகர் பிரதேசத்துக்கான துறைமுகம் தொடர்பில் நடவடிக்கை எடுக்கப்படும் - வடக்கு ஆளுநர்",
+   "url": "https://www.virakesari.lk/article/200175",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  }
+ }
+}

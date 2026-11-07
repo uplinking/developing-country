@@ -1,0 +1,3202 @@
+{
+  "caveats": [
+    "Religion is as declared by the respondent.",
+    "These are census enumeration counts, not mid-year estimates."
+  ],
+  "country": "LK",
+  "dataset_id": "census-religion-district",
+  "description": "Census 2012 and Census 2024 resident population by published religion for Sri Lanka and its 25 districts.",
+  "fields": [
+    {
+      "id": "geography_id",
+      "label": "Geography id",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "geography_name",
+      "label": "Geography",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "year",
+      "label": "Census year",
+      "role": "dimension",
+      "type": "year"
+    },
+    {
+      "id": "category",
+      "label": "Category",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "category_label",
+      "label": "Category label",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "aggregation": "sum",
+      "id": "population",
+      "label": "Population",
+      "role": "measure",
+      "type": "integer",
+      "unit": "people"
+    },
+    {
+      "aggregation": "none",
+      "id": "share_pct",
+      "label": "Share of geography total",
+      "role": "measure",
+      "type": "number",
+      "unit": "percent"
+    },
+    {
+      "aggregation": "none",
+      "id": "total_population",
+      "label": "Geography total",
+      "role": "measure",
+      "type": "integer",
+      "unit": "people"
+    }
+  ],
+  "grain": "One row per geography, census year and published category.",
+  "notes": [
+    "Roman Catholic and Other Christian are published as separate categories. Islam is the published label for the Muslim community."
+  ],
+  "primary_key": [
+    "geography_id",
+    "year",
+    "category"
+  ],
+  "rows": [
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 14272056,
+      "share_pct": 70.1,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 2561299,
+      "share_pct": 12.58,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 1967523,
+      "share_pct": 9.66,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 1261194,
+      "share_pct": 6.19,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 290967,
+      "share_pct": 1.43,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 6400,
+      "share_pct": 0.03,
+      "total_population": 20359439,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1632225,
+      "share_pct": 70.22,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 186454,
+      "share_pct": 8.02,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 274087,
+      "share_pct": 11.79,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 162314,
+      "share_pct": 6.98,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 66994,
+      "share_pct": 2.88,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 2275,
+      "share_pct": 0.1,
+      "total_population": 2324349,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 1642767,
+      "share_pct": 71.27,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 52973,
+      "share_pct": 2.3,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 112746,
+      "share_pct": 4.89,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 449398,
+      "share_pct": 19.5,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 46080,
+      "share_pct": 2,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 869,
+      "share_pct": 0.04,
+      "total_population": 2304833,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 1018909,
+      "share_pct": 83.38,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 39541,
+      "share_pct": 3.24,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 114556,
+      "share_pct": 9.37,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 39774,
+      "share_pct": 3.25,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 8956,
+      "share_pct": 0.73,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 212,
+      "share_pct": 0.02,
+      "total_population": 1221948,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 1009220,
+      "share_pct": 73.38,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 133744,
+      "share_pct": 9.72,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 197076,
+      "share_pct": 14.33,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 22379,
+      "share_pct": 1.63,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 12798,
+      "share_pct": 0.93,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 165,
+      "share_pct": 0.01,
+      "total_population": 1375382,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 385151,
+      "share_pct": 79.49,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 43432,
+      "share_pct": 8.96,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 45682,
+      "share_pct": 9.43,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 7899,
+      "share_pct": 1.63,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 2342,
+      "share_pct": 0.48,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 25,
+      "share_pct": 0.01,
+      "total_population": 484531,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 278254,
+      "share_pct": 39.1,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 363163,
+      "share_pct": 51.03,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 21116,
+      "share_pct": 2.97,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 33476,
+      "share_pct": 4.7,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 15508,
+      "share_pct": 2.18,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 127,
+      "share_pct": 0.02,
+      "total_population": 711644,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 998647,
+      "share_pct": 93.92,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 15584,
+      "share_pct": 1.47,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 39267,
+      "share_pct": 3.69,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 4415,
+      "share_pct": 0.42,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 5315,
+      "share_pct": 0.5,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 106,
+      "share_pct": 0.01,
+      "total_population": 1063334,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 766323,
+      "share_pct": 94.14,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 16421,
+      "share_pct": 2.02,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 25614,
+      "share_pct": 3.15,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 2432,
+      "share_pct": 0.3,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 3208,
+      "share_pct": 0.39,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 50,
+      "share_pct": 0.01,
+      "total_population": 814048,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 580344,
+      "share_pct": 96.74,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 1222,
+      "share_pct": 0.2,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 15204,
+      "share_pct": 2.53,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 1139,
+      "share_pct": 0.19,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 1692,
+      "share_pct": 0.28,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 302,
+      "share_pct": 0.05,
+      "total_population": 599903,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 2168,
+      "share_pct": 0.37,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 483255,
+      "share_pct": 82.77,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 2363,
+      "share_pct": 0.4,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 75474,
+      "share_pct": 12.93,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 20511,
+      "share_pct": 3.51,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 111,
+      "share_pct": 0.02,
+      "total_population": 583882,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 1809,
+      "share_pct": 1.82,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 24027,
+      "share_pct": 24.13,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 16512,
+      "share_pct": 16.58,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 52415,
+      "share_pct": 52.64,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 4790,
+      "share_pct": 4.81,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 17,
+      "share_pct": 0.02,
+      "total_population": 99570,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 16853,
+      "share_pct": 9.79,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 119401,
+      "share_pct": 69.37,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 11972,
+      "share_pct": 6.96,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 15305,
+      "share_pct": 8.89,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 8498,
+      "share_pct": 4.94,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 86,
+      "share_pct": 0.05,
+      "total_population": 172115,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 8185,
+      "share_pct": 8.87,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 69377,
+      "share_pct": 75.22,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 1880,
+      "share_pct": 2.04,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 9063,
+      "share_pct": 9.83,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 3664,
+      "share_pct": 3.97,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 69,
+      "share_pct": 0.07,
+      "total_population": 92238,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 1275,
+      "share_pct": 1.12,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 92986,
+      "share_pct": 81.92,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 700,
+      "share_pct": 0.62,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 12063,
+      "share_pct": 10.63,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 6436,
+      "share_pct": 5.67,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 50,
+      "share_pct": 0.04,
+      "total_population": 113510,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 6281,
+      "share_pct": 1.19,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 338882,
+      "share_pct": 64.36,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 134065,
+      "share_pct": 25.46,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 24454,
+      "share_pct": 4.64,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 22833,
+      "share_pct": 4.34,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 52,
+      "share_pct": 0.01,
+      "total_population": 526567,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 251427,
+      "share_pct": 38.72,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 102829,
+      "share_pct": 15.83,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 281987,
+      "share_pct": 43.42,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 7588,
+      "share_pct": 1.17,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 5541,
+      "share_pct": 0.85,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 30,
+      "share_pct": 0,
+      "total_population": 649402,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 99344,
+      "share_pct": 26.17,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 98442,
+      "share_pct": 25.94,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 159418,
+      "share_pct": 42,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 14493,
+      "share_pct": 3.82,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 7774,
+      "share_pct": 2.05,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 70,
+      "share_pct": 0.02,
+      "total_population": 379541,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 1431632,
+      "share_pct": 88.46,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 14721,
+      "share_pct": 0.91,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 118305,
+      "share_pct": 7.31,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 43711,
+      "share_pct": 2.7,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 9926,
+      "share_pct": 0.61,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 170,
+      "share_pct": 0.01,
+      "total_population": 1618465,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 329705,
+      "share_pct": 43.25,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 28811,
+      "share_pct": 3.78,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 150404,
+      "share_pct": 19.73,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 240221,
+      "share_pct": 31.51,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 12093,
+      "share_pct": 1.59,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 1162,
+      "share_pct": 0.15,
+      "total_population": 762396,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 775366,
+      "share_pct": 90.1,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 3231,
+      "share_pct": 0.38,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 71493,
+      "share_pct": 8.31,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 6747,
+      "share_pct": 0.78,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 3660,
+      "share_pct": 0.43,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 78,
+      "share_pct": 0.01,
+      "total_population": 860575,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 364229,
+      "share_pct": 89.69,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 6886,
+      "share_pct": 1.7,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 30465,
+      "share_pct": 7.5,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 3192,
+      "share_pct": 0.79,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 1276,
+      "share_pct": 0.31,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 40,
+      "share_pct": 0.01,
+      "total_population": 406088,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 591799,
+      "share_pct": 72.58,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 157608,
+      "share_pct": 19.33,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 47192,
+      "share_pct": 5.79,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 12020,
+      "share_pct": 1.47,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 6615,
+      "share_pct": 0.81,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 171,
+      "share_pct": 0.02,
+      "total_population": 815405,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 426762,
+      "share_pct": 94.61,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 11997,
+      "share_pct": 2.66,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 9809,
+      "share_pct": 2.17,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 1601,
+      "share_pct": 0.35,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 859,
+      "share_pct": 0.19,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 30,
+      "share_pct": 0.01,
+      "total_population": 451058,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 943464,
+      "share_pct": 86.71,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 101962,
+      "share_pct": 9.37,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 24446,
+      "share_pct": 2.25,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 10844,
+      "share_pct": 1,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 7212,
+      "share_pct": 0.66,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 79,
+      "share_pct": 0.01,
+      "total_population": 1088007,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 709917,
+      "share_pct": 84.45,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 54350,
+      "share_pct": 6.47,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 61164,
+      "share_pct": 7.28,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 8777,
+      "share_pct": 1.04,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 6386,
+      "share_pct": 0.76,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 54,
+      "share_pct": 0.01,
+      "total_population": 840648,
+      "year": 2012
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 15199093,
+      "share_pct": 69.78,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 2734839,
+      "share_pct": 12.56,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 2337379,
+      "share_pct": 10.73,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 1224348,
+      "share_pct": 5.62,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 282185,
+      "share_pct": 1.3,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK",
+      "geography_name": "Sri Lanka",
+      "population": 3956,
+      "share_pct": 0.02,
+      "total_population": 21781800,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1682524,
+      "share_pct": 70.83,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 197759,
+      "share_pct": 8.33,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 298422,
+      "share_pct": 12.56,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 139882,
+      "share_pct": 5.89,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 55624,
+      "share_pct": 2.34,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-11",
+      "geography_name": "Colombo",
+      "population": 1204,
+      "share_pct": 0.05,
+      "total_population": 2375415,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 1744475,
+      "share_pct": 71.61,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 69429,
+      "share_pct": 2.85,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 134422,
+      "share_pct": 5.52,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 442291,
+      "share_pct": 18.16,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 44540,
+      "share_pct": 1.83,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-12",
+      "geography_name": "Gampaha",
+      "population": 985,
+      "share_pct": 0.04,
+      "total_population": 2436142,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 1080638,
+      "share_pct": 82.76,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 42528,
+      "share_pct": 3.26,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 138230,
+      "share_pct": 10.59,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 36510,
+      "share_pct": 2.8,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 7733,
+      "share_pct": 0.59,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-13",
+      "geography_name": "Kalutara",
+      "population": 145,
+      "share_pct": 0.01,
+      "total_population": 1305784,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 1063511,
+      "share_pct": 72.75,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 144618,
+      "share_pct": 9.89,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 223997,
+      "share_pct": 15.32,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 18623,
+      "share_pct": 1.27,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 10919,
+      "share_pct": 0.75,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-21",
+      "geography_name": "Kandy",
+      "population": 227,
+      "share_pct": 0.02,
+      "total_population": 1461895,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 418608,
+      "share_pct": 79.45,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 46181,
+      "share_pct": 8.77,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 52224,
+      "share_pct": 9.91,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 7797,
+      "share_pct": 1.48,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 2026,
+      "share_pct": 0.38,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-22",
+      "geography_name": "Matale",
+      "population": 34,
+      "share_pct": 0.01,
+      "total_population": 526870,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 278828,
+      "share_pct": 38.44,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 377266,
+      "share_pct": 52.02,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 21929,
+      "share_pct": 3.02,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 31705,
+      "share_pct": 4.37,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 15474,
+      "share_pct": 2.13,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-23",
+      "geography_name": "Nuwara Eliya",
+      "population": 78,
+      "share_pct": 0.01,
+      "total_population": 725280,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 1026031,
+      "share_pct": 93.5,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 15600,
+      "share_pct": 1.42,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 46038,
+      "share_pct": 4.2,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 4207,
+      "share_pct": 0.38,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 5377,
+      "share_pct": 0.49,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-31",
+      "geography_name": "Galle",
+      "population": 119,
+      "share_pct": 0.01,
+      "total_population": 1097372,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 787303,
+      "share_pct": 93.96,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 14625,
+      "share_pct": 1.75,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 29858,
+      "share_pct": 3.56,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 2445,
+      "share_pct": 0.29,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 3619,
+      "share_pct": 0.43,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-32",
+      "geography_name": "Matara",
+      "population": 39,
+      "share_pct": 0,
+      "total_population": 837889,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 649736,
+      "share_pct": 96.77,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 1401,
+      "share_pct": 0.21,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 17947,
+      "share_pct": 2.67,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 1017,
+      "share_pct": 0.15,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 1247,
+      "share_pct": 0.19,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-33",
+      "geography_name": "Hambantota",
+      "population": 70,
+      "share_pct": 0.01,
+      "total_population": 671418,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 2788,
+      "share_pct": 0.47,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 489521,
+      "share_pct": 82.31,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 4352,
+      "share_pct": 0.73,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 77197,
+      "share_pct": 12.98,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 20857,
+      "share_pct": 3.51,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-41",
+      "geography_name": "Jaffna",
+      "population": 36,
+      "share_pct": 0.01,
+      "total_population": 594751,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 382,
+      "share_pct": 0.31,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 26214,
+      "share_pct": 21.18,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 33883,
+      "share_pct": 27.38,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 57713,
+      "share_pct": 46.63,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 5560,
+      "share_pct": 4.49,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-42",
+      "geography_name": "Mannar",
+      "population": 4,
+      "share_pct": 0,
+      "total_population": 123756,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 18292,
+      "share_pct": 10.62,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 114504,
+      "share_pct": 66.45,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 17775,
+      "share_pct": 10.32,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 12785,
+      "share_pct": 7.42,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 8895,
+      "share_pct": 5.16,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-43",
+      "geography_name": "Vavuniya",
+      "population": 61,
+      "share_pct": 0.04,
+      "total_population": 172312,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 10293,
+      "share_pct": 8.39,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 88738,
+      "share_pct": 72.37,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 3279,
+      "share_pct": 2.67,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 13982,
+      "share_pct": 11.4,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 6315,
+      "share_pct": 5.15,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-44",
+      "geography_name": "Mullaitivu",
+      "population": 12,
+      "share_pct": 0.01,
+      "total_population": 122619,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 1533,
+      "share_pct": 1.12,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 110258,
+      "share_pct": 80.65,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 1394,
+      "share_pct": 1.02,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 14446,
+      "share_pct": 10.57,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 9074,
+      "share_pct": 6.64,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-45",
+      "geography_name": "Kilinochchi",
+      "population": 5,
+      "share_pct": 0,
+      "total_population": 136710,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 6024,
+      "share_pct": 1.01,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 374836,
+      "share_pct": 62.9,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 161494,
+      "share_pct": 27.1,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 25803,
+      "share_pct": 4.33,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 27728,
+      "share_pct": 4.65,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-51",
+      "geography_name": "Batticaloa",
+      "population": 33,
+      "share_pct": 0.01,
+      "total_population": 595918,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 276176,
+      "share_pct": 37.09,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 114586,
+      "share_pct": 15.39,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 339896,
+      "share_pct": 45.65,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 7351,
+      "share_pct": 0.99,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 6486,
+      "share_pct": 0.87,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-52",
+      "geography_name": "Ampara",
+      "population": 56,
+      "share_pct": 0.01,
+      "total_population": 744551,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 106919,
+      "share_pct": 24.15,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 108050,
+      "share_pct": 24.4,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 205664,
+      "share_pct": 46.45,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 14353,
+      "share_pct": 3.24,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 7714,
+      "share_pct": 1.74,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-53",
+      "geography_name": "Trincomalee",
+      "population": 45,
+      "share_pct": 0.01,
+      "total_population": 442745,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 1557554,
+      "share_pct": 88.09,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 17487,
+      "share_pct": 0.99,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 143299,
+      "share_pct": 8.1,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 40273,
+      "share_pct": 2.28,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 9413,
+      "share_pct": 0.53,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-61",
+      "geography_name": "Kurunegala",
+      "population": 130,
+      "share_pct": 0.01,
+      "total_population": 1768156,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 361148,
+      "share_pct": 44.11,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 28832,
+      "share_pct": 3.52,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 176963,
+      "share_pct": 21.61,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 240975,
+      "share_pct": 29.43,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 10619,
+      "share_pct": 1.3,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-62",
+      "geography_name": "Puttalam",
+      "population": 279,
+      "share_pct": 0.03,
+      "total_population": 818816,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 862807,
+      "share_pct": 89.87,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 3755,
+      "share_pct": 0.39,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 83979,
+      "share_pct": 8.75,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 5760,
+      "share_pct": 0.6,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 3656,
+      "share_pct": 0.38,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-71",
+      "geography_name": "Anuradhapura",
+      "population": 123,
+      "share_pct": 0.01,
+      "total_population": 960080,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 399488,
+      "share_pct": 89.27,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 7215,
+      "share_pct": 1.61,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 37097,
+      "share_pct": 8.29,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 2560,
+      "share_pct": 0.57,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 1086,
+      "share_pct": 0.24,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-72",
+      "geography_name": "Polonnaruwa",
+      "population": 84,
+      "share_pct": 0.02,
+      "total_population": 447530,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 636988,
+      "share_pct": 73.02,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 166380,
+      "share_pct": 19.07,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 53563,
+      "share_pct": 6.14,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 9593,
+      "share_pct": 1.1,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 5729,
+      "share_pct": 0.66,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-81",
+      "geography_name": "Badulla",
+      "population": 54,
+      "share_pct": 0.01,
+      "total_population": 872307,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 498436,
+      "share_pct": 94.48,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 14974,
+      "share_pct": 2.84,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 12262,
+      "share_pct": 2.32,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 1181,
+      "share_pct": 0.22,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 713,
+      "share_pct": 0.14,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-82",
+      "geography_name": "Moneragala",
+      "population": 19,
+      "share_pct": 0,
+      "total_population": 527585,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 999682,
+      "share_pct": 87.28,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 103883,
+      "share_pct": 9.07,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 26796,
+      "share_pct": 2.34,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 8607,
+      "share_pct": 0.75,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 6394,
+      "share_pct": 0.56,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-91",
+      "geography_name": "Ratnapura",
+      "population": 61,
+      "share_pct": 0.01,
+      "total_population": 1145423,
+      "year": 2024
+    },
+    {
+      "category": "buddhist",
+      "category_label": "Buddhist",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 728929,
+      "share_pct": 83.74,
+      "total_population": 870476,
+      "year": 2024
+    },
+    {
+      "category": "hindu",
+      "category_label": "Hindu",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 56199,
+      "share_pct": 6.46,
+      "total_population": 870476,
+      "year": 2024
+    },
+    {
+      "category": "islam",
+      "category_label": "Islam",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 72616,
+      "share_pct": 8.34,
+      "total_population": 870476,
+      "year": 2024
+    },
+    {
+      "category": "roman_catholic",
+      "category_label": "Roman Catholic",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 7292,
+      "share_pct": 0.84,
+      "total_population": 870476,
+      "year": 2024
+    },
+    {
+      "category": "other_christian",
+      "category_label": "Other Christian",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 5387,
+      "share_pct": 0.62,
+      "total_population": 870476,
+      "year": 2024
+    },
+    {
+      "category": "other",
+      "category_label": "Other",
+      "geography_id": "LK-92",
+      "geography_name": "Kegalle",
+      "population": 53,
+      "share_pct": 0.01,
+      "total_population": 870476,
+      "year": 2024
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "dcs-cph-2024-religion"
+  ],
+  "title": "Population by religion and district",
+  "vintage": "Census 2012 and Census 2024"
+}

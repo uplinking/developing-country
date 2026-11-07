@@ -1,0 +1,54 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "developing-country-explore",
+  "account_id": "b9eea9b90f5d9829e1b5a3fa4cb61570",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-08-25",
+  "compatibility_flags": ["nodejs_compat"],
+  "routes": [
+    { "pattern": "explore.developing-country.org", "custom_domain": true }
+  ],
+  "workers_dev": true,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/.well-known/*", "/api/*", "/mcp", "/mcp/*", "/tiles/*", "/xyz/*"]
+  },
+  "r2_buckets": [
+    { "binding": "DATASETS", "bucket_name": "developing-country-data" },
+    {
+      "binding": "TILES",
+      "bucket_name": "developing-country-tiles"
+    },
+    {
+      "binding": "VIEWS",
+      "bucket_name": "developing-country-views"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "developing-country-platform",
+      "database_id": "9ae6a7b7-c994-44ef-a5ba-412ecf5dfeeb",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "BETTER_AUTH_URL": "https://explore.developing-country.org",
+    "PUBLIC_VIEW_ORIGIN": "https://explore.developing-country.org",
+    "BASE_PATH": "",
+    "ENABLE_TILE_COMPAT": "0",
+    "ENABLE_HEAVY_SPATIAL": "0",
+    // Live view authoring quota (src/worker/dataViews.ts). Editors named in the
+    // VIEW_EDITOR_EMAILS var or secret (comma-separated; unset here) get the
+    // editor limit; per-owner total view and byte caps are unchanged.
+    "VIEW_HOURLY_LIMIT": "5",
+    "VIEW_EDITOR_HOURLY_LIMIT": "60"
+  },
+  "observability": { "enabled": true },
+  "durable_objects": {
+    "bindings": [{ "name": "SESSIONS", "class_name": "MapSession" }]
+  },
+  "migrations": [{ "tag": "v1_sessions", "new_sqlite_classes": ["MapSession"] }]
+}

@@ -1,0 +1,1333 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-12-01",
+  "2024-12-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 74,
+ "rejected": 40,
+ "rejected_ids": [
+  "2024-12-01-colombotelegraphcom-200c3e8c",
+  "2024-12-02-adaderanalk-20e5b597",
+  "2024-12-02-islandlk-5027b5cf",
+  "2024-12-03-adaderanalk-74442acf",
+  "2024-12-03-adaderanalk-aeb40e69",
+  "2024-12-03-islandlk-aad9c7f5",
+  "2024-12-04-dailyftlk-5a2fe371",
+  "2024-12-04-dailyftlk-6be5ec4e",
+  "2024-12-05-adaderanalk-2a4f366a",
+  "2024-12-05-adaderanalk-c6de0af7",
+  "2024-12-05-dailyftlk-e6dcb71c",
+  "2024-12-05-economynextcom-396051a7",
+  "2024-12-06-adaderanalk-76bcb104",
+  "2024-12-06-adaderanalk-fbd86446",
+  "2024-12-06-adaderanalk-fccdeb5a",
+  "2024-12-06-economynextcom-85fcb877",
+  "2024-12-07-adaderanalk-ab535209",
+  "2024-12-07-islandlk-38234235",
+  "2024-12-10-adaderanalk-d817993c",
+  "2024-12-10-islandlk-2ef29624",
+  "2024-12-11-adaderanalk-9ba970f1",
+  "2024-12-11-colombotelegraphcom-9749c5e2",
+  "2024-12-11-dailyftlk-d3fb579d",
+  "2024-12-11-dailyftlk-e19275c6",
+  "2024-12-11-economynextcom-1ef8b885",
+  "2024-12-16-economynextcom-339f549a",
+  "2024-12-19-adaderanalk-b2bb0218",
+  "2024-12-19-adaderanalk-be597e37",
+  "2024-12-20-dailyftlk-aa0fe744",
+  "2024-12-21-dailyftlk-204705a9",
+  "2024-12-21-dailyftlk-39f2cb5c",
+  "2024-12-24-adaderanalk-8bc7f1f0",
+  "2024-12-24-adaderanalk-f7c6b2b8",
+  "2024-12-24-dailyftlk-8e3ee773",
+  "2024-12-24-dailyftlk-a59e54f4",
+  "2024-12-24-economynextcom-e157a127",
+  "2024-12-25-dailyftlk-e600357c",
+  "2024-12-26-adaderanalk-7f179373",
+  "2024-12-29-islandlk-2085663b",
+  "2024-12-31-adaderanalk-0e29bf7b"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "koica-sigiriya-tourism-conservation",
+   "name": "KOICA Sigiriya tourism conservation project",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "Sigiriya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-housing-moratuwa-kottawa",
+   "name": "China-funded low-income housing project (Moratuwa, Kottawa)",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "Moratuwa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "lg-capital-grant-revenue-boost",
+   "name": "Capital grant project to boost revenue generation in Pradeshiya Sabhas (2025-2027)",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-eastern-province-development",
+   "name": "India grant for Eastern Province development projects",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Eastern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-temporary-care-homes",
+   "name": "Temporary care homes for victimised women",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ceb-transmission-grid-upgrade",
+   "name": "CEB Transmission Grid Upgrade for Renewable Integration",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-police-vehicles-grant",
+   "name": "India grant for Sri Lanka Police vehicles (Northern Province)",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Northern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-soe-review-committee",
+   "name": "Review committee for non-commercial state-owned enterprises",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-civil-servants-capacity-building",
+   "name": "India-Sri Lanka capacity building programme for Government officials",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-jaffna-eastern-scholarships",
+   "name": "India scholarships for university students in Jaffna and Eastern Province",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Jaffna and Eastern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ceb-seff-renewable-energy",
+   "name": "CEB Small Expenditure Financing Facility for renewable energy sustainability",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-railways-locomotives-grant",
+   "name": "Indian Railways grant of 22 locomotives to Sri Lanka Railways",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-digital-driving-licence",
+   "name": "Digital driving licence introduction",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-school-uniform-fabric-2025",
+   "name": "China fabric grant for 2025 school uniforms",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sl-opec-fund-policy-loan-2024",
+   "name": "OPEC Fund policy-based loan linked to IMF EFF",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "flood-relief-dec2024",
+   "name": "Flood relief assistance to Sri Lanka, December 2024",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sl-2025-interim-budget-vote-on-account",
+   "name": "Sri Lanka 2025 interim budget Vote on Account",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-aswesuma-benefit-increase-2024",
+   "name": "Increase of Aswesuma welfare benefit allowances",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "clean-sri-lanka-fund",
+   "name": "Clean Sri Lanka Fund and Presidential Task Force",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "koica-sigiriya-tourism-conservation-korea",
+   "project_id": "koica-sigiriya-tourism-conservation",
+   "funder": "korea",
+   "funder_name": "Korea International Cooperation Agency (KOICA)",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "china-housing-moratuwa-kottawa-china",
+   "project_id": "china-housing-moratuwa-kottawa",
+   "funder": "china",
+   "funder_name": "Government of China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-lg-capital-grant",
+   "project_id": "lg-capital-grant-revenue-boost",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "india-grant-eastern-province-development",
+   "project_id": "india-eastern-province-development",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-temporary-care-homes-funding",
+   "project_id": "gosl-temporary-care-homes",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "adb-loan-ceb-transmission-upgrade",
+   "project_id": "ceb-transmission-grid-upgrade",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "india-grant-police-vehicles",
+   "project_id": "india-police-vehicles-grant",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-soe-review-committee",
+   "project_id": "gosl-soe-review-committee",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "india-grant-civil-servants-capacity-building",
+   "project_id": "india-civil-servants-capacity-building",
+   "funder": "india",
+   "funder_name": "India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "india-grant-jaffna-eastern-scholarships",
+   "project_id": "india-jaffna-eastern-scholarships",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "ceb-fsru-lng-tender",
+   "project_id": "kerawalapitiya-lng-infrastructure",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka / CEB",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "adb-loan-ceb-seff",
+   "project_id": "ceb-seff-renewable-energy",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "india-grant-railways-locomotives",
+   "project_id": "india-railways-locomotives-grant",
+   "funder": "india",
+   "funder_name": "Government of India (Indian Railways)",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-digital-driving-licence",
+   "project_id": "gosl-digital-driving-licence",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "china-grant-school-uniform-fabric-2025",
+   "project_id": "china-school-uniform-fabric-2025",
+   "funder": "china",
+   "funder_name": "People's Republic of China",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "opec-fund-policy-loan",
+   "project_id": "sl-opec-fund-policy-loan-2024",
+   "funder": "opec_fund",
+   "funder_name": "OPEC Fund for International Development",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "gosl-fisherfolk-monthly-allowance-2024",
+   "project_id": "fisherfolk-fuel-subsidy-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "japan-grant-flood-relief-dec2024",
+   "project_id": "flood-relief-dec2024",
+   "funder": "japan",
+   "funder_name": "Government of Japan / JICA",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "india-grant-flood-relief-dec2024",
+   "project_id": "flood-relief-dec2024",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "gosl-vote-on-account-ministries-2025",
+   "project_id": "sl-2025-interim-budget-vote-on-account",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "gosl-vote-on-account-isb-contingency-2025",
+   "project_id": "sl-2025-interim-budget-vote-on-account",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "gosl-aswesuma-benefit-increase-2024",
+   "project_id": "gosl-aswesuma-benefit-increase-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-clean-sri-lanka-fund",
+   "project_id": "clean-sri-lanka-fund",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "koica-sigiriya-tourism-conservation-korea-proposed-2024-12-29",
+   "line_id": "koica-sigiriya-tourism-conservation-korea",
+   "date": "2024-12-29",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 2400000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "KOICA proposes Sigiriya tourism conservation project, Rs 2.4bn",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-29-adaderanalk-a0f868e3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-housing-moratuwa-kottawa-china-launched-2024-12-27",
+   "line_id": "china-housing-moratuwa-kottawa-china",
+   "date": "2024-12-27",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 22000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "PM launches first phase of China-funded low-income housing project",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-27-adaderanalk-cf235336"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-lg-capital-grant-govt_authorised-2024-12-25",
+   "line_id": "gosl-lg-capital-grant",
+   "date": "2024-12-25",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves capital grant project for 54 Pradeshiya Sabhas",
+   "confidence": "high",
+   "reports": [
+    "2024-12-25-dailyftlk-8fdbb162"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-eastern-province-development-govt_authorised-2024-12-24",
+   "line_id": "india-grant-eastern-province-development",
+   "date": "2024-12-24",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 2371830000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves MoU for India grant to Eastern Province development",
+   "confidence": "high",
+   "reports": [
+    "2024-12-24-economynextcom-8a937bc5",
+    "2024-12-24-adaderanalk-2f206a3c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-temporary-care-homes-funding-allocated-2024-12-20",
+   "line_id": "gosl-temporary-care-homes-funding",
+   "date": "2024-12-20",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 25000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet allocates Rs. 25m for temporary care homes in 2025",
+   "confidence": "high",
+   "reports": [
+    "2024-12-20-dailyftlk-6fb33e1c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-ceb-transmission-upgrade-funder_approved-2024-11-01",
+   "line_id": "adb-loan-ceb-transmission-upgrade",
+   "date": "2024-11-01",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 150000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approved $150m loan for CEB grid upgrade",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-20-islandlk-1cf0ccf0",
+    "2024-12-19-adaderanalk-4b7397b2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-ceb-transmission-upgrade-agreement_signed-2024-12-19",
+   "line_id": "adb-loan-ceb-transmission-upgrade",
+   "date": "2024-12-19",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 150000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB and CEB signed $150m transmission upgrade loan",
+   "confidence": "high",
+   "reports": [
+    "2024-12-20-islandlk-1cf0ccf0",
+    "2024-12-19-economynextcom-0f83f182",
+    "2024-12-19-adaderanalk-4b7397b2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-police-vehicles-govt_authorised-2024-12-19",
+   "line_id": "india-grant-police-vehicles",
+   "date": "2024-12-19",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 300000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved India grant for police vehicles",
+   "confidence": "high",
+   "reports": [
+    "2024-12-19-adaderanalk-3dfd6dfc",
+    "2024-12-19-economynextcom-324389ea"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-soe-review-committee-govt_authorised-2024-12-18",
+   "line_id": "gosl-soe-review-committee",
+   "date": "2024-12-18",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved review committee for non-commercial SOEs",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-19-adaderanalk-4cd89266"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "isb-restructuring-2024-bondholders-agreement_signed-2024-12-16",
+   "line_id": "isb-restructuring-2024-bondholders",
+   "date": "2024-12-16",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 12550000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Bondholders finalize vote approving Sri Lanka's $12.55bn bond restructuring",
+   "confidence": "high",
+   "reports": [
+    "2024-12-17-adaderanalk-64494ad5"
+   ],
+   "relation": "update_of:isb-restructuring-2024-bondholders-agreement_signed-2024-09-19",
+   "notes": null
+  },
+  {
+   "id": "india-grant-civil-servants-capacity-building-agreement_signed-2024-12-16",
+   "line_id": "india-grant-civil-servants-capacity-building",
+   "date": "2024-12-16",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India, Sri Lanka sign MoU on civil servant capacity building",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-17-dailyftlk-79ec4d23",
+    "2024-12-16-adaderanalk-ee937427"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-kks-port-renovation-pledged-2024-12-16",
+   "line_id": "india-grant-kks-port-renovation",
+   "date": "2024-12-16",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India agrees to fund renovation of Kankesanthurai port via grant",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-16-economynextcom-2ac1c848"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-jaffna-eastern-scholarships-pledged-2024-12-16",
+   "line_id": "india-grant-jaffna-eastern-scholarships",
+   "date": "2024-12-16",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India to fund monthly scholarships for 200 students in Jaffna, East",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-16-adaderanalk-ee937427"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "isb-restructuring-2024-bondholders-agreement_signed-2024-12-13",
+   "line_id": "isb-restructuring-2024-bondholders",
+   "date": "2024-12-13",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ISB exchange offer concluded with 98% bondholder participation",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-14-newsfirstlk-7b5eb56f"
+   ],
+   "relation": "repeat_of:isb-restructuring-2024-bondholders-agreement_signed-2024-12-16",
+   "notes": null
+  },
+  {
+   "id": "ceb-fsru-lng-tender-proposed-2024-12-13",
+   "line_id": "ceb-fsru-lng-tender",
+   "date": "2024-12-13",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "CEB recommends proceeding with floating LNG terminal tender",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-13-economynextcom-efb5e13c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-ceb-seff-funder_approved-2024-12-11",
+   "line_id": "adb-loan-ceb-seff",
+   "date": "2024-12-11",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 30000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approves $30mn loan for CEB renewable energy sustainability facility",
+   "confidence": "high",
+   "reports": [
+    "2024-12-11-economynextcom-e38e5132"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-ceb-transmission-upgrade-govt_authorised-2024-12-11",
+   "line_id": "adb-loan-ceb-transmission-upgrade",
+   "date": "2024-12-11",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 200000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved signing ADB loan for CEB, LECO transmission upgrade",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-11-dailyftlk-841363fe"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-railways-locomotives-govt_authorised-2024-12-11",
+   "line_id": "india-grant-railways-locomotives",
+   "date": "2024-12-11",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved signing agreement for Indian grant of 22 locomotives",
+   "confidence": "high",
+   "reports": [
+    "2024-12-11-dailyftlk-4443753e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-digital-driving-licence-govt_authorised-2024-12-11",
+   "line_id": "gosl-digital-driving-licence",
+   "date": "2024-12-11",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved introducing a new digital driving licence",
+   "confidence": "high",
+   "reports": [
+    "2024-12-11-dailyftlk-d91cc311"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-grant-school-uniform-fabric-2025-disbursed-2024-12-10",
+   "line_id": "china-grant-school-uniform-fabric-2025",
+   "date": "2024-12-10",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 5200000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China hands over fabric grant for 2025 school uniforms",
+   "confidence": "high",
+   "reports": [
+    "2024-12-10-adaderanalk-eff95c96"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-ceb-seff-funder_approved-2024-12-10",
+   "line_id": "adb-loan-ceb-seff",
+   "date": "2024-12-10",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 30000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approves $30m facility for CEB energy sustainability",
+   "confidence": "high",
+   "reports": [
+    "2024-12-10-adaderanalk-0fabccc3"
+   ],
+   "relation": "repeat_of:adb-loan-ceb-seff-funder_approved-2024-12-11",
+   "notes": null
+  },
+  {
+   "id": "opec-fund-policy-loan-govt_authorised-2024-12-10",
+   "line_id": "opec-fund-policy-loan",
+   "date": "2024-12-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 50000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves $50m OPEC Fund policy-based loan",
+   "confidence": "high",
+   "reports": [
+    "2024-12-10-adaderanalk-9e06b4c6",
+    "2024-12-10-economynextcom-6742a474"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-fisherfolk-monthly-allowance-2024-govt_authorised-2024-12-10",
+   "line_id": "gosl-fisherfolk-monthly-allowance-2024",
+   "date": "2024-12-10",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 9375,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves monthly allowance for small kerosene fishing boat owners",
+   "confidence": "high",
+   "reports": [
+    "2024-12-10-adaderanalk-a3dabb1c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-grant-flood-relief-dec2024-disbursed-2024-12-08",
+   "line_id": "japan-grant-flood-relief-dec2024",
+   "date": "2024-12-08",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 300000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan sends Rs 300 million flood relief aid to Sri Lanka",
+   "confidence": "high",
+   "reports": [
+    "2024-12-08-adaderanalk-873599b7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-flood-relief-dec2024-disbursed-2024-12-08",
+   "line_id": "india-grant-flood-relief-dec2024",
+   "date": "2024-12-08",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India provides flood relief materials to Northern Province families",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-08-adaderanalk-873599b7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-vote-on-account-ministries-2025-allocated-2024-12-05",
+   "line_id": "gosl-vote-on-account-ministries-2025",
+   "date": "2024-12-05",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1402000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Vote on account allocates Rs1,402bn for four months' state affairs",
+   "confidence": "high",
+   "reports": [
+    "2024-12-05-adaderanalk-a0d7c7b8",
+    "2024-12-05-economynextcom-d9ea15a1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-vote-on-account-isb-contingency-2025-allocated-2024-12-05",
+   "line_id": "gosl-vote-on-account-isb-contingency-2025",
+   "date": "2024-12-05",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 4000000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Vote-on-account sets Rs4,000bn borrowing limit if ISB delayed",
+   "confidence": "high",
+   "reports": [
+    "2024-12-05-economynextcom-fdc41972",
+    "2024-12-05-economynextcom-d9ea15a1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-aswesuma-benefit-increase-2024-govt_authorised-2024-12-02",
+   "line_id": "gosl-aswesuma-benefit-increase-2024",
+   "date": "2024-12-02",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet raises Aswesuma welfare benefit amounts and extends payment period",
+   "confidence": "high",
+   "reports": [
+    "2024-12-04-dailyftlk-c4638a7a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-aswesuma-benefit-increase-2024-govt_authorised-2024-12-03",
+   "line_id": "gosl-aswesuma-benefit-increase-2024",
+   "date": "2024-12-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet raises Aswesuma monthly benefits, extends payment periods",
+   "confidence": "medium",
+   "reports": [
+    "2024-12-03-adaderanalk-e4e3e420"
+   ],
+   "relation": "repeat_of:gosl-aswesuma-benefit-increase-2024-govt_authorised-2024-12-02",
+   "notes": null
+  },
+  {
+   "id": "gosl-clean-sri-lanka-fund-govt_authorised-2024-12-03",
+   "line_id": "gosl-clean-sri-lanka-fund",
+   "date": "2024-12-03",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves establishing Clean Sri Lanka Fund and task force",
+   "confidence": "high",
+   "reports": [
+    "2024-12-03-adaderanalk-1ac03097"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-12-29-adaderanalk-a0f868e3": {
+   "date": "2024-12-29",
+   "title": "S. Korea funds Rs. 2.4 Bn project to boost tourism in Sigiriya",
+   "url": "https://www.adaderana.lk/news/104562/s-korea-funds-rs-24-bn-project-to-boost-tourism-in-sigiriya",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-27-adaderanalk-cf235336": {
+   "date": "2024-12-27",
+   "title": "PM inaugurates first phase of China-funded housing project",
+   "url": "https://www.adaderana.lk/news/104530/pm-inaugurates-first-phase-of-china-funded-housing-project",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-25-dailyftlk-8fdbb162": {
+   "date": "2024-12-25",
+   "title": "Cabinet green lights to boost LG income generation",
+   "url": "https://www.ft.lk/news/Cabinet-green-lights-to-boost-LG-income-generation/56-770994",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-12-24-economynextcom-8a937bc5": {
+   "date": "2024-12-24",
+   "title": "Rs2.37bn India grant to develop Sri Lanka’s Eastern Province",
+   "url": "https://economynext.com/rs2-37bn-india-grant-to-develop-sri-lankas-eastern-province-196115/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-12-24-adaderanalk-2f206a3c": {
+   "date": "2024-12-24",
+   "title": "Sri Lanka and India to sign MoU for Rs. 2,371 mln development projects in East",
+   "url": "https://www.adaderana.lk/news/104464/sri-lanka-and-india-to-sign-mou-for-rs-2371-mln-development-projects-in-east",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-20-dailyftlk-6fb33e1c": {
+   "date": "2024-12-20",
+   "title": "Cabinet approves Rs. 25 m allocation for temporary care homes operations",
+   "url": "https://www.ft.lk/news/Cabinet-approves-Rs-25-m-allocation-for-temporary-care-homes-operations/56-770743",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-12-20-islandlk-1cf0ccf0": {
+   "date": "2024-12-20",
+   "title": "CEB infrastructure development to be bolstered with USD 150 million ADB loan",
+   "url": "http://island.lk/ceb-infrastructure-development-to-be-bolstered-with-usd-150-million-adb-loan/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2024-12-19-economynextcom-0f83f182": {
+   "date": "2024-12-19",
+   "title": "Sri Lanka’s CEB borrows US$150mn ADB loan to fix grid for renewables",
+   "url": "https://economynext.com/sri-lankas-ceb-borrows-us150mn-adb-loan-to-fix-grid-for-renewables-195281/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-12-19-adaderanalk-4b7397b2": {
+   "date": "2024-12-19",
+   "title": "ADB extends $150 million line of credit to CEB",
+   "url": "https://www.adaderana.lk/news/104356/adb-extends-150-million-line-of-credit-to-ceb",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-19-adaderanalk-3dfd6dfc": {
+   "date": "2024-12-19",
+   "title": "Sri Lanka Police to receive Rs. 300M Indian grant for new vehicles",
+   "url": "https://www.adaderana.lk/news/104355/sri-lanka-police-to-receive-rs-300m-indian-grant-for-new-vehicles",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-19-adaderanalk-4cd89266": {
+   "date": "2024-12-19",
+   "title": "Cabinet nod for review of SOEs with non-commercial interests",
+   "url": "https://www.adaderana.lk/news/104353/cabinet-nod-for-review-of-soes-with-non-commercial-interests",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-19-economynextcom-324389ea": {
+   "date": "2024-12-19",
+   "title": "Indian Rs300mn grant for Sri Lanka’s Police to buy cabs to use in north",
+   "url": "https://economynext.com/indian-rs300mn-grant-for-sri-lankas-police-to-buy-cabs-to-use-in-north-195094/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-12-17-adaderanalk-64494ad5": {
+   "date": "2024-12-17",
+   "title": "Sri Lanka’s bondholders sign off on USD 12.55 billion debt overhaul",
+   "url": "https://www.adaderana.lk/news/104302/sri-lankas-bondholders-sign-off-on-usd-1255-billion-debt-overhaul",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-17-dailyftlk-79ec4d23": {
+   "date": "2024-12-17",
+   "title": "Sri Lanka and India sign MoUs to prevent double taxation, strengthen capacity building of Govt. officials",
+   "url": "https://www.ft.lk/news/Sri-Lanka-and-India-sign-MoUs-to-prevent-double-taxation-strengthen-capacity-building-of-Govt-officials/56-770612",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-12-16-economynextcom-2ac1c848": {
+   "date": "2024-12-16",
+   "title": "Sri Lanka, India plan second ferry connection",
+   "url": "https://economynext.com/sri-lanka-india-discuss-passenger-ferry-service-between-rameshwaram-and-talaimannar-194528/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-12-16-adaderanalk-ee937427": {
+   "date": "2024-12-16",
+   "title": "Sri Lanka and India sign MoU to avoid double taxation",
+   "url": "https://www.adaderana.lk/news/104278/sri-lanka-and-india-sign-mou-to-avoid-double-taxation",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-14-newsfirstlk-7b5eb56f": {
+   "date": "2024-12-14",
+   "title": "Ministry of Finance Announces Conclusion of Consent Solicitation and Exchange Offer for International Sovereign Bonds",
+   "url": "https://english.newsfirst.lk/2024/12/14/ministry-of-finance-announces-conclusion-of-consent-solicitation-and-exchange-offer-for-international-sovereign-bonds",
+   "outlet": "News First",
+   "lang": "en"
+  },
+  "2024-12-13-economynextcom-efb5e13c": {
+   "date": "2024-12-13",
+   "title": "Sri Lanka’s CEB seeks award of LNG terminal tender",
+   "url": "https://economynext.com/sri-lankas-ceb-seeks-award-of-lng-terminal-tender-194028/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-12-11-economynextcom-e38e5132": {
+   "date": "2024-12-11",
+   "title": "ADB approves US$30mn loan for Sri Lanka renewable energy",
+   "url": "https://economynext.com/adb-approves-us30mn-loan-for-sri-lanka-renewable-energy-193499/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-12-11-dailyftlk-841363fe": {
+   "date": "2024-12-11",
+   "title": "Cabinet approves $ 200 m ADB loan for power sector",
+   "url": "https://www.ft.lk/business/Cabinet-approves-200-m-ADB-loan-for-power-sector/34-770355",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-12-11-dailyftlk-4443753e": {
+   "date": "2024-12-11",
+   "title": "Cabinet green lights to sign agreement with Indian Railways’ grant of 22 locomotives",
+   "url": "https://www.ft.lk/news/Cabinet-green-lights-to-sign-agreement-with-Indian-Railways-grant-of-22-locomotives/56-770335",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-12-11-dailyftlk-d91cc311": {
+   "date": "2024-12-11",
+   "title": "Cabinet nod to introduce digital driving licence",
+   "url": "https://www.ft.lk/news/Cabinet-nod-to-introduce-digital-driving-licence/56-770332",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-12-10-adaderanalk-eff95c96": {
+   "date": "2024-12-10",
+   "title": "Sri Lanka receives China’s fabric grant for 2025 school uniforms",
+   "url": "https://www.adaderana.lk/news/104149/sri-lanka-receives-chinas-fabric-grant-for-2025-school-uniforms",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-10-adaderanalk-0fabccc3": {
+   "date": "2024-12-10",
+   "title": "ADB approves USD 30 million financing facility for Sri Lanka’s CEB",
+   "url": "https://www.adaderana.lk/news/104136/adb-approves-usd-30-million-financing-facility-for-sri-lankas-ceb",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-10-adaderanalk-9e06b4c6": {
+   "date": "2024-12-10",
+   "title": "Sri Lanka secures USD 50 million loan from OPEC Fund for economic recovery",
+   "url": "https://www.adaderana.lk/news/104134/sri-lanka-secures-usd-50-million-loan-from-opec-fund-for-economic-recovery",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-10-economynextcom-6742a474": {
+   "date": "2024-12-10",
+   "title": "Sri Lanka to get $50M IMF deal-linked policy loan from OPEC Fund",
+   "url": "https://economynext.com/sri-lanka-to-get-50m-imf-deal-linked-policy-loan-from-opec-fund-193192/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-12-10-adaderanalk-a3dabb1c": {
+   "date": "2024-12-10",
+   "title": "Cabinet approves monthly allowance for small fishing boat owners",
+   "url": "https://www.adaderana.lk/news/104129/cabinet-approves-monthly-allowance-for-small-fishing-boat-owners",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-08-adaderanalk-873599b7": {
+   "date": "2024-12-08",
+   "title": "Japan provides aid worth Rs. 300M to Sri Lanka flood victims",
+   "url": "https://www.adaderana.lk/news/104076/japan-provides-aid-worth-rs-300m-to-sri-lanka-flood-victims",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-05-adaderanalk-a0d7c7b8": {
+   "date": "2024-12-05",
+   "title": "Govt. allocates nearly Rs. 1,402 billion through Vote on Account",
+   "url": "https://www.adaderana.lk/news/104019/govt-allocates-nearly-rs-1402-billion-through-vote-on-account-",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-05-economynextcom-fdc41972": {
+   "date": "2024-12-05",
+   "title": "Sri Lanka vote-on-account allocates Rs4000bn for any ISB delay: Minister",
+   "url": "https://economynext.com/sri-lanka-vote-on-account-allocates-rs4000bn-for-any-isb-delay-minister-192265/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-12-05-economynextcom-d9ea15a1": {
+   "date": "2024-12-05",
+   "title": "Sri Lanka to present mini-budget with Rs4,000bn borrowing limit",
+   "url": "https://economynext.com/sri-lanka-to-present-mini-budget-with-rs4000bn-borrowing-limit-192212/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2024-12-04-dailyftlk-c4638a7a": {
+   "date": "2024-12-04",
+   "title": "Cabinet approves increasing Aswesuma benefit amount, extension of payment period",
+   "url": "https://www.ft.lk/news/Cabinet-approves-increasing-Aswesuma-benefit-amount-extension-of-payment-period/56-770036",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2024-12-03-adaderanalk-e4e3e420": {
+   "date": "2024-12-03",
+   "title": "Cabinet approves increase in “Aswesuma” benefits, extension of payment period",
+   "url": "https://www.adaderana.lk/news/103968/cabinet-approves-increase-in-aswesuma-benefits-extension-of-payment-period-",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2024-12-03-adaderanalk-1ac03097": {
+   "date": "2024-12-03",
+   "title": "Cabinet nod to establish ‘Clean Sri Lanka Fund’, appoint task force",
+   "url": "https://www.adaderana.lk/news/103967/cabinet-nod-to-establish-clean-sri-lanka-fund-appoint-task-force",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  }
+ }
+}

@@ -1,0 +1,39 @@
+---
+import type { FilmKey } from '../lib/cameraFilm'
+
+interface Props {
+  /** What the film shows, for readers who cannot see it. The film itself is inert. */
+  label: string
+  keys: readonly FilmKey[]
+  /** The width the scene lays out at, in CSS pixels, before the camera scales it. */
+  sceneWidth: number
+  /** Mono plate in the frame corner naming the surface being filmed. */
+  plate?: string
+  class?: string
+}
+
+const { label, keys, sceneWidth, plate, class: className } = Astro.props
+---
+
+<figure class:list={['camera-film', className]} data-camera-film data-keys={JSON.stringify(keys)}>
+  <div class="camera-film__lens" data-film-lens aria-hidden="true" inert>
+    <div class="camera-film__scene" data-film-scene style={`width: ${sceneWidth}px`}>
+      <slot />
+    </div>
+  </div>
+  <div class="camera-film__scrim" aria-hidden="true"></div>
+  <div class="camera-film__dip" data-film-dip aria-hidden="true"></div>
+  {plate && <span class="camera-film__plate" aria-hidden="true">{plate}</span>}
+  <figcaption class="visually-hidden">{label}</figcaption>
+</figure>
+
+<script>
+  import { mountCameraFilm } from '../lib/cameraFilm'
+
+  document.querySelectorAll<HTMLElement>('[data-camera-film]').forEach((root) => {
+    if (root.dataset.filmMounted === undefined) {
+      root.dataset.filmMounted = ''
+      mountCameraFilm(root)
+    }
+  })
+</script>

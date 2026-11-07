@@ -1,0 +1,57 @@
+-- Bring the preview registry up to date, including NSO electricity tables.
+-- Existing article content and publication status are preserved.
+INSERT INTO dc_dataset_previews (dataset_id, preview_url) VALUES
+  ('attractions', 'https://explore.developing-country.org/?embed=dataset&layers=attractions&lng=80.72&lat=7.85&zoom=6.8'),
+  ('boi-zones', 'https://explore.developing-country.org/?embed=dataset&layers=boi-zones&lng=80.742&lat=7.377&zoom=7'),
+  ('cycling', 'https://explore.developing-country.org/?embed=dataset&layers=cycling&lng=81.767&lat=7.224&zoom=10.7'),
+  ('demographics', 'https://explore.developing-country.org/?embed=dataset&pop=gnd&lng=80.72&lat=7.85&zoom=6.8'),
+  ('developments', 'https://explore.developing-country.org/?embed=dataset&layers=developments&lng=80.554&lat=7.968&zoom=6.8'),
+  ('expressways', 'https://explore.developing-country.org/?embed=dataset&layers=expressways&lng=80.471&lat=6.928&zoom=7.5'),
+  ('hospitals', 'https://explore.developing-country.org/?embed=dataset&layers=hospitals&lng=80.72&lat=7.85&zoom=6.8'),
+  ('irrigation-gauges', 'https://explore.developing-country.org/?embed=dataset&layers=irrigation-gauges&lng=80.72&lat=7.85&zoom=6.8'),
+  ('land-cover-grid', 'https://explore.developing-country.org/?embed=dataset&layers=land-cover-grid&lng=80.72&lat=7.85&zoom=6.8'),
+  ('metro', 'https://explore.developing-country.org/?embed=dataset&layers=metro&lng=79.923&lat=6.907&zoom=9.8'),
+  ('metro_catchment', 'https://explore.developing-country.org/?embed=dataset&layers=metro_catchment&lng=79.923&lat=6.907&zoom=9.8'),
+  ('osm_foot_graph', NULL),
+  ('parks', 'https://explore.developing-country.org/?embed=dataset&layers=parks&lng=80.857&lat=7.346&zoom=7'),
+  ('population-change', 'https://explore.developing-country.org/?embed=dataset&layers=population-change&lng=80.72&lat=7.85&zoom=6.8'),
+  ('schools', 'https://explore.developing-country.org/?embed=dataset&layers=schools&lng=80.72&lat=7.85&zoom=6.8'),
+  ('sea-routes', 'https://explore.developing-country.org/?embed=dataset&layers=sea-routes&lng=80.2&lat=7.25&zoom=6.25'),
+  ('trails', 'https://explore.developing-country.org/?embed=dataset&layers=trails&lng=80.688&lat=6.682&zoom=8'),
+  ('waterfalls', 'https://explore.developing-country.org/?embed=dataset&layers=waterfalls&lng=80.556&lat=7.741&zoom=6.9'),
+  ('electricity-generation-quarter-hourly', 'https://explore.developing-country.org/datasets/electricity-generation-quarter-hourly/battery-power?embed=dataset'),
+  ('electricity-generation-daily', 'https://explore.developing-country.org/datasets/electricity-generation-daily/generation-by-group?embed=dataset'),
+  ('census-age-sex-dsd', 'https://explore.developing-country.org/datasets/census-age-sex-dsd/largest-divisions?embed=dataset'),
+  ('census-households-dsd', 'https://explore.developing-country.org/datasets/census-households-dsd/household-size?embed=dataset'),
+  ('census-basic-services-district', 'https://explore.developing-country.org/datasets/census-basic-services-district/water-board-access?embed=dataset'),
+  ('census-ethnicity-district', 'https://explore.developing-country.org/datasets/census-ethnicity-district/sinhalese-share-2024?embed=dataset'),
+  ('census-religion-district', 'https://explore.developing-country.org/datasets/census-religion-district/buddhist-share-2024?embed=dataset'),
+  ('census-housing-structure-district', 'https://explore.developing-country.org/datasets/census-housing-structure-district/single-storey-houses?embed=dataset'),
+  ('population-estimates-district', 'https://explore.developing-country.org/datasets/population-estimates-district/population-2024?embed=dataset'),
+  ('population-change-district', 'https://explore.developing-country.org/datasets/population-change-district/fastest-growing-districts?embed=dataset'),
+  ('labour-force', 'https://explore.developing-country.org/datasets/labour-force/unemployment?embed=dataset'),
+  ('ccpi-monthly', 'https://explore.developing-country.org/datasets/ccpi-monthly/headline-inflation?embed=dataset'),
+  ('employment-by-industry', 'https://explore.developing-country.org/datasets/employment-by-industry/industries-2024?embed=dataset'),
+  ('poverty-headcount-district', 'https://explore.developing-country.org/datasets/poverty-headcount-district/poverty-2019?embed=dataset'),
+  ('gdp-by-industry', 'https://explore.developing-country.org/datasets/gdp-by-industry/real-gdp?embed=dataset'),
+  ('inpatient-morbidity-mortality', 'https://explore.developing-country.org/datasets/inpatient-morbidity-mortality/leading-discharges?embed=dataset'),
+  ('land-cover-district', 'https://explore.developing-country.org/datasets/land-cover-district/tree-cover-share-by-district?embed=dataset'),
+  ('merchandise-trade-monthly', 'https://explore.developing-country.org/datasets/merchandise-trade-monthly/exports-and-imports?embed=dataset'),
+  ('merchandise-trade-category-annual', 'https://explore.developing-country.org/datasets/merchandise-trade-category-annual/export-composition-2025?embed=dataset'),
+  ('workers-remittances-monthly', 'https://explore.developing-country.org/datasets/workers-remittances-monthly/remittances-since-2019?embed=dataset'),
+  ('government-fiscal-operations-annual', 'https://explore.developing-country.org/datasets/government-fiscal-operations-annual/budget-balance?embed=dataset'),
+  ('government-revenue-annual', 'https://explore.developing-country.org/datasets/government-revenue-annual/direct-tax-share?embed=dataset'),
+  ('central-government-debt-annual', 'https://explore.developing-country.org/datasets/central-government-debt-annual/debt-to-gdp?embed=dataset'),
+  ('colombo-land-valuation-indicator', 'https://explore.developing-country.org/datasets/colombo-land-valuation-indicator/colombo-lvi?embed=dataset'),
+  ('colombo-asking-price-indices', 'https://explore.developing-country.org/datasets/colombo-asking-price-indices/colombo-asking-prices?embed=dataset'),
+  ('exchange-rates-monthly', 'https://explore.developing-country.org/datasets/exchange-rates-monthly/usd-monthly-average?embed=dataset'),
+  ('effective-exchange-rate-indices', 'https://explore.developing-country.org/datasets/effective-exchange-rate-indices/neer-reer?embed=dataset'),
+  ('tourism-earnings-monthly', 'https://explore.developing-country.org/datasets/tourism-earnings-monthly/tourism-earnings-since-2019?embed=dataset'),
+  ('registered-motor-vehicles-annual', 'https://explore.developing-country.org/datasets/registered-motor-vehicles-annual/national-vehicle-stock?embed=dataset'),
+  ('new-vehicle-registrations-annual', 'https://explore.developing-country.org/datasets/new-vehicle-registrations-annual/national-new-registrations?embed=dataset')
+ON CONFLICT(dataset_id) DO UPDATE SET preview_url = excluded.preview_url;
+
+UPDATE ec_articles SET dataset_preview_url = (
+  SELECT preview_url FROM dc_dataset_previews WHERE dataset_id = ec_articles.dataset_id
+)
+WHERE format = 'dataset_note' AND dataset_id IN (SELECT dataset_id FROM dc_dataset_previews);

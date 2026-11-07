@@ -1,0 +1,846 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro'
+import { CANONICAL_EXPLORER_ORIGIN } from '../lib/explorer'
+
+// The ledger is one JSON published beside the queryable lk-initiative-* tables on the explorer
+// (built by scripts/initiatives/build.ts). Fetched in the browser so the page stays light.
+const explorer = import.meta.env.DEV ? 'http://127.0.0.1:5173' : CANONICAL_EXPLORER_ORIGIN
+const dataUrl = `${explorer}/data/lk-initiatives.json`
+---
+
+<SiteLayout
+  title="Initiatives"
+  description="What Sri Lanka's public initiatives are, where the money comes from, and what happened to it: announced, approved, contracted and paid, week by week."
+>
+<div class="money wrap" id="money" data-src={dataUrl}>
+  <header>
+    <h1>Public initiatives &amp; funding</h1>
+    <div class="q" id="q" role="group" aria-label="Question"><span class="sw" data-slot="what"></span> from <span class="sw" data-slot="src"></span> in <span class="sw" data-slot="sector"></span> · <span class="sw" data-slot="when"></span></div>
+  </header>
+
+  <section aria-label="Money by stage">
+    <div class="shead" id="shead"></div>
+    <div id="strip"></div>
+  </section>
+
+  <section aria-label="Weekly timeline">
+    <div class="band">
+      <div class="ctl">
+        <button type="button" id="prev" aria-label="Previous week">‹</button>
+        <button type="button" id="play" aria-label="Play week by week" aria-pressed="false">▶</button>
+        <button type="button" id="next" aria-label="Next week">›</button>
+        <button type="button" id="stop" aria-label="Stop playback" hidden>×</button>
+      </div>
+      <div class="bandwrap" id="bandwrap">
+        <svg id="bandsvg" role="img" aria-label="Events per week"></svg>
+        <div class="tip" id="tip" hidden></div>
+        <div class="legend" aria-hidden="true">
+          <svg width="10" height="10"><defs><pattern id="hatchL" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="4" style="stroke:var(--hatch);stroke-width:1.5"/></pattern></defs><rect width="10" height="10" fill="url(#hatchL)"/></svg>
+          thin news coverage
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Events">
+    <div class="pinline" id="pinline" aria-live="polite" hidden></div>
+    <div id="feed"><p class="empty" id="loading">Loading the ledger…</p></div>
+    <button type="button" class="showmore" id="more" hidden>Show more</button>
+    <div class="ai">
+      <p>Need a different cut? Ask your AI.</p>
+      <button type="button" class="copy" id="copy">Copy question</button>
+    </div>
+    <textarea class="copyta" id="copyta" readonly hidden aria-label="Question to paste into your AI"></textarea>
+  </section>
+</div>
+</SiteLayout>
+
+<style is:global>
+.money{--paper:#f7f6f4; --raised:#ffffff; --ink:#050505; --dim:#5f5d56;
+  --hair:rgba(5,5,5,.16); --hair2:rgba(5,5,5,.07); --quiet:rgba(5,5,5,.22); --hatch:rgba(5,5,5,.2);
+  --teal:#00a191; --teal-tint:rgba(0,161,145,.13); --on-teal:#ffffff;
+  --blue:#2456c4; --amber:#e8930c; --amber-tint:rgba(232,147,12,.16); --verm:#d14321;
+  --mono:'M PLUS 1 Code',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Overpass',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);font:400 15px/1.45 var(--sans);overflow-x:clip}
+.money *{box-sizing:border-box}
+.money [hidden]{display:none!important}
+.money *{box-sizing:border-box}
+.money button{font:inherit;color:inherit}
+.money a{color:var(--blue)}
+.money :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.money .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.money.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.money h1{font:700 15px/1.3 var(--sans);color:var(--dim);margin:44px 0 10px}
+.money .q{font:600 clamp(24px,5.4vw,34px)/1.5 var(--sans);letter-spacing:-.01em;margin:0 0 44px}
+.money .sw{position:relative;display:inline-block}
+.money .slot{font:inherit;letter-spacing:inherit;background:none;border:0;border-bottom:2px solid var(--ink);border-radius:0;padding:0 2px;margin:0;cursor:pointer;line-height:1.15}
+.money .slot:hover{border-bottom-color:var(--teal)}
+.money .slot[aria-expanded="true"]{border-bottom-color:var(--blue)}
+.money .car{font-size:.42em;vertical-align:.32em;margin-left:.35em;color:var(--dim)}
+.money .menu{position:absolute;top:calc(100% + 8px);left:0;z-index:30;list-style:none;margin:0;padding:6px 0;min-width:210px;max-width:calc(100vw - 32px);
+  max-height:min(70vh,440px);overflow-y:auto;background:var(--raised);border:1px solid var(--ink);border-radius:2px;box-shadow:2px 2px 0 var(--ink);
+  font:400 15px/1.3 var(--sans);letter-spacing:0}
+.money .menu [role=option]{padding:7px 16px 7px 30px;cursor:pointer;position:relative;white-space:nowrap}
+.money .menu [role=option][aria-selected="true"]::before{content:'✓';position:absolute;left:11px;color:var(--teal)}
+.money .menu [role=option]:hover{background:var(--hair2)}
+.money .menu [role=option]:focus{outline:none;background:var(--teal-tint);box-shadow:inset 2px 0 0 var(--blue)}
+.money .menu .grp{font:500 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding:12px 16px 5px 30px}
+.money .menu .sep{border-top:1px solid var(--hair);margin:6px 0}
+.money section{border-top:1px solid var(--hair)}
+.money .shead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 0 0;min-height:44px}
+.money .lbl{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.money .seg{display:flex;align-items:center;gap:4px;margin-left:auto}
+.money .seg .lbl{margin-right:6px}
+.money .seg button,.money .tabs button{font:500 12px/1 var(--mono);background:none;border:1px solid transparent;border-radius:2px;padding:6px 8px 5px;color:var(--dim);cursor:pointer}
+.money .seg button:hover,.money .tabs button:hover{color:var(--ink)}
+.money .seg button[aria-pressed="true"],.money .tabs button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
+.money .tabs{display:flex;gap:4px}
+.money .strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px;padding:10px 0 30px}
+.money .col .stage{padding-bottom:10px;border-bottom:1px solid var(--hair);margin-bottom:12px}
+.money .figs{list-style:none;margin:0;padding:0}
+.money .fig{display:inline-flex;align-items:baseline;gap:7px;font:500 21px/1.25 var(--mono);background:none;border:0;border-radius:2px;padding:2px 5px;margin:0 -5px 3px;cursor:pointer;text-align:left;max-width:100%}
+.money .fig .cur{font-size:12px;color:var(--dim)}
+.money .fig:hover{background:var(--teal-tint)}
+.money .fig[aria-pressed="true"]{background:var(--teal);color:var(--on-teal)}
+.money .fig[aria-pressed="true"] .cur{color:inherit}
+.money .fig.tick,.money .cell.tick .amt{animation:tick .7s steps(1,end)}
+@keyframes tick{0%{color:var(--amber)}}
+.money .nil{font:500 21px/1.25 var(--mono);color:var(--dim)}
+.money .count{font:500 12px/1.5 var(--mono);color:var(--dim);margin-top:8px}
+.money .lnk{font:500 12px/1.5 var(--mono);color:var(--dim);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px;display:block}
+.money .lnk:hover{color:var(--ink)}
+.money .lnk[aria-pressed="true"]{color:var(--ink);background:var(--teal-tint)}
+.money .tablewrap{overflow-x:auto;padding:6px 0 28px}
+.money .split{width:100%;min-width:600px;border-collapse:collapse}
+.money .split th{text-align:left;font-weight:500;padding:6px 14px 10px 0;border-bottom:1px solid var(--hair)}
+.money .split td{padding:6px 14px 6px 0;border-bottom:1px solid var(--hair2);vertical-align:middle;width:20%}
+.money .split td.g{font:600 14px/1.3 var(--sans);width:auto;white-space:nowrap;max-width:220px;overflow:hidden;text-overflow:ellipsis}
+.money .cell{display:block;width:100%;background:none;border:0;border-radius:2px;padding:3px 5px 4px;margin-left:-5px;cursor:pointer;text-align:left}
+.money .cell .amt{font:500 13px/1.3 var(--mono)}
+.money .cell .bar{display:block;height:3px;margin-top:4px;background:var(--hair2)}
+.money .cell .bar i{display:block;height:100%;background:var(--teal)}
+.money .cell:hover{background:var(--teal-tint)}
+.money .cell[aria-pressed="true"]{background:var(--teal);color:var(--on-teal)}
+.money .cell[aria-pressed="true"] .bar i{background:var(--on-teal)}
+.money .split .dash{font:500 13px var(--mono);color:var(--dim)}
+.money .band{display:flex;align-items:flex-start;gap:14px;padding:22px 0 16px}
+.money .ctl{display:flex;gap:3px;padding-top:14px}
+.money .ctl button{width:30px;height:30px;border:1px solid var(--hair);border-radius:2px;background:none;cursor:pointer;font:500 12px/1 var(--mono);color:var(--ink);padding:0}
+.money .ctl button:hover{border-color:var(--ink)}
+.money .ctl #play[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:#050505}
+.money .bandwrap{position:relative;flex:1;min-width:0}
+.money #bandsvg{display:block;width:100%;height:72px;touch-action:pan-y;cursor:crosshair;user-select:none;-webkit-user-select:none}
+.money .tip{position:absolute;top:-24px;left:0;font:500 11px/1 var(--mono);background:var(--ink);color:var(--paper);padding:5px 7px 4px;border-radius:2px;white-space:nowrap;pointer-events:none}
+.money .legend{display:flex;justify-content:flex-end;align-items:center;gap:6px;font:500 10px/1 var(--mono);color:var(--dim);margin-top:2px}
+.money .legend svg{display:block}
+.money .pinline{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:18px 0 0;padding:9px 12px 8px;border-left:2px solid var(--teal);background:var(--teal-tint);font:500 12px/1.4 var(--mono)}
+.money .pinline button{background:none;border:0;padding:0;color:var(--blue);cursor:pointer;font:inherit;text-decoration:underline;text-underline-offset:3px}
+.money .wk{margin:0;padding:26px 0 9px;border-bottom:1px solid var(--hair);font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.money .wk.now{color:var(--ink)}
+.money .wk.now::before{content:'';display:inline-block;width:7px;height:7px;background:var(--amber);margin-right:8px;vertical-align:.5px}
+.money .rows{list-style:none;margin:0;padding:0}
+.money .rows li{border-bottom:1px solid var(--hair2)}
+.money .row{display:grid;grid-template-columns:52px minmax(0,1fr) 126px 112px 96px 68px;grid-template-areas:"d n st amt src meta";gap:12px;align-items:baseline;width:100%;
+  text-align:left;background:none;border:0;padding:11px 6px 10px;cursor:pointer;border-radius:0}
+.money .row:hover{background:var(--raised)}
+.money .row .d{grid-area:d;font:500 12px/1.4 var(--mono);color:var(--dim)}
+.money .row .n{grid-area:n;font-weight:600;min-width:0}
+.money .row .n .theme-tag{display:table;margin-top:6px;padding:3px 6px 2px;font:600 9.5px/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.money .theme-tag:not([data-theme]){background:var(--hair2)}
+.money .row .st{grid-area:st;font-size:14px}
+.money .row .st.halt{color:var(--verm);font-weight:600}
+.money .row .amt{grid-area:amt;font:500 13px/1.4 var(--mono)}
+.money .row .amt.none,.money .row .src.none{color:var(--dim);font:400 13px/1.4 var(--sans);cursor:help}
+.money .row .src{grid-area:src;font-size:14px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.money .row .meta{grid-area:meta;display:flex;justify-content:flex-end;align-items:center;gap:8px;font:500 11px/1 var(--mono);color:var(--dim);white-space:nowrap}
+.money .ev{display:inline-block;width:8px;height:8px;border-radius:50%;flex:none}
+.money .ev.rev{background:var(--ink)}
+.money .ev.mr{border:1.5px solid var(--dim)}
+.money .rows li.open{background:var(--raised);border:1px solid var(--ink);box-shadow:2px 2px 0 var(--ink);margin:6px 0 10px;position:relative}
+.money .rows li.pinned .row{box-shadow:inset 2px 0 0 var(--teal)}
+.money .detail{padding:4px 16px 18px 70px}
+.money .track{list-style:none;margin:0 0 16px;padding:8px 0 10px;display:flex;overflow-x:auto;position:relative}
+.money .stop{flex:0 0 auto;min-width:128px;max-width:180px;position:relative;padding:20px 16px 0 0}
+.money .stop::before{content:'';position:absolute;top:6px;left:6px;right:0;height:1px;background:var(--hair)}
+.money .stop:last-child::before{display:none}
+.money .stop .dot{position:absolute;top:0;left:0;width:13px;height:13px;border-radius:50%;background:var(--raised);border:1.5px solid var(--dim)}
+.money .stop.m .dot{border-color:var(--teal)}
+.money .stop.halt .dot{border-color:var(--verm)}
+.money .stop.cur .dot{background:var(--teal);border-color:var(--teal)}
+.money .stop.cur.halt .dot{background:var(--verm);border-color:var(--verm)}
+.money .stop .sl{display:block;font-size:13px;font-weight:600;line-height:1.3}
+.money .stop.halt .sl{color:var(--verm)}
+.money .stop .sd,.money .stop .sa,.money .stop .ss{display:block;font:500 11px/1.5 var(--mono);color:var(--dim)}
+.money .stop .sa{color:var(--ink)}
+.money .srcs{list-style:none;margin:0;padding:0;font-size:13px}
+.money .srcs li{padding:3px 0;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.money .tag{font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--hair);border-radius:2px;padding:3px 4px 2px;color:var(--dim)}
+.money .tag.official{border-color:var(--ink);color:var(--ink)}
+.money .srcs .o{font-weight:600}
+.money .srcs .dt{font:500 11px var(--mono);color:var(--dim)}
+.money .srcs a{min-width:0;overflow-wrap:anywhere}
+.money .notes{margin:12px 0 0;font-size:12px;color:var(--dim)}
+.money .notes.gaps{margin-top:6px}
+.money .empty{padding:22px 0;color:var(--dim)}
+.money .showmore{display:block;margin:18px auto 0;font:500 12px/1 var(--mono);background:none;border:1px solid var(--hair);border-radius:2px;padding:9px 14px 8px;cursor:pointer}
+.money .showmore:hover{border-color:var(--ink)}
+.money .ai{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:34px;padding:18px 0 56px;border-top:1px solid var(--hair);color:var(--dim)}
+.money .ai p{margin:0}
+.money .copy{font:500 12px/1 var(--mono);background:none;border:1px solid var(--ink);border-radius:2px;padding:9px 14px 8px;cursor:pointer;min-width:132px}
+.money .copy:hover{background:var(--ink);color:var(--paper)}
+.money .copyta{display:block;width:100%;height:120px;margin:-40px 0 56px;font:500 12px/1.4 var(--mono);background:var(--raised);color:var(--ink);border:1px solid var(--hair);border-radius:2px;padding:10px}
+@media (max-width:700px){.money .strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 18px}
+.money .row{grid-template-columns:44px auto auto minmax(0,1fr) auto;grid-template-areas:"d n n n n" ". st amt src meta";gap:4px 10px;padding:11px 2px 10px}
+.money .detail{padding:4px 12px 16px 12px}
+.money .band{gap:10px}
+.money .seg{margin-left:0}
+
+}
+@media (prefers-reduced-motion: reduce){.money .fig.tick,.money .cell.tick .amt{animation:none}
+
+}
+
+</style>
+
+<script>
+// @ts-nocheck -- plain DOM code; the counting rules it relies on are typed and tested in packages/datasets.
+import { moneyTotals, STAGE_BUCKET } from '@developing-country/datasets/money'
+
+
+function start(DATA){
+
+/* ---------- counting: the shared, tested contract (packages/datasets/src/money.ts) ---------- */
+const BUCKET = STAGE_BUCKET;
+
+/* ---------- vocabulary ---------- */
+const BUCKETS=['announced','approved','contracted','paid'];
+const BLABEL={announced:'Announced',approved:'Approved',contracted:'Contracted',paid:'Paid'};
+const STAGE={proposed:'Proposed',cost_estimate:'Cost estimate',pledged:'Pledged',funder_approved:'Lender approved',
+  govt_authorised:'Cabinet cleared',allocated:'Budgeted',contract_awarded:'Contract awarded',agreement_signed:'Signed',
+  disbursed:'Paid out',released:'Released',spent:'Spent',launched:'Launched',underway:'Underway',completed:'Completed',
+  halted:'Halted',unclear:'Unclear'};
+const OVERSEAS_KEYS=['adb','world_bank','imf','japan','china','india','eu','other'];
+const SRCNAME={adb:'ADB',world_bank:'World Bank',imf:'IMF',japan:'Japan',china:'China',india:'India',eu:'EU',
+  other:'Other overseas',gosl:'Government of Sri Lanka',none:'Not stated'};
+const SHORT={adb:'ADB',world_bank:'World Bank',imf:'IMF',japan:'Japan',china:'China',india:'India',eu:'EU',gosl:'Govt',
+  aiib:'AIIB',opec_fund:'OPEC Fund',un:'UN',usa:'USA',private:'Private'};
+const TYPEL={loan:'Loan',grant:'Grant',govt:'Government money',other:'Other/unknown'};
+// Rough magnitudes used ONLY to order currencies inside a column. Never shown, never summed.
+const ORDER_RATE={USD:1,SDR:1.33,EUR:1.08,GBP:1.27,CNY:0.14,INR:0.012,JPY:0.0067,LKR:0.0033};
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+/* ---------- dates ---------- */
+const dayNum=s=>Date.UTC(+s.slice(0,4),+s.slice(5,7)-1,+s.slice(8,10))/864e5;
+const iso=n=>new Date(n*864e5).toISOString().slice(0,10);
+const addD=(s,k)=>iso(dayNum(s)+k);
+const monday=s=>{const n=dayNum(s);return iso(n-(new Date(n*864e5).getUTCDay()+6)%7);};
+const fmtD=s=>s.slice(8,10)+' '+MON[+s.slice(5,7)-1];
+const fmtDY=s=>(+s.slice(8,10))+' '+MON[+s.slice(5,7)-1]+' '+s.slice(0,4);
+
+/* ---------- numbers ---------- */
+function fmtN(a){
+  const x=Math.abs(a); let v=a,u='';
+  if(x>=1e9){v=a/1e9;u='bn';} else if(x>=1e6){v=a/1e6;u='m';} else if(x>=1e3){v=a/1e3;u='k';}
+  return (x>=1e3?String(+v.toPrecision(3)):String(Math.round(v)))+u;
+}
+const fmtAmt=(a,c)=>c+' '+fmtN(a);
+const plural=(n,w)=>n+' '+w+(n===1?'':'s');
+// Sector badges reuse the dataset theme colours (global.css .theme-tag) so the two pages read alike.
+const SECTOR_THEME={agriculture:'AGRI',digital:'TECH',disaster_recovery:'JUST',education:'EDUC',energy:'ENER',environment:'ENVI',
+  governance:'GOVE',health:'HEAL',housing:'REGI',industry:'ECON',social_protection:'SOCI',tourism:'INTR',transport:'TRAN',urban:'REGI',water:'ENVI',culture_sport:'EDUC',defence:'JUST'};
+const secLabel=s=>({culture_sport:'Culture & sport',social_protection:'Social protection',disaster_recovery:'Disaster recovery'})[s]||cap(s);
+const cap=s=>s?s.charAt(0).toUpperCase()+s.slice(1).replace(/_/g,' '):'';
+
+/* ---------- data ---------- */
+let D=DATA;
+if(!D||!Array.isArray(D.events)){ D={projects:[],lines:[],events:[],coverage:{weeks:{}}}; }
+D.projects=D.projects||[]; D.lines=D.lines||[]; D.events=D.events||[];
+const COV=(D.coverage&&D.coverage.weeks)||{};
+const P=new Map(D.projects.map(p=>[p.id,p]));
+const L=new Map(D.lines.map(l=>[l.id,l]));
+
+function srcKey(l){
+  if(!l) return 'none';
+  const f=l.funder||'unknown';
+  if(f==='gosl'||(SRCNAME[f]&&f!=='other'&&f!=='none')) return f;
+  if(l.funder_type==='private'||l.origin==='overseas') return 'other';
+  if(l.origin==='domestic') return 'gosl';
+  return 'none';
+}
+function shortName(l){
+  if(!l||!l.funder||l.funder==='unknown') return null;
+  const f=l.funder;
+  if(SHORT[f]) return SHORT[f];
+  if(f.startsWith('other:')){ const t=f.slice(6); return t.length<=5?t.toUpperCase():(l.funder_name||cap(t)); }
+  return l.funder_name||cap(f);
+}
+// A blank cell says why it is blank. The reader never guesses, so a gap means the reports left it out.
+function gapAmt(e){
+  return e.raw?['No single total','The reports give '+e.raw+', in more than one currency and with no single total, so nothing is added up.']
+    :['No amount given','None of the reports gives an amount for this step.'];
+}
+function gapSrc(e){
+  return ['Not named','None of the reports says who pays.'+(e.stage==='govt_authorised'
+    ?' Cabinet approval does not settle it: Cabinet also clears projects paid for by foreign loans and grants.':'')];
+}
+const typeKey=l=>{const i=l&&l.instrument; return i==='loan'?'loan':i==='grant'?'grant':i==='govt_funds'?'govt':'other';};
+
+const EV=D.events.filter(e=>e&&e.id&&typeof e.date==='string'&&e.date.length>=10).map(e=>{
+  const l=L.get(e.line_id), p=l&&P.get(l.project_id);
+  return Object.assign({},e,{date:e.date.slice(0,10),_pid:p?p.id:'x:'+e.line_id,_name:p?p.name:(e.summary||'Untitled'),
+    _src:srcKey(l),_short:shortName(l),_sector:(p&&p.sector)||'other',_tk:typeKey(l),_b:BUCKET[e.stage]||null,
+    _wk:monday(e.date.slice(0,10)),_dn:dayNum(e.date.slice(0,10))});
+});
+const byId=new Map(EV.map(e=>[e.id,e]));
+const byProject=new Map();
+for(const e of EV){ (byProject.get(e._pid)||byProject.set(e._pid,[]).get(e._pid)).push(e); }
+for(const list of byProject.values()) list.sort((a,b)=>a.date<b.date?-1:a.date>b.date?1:(a.id<b.id?-1:1));
+
+const maxDate=EV.reduce((m,e)=>e.date>m?e.date:m,'');
+const NOW=[(D.meta&&D.meta.generated_at)||'',maxDate].sort().pop()||new Date().toISOString().slice(0,10);
+const NOWY=+NOW.slice(0,4);
+const MINY=EV.reduce((m,e)=>Math.min(m,+e.date.slice(0,4)),NOWY);
+const SECTORS=[...new Set(EV.map(e=>e._sector))].sort((a,b)=>(a==='other')-(b==='other')||a.localeCompare(b));
+
+const PRESETS=[{k:'week',label:'This week'},{k:'w4',label:'Last 4 weeks'},{k:'w13',label:'Last 13 weeks'},
+  {k:'y'+NOWY,label:String(NOWY)},{k:'y'+(NOWY-1),label:String(NOWY-1)}];
+if(MINY<NOWY-1) PRESETS.push({k:'since',label:'Since '+MINY});
+function presetRange(k){
+  const m=monday(NOW);
+  if(k==='week') return {from:m,to:NOW};
+  if(k==='w4') return {from:addD(m,-21),to:NOW};
+  if(k==='w13') return {from:addD(m,-84),to:NOW};
+  if(k==='since') return {from:MINY+'-01-01',to:NOW};
+  const y=+k.slice(1); return {from:y+'-01-01',to:y===NOWY?NOW:y+'-12-31'};
+}
+const presetDomain=k=>(k==='week'||k==='w4')?presetRange('w13'):presetRange(k);
+function rangeLabel(r){
+  const y1=r.from.slice(0,4), y2=r.to.slice(0,4);
+  if(monday(r.from)===monday(r.to)) return 'week of '+fmtDY(monday(r.from)).replace(/ \d{4}$/,y1==NOWY?'':' '+y1);
+  const a=(+r.from.slice(8,10))+' '+MON[+r.from.slice(5,7)-1], b=(+r.to.slice(8,10))+' '+MON[+r.to.slice(5,7)-1];
+  return y1===y2?a+' – '+b+(+y1===NOWY?'':' '+y1):a+' '+y1+' – '+b+' '+y2;
+}
+
+/* ---------- state ---------- */
+const state={what:'all',src:'any',sector:'any',when:'y'+NOWY,custom:null,dom:presetDomain('y'+NOWY),
+  split:'none',cur:null,pin:null,playWk:null,playing:false,timer:null,limit:40,open:new Set(),moreCols:new Set()};
+const range=()=>state.when==='custom'?state.custom:presetRange(state.when);
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)');
+
+function qMatch(e){
+  // Follows the money column: an event is "with money" when a source reported an amount.
+  if(state.what==='money'&&e.amount==null) return false;
+  if(state.what==='none'&&e.amount!=null) return false;
+  if(state.src==='overseas'){ if(!OVERSEAS_KEYS.includes(e._src)) return false; }
+  else if(state.src!=='any'&&e._src!==state.src) return false;
+  if(state.sector!=='any'&&e._sector!==state.sector) return false;
+  return true;
+}
+
+/* ---------- tiny DOM helper ---------- */
+function h(tag,attrs,...kids){
+  const el=document.createElement(tag);
+  if(attrs) for(const k in attrs){ const v=attrs[k]; if(v==null||v===false) continue;
+    if(k==='class') el.className=v; else if(k==='text') el.textContent=v;
+    else if(k==='onclick') el.addEventListener('click',v); else el.setAttribute(k,v===true?'':String(v)); }
+  for(const c of kids.flat()){ if(c==null||c===false) continue; el.append(c.nodeType?c:String(c)); }
+  return el;
+}
+const $=id=>document.getElementById(id);
+
+/* ---------- the question line ---------- */
+const SLOTS={
+  what:{name:'What',get:()=>state.what,set:v=>{state.what=v;},
+    opts:()=>[{v:'all',label:'Everything'},{v:'money',label:'With money'},{v:'none',label:'Without money'}],
+    text:()=>({all:'Everything',money:'With money',none:'Without money'})[state.what]},
+  src:{name:'Source',get:()=>state.src,set:v=>{state.src=v;},
+    opts:()=>[{v:'any',label:'Any source'},{v:'overseas',label:'All overseas'},{group:'Overseas'},
+      ...OVERSEAS_KEYS.map(k=>({v:k,label:SRCNAME[k]})),{group:'Domestic'},{v:'gosl',label:SRCNAME.gosl},
+      {sep:true},{v:'none',label:'Not stated'}],
+    text:()=>state.src==='any'?'any source':state.src==='overseas'?'all overseas':state.src==='none'?'unstated sources':SRCNAME[state.src]},
+  sector:{name:'Sector',get:()=>state.sector,set:v=>{state.sector=v;},
+    opts:()=>[{v:'any',label:'Any sector'},...SECTORS.map(s=>({v:s,label:secLabel(s)}))],
+    text:()=>state.sector==='any'?'any sector':secLabel(state.sector).toLowerCase()},
+  when:{name:'When',get:()=>state.when,
+    set:v=>{ if(v==='custom') return; state.when=v; state.custom=null; state.dom=presetDomain(v); },
+    opts:()=>{const o=PRESETS.map(p=>({v:p.k,label:p.label})); if(state.when==='custom') o.push({sep:true},{v:'custom',label:cap(rangeLabel(state.custom))}); return o;},
+    text:()=>state.when==='custom'?rangeLabel(state.custom):PRESETS.find(p=>p.k===state.when).label.replace(/^(This|Last|Since)/,m=>m.toLowerCase())}
+};
+const slotBtns={};
+document.querySelectorAll('.sw').forEach(sw=>{
+  const key=sw.dataset.slot;
+  const b=h('button',{type:'button',class:'slot','aria-haspopup':'listbox','aria-expanded':'false'});
+  b.addEventListener('click',()=>{ if(openM&&openM.key===key) closeMenu(true); else openMenu(key); });
+  b.addEventListener('keydown',ev=>{ if(ev.key==='ArrowDown'||ev.key==='ArrowUp'){ ev.preventDefault(); openMenu(key); } });
+  sw.append(b); slotBtns[key]=b;
+});
+function renderSlots(){
+  for(const k in SLOTS){ const b=slotBtns[k], t=SLOTS[k].text();
+    b.replaceChildren(t,h('span',{class:'car','aria-hidden':'true',text:'▾'}));
+    b.setAttribute('aria-label',SLOTS[k].name+': '+t); }
+}
+let openM=null;
+function closeMenu(refocus){
+  if(!openM) return; const m=openM; openM=null;
+  m.ul.remove(); m.btn.setAttribute('aria-expanded','false'); if(refocus) m.btn.focus();
+}
+function openMenu(key){
+  closeMenu(false);
+  const cfg=SLOTS[key], btn=slotBtns[key];
+  const ul=h('ul',{class:'menu',role:'listbox','aria-label':cfg.name});
+  const opts=[];
+  const choose=v=>{ closeMenu(true); if(v!==cfg.get()&&v!=='custom'){ cfg.set(v); resetView(); render(); } };
+  for(const o of cfg.opts()){
+    if(o.group){ ul.append(h('li',{class:'grp',role:'presentation',text:o.group})); continue; }
+    if(o.sep){ ul.append(h('li',{class:'sep',role:'presentation'})); continue; }
+    const li=h('li',{role:'option',tabindex:'-1','aria-selected':String(o.v===cfg.get()),text:o.label});
+    li.addEventListener('click',()=>choose(o.v));
+    opts.push(li); ul.append(li);
+  }
+  ul.addEventListener('keydown',ev=>{
+    const i=opts.indexOf(document.activeElement); let j=null;
+    switch(ev.key){
+      case 'ArrowDown': j=i<0?0:Math.min(opts.length-1,i+1); break;
+      case 'ArrowUp': j=i<0?0:Math.max(0,i-1); break;
+      case 'Home': j=0; break;
+      case 'End': j=opts.length-1; break;
+      case 'Enter': case ' ': ev.preventDefault(); if(i>=0) opts[i].click(); return;
+      case 'Escape': ev.preventDefault(); ev.stopPropagation(); closeMenu(true); return;
+      case 'Tab': closeMenu(false); return;
+      default: return;
+    }
+    ev.preventDefault(); opts[j].focus();
+  });
+  btn.parentNode.append(ul);
+  btn.setAttribute('aria-expanded','true');
+  openM={ul,btn,key};
+  const r=ul.getBoundingClientRect(), over=r.right-(document.documentElement.clientWidth-16);
+  if(over>0) ul.style.left=(-Math.min(over,r.left-16))+'px';
+  (opts.find(li=>li.getAttribute('aria-selected')==='true')||opts[0]).focus();
+}
+document.addEventListener('pointerdown',ev=>{
+  if(openM&&!openM.ul.contains(ev.target)&&!openM.btn.contains(ev.target)) closeMenu(false);
+});
+
+function resetView(){
+  pause(); state.playWk=null; state.pin=null; state.limit=40; state.moreCols.clear();
+}
+
+/* ---------- money strip ---------- */
+// Figures that change between consecutive playback weeks flash amber once (stepped, no easing).
+let prevFig={}, nextFig={}, prevPlay=false;
+function figTick(key,text){ nextFig[key]=text; return !!state.playWk&&prevPlay&&prevFig[key]!==text; }
+function pinBtnAttrs(key){ return state.pin&&state.pin.key===key; }
+function togglePin(p){
+  if(state.pin&&state.pin.key===p.key) state.pin=null; else { state.pin=p; pause(); }
+  state.limit=40; render();
+  if(state.pin){ const f=$('pinline'); const top=f.getBoundingClientRect().top;
+    if(top>innerHeight-120||top<0) f.scrollIntoView({behavior:reduceMotion.matches?'auto':'smooth',block:'start'}); }
+}
+const approx=(c,a)=>a*(ORDER_RATE[c]||1);
+
+function renderStrip(evs){
+  const all=moneyTotals(evs);
+  const curCount={};
+  for(const b of BUCKETS) for(const c in all.totals[b]) curCount[c]=(curCount[c]||0)+all.totals[b][c].ids.length;
+  const curList=Object.keys(curCount).sort((a,b)=>curCount[b]-curCount[a]||a.localeCompare(b));
+  if(!curList.includes(state.cur)) state.cur=curList[0]||null;
+  const split=state.split!=='none'&&curList.length>0;
+
+  const head=$('shead'); head.replaceChildren();
+  if(split){
+    const tabs=h('div',{class:'tabs',role:'group','aria-label':'Currency'});
+    for(const c of curList) tabs.append(h('button',{type:'button','aria-pressed':String(c===state.cur),text:c,
+      onclick:()=>{state.cur=c; render();}}));
+    head.append(tabs);
+  }
+  const seg=h('div',{class:'seg',role:'group','aria-label':'Split by'},h('span',{class:'lbl',text:'Split by'}));
+  for(const [v,t] of [['none','—'],['source','Source'],['sector','Sector'],['type','Type']])
+    seg.append(h('button',{type:'button','aria-pressed':String(state.split===v),'aria-label':v==='none'?'No split':null,text:t,
+      onclick:()=>{ if(state.split!==v){ state.split=v; state.pin=null; render(); } }}));
+  head.append(seg);
+
+  const box=$('strip'); box.replaceChildren();
+  nextFig={};
+  if(split) box.append(splitTable(evs)); else box.append(plainStrip(all));
+  prevFig=nextFig; prevPlay=!!state.playWk;
+}
+
+function plainStrip(all){
+  const grid=h('div',{class:'strip'});
+  for(const b of BUCKETS){
+    const col=h('div',{class:'col'},h('div',{class:'stage lbl',text:BLABEL[b]}));
+    const entries=Object.entries(all.totals[b]).sort((x,y)=>approx(y[0],y[1].amount)-approx(x[0],x[1].amount));
+    const miss=all.missing[b];
+    const n=new Set([...entries.flatMap(([,v])=>v.ids),...miss]).size;
+    if(!entries.length) col.append(h('div',{class:'nil','aria-label':'Nothing',text:'—'}));
+    else {
+      const ul=h('ul',{class:'figs'});
+      const show=state.moreCols.has(b)?entries:entries.slice(0,3);
+      for(const [c,v] of show){
+        const key='f|'+b+'|'+c, txt=fmtN(v.amount), label=c+' '+txt;
+        ul.append(h('li',null,h('button',{type:'button',class:'fig'+(figTick(key,label)?' tick':''),'aria-pressed':String(pinBtnAttrs(key)),
+          'aria-label':label+' '+b+', show the '+plural(v.ids.length,'item'),
+          onclick:()=>togglePin({key,ids:v.ids.slice(),line:'Showing the '+plural(v.ids.length,'item')+' behind '+label+' '+b,
+            bucket:b,cur:c})},
+          h('span',{class:'cur',text:c}),txt)));
+      }
+      col.append(ul);
+      if(entries.length>3) col.append(h('button',{type:'button',class:'lnk','aria-expanded':String(state.moreCols.has(b)),
+        text:state.moreCols.has(b)?'fewer':'+'+(entries.length-3)+' more',
+        onclick:()=>{ state.moreCols.has(b)?state.moreCols.delete(b):state.moreCols.add(b); render(); }}));
+    }
+    if(n) col.append(h('div',{class:'count',text:plural(n,'item')}));
+    if(miss.length){
+      const key='m|'+b;
+      col.append(h('button',{type:'button',class:'lnk','aria-pressed':String(pinBtnAttrs(key)),text:'+'+miss.length+' without amount',
+        onclick:()=>togglePin({key,ids:miss.slice(),line:'Showing the '+plural(miss.length,'item')+' '+b+' without an amount reported',bucket:b})}));
+    }
+    grid.append(col);
+  }
+  return grid;
+}
+
+function splitTable(evs){
+  const cur=state.cur, sp=state.split;
+  const keyf=sp==='source'?e=>e._src:sp==='sector'?e=>e._sector:e=>e._tk;
+  const labf=sp==='source'?k=>SRCNAME[k]:sp==='sector'?k=>secLabel(k):k=>TYPEL[k];
+  const groups=new Map();
+  for(const e of evs){ if(!e._b) continue; const k=keyf(e); (groups.get(k)||groups.set(k,[]).get(k)).push(e); }
+  let rows=[...groups].map(([k,list])=>({k,label:labf(k),evs:list,T:moneyTotals(list)}));
+  const score=r=>Math.max(0,...BUCKETS.map(b=>(r.T.totals[b][cur]||{amount:0}).amount));
+  rows=rows.filter(r=>score(r)>0);
+  rows.sort((a,b)=>score(b)-score(a)||b.evs.length-a.evs.length||a.label.localeCompare(b.label));
+  if(rows.length>8){
+    const rest=rows.slice(7).flatMap(r=>r.evs);
+    rows=rows.slice(0,7).concat({k:'__others',label:'Others',evs:rest,T:moneyTotals(rest)});
+  }
+  const colMax={};
+  for(const b of BUCKETS) colMax[b]=Math.max(0,...rows.map(r=>(r.T.totals[b][cur]||{amount:0}).amount));
+  const thead=h('thead',null,h('tr',null,h('th',null,h('span',{class:'sr',text:cap(sp)})),
+    BUCKETS.map(b=>h('th',{class:'lbl',scope:'col',text:BLABEL[b]}))));
+  const tbody=h('tbody');
+  for(const r of rows){
+    const tr=h('tr',null,h('td',{class:'g',title:r.label,text:r.label}));
+    for(const b of BUCKETS){
+      const v=r.T.totals[b][cur];
+      if(!v){ tr.append(h('td',null,h('span',{class:'dash','aria-label':'Nothing',text:'—'}))); continue; }
+      const key='s|'+sp+'|'+r.k+'|'+b+'|'+cur, txt=fmtN(v.amount), w=colMax[b]?Math.max(2,v.amount/colMax[b]*100):0;
+      tr.append(h('td',null,h('button',{type:'button',class:'cell'+(figTick(key,txt)?' tick':''),'aria-pressed':String(pinBtnAttrs(key)),
+        'aria-label':cur+' '+txt+', '+r.label+', '+b+', show the '+plural(v.ids.length,'item'),
+        onclick:()=>togglePin({key,ids:v.ids.slice(),line:'Showing the '+plural(v.ids.length,'item')+' behind '+cur+' '+txt+' · '+r.label+', '+b,
+          bucket:b,cur,group:r.k})},
+        h('span',{class:'amt',text:txt}),h('span',{class:'bar','aria-hidden':'true'},h('i',{style:'width:'+w.toFixed(1)+'%'})))));
+    }
+    tbody.append(tr);
+  }
+  return h('div',{class:'tablewrap'},h('table',{class:'split'},thead,tbody));
+}
+
+/* ---------- timeline band ---------- */
+const svg=$('bandsvg'), tip=$('tip');
+let geom=null;
+const BAND_H=56;
+function renderBand(base,r){
+  const dom=state.dom, m0=monday(dom.from), d0=dayNum(m0);
+  const n=Math.max(1,Math.floor((dayNum(dom.to)-d0)/7)+1);
+  const money=new Array(n).fill(0), quiet=new Array(n).fill(0), pinned=new Array(n).fill(0);
+  for(const e of base){ if(e.date<m0||e.date>dom.to) continue; const i=Math.floor((e._dn-d0)/7); if(e._b) money[i]++; else quiet[i]++; }
+  if(state.pin) for(const id of state.pin.ids){ const e=byId.get(id); if(!e||e.date<m0||e.date>dom.to) continue; pinned[Math.floor((e._dn-d0)/7)]++; }
+  const W=Math.max(120,$('bandwrap').clientWidth||800), bw=W/n;
+  const gap=bw>=6?2:bw>=3?1:0, bwid=Math.max(1,Math.min(18,bw-gap));
+  let max=1; for(let i=0;i<n;i++) max=Math.max(max,money[i]+quiet[i]);
+  const hgt=c=>c?Math.max(2,c/max*BAND_H):0;
+  const selA=monday(r.from), selB=r.to;
+  const playEnd=state.playWk?addD(state.playWk,6):null;
+  let s='<defs><pattern id="hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="4" style="stroke:var(--hatch);stroke-width:1.5"/></pattern></defs>';
+  const weeks=[];
+  for(let i=0;i<n;i++){
+    const wk=addD(m0,7*i), x=i*bw, cov=COV[wk], thin=!cov||cov.articles<150;
+    weeks.push({wk,thin,money:money[i],quiet:quiet[i]});
+    const bx=(x+(bw-bwid)/2).toFixed(2);
+    if(thin) s+='<rect x="'+x.toFixed(2)+'" y="0" width="'+Math.max(1,bw-(gap?1:0)).toFixed(2)+'" height="'+BAND_H+'" fill="url(#hatch)"/>';
+    if(state.playWk===wk) s+='<rect x="'+x.toFixed(2)+'" y="0" width="'+bw.toFixed(2)+'" height="'+BAND_H+'" style="fill:var(--amber-tint)"/>';
+    const inSel=wk<=selB&&addD(wk,6)>=selA, future=playEnd&&wk>playEnd;
+    const op=(!inSel||future) ? 0.3 : (state.pin ? 0.28 : 1);
+    const hm=hgt(money[i]), hq=hgt(quiet[i]);
+    if(hq) s+='<rect x="'+bx+'" y="'+(BAND_H-hm-hq).toFixed(2)+'" width="'+bwid.toFixed(2)+'" height="'+hq.toFixed(2)+'" style="fill:var(--quiet)" opacity="'+op+'"/>';
+    if(hm) s+='<rect x="'+bx+'" y="'+(BAND_H-hm).toFixed(2)+'" width="'+bwid.toFixed(2)+'" height="'+hm.toFixed(2)+'" style="fill:var(--teal)" opacity="'+op+'"/>';
+    if(pinned[i]){ const hp=hgt(pinned[i]); s+='<rect x="'+bx+'" y="'+(BAND_H-hp).toFixed(2)+'" width="'+bwid.toFixed(2)+'" height="'+hp.toFixed(2)+'" style="fill:var(--teal)"/>'; }
+    if(state.playWk===wk) s+='<rect x="'+x.toFixed(2)+'" y="'+(BAND_H+1)+'" width="'+bw.toFixed(2)+'" height="3" style="fill:var(--amber)"/>';
+  }
+  s+='<line x1="0" x2="'+W+'" y1="'+(BAND_H+.5)+'" y2="'+(BAND_H+.5)+'" style="stroke:var(--hair)"/>';
+  // selection bracket when the selected period is narrower than the band
+  if(selA>m0||selB<dom.to){
+    const a=Math.max(0,Math.floor((dayNum(selA)-d0)/7)), b=Math.min(n-1,Math.floor((dayNum(selB)-d0)/7));
+    if(b>=a&&!state.playWk) s+='<rect x="'+(a*bw).toFixed(2)+'" y="'+(BAND_H+1)+'" width="'+((b-a+1)*bw).toFixed(2)+'" height="2" style="fill:var(--ink)"/>';
+  }
+  // month / quarter / year ticks
+  const step=n<=70?1:n<=140?3:12; let lastX=-99;
+  for(let i=0;i<n;i++){
+    const wk=weeks[i].wk, mo=+wk.slice(5,7)-1, prev=i?+weeks[i-1].wk.slice(5,7)-1:-1;
+    if(mo===prev||(i===0&&+wk.slice(8,10)>7)) continue;
+    if(mo%step) continue;
+    const x=i*bw; if(x-lastX<34) continue; lastX=x;
+    const t=mo===0?wk.slice(0,4):MON[mo];
+    s+='<text x="'+x.toFixed(2)+'" y="'+(BAND_H+15)+'" style="fill:var(--dim);font:500 10px var(--mono)">'+t+'</text>';
+  }
+  s+='<rect id="brushTmp" y="0" height="'+BAND_H+'" width="0" style="fill:var(--teal-tint);stroke:var(--teal)" stroke-width="1"/>';
+  svg.innerHTML=s;
+  svg.setAttribute('viewBox','0 0 '+W+' 72');
+  geom={m0,d0,n,bw,W,weeks};
+  const tot=base.filter(e=>e.date>=r.from&&e.date<=r.to).length;
+  svg.setAttribute('aria-label','Events per week, '+rangeLabel(r)+': '+plural(tot,'event'));
+}
+function idxAt(clientX){
+  const rc=svg.getBoundingClientRect();
+  return Math.max(0,Math.min(geom.n-1,Math.floor((clientX-rc.left)/rc.width*geom.n)));
+}
+let drag=null;
+svg.addEventListener('pointerdown',ev=>{
+  if(!geom||ev.button!==0) return;
+  drag={a:idxAt(ev.clientX)}; drag.b=drag.a;
+  try{ svg.setPointerCapture(ev.pointerId); }catch(_){}
+  drawBrush(); ev.preventDefault();
+});
+svg.addEventListener('pointermove',ev=>{
+  if(!geom) return;
+  const i=idxAt(ev.clientX), w=geom.weeks[i];
+  if(drag){ drag.b=i; drawBrush(); }
+  tip.hidden=false;
+  tip.textContent=(drag?rangeLabel(brushRange()):'Week of '+fmtD(w.wk))+(drag?'':' · '+plural(w.money+w.quiet,'event')+(w.thin?' · thin coverage':''));
+  const rc=svg.getBoundingClientRect(), x=(i+.5)*rc.width/geom.n;
+  tip.style.left=Math.max(0,Math.min(rc.width-tip.offsetWidth,x-tip.offsetWidth/2))+'px';
+});
+svg.addEventListener('pointerleave',()=>{ if(!drag) tip.hidden=true; });
+function brushRange(){
+  const a=Math.min(drag.a,drag.b), b=Math.max(drag.a,drag.b);
+  const from=addD(geom.m0,7*a); let to=addD(geom.m0,7*b+6); if(to>NOW) to=NOW;
+  return {from,to};
+}
+function drawBrush(){
+  const el=svg.querySelector('#brushTmp'); if(!el) return;
+  const a=Math.min(drag.a,drag.b), b=Math.max(drag.a,drag.b);
+  el.setAttribute('x',(a*geom.bw).toFixed(2)); el.setAttribute('width',((b-a+1)*geom.bw).toFixed(2));
+}
+function endDrag(ev,commit){
+  if(!drag) return;
+  const r=brushRange(); drag=null; tip.hidden=true;
+  try{ svg.releasePointerCapture(ev.pointerId); }catch(_){}
+  if(!commit){ render(); return; }
+  resetView(); state.when='custom'; state.custom=r; render();
+}
+svg.addEventListener('pointerup',ev=>endDrag(ev,true));
+svg.addEventListener('pointercancel',ev=>endDrag(ev,false));
+
+/* ---------- play the week ---------- */
+const playBtn=$('play');
+/* Play only visits weeks that have events for the current question; empty weeks are skipped. */
+function activeWeeks(){ const r=range(); return [...new Set(EV.filter(e=>qMatch(e)&&e.date>=r.from&&e.date<=r.to).map(e=>e._wk))].sort(); }
+function playBounds(){ const r=range(), w=activeWeeks(); return {first:w[0]||monday(r.from),last:w[w.length-1]||monday(r.to)}; }
+function pause(){ if(state.timer){ clearInterval(state.timer); state.timer=null; } state.playing=false; }
+function tick(){
+  const {last}=playBounds();
+  if(!state.playWk||state.playWk>=last){ pause(); render(); return; }
+  state.playWk=activeWeeks().find(w=>w>state.playWk)||last;
+  if(state.playWk>=last) pause();
+  render();
+}
+playBtn.addEventListener('click',()=>{
+  if(state.playing){ pause(); render(); return; }
+  const {first,last}=playBounds();
+  state.pin=null;
+  if(!state.playWk||state.playWk>=last||state.playWk<first) state.playWk=first;
+  state.playing=true;
+  state.timer=setInterval(tick,reduceMotion.matches?1400:900);
+  render();
+});
+function step(d){
+  pause(); state.pin=null;
+  const {first,last}=playBounds();
+  if(!state.playWk) state.playWk=d>0?first:last;
+  else { const w=addD(state.playWk,7*d); state.playWk=w<first?first:w>last?last:w; }
+  render();
+}
+$('prev').addEventListener('click',()=>step(-1));
+$('next').addEventListener('click',()=>step(1));
+$('stop').addEventListener('click',()=>{ pause(); state.playWk=null; render(); playBtn.focus(); });
+document.addEventListener('keydown',ev=>{
+  if(ev.key!=='Escape'||openM) return;
+  if(state.pin){ state.pin=null; render(); } else if(state.playWk){ pause(); state.playWk=null; render(); }
+});
+
+/* ---------- the feed ---------- */
+const cmp=(a,b)=>a.date<b.date?1:a.date>b.date?-1:(a.id<b.id?1:a.id>b.id?-1:0);
+const domId=id=>'d-'+String(id).replace(/[^\w-]/g,'_');
+function fmtWk(wk){ return 'Week of '+(+wk.slice(8,10))+' '+MON[+wk.slice(5,7)-1]+(+wk.slice(0,4)===NOWY?'':' '+wk.slice(0,4)); }
+
+function renderFeed(inR){
+  let list;
+  if(state.pin) list=state.pin.ids.map(id=>byId.get(id)).filter(Boolean);
+  else if(state.playWk) list=inR.filter(e=>e._wk===state.playWk);
+  else list=inR;
+  list=list.slice().sort(cmp);
+
+  const pl=$('pinline');
+  if(state.pin){
+    pl.hidden=false;
+    pl.replaceChildren(h('span',{text:state.pin.line}),'·',h('button',{type:'button',text:'clear',onclick:()=>{state.pin=null; render();}}));
+  } else pl.hidden=true;
+
+  const feed=$('feed'); feed.replaceChildren();
+  const pinIds=state.pin?new Set(state.pin.ids):null;
+  if(!list.length){
+    if(state.playWk&&!state.pin) feed.append(h('h3',{class:'wk now',text:fmtWk(state.playWk)}));
+    feed.append(h('p',{class:'empty',text:state.playWk&&!state.pin?'Nothing recorded this week.':'Nothing matches this question.'}));
+  }
+  let wk=null, ul=null;
+  for(const e of list.slice(0,state.limit)){
+    if(e._wk!==wk){
+      wk=e._wk;
+      feed.append(h('h3',{class:'wk'+(state.playWk===wk&&!state.pin?' now':''),text:fmtWk(wk)}));
+      ul=h('ul',{class:'rows'}); feed.append(ul);
+    }
+    ul.append(rowEl(e,pinIds));
+  }
+  const more=$('more');
+  more.hidden=list.length<=state.limit;
+}
+$('more').addEventListener('click',()=>{ state.limit+=40; render(); });
+
+function rowEl(e,pinIds){
+  const open=state.open.has(e.id);
+  const hasAmt=e.amount!=null&&!!e.currency;
+  const nrep=Array.isArray(e.reports)?e.reports.length:0;
+  const rev=e.evidence==='reviewed';
+  const li=h('li',{class:[open?'open':'',pinIds&&pinIds.has(e.id)?'pinned':''].join(' ').trim()||null});
+  const btn=h('button',{type:'button',class:'row','aria-expanded':String(open),'aria-controls':open?domId(e.id):null},
+    h('span',{class:'d',text:fmtD(e.date)}),
+    h('span',{class:'n'},h('span',{text:e._name}),
+      e._sector!=='other'?h('span',{class:'theme-tag','data-theme':SECTOR_THEME[e._sector]||null,text:secLabel(e._sector)}):null),
+    h('span',{class:'st'+(e.stage==='halted'?' halt':''),text:STAGE[e.stage]||cap(e.stage||'unclear')}),
+    hasAmt?h('span',{class:'amt',text:fmtAmt(e.amount,e.currency)})
+      :h('span',{class:'amt none',title:gapAmt(e)[1],text:gapAmt(e)[0]}),
+    e._short?h('span',{class:'src',text:e._short}):h('span',{class:'src none',title:gapSrc(e)[1],text:gapSrc(e)[0]}),
+    h('span',{class:'meta'},nrep>1?h('span',{text:nrep+' reports'}):null,
+      h('span',{class:'ev '+(rev?'rev':'mr'),role:'img','aria-label':rev?'Reviewed record':'Machine-read, not yet reviewed',
+        title:rev?'Reviewed record':'Machine-read, not yet reviewed'})));
+  btn.addEventListener('click',()=>{
+    if(state.open.has(e.id)) state.open.delete(e.id); else state.open.add(e.id);
+    const nl=rowEl(e,state.pin?new Set(state.pin.ids):null); li.replaceWith(nl); nl.querySelector('.row').focus();
+  });
+  li.append(btn);
+  if(open){ const d=detailEl(e); li.append(d); requestAnimationFrame(()=>centerTrack(d)); }
+  return li;
+}
+function centerTrack(d){
+  const t=d.querySelector('.track'), c=t&&t.querySelector('.cur');
+  if(c&&t.scrollWidth>t.clientWidth) t.scrollLeft=Math.max(0,c.offsetLeft-40);
+}
+function detailEl(e){
+  const all=byProject.get(e._pid)||[e];
+  const multi=new Set(all.map(x=>x.line_id)).size>1;
+  const track=h('ol',{class:'track','aria-label':'Every event on this initiative'});
+  for(const x of all){
+    const cls=['stop',x.id===e.id?'cur':'',x._b?'m':'',x.stage==='halted'?'halt':''].filter(Boolean).join(' ');
+    track.append(h('li',{class:cls,'aria-current':x.id===e.id?'true':null},
+      h('span',{class:'dot','aria-hidden':'true'}),
+      h('span',{class:'sl',text:STAGE[x.stage]||cap(x.stage||'unclear')}),
+      h('span',{class:'sd',text:fmtDY(x.date)}),
+      x.amount!=null&&x.currency?h('span',{class:'sa',text:fmtAmt(x.amount,x.currency)}):null,
+      multi?h('span',{class:'ss',text:x._short||'Funder not named'}):null));
+  }
+  const srcs=h('ul',{class:'srcs'}), seen=new Set();
+  for(const s of (e.sources||[])){
+    if(!s||seen.has(s.url||s.title)) continue; seen.add(s.url||s.title);
+    const kind=s.kind==='official'?'official':'news';
+    const title=s.title||s.url||'Source';
+    srcs.append(h('li',null,
+      h('span',{class:'tag '+kind,text:kind}),
+      s.outlet?h('span',{class:'o',text:s.outlet}):null,
+      s.date?h('span',{class:'dt',text:fmtDY(s.date.slice(0,10))}):null,
+      /^https?:\/\//i.test(s.url||'')?h('a',{href:s.url,target:'_blank',rel:'noopener noreferrer',text:title}):h('span',{text:title})));
+  }
+  const gaps=[e.amount!=null&&e.currency?null:gapAmt(e)[1],e._short?null:gapSrc(e)[1]].filter(Boolean);
+  return h('div',{class:'detail',id:domId(e.id)},track,srcs.childNodes.length?srcs:null,
+    e.notes?h('p',{class:'notes',text:e.notes}):null,
+    gaps.length?h('p',{class:'notes gaps',text:gaps.join(' ')}):null);
+}
+
+/* ---------- AI hand-off ---------- */
+function aiQuestion(){
+  const r=range();
+  const what={all:'all public initiatives and money events',money:'public initiative events with a reported amount',none:'public initiative events with no reported amount'}[state.what];
+  let s='Using the developing-country connector, show me '+what;
+  if(state.src!=='any') s+=' from '+(state.src==='overseas'?'all overseas sources':state.src==='none'?'sources that are not stated':SRCNAME[state.src]);
+  if(state.sector!=='any') s+=' in the '+secLabel(state.sector).toLowerCase()+' sector';
+  s+=', dated '+r.from+' to '+r.to;
+  if(state.split!=='none') s+=', split by '+state.split;
+  if(state.pin) s+=' — specifically the '+state.pin.line.replace(/^Showing the /,'');
+  s+='. Total the money by stage (announced, approved, contracted, paid) with one figure per currency: never add across currencies or stages, count each funding line once per stage, and add paid tranches only.';
+  const where=[{field:'date',op:'>=',value:r.from},{field:'date',op:'<=',value:r.to}];
+  if(state.what==='money') where.push({field:'amount',op:'is_not_null'});
+  if(state.what==='none') where.push({field:'amount',op:'is_null'});
+  if(state.src==='overseas') where.push({field:'origin',op:'=',value:'overseas'});
+  else if(state.src==='gosl') where.push({field:'origin',op:'=',value:'domestic'});
+  else if(state.src==='none') where.push({field:'origin',op:'=',value:'unknown'});
+  else if(state.src==='other') where.push({field:'origin',op:'=',value:'overseas'},{field:'funder',op:'not_in',value:OVERSEAS_KEYS.filter(k=>k!=='other')});
+  else if(state.src!=='any') where.push({field:'funder',op:'=',value:state.src});
+  if(state.sector!=='any') where.push({field:'sector',op:'=',value:state.sector});
+  if(state.pin){ where.push({field:'bucket',op:'=',value:state.pin.bucket}); if(state.pin.cur) where.push({field:'currency',op:'=',value:state.pin.cur}); }
+  const q={op:'select',dataset_id:'lk-initiative-events',
+    fields:['date','stage','bucket','funder','origin','instrument','sector','amount','currency'],
+    where,order_by:[{field:'date',direction:'desc'}]};
+  return s+'\n\nquery_data '+JSON.stringify(q);
+}
+const copyBtn=$('copy'), ta=$('copyta'); let copyT=null;
+function copied(label){ copyBtn.textContent=label; clearTimeout(copyT); copyT=setTimeout(()=>{copyBtn.textContent='Copy question';},2000); }
+function fallbackCopy(text){
+  ta.value=text; ta.hidden=false; ta.focus(); ta.select();
+  let ok=false; try{ ok=document.execCommand('copy'); }catch(_){}
+  if(ok){ ta.hidden=true; copyBtn.focus(); copied('Copied'); } else copied('Selected');
+}
+copyBtn.addEventListener('click',()=>{
+  const text=aiQuestion();
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{ ta.hidden=true; copied('Copied'); },()=>fallbackCopy(text));
+  } else fallbackCopy(text);
+});
+
+/* ---------- render ---------- */
+let last=null;
+function render(){
+  const r=range();
+  const base=EV.filter(qMatch);
+  const inR=base.filter(e=>e.date>=r.from&&e.date<=r.to);
+  const stripEvs=state.playWk?inR.filter(e=>e.date<=addD(state.playWk,6)):inR;
+  renderSlots();
+  renderStrip(stripEvs);
+  renderBand(base,r);
+  renderFeed(inR);
+  last={base,r};
+  playBtn.textContent=state.playing?'❚❚':'▶';
+  playBtn.setAttribute('aria-pressed',String(state.playing));
+  playBtn.setAttribute('aria-label',state.playing?'Pause':'Play week by week');
+  $('stop').hidden=!state.playWk;
+}
+let rz=0;
+const ro=new ResizeObserver(()=>{ cancelAnimationFrame(rz); rz=requestAnimationFrame(()=>{ if(last&&!drag) renderBand(last.base,last.r); }); });
+ro.observe($('bandwrap'));
+render();
+}
+
+(async () => {
+  const root = document.getElementById('money')
+  try {
+    const res = await fetch(root.dataset.src, { headers: { Accept: 'application/json' } })
+    const type = res.headers.get('content-type') || ''
+    if (!res.ok || !type.includes('json')) throw new Error(`ledger ${res.status}`)
+    start(await res.json())
+  } catch (error) {
+    console.error('money_ledger_unavailable', error)
+    const feed = document.getElementById('feed')
+    if (feed) feed.innerHTML = '<p class="empty">The ledger could not be loaded. Try again in a moment.</p>'
+  }
+})()
+</script>

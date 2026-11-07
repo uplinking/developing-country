@@ -1,0 +1,2043 @@
+{
+  "$comment": "Provenance registry for developing-country.org. One entry per source; the MCP catalog projects source location, field schema, freshness, completeness, and storage for every queryable dataset. `refresh` is a Bun command, `curated`, or a live source. `refreshed` is when evidence was last fetched or re-verified.",
+  "country": "LK",
+  "freshness_policy": {
+    "automated_default_days": 30,
+    "curated_default_days": 90,
+    "overdue_multiplier": 2,
+    "meaning": "A stale flag requests review; it never silently replaces a Dataset Version or changes a published Data View."
+  },
+  "sources": [
+    {
+      "id": "kdp-2025",
+      "name": "Kandy Development Plan 2025–2035 (UDA)",
+      "publisher": "Urban Development Authority, Sri Lanka",
+      "url": "https://www.uda.gov.lk/attachments/dev-plans-2025-2035/KandyDevelopmentPlan-English.pdf",
+      "licence": "Government publication (public)",
+      "vintage": "2025–2035",
+      "refreshed": "2026-08",
+      "refresh": "curated",
+      "layers": [
+        "developments"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "cpcec",
+      "name": "Colombo Port City Economic Commission (CPCEC)",
+      "publisher": "Government of Sri Lanka — CPCEC Act No. 11 of 2021",
+      "url": "https://www.portcitycolombo.gov.lk/port-city-colombo",
+      "licence": "Government publication (public)",
+      "vintage": "2021",
+      "refreshed": "2026-08-16",
+      "refresh": "curated",
+      "layers": [
+        "developments"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "rda",
+      "name": "Road Development Authority (expressway programme)",
+      "publisher": "Road Development Authority / Ministry of Highways, Sri Lanka",
+      "url": "https://www.rda.gov.lk/",
+      "licence": "Government / press announcements",
+      "vintage": "2026",
+      "refreshed": "2026-08-16",
+      "refresh": "bun scripts/apply-curated-expressways.mjs",
+      "refresh_mode": "curated",
+      "layers": [
+        "expressways",
+        "developments"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "slpa",
+      "name": "Sri Lanka Ports Authority (Colombo Port terminals)",
+      "publisher": "Sri Lanka Ports Authority",
+      "url": "https://www.slpa.lk/",
+      "licence": "Government / operator announcements",
+      "vintage": "2026",
+      "refreshed": "2026-08-16",
+      "refresh": "curated",
+      "layers": [
+        "developments"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "aasl",
+      "name": "Airport & Aviation Services Sri Lanka",
+      "publisher": "AASL / Ministry of Ports & Civil Aviation",
+      "url": "https://www.airport.lk/",
+      "licence": "Government / JICA project docs",
+      "vintage": "2026",
+      "refreshed": "2026-08-16",
+      "refresh": "curated",
+      "layers": [
+        "developments"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "mot",
+      "name": "Ministry of Transport & Highways (rail / transit)",
+      "publisher": "Ministry of Transport & Highways, Sri Lanka",
+      "url": "https://www.transport.gov.lk/",
+      "licence": "Government / press announcements",
+      "vintage": "2026",
+      "refreshed": "2026-08-16",
+      "refresh": "curated",
+      "layers": [
+        "developments"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "moe",
+      "name": "Ministry of Energy (power / refinery / oil hubs)",
+      "publisher": "Ministry of Energy / CEB / BOI, Sri Lanka",
+      "url": "https://energy.gov.lk/",
+      "licence": "Government / press announcements",
+      "vintage": "2026",
+      "refreshed": "2026-08-16",
+      "refresh": "curated",
+      "layers": [
+        "developments"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "irrigation",
+      "name": "Ministry of Irrigation / Water Supply (Mahaweli, NWSDB, ADB)",
+      "publisher": "Mahaweli Authority / NWSDB / Asian Development Bank",
+      "url": "https://www.mahaweli.gov.lk/",
+      "licence": "Government / ADB project docs",
+      "vintage": "2026",
+      "refreshed": "2026-08-16",
+      "refresh": "curated",
+      "layers": [
+        "developments"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "lk-irrigation-hydrology-stations",
+      "name": "Irrigation Department hydrology stations (compiled by nuuuwan/lk_irrigation)",
+      "publisher": "Irrigation Department of Sri Lanka",
+      "url": "https://www.irrigation.gov.lk/web/index.php?option=com_content&view=article&id=27&Itemid=128&lang=en",
+      "licence": "Station list compiled under MIT (nuuuwan/lk_irrigation); underlying hydrology figures are Sri Lanka government data whose reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "2026-09",
+      "refreshed": "2026-09-11",
+      "refresh": "bun scripts/fetch-irrigation-gauges.mjs",
+      "freshness_days": 90,
+      "layers": [
+        "irrigation-gauges"
+      ]
+    },
+    {
+      "id": "boi",
+      "name": "Board of Investment (industrial zones)",
+      "publisher": "Board of Investment of Sri Lanka",
+      "url": "https://investsrilanka.com/",
+      "licence": "Government / press announcements",
+      "vintage": "2026",
+      "refreshed": "2026-08-16",
+      "refresh": "curated",
+      "layers": [
+        "developments",
+        "boi-zones"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "osm",
+      "name": "OpenStreetMap",
+      "publisher": "OpenStreetMap contributors",
+      "url": "https://www.openstreetmap.org/",
+      "licence": "ODbL",
+      "vintage": "2026-10",
+      "refreshed": "2026-10-19",
+      "refresh": "bun run fetch:explore && bun run fetch:expressways && bun run fetch:civic",
+      "scheduled": true,
+      "layers": [
+        "attractions",
+        "waterfalls",
+        "trails",
+        "cycling",
+        "parks",
+        "expressways",
+        "roads",
+        "water",
+        "schools",
+        "hospitals",
+        "sea-routes",
+        "metro_walksheds",
+        "metro-coverage-stops",
+        "metro-coverage-lines",
+        "metro-coverage-gnd",
+        "metro-coverage-facilities",
+        "metro-coverage-deciles",
+        "metro-gap-clusters",
+        "metro-stop-uniqueness",
+        "metro-route-candidates",
+        "metro-route-scenarios"
+      ],
+      "licence_status": "open"
+    },
+    {
+      "id": "overture-places",
+      "name": "Overture Maps Places (release 2026-09-23.1)",
+      "publisher": "Overture Maps Foundation",
+      "url": "https://docs.overturemaps.org/guides/places/",
+      "licence": "CDLA-Permissive-2.0; only rows whose every source licence is CDLA-Permissive-2.0, Apache-2.0 or CC0 are kept",
+      "licence_status": "open",
+      "vintage": "2026-09-23.1",
+      "refreshed": "2026-10-20",
+      "refresh": "uvx --with duckdb python -I scripts/fetch-overture-places.py && bun scripts/build-workplaces.mjs",
+      "refresh_mode": "curated",
+      "freshness_days": 120,
+      "layers": [
+        "workplaces",
+        "metro_walksheds",
+        "metro-coverage-stops",
+        "metro-coverage-lines",
+        "metro-coverage-gnd",
+        "metro-coverage-facilities",
+        "metro-coverage-deciles",
+        "metro-gap-clusters",
+        "metro-stop-uniqueness",
+        "metro-route-candidates",
+        "metro-route-scenarios"
+      ]
+    },
+    {
+      "id": "lk-metro",
+      "name": "nuuuwan/lk_metro",
+      "publisher": "Nuwan Senaratna (community, MIT)",
+      "url": "https://github.com/nuuuwan/lk_metro",
+      "licence": "MIT",
+      "vintage": "2026",
+      "refreshed": "2026-10-19",
+      "refresh": "bun run fetch:metro",
+      "scheduled": true,
+      "layers": [
+        "metro",
+        "metro_catchment",
+        "metro_walksheds",
+        "metro-coverage-stops",
+        "metro-coverage-lines",
+        "metro-coverage-gnd",
+        "metro-coverage-facilities",
+        "metro-coverage-deciles",
+        "metro-gap-clusters",
+        "metro-stop-uniqueness",
+        "metro-route-candidates",
+        "metro-route-scenarios"
+      ],
+      "licence_status": "open"
+    },
+    {
+      "id": "osm-walk-colombo",
+      "name": "Colombo OSM foot graph (isochrone)",
+      "publisher": "OpenStreetMap contributors — packed by developing-country.org",
+      "url": "https://www.openstreetmap.org/",
+      "licence": "ODbL",
+      "vintage": "2026-10",
+      "refreshed": "2026-10-19",
+      "refresh": "bun run build:walk-graph",
+      "layers": [
+        "osm_foot_graph",
+        "metro_catchment",
+        "metro_walksheds",
+        "metro-coverage-stops",
+        "metro-coverage-lines",
+        "metro-coverage-gnd",
+        "metro-coverage-facilities",
+        "metro-coverage-deciles",
+        "metro-gap-clusters",
+        "metro-stop-uniqueness",
+        "metro-route-candidates",
+        "metro-route-scenarios"
+      ],
+      "licence_status": "open"
+    },
+    {
+      "id": "metro-coverage",
+      "name": "Colombo Metro Bus walking coverage (derived analysis)",
+      "publisher": "developing-country.org — derived from lk_metro, OpenStreetMap, Census 2024, gig-data and Overture Maps Places",
+      "url": "https://developing-country.org/data/metro-coverage-lines",
+      "licence": "ODbL 1.0 (derivative of OpenStreetMap); inputs MIT (lk_metro, gig-data) and DCS Census 2024 figures, whose reuse terms are not stated",
+      "licence_status": "permission_unclear",
+      "vintage": "2026-10",
+      "refreshed": "2026-10-20",
+      "refresh": "bun scripts/build-metro-coverage.mjs && bun scripts/build-metro-alternatives.mjs",
+      "freshness_days": 90,
+      "layers": [
+        "metro_walksheds",
+        "metro-coverage-stops",
+        "metro-coverage-lines",
+        "metro-coverage-gnd",
+        "metro-coverage-facilities",
+        "metro-coverage-deciles",
+        "metro-gap-clusters",
+        "metro-stop-uniqueness",
+        "metro-route-candidates",
+        "metro-route-scenarios"
+      ]
+    },
+    {
+      "id": "lk-census-2012",
+      "name": "Sri Lanka Census of Population & Housing 2012 (via nuuuwan/gig-data)",
+      "publisher": "Dept. of Census & Statistics; geometries via nuuuwan/gig-data",
+      "url": "https://github.com/nuuuwan/gig-data",
+      "licence": "MIT (geometries); official census (data)",
+      "vintage": "2012",
+      "refreshed": "2026-08",
+      "refresh": "bun scripts/build-demographics.mjs && bash scripts/build-demographics-tiles.sh",
+      "freshness_days": 365,
+      "layers": [
+        "demographics"
+      ],
+      "licence_status": "open"
+    },
+    {
+      "id": "lk-census-2024",
+      "name": "Sri Lanka Census of Population & Housing 2024 (via nuuuwan/lk_census_2024)",
+      "publisher": "Dept. of Census & Statistics; parser via nuuuwan/lk_census_2024",
+      "url": "https://github.com/nuuuwan/lk_census_2024",
+      "licence": "MIT (parser/tables); official census (figures)",
+      "vintage": "2024",
+      "refreshed": "2026-08-20",
+      "refresh": "bun run build:admin-index && bun scripts/build-demographics.mjs && bash scripts/build-demographics-tiles.sh",
+      "freshness_days": 365,
+      "layers": [
+        "demographics",
+        "metro_walksheds",
+        "metro-coverage-stops",
+        "metro-coverage-lines",
+        "metro-coverage-gnd",
+        "metro-coverage-facilities",
+        "metro-coverage-deciles",
+        "metro-gap-clusters",
+        "metro-stop-uniqueness",
+        "metro-route-candidates",
+        "metro-route-scenarios"
+      ],
+      "licence_status": "open"
+    },
+    {
+      "id": "gig-data-gnd-boundaries",
+      "name": "GN division boundaries (nuuuwan/gig-data geo/gnd)",
+      "publisher": "Nuwan Senaratna (community, MIT); boundaries from the Department of Census and Statistics Census 2012 GN map",
+      "url": "https://github.com/nuuuwan/gig-data",
+      "licence": "MIT (gig-data repository); underlying DCS boundaries",
+      "vintage": "Census 2012 GN boundaries",
+      "refreshed": "2026-10-19",
+      "refresh": "bun scripts/build-metro-coverage.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "metro_walksheds",
+        "metro-coverage-stops",
+        "metro-coverage-lines",
+        "metro-coverage-gnd",
+        "metro-coverage-facilities",
+        "metro-coverage-deciles",
+        "metro-gap-clusters",
+        "metro-stop-uniqueness",
+        "metro-route-candidates",
+        "metro-route-scenarios"
+      ],
+      "licence_status": "open"
+    },
+    {
+      "id": "lk-census-2012-2024-district-change",
+      "name": "Census 2012 and 2024 district population change",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Population/StaticalInformation/CPH2024",
+      "licence": "MIT (lk_census_2024 parser, gig-data geometries); DCS official census (figures)",
+      "licence_status": "permission_unclear",
+      "vintage": "Census 2012 and Census 2024",
+      "refreshed": "2026-08-20",
+      "refresh": "bun scripts/build-population-change.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "population-change",
+        "population-change-district"
+      ]
+    },
+    {
+      "id": "aws-terrain",
+      "name": "AWS Terrain Tiles (NASA SRTM)",
+      "publisher": "AWS Open Data",
+      "url": "https://registry.opendata.aws/terrain-tiles/",
+      "licence": "Public domain (SRTM)",
+      "vintage": "SRTM 2000",
+      "refreshed": "2000",
+      "refresh": "live",
+      "layers": [
+        "hillshade"
+      ],
+      "licence_status": "open"
+    },
+    {
+      "id": "sea-routes",
+      "name": "Sea routes over the global marine network (searoute-js / Eurostat marnet)",
+      "publisher": "Eurostat searoute · marnet marine network",
+      "url": "https://github.com/eurostat/searoute",
+      "licence": "EUPL-1.2 (searoute) — shortest-path over marine network, not AIS-surveyed",
+      "vintage": "2026",
+      "refreshed": "2026-08-17",
+      "refresh": "bun scripts/build-sea-routes.mjs",
+      "freshness_days": 180,
+      "layers": [
+        "sea-routes"
+      ],
+      "licence_status": "open"
+    },
+    {
+      "id": "worldclim",
+      "name": "WorldClim 2.1 climate normals",
+      "publisher": "WorldClim",
+      "url": "https://www.worldclim.org/data/worldclim21.html",
+      "licence": "CC-BY 4.0",
+      "vintage": "1970–2000 normals",
+      "refreshed": "2026-08-20",
+      "refresh": "bun run data",
+      "freshness_days": 365,
+      "layers": [
+        "climate"
+      ],
+      "licence_status": "open"
+    },
+    {
+      "id": "suncalc",
+      "name": "SunCalc astronomical calculations",
+      "publisher": "Vladimir Agafonkin / mourner",
+      "url": "https://github.com/mourner/suncalc",
+      "licence": "BSD-2-Clause",
+      "vintage": "live computation",
+      "refreshed": "2026-08-20",
+      "refresh": "live",
+      "layers": [
+        "sun"
+      ],
+      "licence_status": "open"
+    },
+    {
+      "id": "stepper",
+      "name": "Stepper curated places",
+      "publisher": "steppermap.com / @Stepper9210",
+      "url": "https://steppermap.com/",
+      "licence": "Shared with permission — © @Stepper9210",
+      "vintage": "live adapter",
+      "refreshed": "2026-08-20",
+      "refresh": "live",
+      "layers": [
+        "stepper"
+      ],
+      "licence_status": "restricted"
+    },
+    {
+      "id": "moh-register",
+      "name": "Ministry of Health facility register",
+      "publisher": "Ministry of Health, Sri Lanka",
+      "url": "https://www.health.gov.lk/",
+      "licence": "Unknown — no reusable national GIS ingested",
+      "vintage": "not ingested",
+      "refreshed": "2026-08-20",
+      "refresh": "curated",
+      "layers": [
+        "clinic_moh"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "jsc-register",
+      "name": "Judicial Service Commission court register",
+      "publisher": "Judicial Service Commission, Sri Lanka",
+      "url": "https://jsc.gov.lk/",
+      "licence": "Unknown — no reusable national GIS ingested",
+      "vintage": "not ingested",
+      "refreshed": "2026-08-20",
+      "refresh": "curated",
+      "layers": [
+        "courthouse"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "cea-noise",
+      "name": "National Environmental (Noise Control) Regulations",
+      "publisher": "Central Environmental Authority, Sri Lanka",
+      "url": "https://www.cea.lk/",
+      "licence": "Sri Lanka government publication",
+      "vintage": "Gazette 924/12 (1996, amended 1997)",
+      "refreshed": "2026-08-20",
+      "refresh": "curated",
+      "layers": [
+        "silent_zone",
+        "noise_ordinance"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "dcs-cph-2024-population-gnd",
+      "name": "Census of Population and Housing 2024 — GN population, sex and age workbook",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Population/StaticalInformation/CPH2024/",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "Census 2024 (provisional)",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-official-indicators.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "census-age-sex-dsd",
+        "census-households-dsd"
+      ]
+    },
+    {
+      "id": "dcs-cph-2024-households-gnd",
+      "name": "Census of Population and Housing 2024 — GN households and housing workbook",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Population/StaticalInformation/CPH2024/",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "Census 2024 (provisional)",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-official-indicators.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "census-households-dsd"
+      ]
+    },
+    {
+      "id": "dcs-cph-2024-basic-housing",
+      "name": "Census of Population and Housing 2024 — district household services tables",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Population/StaticalInformation/CPH2024/",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "Census 2024",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-official-indicators.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "census-basic-services-district"
+      ]
+    },
+    {
+      "id": "dcs-cph-2024-housing-structure",
+      "name": "Census of Population and Housing 2024 — Table A1 housing-unit structure by district",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Population/StaticalInformation/CPH2024/HousingA/A1",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "Census 2024",
+      "refreshed": "2026-09-11",
+      "refresh": "bun scripts/build-census-housing.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "census-housing-structure-district"
+      ]
+    },
+    {
+      "id": "dcs-cph-2024-ethnicity",
+      "name": "Census of Population and Housing 2024 Final Report — Table 6.1.11 ethnicity by district",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/Population/CPH_2024/CPH2024_Final_Eng.pdf",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "Census 2012 and Census 2024",
+      "refreshed": "2026-09-11",
+      "refresh": "bun scripts/build-census-identity.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "census-ethnicity-district"
+      ]
+    },
+    {
+      "id": "dcs-cph-2024-religion",
+      "name": "Census of Population and Housing 2024 Final Report — Tables 6.1.14 and 6.1.15 religion by district",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/Population/CPH_2024/CPH2024_Final_Eng.pdf",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "Census 2012 and Census 2024",
+      "refreshed": "2026-09-11",
+      "refresh": "bun scripts/build-census-identity.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "census-religion-district"
+      ]
+    },
+    {
+      "id": "dcs-ccpi-2021",
+      "name": "Movements of the CCPI and CCPI Core (2021=100)",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/InflationAndPrices/CCPI/Movements_of_CCPI-CCPI_Core_2021.pdf",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "2022-01–2026-08",
+      "refreshed": "2026-09-11",
+      "refresh": "bun scripts/build-official-indicators.mjs",
+      "freshness_days": 45,
+      "layers": [
+        "ccpi-monthly"
+      ]
+    },
+    {
+      "id": "dcs-pocket-book-2025-vehicles",
+      "name": "Statistical Pocket Book 2025 — Table 8.2 registered motor vehicles",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Publication/PocketBook2025",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "2020–2024",
+      "refreshed": "2026-09-11",
+      "refresh": "bun scripts/build-motor-vehicles.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "registered-motor-vehicles-annual"
+      ]
+    },
+    {
+      "id": "dcs-statistical-abstract-2025-new-vehicles",
+      "name": "Statistical Abstract 2025 — Table 7.3 new vehicles registered by class and fuel",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP7/7.3.pdf",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "2020–2024",
+      "refreshed": "2026-09-11",
+      "refresh": "bun scripts/build-motor-vehicles.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "new-vehicle-registrations-annual"
+      ]
+    },
+    {
+      "id": "dcs-population-estimates-2025",
+      "name": "Statistical Abstract 2025 — estimated mid-year population by district and sex",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP2/2.1a.pdf",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "2020–2024 estimates",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-official-indicators.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "population-estimates-district"
+      ]
+    },
+    {
+      "id": "dcs-statistical-abstract-2025-labour",
+      "name": "Statistical Abstract 2025 — labour-force participation, employment and unemployment",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP4/4.1a.pdf",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "2016–2024 (2024 provisional)",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-official-indicators.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "labour-force"
+      ]
+    },
+    {
+      "id": "dcs-statistical-abstract-2025-employment",
+      "name": "Statistical Abstract 2025 — employment by major industry group",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP4/4.2a.pdf",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "2018–2024 (2024 provisional)",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-official-indicators.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "employment-by-industry"
+      ]
+    },
+    {
+      "id": "dcs-hies-poverty",
+      "name": "Statistical Abstract 2025 — poverty headcount ratio by district",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP4/4.6.pdf",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "1995/96–2019",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-official-indicators.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "poverty-headcount-district"
+      ]
+    },
+    {
+      "id": "dcs-statistical-abstract-2025-gdp-current",
+      "name": "Statistical Abstract 2025 — GDP by economic activity at current prices",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP10/10.2.pdf",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "2019–2024",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-official-indicators.mjs",
+      "freshness_days": 180,
+      "layers": [
+        "gdp-by-industry"
+      ]
+    },
+    {
+      "id": "dcs-statistical-abstract-2025-gdp-constant",
+      "name": "Statistical Abstract 2025 — GDP by economic activity at constant 2015 prices",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP10/10.3.pdf",
+      "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+      "licence_status": "permission_unclear",
+      "vintage": "2019–2024",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-official-indicators.mjs",
+      "freshness_days": 180,
+      "layers": [
+        "gdp-by-industry"
+      ]
+    },
+    {
+      "id": "moh-immr-2024",
+      "name": "Indoor Morbidity and Mortality Return 2024 workbook",
+      "publisher": "Ministry of Health, Sri Lanka",
+      "url": "https://www.health.gov.lk/wp-content/uploads/2025/12/IMMR-Report-2024-final.xlsx",
+      "licence": "Sri Lanka government publication; Ministry site reserves rights and does not state an open-data licence",
+      "licence_status": "permission_unclear",
+      "vintage": "Live discharges 2024; deaths 2023",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-official-indicators.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "inpatient-morbidity-mortality"
+      ]
+    },
+    {
+      "id": "cbsl-external-sector-exports-table-2-02",
+      "name": "External Sector Table 2.02 — merchandise exports by category",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/table2.02_20260930_e.xlsx",
+      "licence": "Official aggregate workbook; freely downloadable, but CBSL does not state an open-data reuse licence",
+      "licence_status": "permission_unclear",
+      "vintage": "2007-01–2026-08; 2024-01 onward provisional",
+      "refreshed": "2026-10-19",
+      "refresh": "bun scripts/build-cbsl-indicators.mjs",
+      "freshness_days": 45,
+      "layers": [
+        "merchandise-trade-monthly",
+        "merchandise-trade-category-annual"
+      ]
+    },
+    {
+      "id": "cbsl-external-sector-imports-table-2-04",
+      "name": "External Sector Table 2.04 — merchandise imports by category",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/table2.04_20260930_e.xlsx",
+      "licence": "Official aggregate workbook; freely downloadable, but CBSL does not state an open-data reuse licence",
+      "licence_status": "permission_unclear",
+      "vintage": "2007-01–2026-08; 2024-01 onward provisional",
+      "refreshed": "2026-10-19",
+      "refresh": "bun scripts/build-cbsl-indicators.mjs",
+      "freshness_days": 45,
+      "layers": [
+        "merchandise-trade-monthly",
+        "merchandise-trade-category-annual"
+      ]
+    },
+    {
+      "id": "cbsl-workers-remittances-table-2-14-2",
+      "name": "External Sector Table 2.14.2 — monthly workers’ remittances",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/table2.14.2_20260930_e.xlsx",
+      "licence": "Official aggregate workbook; freely downloadable, but CBSL does not state an open-data reuse licence",
+      "licence_status": "permission_unclear",
+      "vintage": "2009-01–2026-08",
+      "refreshed": "2026-10-19",
+      "refresh": "bun scripts/build-cbsl-indicators.mjs",
+      "freshness_days": 45,
+      "layers": [
+        "workers-remittances-monthly"
+      ]
+    },
+    {
+      "id": "cbsl-fiscal-operations-table-3-01",
+      "name": "Fiscal Sector Table 3.01 — government fiscal operations",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/table3.01_20260720.xlsx",
+      "licence": "Official aggregate workbook; freely downloadable, but CBSL does not state an open-data reuse licence",
+      "licence_status": "permission_unclear",
+      "vintage": "1990–2025; 2025 provisional",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-cbsl-indicators.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "government-fiscal-operations-annual"
+      ]
+    },
+    {
+      "id": "cbsl-government-revenue-table-3-02",
+      "name": "Fiscal Sector Table 3.02 — government revenue composition",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/table3.02_20260720.xlsx",
+      "licence": "Official aggregate workbook; freely downloadable, but CBSL does not state an open-data reuse licence",
+      "licence_status": "permission_unclear",
+      "vintage": "1990–2025; 2025 provisional",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-cbsl-indicators.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "government-revenue-annual"
+      ]
+    },
+    {
+      "id": "cbsl-central-government-debt-table-3-05",
+      "name": "Fiscal Sector Table 3.05 — outstanding central government debt",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/table3.05_20260720.xlsx",
+      "licence": "Official aggregate workbook; freely downloadable, but CBSL does not state an open-data reuse licence",
+      "licence_status": "permission_unclear",
+      "vintage": "1990–2025; 2024–2025 provisional",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-cbsl-indicators.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "central-government-debt-annual"
+      ]
+    },
+    {
+      "id": "cbsl-land-valuation-indicator",
+      "name": "Land Valuation Indicator for Colombo District",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/en/news/land-valuation-indicator-second-half-of-2025",
+      "licence": "Official aggregate series and press table; freely downloadable, but CBSL does not state an open-data reuse licence",
+      "licence_status": "permission_unclear",
+      "vintage": "2017 H1–2025 H2; 2017 H1=100 series revised in June 2022",
+      "refreshed": "2026-09-10",
+      "refresh": "bun scripts/build-cbsl-indicators.mjs",
+      "freshness_days": 90,
+      "layers": [
+        "colombo-land-valuation-indicator"
+      ]
+    },
+    {
+      "id": "cbsl-real-estate-asking-prices",
+      "name": "Real Estate Market Analysis — Colombo asking-price indices",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/en/statistics/business-surveys/condominium-market-survey",
+      "licence": "Official aggregate series; freely downloadable, but CBSL does not state an open-data reuse licence",
+      "licence_status": "permission_unclear",
+      "vintage": "2022-10–2026-03; 2019=100",
+      "refreshed": "2026-09-11",
+      "refresh": "bun scripts/build-cbsl-real-estate.mjs",
+      "freshness_days": 90,
+      "layers": [
+        "colombo-asking-price-indices"
+      ]
+    },
+    {
+      "id": "cbsl-monthly-average-exchange-rates",
+      "name": "Monthly average exchange rates",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/IF_Monthly_Average_Exchange_Rates.xlsx",
+      "licence": "Official aggregate workbook; freely downloadable, but CBSL does not state an open-data reuse licence",
+      "licence_status": "permission_unclear",
+      "vintage": "1986-01–2026-08",
+      "refreshed": "2026-09-11",
+      "refresh": "bun scripts/build-cbsl-indicators.mjs",
+      "freshness_days": 45,
+      "layers": [
+        "exchange-rates-monthly"
+      ]
+    },
+    {
+      "id": "cbsl-end-of-month-exchange-rates",
+      "name": "End-of-month exchange rates",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/IF_End_of_the_Month_Exchange_Rates.xlsx",
+      "licence": "Official aggregate workbook; freely downloadable, but CBSL does not state an open-data reuse licence",
+      "licence_status": "permission_unclear",
+      "vintage": "1995-01–2026-08",
+      "refreshed": "2026-09-11",
+      "refresh": "bun scripts/build-cbsl-indicators.mjs",
+      "freshness_days": 45,
+      "layers": [
+        "exchange-rates-monthly"
+      ]
+    },
+    {
+      "id": "cbsl-neer-reer-indices",
+      "name": "NEER and REER indices (2017=100)",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/IF_REER.xlsx",
+      "licence": "Official aggregate workbook; freely downloadable, but CBSL does not state an open-data reuse licence",
+      "licence_status": "permission_unclear",
+      "vintage": "2013-01–2026-07; latest months provisional",
+      "refreshed": "2026-09-11",
+      "refresh": "bun scripts/build-cbsl-indicators.mjs",
+      "freshness_days": 45,
+      "layers": [
+        "effective-exchange-rate-indices"
+      ]
+    },
+    {
+      "id": "cbsl-tourism-earnings-table-2-14-1",
+      "name": "External Sector Table 2.14.1 — monthly earnings from tourism",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/table2.14.1_20260930_e.xlsx",
+      "licence": "Official aggregate workbook; freely downloadable, but CBSL does not state an open-data reuse licence",
+      "licence_status": "permission_unclear",
+      "vintage": "2009-01–2026-08; 2026 onward provisional and methodologically revised",
+      "refreshed": "2026-10-19",
+      "refresh": "bun scripts/build-cbsl-indicators.mjs",
+      "freshness_days": 45,
+      "layers": [
+        "tourism-earnings-monthly"
+      ]
+    },
+    {
+      "id": "esa-worldcover-2021",
+      "name": "ESA WorldCover 2021 v200",
+      "publisher": "European Space Agency / WorldCover consortium",
+      "url": "https://esa-worldcover.org/en/data-access",
+      "licence": "CC BY 4.0",
+      "licence_status": "open",
+      "vintage": "2021 v200",
+      "refreshed": "2026-08-31",
+      "refresh": "bun scripts/build-land-cover.mjs",
+      "freshness_days": 365,
+      "layers": [
+        "land-cover-grid",
+        "land-cover-district"
+      ]
+    },
+    {
+      "id": "platform-live",
+      "name": "developing-country.org live user and view records",
+      "publisher": "developing-country.org",
+      "url": "https://developing-country.org/about",
+      "licence": "Caller-owned or community-licensed as declared by each record class",
+      "vintage": "live",
+      "refreshed": "2026-08-26",
+      "refresh": "live",
+      "layers": [
+        "prospects",
+        "issues",
+        "analyses",
+        "regions",
+        "data_views"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "nso-generation-api",
+      "name": "NSO Generation Summary API",
+      "publisher": "National System Operator (Private) Limited, Sri Lanka",
+      "url": "https://edlcare.edl.lk/gensum/details",
+      "licence": "Publicly accessible operator data; an open reuse licence is not stated",
+      "vintage": "2026-09-11–2026-09-11",
+      "refreshed": "2026-10-19",
+      "refresh": "bun scripts/build-electricity-generation.mjs --date=2026-09-11",
+      "refresh_mode": "automated",
+      "freshness_days": 1,
+      "scheduled": false,
+      "layers": [
+        "electricity-generation-quarter-hourly",
+        "electricity-generation-daily"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "treasury-debt",
+      "name": "Sri Lanka Treasury — Quarterly Debt Bulletin",
+      "publisher": "Ministry of Finance, Sri Lanka",
+      "url": "https://www.treasury.gov.lk/web/quarterly-debt-bulletin-erd",
+      "licence": "Public government publication; reuse terms not specified",
+      "vintage": "Quarterly bulletins 2022 Q3–2026 Q2",
+      "refreshed": "2026-10-19",
+      "refresh": "bun scripts/build-treasury.mjs --source treasury-debt",
+      "refresh_mode": "automated",
+      "scheduled": true,
+      "freshness_days": 30,
+      "layers": [
+        "treasury-public-debt",
+        "treasury-domestic-debt",
+        "treasury-external-creditors",
+        "treasury-province-debt",
+        "treasury-guarantees",
+        "treasury-letters-of-comfort"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "treasury-annual",
+      "name": "Sri Lanka Treasury — Final Budget Position Report",
+      "publisher": "Ministry of Finance, Sri Lanka",
+      "url": "https://www.treasury.gov.lk/web/annual-reports",
+      "licence": "Public government publication; reuse terms not specified",
+      "vintage": "2021–2025; 2025 final budget report",
+      "refreshed": "2026-10-19",
+      "refresh": "bun scripts/build-treasury.mjs --source treasury-annual",
+      "refresh_mode": "automated",
+      "scheduled": true,
+      "freshness_days": 30,
+      "layers": [
+        "treasury-soe-finances",
+        "treasury-soe-sector-outturn",
+        "treasury-revenue-budget-outturn",
+        "treasury-province-transfers"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "treasury-fiscal",
+      "name": "Sri Lanka Treasury — Fiscal Strategy Statement",
+      "publisher": "Ministry of Finance, Sri Lanka",
+      "url": "https://www.treasury.gov.lk/web/fiscal-strategy-statement",
+      "licence": "Public government publication; reuse terms not specified",
+      "vintage": "2024–2026 observations; 2027 strategy statement",
+      "refreshed": "2026-10-19",
+      "refresh": "bun scripts/build-treasury.mjs --source treasury-fiscal",
+      "refresh_mode": "automated",
+      "scheduled": true,
+      "freshness_days": 30,
+      "layers": [
+        "treasury-fiscal-performance",
+        "treasury-fiscal-in-year",
+        "treasury-financial-soundness"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "treasury-procurement",
+      "name": "Sri Lanka Treasury — Public Procurement Data",
+      "publisher": "Ministry of Finance, Sri Lanka",
+      "url": "https://www.treasury.gov.lk/web/pfd-public-procurement-data",
+      "licence": "Public government publication; reuse terms not specified",
+      "vintage": "2022–2024 pooled, 2025, 2026 H1",
+      "refreshed": "2026-10-19",
+      "refresh": "bun scripts/build-treasury.mjs --source treasury-procurement",
+      "refresh_mode": "automated",
+      "scheduled": true,
+      "freshness_days": 30,
+      "layers": [
+        "treasury-procurement-status",
+        "treasury-procurement-bids",
+        "treasury-procurement-competitiveness"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "treasury-women",
+      "name": "Sri Lanka Treasury — Women Entrepreneurs Finance Code",
+      "publisher": "Ministry of Finance, Sri Lanka",
+      "url": "https://www.treasury.gov.lk/web/publications",
+      "licence": "Public government publication; reuse terms not specified",
+      "vintage": "2025/2026 reporting cycle",
+      "refreshed": "2026-10-19",
+      "refresh": "bun scripts/build-treasury.mjs --source treasury-women",
+      "refresh_mode": "automated",
+      "scheduled": true,
+      "freshness_days": 30,
+      "layers": [
+        "treasury-women-msme-finance"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "worldbank-sldu-2026-10",
+      "name": "Sri Lanka Development Update, 2026-10",
+      "publisher": "World Bank",
+      "url": "https://documents1.worldbank.org/curated/en/099854410052618368/pdf/IDU-b519d848-09f1-47d1-b782-3378e00f3019.pdf",
+      "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+      "licence_status": "permission_unclear",
+      "vintage": "2026-10",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-sldu.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "worldbank-economic-outlook",
+        "worldbank-poverty-estimates",
+        "worldbank-poverty-province"
+      ]
+    },
+    {
+      "id": "worldbank-sldu-2026-05",
+      "name": "Sri Lanka Development Update, 2026-05",
+      "publisher": "World Bank",
+      "url": "https://documents1.worldbank.org/curated/en/099213205052641407/pdf/IDU-df6d36cb-59f0-4e01-af7b-4893b4d08e24.pdf",
+      "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+      "licence_status": "permission_unclear",
+      "vintage": "2026-05",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-sldu.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "worldbank-economic-outlook",
+        "worldbank-poverty-estimates"
+      ]
+    },
+    {
+      "id": "worldbank-sldu-2025-10",
+      "name": "Sri Lanka Development Update, 2025-10",
+      "publisher": "World Bank",
+      "url": "https://documents1.worldbank.org/curated/en/099154110062538553/pdf/IDU-0573adec-4079-4966-8dff-489e8025668f.pdf",
+      "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+      "licence_status": "permission_unclear",
+      "vintage": "2025-10",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-sldu.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "worldbank-economic-outlook",
+        "worldbank-poverty-estimates"
+      ]
+    },
+    {
+      "id": "worldbank-sldu-2025-04",
+      "name": "Sri Lanka Development Update, 2025-04",
+      "publisher": "World Bank",
+      "url": "https://documents1.worldbank.org/curated/en/099416504222514112/pdf/IDU-5b9c001a-8831-43a2-92e7-71fbee0f642e.pdf",
+      "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+      "licence_status": "permission_unclear",
+      "vintage": "2025-04",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-sldu.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "worldbank-economic-outlook",
+        "worldbank-poverty-estimates"
+      ]
+    },
+    {
+      "id": "worldbank-sldu-2024-10",
+      "name": "Sri Lanka Development Update, 2024-10",
+      "publisher": "World Bank",
+      "url": "https://documents1.worldbank.org/curated/en/099654510092428580/pdf/IDU-d5aa8c92-ec43-44c8-b75b-7ddf3456747e.pdf",
+      "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+      "licence_status": "permission_unclear",
+      "vintage": "2024-10",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-sldu.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "worldbank-economic-outlook",
+        "worldbank-poverty-estimates"
+      ]
+    },
+    {
+      "id": "worldbank-sldu-2024-04",
+      "name": "Sri Lanka Development Update, 2024-04",
+      "publisher": "World Bank",
+      "url": "https://documents1.worldbank.org/curated/en/099053124041518773/pdf/P1813191ff4c370ca1922d13a3701ee8f4f.pdf",
+      "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+      "licence_status": "permission_unclear",
+      "vintage": "2024-04",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-sldu.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "worldbank-economic-outlook"
+      ]
+    },
+    {
+      "id": "worldbank-sldu-2023-10",
+      "name": "Sri Lanka Development Update, 2023-10",
+      "publisher": "World Bank",
+      "url": "https://documents1.worldbank.org/curated/en/099807010022320004/pdf/IDU0e8d0983c05238044150a6a60b6949b0e03d5.pdf",
+      "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+      "licence_status": "permission_unclear",
+      "vintage": "2023-10",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-sldu.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "worldbank-economic-outlook",
+        "worldbank-poverty-estimates"
+      ]
+    },
+    {
+      "id": "worldbank-sldu-2023-04",
+      "name": "Sri Lanka Development Update, 2023-04",
+      "publisher": "World Bank",
+      "url": "https://documents1.worldbank.org/curated/en/099052823154030000/pdf/P1795590b753e0063080da06d77c1b4cbe5.pdffinal.pdf",
+      "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+      "licence_status": "permission_unclear",
+      "vintage": "2023-04",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-sldu.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "worldbank-economic-outlook"
+      ]
+    },
+    {
+      "id": "worldbank-sldu-2022-10",
+      "name": "Sri Lanka Development Update, 2022-10",
+      "publisher": "World Bank",
+      "url": "https://thedocs.worldbank.org/en/doc/6c87e47ca3f08a4b13e67f79aec8fa3b-0310062022/original/Sri-Lanka-Development-Update-October-2022-final.pdf",
+      "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+      "licence_status": "permission_unclear",
+      "vintage": "2022-10",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-sldu.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "worldbank-economic-outlook",
+        "worldbank-poverty-estimates"
+      ]
+    },
+    {
+      "id": "worldbank-sldu-2021-04",
+      "name": "Sri Lanka Development Update, 2021-04",
+      "publisher": "World Bank",
+      "url": "https://documents1.worldbank.org/curated/en/284901624350168752/pdf/Sri-Lanka-Development-Update-2021.pdf",
+      "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+      "licence_status": "permission_unclear",
+      "vintage": "2021-04",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-sldu.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "worldbank-economic-outlook",
+        "worldbank-poverty-estimates"
+      ]
+    },
+    {
+      "id": "dcs-ncpi-food-nonfood",
+      "name": "National Consumer Price Index: food and nonfood groups",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/InflationAndPrices/NCPI/Inflation-FoodAndNonFoodGroups.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Historical workbook/page reviewed October 2026",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "ncpi-monthly"
+      ]
+    },
+    {
+      "id": "dcs-lfs-2025-q2",
+      "name": "Sri Lanka Labour Force Survey, 2025 Q2",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/LabourForce/Quarterly_Reports/2025Q2report.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2025-Q2",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "labour-force-sex-history",
+        "labour-employment-profile-history"
+      ]
+    },
+    {
+      "id": "dcs-lfs-2026-q1",
+      "name": "Sri Lanka Labour Force Survey, 2026 Q1",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/LabourForce/Quarterly_Reports/1stQuarter2026.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2026-Q1",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "labour-force-sex-history",
+        "labour-employment-profile-history"
+      ]
+    },
+    {
+      "id": "dcs-lfs-2025-q4",
+      "name": "Sri Lanka Labour Force Survey, 2025 Q4",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/LabourForce/Quarterly_Reports/2025Q4report.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2025-Q4",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "labour-force-sex-history",
+        "labour-employment-profile-history"
+      ]
+    },
+    {
+      "id": "dcs-paddy-harvested-maha",
+      "name": "Paddy harvested area, Maha seasonal history",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Agriculture/StaticalInformation/PaddyStatistics/Harvested_Extent-Maha_Seasons-1979-2025",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Historical workbook/page reviewed October 2026",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "paddy-harvested-area-history"
+      ]
+    },
+    {
+      "id": "dcs-paddy-yield-maha",
+      "name": "Paddy yield, Maha seasonal history",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Agriculture/StaticalInformation/PaddyStatistics/Average_Yeild-Maha_Season-1979-2025",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Historical workbook/page reviewed October 2026",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "paddy-yield-history"
+      ]
+    },
+    {
+      "id": "dcs-paddy-production-maha",
+      "name": "Paddy production, Maha seasonal history",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Agriculture/StaticalInformation/PaddyStatistics/Production-Maha_Season-1979-2025",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Historical workbook/page reviewed October 2026",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "paddy-production-history"
+      ]
+    },
+    {
+      "id": "dcs-agricultural-volume-index",
+      "name": "Volume Index of Agricultural Production, 2014–2025",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Agriculture/StaticalInformation/VolumeIndexofAgriculturalProduction",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Historical workbook/page reviewed October 2026",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "agricultural-production-index"
+      ]
+    },
+    {
+      "id": "dcs-paddy-harvested-yala",
+      "name": "Paddy harvested area, Yala seasonal history",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Agriculture/StaticalInformation/PaddyStatistics/Harvested_Extent-Yala_Seasons-1979-2025",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Historical workbook/page reviewed October 2026",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "paddy-harvested-area-history"
+      ]
+    },
+    {
+      "id": "dcs-paddy-sown-maha",
+      "name": "Paddy sown area, Maha seasonal history",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Agriculture/StaticalInformation/PaddyStatistics/Sown_Extent-Maha_Seasons-1979-2025",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Historical workbook/page reviewed October 2026",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "paddy-sown-area-history"
+      ]
+    },
+    {
+      "id": "dcs-paddy-sown-yala",
+      "name": "Paddy sown area, Yala seasonal history",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Agriculture/StaticalInformation/PaddyStatistics/Sown_Extent-Yala_Seasons-1979-2025",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Historical workbook/page reviewed October 2026",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "paddy-sown-area-history"
+      ]
+    },
+    {
+      "id": "dcs-paddy-yield-yala",
+      "name": "Paddy yield, Yala seasonal history",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Agriculture/StaticalInformation/PaddyStatistics/Average_Yeild-Yala_Season-1979-2025",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Historical workbook/page reviewed October 2026",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "paddy-yield-history"
+      ]
+    },
+    {
+      "id": "dcs-paddy-production-yala",
+      "name": "Paddy production, Yala seasonal history",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Agriculture/StaticalInformation/PaddyStatistics/Production-Yala_Season-1979-2025",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Historical workbook/page reviewed October 2026",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "paddy-production-history"
+      ]
+    },
+    {
+      "id": "fhb-home",
+      "name": "Family Health Bureau Nutrition Month results, 2025",
+      "publisher": "Family Health Bureau, Sri Lanka",
+      "url": "https://fhb.health.gov.lk/",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2025",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "child-nutrition-annual"
+      ]
+    },
+    {
+      "id": "dcs-lfs-2019-q4",
+      "name": "Sri Lanka Labour Force Survey, 2019 Q4",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/LabourForce/Quarterly_Reports/2019Q4report.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2019-Q4",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "labour-force-sex-history",
+        "labour-employment-profile-history"
+      ]
+    },
+    {
+      "id": "dcs-lfs-2020-q4",
+      "name": "Sri Lanka Labour Force Survey, 2020 Q4",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/LabourForce/Quarterly_Reports/2020Q4report.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2020-Q4",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "labour-force-sex-history",
+        "labour-employment-profile-history"
+      ]
+    },
+    {
+      "id": "dcs-lfs-2021-q4",
+      "name": "Sri Lanka Labour Force Survey, 2021 Q4",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/LabourForce/Quarterly_Reports/2021Q4report.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2021-Q4",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "labour-force-sex-history",
+        "labour-employment-profile-history"
+      ]
+    },
+    {
+      "id": "dcs-lfs-2022-q4",
+      "name": "Sri Lanka Labour Force Survey, 2022 Q4",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/LabourForce/Quarterly_Reports/2022Q4report.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2022-Q4",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "labour-force-sex-history",
+        "labour-employment-profile-history"
+      ]
+    },
+    {
+      "id": "dcs-lfs-2024-q4",
+      "name": "Sri Lanka Labour Force Survey, 2024 Q4",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/LabourForce/Quarterly_Reports/2024Q4report.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2024-Q4",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "labour-force-sex-history",
+        "labour-employment-profile-history"
+      ]
+    },
+    {
+      "id": "fhb-statistics",
+      "name": "Family Health Bureau Nutrition Month statistics, 2016–2024",
+      "publisher": "Family Health Bureau, Sri Lanka",
+      "url": "https://fhb.health.gov.lk/statistics",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2016–2024",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "child-nutrition-annual"
+      ]
+    },
+    {
+      "id": "dcs-lfs-2023-q4",
+      "name": "Sri Lanka Labour Force Survey, 2023 Q4",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/LabourForce/Quarterly_Reports/2023Q4report.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2023-Q4",
+      "refreshed": "2026-10-13",
+      "refresh": "bun scripts/build-recovery-data.mjs",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "labour-force-sex-history",
+        "labour-employment-profile-history"
+      ]
+    },
+    {
+      "id": "dcs-pocketbook-2026",
+      "name": "Statistical Pocket Book 2026 — reviewed urban-development tables",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Publication/PocketBook2026",
+      "licence": "Public government publication; reuse terms not specified",
+      "vintage": "2026 edition; observation years vary by table",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "local-government-services",
+        "telecom-services",
+        "building-material-prices",
+        "government-health-services",
+        "school-resources",
+        "transport-passengers-freight",
+        "energy-supply-consumption",
+        "minimum-wage-indices",
+        "fisheries-production-capacity",
+        "crop-area-production",
+        "crop-production-costs",
+        "livestock-production",
+        "food-nutrient-availability",
+        "natural-disaster-impacts",
+        "foreign-employment-departures",
+        "employment-by-occupation",
+        "unemployment-by-province",
+        "household-income-inequality",
+        "household-expenditure",
+        "poverty-depth-severity",
+        "weather-station-observations",
+        "administrative-units-district",
+        "vital-statistics",
+        "paddy-irrigation",
+        "tourism-activity",
+        "vocational-training",
+        "school-examination-results",
+        "gdp-expenditure",
+        "external-trade-indices"
+      ],
+      "licence_status": "permission_unclear"
+    },
+    {
+      "id": "dcs-local-revenue-mc-uc-2024",
+      "name": "Statistical Abstract 2025 — municipal and urban council revenue, 2024",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP15/15.4.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2024 provisional; Statistical Abstract 2025",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "local-government-revenue"
+      ]
+    },
+    {
+      "id": "dcs-local-revenue-ps-2024",
+      "name": "Statistical Abstract 2025 — Pradeshiya Sabha revenue by province, 2024",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP15/15.5.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2024 provisional; Statistical Abstract 2025",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "local-government-revenue"
+      ]
+    },
+    {
+      "id": "dcs-local-expenditure-mc-uc-2024",
+      "name": "Statistical Abstract 2025 — municipal and urban council expenditure, 2024",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP15/15.6.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2024 provisional; Statistical Abstract 2025",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "local-government-expenditure"
+      ]
+    },
+    {
+      "id": "dcs-local-expenditure-ps-2024",
+      "name": "Statistical Abstract 2025 — Pradeshiya Sabha expenditure by province, 2024",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP15/15.7.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2024 provisional; Statistical Abstract 2025",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "local-government-expenditure"
+      ]
+    },
+    {
+      "id": "dcs-lfs-2025-annual",
+      "name": "Sri Lanka Labour Force Survey — Annual Report 2025",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/LabourForce/Annual_Reports/LFS2025.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2025 survey; annual report dated 15 September 2026; 2024 Census weights",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "informal-sector-employment-district",
+        "unemployment-by-province"
+      ]
+    },
+    {
+      "id": "dcs-abstract-2025-road-length",
+      "name": "Statistical Abstract 2025 — national road lengths by province",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP7/7.1%207.2.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2020–2024; Statistical Abstract 2025 table 7.1",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "national-road-length"
+      ]
+    },
+    {
+      "id": "dcs-abstract-2025-buildings",
+      "name": "Statistical Abstract 2025 — building construction by district, 2024",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP6/6.7.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2024; Statistical Abstract 2025 table 6.7",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "building-construction-district"
+      ]
+    },
+    {
+      "id": "dcs-abstract-2025-port-traffic",
+      "name": "Statistical Abstract 2025 — port ship traffic",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP7/7.12.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2018–2024",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "port-traffic-cargo"
+      ]
+    },
+    {
+      "id": "dcs-abstract-2025-colombo-cargo",
+      "name": "Statistical Abstract 2025 — Colombo cargo handling",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP7/7.13.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2016–2024",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "port-traffic-cargo"
+      ]
+    },
+    {
+      "id": "dcs-abstract-2025-port-cargo",
+      "name": "Statistical Abstract 2025 — cargo handled by port",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP7/7.14.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2018–2024",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "port-traffic-cargo"
+      ]
+    },
+    {
+      "id": "dcs-abstract-2025-port-performance",
+      "name": "Statistical Abstract 2025 — Colombo port time and handling performance",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP7/7.15.pdf",
+      "licence": "Public government publication; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "2018–2024; table 7.15",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "colombo-port-performance"
+      ]
+    },
+    {
+      "id": "nwsdb-annual-report-2024",
+      "name": "National Water Supply and Drainage Board — Annual Report 2024",
+      "publisher": "National Water Supply and Drainage Board, Sri Lanka",
+      "url": "https://drive.google.com/uc?export=download&id=1WV-EGoscAYLqNtk9obb48-RRz2dcllIB",
+      "licence": "Public annual report; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Annual Report 2024; historical series vary by table",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "water-supply-connections-coverage",
+        "water-operating-performance"
+      ]
+    },
+    {
+      "id": "dcs-cph-2024-final-report",
+      "name": "DCS — Census of Population and Housing 2024 final report",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/Resource/en/Population/CPH_2024/CPH2024_Final_Eng.pdf",
+      "licence": "Public statistical report; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Census 2024, final report; table years vary",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "household-waste-disposal",
+        "household-equipment-use",
+        "housing-occupancy-tenure",
+        "computer-digital-literacy",
+        "language-literacy",
+        "functional-difficulties-disability",
+        "housing-condition-materials"
+      ]
+    },
+    {
+      "id": "ntc-statistics-2024",
+      "name": "National Transport Commission — National Transport Statistics 2024",
+      "publisher": "National Transport Commission, Sri Lanka",
+      "url": "https://ntc.gov.lk/corporate/pdf/2024/stat/Stat2024-EN.pdf",
+      "licence": "Public statistical report; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Report 2024; national crashes 2010–2023 and divisions 2023",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "road-crashes-fatalities",
+        "public-transport-capacity"
+      ]
+    },
+    {
+      "id": "dcs-abstract-2025-road-accidents",
+      "name": "DCS — Statistical Abstract 2025 road accidents",
+      "publisher": "Department of Census and Statistics, Sri Lanka",
+      "url": "https://www.statistics.gov.lk/abstract2025/CHAP7/7.4%207.5%207.6.pdf",
+      "licence": "Public statistical report; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Statistical Abstract 2025; road tables 2020–2024",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "road-crashes-fatalities"
+      ]
+    },
+    {
+      "id": "ceb-statistical-digest-2025",
+      "name": "Ceylon Electricity Board — Statistical Digest 2025",
+      "publisher": "Ceylon Electricity Board, Sri Lanka",
+      "url": "https://ceb.lk/front_img/img_reports/1783568926SD-2025-Finalized-(Web-Edition).pdf",
+      "licence": "Public statistical digest; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Statistical Digest 2025; 2024–2025 comparison tables",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "electricity-customers-sales"
+      ]
+    },
+    {
+      "id": "pucsl-reliability-2024-q3",
+      "name": "PUCSL — Distribution supply reliability 2024-Q3",
+      "publisher": "Public Utilities Commission of Sri Lanka",
+      "url": "https://www.pucsl.gov.lk/wp-content/uploads/2025/03/SAIDI_SAIFI-values-of-DLs-of-Sri-Lanka_Q3_2024.xls",
+      "licence": "Public regulator workbook; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Monthly observations in the report linked as 2024-Q3; conflicting internal headers are retained",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "electricity-supply-reliability"
+      ]
+    },
+    {
+      "id": "pucsl-reliability-2024-q4",
+      "name": "PUCSL — Distribution supply reliability 2024-Q4",
+      "publisher": "Public Utilities Commission of Sri Lanka",
+      "url": "https://www.pucsl.gov.lk/wp-content/uploads/2025/04/SAIDI-SAIFI-values-of-DLs-of-Sri-Lanka-Q4-2024.xlsx",
+      "licence": "Public regulator workbook; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Monthly observations in the report linked as 2024-Q4; conflicting internal headers are retained",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "electricity-supply-reliability"
+      ]
+    },
+    {
+      "id": "pucsl-reliability-2025-q1",
+      "name": "PUCSL — Distribution supply reliability 2025-Q1",
+      "publisher": "Public Utilities Commission of Sri Lanka",
+      "url": "https://www.pucsl.gov.lk/wp-content/uploads/2025/10/SAIDI-SAIFI-values-of-DLs-2025-Q1.xlsx",
+      "licence": "Public regulator workbook; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Monthly observations in the report linked as 2025-Q1; conflicting internal headers are retained",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "electricity-supply-reliability"
+      ]
+    },
+    {
+      "id": "pucsl-reliability-2025-q2",
+      "name": "PUCSL — Distribution supply reliability 2025-Q2",
+      "publisher": "Public Utilities Commission of Sri Lanka",
+      "url": "https://www.pucsl.gov.lk/wp-content/uploads/2026/03/SAIDI_SAIFI-values-of-DLs-of-Sri-Lanka_Q2_2025.xls",
+      "licence": "Public regulator workbook; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Monthly observations in the report linked as 2025-Q2; conflicting internal headers are retained",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "electricity-supply-reliability"
+      ]
+    },
+    {
+      "id": "pucsl-reliability-2025-q3",
+      "name": "PUCSL — Distribution supply reliability 2025-Q3",
+      "publisher": "Public Utilities Commission of Sri Lanka",
+      "url": "https://www.pucsl.gov.lk/wp-content/uploads/2026/05/SAIDI_SAIFI-values-of-DLs-of-Sri-Lanka_Q3_2025.xls",
+      "licence": "Public regulator workbook; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Monthly observations in the report linked as 2025-Q3; conflicting internal headers are retained",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "electricity-supply-reliability"
+      ]
+    },
+    {
+      "id": "pucsl-reliability-2025-q4",
+      "name": "PUCSL — Distribution supply reliability 2025-Q4",
+      "publisher": "Public Utilities Commission of Sri Lanka",
+      "url": "https://www.pucsl.gov.lk/wp-content/uploads/2026/06/SAIDI_SAIFI-values-of-DLs-of-Sri-Lanka_Q4_2025-2.xls",
+      "licence": "Public regulator workbook; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Monthly observations in the report linked as 2025-Q4; conflicting internal headers are retained",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "electricity-supply-reliability"
+      ]
+    },
+    {
+      "id": "pucsl-reliability-2026-q1",
+      "name": "PUCSL — Distribution supply reliability 2026-Q1",
+      "publisher": "Public Utilities Commission of Sri Lanka",
+      "url": "https://www.pucsl.gov.lk/wp-content/uploads/2026/06/SAIDI_SAIFI-values-of-DLs-of-Sri-Lanka_Q1_2026.xls",
+      "licence": "Public regulator workbook; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "Monthly observations in the report linked as 2026-Q1; conflicting internal headers are retained",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "electricity-supply-reliability"
+      ]
+    },
+    {
+      "id": "cbsl-ess-2026-bank-7-8",
+      "name": "CBSL — Economic and Social Statistics 2026 table 7.8",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/ess_2026_table7.8_e.xlsx",
+      "licence": "Public statistical workbook; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "District bank outlets and density, 2022–2025",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "bank-branches-density"
+      ]
+    },
+    {
+      "id": "cbsl-ess-2026-bank-7-9",
+      "name": "CBSL — Economic and Social Statistics 2026 table 7.9",
+      "publisher": "Central Bank of Sri Lanka",
+      "url": "https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics/sheets/ess_2026_table7.9_e.xlsx",
+      "licence": "Public statistical workbook; reuse terms not specified",
+      "licence_status": "permission_unclear",
+      "vintage": "National branch network, 2013–2025",
+      "refreshed": "2026-10-16",
+      "refresh": "bun scripts/build-urban-data.mjs --fetch",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "bank-branches-density"
+      ]
+    },
+    {
+      "id": "lk-initiatives-ledger",
+      "name": "Public money and projects ledger",
+      "publisher": "developing-country.org compilation from lk_news (nuuuwan), Cabinet Office, ADB, IMF and World Bank",
+      "url": "https://github.com/nuuuwan/lk_news",
+      "licence": "CC BY 4.0 (compilation by developing-country.org); linked articles and official documents keep their publishers’ rights",
+      "vintage": "News read 2024-01-01 to 2026-11-06 (English, Sinhala, Tamil); IMF and World Bank since 2023",
+      "refreshed": "2026-11-06",
+      "refresh": "bun scripts/initiatives/build.ts",
+      "refresh_mode": "curated",
+      "layers": [
+        "lk-initiative-events",
+        "lk-initiative-funding"
+      ],
+      "freshness_days": 7,
+      "licence_status": "open"
+    }
+  ]
+}

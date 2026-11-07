@@ -1,0 +1,21 @@
+---
+import { getEmDashEntry } from 'emdash'
+import { PortableText } from 'emdash/ui'
+import SiteLayout from '../layouts/SiteLayout.astro'
+import { pageFields } from '../lib/content'
+
+const { entry: page, cacheHint } = await getEmDashEntry('pages', 'about')
+if (!page) return Astro.rewrite('/404')
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint)
+const data = pageFields(page.data)
+---
+
+<SiteLayout
+  title={data.title}
+  description={data.description}
+  content={{ collection: 'pages', id: data.id, slug: 'about' }}
+>
+  <div class="about-copy" {...page.edit.content}>
+    <PortableText value={data.content} />
+  </div>
+</SiteLayout>

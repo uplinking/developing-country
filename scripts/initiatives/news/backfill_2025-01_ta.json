@@ -1,0 +1,1393 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2025-01-01",
+  "2025-01-31"
+ ],
+ "upstream": "nuuuwan/lk_news@5d469f077cfe5207f3972e54d4bd0023cb2cbc19",
+ "extracted_by": "Codex gpt-6-luna (medium reasoning)",
+ "extracted_at": "2026-11-06",
+ "language": "ta",
+ "articles_read": 61,
+ "rejected": 21,
+ "rejected_ids": [
+  "2025-01-01-tamilmirrorlk-0075f44b",
+  "2025-01-03-tamilmirrorlk-4d70f944",
+  "2025-01-03-virakesarilk-23b7e913",
+  "2025-01-03-virakesarilk-68701f68",
+  "2025-01-03-virakesarilk-8f1a498b",
+  "2025-01-04-tamilmirrorlk-9532cb49",
+  "2025-01-04-virakesarilk-1de7a2bf",
+  "2025-01-04-virakesarilk-5d29ecf6",
+  "2025-01-04-virakesarilk-aade0ca1",
+  "2025-01-04-virakesarilk-ea516504",
+  "2025-01-05-tamilmirrorlk-65d0c2a0",
+  "2025-01-05-virakesarilk-11fa964e",
+  "2025-01-05-virakesarilk-2f29e9a1",
+  "2025-01-05-virakesarilk-8173b587",
+  "2025-01-05-virakesarilk-be4adcea",
+  "2025-01-05-virakesarilk-c1a38be1",
+  "2025-01-06-tamilmirrorlk-76e953ef",
+  "2025-01-07-tamilmirrorlk-6a4f5cf8",
+  "2025-01-08-virakesarilk-837037eb",
+  "2025-01-09-virakesarilk-2ea2eef7",
+  "2025-01-09-virakesarilk-8250ae65",
+  "2025-01-09-virakesarilk-c6ae5867",
+  "2025-01-09-virakesarilk-f3596b45",
+  "2025-01-10-virakesarilk-5b50081d"
+ ],
+ "unattributed_ids": [
+  "2025-01-05-virakesarilk-2f29e9a1",
+  "2025-01-05-virakesarilk-be4adcea",
+  "2025-01-10-virakesarilk-5b50081d"
+ ],
+ "dropped": [
+  "event gosl-maha-2024-25-paddy-fertilizer-subsidy proposed: amount",
+  "event rice-import-gosl underway: amount",
+  "event rice-import-gosl proposed: amount",
+  "event clean-sri-lanka-fund underway: unknown line"
+ ],
+ "projects": [
+  {
+   "id": "gosl-paddy-procurement-300000-tonnes-2025",
+   "name": "Government procurement of 300,000 tonnes of paddy from farmers",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "gosl-festival-special-train-services-2025",
+   "name": "Special trains for Thai Pongal, Independence celebrations and weekends",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "jica-sri-lanka-assistance-continuation",
+   "name": "Continued JICA financial and technical assistance to Sri Lanka",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "north-central-grade-11-exam-suspension",
+   "name": "North Central Province Grade 11 term examination suspension",
+   "sector": "education",
+   "status": "unknown",
+   "place": "North Central Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sigiriya-full-moon-night-tourism-programme",
+   "name": "Sigiriya full-moon night tourism programme",
+   "sector": "tourism",
+   "status": "unknown",
+   "place": "Sigiriya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "anuradhapura-elephant-gps-monitoring",
+   "name": "GPS monitoring of wild elephant movements",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Anuradhapura",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "anuradhapura-elephant-translocation",
+   "name": "Wild elephant translocation to designated reserves",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Anuradhapura",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "south-kalutara-rail-service-disruption",
+   "name": "South Kalutara rail service disruption and recovery",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "South Kalutara",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "triposha-state-enterprise-continuation",
+   "name": "Triposha state enterprise continuation and development",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Kandana",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adani-mannar-pooneryn-wind-projects",
+   "name": "Adani Mannar and Pooneryn wind power projects",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Mannar and Pooneryn",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "government-printer-website-replacement",
+   "name": "Government Printer website replacement",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kalugamuwa-irrigation-canal-project",
+   "name": "Kalugamuwa irrigation canal project",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Mahakal Gamuwa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "maharagama-child-bone-marrow-transplant-unit",
+   "name": "Bone marrow and blood-cell transplant unit for paediatric cancer patients",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Maharagama",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "northern-province-teacher-vacancy-reallocation",
+   "name": "Teacher vacancy and staffing reallocation across Northern Province districts",
+   "sector": "education",
+   "status": "unknown",
+   "place": "Northern Province",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "salt-import-30000-tonnes-2025",
+   "name": "Import of 30,000 metric tonnes of salt",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kidney-patient-allowance-increase",
+   "name": "Kidney patient allowance increase",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "badowita-police-station",
+   "name": "Badowita Police Station",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "Badowita, Mount Lavinia",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "e-traffic-police-app",
+   "name": "Sri Lanka Police e-Traffic reporting app",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "gosl-paddy-procurement-300000-tonnes-2025-gosl",
+   "project_id": "gosl-paddy-procurement-300000-tonnes-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-festival-special-train-services-2025-gosl",
+   "project_id": "gosl-festival-special-train-services-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "jica-sri-lanka-assistance-continuation-japan",
+   "project_id": "jica-sri-lanka-assistance-continuation",
+   "funder": "japan",
+   "funder_name": "Japan International Cooperation Agency",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "mixed",
+   "purpose": "programme"
+  },
+  {
+   "id": "north-central-grade-11-exam-suspension-gosl",
+   "project_id": "north-central-grade-11-exam-suspension",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "sigiriya-full-moon-night-tourism-programme-gosl",
+   "project_id": "sigiriya-full-moon-night-tourism-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "anuradhapura-elephant-gps-monitoring-unknown",
+   "project_id": "anuradhapura-elephant-gps-monitoring",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "anuradhapura-elephant-translocation-unknown",
+   "project_id": "anuradhapura-elephant-translocation",
+   "funder": "unknown",
+   "funder_name": "Unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "south-kalutara-rail-service-disruption-gosl",
+   "project_id": "south-kalutara-rail-service-disruption",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "triposha-state-enterprise-continuation-gosl",
+   "project_id": "triposha-state-enterprise-continuation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-adani-wind-projects",
+   "project_id": "adani-mannar-pooneryn-wind-projects",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-government-printer-website",
+   "project_id": "government-printer-website-replacement",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-kalugamuwa-irrigation-canal",
+   "project_id": "kalugamuwa-irrigation-canal-project",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "maharagama-transplant-unit-temple",
+   "project_id": "maharagama-child-bone-marrow-transplant-unit",
+   "funder": "private",
+   "funder_name": "Kataragama Murugan Temple",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "maharagama-transplant-unit-air-force",
+   "project_id": "maharagama-child-bone-marrow-transplant-unit",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka (Sri Lanka Air Force)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "northern-teacher-vacancy-resolution-gosl",
+   "project_id": "northern-province-teacher-vacancy-reallocation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "salt-import-2025-gosl",
+   "project_id": "salt-import-30000-tonnes-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-kidney-patient-allowance",
+   "project_id": "kidney-patient-allowance-increase",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-badowita-police-station",
+   "project_id": "badowita-police-station",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-e-traffic-police-app",
+   "project_id": "e-traffic-police-app",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "gosl-maha-2024-25-paddy-fertilizer-subsidy-released-2025-01-08",
+   "line_id": "gosl-maha-2024-25-paddy-fertilizer-subsidy",
+   "date": "2025-01-08",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 15000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "First fertilizer subsidy installment provided to farmers.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-09-tamilmirrorlk-52ff4072"
+   ],
+   "relation": "update_of:gosl-maha-2024-25-paddy-fertilizer-subsidy-govt_authorised-2024-09-26",
+   "notes": null
+  },
+  {
+   "id": "gosl-public-sector-salary-hike-2025-pledged-2025-01-09",
+   "line_id": "gosl-public-sector-salary-hike-2025",
+   "date": "2025-01-09",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister said the 2025 budget would include a significant public employee salary increase.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-09-virakesarilk-6dd5149b"
+   ],
+   "relation": "update_of:gosl-public-sector-salary-hike-2025-pledged-2024-11-21",
+   "notes": null
+  },
+  {
+   "id": "gosl-vote-on-account-ministries-2025-proposed-2025-01-09",
+   "line_id": "gosl-vote-on-account-ministries-2025",
+   "date": "2025-01-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "2025 Vote on Account bill introduced in Parliament for first reading.",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-09-tamilmirrorlk-af3cc05a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-paddy-procurement-300000-tonnes-2025-gosl-proposed-2025-01-08",
+   "line_id": "gosl-paddy-procurement-300000-tonnes-2025-gosl",
+   "date": "2025-01-08",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government plans to buy 300,000 tonnes of paddy from farmers.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-08-virakesarilk-38698ac7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-festival-special-train-services-2025-gosl-proposed-2025-01-08",
+   "line_id": "gosl-festival-special-train-services-2025-gosl",
+   "date": "2025-01-08",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Railways plans special trains from Colombo to Badulla and Kankesanthurai in January and February.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-08-tamilmirrorlk-d7fb7073"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "jica-sri-lanka-assistance-continuation-japan-pledged-2025-01-08",
+   "line_id": "jica-sri-lanka-assistance-continuation-japan",
+   "date": "2025-01-08",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "JICA reaffirmed continued financial and technical assistance and support for Sri Lankan initiatives.",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-08-tamilmirrorlk-3422ceda"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-festival-special-train-services-2025-gosl-proposed-2025-01-07",
+   "line_id": "gosl-festival-special-train-services-2025-gosl",
+   "date": "2025-01-07",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Railways planned special trains for Pongal, Independence celebrations and weekends.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-07-virakesarilk-6d254d4c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-paddy-concessional-loan-scheme-underway-2025-01-07",
+   "line_id": "gosl-paddy-concessional-loan-scheme",
+   "date": "2025-01-07",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Banks are implementing the cabinet-approved loan scheme for domestic rice producers.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-07-virakesarilk-f6e14e76"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-e-passport-launch-2025-launched-2025-01-06",
+   "line_id": "gosl-e-passport-launch-2025",
+   "date": "2025-01-06",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Foreign ministry launched consular e-certificates at seven Sri Lankan missions.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-07-tamilmirrorlk-6ebd37fa",
+    "2025-01-07-tamilmirrorlk-66f2a605"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-public-sector-salary-hike-2025-proposed-2025-01-07",
+   "line_id": "gosl-public-sector-salary-hike-2025",
+   "date": "2025-01-07",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government instructed state institutions to auction selected high-capacity vehicles.",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-07-tamilmirrorlk-9409530e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "north-central-grade-11-exam-suspension-gosl-halted-2025-01-06",
+   "line_id": "north-central-grade-11-exam-suspension-gosl",
+   "date": "2025-01-06",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "North Central Province temporarily suspended Grade 11 term examinations after a Sinhala paper leak.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-06-virakesarilk-08c6e164",
+    "2025-01-06-tamilmirrorlk-9546e524"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "north-central-grade-11-exam-suspension-gosl-halted-2025-01-07",
+   "line_id": "north-central-grade-11-exam-suspension-gosl",
+   "date": "2025-01-07",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "The province cancelled Grade 11 term examinations until further notice after confirming the paper leak.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-07-tamilmirrorlk-7e819a01"
+   ],
+   "relation": "repeat_of:north-central-grade-11-exam-suspension-gosl-halted-2025-01-06",
+   "notes": null
+  },
+  {
+   "id": "sigiriya-full-moon-night-tourism-programme-gosl-proposed-2025-01-06",
+   "line_id": "sigiriya-full-moon-night-tourism-programme-gosl",
+   "date": "2025-01-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Tourism Ministry announced monthly nighttime Sigiriya visits around full-moon days.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-06-tamilmirrorlk-1f698e49"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "anuradhapura-elephant-gps-monitoring-unknown-underway-2025-01-06",
+   "line_id": "anuradhapura-elephant-gps-monitoring-unknown",
+   "date": "2025-01-06",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Wildlife officials began GPS collar monitoring of elephant movements near Wilpattu.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-06-virakesarilk-fe6d1a19"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "anuradhapura-elephant-translocation-unknown-halted-2025-01-06",
+   "line_id": "anuradhapura-elephant-translocation-unknown",
+   "date": "2025-01-06",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Elephant translocation to designated reserves was recently stopped, according to residents.",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-06-virakesarilk-fe6d1a19"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "south-kalutara-rail-service-disruption-gosl-halted-2025-01-06",
+   "line_id": "south-kalutara-rail-service-disruption-gosl",
+   "date": "2025-01-06",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Derailment disrupted coastal rail services; one track remained blocked into Monday morning.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-06-virakesarilk-420d229d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "triposha-state-enterprise-continuation-gosl-govt_authorised-2025-01-04",
+   "line_id": "triposha-state-enterprise-continuation-gosl",
+   "date": "2025-01-04",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government decided to continue Triposha as a state enterprise focused on nutrition, innovation and development.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-05-tamilmirrorlk-058c906f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-clean-sri-lanka-fund-underway-2025-01-05",
+   "line_id": "gosl-clean-sri-lanka-fund",
+   "date": "2025-01-05",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Police began two traffic enforcement initiatives under the Clean Sri Lanka programme.",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-05-tamilmirrorlk-8910cd92",
+    "2025-01-05-virakesarilk-89a66091",
+    "2025-01-05-virakesarilk-4100c664"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "wb-p180549-wb-underway-2025-01-05",
+   "line_id": "wb-p180549-wb",
+   "date": "2025-01-05",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Prime Minister reviewed progress of World Bank-supported school education programmes.",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-05-virakesarilk-e4838439"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-adani-wind-projects-proposed-2025-01-05",
+   "line_id": "gosl-adani-wind-projects",
+   "date": "2025-01-05",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Energy Ministry plans to propose a committee reviewing Adani wind projects.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-05-tamilmirrorlk-636a5ef2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-adani-wind-projects-govt_authorised-2025-01-05",
+   "line_id": "gosl-adani-wind-projects",
+   "date": "2025-01-05",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 0.0826,
+   "currency": "USD",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "Previous Cabinet agreed to an electricity payment rate for the planned wind projects.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-05-tamilmirrorlk-636a5ef2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-government-printer-website-underway-2025-01-04",
+   "line_id": "gosl-government-printer-website",
+   "date": "2025-01-04",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "A replacement official website for the Government Printer is being developed.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-04-virakesarilk-847a3f1b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-kalugamuwa-irrigation-canal-proposed-2025-01-04",
+   "line_id": "gosl-kalugamuwa-irrigation-canal",
+   "date": "2025-01-04",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 300000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Deputy minister said the government needs to allocate funds to restart the canal project.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-04-virakesarilk-e149b587"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-adani-wind-projects-halted-2025-01-03",
+   "line_id": "gosl-adani-wind-projects",
+   "date": "2025-01-03",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Mannar wind power project temporarily halted following local opposition.",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-03-virakesarilk-6f8c2758"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-digital-driving-licence-proposed-2025-01-03",
+   "line_id": "gosl-digital-driving-licence",
+   "date": "2025-01-03",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister said 130,000 delayed driving licence cards would be issued within a month.",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-03-tamilmirrorlk-ac42c4ce"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "maharagama-transplant-unit-temple-launched-2025-01-02",
+   "line_id": "maharagama-transplant-unit-temple",
+   "date": "2025-01-02",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Paediatric bone marrow and blood-cell transplant unit opened with temple funding.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-03-virakesarilk-d3b4fe22"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "maharagama-transplant-unit-air-force-launched-2025-01-02",
+   "line_id": "maharagama-transplant-unit-air-force",
+   "date": "2025-01-02",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Paediatric bone marrow and blood-cell transplant unit opened with Air Force support.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-03-virakesarilk-d3b4fe22"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "northern-teacher-vacancy-resolution-gosl-proposed-2025-01-03",
+   "line_id": "northern-teacher-vacancy-resolution-gosl",
+   "date": "2025-01-03",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Northern Province officials said teacher vacancy issues would be addressed within three months.",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-03-virakesarilk-3a937eb6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "salt-import-2025-gosl-proposed-2025-01-02",
+   "line_id": "salt-import-2025-gosl",
+   "date": "2025-01-02",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government announced tender steps for a two-stage import of 30,000 tonnes of salt.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-02-virakesarilk-454df2f3",
+    "2025-01-02-virakesarilk-20472da8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-karainagar-boatyard-agreement_signed-2024-12-16",
+   "line_id": "india-grant-karainagar-boatyard",
+   "date": "2024-12-16",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 290000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India and Sri Lanka signed an agreement to rehabilitate Karainagar Boatyard.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-02-virakesarilk-f2564c3d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-kidney-patient-allowance-proposed-2025-01-02",
+   "line_id": "gosl-kidney-patient-allowance",
+   "date": "2025-01-02",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 10000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "The ministry said a higher kidney patient allowance was proposed for the next budget.",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-02-virakesarilk-d3683936"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-kidney-patient-allowance-unclear-2025-01-02",
+   "line_id": "gosl-kidney-patient-allowance",
+   "date": "2025-01-02",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": 10000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "rate",
+   "equivalents": [],
+   "components": [],
+   "summary": "The ministry said the kidney patient allowance had increased to 10,000 rupees.",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-02-tamilmirrorlk-d9162db7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-badowita-police-station-launched-2025-01-01",
+   "line_id": "gosl-badowita-police-station",
+   "date": "2025-01-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Officials opened a new police station in Badowita.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-02-virakesarilk-7a70a6f8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-e-traffic-police-app-launched-2025-01-01",
+   "line_id": "gosl-e-traffic-police-app",
+   "date": "2025-01-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Police launched e-Traffic for public reports of traffic violations.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-02-virakesarilk-9d0f773b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-clean-sri-lanka-fund-launched-2025-01-01",
+   "line_id": "gosl-clean-sri-lanka-fund",
+   "date": "2025-01-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Clean Sri Lanka national programme launch held at the Presidential Secretariat.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-01-tamilmirrorlk-dc7edc9b"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2025-01-09-tamilmirrorlk-52ff4072": {
+   "date": "2025-01-09",
+   "title": "உரத்தை இலவசமாக வழங்க நடவடிக்கை-பிரதமர்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/உரத்தை-இலவசமாக-வழங்க-நடவடிக்கை-பிரதமர்/175-350053",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-09-virakesarilk-6dd5149b": {
+   "date": "2025-01-09",
+   "title": "வாழ்க்கைச் செலவை கருத்திற்கொண்டு வரவு செலவுத் திட்டத்தில் அரச ஊழியர்களின் சம்பள அதிகரிப்பு மேற்கொள்ளப்படும் - அமைச்சர் மஹிந்த ஜயசிங்க தெரிவிப்பு",
+   "url": "https://www.virakesari.lk/article/203419",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-09-tamilmirrorlk-af3cc05a": {
+   "date": "2025-01-09",
+   "title": "2025ற்கான முன்கூட்டிய ஒதுக்கீட்டு சட்டமூலம் இன்று",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/2025ற்கான-முன்கூட்டிய-ஒதுக்கீட்டு-சட்டமூலம்-இன்று/175-350024",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-08-virakesarilk-38698ac7": {
+   "date": "2025-01-08",
+   "title": "விவசாயிகளிடமிருந்து 3 இலட்சம் மெற்றிக்தொன் நெல்லை கொள்வனவு செய்வோம் - கமத்தொழில் பிரதி அமைச்சர்",
+   "url": "https://www.virakesari.lk/article/203313",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-08-tamilmirrorlk-d7fb7073": {
+   "date": "2025-01-08",
+   "title": "பண்டிகை காலத்தில் விசேட ரயில் சேவைகள்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/பண்டிகை-காலத்தில்-விசேட-ரயில்-சேவைகள்/175-349954",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-08-tamilmirrorlk-3422ceda": {
+   "date": "2025-01-08",
+   "title": "ஜப்பானிடமிருந்து நிதி, தொழில்நுட்ப உதவிகள்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/ஜப்பானிடமிருந்து-நிதி-தொழில்நுட்ப-உதவிகள்/175-349953",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-07-virakesarilk-6d254d4c": {
+   "date": "2025-01-07",
+   "title": "பண்டிகையை முன்னிட்டு விசேட ரயில் சேவை - இலங்கை ரயில்வே திணைக்களம்",
+   "url": "https://www.virakesari.lk/article/203265",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-07-virakesarilk-f6e14e76": {
+   "date": "2025-01-07",
+   "title": "அரிசி பிரச்சினைக்கான தீர்வினையே நாமும் தேடிக் கொண்டிருக்கின்றோம் - அரசாங்கம்",
+   "url": "https://www.virakesari.lk/article/203253",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-07-tamilmirrorlk-9409530e": {
+   "date": "2025-01-07",
+   "title": "மார்ச்சுக்கு முன் அரச வாகனங்களை ஏலத்தில் விட நடவடிக்கை",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மார்ச்சுக்கு-முன்-அரச-வாகனங்களை-ஏலத்தில்-விட-நடவடிக்கை/175-349909",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-07-tamilmirrorlk-6ebd37fa": {
+   "date": "2025-01-07",
+   "title": "மக்களுக்கு மகிழ்ச்சியான அறிவிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மக்களுக்கு-மகிழ்ச்சியான-அறிவிப்பு/175-349908",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-07-tamilmirrorlk-66f2a605": {
+   "date": "2025-01-07",
+   "title": "வெளிநாடுகளில் வாழும் இலங்கையர்களுக்கு இ-சேவை",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/வெளிநாடுகளில்-வாழும்-இலங்கையர்களுக்கு-இ-சேவை/175-349908",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-07-tamilmirrorlk-7e819a01": {
+   "date": "2025-01-07",
+   "title": "வடமத்திய மாகாணத்தில் 11 ஆம் தரப் பரீட்சைகள் இரத்து",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/வடமத்திய-மாகாணத்தில்-11-ஆம்-தரப்-பரீட்சைகள்-இரத்து/175-349885",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-06-virakesarilk-08c6e164": {
+   "date": "2025-01-06",
+   "title": "வடமத்திய மாகாணத்தில் சிங்கள மொழியும் இலக்கியமும் வினாத்தாள் கசிவு ; தற்காலிகமாக பரீட்சை இடைநிறுத்தம்",
+   "url": "https://www.virakesari.lk/article/203127",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-06-tamilmirrorlk-1f698e49": {
+   "date": "2025-01-06",
+   "title": "பௌர்ணமி இரவில் சிகிரியாவைப் பார்வையிடலாம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/பௌர்ணமி-இரவில்-சிகிரியாவைப்-பார்வையிடலாம்/175-349855",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-06-tamilmirrorlk-9546e524": {
+   "date": "2025-01-06",
+   "title": "மற்றொரு வினாத்தாளும் கசிவு - எடுக்கப்பட்ட அதிரடி நடவடிக்கை",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/மற்றொரு-வினாத்தாளும்-கசிவு-எடுக்கப்பட்ட-அதிரடி-நடவடிக்கை/175-349853",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-06-virakesarilk-fe6d1a19": {
+   "date": "2025-01-06",
+   "title": "மனித-யானை மோதலை கண்காணிக்க ஜிபிஎஸ் தொழில்நுட்பம்",
+   "url": "https://www.virakesari.lk/article/203078",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-06-virakesarilk-420d229d": {
+   "date": "2025-01-06",
+   "title": "ரயில் தடம் புரள்வு ; கரையோர ரயில் சேவைகள் பாதிப்பு",
+   "url": "https://www.virakesari.lk/article/203076",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-05-tamilmirrorlk-058c906f": {
+   "date": "2025-01-05",
+   "title": "திரிபோஷா குறித்து புதிய தீர்மானம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/திரிபோஷா-குறித்து-புதிய-தீர்மானம்/175-349799",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-05-virakesarilk-4100c664": {
+   "date": "2025-01-05",
+   "title": "க்ளீன் ஸ்ரீ லங்கா செயற்திட்டத்தால் அசௌகரியத்துக்குள்ளாகியுள்ளோம் முறையாக செயற்படாவிடின் பணிப்புறக்கணிப்பில் ஈடுபடுவோம் - இலங்கை தனியார் பேருந்து உரிமையாளர் சங்கம் எச்சரிக்கை",
+   "url": "https://www.virakesari.lk/article/203051",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-05-virakesarilk-e4838439": {
+   "date": "2025-01-05",
+   "title": "உலக வங்கியின் அனுசரணையுடன் முன்னெடுக்கப்பட்ட கல்வி வேலைத்திட்டங்களின் முன்னேற்றம் தொடர்பில் பிரதமர் கவனம்",
+   "url": "https://www.virakesari.lk/article/203039",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-05-tamilmirrorlk-8910cd92": {
+   "date": "2025-01-05",
+   "title": "’’தூய்மையான இலங்கை’’யில் பொலிஸார் அதிரடி",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/தூய்மையான-இலங்கை-யில்-பொலிஸார்-அதிரடி/175-349770",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-05-virakesarilk-89a66091": {
+   "date": "2025-01-05",
+   "title": "வாகன விபத்துக்கள், போக்குவரத்து நெரிசலை குறைக்க பொலிஸார் தீவிர நடவடிக்கை!",
+   "url": "https://www.virakesari.lk/article/202994",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-05-tamilmirrorlk-636a5ef2": {
+   "date": "2025-01-05",
+   "title": "அமைச்சரவைக்கு செல்லும் அதானி திட்டம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/அமைச்சரவைக்கு-செல்லும்-அதானி-திட்டம்/175-349757",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-04-virakesarilk-847a3f1b": {
+   "date": "2025-01-04",
+   "title": "சைபர் தாக்குதலைத் தொடர்ந்து, அரச அச்சுத் திணைக்களத்திற்கு புதிய இணையத்தளமொன்றை அறிமுகம் செய்ய நடவடிக்கை - கணினி அவசர செயற்பாட்டுப் பிரிவு",
+   "url": "https://www.virakesari.lk/article/202927",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-04-virakesarilk-e149b587": {
+   "date": "2025-01-04",
+   "title": "கல்கமுவ நீர்பாசன கால்வாய் மோசடி தொடர்பில் விசாரணை முன்னெடுக்கப்படும் - நாமல் கருணாரத்ன",
+   "url": "https://www.virakesari.lk/article/202925",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-03-virakesarilk-6f8c2758": {
+   "date": "2025-01-03",
+   "title": "மக்களின் எதிர்ப்பை மீறி முன்னெடுக்கப்பட்டுகின்ற காற்றாலை மின் உற்பத்தி மற்றும் கனிய மணல் அகழ்வு தற்காலிகமாக நிறுத்த தீர்மானம் - மன்னார் பிரதேச ஒருங்கிணைப்புக் குழு",
+   "url": "https://www.virakesari.lk/article/202918",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-03-tamilmirrorlk-ac42c4ce": {
+   "date": "2025-01-03",
+   "title": "“சாரதி அனுமதிப்பத்திரம்” ஒரு மாதத்திற்குள் வழங்கப்படும்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சாரதி-அனுமதிப்பத்திரம்-ஒரு-மாதத்திற்குள்-வழங்கப்படும்/175-349707",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-03-virakesarilk-d3b4fe22": {
+   "date": "2025-01-03",
+   "title": "இவ்வருட வரவு செலவுத் திட்டத்திலேயே மிகப்பெரிய தொகை நிதி ஒதுக்கீடு - சுகாதார அமைச்சர்",
+   "url": "https://www.virakesari.lk/article/202830",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-03-virakesarilk-3a937eb6": {
+   "date": "2025-01-03",
+   "title": "வன்னி ஆசிரியர் வெற்றிடங்கள் உடன் நிரப்பப்படவேண்டுமென ரவிகரன் எம்.பி கடும் வாதாட்டம்; மூன்று மாதத்தில் தீர்வு - பிரதி பிரதமசெயலாளர்",
+   "url": "https://www.virakesari.lk/article/202828",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-02-virakesarilk-454df2f3": {
+   "date": "2025-01-02",
+   "title": "உப்பு இறக்குமதிக்கான கேள்வி கோரல்  அனுமதிபத்திரங்கள் நாளை வெளியீடு",
+   "url": "https://www.virakesari.lk/article/202815",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-02-virakesarilk-20472da8": {
+   "date": "2025-01-02",
+   "title": "30,000 மெற்றிக் தொன் உப்பு இறக்குமதிக்கான டெண்டர் 03ஆம் திகதி முதல் திறக்கப்படவுள்ளது",
+   "url": "https://www.virakesari.lk/article/202822",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-02-virakesarilk-f2564c3d": {
+   "date": "2025-01-02",
+   "title": "காரைநகர் படகு கட்டுமான தளத்தை புனரமைக்க இந்தியா உதவி",
+   "url": "https://www.virakesari.lk/article/202788",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-02-virakesarilk-d3683936": {
+   "date": "2025-01-02",
+   "title": "சிறுநீரக நோயாளர்களுக்கான கொடுப்பனவு அதிகரிப்பு !",
+   "url": "https://www.virakesari.lk/article/202771",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-02-virakesarilk-7a70a6f8": {
+   "date": "2025-01-02",
+   "title": "கல்கிசை - படோவிட்ட பகுதியில் புதிய பொலிஸ் நிலையம் திறப்பு",
+   "url": "https://www.virakesari.lk/article/202760",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-02-tamilmirrorlk-d9162db7": {
+   "date": "2025-01-02",
+   "title": "சிறுநீரக நோயாளர் கொடுப்பனவு அதிகரிப்பு",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/சிறுநீரக-நோயாளர்-கொடுப்பனவு-அதிகரிப்பு/175-349656",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  },
+  "2025-01-02-virakesarilk-9d0f773b": {
+   "date": "2025-01-02",
+   "title": "e-Traffic என்ற புதிய செயலியை அறிமுகப்படுத்திய பொலிஸ்!",
+   "url": "https://www.virakesari.lk/article/202738",
+   "outlet": "Virakesari",
+   "lang": "ta"
+  },
+  "2025-01-01-tamilmirrorlk-dc7edc9b": {
+   "date": "2025-01-01",
+   "title": "’’க்ளீன் ஶ்ரீலங்கா’’ தேசிய வேலைத்திட்டம் ஆரம்பம்",
+   "url": "https://www.tamilmirror.lk/செய்திகள்/க்ளீன்-ஶ்ரீலங்கா-தேசிய-வேலைத்திட்டம்-ஆரம்பம்/175-349600",
+   "outlet": "Tamil Mirror",
+   "lang": "ta"
+  }
+ }
+}

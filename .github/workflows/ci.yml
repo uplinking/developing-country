@@ -1,0 +1,86 @@
+name: CI
+
+# PRs validate only. Successful main pushes release all three Workers.
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [main]
+
+# Cancel superseded PR checks, but never interrupt a production release.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+permissions:
+  contents: read
+
+env:
+  CI: 'true'
+  FORCE_COLOR: '0'
+  WRANGLER_SEND_METRICS: 'false'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      # Bun is the only package manager (scripts/require-bun.mjs rejects the
+      # rest). Pinned to the version in package.json#packageManager.
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+
+      - name: Install (frozen lockfile)
+        run: bun install --frozen-lockfile
+
+      - name: Check (types, tests, ontology, builds)
+        run: bun run check
+
+      # Each dry run rebuilds its own Worker (`build:explore` uses a different
+      # Vite mode from `check`'s `build`; Astro clears dist/ every time) and
+      # writes wrangler's report to a log the size guard parses afterwards, so
+      # the guard itself never rebuilds anything. `shell: bash` turns on
+      # pipefail, so a failing dry run still fails the step through `tee`.
+      - name: Dry run — explorer Worker
+        shell: bash
+        run: |
+          mkdir -p .wrangler/ci
+          bun run dry-run:explore | tee .wrangler/ci/dry-run-explore.log
+
+      - name: Dry run — site Worker
+        shell: bash
+        run: |
+          mkdir -p .wrangler/ci
+          bun run dry-run:site | tee .wrangler/ci/dry-run-site.log
+
+      - name: Dry run — ingestion Worker
+        run: bun run dry-run:ingestion
+
+      # Hard ceilings: site ≤ 2900 KiB gzip, explorer ≤ 1024 KiB gzip
+      # (scripts/check-bundle-size.mjs). Measures the modules independently and
+      # cross-checks against the wrangler figures captured above.
+      - name: Compressed Worker size guard
+        run: >-
+          bun scripts/check-bundle-size.mjs
+          --explore-log .wrangler/ci/dry-run-explore.log
+          --site-log .wrangler/ci/dry-run-site.log
+
+      - name: Check whether this is still the current main commit
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          latest=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)
+          if [ "$latest" = "$GITHUB_SHA" ]; then echo "current=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Deploy production and smoke-test
+        if: steps.release.outputs.current == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: b9eea9b90f5d9829e1b5a3fa4cb61570
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" || { echo 'CLOUDFLARE_API_TOKEN is required'; exit 1; }
+          bun scripts/deploy-production.ts --built

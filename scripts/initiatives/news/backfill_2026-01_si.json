@@ -1,0 +1,2871 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-01-01",
+  "2026-01-31"
+ ],
+ "upstream": "nuuuwan/lk_news@7c98b51874e343a55176ce773acd06a36d320d1e",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-06",
+ "language": "si",
+ "articles_read": 150,
+ "rejected": 76,
+ "rejected_ids": [
+  "2026-01-01-adalk-7dadeb7c",
+  "2026-01-01-adalk-89f89d82",
+  "2026-01-01-adalk-b2b3a519",
+  "2026-01-01-adalk-c0210ae8",
+  "2026-01-01-adalk-da6a9558",
+  "2026-01-01-lankadeepalk-fb3a284c",
+  "2026-01-02-adalk-157c1e61",
+  "2026-01-02-adalk-afb62709",
+  "2026-01-02-adalk-bb349e9f",
+  "2026-01-02-adalk-cac7e3c2",
+  "2026-01-03-adalk-2d7f735e",
+  "2026-01-04-adalk-2964441d",
+  "2026-01-04-adalk-929a0e73",
+  "2026-01-05-bbccomsinhala-05e187d5",
+  "2026-01-06-adalk-18ba3d89",
+  "2026-01-06-adalk-1cb2d717",
+  "2026-01-06-adalk-35da0cd3",
+  "2026-01-06-adalk-5e66f03d",
+  "2026-01-06-adalk-888a44c8",
+  "2026-01-06-adalk-ad2c5c79",
+  "2026-01-06-bbccomsinhala-f6ac1f67",
+  "2026-01-07-adalk-60f83295",
+  "2026-01-07-adalk-69d056ca",
+  "2026-01-07-adalk-a835d202",
+  "2026-01-07-adalk-c7f93b9d",
+  "2026-01-07-adalk-e26068a0",
+  "2026-01-08-adalk-25538b0c",
+  "2026-01-08-adalk-904acfbc",
+  "2026-01-08-adalk-d7e589f9",
+  "2026-01-08-adalk-d9d95680",
+  "2026-01-08-bbccomsinhala-9f5acead",
+  "2026-01-09-adalk-0b531647",
+  "2026-01-09-bbccomsinhala-70ceb278",
+  "2026-01-10-adalk-dfc110b8",
+  "2026-01-11-adalk-6e4d65d1",
+  "2026-01-11-adalk-7788b871",
+  "2026-01-11-adalk-8d511fa6",
+  "2026-01-11-adalk-8ff445cf",
+  "2026-01-12-adalk-3549328d",
+  "2026-01-12-adalk-4add7426",
+  "2026-01-12-adalk-cb85f735",
+  "2026-01-12-bbccomsinhala-0ed1654a",
+  "2026-01-13-adalk-4a91231e",
+  "2026-01-13-adalk-c73eeea5",
+  "2026-01-13-adalk-d4857dce",
+  "2026-01-14-adalk-6464d4f3",
+  "2026-01-14-adalk-7cbccecf",
+  "2026-01-14-adalk-9228060c",
+  "2026-01-15-adalk-bfee043d",
+  "2026-01-16-adalk-1348015a",
+  "2026-01-16-adalk-7c2a4517",
+  "2026-01-16-adalk-8f83dcf2",
+  "2026-01-19-adalk-c8076697",
+  "2026-01-20-adalk-5e8c4df0",
+  "2026-01-21-adalk-3121401d",
+  "2026-01-21-adalk-dc76c321",
+  "2026-01-22-adalk-d153f940",
+  "2026-01-23-adalk-0e0ec391",
+  "2026-01-23-adalk-bee8107a",
+  "2026-01-24-adalk-47d7f0b7",
+  "2026-01-24-adalk-4c100357",
+  "2026-01-25-adalk-bf7494bc",
+  "2026-01-26-adalk-1c20d445",
+  "2026-01-26-adalk-e088d7e5",
+  "2026-01-27-adalk-7ace0f74",
+  "2026-01-27-adalk-7ce670be",
+  "2026-01-27-adalk-81a320fc",
+  "2026-01-28-adalk-a81b2e74",
+  "2026-01-28-adalk-d8970a16",
+  "2026-01-29-adalk-0d57f952",
+  "2026-01-29-adalk-3b485d45",
+  "2026-01-29-adalk-50e74f90",
+  "2026-01-29-adalk-c4f47795",
+  "2026-01-29-adalk-e0127315",
+  "2026-01-29-adalk-eb9b6300",
+  "2026-01-30-adalk-63df2b5e",
+  "2026-01-30-adalk-927f2614"
+ ],
+ "unattributed_ids": [
+  "2026-01-13-adalk-4a91231e"
+ ],
+ "dropped": [
+  "line rebuilding-sri-lanka-fund-colombo-stock-exchange",
+  "event public-service-recruitment-26095-gosl govt_authorised: amount"
+ ],
+ "projects": [
+  {
+   "id": "police-recruitment-10000-2026",
+   "name": "2026 Recruitment of 10,000 Police Officers",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "plantation-worker-wage-increase-2026",
+   "name": "Plantation Worker Daily Wage Increase to Rs 1750",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "coal-import-demurrage-penalty-payment-2024",
+   "name": "Coal Import Port Demurrage Penalty Payment (2024)",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "katunayake-e-gate-system",
+   "name": "Katunayake Airport Automated Border Control (E-Gate) System",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "Katunayake",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "aswesuma-january-2026-payments",
+   "name": "Aswesuma January 2026 Payments",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nilgala-forest-reserve-declaration",
+   "name": "Nilgala Forest Reserve Declaration",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Monaragala",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "central-highlands-restoration-ditwah",
+   "name": "Central Highlands landslide restoration after Cyclone Ditwah",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "Central Highlands",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fisheries-pension-scheme",
+   "name": "Fishers Pension Benefit Scheme",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "colombo-port-access-road",
+   "name": "Colombo Port Access Road Project",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kandy-city-railway-service-improvement",
+   "name": "Kandy City Railway Service Improvement Project",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ensure-netzero-skills-project",
+   "name": "ENSURE Net Zero Skills Project",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ceb-unauthorized-allowance-payments-2024",
+   "name": "CEB Unauthorized Staff Allowance Payments (2024)",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mannar-mullikulam-wind-power-haywind",
+   "name": "Mullikulam 50MW HayWind Wind Power Project, Mannar",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Mannar",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "galle-chili-cultivation-project",
+   "name": "Galle District Chili Cultivation Project",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Galle District",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "dmc-riskinfo-portal-upgrade",
+   "name": "Disaster Management Centre RiskInfo Data Portal Upgrade",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "hambantota-sinopec-oil-refinery",
+   "name": "Hambantota Sinopec Oil Refinery Project",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Hambantota",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ditwah-a5-road-reconstruction-chec",
+   "name": "A5 Road Reconstruction after Cyclone Ditwah (China Harbor Engineering)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "health-public-private-integration-cabinet-paper",
+   "name": "Public-Private Health Service Integration Cabinet Paper",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-sesip-secondary-education-reform",
+   "name": "ADB Secondary Education Sector Improvement Program (SESIP)",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nayaru-lagoon-ferry-service",
+   "name": "Nayaru Lagoon Emergency Ferry Service",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Nayaru, Mullaitivu",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "pulathisi-ella-odyssey-rail-resumption",
+   "name": "Pulathisi and Ella Odyssey Rail Service Resumption after Cyclone Ditwah",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "provincial-council-treasury-transfers-2024",
+   "name": "Treasury Transfers to Provincial Councils 2024",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "paddy-fertilizer-subsidy-2025-26-maha-season",
+   "name": "2025/26 Maha Season Paddy Fertilizer Subsidy",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ditwah-paddy-farmer-compensation",
+   "name": "Cyclone Ditwah Paddy Farmer Compensation",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ginigathhena-road-landslide-repair",
+   "name": "Ginigathhena Road Landslide-Risk Section Rehabilitation",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Ginigathhena, Nuwara Eliya District",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "paddy-purchase-loan-scheme-oda-pana",
+   "name": "Oda Pana Concessional Loan Scheme for Paddy Purchase",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rural-76-roads-punaruda",
+   "name": "76 Rural Roads Development under Punaruda Programme",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "nawalapitiya-railway-land-encroachment-removal",
+   "name": "Nawalapitiya Railway Land Encroachment Removal",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Nawalapitiya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sri-lanka-cricket-pakistan-revenue-rebuilding-fund",
+   "name": "Sri Lanka Cricket Pakistan Series Revenue Donation to Rebuilding Fund",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "police-recruitment-10000-2026-gosl",
+   "project_id": "police-recruitment-10000-2026",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "plantation-worker-wage-increase-2026-private",
+   "project_id": "plantation-worker-wage-increase-2026",
+   "funder": "private",
+   "funder_name": "Plantation companies",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "coal-import-demurrage-penalty-payment-2024-gosl",
+   "project_id": "coal-import-demurrage-penalty-payment-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka (Ceylon Electricity Board/coal supplier)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "katunayake-e-gate-system-japan",
+   "project_id": "katunayake-e-gate-system",
+   "funder": "japan",
+   "funder_name": "Government of Japan (via IOM)",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "aswesuma-january-2026-payments-gosl",
+   "project_id": "aswesuma-january-2026-payments",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "nilgala-forest-reserve-declaration-gosl",
+   "project_id": "nilgala-forest-reserve-declaration",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "central-highlands-restoration-ditwah-adb",
+   "project_id": "central-highlands-restoration-ditwah",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "central-highlands-restoration-ditwah-un",
+   "project_id": "central-highlands-restoration-ditwah",
+   "funder": "un",
+   "funder_name": "United Nations Development Programme",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "fisheries-pension-scheme-gosl",
+   "project_id": "fisheries-pension-scheme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "colombo-port-access-road-adb",
+   "project_id": "colombo-port-access-road",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "kandy-city-railway-service-improvement-gosl",
+   "project_id": "kandy-city-railway-service-improvement",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "ensure-netzero-skills-project-eu",
+   "project_id": "ensure-netzero-skills-project",
+   "funder": "eu",
+   "funder_name": "European Union (Erasmus+)",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "ceb-unauthorized-allowance-payments-2024-gosl",
+   "project_id": "ceb-unauthorized-allowance-payments-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka (Ceylon Electricity Board)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "unknown"
+  },
+  {
+   "id": "mannar-mullikulam-wind-power-haywind",
+   "project_id": "mannar-mullikulam-wind-power-haywind",
+   "funder": "private",
+   "funder_name": "HayWind (private developer)",
+   "funder_type": "private",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "galle-chili-cultivation-project-gosl",
+   "project_id": "galle-chili-cultivation-project",
+   "funder": "gosl",
+   "funder_name": "Southern Provincial Ministry of Agriculture",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "dmc-riskinfo-portal-upgrade-commercial-bank",
+   "project_id": "dmc-riskinfo-portal-upgrade",
+   "funder": "private",
+   "funder_name": "Commercial Bank of Ceylon",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "hambantota-sinopec-oil-refinery-china",
+   "project_id": "hambantota-sinopec-oil-refinery",
+   "funder": "china",
+   "funder_name": "China (Sinopec)",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "ditwah-a5-road-reconstruction-chec-line",
+   "project_id": "ditwah-a5-road-reconstruction-chec",
+   "funder": "china",
+   "funder_name": "China Harbor Engineering Company / Chinese Chamber of Commerce Sri Lanka",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "in_kind",
+   "purpose": "relief"
+  },
+  {
+   "id": "health-public-private-integration-cabinet-paper-gosl",
+   "project_id": "health-public-private-integration-cabinet-paper",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka - Ministry of Health",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "adb-education-sesip-loan-2020",
+   "project_id": "adb-sesip-secondary-education-reform",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "nayaru-lagoon-ferry-service-gosl",
+   "project_id": "nayaru-lagoon-ferry-service",
+   "funder": "gosl",
+   "funder_name": "Sri Lanka Navy",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "maldives-grant-rebuilding-sri-lanka-fund",
+   "project_id": "rebuilding-sri-lanka-fund-disaster-recovery",
+   "funder": "other:maldives",
+   "funder_name": "Maldives Government",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "india-chennai-grant-rebuilding-sri-lanka-fund",
+   "project_id": "rebuilding-sri-lanka-fund-disaster-recovery",
+   "funder": "india",
+   "funder_name": "Chennai City (India)",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "pulathisi-ella-odyssey-rail-resumption-gosl",
+   "project_id": "pulathisi-ella-odyssey-rail-resumption",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "provincial-council-treasury-transfers-2024-gosl",
+   "project_id": "provincial-council-treasury-transfers-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "paddy-fertilizer-subsidy-2025-26-maha-season-gosl",
+   "project_id": "paddy-fertilizer-subsidy-2025-26-maha-season",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "ditwah-paddy-farmer-compensation-gosl",
+   "project_id": "ditwah-paddy-farmer-compensation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "ginigathhena-road-landslide-repair-gosl",
+   "project_id": "ginigathhena-road-landslide-repair",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "paddy-purchase-loan-scheme-oda-pana-line",
+   "project_id": "paddy-purchase-loan-scheme-oda-pana",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka (Ministry of Finance)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "rural-76-roads-punaruda-gosl",
+   "project_id": "rural-76-roads-punaruda",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka (Ministry of Transport, Highways and Urban Development)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "nawalapitiya-railway-land-encroachment-removal-gosl",
+   "project_id": "nawalapitiya-railway-land-encroachment-removal",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "unknown",
+   "purpose": "unknown"
+  },
+  {
+   "id": "sri-lanka-cricket-pakistan-revenue-rebuilding-fund",
+   "project_id": "sri-lanka-cricket-pakistan-revenue-rebuilding-fund",
+   "funder": "private",
+   "funder_name": "Sri Lanka Cricket",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "grant",
+   "purpose": "relief"
+  }
+ ],
+ "events": [
+  {
+   "id": "police-recruitment-10000-2026-gosl-govt_authorised-2026-01-30",
+   "line_id": "police-recruitment-10000-2026-gosl",
+   "date": "2026-01-30",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government approves recruiting 10,000 police officers this year",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-30-adalk-04a0efc3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "plantation-worker-wage-increase-2026-private-agreement_signed-2026-01-30",
+   "line_id": "plantation-worker-wage-increase-2026-private",
+   "date": "2026-01-30",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 1750,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Agreement signed raising plantation worker daily wage to Rs 1,750",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-30-adalk-8eb85d60"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "education-teacher-recruitment-23304-gosl-govt_authorised-2026-01-30",
+   "line_id": "education-teacher-recruitment-23304-gosl",
+   "date": "2026-01-30",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approval noted for recruiting 23,344 teachers amid vacancies",
+   "confidence": "low",
+   "reports": [
+    "2026-01-30-adalk-69f8ad56"
+   ],
+   "relation": "repeat_of:education-teacher-recruitment-23304-gosl-govt_authorised-2026-02-04",
+   "notes": null
+  },
+  {
+   "id": "coal-import-demurrage-penalty-payment-2024-gosl-spent-2026-01-30",
+   "line_id": "coal-import-demurrage-penalty-payment-2024-gosl",
+   "date": "2026-01-30",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 151695439,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "State coal company paid Rs 151.7 million in port demurrage penalties",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-30-adalk-670ec490"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "colombo-independence-day-traffic-plan-gosl-launched-2026-01-30",
+   "line_id": "colombo-independence-day-traffic-plan-gosl",
+   "date": "2026-01-30",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Special traffic plan launched for Independence Day events",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-30-adalk-8507ed6c"
+   ],
+   "relation": "repeat_of:colombo-independence-day-traffic-plan-gosl-launched-2026-02-04",
+   "notes": null
+  },
+  {
+   "id": "national-anti-trafficking-action-plan-2026-2030-gosl-launched-2026-01-28",
+   "line_id": "national-anti-trafficking-action-plan-2026-2030-gosl",
+   "date": "2026-01-28",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka launches 2026–2030 national anti-trafficking action plan",
+   "confidence": "high",
+   "reports": [
+    "2026-01-29-adalk-4c38550b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "katunayake-e-gate-system-japan-launched-2026-01-27",
+   "line_id": "katunayake-e-gate-system-japan",
+   "date": "2026-01-27",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 8400000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan-funded E-Gate border control system opened at Katunayake airport",
+   "confidence": "high",
+   "reports": [
+    "2026-01-28-adalk-084da023"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aswesuma-january-2026-payments-gosl-released-2026-01-28",
+   "line_id": "aswesuma-january-2026-payments-gosl",
+   "date": "2026-01-28",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": 16902966250,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Aswesuma January 2026 allowances credited to beneficiaries' accounts",
+   "confidence": "high",
+   "reports": [
+    "2026-01-28-adalk-4d159f3a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nilgala-forest-reserve-declaration-gosl-govt_authorised-2026-01-21",
+   "line_id": "nilgala-forest-reserve-declaration-gosl",
+   "date": "2026-01-21",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Nilgala forest declared protected reserve by gazette",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-26-adalk-dd245540"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rebuilding-sri-lanka-fund-unknown-underway-2026-01-23",
+   "line_id": "rebuilding-sri-lanka-fund-unknown",
+   "date": "2026-01-23",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 8500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lankans donate over Rs 8.5bn to Rebuilding Sri Lanka Fund",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-23-adalk-3b9b785d"
+   ],
+   "relation": "update_of:rebuilding-sri-lanka-fund-unknown-underway-2026-01-17",
+   "notes": null
+  },
+  {
+   "id": "ditwah-business-recovery-relief-gosl-govt_authorised-2026-01-23",
+   "line_id": "ditwah-business-recovery-relief-gosl",
+   "date": "2026-01-23",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "New circular issued on relief for Ditwah-affected small businesses",
+   "confidence": "low",
+   "reports": [
+    "2026-01-23-adalk-20ec1658"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "arogya-health-wellness-centres-gosl-allocated-2026-01-23",
+   "line_id": "arogya-health-wellness-centres-gosl",
+   "date": "2026-01-23",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs 1.5bn allocated in budget for 250 Arogya Suwatha centres",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-23-adalk-914ba421"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "arogya-health-wellness-centres-gosl-launched-2026-01-24",
+   "line_id": "arogya-health-wellness-centres-gosl",
+   "date": "2026-01-24",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "42 more Arogya Suwatha health centres handed to public",
+   "confidence": "high",
+   "reports": [
+    "2026-01-23-adalk-914ba421"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rebuilding-sri-lanka-fund-colombo-stock-exchange-disbursed-2026-01-23",
+   "line_id": "rebuilding-sri-lanka-fund-colombo-stock-exchange",
+   "date": "2026-01-23",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 25000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Colombo Stock Exchange donates Rs 25 million to Ditwah relief fund",
+   "confidence": "high",
+   "reports": [
+    "2026-01-23-adalk-f05ea0f3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "central-highlands-restoration-ditwah-adb-pledged-2026-01-22",
+   "line_id": "central-highlands-restoration-ditwah-adb",
+   "date": "2026-01-22",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB pledges support to restore Ditwah-damaged central highlands",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-22-adalk-d160cdb5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "central-highlands-restoration-ditwah-un-pledged-2026-01-22",
+   "line_id": "central-highlands-restoration-ditwah-un",
+   "date": "2026-01-22",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "UNDP pledges support to restore Ditwah-damaged central highlands",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-22-adalk-d160cdb5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fisheries-pension-scheme-gosl-launched-2026-01-21",
+   "line_id": "fisheries-pension-scheme-gosl",
+   "date": "2026-01-21",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "New voluntary pension scheme introduced for fishers",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-21-adalk-e8c50412"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "colombo-port-access-road-adb-cost_estimate-2026-01-21",
+   "line_id": "colombo-port-access-road-adb",
+   "date": "2026-01-21",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 68000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Colombo Port Access Road contract value revised upward",
+   "confidence": "high",
+   "reports": [
+    "2026-01-21-adalk-7a098c2b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kivul-oya-development-project-gosl-cost_estimate-2026-01-21",
+   "line_id": "kivul-oya-development-project-gosl",
+   "date": "2026-01-21",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 23456000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Kivul Oya reservoir project cost revised to Rs 23,456 million",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-21-adalk-d4d6aa88"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kandy-city-railway-service-improvement-gosl-spent-2026-01-19",
+   "line_id": "kandy-city-railway-service-improvement-gosl",
+   "date": "2026-01-19",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 694350000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs 694.35 million paid for Kandy city railway improvement project",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-19-adalk-5e7ff6b8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kandy-city-railway-service-improvement-gosl-halted-2026-01-19",
+   "line_id": "kandy-city-railway-service-improvement-gosl",
+   "date": "2026-01-19",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Contractor halted Kandy railway improvement project since 2023",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-19-adalk-5e7ff6b8"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ensure-netzero-skills-project-eu-launched-2026-01-16",
+   "line_id": "ensure-netzero-skills-project-eu",
+   "date": "2026-01-16",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 761300,
+   "currency": "EUR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "EU-funded ENSURE Net Zero skills project launched in Sri Lanka",
+   "confidence": "high",
+   "reports": [
+    "2026-01-16-adalk-2d17343b"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ceb-unauthorized-allowance-payments-2024-gosl-spent-2026-01-16",
+   "line_id": "ceb-unauthorized-allowance-payments-2024-gosl",
+   "date": "2026-01-16",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 1060020000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "CEB paid Rs 1,060 million in unauthorised staff allowances in 2024",
+   "confidence": "high",
+   "reports": [
+    "2026-01-16-adalk-14d2a51d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mannar-mullikulam-wind-power-haywind-launched-2026-01-15",
+   "line_id": "mannar-mullikulam-wind-power-haywind",
+   "date": "2026-01-15",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Construction begins on 50MW Mullikulam wind power project, Mannar",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-16-adalk-5a832188",
+    "2026-01-15-adalk-de77b784"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-digital-education-transformation-china-grant-launched-2026-01-14",
+   "line_id": "china-digital-education-transformation-china-grant",
+   "date": "2026-01-14",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China-funded education digitalisation programme officially launched",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-15-adalk-581d5271"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "public-service-festival-advance-increase-gosl-govt_authorised-2026-01-14",
+   "line_id": "public-service-festival-advance-increase-gosl",
+   "date": "2026-01-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Circular issued raising public servant festival advance amount",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-14-adalk-92dc151a"
+   ],
+   "relation": "repeat_of:public-service-festival-advance-increase-gosl-govt_authorised-2026-01-13",
+   "notes": null
+  },
+  {
+   "id": "galle-chili-cultivation-project-gosl-spent-2026-01-14",
+   "line_id": "galle-chili-cultivation-project-gosl",
+   "date": "2026-01-14",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 7500000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Southern province spent Rs 7.5m on chili cultivation project",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-14-adalk-ae91d56e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "dmc-riskinfo-portal-upgrade-commercial-bank-launched-2026-01-14",
+   "line_id": "dmc-riskinfo-portal-upgrade-commercial-bank",
+   "date": "2026-01-14",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Commercial Bank funds disaster centre's RiskInfo data portal upgrade",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-14-adalk-189d23d6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ambuluwawa-development-works-unknown-halted-2026-01-14",
+   "line_id": "ambuluwawa-development-works-unknown",
+   "date": "2026-01-14",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Chinese investor withdraws from Ambuluwawa cable car project",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-14-adalk-b1a7cda9"
+   ],
+   "relation": "repeat_of:ambuluwawa-development-works-unknown-halted-2026-01-11",
+   "notes": null
+  },
+  {
+   "id": "china-school-uniform-fabric-2026-china-released-2026-01-14",
+   "line_id": "china-school-uniform-fabric-2026-china",
+   "date": "2026-01-14",
+   "date_basis": "report",
+   "stage": "released",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China handover of school uniform fabric to education minister",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-14-adalk-4da55d84"
+   ],
+   "relation": "repeat_of:china-school-uniform-fabric-2026-china-released-2026-01-13",
+   "notes": null
+  },
+  {
+   "id": "public-service-festival-advance-increase-gosl-govt_authorised-2026-01-13",
+   "line_id": "public-service-festival-advance-increase-gosl",
+   "date": "2026-01-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 15000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves raising festival advance to Rs 15,000.",
+   "confidence": "high",
+   "reports": [
+    "2026-01-13-adalk-02a70e7c"
+   ],
+   "relation": "repeat_of:public-service-festival-advance-increase-gosl-govt_authorised-2026-01-13",
+   "notes": null
+  },
+  {
+   "id": "school-equipment-allowance-2026-gosl-govt_authorised-2026-01-13",
+   "line_id": "school-equipment-allowance-2026-gosl",
+   "date": "2026-01-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 6000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet continues Rs 6,000 school stationery allowance for 2026.",
+   "confidence": "high",
+   "reports": [
+    "2026-01-13-adalk-5006e4e8"
+   ],
+   "relation": "repeat_of:school-equipment-allowance-2026-gosl-govt_authorised-2026-01-14",
+   "notes": null
+  },
+  {
+   "id": "samurdhi-development-department-2026-gosl-allocated-2026-01-13",
+   "line_id": "samurdhi-development-department-2026-gosl",
+   "date": "2026-01-13",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 27380000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Parliament committee reviews Samurdhi Department's 2026 wage allocation.",
+   "confidence": "high",
+   "reports": [
+    "2026-01-13-adalk-420d0e7d"
+   ],
+   "relation": "repeat_of:samurdhi-development-department-2026-gosl-allocated-2026-01-13",
+   "notes": null
+  },
+  {
+   "id": "express-pearl-compensation-and-coastal-restoration-unknown-unclear-2026-01-13",
+   "line_id": "express-pearl-compensation-and-coastal-restoration-unknown",
+   "date": "2026-01-13",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Parliament committee reviews use of X-Press Pearl compensation funds.",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-13-adalk-099ea8e5"
+   ],
+   "relation": "repeat_of:express-pearl-compensation-and-coastal-restoration-unknown-unclear-2026-01-08",
+   "notes": null
+  },
+  {
+   "id": "paddy-minimum-price-increase-gosl-govt_authorised-2026-01-13",
+   "line_id": "paddy-minimum-price-increase-gosl",
+   "date": "2026-01-13",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Paddy Marketing Board raises minimum price for samba paddy varieties.",
+   "confidence": "high",
+   "reports": [
+    "2026-01-13-adalk-8c5baa9f"
+   ],
+   "relation": "repeat_of:paddy-minimum-price-increase-gosl-govt_authorised-2026-01-13",
+   "notes": null
+  },
+  {
+   "id": "education-module-reform-2026-gosl-halted-2026-01-13",
+   "line_id": "education-module-reform-2026-gosl",
+   "date": "2026-01-13",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet delays Grade 6 curriculum reform to 2027",
+   "confidence": "high",
+   "reports": [
+    "2026-01-13-adalk-d1cde6e1",
+    "2026-01-13-bbccomsinhala-002c88e7"
+   ],
+   "relation": "repeat_of:education-module-reform-2026-gosl-halted-2026-01-13",
+   "notes": null
+  },
+  {
+   "id": "hambantota-sinopec-oil-refinery-china-proposed-2026-01-13",
+   "line_id": "hambantota-sinopec-oil-refinery-china",
+   "date": "2026-01-13",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka to finalise Hambantota Sinopec refinery agreement Q1 2026",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-13-adalk-5abbb330"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rebuilding-sri-lanka-fund-unknown-underway-2026-01-13",
+   "line_id": "rebuilding-sri-lanka-fund-unknown",
+   "date": "2026-01-13",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 8000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rebuilding Sri Lanka Fund has received about Rs 8 billion so far",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-13-bbccomsinhala-cfa2c944"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rebuilding-sri-lanka-fund-unknown-launched-2026-01-13",
+   "line_id": "rebuilding-sri-lanka-fund-unknown",
+   "date": "2026-01-13",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rebuilding Sri Lanka national programme launch event announced",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-12-adalk-80894f38"
+   ],
+   "relation": "repeat_of:rebuilding-sri-lanka-fund-unknown-launched-2026-01-13",
+   "notes": null
+  },
+  {
+   "id": "india-grant-northern-railway-restoration-launched-2026-01-11",
+   "line_id": "india-grant-northern-railway-restoration",
+   "date": "2026-01-11",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 1500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Mahawa-Anuradhapura railway line repair launched with Indian aid",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-11-adalk-6b9340f0"
+   ],
+   "relation": "repeat_of:india-grant-northern-railway-restoration-launched-2026-01-11",
+   "notes": null
+  },
+  {
+   "id": "sri-lanka-post-2025-revenue-unknown-unclear-2026-01-11",
+   "line_id": "sri-lanka-post-2025-revenue-unknown",
+   "date": "2026-01-11",
+   "date_basis": "report",
+   "stage": "unclear",
+   "amount": 13100000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka Post exceeded 2025 revenue target",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-11-adalk-0a591480"
+   ],
+   "relation": "repeat_of:sri-lanka-post-2025-revenue-unknown-unclear-2026-01-11",
+   "notes": null
+  },
+  {
+   "id": "ditwah-disaster-relief-supplementary-estimate-gosl-allocated-2026-01-09",
+   "line_id": "ditwah-disaster-relief-supplementary-estimate-gosl",
+   "date": "2026-01-09",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 500000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs 500 billion allocated this year for disaster rebuilding",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-10-adalk-6df1c88f"
+   ],
+   "relation": "repeat_of:ditwah-disaster-relief-supplementary-estimate-gosl-allocated-2026-01-05",
+   "notes": null
+  },
+  {
+   "id": "ditwah-permanent-housing-recovery-gosl-disbursed-2026-01-09",
+   "line_id": "ditwah-permanent-housing-recovery-gosl",
+   "date": "2026-01-09",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 5000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "President launches Rs 5 lakh compensation for destroyed Ditwah homes",
+   "confidence": "high",
+   "reports": [
+    "2026-01-09-adalk-e2092a44"
+   ],
+   "relation": "repeat_of:ditwah-permanent-housing-recovery-gosl-disbursed-2026-01-09",
+   "notes": null
+  },
+  {
+   "id": "ditwah-a5-road-reconstruction-chec-line-completed-2026-01-09",
+   "line_id": "ditwah-a5-road-reconstruction-chec-line",
+   "date": "2026-01-09",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China Harbor Engineering completes A5 road repair after Ditwah",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-09-adalk-fe3f8f1d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "health-public-private-integration-cabinet-paper-gosl-proposed-2026-01-09",
+   "line_id": "health-public-private-integration-cabinet-paper-gosl",
+   "date": "2026-01-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Health Ministry cabinet paper proposes private-sector role in state hospitals",
+   "confidence": "low",
+   "reports": [
+    "2026-01-09-adalk-7c056fab"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-school-uniform-fabric-2026-china-disbursed-2026-01-08",
+   "line_id": "china-school-uniform-fabric-2026-china",
+   "date": "2026-01-08",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China-donated school uniform fabric (11.484 million metres) arrives at port",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-08-adalk-031c52fe"
+   ],
+   "relation": "repeat_of:china-school-uniform-fabric-2026-china-released-2026-01-13",
+   "notes": null
+  },
+  {
+   "id": "ditwah-business-recovery-loans-gosl-proposed-2026-01-08",
+   "line_id": "ditwah-business-recovery-loans-gosl",
+   "date": "2026-01-08",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 25000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "5% interest Rs 25 million working-capital loan scheme being prepared",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-08-adalk-aa80772a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ditwah-business-recovery-relief-gosl-disbursed-2026-01-08",
+   "line_id": "ditwah-business-recovery-relief-gosl",
+   "date": "2026-01-08",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs 1 billion already given to Industry Ministry for disaster-hit businesses",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-08-adalk-aa80772a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ditwah-permanent-housing-recovery-gosl-launched-2026-01-09",
+   "line_id": "ditwah-permanent-housing-recovery-gosl",
+   "date": "2026-01-09",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cyclone Ditwah house compensation and rebuilding launches in two districts",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-08-adalk-aa80772a"
+   ],
+   "relation": "repeat_of:ditwah-permanent-housing-recovery-gosl-launched-2026-01-09",
+   "notes": null
+  },
+  {
+   "id": "norwood-municipal-garbage-collection-service-gosl-underway-2026-01-08",
+   "line_id": "norwood-municipal-garbage-collection-service-gosl",
+   "date": "2026-01-08",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 2400,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Norwood council stops waste collection from unpaid garbage-tax businesses",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-08-adalk-8b3204c0"
+   ],
+   "relation": "update_of:norwood-municipal-garbage-collection-service-gosl-govt_authorised-2026-01-06",
+   "notes": null
+  },
+  {
+   "id": "adb-education-sesip-loan-2020-agreement_signed-2026-01-08",
+   "line_id": "adb-education-sesip-loan-2020",
+   "date": "2026-01-08",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 400000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB $400 million loan for secondary education reform programme",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-08-bbccomsinhala-b76bbab7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nayaru-lagoon-ferry-service-gosl-completed-2026-01-06",
+   "line_id": "nayaru-lagoon-ferry-service-gosl",
+   "date": "2026-01-06",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Navy ends emergency boat service across Nayaru lagoon",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-07-adalk-969bfcea"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "bus-card-payment-machines-gosl-launched-2026-01-07",
+   "line_id": "bus-card-payment-machines-gosl",
+   "date": "2026-01-07",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "People's Bank launches card payment for SLTB bus tickets",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-07-adalk-1000da05"
+   ],
+   "relation": "repeat_of:bus-card-payment-machines-gosl-launched-2026-01-09",
+   "notes": null
+  },
+  {
+   "id": "national-noncommunicable-disease-task-force-gosl-proposed-2026-01-06",
+   "line_id": "national-noncommunicable-disease-task-force-gosl",
+   "date": "2026-01-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Health ministry sets up noncommunicable disease task force",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-06-adalk-a585bae6"
+   ],
+   "relation": "repeat_of:national-noncommunicable-disease-task-force-gosl-proposed-2026-01-07",
+   "notes": null
+  },
+  {
+   "id": "government-hospital-patient-food-programme-katharagama-launched-2026-01-06",
+   "line_id": "government-hospital-patient-food-programme-katharagama",
+   "date": "2026-01-06",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 10000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Pilot customised meal kitchen launched at Apeksha Hospital",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-06-adalk-a585bae6"
+   ],
+   "relation": "repeat_of:government-hospital-patient-food-programme-katharagama-launched-2026-01-06",
+   "notes": null
+  },
+  {
+   "id": "fisheries-pension-scheme-gosl-proposed-2026-01-06",
+   "line_id": "fisheries-pension-scheme-gosl",
+   "date": "2026-01-06",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ministerial committee approves fishers' pension scheme regulations",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-06-adalk-f50eca08"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "maldives-grant-rebuilding-sri-lanka-fund-disbursed-2026-01-06",
+   "line_id": "maldives-grant-rebuilding-sri-lanka-fund",
+   "date": "2026-01-06",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 7250000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Maldives gave largest foreign financial donation for Cyclone Ditwah relief",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-06-adalk-847a0d9c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-chennai-grant-rebuilding-sri-lanka-fund-disbursed-2026-01-06",
+   "line_id": "india-chennai-grant-rebuilding-sri-lanka-fund",
+   "date": "2026-01-06",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 4400000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Chennai city donated funds for Cyclone Ditwah relief",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-06-adalk-847a0d9c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-ditwah-emergency-grant-dec2025-disbursed-2026-01-06",
+   "line_id": "japan-ditwah-emergency-grant-dec2025",
+   "date": "2026-01-06",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 5960000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan donated funds for Cyclone Ditwah relief",
+   "confidence": "low",
+   "reports": [
+    "2026-01-06-adalk-847a0d9c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "pulathisi-ella-odyssey-rail-resumption-gosl-launched-2026-01-06",
+   "line_id": "pulathisi-ella-odyssey-rail-resumption-gosl",
+   "date": "2026-01-06",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Pulathisi and Ella Odyssey trains resume after cyclone damage repairs",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-06-adalk-07cfc105"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sl-2026-appropriation-budget-gosl-allocated-2026-01-05",
+   "line_id": "sl-2026-appropriation-budget-gosl",
+   "date": "2026-01-05",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1400000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President reiterates Rs 1400bn capital budget allocation",
+   "confidence": "high",
+   "reports": [
+    "2026-01-06-adalk-feef5ff5"
+   ],
+   "relation": "repeat_of:sl-2026-appropriation-budget-gosl-allocated-2026-01-05",
+   "notes": null
+  },
+  {
+   "id": "ditwah-disaster-relief-supplementary-estimate-gosl-allocated-2026-01-05",
+   "line_id": "ditwah-disaster-relief-supplementary-estimate-gosl",
+   "date": "2026-01-05",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 500000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President reiterates Rs 500bn Ditwah relief supplementary allocation",
+   "confidence": "high",
+   "reports": [
+    "2026-01-06-adalk-feef5ff5"
+   ],
+   "relation": "repeat_of:ditwah-disaster-relief-supplementary-estimate-gosl-allocated-2026-01-05",
+   "notes": null
+  },
+  {
+   "id": "railway-station-master-recruitment-gosl-completed-2026-01-05",
+   "line_id": "railway-station-master-recruitment-gosl",
+   "date": "2026-01-05",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "100 Grade 3 station master appointment letters presented",
+   "confidence": "high",
+   "reports": [
+    "2026-01-06-adalk-a82b54fa"
+   ],
+   "relation": "repeat_of:railway-station-master-recruitment-gosl-completed-2026-01-05",
+   "notes": null
+  },
+  {
+   "id": "provincial-council-treasury-transfers-2024-gosl-disbursed-2026-01-05",
+   "line_id": "provincial-council-treasury-transfers-2024-gosl",
+   "date": "2026-01-05",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 437365000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "annual",
+   "equivalents": [],
+   "components": [],
+   "summary": "Treasury transferred Rs 437,365mn to nine provincial councils in 2024",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-05-adalk-1e688512"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "wawendon-school-temporary-relocation-gosl-underway-2026-01-05",
+   "line_id": "wawendon-school-temporary-relocation-gosl",
+   "date": "2026-01-05",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Landslide-threatened school relocated to Thondaman cultural centre",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-05-adalk-762810b6"
+   ],
+   "relation": "repeat_of:wawendon-school-temporary-relocation-gosl-underway-2026-01-05",
+   "notes": null
+  },
+  {
+   "id": "government-hospital-patient-food-programme-unknown-launched-2026-01-05",
+   "line_id": "government-hospital-patient-food-programme-unknown",
+   "date": "2026-01-05",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Hospital food department pilot launched at Maharagama Apeksha",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-05-adalk-ae78eecf"
+   ],
+   "relation": "repeat_of:government-hospital-patient-food-programme-unknown-launched-2026-01-05",
+   "notes": null
+  },
+  {
+   "id": "wattawala-nawalapitiya-rail-service-gosl-launched-2026-01-05",
+   "line_id": "wattawala-nawalapitiya-rail-service-gosl",
+   "date": "2026-01-05",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Passenger train added between Watawala and Nawalapitiya",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-05-adalk-17dd1a9d"
+   ],
+   "relation": "repeat_of:wattawala-nawalapitiya-rail-service-gosl-launched-2026-01-05",
+   "notes": null
+  },
+  {
+   "id": "paddy-fertilizer-subsidy-2025-26-maha-season-gosl-disbursed-2025-12-31",
+   "line_id": "paddy-fertilizer-subsidy-2025-26-maha-season-gosl",
+   "date": "2025-12-31",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 13592297651.5,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Fertilizer subsidy paid to 937,897 paddy farmers",
+   "confidence": "high",
+   "reports": [
+    "2026-01-05-adalk-073b0c95"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ditwah-paddy-farmer-compensation-gosl-disbursed-2025-12-31",
+   "line_id": "ditwah-paddy-farmer-compensation-gosl",
+   "date": "2025-12-31",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 7500750000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Compensation paid to farmers for cyclone-destroyed paddy fields",
+   "confidence": "high",
+   "reports": [
+    "2026-01-05-adalk-073b0c95"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-mahaweli-water-conservation-spent-2026-01-02",
+   "line_id": "adb-loan-mahaweli-water-conservation",
+   "date": "2026-01-02",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 14202000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Audit finds Rs14.2bn spent importing fertilizer, 14,400MT unused",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-02-adalk-730cc752"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "talpe-railway-station-renovation-private-launched-2026-01-02",
+   "line_id": "talpe-railway-station-renovation-private",
+   "date": "2026-01-02",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Renovated Talpe railway station opened to public",
+   "confidence": "high",
+   "reports": [
+    "2026-01-02-adalk-054ef1f5"
+   ],
+   "relation": "repeat_of:talpe-railway-station-renovation-private-launched-2026-01-02",
+   "notes": null
+  },
+  {
+   "id": "ceb-voluntary-retirement-scheme-unknown-loan-govt_authorised-2025-08-25",
+   "line_id": "ceb-voluntary-retirement-scheme-unknown-loan",
+   "date": "2025-08-25",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 11554000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved CEB staff voluntary retirement compensation scheme",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-02-bbccomsinhala-75695a16"
+   ],
+   "relation": "update_of:ceb-voluntary-retirement-scheme-unknown-loan-govt_authorised-2026-01-04",
+   "notes": null
+  },
+  {
+   "id": "ginigathhena-road-landslide-repair-gosl-completed-2026-01-01",
+   "line_id": "ginigathhena-road-landslide-repair-gosl",
+   "date": "2026-01-01",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Reopened landslide-closed road section near Hatton after repairs",
+   "confidence": "high",
+   "reports": [
+    "2026-01-02-adalk-256a1617"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "bus-card-payment-machines-gosl-launched-2026-01-02",
+   "line_id": "bus-card-payment-machines-gosl",
+   "date": "2026-01-02",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Pilot launch of electronic card bus fare payment on two routes",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-02-adalk-a4dff905"
+   ],
+   "relation": "repeat_of:bus-card-payment-machines-gosl-launched-2026-01-07",
+   "notes": null
+  },
+  {
+   "id": "paddy-purchase-loan-scheme-oda-pana-line-launched-2026-01-01",
+   "line_id": "paddy-purchase-loan-scheme-oda-pana-line",
+   "date": "2026-01-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 50000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Concessional loan scheme launched for small paddy mill owners to buy paddy",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-01-lankadeepalk-b2458771"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rural-76-roads-punaruda-gosl-allocated-2026-01-01",
+   "line_id": "rural-76-roads-punaruda-gosl",
+   "date": "2026-01-01",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 5000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "First phase funding allocated to develop 76 rural roads",
+   "confidence": "high",
+   "reports": [
+    "2026-01-01-adalk-06e98b92"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rural-40-new-bus-routes-gosl-launched-2026-01-01",
+   "line_id": "rural-40-new-bus-routes-gosl",
+   "date": "2026-01-01",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Bus services launched on 40 rural routes with no prior service",
+   "confidence": "high",
+   "reports": [
+    "2026-01-01-adalk-06e98b92"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-gram-shakthi-housing-agreement_signed-2025-12-30",
+   "line_id": "india-grant-gram-shakthi-housing",
+   "date": "2025-12-30",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 1000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "India doubles housing grant per unit for Gram Shakthi housing projects",
+   "confidence": "high",
+   "reports": [
+    "2026-01-01-adalk-36dd1231"
+   ],
+   "relation": "repeat_of:india-grant-gram-shakthi-housing-agreement_signed-2025-12-30",
+   "notes": null
+  },
+  {
+   "id": "consumer-affairs-fine-enforcement-2025-gosl-completed-2026-01-01",
+   "line_id": "consumer-affairs-fine-enforcement-2025-gosl",
+   "date": "2026-01-01",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 30065000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Gampaha consumer authority fined 1,300 traders in 2025",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-01-adalk-4da43d9f"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "nawalapitiya-railway-land-encroachment-removal-gosl-govt_authorised-2026-01-01",
+   "line_id": "nawalapitiya-railway-land-encroachment-removal-gosl",
+   "date": "2026-01-01",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Deputy minister orders removal of illegal railway land structures",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-01-adalk-b2c1ed9d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sri-lanka-cricket-pakistan-revenue-rebuilding-fund-pledged-2026-01-01",
+   "line_id": "sri-lanka-cricket-pakistan-revenue-rebuilding-fund",
+   "date": "2026-01-01",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Sri Lanka Cricket pledges Pakistan series revenue to rebuilding fund",
+   "confidence": "medium",
+   "reports": [
+    "2026-01-01-adalk-4ec41e8a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rebuilding-sri-lanka-fund-unknown-govt_authorised-2026-01-01",
+   "line_id": "rebuilding-sri-lanka-fund-unknown",
+   "date": "2026-01-01",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President establishes Rebuilding Sri Lanka presidential task force",
+   "confidence": "high",
+   "reports": [
+    "2026-01-01-adalk-34313749"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-01-30-adalk-04a0efc3": {
+   "date": "2026-01-30",
+   "title": "පොලීසියේ වැටුප කැපවීමට ප්‍රමාණවත් නෑ",
+   "url": "https://www.ada.lk/breaking_news/පොලීසියේ-වැටුප-කැපවීමට-ප්‍රමාණවත්-නෑ/11-421036",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-30-adalk-8eb85d60": {
+   "date": "2026-01-30",
+   "title": "වතු කම්කරු වැටුප රු. 1750ක් කිරීමේ ගිවිසුමට අත්සන් තබයි",
+   "url": "https://www.ada.lk/breaking_news/වතු-කම්කරු-වැටුප-රු--1750ක්-කිරීමේ-ගිවිසුමට-අත්සන්-තබයි/11-421034",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-30-adalk-69f8ad56": {
+   "date": "2026-01-30",
+   "title": "ගුරු පුරප්පාඩු 36178ක්",
+   "url": "https://www.ada.lk/breaking_news/ගුරු-පුරප්පාඩු-36178ක්/11-421033",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-30-adalk-670ec490": {
+   "date": "2026-01-30",
+   "title": "නියමිත පරිදි ගල් අඟුරු ගොඩ නොබෑමෙන් රු. කෝටි 15ක් ප්‍රමාද ගාස්තු ගෙවලා",
+   "url": "https://www.ada.lk/breaking_news/නියමිත-පරිදි-ගල්-අඟුරු-ගොඩ-නොබෑමෙන්-රු--කෝටි-15ක්-ප්‍රමාද-ගාස්තු-ගෙවලා/11-421030",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-30-adalk-8507ed6c": {
+   "date": "2026-01-30",
+   "title": "නිදහස් උත්සවය නිසා ක්‍රියාත්මක විශේෂ රථවාහන සැලැස්ම",
+   "url": "https://www.ada.lk/breaking_news/නිදහස්-උත්සවය-නිසා-ක්‍රියාත්මක-විශේෂ-රථවාහන-සැලැස්ම/11-421027",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-29-adalk-4c38550b": {
+   "date": "2026-01-29",
+   "title": "මිනිස් ජාවාරමට එරෙහි පස් අවුරුදු සැලැස්මක්",
+   "url": "https://www.ada.lk/breaking_news/මිනිස්-ජාවාරමට-එරෙහි-පස්-අවුරුදු-සැලැස්මක්/11-421005",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-28-adalk-084da023": {
+   "date": "2026-01-28",
+   "title": "ලංකාවේ පළමු ස්වයංක්‍රීය දේශසීමා පාලන පද්ධතිය විවෘත කරයි",
+   "url": "https://www.ada.lk/breaking_news/ලංකාවේ-පළමු-ස්වයංක්‍රීය-දේශසීමා-පාලන-පද්ධතිය-විවෘත-කරයි/11-420997",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-28-adalk-4d159f3a": {
+   "date": "2026-01-28",
+   "title": "අස්වැසුම ජනවාරි දිමනාව අද බැංකු ගිණුම්වලට",
+   "url": "https://www.ada.lk/breaking_news/අස්වැසුම-ජනවාරි-දිමනාව-අද-බැංකු-ගිණුම්වලට/11-420983",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-26-adalk-dd245540": {
+   "date": "2026-01-26",
+   "title": "නිල්ගල රක්ෂිතයක් ලෙස ප්‍රකාශයට පත් කෙරේ",
+   "url": "https://www.ada.lk/breaking_news/නිල්ගල-රක්ෂිතයක්-ලෙස-ප්‍රකාශයට-පත්-කෙරේ/11-420956",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-23-adalk-3b9b785d": {
+   "date": "2026-01-23",
+   "title": "රට ගොඩනැගීමේ අරමුදලට ලාංකිකයන් රු.බි. 8.5ක් පරිත්‍යාග කරලා",
+   "url": "https://www.ada.lk/breaking_news/රට-ගොඩනැගීමේ-අරමුදලට-ලාංකිකයන්-රු-බි--8-5ක්-පරිත්‍යාග-කරලා/11-420934",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-23-adalk-20ec1658": {
+   "date": "2026-01-23",
+   "title": "දිත්වා නිසා ආපදාවට ලක්වූ සුළු පරිමාණ ව්‍යාපාරිකයන් වෙනුවෙන් ලබාදෙන සහන",
+   "url": "https://www.ada.lk/breaking_news/දිත්වා-නිසා-ආපදාවට-ලක්වූ-සුළු-පරිමාණ-ව්‍යාපාරිකයන්-වෙනුවෙන්-ලබාදෙන-සහන/11-420933",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-23-adalk-914ba421": {
+   "date": "2026-01-23",
+   "title": "ආරෝග්‍යා සුවතා මධ්‍යස්ථාන 42 ක් ජනතා අයිතියට",
+   "url": "https://www.ada.lk/breaking_news/ආරෝග්‍යා-සුවතා-මධ්‍යස්ථාන-42-ක්-ජනතා-අයිතියට/11-420931",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-23-adalk-f05ea0f3": {
+   "date": "2026-01-23",
+   "title": "කොටස් වෙළෙඳපොළ Rebuilding Sri Lanka වෙත මිලියන 25ක් දෙයි",
+   "url": "https://www.ada.lk/business/කොටස්-වෙළෙඳපොළ-Rebuilding-Sri-Lanka-වෙත-මිලියන-25ක්-දෙයි/7-420929",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-22-adalk-d160cdb5": {
+   "date": "2026-01-22",
+   "title": "මධ්‍යම කඳුකරය සුරක්ෂිත කර යළි ගොඩනැගනිමට නව ව්‍යුහයක්",
+   "url": "https://www.ada.lk/breaking_news/මධ්‍යම-කඳුකරය-සුරක්ෂිත-කර-යළි-ගොඩනැගනිමට-නව-ව්‍යුහයක්/11-420899",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-21-adalk-e8c50412": {
+   "date": "2026-01-21",
+   "title": "ධීවරයන්ට පහසු ඉහල විශ්‍රාම වැටුප් ප්‍රතිලාභ ක්‍රමයක්",
+   "url": "https://www.ada.lk/breaking_news/ධීවරයන්ට-පහසු-ඉහල-විශ්‍රාම-වැටුප්-ප්‍රතිලාභ-ක්‍රමයක්/11-420888",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-21-adalk-7a098c2b": {
+   "date": "2026-01-21",
+   "title": "වරාය ප්‍රවේශ මාර්ගය වසර අවසාානයට පෙර ජනතා අයිතියට",
+   "url": "https://www.ada.lk/breaking_news/වරාය-ප්‍රවේශ-මාර්ගය-වසර-අවසාානයට-පෙර-ජනතා-අයිතියට/11-420883",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-21-adalk-d4d6aa88": {
+   "date": "2026-01-21",
+   "title": "කිවුල් ඔය ජලාශ සංවර්ධන ව්‍යාපෘතියේ පිරිවැය රු.මි. 4170 සිට රු.මි. 23 456ක් දක්වා ඉහළට",
+   "url": "https://www.ada.lk/breaking_news/කිවුල්-ඔය-ජලාශ-සංවර්ධන-ව්‍යාපෘතියේ-පිරිවැය-රු-මි--4170-සිට-රු-මි--23-456ක්-දක්වා-ඉහළට/11-420882",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-19-adalk-5e7ff6b8": {
+   "date": "2026-01-19",
+   "title": "මහනුවර  නගරාශ්‍රිත  දුම්රිය සේවාව දියුණු කිරිමේ ව්‍යාපෘතියට වැය කළ රු. මි. 694.35 වතුරේ",
+   "url": "https://www.ada.lk/breaking_news/මහනුවර--නගරාශ්‍රිත--දුම්රිය-සේවාව-දියුණු-කිරිමේ-ව්‍යාපෘතියට-වැය-කළ-රු--මි--694-35-වතුරේ/11-420856",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-16-adalk-2d17343b": {
+   "date": "2026-01-16",
+   "title": "NetZero ඉලක්ක සපුරාලීමට ENSURE ව්‍යාපෘතිය ඇරඹෙයි",
+   "url": "https://www.ada.lk/business/NetZero-ඉලක්ක-සපුරාලීමට-ENSURE-ව්‍යාපෘතිය-ඇරඹෙයි/7-420823",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-16-adalk-14d2a51d": {
+   "date": "2026-01-16",
+   "title": "අනුමැතියකින් තොරව 2024දී ලංවිම රුපියල් බිලියනයක දීමනා ගෙවලා",
+   "url": "https://www.ada.lk/breaking_news/අනුමැතියකින්-තොරව-2024දී-ලංවිම-රුපියල්-බිලියනයක-දීමනා-ගෙවලා/11-420821",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-16-adalk-5a832188": {
+   "date": "2026-01-16",
+   "title": "මන්නාරම මෙගා වොට් 50 සුළං බලාගාර ව්‍යාපෘතියේ ඉදිකිරිම් අරඹයි",
+   "url": "https://www.ada.lk/breaking_news/මන්නාරම-මෙගා-වොට්-50-සුළං-බලාගාර-ව්‍යාපෘතියේ-ඉදිකිරිම්-අරඹයි/11-420813",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-15-adalk-de77b784": {
+   "date": "2026-01-15",
+   "title": "මන්නාරම සුළං විදුලි බලාගාර ව්‍යාපෘතිය ජනපති ප්‍රධානත්වයෙන් ආරම්භ කෙරේ",
+   "url": "https://www.ada.lk/breaking_news/මන්නාරම-සුළං-විදුලි-බලාගාර-ව්‍යාපෘතිය-ජනපති-ප්‍රධානත්වයෙන්-ආරම්භ-කෙරේ/11-420809",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-15-adalk-581d5271": {
+   "date": "2026-01-15",
+   "title": "අධ්‍යාපන ඩිජිටල්කරණ වැඩසටහන නිල වශයෙන් අරඹයි",
+   "url": "https://www.ada.lk/breaking_news/අධ්‍යාපන-ඩිජිටල්කරණ-වැඩසටහන-නිල-වශයෙන්-අරඹයි/11-420803",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-14-adalk-92dc151a": {
+   "date": "2026-01-14",
+   "title": "රාජ්‍ය සේවක උත්සව අත්තිකාරම් ඉහළ දමන චක්‍රලේඛය නිකුත් කෙරේ",
+   "url": "https://www.ada.lk/breaking_news/රාජ්‍ය-සේවක-උත්සව-අත්තිකාරම්-ඉහළ-දමන-චක්‍රලේඛය-නිකුත්-කෙරේ/11-420800",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-14-adalk-ae91d56e": {
+   "date": "2026-01-14",
+   "title": "රු. මිලියන 143ක ආදායමක් අපේක්ෂා කළ මිරිස් පැළ ව්‍යාපෘතියේ ආදායම මිලියන 11",
+   "url": "https://www.ada.lk/breaking_news/රු--මිලියන-143ක-ආදායමක්-අපේක්ෂා-කළ-මිරිස්-පැළ-ව්‍යාපෘතියේ-ආදායම-මිලියන-11/11-420793",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-14-adalk-189d23d6": {
+   "date": "2026-01-14",
+   "title": "ආපදා කළමනාකරණ මධ්‍යස්ථානයට කොමර්ෂල් බැංකුවේ සහාය හිමිවෙයි",
+   "url": "https://www.ada.lk/business/ආපදා-කළමනාකරණ-මධ්‍යස්ථානයට-කොමර්ෂල්-බැංකුවේ-සහාය-හිමිවෙයි/7-420789",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-14-adalk-b1a7cda9": {
+   "date": "2026-01-14",
+   "title": "අම්බුලුවාව කේබල් කාර් ව්‍යාපෘතියෙන් චීන ආයෝජන සමාගමක් ඉවත්වෙයි",
+   "url": "https://www.ada.lk/breaking_news/අම්බුලුවාව-කේබල්-කාර්-ව්‍යාපෘතියෙන්-චීන-ආයෝජන-සමාගමක්-ඉවත්වෙයි/11-420786",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-14-adalk-4da55d84": {
+   "date": "2026-01-14",
+   "title": "පාසල් නිල ඇඳුම් රෙදි බෙදා දීම ලබන 19දා සිට",
+   "url": "https://www.ada.lk/breaking_news/පාසල්-නිල-ඇඳුම්-රෙදි-බෙදා-දීම-ලබන-19දා-සිට/11-420777",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-13-adalk-02a70e7c": {
+   "date": "2026-01-13",
+   "title": "රාජ්‍ය සේවක උත්සව අත්තිකාරම් මුදල වැඩිකරයි",
+   "url": "https://www.ada.lk/breaking_news/රාජ්‍ය-සේවක-උත්සව-අත්තිකාරම්-මුදල-වැඩිකරයි/11-420774",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-13-adalk-5006e4e8": {
+   "date": "2026-01-13",
+   "title": "පාසල් ලිපි ද්‍රව්‍ය ගැනීමට රු 6000 දීමනාව මේ වසරේදීත්",
+   "url": "https://www.ada.lk/breaking_news/පාසල්-ලිපි-ද්‍රව්‍ය-ගැනීමට-රු-6000-දීමනාව-මේ-වසරේදීත්/11-420773",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-13-adalk-420d0e7d": {
+   "date": "2026-01-13",
+   "title": "අස්වැසුම ඵලදායී කිරීමට නිර්ණායක සංශෝධනය කරන්න",
+   "url": "https://www.ada.lk/breaking_news/අස්වැසුම-ඵලදායී-කිරීමට-නිර්ණායක-සංශෝධනය-කරන්න/11-420772",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-13-adalk-099ea8e5": {
+   "date": "2026-01-13",
+   "title": "එක්ස්ප්‍රස් පර්ල් වන්දියේ ඉතිරි මුදල් නෞකාවෙන් වූ හානියට අදාළ කරුණකට වියදම් කරන්න",
+   "url": "https://www.ada.lk/breaking_news/එක්ස්ප්‍රස්-පර්ල්-වන්දියේ-ඉතිරි-මුදල්-නෞකාවෙන්-වූ-හානියට-අදාළ-කරුණකට-වියදම්-කරන්න/11-420767",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-13-adalk-8c5baa9f": {
+   "date": "2026-01-13",
+   "title": "සම්බා හා කීරි සම්බා වී මිලදී ගැනීමේ අවම මිල ඉහළට",
+   "url": "https://www.ada.lk/breaking_news/සම්බා-හා-කීරි-සම්බා-වී-මිලදී-ගැනීමේ-අවම-මිල-ඉහළට/11-420765",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-13-adalk-d1cde6e1": {
+   "date": "2026-01-13",
+   "title": "හය ශ්‍රේණියේ විෂයමාලා ප්‍රතිසංස්කරණය මේ වසරේ නෑ",
+   "url": "https://www.ada.lk/breaking_news/හය-ශ්‍රේණියේ-විෂයමාලා-ප්‍රතිසංස්කරණය-මේ-වසරේ-නෑ/11-420764",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-13-bbccomsinhala-002c88e7": {
+   "date": "2026-01-13",
+   "title": "අධ්‍යාපන ප්‍රතිසංස්කරණ ගැන තීරණය රජය ආපසු හැරවූවා ද? ඇත්තට ම රජයේ තීරණය කුමක් ද?",
+   "url": "https://www.bbc.com/sinhala/articles/c394z01jxzro",
+   "outlet": "BBC Sinhala",
+   "lang": "si"
+  },
+  "2026-01-13-adalk-5abbb330": {
+   "date": "2026-01-13",
+   "title": "හම්බන්තොට තෙල් පිරිපහදුවේ ගිවිසුම 2026 පළමු කාර්තුවේදී අවසන් කරනවා",
+   "url": "https://www.ada.lk/picture_story/හම්බන්තොට-තෙල්-පිරිපහදුවේ-ගිවිසුම-2026-පළමු-කාර්තුවේදී-අවසන්-කරනවා/10-420752",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-13-bbccomsinhala-cfa2c944": {
+   "date": "2026-01-13",
+   "title": "'Rebuilding Sri Lanka': දිට්වා හානියෙන් රට යළි ගොඩනැගීමට මෙතෙක් ලැබී ආධාර ගැන පසුවිපරමක්",
+   "url": "https://www.bbc.com/sinhala/articles/cp8054k605xo",
+   "outlet": "BBC Sinhala",
+   "lang": "si"
+  },
+  "2026-01-12-adalk-80894f38": {
+   "date": "2026-01-12",
+   "title": "රට යළි ගොඩනගන වැඩ පිළිවෙළ හෙට ඇරඹේ",
+   "url": "https://www.ada.lk/breaking_news/රට-යළි-ගොඩනගන-වැඩ-පිළිවෙළ-හෙට-ඇරඹේ/11-420746",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-11-adalk-6b9340f0": {
+   "date": "2026-01-11",
+   "title": "මහව සිට අනුරාධපුර දක්වා දුම්රිය මාර්ගය නවීකරණය අරඹයි",
+   "url": "https://www.ada.lk/breaking_news/මහව-සිට-අනුරාධපුර-දක්වා-දුම්රිය-මාර්ගය-නවීකරණය-අරඹයි/11-420728",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-11-adalk-0a591480": {
+   "date": "2026-01-11",
+   "title": "තැපෑල 2025දී අදායම් ඉලක්ක ඉක්මවා ආදයම් ලබයි",
+   "url": "https://www.ada.lk/breaking_news/තැපෑල-2025දී-අදායම්-ඉලක්ක-ඉක්මවා-ආදයම්-ලබයි/11-420726",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-10-adalk-6df1c88f": {
+   "date": "2026-01-10",
+   "title": "දිත්වාගෙන් පීඩා විදි ජනතාව ඊට වඩා හොඳ තත්ත්වයට ගොඩනගනවා",
+   "url": "https://www.ada.lk/breaking_news/දිත්වාගෙන්-පීඩා-විදි-ජනතාව-ඊට-වඩා-හොඳ-තත්ත්වයට-ගොඩනගනවා/11-420718",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-09-adalk-e2092a44": {
+   "date": "2026-01-09",
+   "title": "දිත්වා නිසා හානි වූ නිවාස සඳහා රු. ලක්ෂ 50 දීම අරඹයි",
+   "url": "https://www.ada.lk/breaking_news/දිත්වා-නිසා-හානි-වූ-නිවාස-සඳහා-රු--ලක්ෂ 50-දීම-අරඹයි/11-420709",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-09-adalk-7c056fab": {
+   "date": "2026-01-09",
+   "title": "රජයේ රෝහල් තුළට පුද්ගලික අංශය කැඳවීමේ  සෞඛ්‍ය පුද්ගලීකරණ කැබිනට් පත්‍රිකාව අනතුරුදායකයි",
+   "url": "https://www.ada.lk/breaking_news/රජයේ-රෝහල්-තුළට-පුද්ගලික-අංශය-කැඳවීමේ--සෞඛ්‍ය-පුද්ගලීකරණ-කැබිනට්-පත්‍රිකාව-අනතුරුදායකයි/11-420705",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-09-adalk-fe3f8f1d": {
+   "date": "2026-01-09",
+   "title": "A5 මාර්ගයේ ප්‍රතිසංස්කරණ කටයුතු අවසන් කිරීමට CHEC කටයුතු කරයි",
+   "url": "https://www.ada.lk/business/A5-මාර්ගයේ-ප්‍රතිසංස්කරණ-කටයුතු-අවසන්-කිරීමට-CHEC-කටයුතු-කරයි/7-420703",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-08-adalk-031c52fe": {
+   "date": "2026-01-08",
+   "title": "2026 වසරේ පාසල් නිල ඇඳුම් ජනවාරියේ",
+   "url": "https://www.ada.lk/breaking_news/2026-වසරේ-පාසල්-නිල-ඇඳුම්-ජනවාරියේ/11-420694",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-08-adalk-aa80772a": {
+   "date": "2026-01-08",
+   "title": "දිත්වා නිසා බලපෑමට ලක්වූ ව්‍යාපාරිකයන්ට දෙන සහන පැකේජය",
+   "url": "https://www.ada.lk/breaking_news/දිත්වා-නිසා-බලපෑමට-ලක්වූ-ව්‍යාපාරිකයන්ට-දෙන-සහන-පැකේජය/11-420692",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-08-adalk-8b3204c0": {
+   "date": "2026-01-08",
+   "title": "කසළ බදු නොගෙව්වොත් කුණු ගන්නේ නෑ",
+   "url": "https://www.ada.lk/breaking_news/කසළ බදු-නොගෙව්වොත්-කුණු-ගන්නේ-නෑ/11-420687",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-08-bbccomsinhala-b76bbab7": {
+   "date": "2026-01-08",
+   "title": "ආණ්ඩුවේ අධ්‍යාපන ප්‍රතිසංස්කරණ: ආසියානු සංවර්ධන බැංකුවේ (ADB) ප්‍රතිපාදන වෙනුවෙන් ඉක්මන් කළා ද?",
+   "url": "https://www.bbc.com/sinhala/articles/c0r4qj75xj4o",
+   "outlet": "BBC Sinhala",
+   "lang": "si"
+  },
+  "2026-01-07-adalk-969bfcea": {
+   "date": "2026-01-07",
+   "title": "නයාරු කලපුවේ ප්‍රවාහනය වෙනුවෙන් නාවික හමුදාවේ මෙහෙයුම අවසන්",
+   "url": "https://www.ada.lk/breaking_news/නයාරු-කලපුවේ-ප්‍රවාහනය-වෙනුවෙන්-නාවික-හමුදාවේ-මෙහෙයුම-අවසන්/11-420663",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-07-adalk-1000da05": {
+   "date": "2026-01-07",
+   "title": "මහජන බැංකුවෙන් ශ්‍රී ලංගමයට ඩිජිටල් ගෙවිම් විසඳුමක් ගෙනේ",
+   "url": "https://www.ada.lk/business/මහජන-බැංකුවෙන්-ශ්‍රී-ලංගමයට-ඩිජිටල්-ගෙවිම්-විසඳුමක්-ගෙනේ/7-420657",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-06-adalk-a585bae6": {
+   "date": "2026-01-06",
+   "title": "බෝ නොවන රෝග සඳහා නව කාර්ය සාධක බලකායක්",
+   "url": "https://www.ada.lk/breaking_news/බෝ-නොවන-රෝග-සඳහා-නව-කාර්ය-සාධක-බලකායක්/11-420654",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-06-adalk-f50eca08": {
+   "date": "2026-01-06",
+   "title": "ධීවර විශ්‍රාම වැටුප යථාර්ථයක් වෙන හැඩ",
+   "url": "https://www.ada.lk/breaking_news/ධීවර-විශ්‍රාම-වැටුප-යථාර්ථයක්-වෙන-හැඩ/11-420649",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-06-adalk-847a0d9c": {
+   "date": "2026-01-06",
+   "title": "දිත්වා විපත නිසා ලංකාවට වැඩිම මූල්‍ය පරිත්‍යාගය කළේ මාලදිවයිනයි",
+   "url": "https://www.ada.lk/breaking_news/දිත්වා-විපත-නිසා-ලංකාවට-වැඩිම-මූල්‍ය-පරිත්‍යාගය-කළේ-මාලදිවයිනයි/11-420638",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-06-adalk-07cfc105": {
+   "date": "2026-01-06",
+   "title": "පුලතිසි හා ඇල්ල ඔඩිසි යළිත් ධාවනයට",
+   "url": "https://www.ada.lk/breaking_news/පුලතිසි-හා-ඇල්ල-ඔඩිසි-යළිත්-ධාවනයට/11-420636",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-06-adalk-feef5ff5": {
+   "date": "2026-01-06",
+   "title": "අයවැය ප්‍රතිපාදන උපරිම කාර්යක්ෂමතාවයකින් භාවිත කරන්න",
+   "url": "https://www.ada.lk/breaking_news/අයවැය-ප්‍රතිපාදන-උපරිම-කාර්යක්ෂමතාවයකින්-භාවිත-කරන්න/11-420634",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-06-adalk-a82b54fa": {
+   "date": "2026-01-06",
+   "title": "දුම්රිය ස්ථානාධිපති තුන්වැනි ශ්‍රේණියට 100ක් බඳවා ගනියි",
+   "url": "https://www.ada.lk/breaking_news/දුම්රිය-ස්ථානාධිපති-තුන්වැනි-ශ්‍රේණියට-100ක්-බඳවා-ගනියි/11-420633",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-05-adalk-1e688512": {
+   "date": "2026-01-05",
+   "title": "පළත් සභා හිතූ හිතූ ලෙස වියදම් කරලා",
+   "url": "https://www.ada.lk/breaking_news/පළත්-සභා-හිතූ-හිතූ-ලෙස-වියදම්-කරලා/11-420627",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-05-adalk-762810b6": {
+   "date": "2026-01-05",
+   "title": "කොත්මලේ වැවන්ඩන් දමිළ විද්‍යාලය රජයේ වෙනත් ගොඩනැගිල්ලකට",
+   "url": "https://www.ada.lk/picture_story/කොත්මලේ-වැවන්ඩන්-දමිළ-විද්‍යාලය-රජයේ-වෙනත්-ගොඩනැගිල්ලකට/10-420625",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-05-adalk-ae78eecf": {
+   "date": "2026-01-05",
+   "title": "රජයේ රෝහලක ප්‍රථම වරට ආහාර දෙපාර්තුමේන්තුවක්",
+   "url": "https://www.ada.lk/breaking_news/රජයේ-රෝහලක-ප්‍රථම-වරට-ආහාර-දෙපාර්තුමේන්තුවක්/11-420624",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-05-adalk-17dd1a9d": {
+   "date": "2026-01-05",
+   "title": "වටවල සිට නාවලපිටිය දක්වා මගී ප්‍රවාහන දුම්රියක්",
+   "url": "https://www.ada.lk/breaking_news/වටවල-සිට-නාවලපිටිය-දක්වා-මගී-ප්‍රවාහන-දුම්රියක්/11-420618",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-05-adalk-073b0c95": {
+   "date": "2026-01-05",
+   "title": "මහ කන්නයේ වි ගොවින්ට රු.බි. 13.5ක් පොහොර සහනාධාරය ලෙස දුන්නා",
+   "url": "https://www.ada.lk/breaking_news/මහ-කන්නයේ-වි-ගොවින්ට-රු-බි--13-5ක්-පොහොර-සහනාධාරය-ලෙස-දුන්නා/11-420613",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-02-adalk-730cc752": {
+   "date": "2026-01-02",
+   "title": "ගොවින්ට දෙන්න ගෙනා පොහොර ටොන් 14,400ක් ගබඩාවල",
+   "url": "https://www.ada.lk/breaking_news/ගොවින්ට-දෙන්න-ගෙනා-පොහොර-ටොන්-14-400ක්-ගබඩාවල/11-420593",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-02-adalk-054ef1f5": {
+   "date": "2026-01-02",
+   "title": "අලුත් වුණ තල්පේ දුම්රිය ස්ථානය ජනතා අයිතියට",
+   "url": "https://www.ada.lk/picture_story/අලුත්-වුණ-තල්පේ-දුම්රිය-ස්ථානය-ජනතා-අයිතියට/10-420592",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-02-bbccomsinhala-75695a16": {
+   "date": "2026-01-02",
+   "title": "'විදුලි සේවකයින්ගේ විශ්‍රාම වන්දි ගෙවීමේ බර පාරිභෝගිකයන් පිට පැටවීමේ සූදානමක්': ලංවිම යළිත් 11.57%ක ගාස්තු වැඩිවීමක් ඉල්ලයි",
+   "url": "https://www.bbc.com/sinhala/articles/c205m5m2lmko",
+   "outlet": "BBC Sinhala",
+   "lang": "si"
+  },
+  "2026-01-02-adalk-256a1617": {
+   "date": "2026-01-02",
+   "title": "ගිනිගත්හේන පොලීසිය ඉදිරිපිට මාර්ගය වසර 6ට පසු විවෘත කරයි",
+   "url": "https://www.ada.lk/breaking_news/ගිනිගත්හේන-පොලීසිය-ඉදිරිපිට-මාර්ගය-වසර-6ට-පසු-විවෘත-කරයි/11-420582",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-02-adalk-a4dff905": {
+   "date": "2026-01-02",
+   "title": "විද්‍යුත් කාඩ්පත් මගින් ලංගම ගාස්තු ගෙවීමේ නියමු ව්‍යාපෘතිය අරඹයි",
+   "url": "https://www.ada.lk/breaking_news/විද්‍යුත්-කාඩ්පත්-මගින්-ලංගම-ගාස්තු-ගෙවීමේ-නියමු-ව්‍යාපෘතිය-අරඹයි/11-420579",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-01-lankadeepalk-b2458771": {
+   "date": "2026-01-01",
+   "title": "ගොවියා වෙනුවෙන් ඔඩපණ ණය යෝජනා ක්‍රමය එයි",
+   "url": "https://www.lankadeepa.lk/latest_news/ගවය-වනවන-ඔඩපණ-ණය-යජන-කරමය-එය/1-686121",
+   "outlet": "Lankadeepa",
+   "lang": "si"
+  },
+  "2026-01-01-adalk-06e98b92": {
+   "date": "2026-01-01",
+   "title": "ග්‍රාමීය මාර්ග 76ක් සංවර්ධනය කරයි, බස් ධාවනය නොවූ මාර්ග 40කට අලුතෙන් බස්",
+   "url": "https://www.ada.lk/breaking_news/ග්‍රාමීය-මාර්ග-76ක්-සංවර්ධනය-කරයි--බස්-ධාවනය-නොවූ-මාර්ග-40කට-අලුතෙන්-බස්/11-420573",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-01-adalk-36dd1231": {
+   "date": "2026-01-01",
+   "title": "ඉන්දියාව උතුරු හා දකුණු පළාත් නිවාස ව්‍යාපෘති සඳහා මූල්‍යාධාර",
+   "url": "https://www.ada.lk/business/ඉන්දියාව-උතුරු-හා-දකුණු-පළාත්-නිවාස-ව්‍යාපෘති-සඳහා-මූල්‍යාධාර/7-420569",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-01-adalk-4da43d9f": {
+   "date": "2026-01-01",
+   "title": "පාරිභෝගික නීති කැඩූ ගම්පහ වෙළෙදුන් 1300 කට නඩු",
+   "url": "https://www.ada.lk/breaking_news/පාරිභෝගික-නීති-කැඩූ-ගම්පහ-වෙළෙදුන්-1300-කට-නඩු/11-420562",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-01-adalk-b2c1ed9d": {
+   "date": "2026-01-01",
+   "title": "මහින්දානන්ද පදනම් ගොඩනැගිල්ල දුම්රියේ ඉඩමක",
+   "url": "https://www.ada.lk/breaking_news/මහින්දානන්ද-පදනම්-ගොඩනැගිල්ල-දුම්රියේ-ඉඩමක/11-420560",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-01-adalk-4ec41e8a": {
+   "date": "2026-01-01",
+   "title": "පාකිස්තාන තරගාවලියේ සියලුම ආදායම් ලංකාව නැවත ගොඩනැගීමේ අරමුදලට",
+   "url": "https://www.ada.lk/sports/පාකිස්තාන-තරගාවලියේ-සියලුම-ආදායම්-ලංකාව-නැවත-ගොඩනැගීමේ-අරමුදලට/9-420559",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2026-01-01-adalk-34313749": {
+   "date": "2026-01-01",
+   "title": "දිත්වාගෙන් පසු රට ගොඩනගන්න ජනපති කාර්ය සාධන බළකායක්",
+   "url": "https://www.ada.lk/breaking_news/දිත්වාගෙන්-පසු-රට-ගොඩනගන්න-ජනපති-කාර්ය-සාධන-බළකායක්/11-420555",
+   "outlet": "Ada",
+   "lang": "si"
+  }
+ }
+}

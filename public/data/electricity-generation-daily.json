@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "country": "LK",
+  "dataset_id": "electricity-generation-daily",
+  "source_ids": [
+    "nso-generation-api"
+  ],
+  "title": "Daily electricity generation",
+  "description": "Stored NSO daily energy by published station group in GWh.",
+  "grain": "One row per report date and station group.",
+  "vintage": "2026-09-11–2026-09-11",
+  "primary_key": [
+    "report_date",
+    "station_group"
+  ],
+  "notes": [
+    "Source timestamps are retained verbatim without inventing a UTC offset.",
+    "Refreshes replace only successfully validated dates and retain older report dates. Raw response revisions are archived by checksum."
+  ],
+  "caveats": [
+    "Station groups are not individual plants. Do not infer a missing BESS energy row from power samples.",
+    "Source daily energy coverage includes estimated components; consult the operator dashboard notes."
+  ],
+  "fields": [
+    {
+      "id": "report_date",
+      "label": "Report date",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "station_group",
+      "label": "Station group",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "station_label",
+      "label": "Station group label",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "energy_gwh",
+      "label": "Daily energy",
+      "unit": "GWh",
+      "role": "measure",
+      "type": "number",
+      "aggregation": "none"
+    }
+  ],
+  "rows": [
+    {
+      "report_date": "2026-09-11",
+      "station_group": "CEB Thermal - Coal",
+      "station_label": "CEB Thermal Coal",
+      "energy_gwh": 11.77125
+    },
+    {
+      "report_date": "2026-09-11",
+      "station_group": "CEB Thermal - Oil",
+      "station_label": "CEB Thermal Oil",
+      "energy_gwh": 6.423888899999999
+    },
+    {
+      "report_date": "2026-09-11",
+      "station_group": "CEB Wind",
+      "station_label": "CEB Wind",
+      "energy_gwh": 1.6964720000000002
+    },
+    {
+      "report_date": "2026-09-11",
+      "station_group": "IPP BMP",
+      "station_label": "SPP Biomass",
+      "energy_gwh": 0.10024150000000001
+    },
+    {
+      "report_date": "2026-09-11",
+      "station_group": "IPP MHP",
+      "station_label": "SPP Minihydro",
+      "energy_gwh": 0.8978539999999999
+    },
+    {
+      "report_date": "2026-09-11",
+      "station_group": "IPP Solar",
+      "station_label": "SPP Solar",
+      "energy_gwh": 12.879020225000001
+    },
+    {
+      "report_date": "2026-09-11",
+      "station_group": "IPP Thermal",
+      "station_label": "IPP Thermal Oil",
+      "energy_gwh": 7.240292
+    },
+    {
+      "report_date": "2026-09-11",
+      "station_group": "IPP Wind",
+      "station_label": "SPP Wind",
+      "energy_gwh": 1.5977
+    },
+    {
+      "report_date": "2026-09-11",
+      "station_group": "Laxapana Complex",
+      "station_label": "Laxapana Hydro Complex",
+      "energy_gwh": 6.740195
+    },
+    {
+      "report_date": "2026-09-11",
+      "station_group": "Mahaweli Complex",
+      "station_label": "Mahaweli Hydro Complex",
+      "energy_gwh": 6.916399999999999
+    },
+    {
+      "report_date": "2026-09-11",
+      "station_group": "Samanala Complex",
+      "station_label": "Samanala Hydro Complex",
+      "energy_gwh": 2.320094
+    }
+  ]
+}

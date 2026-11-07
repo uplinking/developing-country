@@ -1,0 +1,30 @@
+{
+  "request": {
+    "op": "gap",
+    "entities": "gnd",
+    "covered_by": "metro_stop",
+    "method": "centroid_distance",
+    "threshold_m": 800,
+    "within": { "district": "Colombo" },
+    "min_population": 4000,
+    "limit": 50
+  },
+  "expect": {
+    "method": "centroid_distance",
+    "index_ids_must_exist": ["LK-1103010", "LK-1103045"],
+    "index_id_notes": {
+      "LK-1103010": "Mattakkuliya — Census 2024 pop ~28135; whether it appears in gap results is data-driven (centroid > 800 m from a CM stop and pop ≥ 4000).",
+      "LK-1103045": "Kotahena East — Census 2024 pop ~6090; same."
+    },
+    "feature_keys": ["id", "name", "pop", "distance_m", "source", "vintage"],
+    "completeness_entities": ["gnd", "metro_stop"],
+    "stage_types": ["flyTo", "setPopulation", "highlight", "narrate"],
+    "highlight_source": "gnd",
+    "highlight_style": "gap",
+    "rejects": [
+      { "within": { "district": "LK-11" }, "reason": "LK-* is not an English district name" },
+      { "within": { "district": "Colombo", "gnd_id": "LK-1103010" }, "reason": "mixed within arms" },
+      { "unknown_key": true, "reason": "additionalProperties false" }
+    ]
+  }
+}

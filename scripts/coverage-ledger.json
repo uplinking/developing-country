@@ -1,0 +1,110 @@
+{
+  "version": "0.1.0",
+  "generated_at": "2026-08-20",
+  "country": "LK",
+  "note": "Official sources vs OpenStreetMap vs what developing-country.org publishes. Completeness is first-class: known_absent means we have no geometry — do not invent it. Resource developing-country://coverage and GET /api/coverage return this document.",
+  "rows": [
+    {
+      "id": "gnd",
+      "title": "GN divisions + population",
+      "official": {
+        "status": "partial",
+        "source": "DCS Census 2024 Person-Sex on gig-data geometries",
+        "note": "Id join 97.43% (below 98% gate). LK-1103045 Kotahena East and LK-1103010 Mattakkuliya joined. Unmatched ids: scripts/census-2024-known-gaps.md."
+      },
+      "osm": { "status": "none" },
+      "ours": { "status": "partial", "storage": "/data/gnd-index.json + pmtiles demographics (tiles still 2012)" },
+      "blocker": "GND id match 97.43% < 98% (DSD recodes in Nuwara Eliya/Galle/Ratnapura/Matale); tiles still Census 2012",
+      "last_checked": "2026-08-20"
+    },
+    {
+      "id": "metro_stop",
+      "title": "Colombo Metro Bus stops",
+      "official": { "status": "complete", "source": "Lanka Metro Transit via nuuuwan/lk_metro", "note": "110 surveyed stops, 7 CM lines." },
+      "osm": { "status": "none" },
+      "ours": { "status": "complete", "storage": "/data/metro.geojson" },
+      "blocker": null,
+      "last_checked": "2026-08-20"
+    },
+    {
+      "id": "school",
+      "title": "Schools",
+      "official": { "status": "missing", "source": "Ministry of Education", "note": "No published GIS ingested. Do not geocode MoE PDF tables unsupervised." },
+      "osm": { "status": "shipped", "note": "amenity=school|college|university|kindergarten (named) via scripts/fetch-civic-poi.mjs" },
+      "ours": { "status": "osm_only", "storage": "/data/schools.geojson" },
+      "blocker": "official MoE GIS if/when published",
+      "last_checked": "2026-08-20"
+    },
+    {
+      "id": "hospital",
+      "title": "Hospitals",
+      "official": { "status": "missing", "source": "Ministry of Health", "note": "No published GIS ingested." },
+      "osm": { "status": "shipped", "note": "amenity=hospital|clinic (named) via scripts/fetch-civic-poi.mjs; OSM clinics ≠ MoH clinic_moh" },
+      "ours": { "status": "osm_only", "storage": "/data/hospitals.geojson" },
+      "blocker": "official MoH GIS",
+      "last_checked": "2026-08-20"
+    },
+    {
+      "id": "clinic_moh",
+      "title": "MoH clinics",
+      "official": { "status": "missing", "source": "Ministry of Health" },
+      "osm": { "status": "none", "note": "Do not substitute OSM hospitals as this class." },
+      "ours": { "status": "known_absent" },
+      "blocker": "MoH facility GIS",
+      "last_checked": "2026-08-20"
+    },
+    {
+      "id": "courthouse",
+      "title": "Courthouses",
+      "official": { "status": "missing", "source": "Judicial Service Commission" },
+      "osm": { "status": "sparse", "note": "amenity=courthouse not shipped" },
+      "ours": { "status": "known_absent" },
+      "blocker": "no national courts GIS",
+      "last_checked": "2026-08-20"
+    },
+    {
+      "id": "silent_zone",
+      "title": "Silent zones (noise)",
+      "official": {
+        "status": "statute_only",
+        "source": "National Environmental (Noise Control) Regulations No. 1 of 1996, Gazette 924/12 of 23 May 1996",
+        "note": "An area within 100 metres of a courthouse, hospital, school, place of religious worship, public library, zoo, and areas marked for recreation or environment. 50 dB by day, 45 dB at night (Sunday Times, 12 Sep 2010, citing the regulation)."
+      },
+      "osm": { "status": "none" },
+      "ours": { "status": "known_absent", "note": "Geometry we possess is none. Estimated OSM buffers are off in v1 — not an ordinance overlay." },
+      "blocker": "no national GIS of silent-zone polygons; incomplete OSM facility classes; no ministerial declared-zone layer",
+      "last_checked": "2026-08-20"
+    },
+    {
+      "id": "landslide",
+      "title": "Landslide hazard",
+      "official": { "status": "missing", "source": "NBRO zonation" },
+      "osm": { "status": "none" },
+      "ours": { "status": "known_absent" },
+      "blocker": "NBRO raster / zonation not ingested (FEATURES v4)",
+      "last_checked": "2026-08-20"
+    },
+    {
+      "id": "flood",
+      "title": "Flood risk",
+      "official": { "status": "missing", "source": "DMC / Irrigation Department" },
+      "osm": { "status": "none" },
+      "ours": { "status": "known_absent" },
+      "blocker": "DMC / Irrigation flood GIS not ingested (FEATURES v4)",
+      "last_checked": "2026-08-20"
+    },
+    {
+      "id": "river_gauge",
+      "title": "River gauges",
+      "official": {
+        "status": "partial",
+        "source": "Irrigation Department hydrology stations via nuuuwan/lk_irrigation",
+        "note": "40 compiled stations with published alert/minor/major flood levels. Department describes 42 permanent gauges. Live levels are not ingested."
+      },
+      "osm": { "status": "none" },
+      "ours": { "status": "partial", "storage": "/data/irrigation-gauges.geojson" },
+      "blocker": "live water levels; two permanent gauges not in the compiled list; flood zonation GIS still absent",
+      "last_checked": "2026-09-11"
+    }
+  ]
+}

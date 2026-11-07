@@ -1,0 +1,2888 @@
+{
+  "caveats": [
+    "The 2010 classification revision can create a break in long-run comparisons.",
+    "CBSL makes the workbook freely downloadable but does not state an open-data reuse licence on the statistical-table page; this artifact contains normalized aggregate facts and does not redistribute the workbook."
+  ],
+  "country": "LK",
+  "dataset_id": "merchandise-trade-monthly",
+  "description": "Total merchandise exports and imports reported by the Central Bank of Sri Lanka, in US dollars.",
+  "fields": [
+    {
+      "id": "period",
+      "label": "Month",
+      "role": "dimension",
+      "type": "period"
+    },
+    {
+      "id": "flow",
+      "label": "Trade flow",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "provisional",
+      "label": "Provisional",
+      "role": "dimension",
+      "type": "boolean"
+    },
+    {
+      "aggregation": "none",
+      "id": "value_usd_million",
+      "label": "Trade value",
+      "role": "measure",
+      "type": "number",
+      "unit": "USD million"
+    }
+  ],
+  "grain": "One national row per month and trade flow.",
+  "notes": [
+    "Values are rounded to one decimal place, matching the workbooks’ published number format.",
+    "(a) Classification of external-trade data was revised in 2010.",
+    "(b) Provisional."
+  ],
+  "primary_key": [
+    "period",
+    "flow"
+  ],
+  "rows": [
+    {
+      "flow": "exports",
+      "period": "2007-01",
+      "provisional": false,
+      "value_usd_million": 487.4
+    },
+    {
+      "flow": "imports",
+      "period": "2007-01",
+      "provisional": false,
+      "value_usd_million": 809.4
+    },
+    {
+      "flow": "exports",
+      "period": "2007-02",
+      "provisional": false,
+      "value_usd_million": 585.8
+    },
+    {
+      "flow": "imports",
+      "period": "2007-02",
+      "provisional": false,
+      "value_usd_million": 747.5
+    },
+    {
+      "flow": "exports",
+      "period": "2007-03",
+      "provisional": false,
+      "value_usd_million": 630.7
+    },
+    {
+      "flow": "imports",
+      "period": "2007-03",
+      "provisional": false,
+      "value_usd_million": 874.3
+    },
+    {
+      "flow": "exports",
+      "period": "2007-04",
+      "provisional": false,
+      "value_usd_million": 531.7
+    },
+    {
+      "flow": "imports",
+      "period": "2007-04",
+      "provisional": false,
+      "value_usd_million": 969.5
+    },
+    {
+      "flow": "exports",
+      "period": "2007-05",
+      "provisional": false,
+      "value_usd_million": 637.2
+    },
+    {
+      "flow": "imports",
+      "period": "2007-05",
+      "provisional": false,
+      "value_usd_million": 1014.3
+    },
+    {
+      "flow": "exports",
+      "period": "2007-06",
+      "provisional": false,
+      "value_usd_million": 667.3
+    },
+    {
+      "flow": "imports",
+      "period": "2007-06",
+      "provisional": false,
+      "value_usd_million": 860.4
+    },
+    {
+      "flow": "exports",
+      "period": "2007-07",
+      "provisional": false,
+      "value_usd_million": 684
+    },
+    {
+      "flow": "imports",
+      "period": "2007-07",
+      "provisional": false,
+      "value_usd_million": 830.4
+    },
+    {
+      "flow": "exports",
+      "period": "2007-08",
+      "provisional": false,
+      "value_usd_million": 652.9
+    },
+    {
+      "flow": "imports",
+      "period": "2007-08",
+      "provisional": false,
+      "value_usd_million": 938.1
+    },
+    {
+      "flow": "exports",
+      "period": "2007-09",
+      "provisional": false,
+      "value_usd_million": 719.4
+    },
+    {
+      "flow": "imports",
+      "period": "2007-09",
+      "provisional": false,
+      "value_usd_million": 1006.4
+    },
+    {
+      "flow": "exports",
+      "period": "2007-10",
+      "provisional": false,
+      "value_usd_million": 624.2
+    },
+    {
+      "flow": "imports",
+      "period": "2007-10",
+      "provisional": false,
+      "value_usd_million": 1075.8
+    },
+    {
+      "flow": "exports",
+      "period": "2007-11",
+      "provisional": false,
+      "value_usd_million": 577.9
+    },
+    {
+      "flow": "imports",
+      "period": "2007-11",
+      "provisional": false,
+      "value_usd_million": 1009.2
+    },
+    {
+      "flow": "exports",
+      "period": "2007-12",
+      "provisional": false,
+      "value_usd_million": 841.5
+    },
+    {
+      "flow": "imports",
+      "period": "2007-12",
+      "provisional": false,
+      "value_usd_million": 1161.2
+    },
+    {
+      "flow": "exports",
+      "period": "2008-01",
+      "provisional": false,
+      "value_usd_million": 552.1
+    },
+    {
+      "flow": "imports",
+      "period": "2008-01",
+      "provisional": false,
+      "value_usd_million": 1176.6
+    },
+    {
+      "flow": "exports",
+      "period": "2008-02",
+      "provisional": false,
+      "value_usd_million": 639.2
+    },
+    {
+      "flow": "imports",
+      "period": "2008-02",
+      "provisional": false,
+      "value_usd_million": 969.4
+    },
+    {
+      "flow": "exports",
+      "period": "2008-03",
+      "provisional": false,
+      "value_usd_million": 678
+    },
+    {
+      "flow": "imports",
+      "period": "2008-03",
+      "provisional": false,
+      "value_usd_million": 1148.5
+    },
+    {
+      "flow": "exports",
+      "period": "2008-04",
+      "provisional": false,
+      "value_usd_million": 608.2
+    },
+    {
+      "flow": "imports",
+      "period": "2008-04",
+      "provisional": false,
+      "value_usd_million": 1300.5
+    },
+    {
+      "flow": "exports",
+      "period": "2008-05",
+      "provisional": false,
+      "value_usd_million": 743.8
+    },
+    {
+      "flow": "imports",
+      "period": "2008-05",
+      "provisional": false,
+      "value_usd_million": 1233.5
+    },
+    {
+      "flow": "exports",
+      "period": "2008-06",
+      "provisional": false,
+      "value_usd_million": 653
+    },
+    {
+      "flow": "imports",
+      "period": "2008-06",
+      "provisional": false,
+      "value_usd_million": 1205.2
+    },
+    {
+      "flow": "exports",
+      "period": "2008-07",
+      "provisional": false,
+      "value_usd_million": 846.2
+    },
+    {
+      "flow": "imports",
+      "period": "2008-07",
+      "provisional": false,
+      "value_usd_million": 1264.1
+    },
+    {
+      "flow": "exports",
+      "period": "2008-08",
+      "provisional": false,
+      "value_usd_million": 758.5
+    },
+    {
+      "flow": "imports",
+      "period": "2008-08",
+      "provisional": false,
+      "value_usd_million": 1271.6
+    },
+    {
+      "flow": "exports",
+      "period": "2008-09",
+      "provisional": false,
+      "value_usd_million": 648.2
+    },
+    {
+      "flow": "imports",
+      "period": "2008-09",
+      "provisional": false,
+      "value_usd_million": 1238.4
+    },
+    {
+      "flow": "exports",
+      "period": "2008-10",
+      "provisional": false,
+      "value_usd_million": 659.9
+    },
+    {
+      "flow": "imports",
+      "period": "2008-10",
+      "provisional": false,
+      "value_usd_million": 1239.6
+    },
+    {
+      "flow": "exports",
+      "period": "2008-11",
+      "provisional": false,
+      "value_usd_million": 643.7
+    },
+    {
+      "flow": "imports",
+      "period": "2008-11",
+      "provisional": false,
+      "value_usd_million": 989
+    },
+    {
+      "flow": "exports",
+      "period": "2008-12",
+      "provisional": false,
+      "value_usd_million": 679.9
+    },
+    {
+      "flow": "imports",
+      "period": "2008-12",
+      "provisional": false,
+      "value_usd_million": 1054.8
+    },
+    {
+      "flow": "exports",
+      "period": "2009-01",
+      "provisional": false,
+      "value_usd_million": 491.1
+    },
+    {
+      "flow": "imports",
+      "period": "2009-01",
+      "provisional": false,
+      "value_usd_million": 682.6
+    },
+    {
+      "flow": "exports",
+      "period": "2009-02",
+      "provisional": false,
+      "value_usd_million": 524.2
+    },
+    {
+      "flow": "imports",
+      "period": "2009-02",
+      "provisional": false,
+      "value_usd_million": 606.3
+    },
+    {
+      "flow": "exports",
+      "period": "2009-03",
+      "provisional": false,
+      "value_usd_million": 632
+    },
+    {
+      "flow": "imports",
+      "period": "2009-03",
+      "provisional": false,
+      "value_usd_million": 1023.6
+    },
+    {
+      "flow": "exports",
+      "period": "2009-04",
+      "provisional": false,
+      "value_usd_million": 437.6
+    },
+    {
+      "flow": "imports",
+      "period": "2009-04",
+      "provisional": false,
+      "value_usd_million": 620.6
+    },
+    {
+      "flow": "exports",
+      "period": "2009-05",
+      "provisional": false,
+      "value_usd_million": 538.5
+    },
+    {
+      "flow": "imports",
+      "period": "2009-05",
+      "provisional": false,
+      "value_usd_million": 773.4
+    },
+    {
+      "flow": "exports",
+      "period": "2009-06",
+      "provisional": false,
+      "value_usd_million": 565.2
+    },
+    {
+      "flow": "imports",
+      "period": "2009-06",
+      "provisional": false,
+      "value_usd_million": 845.1
+    },
+    {
+      "flow": "exports",
+      "period": "2009-07",
+      "provisional": false,
+      "value_usd_million": 652.2
+    },
+    {
+      "flow": "imports",
+      "period": "2009-07",
+      "provisional": false,
+      "value_usd_million": 939.3
+    },
+    {
+      "flow": "exports",
+      "period": "2009-08",
+      "provisional": false,
+      "value_usd_million": 710.4
+    },
+    {
+      "flow": "imports",
+      "period": "2009-08",
+      "provisional": false,
+      "value_usd_million": 842.1
+    },
+    {
+      "flow": "exports",
+      "period": "2009-09",
+      "provisional": false,
+      "value_usd_million": 568.2
+    },
+    {
+      "flow": "imports",
+      "period": "2009-09",
+      "provisional": false,
+      "value_usd_million": 803.6
+    },
+    {
+      "flow": "exports",
+      "period": "2009-10",
+      "provisional": false,
+      "value_usd_million": 628.7
+    },
+    {
+      "flow": "imports",
+      "period": "2009-10",
+      "provisional": false,
+      "value_usd_million": 1043
+    },
+    {
+      "flow": "exports",
+      "period": "2009-11",
+      "provisional": false,
+      "value_usd_million": 613
+    },
+    {
+      "flow": "imports",
+      "period": "2009-11",
+      "provisional": false,
+      "value_usd_million": 934.7
+    },
+    {
+      "flow": "exports",
+      "period": "2009-12",
+      "provisional": false,
+      "value_usd_million": 723.4
+    },
+    {
+      "flow": "imports",
+      "period": "2009-12",
+      "provisional": false,
+      "value_usd_million": 1092.4
+    },
+    {
+      "flow": "exports",
+      "period": "2010-01",
+      "provisional": false,
+      "value_usd_million": 656.5
+    },
+    {
+      "flow": "imports",
+      "period": "2010-01",
+      "provisional": false,
+      "value_usd_million": 1237.7
+    },
+    {
+      "flow": "exports",
+      "period": "2010-02",
+      "provisional": false,
+      "value_usd_million": 683
+    },
+    {
+      "flow": "imports",
+      "period": "2010-02",
+      "provisional": false,
+      "value_usd_million": 973.4
+    },
+    {
+      "flow": "exports",
+      "period": "2010-03",
+      "provisional": false,
+      "value_usd_million": 755.9
+    },
+    {
+      "flow": "imports",
+      "period": "2010-03",
+      "provisional": false,
+      "value_usd_million": 976.5
+    },
+    {
+      "flow": "exports",
+      "period": "2010-04",
+      "provisional": false,
+      "value_usd_million": 495.5
+    },
+    {
+      "flow": "imports",
+      "period": "2010-04",
+      "provisional": false,
+      "value_usd_million": 1002
+    },
+    {
+      "flow": "exports",
+      "period": "2010-05",
+      "provisional": false,
+      "value_usd_million": 558.7
+    },
+    {
+      "flow": "imports",
+      "period": "2010-05",
+      "provisional": false,
+      "value_usd_million": 1050.6
+    },
+    {
+      "flow": "exports",
+      "period": "2010-06",
+      "provisional": false,
+      "value_usd_million": 624.5
+    },
+    {
+      "flow": "imports",
+      "period": "2010-06",
+      "provisional": false,
+      "value_usd_million": 1113.6
+    },
+    {
+      "flow": "exports",
+      "period": "2010-07",
+      "provisional": false,
+      "value_usd_million": 879.3
+    },
+    {
+      "flow": "imports",
+      "period": "2010-07",
+      "provisional": false,
+      "value_usd_million": 1123.5
+    },
+    {
+      "flow": "exports",
+      "period": "2010-08",
+      "provisional": false,
+      "value_usd_million": 803.1
+    },
+    {
+      "flow": "imports",
+      "period": "2010-08",
+      "provisional": false,
+      "value_usd_million": 1103.5
+    },
+    {
+      "flow": "exports",
+      "period": "2010-09",
+      "provisional": false,
+      "value_usd_million": 713.6
+    },
+    {
+      "flow": "imports",
+      "period": "2010-09",
+      "provisional": false,
+      "value_usd_million": 1090.3
+    },
+    {
+      "flow": "exports",
+      "period": "2010-10",
+      "provisional": false,
+      "value_usd_million": 932.5
+    },
+    {
+      "flow": "imports",
+      "period": "2010-10",
+      "provisional": false,
+      "value_usd_million": 1238.2
+    },
+    {
+      "flow": "exports",
+      "period": "2010-11",
+      "provisional": false,
+      "value_usd_million": 792.4
+    },
+    {
+      "flow": "imports",
+      "period": "2010-11",
+      "provisional": false,
+      "value_usd_million": 1113
+    },
+    {
+      "flow": "exports",
+      "period": "2010-12",
+      "provisional": false,
+      "value_usd_million": 730.9
+    },
+    {
+      "flow": "imports",
+      "period": "2010-12",
+      "provisional": false,
+      "value_usd_million": 1428.7
+    },
+    {
+      "flow": "exports",
+      "period": "2011-01",
+      "provisional": false,
+      "value_usd_million": 923
+    },
+    {
+      "flow": "imports",
+      "period": "2011-01",
+      "provisional": false,
+      "value_usd_million": 1567.9
+    },
+    {
+      "flow": "exports",
+      "period": "2011-02",
+      "provisional": false,
+      "value_usd_million": 817
+    },
+    {
+      "flow": "imports",
+      "period": "2011-02",
+      "provisional": false,
+      "value_usd_million": 1235.9
+    },
+    {
+      "flow": "exports",
+      "period": "2011-03",
+      "provisional": false,
+      "value_usd_million": 930.8
+    },
+    {
+      "flow": "imports",
+      "period": "2011-03",
+      "provisional": false,
+      "value_usd_million": 1634.1
+    },
+    {
+      "flow": "exports",
+      "period": "2011-04",
+      "provisional": false,
+      "value_usd_million": 748.6
+    },
+    {
+      "flow": "imports",
+      "period": "2011-04",
+      "provisional": false,
+      "value_usd_million": 1490.3
+    },
+    {
+      "flow": "exports",
+      "period": "2011-05",
+      "provisional": false,
+      "value_usd_million": 836.1
+    },
+    {
+      "flow": "imports",
+      "period": "2011-05",
+      "provisional": false,
+      "value_usd_million": 1683.2
+    },
+    {
+      "flow": "exports",
+      "period": "2011-06",
+      "provisional": false,
+      "value_usd_million": 820.4
+    },
+    {
+      "flow": "imports",
+      "period": "2011-06",
+      "provisional": false,
+      "value_usd_million": 1668.6
+    },
+    {
+      "flow": "exports",
+      "period": "2011-07",
+      "provisional": false,
+      "value_usd_million": 962.1
+    },
+    {
+      "flow": "imports",
+      "period": "2011-07",
+      "provisional": false,
+      "value_usd_million": 1769.8
+    },
+    {
+      "flow": "exports",
+      "period": "2011-08",
+      "provisional": false,
+      "value_usd_million": 954.2
+    },
+    {
+      "flow": "imports",
+      "period": "2011-08",
+      "provisional": false,
+      "value_usd_million": 1837
+    },
+    {
+      "flow": "exports",
+      "period": "2011-09",
+      "provisional": false,
+      "value_usd_million": 858.4
+    },
+    {
+      "flow": "imports",
+      "period": "2011-09",
+      "provisional": false,
+      "value_usd_million": 1762.6
+    },
+    {
+      "flow": "exports",
+      "period": "2011-10",
+      "provisional": false,
+      "value_usd_million": 889.1
+    },
+    {
+      "flow": "imports",
+      "period": "2011-10",
+      "provisional": false,
+      "value_usd_million": 1757
+    },
+    {
+      "flow": "exports",
+      "period": "2011-11",
+      "provisional": false,
+      "value_usd_million": 885.8
+    },
+    {
+      "flow": "imports",
+      "period": "2011-11",
+      "provisional": false,
+      "value_usd_million": 1986.4
+    },
+    {
+      "flow": "exports",
+      "period": "2011-12",
+      "provisional": false,
+      "value_usd_million": 933.4
+    },
+    {
+      "flow": "imports",
+      "period": "2011-12",
+      "provisional": false,
+      "value_usd_million": 1875.8
+    },
+    {
+      "flow": "exports",
+      "period": "2012-01",
+      "provisional": false,
+      "value_usd_million": 888.2
+    },
+    {
+      "flow": "imports",
+      "period": "2012-01",
+      "provisional": false,
+      "value_usd_million": 1915
+    },
+    {
+      "flow": "exports",
+      "period": "2012-02",
+      "provisional": false,
+      "value_usd_million": 821
+    },
+    {
+      "flow": "imports",
+      "period": "2012-02",
+      "provisional": false,
+      "value_usd_million": 1580.7
+    },
+    {
+      "flow": "exports",
+      "period": "2012-03",
+      "provisional": false,
+      "value_usd_million": 861
+    },
+    {
+      "flow": "imports",
+      "period": "2012-03",
+      "provisional": false,
+      "value_usd_million": 1853.6
+    },
+    {
+      "flow": "exports",
+      "period": "2012-04",
+      "provisional": false,
+      "value_usd_million": 747.8
+    },
+    {
+      "flow": "imports",
+      "period": "2012-04",
+      "provisional": false,
+      "value_usd_million": 1440.4
+    },
+    {
+      "flow": "exports",
+      "period": "2012-05",
+      "provisional": false,
+      "value_usd_million": 806
+    },
+    {
+      "flow": "imports",
+      "period": "2012-05",
+      "provisional": false,
+      "value_usd_million": 1575
+    },
+    {
+      "flow": "exports",
+      "period": "2012-06",
+      "provisional": false,
+      "value_usd_million": 755.8
+    },
+    {
+      "flow": "imports",
+      "period": "2012-06",
+      "provisional": false,
+      "value_usd_million": 1419
+    },
+    {
+      "flow": "exports",
+      "period": "2012-07",
+      "provisional": false,
+      "value_usd_million": 794.4
+    },
+    {
+      "flow": "imports",
+      "period": "2012-07",
+      "provisional": false,
+      "value_usd_million": 1325
+    },
+    {
+      "flow": "exports",
+      "period": "2012-08",
+      "provisional": false,
+      "value_usd_million": 828.9
+    },
+    {
+      "flow": "imports",
+      "period": "2012-08",
+      "provisional": false,
+      "value_usd_million": 1750
+    },
+    {
+      "flow": "exports",
+      "period": "2012-09",
+      "provisional": false,
+      "value_usd_million": 801.5
+    },
+    {
+      "flow": "imports",
+      "period": "2012-09",
+      "provisional": false,
+      "value_usd_million": 1314.4
+    },
+    {
+      "flow": "exports",
+      "period": "2012-10",
+      "provisional": false,
+      "value_usd_million": 770.4
+    },
+    {
+      "flow": "imports",
+      "period": "2012-10",
+      "provisional": false,
+      "value_usd_million": 1579.1
+    },
+    {
+      "flow": "exports",
+      "period": "2012-11",
+      "provisional": false,
+      "value_usd_million": 827.6
+    },
+    {
+      "flow": "imports",
+      "period": "2012-11",
+      "provisional": false,
+      "value_usd_million": 1918.1
+    },
+    {
+      "flow": "exports",
+      "period": "2012-12",
+      "provisional": false,
+      "value_usd_million": 871
+    },
+    {
+      "flow": "imports",
+      "period": "2012-12",
+      "provisional": false,
+      "value_usd_million": 1519.8
+    },
+    {
+      "flow": "exports",
+      "period": "2013-01",
+      "provisional": false,
+      "value_usd_million": 728.7
+    },
+    {
+      "flow": "imports",
+      "period": "2013-01",
+      "provisional": false,
+      "value_usd_million": 1532.2
+    },
+    {
+      "flow": "exports",
+      "period": "2013-02",
+      "provisional": false,
+      "value_usd_million": 797.7
+    },
+    {
+      "flow": "imports",
+      "period": "2013-02",
+      "provisional": false,
+      "value_usd_million": 1433.2
+    },
+    {
+      "flow": "exports",
+      "period": "2013-03",
+      "provisional": false,
+      "value_usd_million": 832
+    },
+    {
+      "flow": "imports",
+      "period": "2013-03",
+      "provisional": false,
+      "value_usd_million": 1544.8
+    },
+    {
+      "flow": "exports",
+      "period": "2013-04",
+      "provisional": false,
+      "value_usd_million": 696.5
+    },
+    {
+      "flow": "imports",
+      "period": "2013-04",
+      "provisional": false,
+      "value_usd_million": 1525.6
+    },
+    {
+      "flow": "exports",
+      "period": "2013-05",
+      "provisional": false,
+      "value_usd_million": 793.9
+    },
+    {
+      "flow": "imports",
+      "period": "2013-05",
+      "provisional": false,
+      "value_usd_million": 1548.8
+    },
+    {
+      "flow": "exports",
+      "period": "2013-06",
+      "provisional": false,
+      "value_usd_million": 807.6
+    },
+    {
+      "flow": "imports",
+      "period": "2013-06",
+      "provisional": false,
+      "value_usd_million": 1509.4
+    },
+    {
+      "flow": "exports",
+      "period": "2013-07",
+      "provisional": false,
+      "value_usd_million": 859.3
+    },
+    {
+      "flow": "imports",
+      "period": "2013-07",
+      "provisional": false,
+      "value_usd_million": 1433
+    },
+    {
+      "flow": "exports",
+      "period": "2013-08",
+      "provisional": false,
+      "value_usd_million": 918.6
+    },
+    {
+      "flow": "imports",
+      "period": "2013-08",
+      "provisional": false,
+      "value_usd_million": 1474.9
+    },
+    {
+      "flow": "exports",
+      "period": "2013-09",
+      "provisional": false,
+      "value_usd_million": 899
+    },
+    {
+      "flow": "imports",
+      "period": "2013-09",
+      "provisional": false,
+      "value_usd_million": 1486.3
+    },
+    {
+      "flow": "exports",
+      "period": "2013-10",
+      "provisional": false,
+      "value_usd_million": 1041.3
+    },
+    {
+      "flow": "imports",
+      "period": "2013-10",
+      "provisional": false,
+      "value_usd_million": 1393.7
+    },
+    {
+      "flow": "exports",
+      "period": "2013-11",
+      "provisional": false,
+      "value_usd_million": 1031.8
+    },
+    {
+      "flow": "imports",
+      "period": "2013-11",
+      "provisional": false,
+      "value_usd_million": 1569.7
+    },
+    {
+      "flow": "exports",
+      "period": "2013-12",
+      "provisional": false,
+      "value_usd_million": 987.7
+    },
+    {
+      "flow": "imports",
+      "period": "2013-12",
+      "provisional": false,
+      "value_usd_million": 1551.1
+    },
+    {
+      "flow": "exports",
+      "period": "2014-01",
+      "provisional": false,
+      "value_usd_million": 903.9
+    },
+    {
+      "flow": "imports",
+      "period": "2014-01",
+      "provisional": false,
+      "value_usd_million": 1655.5
+    },
+    {
+      "flow": "exports",
+      "period": "2014-02",
+      "provisional": false,
+      "value_usd_million": 842.4
+    },
+    {
+      "flow": "imports",
+      "period": "2014-02",
+      "provisional": false,
+      "value_usd_million": 1420.4
+    },
+    {
+      "flow": "exports",
+      "period": "2014-03",
+      "provisional": false,
+      "value_usd_million": 1070.1
+    },
+    {
+      "flow": "imports",
+      "period": "2014-03",
+      "provisional": false,
+      "value_usd_million": 1672.1
+    },
+    {
+      "flow": "exports",
+      "period": "2014-04",
+      "provisional": false,
+      "value_usd_million": 764.3
+    },
+    {
+      "flow": "imports",
+      "period": "2014-04",
+      "provisional": false,
+      "value_usd_million": 1444.5
+    },
+    {
+      "flow": "exports",
+      "period": "2014-05",
+      "provisional": false,
+      "value_usd_million": 883.5
+    },
+    {
+      "flow": "imports",
+      "period": "2014-05",
+      "provisional": false,
+      "value_usd_million": 1353.2
+    },
+    {
+      "flow": "exports",
+      "period": "2014-06",
+      "provisional": false,
+      "value_usd_million": 985.7
+    },
+    {
+      "flow": "imports",
+      "period": "2014-06",
+      "provisional": false,
+      "value_usd_million": 1439.4
+    },
+    {
+      "flow": "exports",
+      "period": "2014-07",
+      "provisional": false,
+      "value_usd_million": 956.6
+    },
+    {
+      "flow": "imports",
+      "period": "2014-07",
+      "provisional": false,
+      "value_usd_million": 1845.3
+    },
+    {
+      "flow": "exports",
+      "period": "2014-08",
+      "provisional": false,
+      "value_usd_million": 992.6
+    },
+    {
+      "flow": "imports",
+      "period": "2014-08",
+      "provisional": false,
+      "value_usd_million": 1724.5
+    },
+    {
+      "flow": "exports",
+      "period": "2014-09",
+      "provisional": false,
+      "value_usd_million": 902.8
+    },
+    {
+      "flow": "imports",
+      "period": "2014-09",
+      "provisional": false,
+      "value_usd_million": 1667.5
+    },
+    {
+      "flow": "exports",
+      "period": "2014-10",
+      "provisional": false,
+      "value_usd_million": 901.8
+    },
+    {
+      "flow": "imports",
+      "period": "2014-10",
+      "provisional": false,
+      "value_usd_million": 1750.2
+    },
+    {
+      "flow": "exports",
+      "period": "2014-11",
+      "provisional": false,
+      "value_usd_million": 921.2
+    },
+    {
+      "flow": "imports",
+      "period": "2014-11",
+      "provisional": false,
+      "value_usd_million": 1646.8
+    },
+    {
+      "flow": "exports",
+      "period": "2014-12",
+      "provisional": false,
+      "value_usd_million": 1005.1
+    },
+    {
+      "flow": "imports",
+      "period": "2014-12",
+      "provisional": false,
+      "value_usd_million": 1797.5
+    },
+    {
+      "flow": "exports",
+      "period": "2015-01",
+      "provisional": false,
+      "value_usd_million": 920.4
+    },
+    {
+      "flow": "imports",
+      "period": "2015-01",
+      "provisional": false,
+      "value_usd_million": 1681.6
+    },
+    {
+      "flow": "exports",
+      "period": "2015-02",
+      "provisional": false,
+      "value_usd_million": 907.3
+    },
+    {
+      "flow": "imports",
+      "period": "2015-02",
+      "provisional": false,
+      "value_usd_million": 1529.5
+    },
+    {
+      "flow": "exports",
+      "period": "2015-03",
+      "provisional": false,
+      "value_usd_million": 1068.1
+    },
+    {
+      "flow": "imports",
+      "period": "2015-03",
+      "provisional": false,
+      "value_usd_million": 1580.9
+    },
+    {
+      "flow": "exports",
+      "period": "2015-04",
+      "provisional": false,
+      "value_usd_million": 717
+    },
+    {
+      "flow": "imports",
+      "period": "2015-04",
+      "provisional": false,
+      "value_usd_million": 1490.5
+    },
+    {
+      "flow": "exports",
+      "period": "2015-05",
+      "provisional": false,
+      "value_usd_million": 886.1
+    },
+    {
+      "flow": "imports",
+      "period": "2015-05",
+      "provisional": false,
+      "value_usd_million": 1585.5
+    },
+    {
+      "flow": "exports",
+      "period": "2015-06",
+      "provisional": false,
+      "value_usd_million": 945.6
+    },
+    {
+      "flow": "imports",
+      "period": "2015-06",
+      "provisional": false,
+      "value_usd_million": 1678.7
+    },
+    {
+      "flow": "exports",
+      "period": "2015-07",
+      "provisional": false,
+      "value_usd_million": 937.1
+    },
+    {
+      "flow": "imports",
+      "period": "2015-07",
+      "provisional": false,
+      "value_usd_million": 1533.9
+    },
+    {
+      "flow": "exports",
+      "period": "2015-08",
+      "provisional": false,
+      "value_usd_million": 802.1
+    },
+    {
+      "flow": "imports",
+      "period": "2015-08",
+      "provisional": false,
+      "value_usd_million": 1523.4
+    },
+    {
+      "flow": "exports",
+      "period": "2015-09",
+      "provisional": false,
+      "value_usd_million": 853.2
+    },
+    {
+      "flow": "imports",
+      "period": "2015-09",
+      "provisional": false,
+      "value_usd_million": 1582.7
+    },
+    {
+      "flow": "exports",
+      "period": "2015-10",
+      "provisional": false,
+      "value_usd_million": 850.7
+    },
+    {
+      "flow": "imports",
+      "period": "2015-10",
+      "provisional": false,
+      "value_usd_million": 1638.3
+    },
+    {
+      "flow": "exports",
+      "period": "2015-11",
+      "provisional": false,
+      "value_usd_million": 838.4
+    },
+    {
+      "flow": "imports",
+      "period": "2015-11",
+      "provisional": false,
+      "value_usd_million": 1464.9
+    },
+    {
+      "flow": "exports",
+      "period": "2015-12",
+      "provisional": false,
+      "value_usd_million": 820.5
+    },
+    {
+      "flow": "imports",
+      "period": "2015-12",
+      "provisional": false,
+      "value_usd_million": 1644.7
+    },
+    {
+      "flow": "exports",
+      "period": "2016-01",
+      "provisional": false,
+      "value_usd_million": 898.6
+    },
+    {
+      "flow": "imports",
+      "period": "2016-01",
+      "provisional": false,
+      "value_usd_million": 1589.1
+    },
+    {
+      "flow": "exports",
+      "period": "2016-02",
+      "provisional": false,
+      "value_usd_million": 891.6
+    },
+    {
+      "flow": "imports",
+      "period": "2016-02",
+      "provisional": false,
+      "value_usd_million": 1439.3
+    },
+    {
+      "flow": "exports",
+      "period": "2016-03",
+      "provisional": false,
+      "value_usd_million": 949
+    },
+    {
+      "flow": "imports",
+      "period": "2016-03",
+      "provisional": false,
+      "value_usd_million": 1566
+    },
+    {
+      "flow": "exports",
+      "period": "2016-04",
+      "provisional": false,
+      "value_usd_million": 710.4
+    },
+    {
+      "flow": "imports",
+      "period": "2016-04",
+      "provisional": false,
+      "value_usd_million": 1460.9
+    },
+    {
+      "flow": "exports",
+      "period": "2016-05",
+      "provisional": false,
+      "value_usd_million": 780.1
+    },
+    {
+      "flow": "imports",
+      "period": "2016-05",
+      "provisional": false,
+      "value_usd_million": 1589.8
+    },
+    {
+      "flow": "exports",
+      "period": "2016-06",
+      "provisional": false,
+      "value_usd_million": 900.6
+    },
+    {
+      "flow": "imports",
+      "period": "2016-06",
+      "provisional": false,
+      "value_usd_million": 1675.8
+    },
+    {
+      "flow": "exports",
+      "period": "2016-07",
+      "provisional": false,
+      "value_usd_million": 891.5
+    },
+    {
+      "flow": "imports",
+      "period": "2016-07",
+      "provisional": false,
+      "value_usd_million": 1432.8
+    },
+    {
+      "flow": "exports",
+      "period": "2016-08",
+      "provisional": false,
+      "value_usd_million": 866.3
+    },
+    {
+      "flow": "imports",
+      "period": "2016-08",
+      "provisional": false,
+      "value_usd_million": 1649.1
+    },
+    {
+      "flow": "exports",
+      "period": "2016-09",
+      "provisional": false,
+      "value_usd_million": 897.9
+    },
+    {
+      "flow": "imports",
+      "period": "2016-09",
+      "provisional": false,
+      "value_usd_million": 1508.3
+    },
+    {
+      "flow": "exports",
+      "period": "2016-10",
+      "provisional": false,
+      "value_usd_million": 855
+    },
+    {
+      "flow": "imports",
+      "period": "2016-10",
+      "provisional": false,
+      "value_usd_million": 1723.5
+    },
+    {
+      "flow": "exports",
+      "period": "2016-11",
+      "provisional": false,
+      "value_usd_million": 809.7
+    },
+    {
+      "flow": "imports",
+      "period": "2016-11",
+      "provisional": false,
+      "value_usd_million": 1732.1
+    },
+    {
+      "flow": "exports",
+      "period": "2016-12",
+      "provisional": false,
+      "value_usd_million": 859
+    },
+    {
+      "flow": "imports",
+      "period": "2016-12",
+      "provisional": false,
+      "value_usd_million": 1816.1
+    },
+    {
+      "flow": "exports",
+      "period": "2017-01",
+      "provisional": false,
+      "value_usd_million": 864.7
+    },
+    {
+      "flow": "imports",
+      "period": "2017-01",
+      "provisional": false,
+      "value_usd_million": 1798.9
+    },
+    {
+      "flow": "exports",
+      "period": "2017-02",
+      "provisional": false,
+      "value_usd_million": 867.8
+    },
+    {
+      "flow": "imports",
+      "period": "2017-02",
+      "provisional": false,
+      "value_usd_million": 1611.2
+    },
+    {
+      "flow": "exports",
+      "period": "2017-03",
+      "provisional": false,
+      "value_usd_million": 1041.8
+    },
+    {
+      "flow": "imports",
+      "period": "2017-03",
+      "provisional": false,
+      "value_usd_million": 1869.3
+    },
+    {
+      "flow": "exports",
+      "period": "2017-04",
+      "provisional": false,
+      "value_usd_million": 794.7
+    },
+    {
+      "flow": "imports",
+      "period": "2017-04",
+      "provisional": false,
+      "value_usd_million": 1603.9
+    },
+    {
+      "flow": "exports",
+      "period": "2017-05",
+      "provisional": false,
+      "value_usd_million": 841.2
+    },
+    {
+      "flow": "imports",
+      "period": "2017-05",
+      "provisional": false,
+      "value_usd_million": 1724.7
+    },
+    {
+      "flow": "exports",
+      "period": "2017-06",
+      "provisional": false,
+      "value_usd_million": 987.3
+    },
+    {
+      "flow": "imports",
+      "period": "2017-06",
+      "provisional": false,
+      "value_usd_million": 1540.9
+    },
+    {
+      "flow": "exports",
+      "period": "2017-07",
+      "provisional": false,
+      "value_usd_million": 1015.2
+    },
+    {
+      "flow": "imports",
+      "period": "2017-07",
+      "provisional": false,
+      "value_usd_million": 1591.1
+    },
+    {
+      "flow": "exports",
+      "period": "2017-08",
+      "provisional": false,
+      "value_usd_million": 1000.6
+    },
+    {
+      "flow": "imports",
+      "period": "2017-08",
+      "provisional": false,
+      "value_usd_million": 1856.9
+    },
+    {
+      "flow": "exports",
+      "period": "2017-09",
+      "provisional": false,
+      "value_usd_million": 1011
+    },
+    {
+      "flow": "imports",
+      "period": "2017-09",
+      "provisional": false,
+      "value_usd_million": 1666.7
+    },
+    {
+      "flow": "exports",
+      "period": "2017-10",
+      "provisional": false,
+      "value_usd_million": 975.6
+    },
+    {
+      "flow": "imports",
+      "period": "2017-10",
+      "provisional": false,
+      "value_usd_million": 1727.2
+    },
+    {
+      "flow": "exports",
+      "period": "2017-11",
+      "provisional": false,
+      "value_usd_million": 940.9
+    },
+    {
+      "flow": "imports",
+      "period": "2017-11",
+      "provisional": false,
+      "value_usd_million": 1940.4
+    },
+    {
+      "flow": "exports",
+      "period": "2017-12",
+      "provisional": false,
+      "value_usd_million": 1019.5
+    },
+    {
+      "flow": "imports",
+      "period": "2017-12",
+      "provisional": false,
+      "value_usd_million": 2048.5
+    },
+    {
+      "flow": "exports",
+      "period": "2018-01",
+      "provisional": false,
+      "value_usd_million": 965.4
+    },
+    {
+      "flow": "imports",
+      "period": "2018-01",
+      "provisional": false,
+      "value_usd_million": 2014.5
+    },
+    {
+      "flow": "exports",
+      "period": "2018-02",
+      "provisional": false,
+      "value_usd_million": 915.7
+    },
+    {
+      "flow": "imports",
+      "period": "2018-02",
+      "provisional": false,
+      "value_usd_million": 1978
+    },
+    {
+      "flow": "exports",
+      "period": "2018-03",
+      "provisional": false,
+      "value_usd_million": 1107.7
+    },
+    {
+      "flow": "imports",
+      "period": "2018-03",
+      "provisional": false,
+      "value_usd_million": 1978.5
+    },
+    {
+      "flow": "exports",
+      "period": "2018-04",
+      "provisional": false,
+      "value_usd_million": 795.1
+    },
+    {
+      "flow": "imports",
+      "period": "2018-04",
+      "provisional": false,
+      "value_usd_million": 1793.6
+    },
+    {
+      "flow": "exports",
+      "period": "2018-05",
+      "provisional": false,
+      "value_usd_million": 923.8
+    },
+    {
+      "flow": "imports",
+      "period": "2018-05",
+      "provisional": false,
+      "value_usd_million": 1857
+    },
+    {
+      "flow": "exports",
+      "period": "2018-06",
+      "provisional": false,
+      "value_usd_million": 1024.4
+    },
+    {
+      "flow": "imports",
+      "period": "2018-06",
+      "provisional": false,
+      "value_usd_million": 1819.5
+    },
+    {
+      "flow": "exports",
+      "period": "2018-07",
+      "provisional": false,
+      "value_usd_million": 1073.2
+    },
+    {
+      "flow": "imports",
+      "period": "2018-07",
+      "provisional": false,
+      "value_usd_million": 1754.5
+    },
+    {
+      "flow": "exports",
+      "period": "2018-08",
+      "provisional": false,
+      "value_usd_million": 1037.4
+    },
+    {
+      "flow": "imports",
+      "period": "2018-08",
+      "provisional": false,
+      "value_usd_million": 1887.1
+    },
+    {
+      "flow": "exports",
+      "period": "2018-09",
+      "provisional": false,
+      "value_usd_million": 1055.2
+    },
+    {
+      "flow": "imports",
+      "period": "2018-09",
+      "provisional": false,
+      "value_usd_million": 1768.4
+    },
+    {
+      "flow": "exports",
+      "period": "2018-10",
+      "provisional": false,
+      "value_usd_million": 979.1
+    },
+    {
+      "flow": "imports",
+      "period": "2018-10",
+      "provisional": false,
+      "value_usd_million": 1882.5
+    },
+    {
+      "flow": "exports",
+      "period": "2018-11",
+      "provisional": false,
+      "value_usd_million": 979.6
+    },
+    {
+      "flow": "imports",
+      "period": "2018-11",
+      "provisional": false,
+      "value_usd_million": 1764.6
+    },
+    {
+      "flow": "exports",
+      "period": "2018-12",
+      "provisional": false,
+      "value_usd_million": 1033.4
+    },
+    {
+      "flow": "imports",
+      "period": "2018-12",
+      "provisional": false,
+      "value_usd_million": 1734.6
+    },
+    {
+      "flow": "exports",
+      "period": "2019-01",
+      "provisional": false,
+      "value_usd_million": 1038.1
+    },
+    {
+      "flow": "imports",
+      "period": "2019-01",
+      "provisional": false,
+      "value_usd_million": 1655.5
+    },
+    {
+      "flow": "exports",
+      "period": "2019-02",
+      "provisional": false,
+      "value_usd_million": 981.1
+    },
+    {
+      "flow": "imports",
+      "period": "2019-02",
+      "provisional": false,
+      "value_usd_million": 1432.4
+    },
+    {
+      "flow": "exports",
+      "period": "2019-03",
+      "provisional": false,
+      "value_usd_million": 1136.9
+    },
+    {
+      "flow": "imports",
+      "period": "2019-03",
+      "provisional": false,
+      "value_usd_million": 1729
+    },
+    {
+      "flow": "exports",
+      "period": "2019-04",
+      "provisional": false,
+      "value_usd_million": 798.1
+    },
+    {
+      "flow": "imports",
+      "period": "2019-04",
+      "provisional": false,
+      "value_usd_million": 1595.6
+    },
+    {
+      "flow": "exports",
+      "period": "2019-05",
+      "provisional": false,
+      "value_usd_million": 961
+    },
+    {
+      "flow": "imports",
+      "period": "2019-05",
+      "provisional": false,
+      "value_usd_million": 1783.7
+    },
+    {
+      "flow": "exports",
+      "period": "2019-06",
+      "provisional": false,
+      "value_usd_million": 1084
+    },
+    {
+      "flow": "imports",
+      "period": "2019-06",
+      "provisional": false,
+      "value_usd_million": 1399.8
+    },
+    {
+      "flow": "exports",
+      "period": "2019-07",
+      "provisional": false,
+      "value_usd_million": 998.5
+    },
+    {
+      "flow": "imports",
+      "period": "2019-07",
+      "provisional": false,
+      "value_usd_million": 1715.9
+    },
+    {
+      "flow": "exports",
+      "period": "2019-08",
+      "provisional": false,
+      "value_usd_million": 1032.5
+    },
+    {
+      "flow": "imports",
+      "period": "2019-08",
+      "provisional": false,
+      "value_usd_million": 1573.6
+    },
+    {
+      "flow": "exports",
+      "period": "2019-09",
+      "provisional": false,
+      "value_usd_million": 953.8
+    },
+    {
+      "flow": "imports",
+      "period": "2019-09",
+      "provisional": false,
+      "value_usd_million": 1710.5
+    },
+    {
+      "flow": "exports",
+      "period": "2019-10",
+      "provisional": false,
+      "value_usd_million": 977.3
+    },
+    {
+      "flow": "imports",
+      "period": "2019-10",
+      "provisional": false,
+      "value_usd_million": 1815.7
+    },
+    {
+      "flow": "exports",
+      "period": "2019-11",
+      "provisional": false,
+      "value_usd_million": 978.8
+    },
+    {
+      "flow": "imports",
+      "period": "2019-11",
+      "provisional": false,
+      "value_usd_million": 1741.1
+    },
+    {
+      "flow": "exports",
+      "period": "2019-12",
+      "provisional": false,
+      "value_usd_million": 999.9
+    },
+    {
+      "flow": "imports",
+      "period": "2019-12",
+      "provisional": false,
+      "value_usd_million": 1784.2
+    },
+    {
+      "flow": "exports",
+      "period": "2020-01",
+      "provisional": false,
+      "value_usd_million": 1004.9
+    },
+    {
+      "flow": "imports",
+      "period": "2020-01",
+      "provisional": false,
+      "value_usd_million": 1735.3
+    },
+    {
+      "flow": "exports",
+      "period": "2020-02",
+      "provisional": false,
+      "value_usd_million": 988.5
+    },
+    {
+      "flow": "imports",
+      "period": "2020-02",
+      "provisional": false,
+      "value_usd_million": 1562.3
+    },
+    {
+      "flow": "exports",
+      "period": "2020-03",
+      "provisional": false,
+      "value_usd_million": 656.2
+    },
+    {
+      "flow": "imports",
+      "period": "2020-03",
+      "provisional": false,
+      "value_usd_million": 1205
+    },
+    {
+      "flow": "exports",
+      "period": "2020-04",
+      "provisional": false,
+      "value_usd_million": 282.3
+    },
+    {
+      "flow": "imports",
+      "period": "2020-04",
+      "provisional": false,
+      "value_usd_million": 1122.6
+    },
+    {
+      "flow": "exports",
+      "period": "2020-05",
+      "provisional": false,
+      "value_usd_million": 586.7
+    },
+    {
+      "flow": "imports",
+      "period": "2020-05",
+      "provisional": false,
+      "value_usd_million": 993.8
+    },
+    {
+      "flow": "exports",
+      "period": "2020-06",
+      "provisional": false,
+      "value_usd_million": 894.1
+    },
+    {
+      "flow": "imports",
+      "period": "2020-06",
+      "provisional": false,
+      "value_usd_million": 1055.5
+    },
+    {
+      "flow": "exports",
+      "period": "2020-07",
+      "provisional": false,
+      "value_usd_million": 1085
+    },
+    {
+      "flow": "imports",
+      "period": "2020-07",
+      "provisional": false,
+      "value_usd_million": 1293.7
+    },
+    {
+      "flow": "exports",
+      "period": "2020-08",
+      "provisional": false,
+      "value_usd_million": 947.2
+    },
+    {
+      "flow": "imports",
+      "period": "2020-08",
+      "provisional": false,
+      "value_usd_million": 1289.1
+    },
+    {
+      "flow": "exports",
+      "period": "2020-09",
+      "provisional": false,
+      "value_usd_million": 1000
+    },
+    {
+      "flow": "imports",
+      "period": "2020-09",
+      "provisional": false,
+      "value_usd_million": 1524.9
+    },
+    {
+      "flow": "exports",
+      "period": "2020-10",
+      "provisional": false,
+      "value_usd_million": 854.3
+    },
+    {
+      "flow": "imports",
+      "period": "2020-10",
+      "provisional": false,
+      "value_usd_million": 1362.8
+    },
+    {
+      "flow": "exports",
+      "period": "2020-11",
+      "provisional": false,
+      "value_usd_million": 783.7
+    },
+    {
+      "flow": "imports",
+      "period": "2020-11",
+      "provisional": false,
+      "value_usd_million": 1383.7
+    },
+    {
+      "flow": "exports",
+      "period": "2020-12",
+      "provisional": false,
+      "value_usd_million": 964.5
+    },
+    {
+      "flow": "imports",
+      "period": "2020-12",
+      "provisional": false,
+      "value_usd_million": 1526.6
+    },
+    {
+      "flow": "exports",
+      "period": "2021-01",
+      "provisional": false,
+      "value_usd_million": 936.7
+    },
+    {
+      "flow": "imports",
+      "period": "2021-01",
+      "provisional": false,
+      "value_usd_million": 1591.6
+    },
+    {
+      "flow": "exports",
+      "period": "2021-02",
+      "provisional": false,
+      "value_usd_million": 951.7
+    },
+    {
+      "flow": "imports",
+      "period": "2021-02",
+      "provisional": false,
+      "value_usd_million": 1523.6
+    },
+    {
+      "flow": "exports",
+      "period": "2021-03",
+      "provisional": false,
+      "value_usd_million": 1093.8
+    },
+    {
+      "flow": "imports",
+      "period": "2021-03",
+      "provisional": false,
+      "value_usd_million": 1925.9
+    },
+    {
+      "flow": "exports",
+      "period": "2021-04",
+      "provisional": false,
+      "value_usd_million": 818.2
+    },
+    {
+      "flow": "imports",
+      "period": "2021-04",
+      "provisional": false,
+      "value_usd_million": 1707
+    },
+    {
+      "flow": "exports",
+      "period": "2021-05",
+      "provisional": false,
+      "value_usd_million": 891.7
+    },
+    {
+      "flow": "imports",
+      "period": "2021-05",
+      "provisional": false,
+      "value_usd_million": 1607.4
+    },
+    {
+      "flow": "exports",
+      "period": "2021-06",
+      "provisional": false,
+      "value_usd_million": 1007
+    },
+    {
+      "flow": "imports",
+      "period": "2021-06",
+      "provisional": false,
+      "value_usd_million": 1659.2
+    },
+    {
+      "flow": "exports",
+      "period": "2021-07",
+      "provisional": false,
+      "value_usd_million": 1103.9
+    },
+    {
+      "flow": "imports",
+      "period": "2021-07",
+      "provisional": false,
+      "value_usd_million": 1710.1
+    },
+    {
+      "flow": "exports",
+      "period": "2021-08",
+      "provisional": false,
+      "value_usd_million": 1101
+    },
+    {
+      "flow": "imports",
+      "period": "2021-08",
+      "provisional": false,
+      "value_usd_million": 1686.7
+    },
+    {
+      "flow": "exports",
+      "period": "2021-09",
+      "provisional": false,
+      "value_usd_million": 1034.5
+    },
+    {
+      "flow": "imports",
+      "period": "2021-09",
+      "provisional": false,
+      "value_usd_million": 1526
+    },
+    {
+      "flow": "exports",
+      "period": "2021-10",
+      "provisional": false,
+      "value_usd_million": 1192.3
+    },
+    {
+      "flow": "imports",
+      "period": "2021-10",
+      "provisional": false,
+      "value_usd_million": 1694.3
+    },
+    {
+      "flow": "exports",
+      "period": "2021-11",
+      "provisional": false,
+      "value_usd_million": 1211.5
+    },
+    {
+      "flow": "imports",
+      "period": "2021-11",
+      "provisional": false,
+      "value_usd_million": 1764.6
+    },
+    {
+      "flow": "exports",
+      "period": "2021-12",
+      "provisional": false,
+      "value_usd_million": 1156.3
+    },
+    {
+      "flow": "imports",
+      "period": "2021-12",
+      "provisional": false,
+      "value_usd_million": 2241
+    },
+    {
+      "flow": "exports",
+      "period": "2022-01",
+      "provisional": false,
+      "value_usd_million": 1102.6
+    },
+    {
+      "flow": "imports",
+      "period": "2022-01",
+      "provisional": false,
+      "value_usd_million": 1959.4
+    },
+    {
+      "flow": "exports",
+      "period": "2022-02",
+      "provisional": false,
+      "value_usd_million": 1093.3
+    },
+    {
+      "flow": "imports",
+      "period": "2022-02",
+      "provisional": false,
+      "value_usd_million": 1872.9
+    },
+    {
+      "flow": "exports",
+      "period": "2022-03",
+      "provisional": false,
+      "value_usd_million": 1058.2
+    },
+    {
+      "flow": "imports",
+      "period": "2022-03",
+      "provisional": false,
+      "value_usd_million": 1818.9
+    },
+    {
+      "flow": "exports",
+      "period": "2022-04",
+      "provisional": false,
+      "value_usd_million": 970.9
+    },
+    {
+      "flow": "imports",
+      "period": "2022-04",
+      "provisional": false,
+      "value_usd_million": 1699
+    },
+    {
+      "flow": "exports",
+      "period": "2022-05",
+      "provisional": false,
+      "value_usd_million": 1048.3
+    },
+    {
+      "flow": "imports",
+      "period": "2022-05",
+      "provisional": false,
+      "value_usd_million": 1451.5
+    },
+    {
+      "flow": "exports",
+      "period": "2022-06",
+      "provisional": false,
+      "value_usd_million": 1248.8
+    },
+    {
+      "flow": "imports",
+      "period": "2022-06",
+      "provisional": false,
+      "value_usd_million": 1226.5
+    },
+    {
+      "flow": "exports",
+      "period": "2022-07",
+      "provisional": false,
+      "value_usd_million": 1164.6
+    },
+    {
+      "flow": "imports",
+      "period": "2022-07",
+      "provisional": false,
+      "value_usd_million": 1286.8
+    },
+    {
+      "flow": "exports",
+      "period": "2022-08",
+      "provisional": false,
+      "value_usd_million": 1225.4
+    },
+    {
+      "flow": "imports",
+      "period": "2022-08",
+      "provisional": false,
+      "value_usd_million": 1485.9
+    },
+    {
+      "flow": "exports",
+      "period": "2022-09",
+      "provisional": false,
+      "value_usd_million": 1079.8
+    },
+    {
+      "flow": "imports",
+      "period": "2022-09",
+      "provisional": false,
+      "value_usd_million": 1284.4
+    },
+    {
+      "flow": "exports",
+      "period": "2022-10",
+      "provisional": false,
+      "value_usd_million": 1051.6
+    },
+    {
+      "flow": "imports",
+      "period": "2022-10",
+      "provisional": false,
+      "value_usd_million": 1335.7
+    },
+    {
+      "flow": "exports",
+      "period": "2022-11",
+      "provisional": false,
+      "value_usd_million": 995.3
+    },
+    {
+      "flow": "imports",
+      "period": "2022-11",
+      "provisional": false,
+      "value_usd_million": 1444.6
+    },
+    {
+      "flow": "exports",
+      "period": "2022-12",
+      "provisional": false,
+      "value_usd_million": 1067.6
+    },
+    {
+      "flow": "imports",
+      "period": "2022-12",
+      "provisional": false,
+      "value_usd_million": 1425.6
+    },
+    {
+      "flow": "exports",
+      "period": "2023-01",
+      "provisional": false,
+      "value_usd_million": 978.2
+    },
+    {
+      "flow": "imports",
+      "period": "2023-01",
+      "provisional": false,
+      "value_usd_million": 1423.4
+    },
+    {
+      "flow": "exports",
+      "period": "2023-02",
+      "provisional": false,
+      "value_usd_million": 982
+    },
+    {
+      "flow": "imports",
+      "period": "2023-02",
+      "provisional": false,
+      "value_usd_million": 1021
+    },
+    {
+      "flow": "exports",
+      "period": "2023-03",
+      "provisional": false,
+      "value_usd_million": 1037.5
+    },
+    {
+      "flow": "imports",
+      "period": "2023-03",
+      "provisional": false,
+      "value_usd_million": 1449.5
+    },
+    {
+      "flow": "exports",
+      "period": "2023-04",
+      "provisional": false,
+      "value_usd_million": 848.6
+    },
+    {
+      "flow": "imports",
+      "period": "2023-04",
+      "provisional": false,
+      "value_usd_million": 1431.2
+    },
+    {
+      "flow": "exports",
+      "period": "2023-05",
+      "provisional": false,
+      "value_usd_million": 1019.5
+    },
+    {
+      "flow": "imports",
+      "period": "2023-05",
+      "provisional": false,
+      "value_usd_million": 1466.3
+    },
+    {
+      "flow": "exports",
+      "period": "2023-06",
+      "provisional": false,
+      "value_usd_million": 1005.3
+    },
+    {
+      "flow": "imports",
+      "period": "2023-06",
+      "provisional": false,
+      "value_usd_million": 1369.1
+    },
+    {
+      "flow": "exports",
+      "period": "2023-07",
+      "provisional": false,
+      "value_usd_million": 1020.4
+    },
+    {
+      "flow": "imports",
+      "period": "2023-07",
+      "provisional": false,
+      "value_usd_million": 1387.6
+    },
+    {
+      "flow": "exports",
+      "period": "2023-08",
+      "provisional": false,
+      "value_usd_million": 1118.6
+    },
+    {
+      "flow": "imports",
+      "period": "2023-08",
+      "provisional": false,
+      "value_usd_million": 1426
+    },
+    {
+      "flow": "exports",
+      "period": "2023-09",
+      "provisional": false,
+      "value_usd_million": 971.9
+    },
+    {
+      "flow": "imports",
+      "period": "2023-09",
+      "provisional": false,
+      "value_usd_million": 1349.3
+    },
+    {
+      "flow": "exports",
+      "period": "2023-10",
+      "provisional": false,
+      "value_usd_million": 928
+    },
+    {
+      "flow": "imports",
+      "period": "2023-10",
+      "provisional": false,
+      "value_usd_million": 1610.5
+    },
+    {
+      "flow": "exports",
+      "period": "2023-11",
+      "provisional": false,
+      "value_usd_million": 999
+    },
+    {
+      "flow": "imports",
+      "period": "2023-11",
+      "provisional": false,
+      "value_usd_million": 1388.7
+    },
+    {
+      "flow": "exports",
+      "period": "2023-12",
+      "provisional": false,
+      "value_usd_million": 1001.8
+    },
+    {
+      "flow": "imports",
+      "period": "2023-12",
+      "provisional": false,
+      "value_usd_million": 1488.6
+    },
+    {
+      "flow": "exports",
+      "period": "2024-01",
+      "provisional": true,
+      "value_usd_million": 970.7
+    },
+    {
+      "flow": "imports",
+      "period": "2024-01",
+      "provisional": true,
+      "value_usd_million": 1511.8
+    },
+    {
+      "flow": "exports",
+      "period": "2024-02",
+      "provisional": true,
+      "value_usd_million": 1059.3
+    },
+    {
+      "flow": "imports",
+      "period": "2024-02",
+      "provisional": true,
+      "value_usd_million": 1378.4
+    },
+    {
+      "flow": "exports",
+      "period": "2024-03",
+      "provisional": true,
+      "value_usd_million": 1148.5
+    },
+    {
+      "flow": "imports",
+      "period": "2024-03",
+      "provisional": true,
+      "value_usd_million": 1507.7
+    },
+    {
+      "flow": "exports",
+      "period": "2024-04",
+      "provisional": true,
+      "value_usd_million": 877.6
+    },
+    {
+      "flow": "imports",
+      "period": "2024-04",
+      "provisional": true,
+      "value_usd_million": 1435.2
+    },
+    {
+      "flow": "exports",
+      "period": "2024-05",
+      "provisional": true,
+      "value_usd_million": 1011.3
+    },
+    {
+      "flow": "imports",
+      "period": "2024-05",
+      "provisional": true,
+      "value_usd_million": 1404.6
+    },
+    {
+      "flow": "exports",
+      "period": "2024-06",
+      "provisional": true,
+      "value_usd_million": 1077
+    },
+    {
+      "flow": "imports",
+      "period": "2024-06",
+      "provisional": true,
+      "value_usd_million": 1446.6
+    },
+    {
+      "flow": "exports",
+      "period": "2024-07",
+      "provisional": true,
+      "value_usd_million": 1130.3
+    },
+    {
+      "flow": "imports",
+      "period": "2024-07",
+      "provisional": true,
+      "value_usd_million": 1734.1
+    },
+    {
+      "flow": "exports",
+      "period": "2024-08",
+      "provisional": true,
+      "value_usd_million": 1231.7
+    },
+    {
+      "flow": "imports",
+      "period": "2024-08",
+      "provisional": true,
+      "value_usd_million": 1654
+    },
+    {
+      "flow": "exports",
+      "period": "2024-09",
+      "provisional": true,
+      "value_usd_million": 1011.7
+    },
+    {
+      "flow": "imports",
+      "period": "2024-09",
+      "provisional": true,
+      "value_usd_million": 1645.7
+    },
+    {
+      "flow": "exports",
+      "period": "2024-10",
+      "provisional": true,
+      "value_usd_million": 1158
+    },
+    {
+      "flow": "imports",
+      "period": "2024-10",
+      "provisional": true,
+      "value_usd_million": 1702.4
+    },
+    {
+      "flow": "exports",
+      "period": "2024-11",
+      "provisional": true,
+      "value_usd_million": 994.1
+    },
+    {
+      "flow": "imports",
+      "period": "2024-11",
+      "provisional": true,
+      "value_usd_million": 1496.3
+    },
+    {
+      "flow": "exports",
+      "period": "2024-12",
+      "provisional": true,
+      "value_usd_million": 1101.8
+    },
+    {
+      "flow": "imports",
+      "period": "2024-12",
+      "provisional": true,
+      "value_usd_million": 1924.5
+    },
+    {
+      "flow": "exports",
+      "period": "2025-01",
+      "provisional": true,
+      "value_usd_million": 1052.8
+    },
+    {
+      "flow": "imports",
+      "period": "2025-01",
+      "provisional": true,
+      "value_usd_million": 1785.5
+    },
+    {
+      "flow": "exports",
+      "period": "2025-02",
+      "provisional": true,
+      "value_usd_million": 1052.9
+    },
+    {
+      "flow": "imports",
+      "period": "2025-02",
+      "provisional": true,
+      "value_usd_million": 1464.2
+    },
+    {
+      "flow": "exports",
+      "period": "2025-03",
+      "provisional": true,
+      "value_usd_million": 1241.7
+    },
+    {
+      "flow": "imports",
+      "period": "2025-03",
+      "provisional": true,
+      "value_usd_million": 1637.3
+    },
+    {
+      "flow": "exports",
+      "period": "2025-04",
+      "provisional": true,
+      "value_usd_million": 968.2
+    },
+    {
+      "flow": "imports",
+      "period": "2025-04",
+      "provisional": true,
+      "value_usd_million": 1685.9
+    },
+    {
+      "flow": "exports",
+      "period": "2025-05",
+      "provisional": true,
+      "value_usd_million": 1034.7
+    },
+    {
+      "flow": "imports",
+      "period": "2025-05",
+      "provisional": true,
+      "value_usd_million": 1507.2
+    },
+    {
+      "flow": "exports",
+      "period": "2025-06",
+      "provisional": true,
+      "value_usd_million": 1141.8
+    },
+    {
+      "flow": "imports",
+      "period": "2025-06",
+      "provisional": true,
+      "value_usd_million": 1682.1
+    },
+    {
+      "flow": "exports",
+      "period": "2025-07",
+      "provisional": true,
+      "value_usd_million": 1302.2
+    },
+    {
+      "flow": "imports",
+      "period": "2025-07",
+      "provisional": true,
+      "value_usd_million": 1882.2
+    },
+    {
+      "flow": "exports",
+      "period": "2025-08",
+      "provisional": true,
+      "value_usd_million": 1282.3
+    },
+    {
+      "flow": "imports",
+      "period": "2025-08",
+      "provisional": true,
+      "value_usd_million": 1696.5
+    },
+    {
+      "flow": "exports",
+      "period": "2025-09",
+      "provisional": true,
+      "value_usd_million": 1138.5
+    },
+    {
+      "flow": "imports",
+      "period": "2025-09",
+      "provisional": true,
+      "value_usd_million": 2048.6
+    },
+    {
+      "flow": "exports",
+      "period": "2025-10",
+      "provisional": true,
+      "value_usd_million": 1149.8
+    },
+    {
+      "flow": "imports",
+      "period": "2025-10",
+      "provisional": true,
+      "value_usd_million": 2156.8
+    },
+    {
+      "flow": "exports",
+      "period": "2025-11",
+      "provisional": true,
+      "value_usd_million": 1058.5
+    },
+    {
+      "flow": "imports",
+      "period": "2025-11",
+      "provisional": true,
+      "value_usd_million": 1778.5
+    },
+    {
+      "flow": "exports",
+      "period": "2025-12",
+      "provisional": true,
+      "value_usd_million": 1158
+    },
+    {
+      "flow": "imports",
+      "period": "2025-12",
+      "provisional": true,
+      "value_usd_million": 2155.2
+    },
+    {
+      "flow": "exports",
+      "period": "2026-01",
+      "provisional": true,
+      "value_usd_million": 1148.7
+    },
+    {
+      "flow": "imports",
+      "period": "2026-01",
+      "provisional": true,
+      "value_usd_million": 1803.3
+    },
+    {
+      "flow": "exports",
+      "period": "2026-02",
+      "provisional": true,
+      "value_usd_million": 1058
+    },
+    {
+      "flow": "imports",
+      "period": "2026-02",
+      "provisional": true,
+      "value_usd_million": 1833.8
+    },
+    {
+      "flow": "exports",
+      "period": "2026-03",
+      "provisional": true,
+      "value_usd_million": 1254.3
+    },
+    {
+      "flow": "imports",
+      "period": "2026-03",
+      "provisional": true,
+      "value_usd_million": 2134.1
+    },
+    {
+      "flow": "exports",
+      "period": "2026-04",
+      "provisional": true,
+      "value_usd_million": 1074.1
+    },
+    {
+      "flow": "imports",
+      "period": "2026-04",
+      "provisional": true,
+      "value_usd_million": 2456.7
+    },
+    {
+      "flow": "exports",
+      "period": "2026-05",
+      "provisional": true,
+      "value_usd_million": 1224.3
+    },
+    {
+      "flow": "imports",
+      "period": "2026-05",
+      "provisional": true,
+      "value_usd_million": 2192.1
+    },
+    {
+      "flow": "exports",
+      "period": "2026-06",
+      "provisional": true,
+      "value_usd_million": 1143.8
+    },
+    {
+      "flow": "imports",
+      "period": "2026-06",
+      "provisional": true,
+      "value_usd_million": 1972.3
+    },
+    {
+      "flow": "exports",
+      "period": "2026-07",
+      "provisional": true,
+      "value_usd_million": 1233.4
+    },
+    {
+      "flow": "imports",
+      "period": "2026-07",
+      "provisional": true,
+      "value_usd_million": 2251
+    },
+    {
+      "flow": "exports",
+      "period": "2026-08",
+      "provisional": true,
+      "value_usd_million": 1240.3
+    },
+    {
+      "flow": "imports",
+      "period": "2026-08",
+      "provisional": true,
+      "value_usd_million": 1913.8
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "cbsl-external-sector-exports-table-2-02",
+    "cbsl-external-sector-imports-table-2-04"
+  ],
+  "title": "Monthly merchandise trade",
+  "vintage": "2007-01–2026-08; 2024-01 onward provisional"
+}

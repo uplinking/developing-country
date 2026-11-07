@@ -1,0 +1,79 @@
+{
+  "slug": "where-colombos-metro-bus-doesnt-reach",
+  "taxonomies": {},
+  "fields": {
+    "title": "Where Colombo's Metro Bus doesn't reach",
+    "dek": "We mapped the crowded parts of Colombo where almost nobody can walk to a Metro Bus stop, and looked at why the lines miss them.",
+    "research_question": "Where do many people live more than a ten-minute walk from a Colombo Metro Bus stop, and why do the lines miss them?",
+    "methodology": "This builds on the walking-reach analysis of the seven Colombo Metro Bus lines: 10-minute walks (800 m at 80 m a minute) on the OpenStreetMap street network from each of the 110 published stops, with residents from the 2024 census shared out by area within each GN division. The headline number is every resident of a GN division within 2 km of a line who lives beyond that walk. A crowded area is a group of neighbouring GN divisions where less than a tenth of the area is within a 10-minute walk of a stop and density is at least 10,000 residents per km² (tier 1) or 5,000 (tier 2, only away from tier-1 areas); areas with at least 15,000 residents beyond the walk are kept. Stop overlap is the share of a stop's 10-minute catchment that no other stop reaches. Every figure is a saved query on the platform, pinned to the Dataset Versions listed below.",
+    "editorial_notes": "Second piece in the Colombo Metro Bus series, authored through the platform MCP with scripts/analysis-article.ts (recipe in analysis/lk-metro-gaps-routes). Slide-deck shape per dc-voice. Revised at the publisher's request: the rule-generated test routes, their chart, the route lookup and the with-routes scenario number were removed, because the piece explains why areas are missed and does not draw new lines. Slide notes describe places, not map colours. The headline number is all residents within 2 km of a line who live beyond a ten-minute walk (about 2.1 million), so the publisher's label 'Colombo residents without access to metro bus' is accurate; the slides then narrow to the seven crowded areas (about 400,000). This is a revision of the published article 'where-colombo-metro-buses-dont-go'."
+  },
+  "primary_view": "clusters_map",
+  "content": [
+    "Our first piece found that one person in five who lives along the Colombo Metro Bus lines can walk to a stop in ten minutes. This piece is about the other four, and about the crowded neighbourhoods the buses pass by.",
+    "The slides below build up the picture one layer at a time.",
+    {
+      "_type": "dcScrolly",
+      "title": "Where the walk runs out",
+      "steps": [
+        {
+          "view": "density_map",
+          "underlay": [
+            "metro_lines"
+          ],
+          "text": "Start with where people live. The most crowded parts of greater Colombo are in the inner north and east, around Kotahena, Grandpass and Kolonnawa. Some neighbourhoods there have more than 20,000 people in each square kilometre."
+        },
+        {
+          "view": "unserved_map",
+          "underlay": [
+            "metro_lines"
+          ],
+          "text": "Now count only the people who live more than a ten-minute walk from a stop. The largest numbers are in those same crowded neighbourhoods, a few kilometres from Fort."
+        },
+        {
+          "view": "clusters_map",
+          "underlay": [
+            "metro_lines"
+          ],
+          "text": "Seven areas stand out. Each is crowded, and almost nobody in it can walk to a stop. About 400,000 people live in them."
+        },
+        {
+          "view": "clusters_map",
+          "underlay": [
+            "metro_lines"
+          ],
+          "text": "The largest is Colombo North, from Mattakkuliya and Modara down through Kotahena to Grandpass. About 200,000 people live here. From Modara the nearest stop is more than 2 km away on foot."
+        },
+        {
+          "view": "clusters_map",
+          "underlay": [
+            "metro_lines"
+          ],
+          "text": "Next door is the western side of Kolonnawa, home to about 74,000 people. The other five areas are smaller and further out, in Kesbewa, east of Kolonnawa, in Dehiwala and along the Ratmalana coast."
+        },
+        {
+          "view": "uniqueness_map",
+          "underlay": [
+            "metro_lines"
+          ],
+          "text": "Meanwhile, the lines crowd into the city centre. There, several lines share the same roads, and most people near a stop could also walk to another one."
+        }
+      ]
+    },
+    {
+      "_type": "dcStat",
+      "label": "Colombo residents without access to metro bus",
+      "view": "unserved_map",
+      "field": "unserved_pop_10min",
+      "aggregate": "sum",
+      "format": "compact",
+      "note": "People who live within 2 km of a Metro Bus line but more than a ten-minute walk from any stop, from the 2024 census."
+    },
+    {
+      "h2": "In short"
+    },
+    "The Metro Bus misses the most crowded part of the city it was built for. About 200,000 people in Colombo North live a few kilometres from Fort, and almost none of them can walk to a stop.",
+    "This is not a matter of a few extra minutes. Fewer than one in ten people in the seven areas lives even inside an 800-metre circle around a stop. The lines follow the main roads into the centre, and the centre gets several lines on the same roads while the crowded north has no stop within walking distance.",
+    "We think any next decision about the Metro Bus should start from these neighbourhoods and the people who live in them, rather than from the roads that already have a bus."
+  ]
+}

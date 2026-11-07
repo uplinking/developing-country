@@ -1,0 +1,1420 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2025-09-01",
+  "2025-09-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 68,
+ "rejected": 36,
+ "rejected_ids": [
+  "2025-09-04-adaderanalk-5ebd84cb",
+  "2025-09-04-adaderanalk-c1e9a2bf",
+  "2025-09-04-adaderanalk-d3c90dd3",
+  "2025-09-04-adaderanalk-e486ff60",
+  "2025-09-05-adaderanalk-56553e34",
+  "2025-09-05-adaderanalk-fec2ce89",
+  "2025-09-06-economynextcom-3f11dbd6",
+  "2025-09-08-dailyftlk-26c582e7",
+  "2025-09-09-adaderanalk-a34e550d",
+  "2025-09-09-adaderanalk-aa4606d6",
+  "2025-09-11-dailyftlk-93ed5288",
+  "2025-09-11-economynextcom-32763ae8",
+  "2025-09-11-economynextcom-93604db9",
+  "2025-09-11-islandlk-d5c0edfc",
+  "2025-09-12-adaderanalk-6bb0e9dd",
+  "2025-09-15-adaderanalk-a15b5ffc",
+  "2025-09-16-economynextcom-01a4a31b",
+  "2025-09-16-economynextcom-0795ad34",
+  "2025-09-17-adaderanalk-cf15fa60",
+  "2025-09-17-dailyftlk-7cfe9040",
+  "2025-09-17-islandlk-17ed064a",
+  "2025-09-19-adaderanalk-b7a36cad",
+  "2025-09-19-dailyftlk-01b009c1",
+  "2025-09-19-economynextcom-5b9d6c18",
+  "2025-09-19-economynextcom-a7e90e26",
+  "2025-09-21-adaderanalk-1b785056",
+  "2025-09-21-islandlk-080ffe41",
+  "2025-09-23-adaderanalk-f3baf4e4",
+  "2025-09-23-dailyftlk-26fb1069",
+  "2025-09-23-islandlk-75a78a79",
+  "2025-09-24-adaderanalk-f1cd7379",
+  "2025-09-24-dailyftlk-1293f9c8",
+  "2025-09-26-dailyftlk-28720301",
+  "2025-09-26-newsfirstlk-d44031ee",
+  "2025-09-29-dailyftlk-01118225",
+  "2025-09-30-dailyftlk-8195af27"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "japan-osa-navy-drones",
+   "name": "Japan Official Security Assistance drones for Sri Lanka Navy",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-dairy-sector-tech-grant",
+   "name": "Japan technology grant for dairy sector",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ceb-debt-restructure-syndicated-loan",
+   "name": "CEB debt restructure syndicated loan facility",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "crop-insurance-scheme-disbursement",
+   "name": "National Crop Insurance Scheme payouts",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "insulin-procurement-biopharm",
+   "name": "Procurement of Biphasic Isophane Insulin injection",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "eu-biodiversity-waste-grant",
+   "name": "EU grant for biodiversity conservation and waste management",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ambilipitiya-panamura-buluthota-road-upgrade",
+   "name": "Ambilipitiya–Panamura–Buluthota (B115) road upgrade",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kolonna to Suriyakanda",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "southern-expressway-kottawa-dodangoda-repair",
+   "name": "Southern Expressway Kottawa–Dodangoda repair",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kottawa-Dodangoda",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "state-university-buildings-renovation",
+   "name": "Renovation of state university buildings and infrastructure",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "government-superapp-digital-platform",
+   "name": "Government SuperApp unified digital services platform",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-sri-lanka-foundation-projects-2025",
+   "name": "India-Sri Lanka Foundation board-approved projects 2025",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "china-gampaha-water-supply-system",
+   "name": "Gampaha-Minuwangoda-Attanagalla integrated water supply system",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Gampaha",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "eu-unicef-child-protection-model-service",
+   "name": "Model service for child victims of violence (EU-UNICEF supported)",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "Kandy",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "colombo-lotus-road-feasibility-study",
+   "name": "Lotus Road/Port Access Road traffic congestion feasibility study",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sevanagala-sugarcane-fire-compensation",
+   "name": "Compensation for sugarcane farmers affected by Sevanagala plantation fires",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Sevanagala",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "paddy-purchase-yala-2025-season",
+   "name": "Paddy purchase scheme for 2025 Yala season",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "netherlands-rural-bridges-project",
+   "name": "Design and Construction of Rural Bridges Project",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "india-mannar-hospital-etu",
+   "name": "Accident and emergency unit, District General Hospital Mannar",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Mannar",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rural-road-rehabilitation-improvement-program",
+   "name": "Rural Road Rehabilitation and Improvement Program",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sesip-science-labs",
+   "name": "Secondary Education Sector Improvement Programme (SESIP) school science lab upgrade",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-habarana-veyangoda-transmission-line",
+   "name": "Habarana-Veyangoda Transmission Line Project",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Habarana-Veyangoda",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "japan-infectious-waste-incinerators-hospitals",
+   "name": "Infectious Waste Management Improvement Project for 15 state hospitals",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "fort-railway-station-upgrade",
+   "name": "Colombo Fort Railway Station upgrade",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "adb-health-secondary-care-package",
+   "name": "ADB financing package for secondary curative care and disease prevention",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "japan-osa-grant-drones-navy",
+   "project_id": "japan-osa-navy-drones",
+   "funder": "japan",
+   "funder_name": "Government of Japan",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "japan-grant-dairy-sector-tech",
+   "project_id": "japan-dairy-sector-tech-grant",
+   "funder": "japan",
+   "funder_name": "Government of Japan",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "ceb-syndicated-loan-private",
+   "project_id": "ceb-debt-restructure-syndicated-loan",
+   "funder": "private",
+   "funder_name": "Sampath Bank, Nations Trust Bank, Pan Asia Bank",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "crop-insurance-scheme-disbursement-gosl",
+   "project_id": "crop-insurance-scheme-disbursement",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "insulin-procurement-biopharm-gosl",
+   "project_id": "insulin-procurement-biopharm",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "eu-biodiversity-waste-grant-eu",
+   "project_id": "eu-biodiversity-waste-grant",
+   "funder": "eu",
+   "funder_name": "European Union",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "ambilipitiya-panamura-buluthota-road-opec",
+   "project_id": "ambilipitiya-panamura-buluthota-road-upgrade",
+   "funder": "opec_fund",
+   "funder_name": "OPEC Fund for International Development",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "mixed",
+   "purpose": "project"
+  },
+  {
+   "id": "southern-expressway-kottawa-dodangoda-repair-gosl",
+   "project_id": "southern-expressway-kottawa-dodangoda-repair",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "state-university-buildings-renovation-gosl",
+   "project_id": "state-university-buildings-renovation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "government-superapp-digital-platform-gosl",
+   "project_id": "government-superapp-digital-platform",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "islf-2025-board-approval",
+   "project_id": "india-sri-lanka-foundation-projects-2025",
+   "funder": "india",
+   "funder_name": "India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "china-dev-bank-loan-gampaha-water",
+   "project_id": "china-gampaha-water-supply-system",
+   "funder": "china",
+   "funder_name": "China Development Bank",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "eu-unicef-child-protection-model-service-eu",
+   "project_id": "eu-unicef-child-protection-model-service",
+   "funder": "eu",
+   "funder_name": "European Union",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  },
+  {
+   "id": "colombo-lotus-road-feasibility-study-gosl",
+   "project_id": "colombo-lotus-road-feasibility-study",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "sevanagala-sugarcane-fire-compensation-gosl",
+   "project_id": "sevanagala-sugarcane-fire-compensation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "paddy-purchase-yala-2025-season-gosl",
+   "project_id": "paddy-purchase-yala-2025-season",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "netherlands-grant-rural-bridges",
+   "project_id": "netherlands-rural-bridges-project",
+   "funder": "other:netherlands",
+   "funder_name": "Netherlands (Government/Invest International)",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "india-grant-mannar-hospital-etu",
+   "project_id": "india-mannar-hospital-etu",
+   "funder": "india",
+   "funder_name": "Government of India",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "rural-road-rehabilitation-improvement-program-gosl",
+   "project_id": "rural-road-rehabilitation-improvement-program",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "sesip-science-labs-gosl",
+   "project_id": "sesip-science-labs",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "japan-loan-habarana-veyangoda-transmission",
+   "project_id": "japan-habarana-veyangoda-transmission-line",
+   "funder": "japan",
+   "funder_name": "Government of Japan",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "japan-grant-infectious-waste-incinerators-hospitals",
+   "project_id": "japan-infectious-waste-incinerators-hospitals",
+   "funder": "japan",
+   "funder_name": "Japan International Cooperation Agency",
+   "funder_type": "bilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "fort-railway-station-upgrade-adb",
+   "project_id": "fort-railway-station-upgrade",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "adb-loan-health-secondary-care",
+   "project_id": "adb-health-secondary-care-package",
+   "funder": "adb",
+   "funder_name": "Asian Development Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "project"
+  },
+  {
+   "id": "adb-grant-health-pandemic-trust-fund",
+   "project_id": "adb-health-secondary-care-package",
+   "funder": "adb",
+   "funder_name": "Pandemic Prevention, Preparedness, and Response Trust Fund (via ADB)",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "japan-osa-grant-drones-navy-agreement_signed-2025-09-30",
+   "line_id": "japan-osa-grant-drones-navy",
+   "date": "2025-09-30",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 500000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan signs first security grant for navy drones",
+   "confidence": "high",
+   "reports": [
+    "2025-09-30-economynextcom-0bfe7851"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-grant-dairy-sector-tech-pledged-2025-09-30",
+   "line_id": "japan-grant-dairy-sector-tech",
+   "date": "2025-09-30",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 464000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan grant for dairy sector PCR, sperm analyzer equipment",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-30-economynextcom-0bfe7851"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ceb-syndicated-loan-private-agreement_signed-2025-09-25",
+   "line_id": "ceb-syndicated-loan-private",
+   "date": "2025-09-25",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 33500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Banks lead syndicated loan for CEB debt restructure",
+   "confidence": "high",
+   "reports": [
+    "2025-09-25-islandlk-14d17486"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "crop-insurance-scheme-disbursement-gosl-disbursed-2025-09-25",
+   "line_id": "crop-insurance-scheme-disbursement-gosl",
+   "date": "2025-09-25",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 1669000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "Crop insurance payouts disbursed to 81,234 farmers",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-25-adaderanalk-7e16cf5e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "insulin-procurement-biopharm-gosl-contract_awarded-2025-09-22",
+   "line_id": "insulin-procurement-biopharm-gosl",
+   "date": "2025-09-22",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 3980000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awards insulin supply contract to Indian firm",
+   "confidence": "high",
+   "reports": [
+    "2025-09-25-dailyftlk-84be92f5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "eu-biodiversity-waste-grant-eu-agreement_signed-2025-09-23",
+   "line_id": "eu-biodiversity-waste-grant-eu",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 8000000,
+   "currency": "EUR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "EU grant agreement signed for biodiversity and waste management",
+   "confidence": "high",
+   "reports": [
+    "2025-09-24-dailyftlk-65f5dcd4",
+    "2025-09-23-adaderanalk-b1c64cfa",
+    "2025-09-23-adaderanalk-548f2bc0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ambilipitiya-panamura-buluthota-road-opec-govt_authorised-2025-09-22",
+   "line_id": "ambilipitiya-panamura-buluthota-road-opec",
+   "date": "2025-09-22",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves road upgrade using OPEC loan balance and govt funds",
+   "confidence": "high",
+   "reports": [
+    "2025-09-24-dailyftlk-3f5f299d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "southern-expressway-kottawa-dodangoda-repair-gosl-contract_awarded-2025-09-22",
+   "line_id": "southern-expressway-kottawa-dodangoda-repair-gosl",
+   "date": "2025-09-22",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 1500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awards Southern Expressway repair contract to JV",
+   "confidence": "high",
+   "reports": [
+    "2025-09-24-dailyftlk-3f5f299d"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ambilipitiya-panamura-buluthota-road-opec-govt_authorised-2025-09-23",
+   "line_id": "ambilipitiya-panamura-buluthota-road-opec",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Minister confirms Rs1bn OPEC loan balance for Embilipitiya road upgrade",
+   "confidence": "high",
+   "reports": [
+    "2025-09-23-economynextcom-b63db934"
+   ],
+   "relation": "repeat_of:ambilipitiya-panamura-buluthota-road-opec-govt_authorised-2025-09-22",
+   "notes": null
+  },
+  {
+   "id": "state-university-buildings-renovation-gosl-govt_authorised-2025-09-23",
+   "line_id": "state-university-buildings-renovation-gosl",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves renovation of state university buildings",
+   "confidence": "high",
+   "reports": [
+    "2025-09-23-adaderanalk-814b96d0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "government-superapp-digital-platform-gosl-govt_authorised-2025-09-23",
+   "line_id": "government-superapp-digital-platform-gosl",
+   "date": "2025-09-23",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves creation of Government SuperApp platform",
+   "confidence": "high",
+   "reports": [
+    "2025-09-23-adaderanalk-3e50f8db"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "islf-2025-board-approval-funder_approved-2025-09-19",
+   "line_id": "islf-2025-board-approval",
+   "date": "2025-09-19",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India-Sri Lanka Foundation board approved new bilateral projects",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-22-dailyftlk-41aa3f41",
+    "2025-09-21-economynextcom-4d0179b6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "china-dev-bank-loan-gampaha-water-completed-2025-09-19",
+   "line_id": "china-dev-bank-loan-gampaha-water",
+   "date": "2025-09-19",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China-funded Gampaha integrated water supply system opened",
+   "confidence": "high",
+   "reports": [
+    "2025-09-19-economynextcom-d16c0ec5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-tourism-sector-funder_approved-2025-09-18",
+   "line_id": "adb-loan-tourism-sector",
+   "date": "2025-09-18",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 100000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approves $100mn loan for regional tourism development",
+   "confidence": "high",
+   "reports": [
+    "2025-09-18-economynextcom-7741ffe3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "eu-unicef-child-protection-model-service-eu-launched-2025-09-17",
+   "line_id": "eu-unicef-child-protection-model-service-eu",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "EU, UNICEF launch child protection model service in Kandy",
+   "confidence": "high",
+   "reports": [
+    "2025-09-18-dailyftlk-e65d2aee"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-grant-dairy-sector-tech-govt_authorised-2025-09-17",
+   "line_id": "japan-grant-dairy-sector-tech",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 463000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Japan grant for dairy sector modernisation",
+   "confidence": "high",
+   "reports": [
+    "2025-09-17-dailyftlk-2aaf2839"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-osa-grant-drones-navy-govt_authorised-2025-09-17",
+   "line_id": "japan-osa-grant-drones-navy",
+   "date": "2025-09-17",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 500000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Japan grant for Navy surveillance drones",
+   "confidence": "high",
+   "reports": [
+    "2025-09-17-dailyftlk-2aaf2839"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "colombo-lotus-road-feasibility-study-gosl-govt_authorised-2025-09-16",
+   "line_id": "colombo-lotus-road-feasibility-study-gosl",
+   "date": "2025-09-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves consultancy procurement for Lotus Road traffic feasibility study",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-adaderanalk-5b903510"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sevanagala-sugarcane-fire-compensation-gosl-govt_authorised-2025-09-16",
+   "line_id": "sevanagala-sugarcane-fire-compensation-gosl",
+   "date": "2025-09-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves compensation for fire-damaged sugarcane at Sevanagala",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-16-adaderanalk-c3a1220a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "paddy-purchase-yala-2025-season-gosl-allocated-2025-09-16",
+   "line_id": "paddy-purchase-yala-2025-season-gosl",
+   "date": "2025-09-16",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 6000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet allocates Rs. 6 billion to purchase paddy, 2025 Yala season",
+   "confidence": "high",
+   "reports": [
+    "2025-09-16-adaderanalk-c674cd2e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "netherlands-grant-rural-bridges-funder_approved-2025-09-12",
+   "line_id": "netherlands-grant-rural-bridges",
+   "date": "2025-09-12",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 730000,
+   "currency": "EUR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Netherlands approves additional €730,000 grant for rural bridges",
+   "confidence": "high",
+   "reports": [
+    "2025-09-12-dailyftlk-cb2544f3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-mannar-hospital-etu-funder_approved-2025-09-11",
+   "line_id": "india-grant-mannar-hospital-etu",
+   "date": "2025-09-11",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India grants Rs600mn to build emergency unit at Mannar hospital",
+   "confidence": "high",
+   "reports": [
+    "2025-09-11-economynextcom-8aa01e91"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "rural-road-rehabilitation-improvement-program-gosl-allocated-2025-09-10",
+   "line_id": "rural-road-rehabilitation-improvement-program-gosl",
+   "date": "2025-09-10",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 6000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved additional Rs. 6 billion for rural roads",
+   "confidence": "high",
+   "reports": [
+    "2025-09-11-dailyftlk-52ba6fcf"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "sesip-science-labs-gosl-allocated-2025-09-10",
+   "line_id": "sesip-science-labs-gosl",
+   "date": "2025-09-10",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs. 500 million allocated for school science lab equipment",
+   "confidence": "high",
+   "reports": [
+    "2025-09-10-adaderanalk-6a8a1c44"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "india-grant-mannar-hospital-etu-agreement_signed-2025-09-09",
+   "line_id": "india-grant-mannar-hospital-etu",
+   "date": "2025-09-09",
+   "date_basis": "report",
+   "stage": "agreement_signed",
+   "amount": 600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "India-Sri Lanka MoU signed for Mannar hospital A&E unit",
+   "confidence": "high",
+   "reports": [
+    "2025-09-10-adaderanalk-42fb0598"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "wb-p505241-wb-funder_approved-2025-09-09",
+   "line_id": "wb-p505241-wb",
+   "date": "2025-09-09",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 100000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "World Bank approved $100m loan for agri-development project",
+   "confidence": "high",
+   "reports": [
+    "2025-09-09-economynextcom-aa670bcc",
+    "2025-09-09-adaderanalk-173f6501"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-loan-habarana-veyangoda-transmission-completed-2025-09-05",
+   "line_id": "japan-loan-habarana-veyangoda-transmission",
+   "date": "2025-09-05",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 65000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan-funded Habarana-Veyangoda transmission line project completed",
+   "confidence": "high",
+   "reports": [
+    "2025-09-05-dailyftlk-be713ce5"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-loan-habarana-veyangoda-transmission-completed-2025-09-04",
+   "line_id": "japan-loan-habarana-veyangoda-transmission",
+   "date": "2025-09-04",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": 65000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan-funded Habarana-Veyangoda transmission line completed, handed over",
+   "confidence": "high",
+   "reports": [
+    "2025-09-04-economynextcom-8a920f0e"
+   ],
+   "relation": "repeat_of:japan-loan-habarana-veyangoda-transmission-completed-2025-09-05",
+   "notes": null
+  },
+  {
+   "id": "japan-grant-infectious-waste-incinerators-hospitals-underway-2025-09-04",
+   "line_id": "japan-grant-infectious-waste-incinerators-hospitals",
+   "date": "2025-09-04",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 503000000,
+   "currency": "JPY",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "JICA grant funds infectious waste incinerators for 15 hospitals",
+   "confidence": "high",
+   "reports": [
+    "2025-09-04-dailyftlk-484ec550"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "fort-railway-station-upgrade-adb-underway-2025-09-03",
+   "line_id": "fort-railway-station-upgrade-adb",
+   "date": "2025-09-03",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 1300000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB-funded Rs. 1.3 billion upgrade of Fort Railway Station begins",
+   "confidence": "medium",
+   "reports": [
+    "2025-09-03-dailyftlk-f025c5a9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-loan-health-secondary-care-funder_approved-2025-09-01",
+   "line_id": "adb-loan-health-secondary-care",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 100000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "ADB approves $100m loan for secondary healthcare services",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-adaderanalk-3563cd86"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "adb-grant-health-pandemic-trust-fund-funder_approved-2025-09-01",
+   "line_id": "adb-grant-health-pandemic-trust-fund",
+   "date": "2025-09-01",
+   "date_basis": "report",
+   "stage": "funder_approved",
+   "amount": 6900000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Pandemic trust fund grant approved for Sri Lanka healthcare",
+   "confidence": "high",
+   "reports": [
+    "2025-09-01-adaderanalk-3563cd86"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2025-09-30-economynextcom-0bfe7851": {
+   "date": "2025-09-30",
+   "title": "Japan begins military grant-aid to Sri Lanka with drones for navy",
+   "url": "https://economynext.com/japan-begins-military-grant-aid-to-sri-lanka-with-drones-for-navy-242207/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2025-09-25-islandlk-14d17486": {
+   "date": "2025-09-25",
+   "title": "Sampath Bank leads Rs 33.5Bn syndicated loan facility for Ceylon Electricity Board",
+   "url": "http://island.lk/sampath-bank-leads-rs-33-5bn-syndicated-loan-facility-for-ceylon-electricity-board/",
+   "outlet": "The Island",
+   "lang": "en"
+  },
+  "2025-09-25-adaderanalk-7e16cf5e": {
+   "date": "2025-09-25",
+   "title": "Agricultural Insurance Board disburses Rs. 1,669 mln to farmers",
+   "url": "https://www.adaderana.lk/news/112919/agricultural-insurance-board-disburses-rs-1669-mln-to-farmers",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-09-25-dailyftlk-84be92f5": {
+   "date": "2025-09-25",
+   "title": "Biopharm gets $ 3.98 m insulin contract",
+   "url": "https://www.ft.lk/business/Biopharm-gets-3-98-m-insulin-contract/34-782162",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-09-24-dailyftlk-65f5dcd4": {
+   "date": "2025-09-24",
+   "title": "EU agrees to $ 9.4 m grant to push sustainable development",
+   "url": "https://www.ft.lk/business/EU-agrees-to-9-4-m-grant-to-push-sustainable-development/34-782092",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-09-24-dailyftlk-3f5f299d": {
+   "date": "2025-09-24",
+   "title": "Cabinet clears Rs. 2.5 b road, expressway development projects",
+   "url": "https://www.ft.lk/news/Cabinet-clears-Rs-2-5-b-road-expressway-development-projects/56-782086",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-09-23-adaderanalk-b1c64cfa": {
+   "date": "2025-09-23",
+   "title": "Sri Lanka and EU sign €8 million grant agreement to support economic recovery",
+   "url": "https://www.adaderana.lk/news/112830/sri-lanka-and-eu-sign-8-million-grant-agreement-to-support-economic-recovery",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-09-23-adaderanalk-548f2bc0": {
+   "date": "2025-09-23",
+   "title": "Sri Lanka and EU sign Euro 8 million grant agreement to support economic recovery",
+   "url": "https://www.adaderana.lk/news/112830/sri-lanka-and-european-union-sign-euro-8-million-grant-agreement-to-support-economic-recovery",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-09-23-economynextcom-b63db934": {
+   "date": "2025-09-23",
+   "title": "Sri Lanka to use Rs1bn of OPEC fund loan to improve Embilipitiya road",
+   "url": "https://economynext.com/sri-lanka-to-use-rs1bn-of-opec-fund-loan-to-improve-embilipitiya-road-241616/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2025-09-23-adaderanalk-814b96d0": {
+   "date": "2025-09-23",
+   "title": "Cabinet nod to renovate several state university buildings through budget allocations",
+   "url": "https://www.adaderana.lk/news/112826/cabinet-nod-to-renovate-several-state-university-buildings-through-budget-allocations-",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-09-23-adaderanalk-3e50f8db": {
+   "date": "2025-09-23",
+   "title": "Cabinet approves introduction of ‘Government SuperApp’ to streamline public services",
+   "url": "https://www.adaderana.lk/news/112825/cabinet-approves-introduction-of-government-superapp-to-streamline-public-services",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-09-22-dailyftlk-41aa3f41": {
+   "date": "2025-09-22",
+   "title": "India-Sri Lanka Foundation approves new projects to boost economic ties",
+   "url": "https://www.ft.lk/news/India-Sri-Lanka-Foundation-approves-new-projects-to-boost-economic-ties/56-782009",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-09-21-economynextcom-4d0179b6": {
+   "date": "2025-09-21",
+   "title": "India-Sri Lanka Foundation approves several new projects, including in fisheries sector",
+   "url": "https://economynext.com/india-sri-lanka-foundation-approves-several-new-projects-including-in-fisheries-sector-241399/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2025-09-19-economynextcom-d16c0ec5": {
+   "date": "2025-09-19",
+   "title": "Sri Lanka opens large water supply system funded by China",
+   "url": "https://economynext.com/sri-lanka-opens-large-water-supply-system-funded-by-china-241159/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2025-09-18-economynextcom-7741ffe3": {
+   "date": "2025-09-18",
+   "title": "ADB to loan Sri Lanka $100mn to develop tourism regionally",
+   "url": "https://economynext.com/adb-to-loan-sri-lanka-100mn-to-develop-tourism-regionally-241039/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2025-09-18-dailyftlk-e65d2aee": {
+   "date": "2025-09-18",
+   "title": "Sri Lanka with EU and UNICEF launch model service for child victims of violence",
+   "url": "https://www.ft.lk/news/Sri-Lanka-with-EU-and-UNICEF-launch-model-service-for-child-victims-of-violence/56-781845",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-09-17-dailyftlk-2aaf2839": {
+   "date": "2025-09-17",
+   "title": "Japan extends nearly Rs. 2 b grant to boost dairy sector and Navy capabilities",
+   "url": "https://www.ft.lk/news/Japan-extends-nearly-Rs-2-b-grant-to-boost-dairy-sector-and-Navy-capabilities/56-781793",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-09-16-adaderanalk-5b903510": {
+   "date": "2025-09-16",
+   "title": "Cabinet approves proposal to conduct feasibility study to ease traffic congestion in Colombo",
+   "url": "https://www.adaderana.lk/news/112573/cabinet-approves-proposal-to-conduct-feasibility-study-to-ease-traffic-congestion-in-colombo",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-09-16-adaderanalk-c3a1220a": {
+   "date": "2025-09-16",
+   "title": "Cabinet approves compensation for sugarcane farmers affected by fires at Sevanagala plantations",
+   "url": "https://www.adaderana.lk/news/112571/cabinet-approves-compensation-for-sugarcane-farmers-affected-by-fires-at-sevanagala-plantations",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-09-16-adaderanalk-c674cd2e": {
+   "date": "2025-09-16",
+   "title": "Govt. allocates Rs. 6 billion to purchase paddy during 2025 Yala season",
+   "url": "https://www.adaderana.lk/news/112570/govt-allocates-rs-6-billion-to-purchase-paddy-during-2025-yala-season-",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-09-12-dailyftlk-cb2544f3": {
+   "date": "2025-09-12",
+   "title": "Netherlands steps up support for rural bridges project with additional € 730,000 grant",
+   "url": "https://www.ft.lk/news/Netherlands-steps-up-support-for-rural-bridges-project-with-additional-730-000-grant/56-781550",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-09-11-economynextcom-8aa01e91": {
+   "date": "2025-09-11",
+   "title": "Indian Rs600mn grant to construct ETU at Sri Lanka’s Mannar hospital",
+   "url": "https://economynext.com/indian-rs600mn-grant-to-construct-etu-at-sri-lankas-mannar-hospital-240241/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2025-09-11-dailyftlk-52ba6fcf": {
+   "date": "2025-09-11",
+   "title": "Cabinet green lights Rs. 6 b  more for rural roads",
+   "url": "https://www.ft.lk/news/Cabinet-green-lights-Rs-6-b-more-for-rural-roads/56-781494",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-09-10-adaderanalk-6a8a1c44": {
+   "date": "2025-09-10",
+   "title": "Rs. 500M allocated to upgrade science labs in schools across the country",
+   "url": "https://www.adaderana.lk/news/112363/rs-500m-allocated-to-upgrade-science-labs-in-schools-across-the-country",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-09-10-adaderanalk-42fb0598": {
+   "date": "2025-09-10",
+   "title": "India extends Rs. 600M grant for new A&E Unit at Mannar Hospital",
+   "url": "https://www.adaderana.lk/news/112344/india-extends-rs-600m-grant-for-new-ae-unit-at-mannar-hospital",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-09-09-economynextcom-aa670bcc": {
+   "date": "2025-09-09",
+   "title": "Sri Lanka to get $100mn agri-development loan from World Bank",
+   "url": "https://economynext.com/sri-lanka-to-get-100mn-agri-development-loan-from-world-bank-239789/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2025-09-09-adaderanalk-173f6501": {
+   "date": "2025-09-09",
+   "title": "Sri Lanka secures USD 100 million funding from World Bank to enhance rural economy",
+   "url": "https://www.adaderana.lk/news/112314/sri-lanka-secures-usd-100-million-funding-from-world-bank-to-enhance-rural-economy",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-09-05-dailyftlk-be713ce5": {
+   "date": "2025-09-05",
+   "title": "Japan-funded Habarana-Veyangoda Transmission Line Project completed",
+   "url": "https://www.ft.lk/news/Japan-funded-Habarana-Veyangoda-Transmission-Line-Project-completed/56-781283",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-09-04-economynextcom-8a920f0e": {
+   "date": "2025-09-04",
+   "title": "Sri Lanka completes first Japan funded project after debt restructure",
+   "url": "https://economynext.com/sri-lanka-completes-first-japan-funded-project-after-debt-restructure-239483/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2025-09-04-dailyftlk-484ec550": {
+   "date": "2025-09-04",
+   "title": "Japan funds infectious waste incinerators for 15 State hospitals",
+   "url": "https://www.ft.lk/news/Japan-funds-infectious-waste-incinerators-for-15-State-hospitals/56-781239",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-09-03-dailyftlk-f025c5a9": {
+   "date": "2025-09-03",
+   "title": "Fort Railway Station to get ADB-fund Rs. 1.3 b upgrade",
+   "url": "https://www.ft.lk/news/Fort-Railway-Station-to-get-ADB-fund-Rs-1-3-b-upgrade/56-781151",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-09-01-adaderanalk-3563cd86": {
+   "date": "2025-09-01",
+   "title": "ADB approves US$ 106 mln funding to boost healthcare services in Sri Lanka",
+   "url": "https://www.adaderana.lk/news/112074/adb-approves-us-106-mln-funding-to-boost-healthcare-services-in-sri-lanka",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  }
+ }
+}

@@ -1,0 +1,79 @@
+---
+import type { ComponentProps } from 'astro/types'
+import CameraFilm from './CameraFilm.astro'
+import DatasetCard from './DatasetCard.astro'
+import ExplorerFilm from './ExplorerFilm.astro'
+import type { FilmKey } from '../lib/cameraFilm'
+import { COLOMBO_SHOT } from '../lib/films'
+
+interface Door {
+  count: number
+  href: string
+}
+
+interface LibraryDoor extends Door {
+  cards: ComponentProps<typeof DatasetCard>[]
+}
+
+interface Props {
+  map: Door
+  data: LibraryDoor
+}
+
+const { map, data } = Astro.props
+
+const card = (index: number, part = '') => ({ target: { selector: `.dataset-card${part}`, index } })
+
+/** Skim the theme tags along the top row, drop to a title, read who published it, pull back over the grid. */
+const LIBRARY_FILM: readonly FilmKey[] = [
+  { ...card(0, ' .dataset-card__themes'), ax: 0.2, zoom: 2.1, tilt: 42, turn: 20 },
+  { ...card(2, ' .dataset-card__themes'), ax: 0.3, after: 4.5, zoom: 1.9, tilt: 48, turn: -14 },
+  { ...card(4, ' h3'), ax: 0.3, after: 4.5, zoom: 2, tilt: 40, turn: -24 },
+  { ...card(4, ' .dataset-card__provenance'), ax: 0.4, after: 4, zoom: 2.3, tilt: 34, turn: 8 },
+  { target: { selector: '.dataset-card-grid' }, ay: 0.42, after: 4.5, zoom: 0.96, tilt: 20, turn: 3, still: true },
+  { target: { selector: '.dataset-card-grid' }, ay: 0.42, after: 1.6, zoom: 0.93, tilt: 19, turn: 4 },
+]
+---
+
+<section class="country-feature" id="country" aria-label="Map and data">
+  <div class="country-feature__inner">
+    <div class="front-doors" id="ways-in" role="group" aria-label="Map and data">
+      <article class="front-door front-door--map" aria-labelledby="door-map-title">
+        <ExplorerFilm
+          class="front-door__film"
+          shot={COLOMBO_SHOT}
+          label="The explorer map of Colombo with Metro Bus lines, walking coverage, schools and hospitals switched on, and a selected street's walking readout open."
+        />
+        <div class="front-door__plate">
+          <p class="front-door__route"><span>01</span> Geospatial</p>
+          <h3 id="door-map-title">Open the map</h3>
+          <p>{map.count} layers on one explorer: transport, schools, hospitals, land cover, metro catchments and more. Pan, switch layers on and select anything for its source.</p>
+          <a class="front-door__action" href={map.href}>Open the explorer <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="front-door front-door--data" aria-labelledby="door-data-title">
+        <CameraFilm
+          class="front-door__film"
+          label={`The dataset library: cards for ${data.cards.map((entry) => entry.title).join(', ')}, each with its themes, publisher and licence.`}
+          keys={LIBRARY_FILM}
+          sceneWidth={1440}
+          plate="developing-country.org/data"
+        >
+          <div class="film-library">
+            <p class="report-label film-library__label"><span>Datasets</span><span>{data.count} indicators</span></p>
+            <div class="dataset-card-grid">
+              {data.cards.map((entry) => <DatasetCard {...entry} />)}
+            </div>
+          </div>
+        </CameraFilm>
+        <div class="front-door__plate">
+          <p class="front-door__route"><span>02</span> Datasets</p>
+          <h3 id="door-data-title">Browse the data</h3>
+          <p>{data.count} indicator datasets: census, prices, labour, trade, fiscal, utilities and more. Each says who published it, when it was checked and what is missing.</p>
+          <a class="front-door__action" href={data.href}>Browse the datasets <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

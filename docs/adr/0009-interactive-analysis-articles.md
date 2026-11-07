@@ -1,0 +1,21 @@
+# Interactive analysis articles are composed from Data Views and authored through our own MCP
+
+Analysis articles are data stories, not static essays: a sticky map or chart that changes as the reader scrolls, a guess the reader commits to before the answer is revealed, numbers that are read from data rather than typed, and a searchable explorer over the rows behind the story. We author them the way an NGO or think tank would, through the public platform MCP, so every gap an author hits is a gap a partner would hit.
+
+**Figures are Data Views, rendered inline.** Every interactive element points at an immutable Data View (ADR 0002) by its canonical `view_url`. The CMS stores prose, intent and URLs only, never rows, renderer configuration, geometry or screenshots (ADR 0003). The article page renders figures in place as React islands from `packages/figures`, which fetch the view and its content-addressed result snapshot from the platform origin at read time; the explorer's `/views/…` pages use the same renderer, so a figure looks the same everywhere it is opened. The `dcLiveView` iframe remains for existing content.
+
+**The Data View contract grows additively.** Map layers may carry a style (fill, line or circle; token colours that follow the theme; threshold, sequential, diverging or categorical colour by a field; radius by a field; labels), a join that styles a published vector tileset by row id (so a result of GND rows can colour `demographics.pmtiles` without shipping geometry), and a legend flag; maps may carry annotations; charts may highlight categories. The version stays 1 because every field is optional and old views validate unchanged.
+
+**Five article blocks.** `dcFigure` (one inline figure), `dcScrolly` (steps that switch views and override camera, visible layers and highlighted features), `dcStat` and `dcGuess` (a value bound to a view's rows by field, filter and aggregate; a reader's guess is kept only in their browser), and `dcExplorer` (searchable small multiples over a view's rows). Every `view_url` in the body, including scrolly steps, must appear in `evidence_bundle.dataViews`; the site validator and the D1 publication gate enforce this for all block types.
+
+**Analysis that is too heavy for a request becomes a derived dataset.** Network walksheds, area-weighted coverage and similar computations run in idempotent scripts, are published as Dataset Versions with `derived` completeness and full provenance, and are then queried through `query_data` like any other table. The MCP stays within its ten-tool budget: `query_data` gains grouped aggregation, map views from tables (point rows or tile joins), larger row caps when a view is being saved, and a `publication` block that returns the exact evidence and source-manifest entries the CMS gate requires.
+
+**Authoring keeps the Contributor boundary.** EmDash has no role that can edit a draft without also publishing it, so agents remain Contributors (ADR 0003). An agent iterates on the article locally, validates it against the same publication validator, and submits one complete draft with `content_create`. A revision is a new draft that names the one it supersedes in `editorial_notes`; the human editor archives the old draft. Publication remains a human decision.
+
+## Consequences
+
+- Article quality depends on the derived datasets being honest about method: each one documents its assumptions (for example uniform population density within a GN division) as known gaps that the article must repeat.
+- Saving many views per article needs a higher hourly quota for named editors; the default per-owner quota is unchanged.
+- Inline figures load MapLibre and ECharts on article pages. They are lazy and only load when a figure approaches the viewport.
+- The hourly view quota is enforced by the Worker per identity (5 by default, `VIEW_EDITOR_HOURLY_LIMIT` for `VIEW_EDITOR_EMAILS`); platform migration `0012` keeps a D1 backstop at 120 an hour. CMS migration `0063` extends the publication triggers to the new blocks and allows view reuse.
+- Articles are reproducible: `analysis/<slug>/recipe.json` holds every figure's `query_data` call and `scripts/analysis-article.ts` rebuilds the draft and its evidence through the MCP (the `write-analysis` skill documents the loop).

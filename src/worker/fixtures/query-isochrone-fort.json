@@ -1,0 +1,21 @@
+{
+  "request": {
+    "op": "isochrone",
+    "origin": { "lat": 6.9271, "lng": 79.8612 },
+    "mode": "walk",
+    "minutes": 10,
+    "include_geometry": false,
+    "inside": ["metro_stop"]
+  },
+  "expect": {
+    "auth": "user",
+    "method": "dijkstra_walk_streets",
+    "mcp_has_hull": true,
+    "mcp_has_geometry": false,
+    "hull_method": "convex_reached_nodes",
+    "aggregates_keys": ["reached_edges", "inside"],
+    "stage_types": ["flyTo", "pulse", "isochrone", "narrate"],
+    "minutes_15": "schema 400",
+    "mode_drive": "operator_unavailable"
+  }
+}

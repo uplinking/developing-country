@@ -1,0 +1,23 @@
+---
+interface Props {
+  node: Record<string, string | undefined>
+}
+
+const value = Astro.props.node
+const stats = [1, 2, 3].map((index) => ({
+  value: value[`value${index}`],
+  label: value[`label${index}`],
+})).filter((item) => item.value && item.label)
+---
+
+<section class="dc-stats" aria-label="Platform facts">
+  <div class="dc-stats__grid">
+    {stats.map((stat) => (
+      <div class="dc-stat">
+        <strong>{stat.value}</strong>
+        <span>{stat.label}</span>
+      </div>
+    ))}
+  </div>
+  {value.source && <p class="dc-stats__source">{value.source}</p>}
+</section>

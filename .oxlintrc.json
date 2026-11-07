@@ -1,0 +1,44 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": [
+    ".agents/**",
+    ".claude/**",
+    "tools/oxlint/strict-types/**",
+    "private/**"
+  ],
+  "plugins": [
+    "react",
+    "typescript",
+    "oxc"
+  ],
+  "jsPlugins": [
+    {
+      "name": "strict-types",
+      "specifier": "./tools/oxlint/strict-types/index.ts"
+    }
+  ],
+  "rules": {
+    "strict-types/no-chained-type-assertions": "error",
+    "strict-types/no-conditional-empty-object-spread": "error",
+    "strict-types/no-known-value-widening": "error",
+    "strict-types/no-module-mocking": "error",
+    "strict-types/no-object-parameters": "error",
+    "strict-types/no-reflect-apply": "error",
+    "strict-types/no-reflect-get": "error",
+    "strict-types/no-runtime-typeof": "error",
+    "strict-types/no-shape-in-symbol-names": "error",
+    "strict-types/no-unknown-parameters": "error",
+    "strict-types/no-unknown-returns": "error",
+    "strict-types/no-unknown-type-aliases": "error",
+    "strict-types/no-unsafe-dictionary-type": "error",
+    "strict-types/no-widen-then-assert": "error",
+    "strict-types/require-safety-comment-for-type-assertion": "error",
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": [
+      "warn",
+      {
+        "allowConstantExport": true
+      }
+    ]
+  }
+}

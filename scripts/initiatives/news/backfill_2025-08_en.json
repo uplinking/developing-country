@@ -1,0 +1,493 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2025-08-01",
+  "2025-08-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 46,
+ "rejected": 36,
+ "rejected_ids": [
+  "2025-08-01-economynextcom-ace18435",
+  "2025-08-04-adaderanalk-be8bdbdc",
+  "2025-08-04-adaderanalk-d1a29304",
+  "2025-08-04-dailyftlk-a437221e",
+  "2025-08-05-adaderanalk-2321c0ba",
+  "2025-08-05-adaderanalk-335339ec",
+  "2025-08-05-adaderanalk-83482bf1",
+  "2025-08-05-adaderanalk-f353f4d2",
+  "2025-08-05-islandlk-8f31a84a",
+  "2025-08-06-dailyftlk-547ffc28",
+  "2025-08-06-islandlk-e99db493",
+  "2025-08-07-islandlk-93bdecdc",
+  "2025-08-09-economynextcom-7457c8e2",
+  "2025-08-11-dailyftlk-f81ced28",
+  "2025-08-12-adaderanalk-1223a384",
+  "2025-08-13-dailyftlk-4fae82da",
+  "2025-08-13-economynextcom-9321c45a",
+  "2025-08-14-adaderanalk-ec3bb441",
+  "2025-08-18-dailyftlk-309d4b86",
+  "2025-08-18-islandlk-6869f025",
+  "2025-08-20-adaderanalk-56fc991e",
+  "2025-08-20-dailyftlk-cf8f0b4c",
+  "2025-08-21-adaderanalk-4a0005be",
+  "2025-08-22-economynextcom-6a2fcc30",
+  "2025-08-22-islandlk-2af8bc16",
+  "2025-08-23-dailyftlk-e149da8c",
+  "2025-08-23-economynextcom-377c4c97",
+  "2025-08-24-islandlk-8cf0b5d7",
+  "2025-08-25-dailyftlk-66ca3385",
+  "2025-08-25-economynextcom-154fd220",
+  "2025-08-28-adaderanalk-c13e6d97",
+  "2025-08-28-adaderanalk-d273e803",
+  "2025-08-28-economynextcom-724df890",
+  "2025-08-28-economynextcom-75c226e5",
+  "2025-08-30-adaderanalk-b410be09",
+  "2025-08-30-islandlk-877ac211"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "mental-health-youth-program",
+   "name": "Mental health program for schoolchildren, adolescents and youth",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "wattuwakal-bridge-a035",
+   "name": "New Wattuwakal Bridge on A035 highway",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Mullaitivu",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "modara-fisheries-cool-rooms-renovation",
+   "name": "Modara Fisheries Corporation cool room renovation",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Modara, Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "youth-marriage-assistance-fund",
+   "name": "Financial assistance for youth leaving child care centres to support marriage",
+   "sector": "social_protection",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "central-expressway-phase3-stage1",
+   "name": "Central Expressway Third Phase, Stage 1 (Pothuhara-Galagedara)",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Galagedara",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "vedda-heritage-museum-dambana",
+   "name": "Vedda Heritage Museum reconstruction and artefact repatriation, Dambana",
+   "sector": "other",
+   "status": "unknown",
+   "place": "Dambana",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "public-service-recruitment-62000",
+   "name": "Recruitment of 62,000 to the public service",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "medical-procurement-cardiac-spinal-2025",
+   "name": "Procurement of cardiac and spinal surgical supplies",
+   "sector": "health",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "urban-regeneration-housing-colombage-torrington",
+   "name": "Colombage Mawatha and Torrington Mawatha Housing Projects, Urban Regeneration Project",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "Colombo",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "mental-health-youth-program-gosl",
+   "project_id": "mental-health-youth-program",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "wattuwakal-bridge-a035-gosl",
+   "project_id": "wattuwakal-bridge-a035",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka / Road Development Authority",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "modara-fisheries-cool-rooms-renovation-gosl",
+   "project_id": "modara-fisheries-cool-rooms-renovation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka / Ministry of Fisheries",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "youth-marriage-assistance-fund-gosl",
+   "project_id": "youth-marriage-assistance-fund",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "central-expressway-phase3-stage1-gosl",
+   "project_id": "central-expressway-phase3-stage1",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "eu-grant-vedda-heritage-museum-dambana",
+   "project_id": "vedda-heritage-museum-dambana",
+   "funder": "eu",
+   "funder_name": "European Union",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "project"
+  },
+  {
+   "id": "public-service-recruitment-62000-gosl",
+   "project_id": "public-service-recruitment-62000",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-medical-procurement-cardiac-spinal-2025",
+   "project_id": "medical-procurement-cardiac-spinal-2025",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "urban-regeneration-housing-colombage-torrington-gosl",
+   "project_id": "urban-regeneration-housing-colombage-torrington",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "mental-health-youth-program-gosl-govt_authorised-2025-08-28",
+   "line_id": "mental-health-youth-program-gosl",
+   "date": "2025-08-28",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 250000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs. 250m youth mental health program",
+   "confidence": "high",
+   "reports": [
+    "2025-08-28-dailyftlk-6bbae0b0"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "wattuwakal-bridge-a035-gosl-contract_awarded-2025-08-22",
+   "line_id": "wattuwakal-bridge-a035-gosl",
+   "date": "2025-08-22",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awards contract for new Wattuwakal Bridge construction",
+   "confidence": "high",
+   "reports": [
+    "2025-08-22-dailyftlk-1de076c9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "modara-fisheries-cool-rooms-renovation-gosl-govt_authorised-2025-08-21",
+   "line_id": "modara-fisheries-cool-rooms-renovation-gosl",
+   "date": "2025-08-21",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 86000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves renovation of Modara Fisheries cool rooms",
+   "confidence": "high",
+   "reports": [
+    "2025-08-21-dailyftlk-a917e0f6"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "youth-marriage-assistance-fund-gosl-govt_authorised-2025-08-18",
+   "line_id": "youth-marriage-assistance-fund-gosl",
+   "date": "2025-08-18",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved Rs 1bn grant for institutionalised youth marriages",
+   "confidence": "high",
+   "reports": [
+    "2025-08-20-dailyftlk-82ef552d",
+    "2025-08-19-adaderanalk-a13ef365"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "central-expressway-phase3-stage1-gosl-contract_awarded-2025-08-19",
+   "line_id": "central-expressway-phase3-stage1-gosl",
+   "date": "2025-08-19",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awarded Central Expressway Phase 3 Stage 1 contract to Maga",
+   "confidence": "high",
+   "reports": [
+    "2025-08-19-economynextcom-3d8ea979"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "eu-grant-vedda-heritage-museum-dambana-completed-2025-08-14",
+   "line_id": "eu-grant-vedda-heritage-museum-dambana",
+   "date": "2025-08-14",
+   "date_basis": "report",
+   "stage": "completed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "EU-funded reconstruction of Vedda Heritage Museum completed in Dambana",
+   "confidence": "medium",
+   "reports": [
+    "2025-08-14-dailyftlk-9bcc86d4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "public-service-recruitment-62000-gosl-govt_authorised-2025-08-12",
+   "line_id": "public-service-recruitment-62000-gosl",
+   "date": "2025-08-12",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved recruitment of 62,000 to public service",
+   "confidence": "high",
+   "reports": [
+    "2025-08-12-adaderanalk-10dfd3d2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-medical-procurement-cardiac-spinal-2025-contract_awarded-2025-08-07",
+   "line_id": "gosl-medical-procurement-cardiac-spinal-2025",
+   "date": "2025-08-07",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 5600000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved medical procurement contracts for cardiac, spinal supplies",
+   "confidence": "high",
+   "reports": [
+    "2025-08-07-dailyftlk-50bcf7c1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "urban-regeneration-housing-colombage-torrington-gosl-govt_authorised-2025-08-05",
+   "line_id": "urban-regeneration-housing-colombage-torrington-gosl",
+   "date": "2025-08-05",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 7480000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves resuming two housing projects, Rs 7.48bn",
+   "confidence": "high",
+   "reports": [
+    "2025-08-06-dailyftlk-e12db917"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2025-08-28-dailyftlk-6bbae0b0": {
+   "date": "2025-08-28",
+   "title": "Cabinet approves Rs. 250 m mental health program targeting youth",
+   "url": "https://www.ft.lk/news/Cabinet-approves-Rs-250-m-mental-health-program-targeting-youth/56-780896",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-08-22-dailyftlk-1de076c9": {
+   "date": "2025-08-22",
+   "title": "Cabinet clears construction of new Wattuwakal bridge on A035 highway",
+   "url": "https://www.ft.lk/news/Cabinet-clears-construction-of-new-Wattuwakal-bridge-on-A035-highway/56-780595",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-08-21-dailyftlk-a917e0f6": {
+   "date": "2025-08-21",
+   "title": "Cabinet approves Rs. 86 m renovation of Modara Fisheries cool rooms",
+   "url": "https://www.ft.lk/news/Cabinet-approves-Rs-86-m-renovation-of-Modara-Fisheries-cool-rooms/56-780552",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-08-20-dailyftlk-82ef552d": {
+   "date": "2025-08-20",
+   "title": "Govt. allocates Rs. 1 b to support marriages of youth leaving child care centres",
+   "url": "https://www.ft.lk/news/Govt-allocates-Rs-1-b-to-support-marriages-of-youth-leaving-child-care-centres/56-780446",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-08-19-economynextcom-3d8ea979": {
+   "date": "2025-08-19",
+   "title": "Sri Lanka Cabinet approve Maga for first stage of Central Express Highway",
+   "url": "https://economynext.com/sri-lanka-cabinet-approve-maga-for-first-stage-of-central-express-highway-237334/",
+   "outlet": "EconomyNext",
+   "lang": "en"
+  },
+  "2025-08-19-adaderanalk-a13ef365": {
+   "date": "2025-08-19",
+   "title": "Cabinet approves financial assistance for youth leaving institutional care",
+   "url": "https://www.adaderana.lk/news/111634/cabinet-approves-financial-assistance-for-youth-leaving-institutional-care",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-08-14-dailyftlk-9bcc86d4": {
+   "date": "2025-08-14",
+   "title": "Ancient Vedda Heritage Museum in Dambana gets new life through EU-funded revival project",
+   "url": "https://www.ft.lk/news/Ancient-Vedda-Heritage-Museum-in-Dambana-gets-new-life-through-EU-funded-revival-project/56-780236",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-08-12-adaderanalk-10dfd3d2": {
+   "date": "2025-08-12",
+   "title": "Cabinet approval granted to recruit 62,000 to public service: President",
+   "url": "https://www.adaderana.lk/news/111401/cabinet-approval-granted-to-recruit-62000-to-public-service-president",
+   "outlet": "Ada Derana",
+   "lang": "en"
+  },
+  "2025-08-07-dailyftlk-50bcf7c1": {
+   "date": "2025-08-07",
+   "title": "Cabinet approves multiple medical procurement contracts worth over $ 5.6 m",
+   "url": "https://www.ft.lk/news/Cabinet-approves-multiple-medical-procurement-contracts-worth-over-5-6-m/56-780028",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2025-08-06-dailyftlk-e12db917": {
+   "date": "2025-08-06",
+   "title": "Urban regeneration housing projects to resume with over Rs. 7 b  investment",
+   "url": "https://www.ft.lk/news/Urban-regeneration-housing-projects-to-resume-with-over-Rs-7-b-investment/56-779933",
+   "outlet": "Daily FT",
+   "lang": "en"
+  }
+ }
+}

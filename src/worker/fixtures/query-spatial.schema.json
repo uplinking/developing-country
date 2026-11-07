@@ -1,0 +1,450 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "required": ["op", "dataset_id"],
+      "properties": {
+        "country": { "$ref": "#/$defs/country" },
+        "op": { "const": "select" },
+        "dataset_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(?:[-_][a-z0-9]+)*$",
+          "description": "Registered Indicator Table dataset id from the catalog."
+        },
+        "version_id": {
+          "type": "string",
+          "pattern": "^dsv_[a-f0-9]{32}$",
+          "description": "Optional immutable ingestion version from a prior result. Archived queries support at most 31 report dates."
+        },
+        "fields": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 32,
+          "uniqueItems": true,
+          "description": "Columns to return. Required unless aggregates is given; omit it when aggregating.",
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9]*(?:_[a-z0-9]+)*$" }
+        },
+        "group_by": {
+          "type": "array",
+          "maxItems": 4,
+          "uniqueItems": true,
+          "description": "Dimension fields to group by (with aggregates). Omit for one row of totals.",
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9]*(?:_[a-z0-9]+)*$" }
+        },
+        "aggregates": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "description": "Named aggregate outputs; output rows are group_by fields plus each `as`. order_by may name either.",
+          "items": { "$ref": "#/$defs/aggregate" }
+        },
+        "where": {
+          "type": "array",
+          "maxItems": 8,
+          "items": { "$ref": "#/$defs/filter" }
+        },
+        "order_by": {
+          "type": "array",
+          "maxItems": 8,
+          "items": { "$ref": "#/$defs/order" }
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5000,
+          "default": 50,
+          "description": "At most 200 rows; up to 5000 when presentation saves the result (bounded by the 8 MiB snapshot cap; the reply previews 50 rows)."
+        },
+        "presentation": { "$ref": "#/$defs/presentation" }
+      }
+    },
+    {
+      "additionalProperties": false,
+      "required": ["op", "entities", "bbox"],
+      "properties": {
+        "country": { "$ref": "#/$defs/country" },
+        "op": { "const": "bbox" },
+        "entities": { "type": "string" },
+        "bbox": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "type": "number" },
+          "description": "[west, south, east, north] WGS84"
+        },
+        "limit": { "type": "integer", "minimum": 1, "maximum": 500, "description": "At most 200 without include_geometry, 500 with it." },
+        "include_geometry": { "type": "boolean", "description": "Return the matching features' own geometry (any GeoJSON entity, including polygons such as metro_walkshed) so a saved map draws real shapes." },
+        "where": {
+          "type": "object",
+          "maxProperties": 8,
+          "additionalProperties": { "type": ["string", "number", "boolean"] },
+          "description": "Property equality filters; requires include_geometry. Example: { \"kind\": \"network\", \"method\": \"network\", \"minutes\": 10 }"
+        },
+        "presentation": { "$ref": "#/$defs/presentation" }
+      }
+    },
+    {
+      "additionalProperties": false,
+      "required": ["op", "entities", "origin"],
+      "properties": {
+        "country": { "$ref": "#/$defs/country" },
+        "op": { "const": "nearest" },
+        "entities": { "type": "string" },
+        "origin": { "$ref": "#/$defs/origin" },
+        "n": { "type": "integer", "minimum": 1, "maximum": 50, "default": 10 },
+        "radius_km": { "type": "number", "minimum": 0, "maximum": 100 },
+        "presentation": { "$ref": "#/$defs/presentation" }
+      }
+    },
+    {
+      "additionalProperties": false,
+      "required": ["op", "entities", "origin"],
+      "properties": {
+        "country": { "$ref": "#/$defs/country" },
+        "op": { "const": "point_in_polygon" },
+        "entities": { "type": "string" },
+        "origin": { "$ref": "#/$defs/origin" },
+        "presentation": { "$ref": "#/$defs/presentation" }
+      }
+    },
+    {
+      "additionalProperties": false,
+      "required": ["op", "entities", "within", "method"],
+      "properties": {
+        "country": { "$ref": "#/$defs/country" },
+        "op": { "const": "overlay" },
+        "entities": { "type": "string" },
+        "within": { "$ref": "#/$defs/within" },
+        "method": { "enum": ["centroid_in_polygon", "point_in_polygon"] },
+        "min_population": { "type": "number", "minimum": 0 },
+        "limit": { "type": "integer", "minimum": 1, "maximum": 200 },
+        "presentation": { "$ref": "#/$defs/presentation" }
+      }
+    },
+    {
+      "additionalProperties": false,
+      "required": ["op", "entities", "covered_by", "method", "threshold_m"],
+      "properties": {
+        "country": { "$ref": "#/$defs/country" },
+        "op": { "const": "gap" },
+        "entities": { "type": "string" },
+        "covered_by": { "type": "string" },
+        "method": { "enum": ["centroid_distance", "street_intersect"] },
+        "threshold_m": { "type": "number", "minimum": 0 },
+        "within": { "$ref": "#/$defs/within" },
+        "min_population": { "type": "number", "minimum": 0 },
+        "limit": { "type": "integer", "minimum": 1, "maximum": 200 },
+        "presentation": { "$ref": "#/$defs/presentation" }
+      }
+    },
+    {
+      "additionalProperties": false,
+      "required": ["op", "origin", "mode", "minutes"],
+      "properties": {
+        "country": { "$ref": "#/$defs/country" },
+        "op": { "const": "isochrone" },
+        "origin": { "$ref": "#/$defs/origin" },
+        "mode": { "const": "walk" },
+        "minutes": { "enum": [5, 10] },
+        "include_geometry": { "type": "boolean", "default": false },
+        "inside": {
+          "type": "array",
+          "maxItems": 3,
+          "items": { "type": "string" }
+        },
+        "presentation": { "$ref": "#/$defs/presentation" }
+      }
+    },
+    {
+      "additionalProperties": false,
+      "required": ["op", "entities"],
+      "properties": {
+        "country": { "$ref": "#/$defs/country" },
+        "op": { "const": "choropleth_join" },
+        "entities": { "type": "string" },
+        "origin": { "$ref": "#/$defs/origin" },
+        "within": { "$ref": "#/$defs/within" },
+        "presentation": { "$ref": "#/$defs/presentation" }
+      }
+    }
+  ],
+  "$defs": {
+    "scalar": {
+      "type": ["string", "number", "integer", "boolean", "null"]
+    },
+    "filter": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["field", "op", "value"],
+          "properties": {
+            "field": { "type": "string" },
+            "op": { "enum": ["eq", "gte", "lte"] },
+            "value": { "$ref": "#/$defs/scalar" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["field", "op", "value"],
+          "properties": {
+            "field": { "type": "string" },
+            "op": { "const": "in" },
+            "value": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 500,
+              "items": { "$ref": "#/$defs/scalar" }
+            }
+          }
+        }
+      ]
+    },
+    "aggregate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fn", "as"],
+      "properties": {
+        "fn": { "enum": ["sum", "mean", "min", "max", "count"] },
+        "field": {
+          "type": "string",
+          "description": "Source field. Required except for count (count without field counts rows). sum needs a field the table declares summable."
+        },
+        "as": { "type": "string", "pattern": "^[a-z][a-z0-9]*(?:_[a-z0-9]+)*$", "description": "Output column name." }
+      }
+    },
+    "order": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "direction"],
+      "properties": {
+        "field": { "type": "string" },
+        "direction": { "enum": ["asc", "desc"] }
+      }
+    },
+    "country": {
+      "type": "string",
+      "enum": ["LK"],
+      "description": "ISO alpha-2 country code. Defaults to LK when omitted; unsupported codes fail closed."
+    },
+    "encoding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field"],
+      "properties": {
+        "field": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "unit": { "type": "string", "minLength": 1 }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["center", "zoom"],
+      "properties": {
+        "center": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            { "type": "number", "minimum": -180, "maximum": 180 },
+            { "type": "number", "minimum": -90, "maximum": 90 }
+          ],
+          "items": false
+        },
+        "zoom": { "type": "number", "minimum": 0, "maximum": 24 },
+        "bearing": { "type": "number" },
+        "pitch": { "type": "number", "minimum": 0, "maximum": 85 }
+      }
+    },
+    "mapColor": {
+      "type": "string",
+      "description": "Theme token (route-system, route-sun, route-flag, route-info, ink, ink-dim) or #rrggbb.",
+      "pattern": "^(?:route-system|route-sun|route-flag|route-info|ink|ink-dim|#[0-9a-fA-F]{6})$"
+    },
+    "layerStyle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["geometry"],
+      "properties": {
+        "geometry": { "enum": ["fill", "line", "circle"] },
+        "color": { "$ref": "#/$defs/mapColor" },
+        "colorBy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["field", "scale"],
+          "description": "threshold: breaks (ascending, n) + colors (n+1). sequential/diverging: renderer ramp over the values. categorical: categories maps exact values to colours.",
+          "properties": {
+            "field": { "type": "string", "minLength": 1 },
+            "scale": { "enum": ["sequential", "diverging", "threshold", "categorical"] },
+            "breaks": { "type": "array", "maxItems": 12, "items": { "type": "number" } },
+            "colors": { "type": "array", "maxItems": 13, "items": { "$ref": "#/$defs/mapColor" } },
+            "categories": { "type": "object", "maxProperties": 24, "additionalProperties": { "$ref": "#/$defs/mapColor" } },
+            "label": { "type": "string", "minLength": 1 },
+            "unit": { "type": "string", "minLength": 1 }
+          }
+        },
+        "radius": { "type": "number", "minimum": 0, "maximum": 64 },
+        "radiusBy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["field", "range"],
+          "properties": {
+            "field": { "type": "string", "minLength": 1 },
+            "range": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number", "minimum": 0, "maximum": 64 } }
+          }
+        },
+        "width": { "type": "number", "minimum": 0, "maximum": 32 },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "labelField": { "type": "string", "minLength": 1 }
+      }
+    },
+    "mapLayer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "description": "Merged onto the result layer with the same id: an entity id for spatial ops, the dataset_id for a select.",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "visible": { "type": "boolean" },
+        "label": { "type": "string", "minLength": 1 },
+        "filter": { "type": "object", "additionalProperties": { "type": ["string", "number", "boolean", "null"] } },
+        "style": { "$ref": "#/$defs/layerStyle" },
+        "join": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["tileset", "sourceLayer", "rowKey"],
+          "description": "Colour published boundary tiles by result rows: rowKey names the row field equal to the tile feature id (e.g. a GND id like LK-1127015). Row keys must be unique.",
+          "properties": {
+            "tileset": { "const": "demographics" },
+            "sourceLayer": { "enum": ["province", "district", "dsd", "gnd"] },
+            "rowKey": { "type": "string", "minLength": 1 }
+          }
+        },
+        "legend": { "type": "boolean", "description": "Defaults to true when style is set." }
+      }
+    },
+    "annotation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "coordinates", "text"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "coordinates": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            { "type": "number", "minimum": -180, "maximum": 180 },
+            { "type": "number", "minimum": -90, "maximum": 90 }
+          ],
+          "items": false
+        },
+        "text": { "type": "string", "minLength": 1, "maxLength": 140 },
+        "anchor": { "enum": ["top", "bottom", "left", "right"] }
+      }
+    },
+    "presentation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "title"],
+          "properties": {
+            "kind": { "const": "map" },
+            "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+            "description": { "type": "string", "minLength": 1, "maxLength": 500 },
+            "visibility": { "enum": ["link", "public"] },
+            "camera": { "$ref": "#/$defs/camera" },
+            "layers": { "type": "array", "maxItems": 64, "items": { "$ref": "#/$defs/mapLayer" } },
+            "annotations": { "type": "array", "maxItems": 32, "items": { "$ref": "#/$defs/annotation" } }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "title", "family", "dimension", "measure"],
+          "properties": {
+            "kind": { "const": "chart" },
+            "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+            "description": { "type": "string", "minLength": 1, "maxLength": 500 },
+            "visibility": { "enum": ["link", "public"] },
+            "family": { "enum": ["trend", "comparison", "ranking", "distribution", "relationship", "composition"] },
+            "dimension": { "$ref": "#/$defs/encoding" },
+            "measure": { "$ref": "#/$defs/encoding" },
+            "series": { "$ref": "#/$defs/encoding" },
+            "orientation": { "enum": ["horizontal", "vertical"] },
+            "stacked": { "type": "boolean" },
+            "show_legend": { "type": "boolean" },
+            "highlight": {
+              "type": "array",
+              "maxItems": 64,
+              "description": "Dimension values drawn in the accent colour; must occur in the result.",
+              "items": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ]
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lat", "lng"],
+      "properties": {
+        "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+        "lng": { "type": "number", "minimum": -180, "maximum": 180 }
+      }
+    },
+    "polygon": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "coordinates"],
+      "properties": {
+        "type": { "enum": ["Polygon", "MultiPolygon"] },
+        "coordinates": { "type": "array" }
+      }
+    },
+    "within": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["district"],
+          "properties": {
+            "district": {
+              "type": "string",
+              "description": "English district name as on the admin index, e.g. \"Colombo\". Not LK-11."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["dsd_id"],
+          "properties": { "dsd_id": { "type": "string", "pattern": "^LK-" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["gnd_id"],
+          "properties": { "gnd_id": { "type": "string", "pattern": "^LK-" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["region_id"],
+          "properties": { "region_id": { "type": "string" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["polygon"],
+          "properties": { "polygon": { "$ref": "#/$defs/polygon" } }
+        }
+      ]
+    }
+  }
+}

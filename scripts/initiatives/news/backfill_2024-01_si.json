@@ -1,0 +1,1266 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2024-01-01",
+  "2024-01-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "si",
+ "articles_read": 152,
+ "rejected": 129,
+ "rejected_ids": [
+  "2024-01-03-bbccomsinhala-ffa89ce1",
+  "2024-01-05-bbccomsinhala-4c9841be",
+  "2024-01-05-bbccomsinhala-c6587071",
+  "2024-01-08-bbccomsinhala-19ed036d",
+  "2024-01-12-adalk-aebeda53",
+  "2024-01-12-adalk-bcb6096b",
+  "2024-01-12-adalk-d65911ab",
+  "2024-01-13-adalk-eed5efd1",
+  "2024-01-14-adalk-4bf86a21",
+  "2024-01-14-adalk-78a0ee0c",
+  "2024-01-15-adalk-e51a693f",
+  "2024-01-16-adalk-00bc708c",
+  "2024-01-16-adalk-033f2431",
+  "2024-01-16-adalk-832b2961",
+  "2024-01-16-adalk-afea51fb",
+  "2024-01-16-adalk-ff53a530",
+  "2024-01-17-adalk-908b1325",
+  "2024-01-17-adalk-a242a63d",
+  "2024-01-17-adalk-ad7b15dc",
+  "2024-01-17-adalk-ffa4ab7b",
+  "2024-01-17-adalk-ffee8017",
+  "2024-01-18-adalk-70693a7d",
+  "2024-01-18-adalk-708ed934",
+  "2024-01-18-adalk-9d2639c5",
+  "2024-01-18-adalk-af1c11e0",
+  "2024-01-18-adalk-b8bc5b92",
+  "2024-01-18-adalk-d471ed35",
+  "2024-01-20-adaderanasinhalalk-6a0128c1",
+  "2024-01-20-adaderanasinhalalk-9dfe7335",
+  "2024-01-20-adaderanasinhalalk-ce046c8a",
+  "2024-01-20-adaderanasinhalalk-ddf822e1",
+  "2024-01-20-adaderanasinhalalk-eec43100",
+  "2024-01-21-adaderanasinhalalk-64366f5d",
+  "2024-01-21-adalk-190a7eb0",
+  "2024-01-21-adalk-1d76d5e8",
+  "2024-01-21-adalk-3ea735d9",
+  "2024-01-21-adalk-ee3f44fb",
+  "2024-01-21-adalk-f32683d8",
+  "2024-01-22-adaderanasinhalalk-0688dc82",
+  "2024-01-22-adaderanasinhalalk-264d1dd1",
+  "2024-01-22-adaderanasinhalalk-2eb60ef6",
+  "2024-01-22-adaderanasinhalalk-627fe5c7",
+  "2024-01-22-adaderanasinhalalk-74a27fe7",
+  "2024-01-22-adaderanasinhalalk-edf95e0b",
+  "2024-01-22-adalk-1df97fe7",
+  "2024-01-22-adalk-d1fdd94c",
+  "2024-01-22-adalk-e953b847",
+  "2024-01-22-bbccomsinhala-890b4646",
+  "2024-01-23-adaderanasinhalalk-085fe8dc",
+  "2024-01-23-adaderanasinhalalk-21ab22c1",
+  "2024-01-23-adaderanasinhalalk-4bc3874d",
+  "2024-01-23-adaderanasinhalalk-66728ce8",
+  "2024-01-23-adaderanasinhalalk-7f5629a0",
+  "2024-01-23-adaderanasinhalalk-91214842",
+  "2024-01-23-adaderanasinhalalk-aeed42c1",
+  "2024-01-23-adaderanasinhalalk-b95853de",
+  "2024-01-23-adaderanasinhalalk-cbee94b3",
+  "2024-01-23-adaderanasinhalalk-e978899c",
+  "2024-01-23-adalk-3f81a437",
+  "2024-01-23-adalk-41474a5d",
+  "2024-01-23-adalk-6c2b377f",
+  "2024-01-23-adalk-7ce0477a",
+  "2024-01-23-adalk-9bc6715b",
+  "2024-01-23-adalk-a8b786e3",
+  "2024-01-23-adalk-aa679a61",
+  "2024-01-23-adalk-cc5054e3",
+  "2024-01-23-adalk-ef5eee01",
+  "2024-01-23-adalk-f5ec5abc",
+  "2024-01-23-bbccomsinhala-91f8714e",
+  "2024-01-24-adaderanasinhalalk-01db189f",
+  "2024-01-24-adaderanasinhalalk-1f6d9cdc",
+  "2024-01-24-adaderanasinhalalk-3418a630",
+  "2024-01-24-adaderanasinhalalk-b02142bf",
+  "2024-01-24-adaderanasinhalalk-d8b828c1",
+  "2024-01-24-adalk-13fea7a5",
+  "2024-01-24-adalk-2ba625de",
+  "2024-01-24-adalk-31c488f2",
+  "2024-01-24-adalk-9a280b0a",
+  "2024-01-24-adalk-dd7afafc",
+  "2024-01-24-adalk-ebe74fa4",
+  "2024-01-25-adaderanasinhalalk-17dfe055",
+  "2024-01-25-adaderanasinhalalk-44cb0e3f",
+  "2024-01-25-adaderanasinhalalk-917c3469",
+  "2024-01-25-adaderanasinhalalk-9ef63ab7",
+  "2024-01-25-adalk-38381652",
+  "2024-01-25-adalk-9a3d08f5",
+  "2024-01-26-adaderanasinhalalk-3a43033b",
+  "2024-01-26-adaderanasinhalalk-480d0a64",
+  "2024-01-26-adaderanasinhalalk-7a592f28",
+  "2024-01-26-adaderanasinhalalk-c938fe26",
+  "2024-01-26-adaderanasinhalalk-d1ccd617",
+  "2024-01-27-adaderanasinhalalk-33d19ada",
+  "2024-01-27-adaderanasinhalalk-66208f0e",
+  "2024-01-27-adaderanasinhalalk-721cc2ea",
+  "2024-01-27-adaderanasinhalalk-cc940f75",
+  "2024-01-28-adaderanasinhalalk-23496244",
+  "2024-01-28-adaderanasinhalalk-28828cca",
+  "2024-01-28-adaderanasinhalalk-747cbdae",
+  "2024-01-28-adaderanasinhalalk-b5c2b342",
+  "2024-01-28-adaderanasinhalalk-c635c1a9",
+  "2024-01-28-adaderanasinhalalk-fd3e59ba",
+  "2024-01-28-adalk-3d890d85",
+  "2024-01-28-adalk-7e201333",
+  "2024-01-28-adalk-fdc4c2f9",
+  "2024-01-29-adaderanasinhalalk-024f9aae",
+  "2024-01-29-adaderanasinhalalk-09e1e661",
+  "2024-01-29-adaderanasinhalalk-c4b686c2",
+  "2024-01-29-adaderanasinhalalk-e9ff8210",
+  "2024-01-29-adalk-098164a5",
+  "2024-01-29-adalk-0fec29cd",
+  "2024-01-29-adalk-51f87120",
+  "2024-01-29-adalk-980ec8a8",
+  "2024-01-29-adalk-c4c1c2dd",
+  "2024-01-29-adalk-da4f95e6",
+  "2024-01-29-adalk-db02b873",
+  "2024-01-29-adalk-dc02dcd9",
+  "2024-01-29-bbccomsinhala-e653477e",
+  "2024-01-30-adaderanasinhalalk-2d3380dc",
+  "2024-01-30-adaderanasinhalalk-630b305c",
+  "2024-01-30-adaderanasinhalalk-e112fea9",
+  "2024-01-30-adalk-0e6b9801",
+  "2024-01-30-adalk-a2a72c3e",
+  "2024-01-30-adalk-a9bf96e0",
+  "2024-01-30-adalk-b89868bd",
+  "2024-01-30-adalk-dc4483d0",
+  "2024-01-31-adaderanasinhalalk-498115b2",
+  "2024-01-31-adaderanasinhalalk-6ed0d3ae",
+  "2024-01-31-adaderanasinhalalk-e2a82894",
+  "2024-01-31-adaderanasinhalalk-faefcefe",
+  "2024-01-31-adalk-1a7b01dd"
+ ],
+ "unattributed_ids": [
+  "2024-01-28-adaderanasinhalalk-23496244"
+ ],
+ "dropped": [
+  "event uma-oya-hydropower-gosl underway: amount"
+ ],
+ "projects": [
+  {
+   "id": "slt-majority-stake-divestment",
+   "name": "Divestment of Government majority stake in Sri Lanka Telecom",
+   "sector": "digital",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "urumaya-land-deed-programme",
+   "name": "Urumaya land deed distribution programme for farmer families",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "maldives-sri-lanka-air-ambulance",
+   "name": "Maldives-Sri Lanka air ambulance service",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Katunayake",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "presidential-fund-als-scholarship",
+   "name": "Presidential Fund A/L Scholarship for disadvantaged students",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kahathuduwa-expressway-service-center",
+   "name": "Kahathuduwa Expressway Service Center construction",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "Kahathuduwa",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "uma-oya-hydropower-project",
+   "name": "Uma Oya Hydropower Project",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Uma Oya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "ellewewa-reservoir-irrigation-project",
+   "name": "Ellewewa Reservoir Irrigation Project",
+   "sector": "water",
+   "status": "unknown",
+   "place": "Embilipitiya",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "irrigation-ministry-2024-budget-allocation",
+   "name": "2024 Budget Allocation to Irrigation Ministry",
+   "sector": "water",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "mahaweli-development-authority-domestic-funds-2024",
+   "name": "Mahaweli Development Authority Domestic Funds 2024",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "world-bank-farmer-organizations-economic-support",
+   "name": "World Bank Support for Farmer Organisations' Economy",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "litro-gas-treasury-profit-remittance",
+   "name": "Litro Gas Company profit remittance to Treasury",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "katunayake-fish-health-cert-office",
+   "name": "24-hour fish export health certificate office at Katunayake",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Katunayake",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "aruwakkalu-waste-project",
+   "name": "Aruwakkalu Sanitary Landfill and Waste Management Project",
+   "sector": "environment",
+   "status": "unknown",
+   "place": "Aruwakkalu, Puttalam",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "urban-housing-deeds-50000-families",
+   "name": "Housing Deed Distribution Programme for 50,000 Families",
+   "sector": "housing",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "niyangoda-kithul-industry-factory",
+   "name": "Niyangoda Kithul-based Products Factory",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Niyangoda, Matale",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "drought-crop-damage-compensation-2023",
+   "name": "Drought crop damage compensation for farmers (2023 Yala season)",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "al-special-guidance-programme",
+   "name": "Special guidance and vocational training programme for A/L candidates",
+   "sector": "education",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "slt-nsb-shares-treasury-transfer",
+   "name": "Treasury acquisition of NSB's Sri Lanka Telecom shares",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "matale-monkey-sterilization-pilot",
+   "name": "Monkey population control pilot project, Matale district",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "Matale",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "decentralized-budget-2024-development-projects",
+   "name": "2024 Decentralized Budget development projects across districts",
+   "sector": "other",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "hundred-cities-beautification-project",
+   "name": "100 Cities Beautification Programme",
+   "sector": "urban",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "slt-divestment-china-india-bidders",
+   "project_id": "slt-majority-stake-divestment",
+   "funder": "private",
+   "funder_name": "Jio Platforms and Gotion International Investment Holdings (prequalified bidders)",
+   "funder_type": "private",
+   "origin": "overseas",
+   "instrument": "equity",
+   "purpose": "project"
+  },
+  {
+   "id": "urumaya-land-deed-programme-gosl",
+   "project_id": "urumaya-land-deed-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "maldives-sri-lanka-air-ambulance-unknown",
+   "project_id": "maldives-sri-lanka-air-ambulance",
+   "funder": "unknown",
+   "funder_name": "Governments of Sri Lanka and Maldives",
+   "funder_type": "government",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "programme"
+  },
+  {
+   "id": "presidential-fund-als-scholarship-gosl",
+   "project_id": "presidential-fund-als-scholarship",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka (Presidential Fund)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "kahathuduwa-service-center-gosl",
+   "project_id": "kahathuduwa-expressway-service-center",
+   "funder": "gosl",
+   "funder_name": "Road Development Authority",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "uma-oya-hydropower-gosl",
+   "project_id": "uma-oya-hydropower-project",
+   "funder": "unknown",
+   "funder_name": "unknown",
+   "funder_type": "unknown",
+   "origin": "unknown",
+   "instrument": "unknown",
+   "purpose": "project"
+  },
+  {
+   "id": "ellewewa-reservoir-irrigation-project-gosl",
+   "project_id": "ellewewa-reservoir-irrigation-project",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "irrigation-ministry-2024-budget-allocation-gosl",
+   "project_id": "irrigation-ministry-2024-budget-allocation",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "mahaweli-development-authority-domestic-funds-2024-gosl",
+   "project_id": "mahaweli-development-authority-domestic-funds-2024",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "world-bank-farmer-organizations-economic-support-wb",
+   "project_id": "world-bank-farmer-organizations-economic-support",
+   "funder": "world_bank",
+   "funder_name": "World Bank",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "litro-gas-treasury-profit-remittance-gosl",
+   "project_id": "litro-gas-treasury-profit-remittance",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka (Litro Gas / Sri Lanka Insurance)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "katunayake-fish-health-cert-office-gosl",
+   "project_id": "katunayake-fish-health-cert-office",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "aruwakkalu-waste-project-gosl",
+   "project_id": "aruwakkalu-waste-project",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "urban-housing-deeds-50000-families-gosl",
+   "project_id": "urban-housing-deeds-50000-families",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka Treasury",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "niyangoda-kithul-factory-provincial",
+   "project_id": "niyangoda-kithul-industry-factory",
+   "funder": "gosl",
+   "funder_name": "Central Province Ministry of Industries",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "mixed",
+   "purpose": "project"
+  },
+  {
+   "id": "niyangoda-kithul-factory-private",
+   "project_id": "niyangoda-kithul-industry-factory",
+   "funder": "private",
+   "funder_name": "Green Globe Organics (third-party investor)",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "equity",
+   "purpose": "project"
+  },
+  {
+   "id": "drought-crop-damage-compensation-2023-gosl",
+   "project_id": "drought-crop-damage-compensation-2023",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "relief"
+  },
+  {
+   "id": "al-special-guidance-programme-gosl",
+   "project_id": "al-special-guidance-programme",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "slt-nsb-shares-treasury-transfer-gosl",
+   "project_id": "slt-nsb-shares-treasury-transfer",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "matale-monkey-sterilization-pilot-gosl",
+   "project_id": "matale-monkey-sterilization-pilot",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "decentralized-budget-2024-development-projects-gosl",
+   "project_id": "decentralized-budget-2024-development-projects",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "hundred-cities-beautification-gosl",
+   "project_id": "hundred-cities-beautification-project",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "slt-divestment-china-india-bidders-underway-2024-01-31",
+   "line_id": "slt-divestment-china-india-bidders",
+   "date": "2024-01-31",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "China and India firms pre-qualified to buy SLT majority stake",
+   "confidence": "medium",
+   "reports": [
+    "2024-01-31-adalk-f45bbb25",
+    "2024-01-31-adaderanasinhalalk-122285e4"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "urumaya-land-deed-programme-gosl-allocated-2024-01-31",
+   "line_id": "urumaya-land-deed-programme-gosl",
+   "date": "2024-01-31",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 2000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Budget allocates Rs 2 billion for Urumaya land deed programme",
+   "confidence": "medium",
+   "reports": [
+    "2024-01-31-adalk-0200be08",
+    "2024-01-31-adaderanasinhalalk-5813c93a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "maldives-sri-lanka-air-ambulance-unknown-govt_authorised-2024-01-30",
+   "line_id": "maldives-sri-lanka-air-ambulance-unknown",
+   "date": "2024-01-30",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Govts agree to launch Maldives-Sri Lanka air ambulance service",
+   "confidence": "low",
+   "reports": [
+    "2024-01-30-adalk-1ccfa2f3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "wb-kandy-multimodal-transport-terminal-launched-2024-01-29",
+   "line_id": "wb-kandy-multimodal-transport-terminal",
+   "date": "2024-01-29",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": 69330000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Construction begins on Kandy multimodal transport terminal with World Bank loan",
+   "confidence": "high",
+   "reports": [
+    "2024-01-29-adalk-f8dccc2c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "presidential-fund-als-scholarship-gosl-govt_authorised-2024-01-29",
+   "line_id": "presidential-fund-als-scholarship-gosl",
+   "date": "2024-01-29",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 1000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "President raises A/L scholarship stipend by Rs 1,000 monthly",
+   "confidence": "medium",
+   "reports": [
+    "2024-01-29-adalk-217ae211"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kahathuduwa-service-center-gosl-halted-2024-01-29",
+   "line_id": "kahathuduwa-service-center-gosl",
+   "date": "2024-01-29",
+   "date_basis": "report",
+   "stage": "halted",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Construction of Kahathuduwa expressway rest stop halted by political interference.",
+   "confidence": "medium",
+   "reports": [
+    "2024-01-29-adalk-a417a3fa"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ellewewa-reservoir-irrigation-project-gosl-underway-2024-01-28",
+   "line_id": "ellewewa-reservoir-irrigation-project-gosl",
+   "date": "2024-01-28",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": 1532000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "GoSL funds construction of Ellewewa reservoir irrigation project",
+   "confidence": "medium",
+   "reports": [
+    "2024-01-28-adalk-3be95db9"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "irrigation-ministry-2024-budget-allocation-gosl-allocated-2024-01-28",
+   "line_id": "irrigation-ministry-2024-budget-allocation-gosl",
+   "date": "2024-01-28",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 23413000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "2024 budget allocates funds to Irrigation Ministry",
+   "confidence": "high",
+   "reports": [
+    "2024-01-28-adalk-39fdca20"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "mahaweli-development-authority-domestic-funds-2024-gosl-allocated-2024-01-28",
+   "line_id": "mahaweli-development-authority-domestic-funds-2024-gosl",
+   "date": "2024-01-28",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 4678000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Domestic funds allocated to Mahaweli Development Authority for 2024",
+   "confidence": "high",
+   "reports": [
+    "2024-01-28-adalk-39fdca20"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "world-bank-farmer-organizations-economic-support-wb-allocated-2024-01-28",
+   "line_id": "world-bank-farmer-organizations-economic-support-wb",
+   "date": "2024-01-28",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 25000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "World Bank funds allocated to strengthen farmer organisations' economy",
+   "confidence": "high",
+   "reports": [
+    "2024-01-28-adalk-39fdca20"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "litro-gas-treasury-profit-remittance-gosl-disbursed-2024-01-28",
+   "line_id": "litro-gas-treasury-profit-remittance-gosl",
+   "date": "2024-01-28",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 1500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Litro Gas remits Rs 1.5 billion 2023 profit to Treasury",
+   "confidence": "high",
+   "reports": [
+    "2024-01-28-adalk-a38a44dc"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "katunayake-fish-health-cert-office-gosl-launched-2024-01-26",
+   "line_id": "katunayake-fish-health-cert-office-gosl",
+   "date": "2024-01-26",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Ministry opened 24-hour fish export health certificate office",
+   "confidence": "medium",
+   "reports": [
+    "2024-01-26-adalk-d6f23818"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aruwakkalu-waste-project-gosl-govt_authorised-2024-01-24",
+   "line_id": "aruwakkalu-waste-project-gosl",
+   "date": "2024-01-24",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves minister's memo on Aruwakkalu waste project",
+   "confidence": "high",
+   "reports": [
+    "2024-01-24-adalk-5b086970"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aruwakkalu-waste-project-gosl-allocated-2024-01-24",
+   "line_id": "aruwakkalu-waste-project-gosl",
+   "date": "2024-01-24",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 5500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs 5.5 billion allocated this budget to complete Aruwakkalu waste project",
+   "confidence": "high",
+   "reports": [
+    "2024-01-24-adalk-5b086970"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "aruwakkalu-waste-project-gosl-cost_estimate-2024-01-24",
+   "line_id": "aruwakkalu-waste-project-gosl",
+   "date": "2024-01-24",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 130000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Total Aruwakkalu waste disposal project cost estimated",
+   "confidence": "high",
+   "reports": [
+    "2024-01-24-adalk-5b086970"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "urban-housing-deeds-50000-families-gosl-proposed-2024-01-23",
+   "line_id": "urban-housing-deeds-50000-families-gosl",
+   "date": "2024-01-23",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet paper proposes housing deeds for 50,000 families",
+   "confidence": "medium",
+   "reports": [
+    "2024-01-23-adalk-a17a0a8a"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "niyangoda-kithul-factory-provincial-cost_estimate-2024-01-23",
+   "line_id": "niyangoda-kithul-factory-provincial",
+   "date": "2024-01-23",
+   "date_basis": "report",
+   "stage": "cost_estimate",
+   "amount": 100000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Kithul product factory initial phase estimated at Rs 100 million",
+   "confidence": "medium",
+   "reports": [
+    "2024-01-23-adalk-ef4251f3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "niyangoda-kithul-factory-private-pledged-2024-01-23",
+   "line_id": "niyangoda-kithul-factory-private",
+   "date": "2024-01-23",
+   "date_basis": "report",
+   "stage": "pledged",
+   "amount": 67000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Third-party investor to put Rs 67 million into kithul factory",
+   "confidence": "medium",
+   "reports": [
+    "2024-01-23-adalk-ef4251f3"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "drought-crop-damage-compensation-2023-gosl-allocated-2024-01-21",
+   "line_id": "drought-crop-damage-compensation-2023-gosl",
+   "date": "2024-01-21",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Government allocates Rs. 100 crore for drought crop damage compensation.",
+   "confidence": "high",
+   "reports": [
+    "2024-01-21-adalk-45864e6c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "drought-crop-damage-compensation-2023-gosl-spent-2024-01-21",
+   "line_id": "drought-crop-damage-compensation-2023-gosl",
+   "date": "2024-01-21",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 500000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Half of drought compensation fund already paid to farmers.",
+   "confidence": "high",
+   "reports": [
+    "2024-01-21-adalk-45864e6c"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "al-special-guidance-programme-gosl-proposed-2024-01-21",
+   "line_id": "al-special-guidance-programme-gosl",
+   "date": "2024-01-21",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Education Ministry to launch A/L student guidance programme nationwide",
+   "confidence": "medium",
+   "reports": [
+    "2024-01-21-adaderanasinhalalk-d6f52139"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "slt-nsb-shares-treasury-transfer-gosl-allocated-2024-01-21",
+   "line_id": "slt-nsb-shares-treasury-transfer-gosl",
+   "date": "2024-01-21",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 1300000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Treasury allocates funds to acquire NSB's Sri Lanka Telecom shares",
+   "confidence": "medium",
+   "reports": [
+    "2024-01-21-adaderanasinhalalk-4aeeb09e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "ceb-employee-financial-facilities-spent-2024-01-20",
+   "line_id": "ceb-employee-financial-facilities",
+   "date": "2024-01-20",
+   "date_basis": "report",
+   "stage": "spent",
+   "amount": 12000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "CEB employee loan interest partly paid via electricity bills",
+   "confidence": "high",
+   "reports": [
+    "2024-01-20-adalk-0d48eecd"
+   ],
+   "relation": "repeat_of:ceb-employee-financial-facilities-spent-2024-01-20",
+   "notes": null
+  },
+  {
+   "id": "matale-monkey-sterilization-pilot-gosl-proposed-2024-01-17",
+   "line_id": "matale-monkey-sterilization-pilot-gosl",
+   "date": "2024-01-17",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Matale district chosen for monkey sterilization pilot project",
+   "confidence": "medium",
+   "reports": [
+    "2024-01-17-adalk-15037ade"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "decentralized-budget-2024-development-projects-gosl-allocated-2024-01-17",
+   "line_id": "decentralized-budget-2024-development-projects-gosl",
+   "date": "2024-01-17",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 11250000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Rs 11.25 billion allocated for 2024 decentralized budget development projects",
+   "confidence": "high",
+   "reports": [
+    "2024-01-17-adalk-a34c63b1"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "hundred-cities-beautification-gosl-allocated-2024-01-15",
+   "line_id": "hundred-cities-beautification-gosl",
+   "date": "2024-01-15",
+   "date_basis": "report",
+   "stage": "allocated",
+   "amount": 600000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "tranche",
+   "equivalents": [],
+   "components": [],
+   "summary": "Budget allocates Rs 600m more for 100 Cities project",
+   "confidence": "high",
+   "reports": [
+    "2024-01-15-adalk-f3883a04"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2024-01-31-adalk-f45bbb25": {
+   "date": "2024-01-31",
+   "title": "ටෙලිකෝම් කොටස් මිලදී ගන්න චීන හා ඉන්දීය සමාගම් දෙකක්",
+   "url": "https://www.ada.lk/breaking_news/ටෙලිකෝම්-කොටස්-මිලදී-ගන්න-චීන-හා-ඉන්දීය-සමාගම්-දෙකක්/11-407828",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-31-adaderanasinhalalk-122285e4": {
+   "date": "2024-01-31",
+   "title": "ටෙලිකොම් කොටස් ලබාගැනීමට චීන - ඉන්දියා සමාගම් දෙකක්",
+   "url": "http://sinhala.adaderana.lk/news/192784",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-01-31-adalk-0200be08": {
+   "date": "2024-01-31",
+   "title": "උරුමය යටතේ ඔප්පු 10000ක් සකස් කර අවසන්",
+   "url": "https://www.ada.lk/breaking_news/උරුමය-යටතේ-ඔප්පු-10000ක්-සකස්-කර-අවසන්/11-407818",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-31-adaderanasinhalalk-5813c93a": {
+   "date": "2024-01-31",
+   "title": "ඉඩම් ඔප්පු හිමිවන අලුත්ම පිරිස",
+   "url": "http://sinhala.adaderana.lk/news/192768",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-01-30-adalk-1ccfa2f3": {
+   "date": "2024-01-30",
+   "title": "මාලදිවයින සහ ශ්‍රී ලංකාව අතර  ගිලන් ගුවන් ප්‍රවාහන සේවාවක්",
+   "url": "https://www.ada.lk/breaking_news/මාලදිවයින-සහ-ශ්‍රී-ලංකාව-අතර--ගිලන්-ගුවන්-ප්‍රවාහන-සේවාවක්/11-407804",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-29-adalk-217ae211": {
+   "date": "2024-01-29",
+   "title": "ජනාධිපති අරමුදලෙන් පිරිනැමෙන ශිෂ්‍යත්ව මුදල ඉහළට",
+   "url": "https://www.ada.lk/breaking_news/ජනාධිපති-අරමුදලෙන්-පිරිනැමෙන-ශිෂ්‍යත්ව-මුදල-ඉහළට/11-407769",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-29-adalk-f8dccc2c": {
+   "date": "2024-01-29",
+   "title": "රු. කෝටි 3000ක ණයකින් මහනුවර බහුවිධ ප්‍රවාහන මධ්‍යස්ථානයේ ඉදිකිරීම් අරඹයි",
+   "url": "https://www.ada.lk/breaking_news/රු--කෝටි-3000ක-ණයකින්-මහනුවර-බහුවිධ-ප්‍රවාහන-මධ්‍යස්ථානයේ-ඉදිකිරීම්-අරඹයි/11-407766",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-29-adalk-a417a3fa": {
+   "date": "2024-01-29",
+   "title": "කහතුඩුව සේවා පියස ඉදිකිරීම දේශපාලඥයෙකුගේ මැදිහත්වීම මත නවතී",
+   "url": "https://www.ada.lk/breaking_news/කහතුඩුව-සේවා-පියස-ඉදිකිරීම-දේශපාලඥයෙකුගේ-මැදිහත්වීම-මත-නවතී/11-407764",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-28-adalk-3be95db9": {
+   "date": "2024-01-28",
+   "title": "ඇල්ලේවැව ජලාශයේ ඉදිකිරීම් කඩිනම් කිරීමට උපදෙස්",
+   "url": "https://www.ada.lk/breaking_news/ඇල්ලේවැව-ජලාශයේ-ඉදිකිරීම්-කඩිනම්-කිරීමට-උපදෙස්/11-407754",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-28-adalk-39fdca20": {
+   "date": "2024-01-28",
+   "title": "උමාඔයෙන් මෙගා වොට් 120ක් දෙන දිනය කියයි",
+   "url": "https://www.ada.lk/breaking_news/උමාඔයෙන්-මෙගා-වොට්-120ක්-දෙන-දිනය-කියයි/11-407749",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-28-adalk-a38a44dc": {
+   "date": "2024-01-28",
+   "title": "ලිට්‍රෝ ගෑස් සමාගමෙන් තවත් බිලියන 1.5ක් මහා භාණ්ඩාගාරයට",
+   "url": "https://www.ada.lk/breaking_news/ලිට්‍රෝ-ගෑස්-සමාගමෙන්-තවත්-බිලියන-1-5ක්-මහා-භාණ්ඩාගාරයට/11-407747",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-26-adalk-d6f23818": {
+   "date": "2024-01-26",
+   "title": "යුරෝපයට මත්ස්‍ය නිශ්පාදන යැවීමට පැය 24 පුරා ක්‍රියාත්මක සේවාවක්",
+   "url": "https://www.ada.lk/breaking_news/යුරෝපයට-මත්ස්‍ය නිශ්පාදන-යැවීමට-පැය-24-පුරා-ක්‍රියාත්මක-සේවාවක්/11-407740",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-24-adalk-5b086970": {
+   "date": "2024-01-24",
+   "title": "ඇතැම් රාජ්‍ය නිලධාරින්ගේ වැරැදි නිසා ආයෝජකයින් නැවත එන්නේ නෑ",
+   "url": "https://www.ada.lk/breaking_news/ඇතැම්-රාජ්‍ය-නිලධාරින්ගේ-වැරැදි-නිසා-ආයෝජකයින්-නැවත-එන්නේ-නෑ/11-407709",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-23-adalk-a17a0a8a": {
+   "date": "2024-01-23",
+   "title": "නිවාස හිමිකම් ඔප්පු 50,000ක් ලබාදීමට කැබිනට් පත්‍රිකාවක්",
+   "url": "https://www.ada.lk/breaking_news/නිවාස-හිමිකම්-ඔප්පු-50-000ක්-ලබාදීමට-කැබිනට්-පත්‍රිකාවක්/11-407686",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-23-adalk-ef4251f3": {
+   "date": "2024-01-23",
+   "title": "වැසී ඇති නියංගොඩ විද්‍යාලය කිතුල් ආශ්‍රිත නිෂ්පාදන කර්මාන්ත ශාලාවක් කිරීමට අවධානය",
+   "url": "https://www.ada.lk/breaking_news/වැසී-ඇති-නියංගොඩ-විද්‍යාලය-කිතුල්-ආශ්‍රිත-නිෂ්පාදන-කර්මාන්ත-ශාලාවක්-කිරීමට-අවධානය/11-407684",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-21-adalk-45864e6c": {
+   "date": "2024-01-21",
+   "title": "නියඟයෙන් වූ වගා හානි වෙනුවෙන් වන්දි ගෙවීමට කෝටි 100ක්",
+   "url": "https://www.ada.lk/breaking_news/නියඟයෙන්-වූ-වගා-හානි-වෙනුවෙන්-වන්දි-ගෙවීමට-කෝටි-100ක්/11-407646",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-21-adaderanasinhalalk-d6f52139": {
+   "date": "2024-01-21",
+   "title": "උසස් පෙළට පෙනී සිටි සිසුන්ට විශේෂ වැඩසටහනක්",
+   "url": "http://sinhala.adaderana.lk/news/192377",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-01-21-adaderanasinhalalk-4aeeb09e": {
+   "date": "2024-01-21",
+   "title": "ක්ෂුද්‍ර මූල්‍ය ක්ෂේත්‍රය නියාමනය කිරීමට පියවර",
+   "url": "http://sinhala.adaderana.lk/news/192376",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2024-01-20-adalk-0d48eecd": {
+   "date": "2024-01-20",
+   "title": "ලංවිම සේවකයන්ගේ ණයවලට පොලිය විදුලි පාරිභෝගිකයන්ගෙන් අයකරගෙන",
+   "url": "https://www.ada.lk/breaking_news/ලංවිම-සේවකයන්ගේ-ණයවලට-පොලිය-විදුලි-පාරිභෝගිකයන්ගෙන්-අයකරගෙන/11-407633",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-17-adalk-15037ade": {
+   "date": "2024-01-17",
+   "title": "රිලා මර්දනයට නියමු ව්‍යාපෘතිය මාතලෙන්",
+   "url": "https://www.ada.lk/breaking_news/රිලා-මර්දනයට-නියමු-ව්‍යාපෘතිය-මාතලෙන්/11-407599",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-17-adalk-a34c63b1": {
+   "date": "2024-01-17",
+   "title": "විමධ්‍යගත අයවැයෙන් කොළඹට කිරි",
+   "url": "https://www.ada.lk/breaking_news/විමධ්‍යගත-අයවැයෙන්-කොළඹට-කිරි/11-407597",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2024-01-15-adalk-f3883a04": {
+   "date": "2024-01-15",
+   "title": "සියක් නගර ව්‍යාපෘතියට තවත් ලක්ෂ 6000ක්",
+   "url": "https://www.ada.lk/breaking_news/සියක්-නගර-ව්‍යාපෘතියට-තවත්-ලක්ෂ-6000ක්/11-407555",
+   "outlet": "Ada",
+   "lang": "si"
+  }
+ }
+}

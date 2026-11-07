@@ -1,0 +1,43 @@
+---
+import { publishedEntries } from '../../lib/cmsCollections'
+import { isCountryCode } from '@developing-country/countries'
+import ArticleCard from '../../components/ArticleCard.astro'
+import SiteLayout from '../../layouts/SiteLayout.astro'
+import { articleFields } from '../../lib/content'
+
+const requestedCountry = Astro.url.searchParams.get('country')?.trim().toUpperCase()
+if (requestedCountry && !isCountryCode(requestedCountry)) return Astro.rewrite('/404')
+const country = requestedCountry || null
+const articles = await publishedEntries('articles')
+const articleCards = articles
+  .map((entry) => ({ id: entry.id, data: articleFields(entry.data) }))
+  .filter((article) => article.data.format === 'analysis' && article.data.analysisKind === 'essay' && (!country || article.data.countryCode === country))
+const filteredCards = articleCards
+---
+
+<SiteLayout title="Thoughts" description="Original essays and opinion on Sri Lanka’s development.">
+  <div class="page-shell editorial-index">
+    <section class="research-band" aria-labelledby="editorial-title">
+      <div class="section-rule">
+        <h1 id="editorial-title">Editorial</h1>
+        <span>{country ? `${country} · ` : ''}{filteredCards.length} {filteredCards.length === 1 ? 'entry' : 'entries'}</span>
+      </div>
+      {filteredCards.length ? (
+        <div class="article-grid">
+          {filteredCards.map((article) => (
+            <ArticleCard
+              href={`/analysis/${article.id}`}
+              title={article.data.title}
+              dek={article.data.dek}
+              country={article.data.countryCode}
+              publishedAt={article.data.publishedAt}
+              format={article.data.format}
+              analysisKind={article.data.analysisKind}
+              claimStatus={article.data.claimStatus}
+            />
+          ))}
+        </div>
+      ) : <p class="empty-state">Nothing has been published yet.</p>}
+    </section>
+  </div>
+</SiteLayout>

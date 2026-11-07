@@ -1,0 +1,313 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-08-01",
+  "2026-08-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 35,
+ "rejected": 27,
+ "rejected_ids": [
+  "2026-08-04-dailymirrorlk-9a2c19f5",
+  "2026-08-04-dailymirrorlk-c9fb8dea",
+  "2026-08-05-dailymirrorlk-4dfb0604",
+  "2026-08-05-dailymirrorlk-9407f033",
+  "2026-08-06-islandlk-9e5236df",
+  "2026-08-07-dailymirrorlk-48e15251",
+  "2026-08-10-dailymirrorlk-8ae5a254",
+  "2026-08-11-dailymirrorlk-58cc3ad2",
+  "2026-08-11-dailymirrorlk-d434c5b6",
+  "2026-08-12-dailymirrorlk-c21df964",
+  "2026-08-12-dailymirrorlk-d3127958",
+  "2026-08-13-dailyftlk-d6263214",
+  "2026-08-13-dailymirrorlk-e1286177",
+  "2026-08-14-dailyftlk-59af777c",
+  "2026-08-14-dailyftlk-bff259c4",
+  "2026-08-17-dailyftlk-0d9d6e24",
+  "2026-08-18-dailymirrorlk-6a34b41a",
+  "2026-08-19-dailyftlk-75842633",
+  "2026-08-19-dailymirrorlk-301fbe39",
+  "2026-08-20-dailyftlk-2ba38356",
+  "2026-08-21-dailyftlk-898b630a",
+  "2026-08-23-dailymirrorlk-df5cd60c",
+  "2026-08-24-dailyftlk-126ec2ab",
+  "2026-08-24-dailymirrorlk-9f97f83c",
+  "2026-08-25-dailymirrorlk-126ec2ab",
+  "2026-08-28-dailymirrorlk-f978e194",
+  "2026-08-31-dailyftlk-34c0e93e",
+  "2026-08-31-dailyftlk-664ecac3"
+ ],
+ "unattributed_ids": [
+  "2026-08-05-dailymirrorlk-4dfb0604"
+ ],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "nlb-lottery-printing-contracts",
+   "name": "National Lotteries Board lottery ticket printing contracts",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "lakvijaya-coal-supply-2026-27",
+   "name": "Lakvijaya Power Plant coal supply contracts (2026/2027)",
+   "sector": "energy",
+   "status": "unknown",
+   "place": "Norochcholai",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "edb-ifc-eu-exposcaleup-sme-export",
+   "name": "ExpoScaleUp SME export competitiveness programme",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "nlb-lottery-printing-contracts-gosl",
+   "project_id": "nlb-lottery-printing-contracts",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "gosl-lakvijaya-coal-supply-2026-27",
+   "project_id": "lakvijaya-coal-supply-2026-27",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka (Ceylon Electricity Board)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "edb-ifc-eu-exposcaleup-eu",
+   "project_id": "edb-ifc-eu-exposcaleup-sme-export",
+   "funder": "eu",
+   "funder_name": "European Union",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "programme"
+  }
+ ],
+ "events": [
+  {
+   "id": "adb-loan-smart-meters-govt_authorised-2026-08-25",
+   "line_id": "adb-loan-smart-meters",
+   "date": "2026-08-25",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 12500000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves $12.5m ADB loan portion for smart meters",
+   "confidence": "high",
+   "reports": [
+    "2026-08-25-dailymirrorlk-8962cfd1"
+   ],
+   "relation": "repeat_of:smart-meters-cabinet",
+   "notes": null
+  },
+  {
+   "id": "nlb-lottery-printing-contracts-gosl-contract_awarded-2026-08-20",
+   "line_id": "nlb-lottery-printing-contracts-gosl",
+   "date": "2026-08-20",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 480000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved NLB lottery printing contracts worth Rs. 480m",
+   "confidence": "high",
+   "reports": [
+    "2026-08-20-dailyftlk-a308483e"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "japan-loan-second-terminal-govt_authorised-2026-08-14",
+   "line_id": "japan-loan-second-terminal",
+   "date": "2026-08-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Japan confirms additional loan facility for BIA Terminal 2 completed",
+   "confidence": "low",
+   "reports": [
+    "2026-08-14-dailymirrorlk-bc6fbcd6"
+   ],
+   "relation": "update_of:japan-resumed-projects-2024",
+   "notes": null
+  },
+  {
+   "id": "gosl-sacred-sites-govt_authorised-2026-08-14",
+   "line_id": "gosl-sacred-sites",
+   "date": "2026-08-14",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 232070000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs. 232m to restore 144 religious sites",
+   "confidence": "high",
+   "reports": [
+    "2026-08-14-dailyftlk-a623e916"
+   ],
+   "relation": "repeat_of:sacred-sites-cabinet",
+   "notes": null
+  },
+  {
+   "id": "gosl-lakvijaya-coal-supply-2026-27-contract_awarded-2026-08-13",
+   "line_id": "gosl-lakvijaya-coal-supply-2026-27",
+   "date": "2026-08-13",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awards coal supply contracts for Lakvijaya Power Plant",
+   "confidence": "medium",
+   "reports": [
+    "2026-08-13-dailymirrorlk-37f0fee7"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-lakvijaya-coal-supply-2026-27-contract_awarded-2026-08-11",
+   "line_id": "gosl-lakvijaya-coal-supply-2026-27",
+   "date": "2026-08-11",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves two coal suppliers for Lakvijaya Power Plant 2026/2027",
+   "confidence": "medium",
+   "reports": [
+    "2026-08-11-dailymirrorlk-37f0fee7"
+   ],
+   "relation": "repeat_of:gosl-lakvijaya-coal-supply-2026-27-contract_awarded-2026-08-13",
+   "notes": null
+  },
+  {
+   "id": "edb-ifc-eu-exposcaleup-eu-launched-2026-08-05",
+   "line_id": "edb-ifc-eu-exposcaleup-eu",
+   "date": "2026-08-05",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "EDB, IFC and EU launch third ExpoScaleUp SME export cohort",
+   "confidence": "medium",
+   "reports": [
+    "2026-08-05-dailymirrorlk-9407f033",
+    "2026-08-06-dailyftlk-dfe2f250"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-08-25-dailymirrorlk-8962cfd1": {
+   "date": "2026-08-25",
+   "title": "Cabinet nod to install 300,000 smart meters across Sri Lanka",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-nod-to-install-300-000-smart-meters-across-Sri-Lanka/108-348845",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-08-20-dailyftlk-a308483e": {
+   "date": "2026-08-20",
+   "title": "Cabinet clears lottery printing contracts  worth Rs. 480 m",
+   "url": "https://www.ft.lk/business/Cabinet-clears-lottery-printing-contracts-worth-Rs-480-m/34-796292",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-08-14-dailymirrorlk-bc6fbcd6": {
+   "date": "2026-08-14",
+   "title": "Japan confirms construction work of BIA 2nd terminal to begin before November",
+   "url": "https://www.dailymirror.lk/breaking-news/Japan-confirms-construction-work-of-BIA-2nd-terminal-to-begin-before-November/108-348125",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-08-14-dailyftlk-a623e916": {
+   "date": "2026-08-14",
+   "title": "Cabinet clears Rs. 232 m to restore 144 religious sites damaged by Cyclone Ditwah",
+   "url": "https://www.ft.lk/news/Cabinet-clears-Rs-232-m-to-restore-144-religious-sites-damaged-by-Cyclone-Ditwah/56-796007",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-08-13-dailymirrorlk-37f0fee7": {
+   "date": "2026-08-13",
+   "title": "Cabinet approves coal supply contracts for Lakvijaya Power Plant",
+   "url": "https://www.dailymirror.lk/business-news/Cabinet-approves-coal-supply-contracts-for-Lakvijaya-Power-Plant/273-348012",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-08-11-dailymirrorlk-37f0fee7": {
+   "date": "2026-08-11",
+   "title": "Cabinet approves coal supply contracts for Lakvijaya Power Plant",
+   "url": "https://www.dailymirror.lk/breaking-news/Cabinet-approves-coal-supply-contracts-for-Lakvijaya-Power-Plant/108-347890",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  },
+  "2026-08-06-dailyftlk-dfe2f250": {
+   "date": "2026-08-06",
+   "title": "EDB, IFC and EU launch third ExpoScaleUp cohort to boost Sri Lanka’s SME export competitiveness",
+   "url": "https://www.ft.lk/business/EDB-IFC-and-EU-launch-third-ExpoScaleUp-cohort-to-boost-Sri-Lanka-s-SME-export-competitiveness/34-795673",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-08-05-dailymirrorlk-9407f033": {
+   "date": "2026-08-05",
+   "title": "Parliament unanimously approves salary increment of Auditor General",
+   "url": "https://www.dailymirror.lk/breaking-news/Parliament-unanimously-approves-salary-increment-of-Auditor-General/108-347435",
+   "outlet": "Daily Mirror",
+   "lang": "en"
+  }
+ }
+}

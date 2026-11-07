@@ -1,0 +1,849 @@
+{
+  "$schema": "https://emdashcms.com/seed.schema.json",
+  "version": "1",
+  "meta": {
+    "name": "developing-country.org",
+    "description": "Public-interest data, country profiles, and evidence-led research",
+    "author": "developing-country.org"
+  },
+  "settings": {
+    "title": "developing-country.org",
+    "tagline": "Sri Lanka’s public data, brought together and explained"
+  },
+  "collections": [
+    {
+      "slug": "articles",
+      "label": "Writing",
+      "labelSingular": "Article",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview",
+        "search",
+        "seo"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "dek",
+          "label": "Summary",
+          "type": "text",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "format",
+          "label": "Format",
+          "type": "select",
+          "required": true,
+          "validation": {
+            "options": [
+              "analysis",
+              "dataset_note"
+            ]
+          }
+        },
+        {
+          "slug": "dataset_id",
+          "label": "Dataset ID (data notes only)",
+          "type": "string",
+          "indexed": true
+        },
+        {
+          "slug": "dataset_preview_url",
+          "label": "Dataset preview URL",
+          "type": "url"
+        },
+        {
+          "slug": "content",
+          "label": "Article",
+          "type": "portableText",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "featured_image",
+          "label": "Featured image",
+          "type": "image"
+        },
+        {
+          "slug": "country_code",
+          "label": "Country code",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "research_question",
+          "label": "Research question",
+          "type": "text"
+        },
+        {
+          "slug": "methodology",
+          "label": "Methodology",
+          "type": "text"
+        },
+        {
+          "slug": "evidence_bundle",
+          "label": "Platform evidence bundle (required to publish)",
+          "type": "json"
+        },
+        {
+          "slug": "source_manifest",
+          "label": "Source manifest (required to publish)",
+          "type": "json"
+        },
+        {
+          "slug": "primary_view_url",
+          "label": "Primary live view",
+          "type": "url"
+        },
+        {
+          "slug": "editorial_notes",
+          "label": "Notes for editor",
+          "type": "text"
+        },
+        {
+          "slug": "analysis_kind",
+          "label": "Analysis tag",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "essay",
+              "tracked_claim"
+            ]
+          }
+        },
+        {
+          "slug": "claim_status",
+          "label": "Claim assessment",
+          "type": "select",
+          "required": false,
+          "validation": {
+            "options": [
+              "awaiting_data",
+              "supported",
+              "contradicted",
+              "mixed"
+            ]
+          }
+        },
+        {
+          "slug": "claim_source_title",
+          "label": "Original report title",
+          "type": "string",
+          "required": false
+        },
+        {
+          "slug": "claim_source_url",
+          "label": "Original report URL",
+          "type": "url",
+          "required": false
+        },
+        {
+          "slug": "claim_reported_at",
+          "label": "Report published at",
+          "type": "datetime",
+          "required": false
+        },
+        {
+          "slug": "missing_data",
+          "label": "Related missing data (CMS content IDs)",
+          "type": "json",
+          "required": false
+        }
+      ]
+    },
+    {
+      "slug": "pages",
+      "label": "Site pages",
+      "labelSingular": "Site page",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "description",
+          "label": "SEO description",
+          "type": "text"
+        },
+        {
+          "slug": "content",
+          "label": "Page content",
+          "type": "portableText",
+          "required": true
+        }
+      ]
+    },
+    {
+      "slug": "countries",
+      "label": "Countries",
+      "labelSingular": "Country",
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview",
+        "search",
+        "seo"
+      ],
+      "fields": [
+        {
+          "slug": "name",
+          "label": "Country name",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "code",
+          "label": "ISO alpha-2 code",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "strapline",
+          "label": "Strapline",
+          "type": "text",
+          "required": true
+        },
+        {
+          "slug": "content",
+          "label": "Country introduction",
+          "type": "portableText",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "platform_url",
+          "label": "Open data explorer URL",
+          "type": "url"
+        },
+        {
+          "slug": "featured_view_url",
+          "label": "Featured live view",
+          "type": "url"
+        },
+        {
+          "slug": "coverage_note",
+          "label": "Coverage note",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "slug": "data_gaps",
+      "label": "Missing data",
+      "labelSingular": "Data gap",
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "summary",
+          "label": "Why this data matters",
+          "type": "text",
+          "required": true
+        },
+        {
+          "slug": "country_code",
+          "label": "Country code",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "theme_ids",
+          "label": "Themes",
+          "type": "multiSelect",
+          "required": true,
+          "validation": {
+            "options": [
+              "AGRI",
+              "ECON",
+              "EDUC",
+              "ENER",
+              "ENVI",
+              "GOVE",
+              "HEAL",
+              "INTR",
+              "JUST",
+              "REGI",
+              "SOCI",
+              "TECH",
+              "TRAN"
+            ]
+          }
+        },
+        {
+          "slug": "publisher_id",
+          "label": "Expected data holder ID",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "publisher_name",
+          "label": "Expected data holder name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "publisher_type",
+          "label": "Data holder type",
+          "type": "select",
+          "required": true,
+          "validation": {
+            "options": [
+              "government",
+              "international",
+              "community",
+              "platform",
+              "other"
+            ]
+          }
+        },
+        {
+          "slug": "availability",
+          "label": "Availability",
+          "type": "select",
+          "required": true,
+          "validation": {
+            "options": [
+              "not_public",
+              "partial",
+              "requested",
+              "available"
+            ]
+          }
+        },
+        {
+          "slug": "needed_fields",
+          "label": "Data needed to verify",
+          "type": "text",
+          "required": true
+        },
+        {
+          "slug": "available_evidence",
+          "label": "What is already available",
+          "type": "text",
+          "required": true
+        },
+        {
+          "slug": "next_steps",
+          "label": "How to obtain it",
+          "type": "text",
+          "required": true
+        },
+        {
+          "slug": "checked_at",
+          "label": "Last checked",
+          "type": "datetime",
+          "required": true
+        },
+        {
+          "slug": "source_manifest",
+          "label": "Sources (title, HTTPS url, optional note)",
+          "type": "json",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "taxonomies": [
+    {
+      "name": "topic",
+      "label": "Topics",
+      "labelSingular": "Topic",
+      "hierarchical": false,
+      "collections": [
+        "articles"
+      ],
+      "terms": [
+        {
+          "slug": "infrastructure",
+          "label": "Infrastructure"
+        },
+        {
+          "slug": "public-finance",
+          "label": "Public finance"
+        },
+        {
+          "slug": "access",
+          "label": "Access"
+        },
+        {
+          "slug": "data-quality",
+          "label": "Data quality"
+        }
+      ]
+    }
+  ],
+  "bylines": [
+    {
+      "id": "developing-country-editorial",
+      "slug": "developing-country-editorial",
+      "displayName": "developing-country.org editorial"
+    }
+  ],
+  "menus": [
+    {
+      "name": "primary",
+      "label": "Primary navigation",
+      "items": [
+        {
+          "type": "custom",
+          "label": "Sri Lanka",
+          "url": "/countries/lk"
+        },
+        {
+          "type": "custom",
+          "label": "Data",
+          "url": "/data"
+        },
+        {
+          "type": "custom",
+          "label": "Thoughts",
+          "url": "/analysis"
+        },
+        {
+          "type": "custom",
+          "label": "About",
+          "url": "/about"
+        },
+        {
+          "type": "custom",
+          "label": "Explore the map",
+          "url": "https://explore.developing-country.org"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "data_gaps": [
+      {
+        "id": "colombo-housing-construction-register",
+        "slug": "colombo-housing-construction-register",
+        "status": "draft",
+        "data": {
+          "title": "Construction dates for Colombo housing complexes",
+          "summary": "A complete scheme and block register is needed to test the reported share of housing complexes older than 40 years.",
+          "country_code": "LK",
+          "theme_ids": [
+            "REGI",
+            "SOCI",
+            "GOVE"
+          ],
+          "publisher_id": "sri-lanka-nhda",
+          "publisher_name": "National Housing Development Authority",
+          "publisher_type": "government",
+          "availability": "partial",
+          "needed_fields": "Scheme and block IDs; names and addresses or coordinates; managing authority; city-limit membership; original completion dates and evidence; separate opening, CoC and renovation dates; the reference date for age; the full eligible-complex list; numerator, denominator, treatment of mixed-age blocks and rounding method.",
+          "available_evidence": "NHDA gives 1981 for Wakanda. UDA publishes project periods for Lake Crest (2015–2018) and Oval View (2016–2020). Parliament reported 45 projects over 40 years old in Colombo District in August 2025. None of these supplies the complete city-level inventory behind the September 2026 percentage.",
+          "next_steps": "Ask NHDA and the housing ministry for the existing inventory and calculation behind the 40% statement, including the list of 96 complexes mentioned in the report. Confirm whether those 96 are the denominator. If no open extract is supplied, request the existing records through RTI. Seek completion records from the relevant authority; retain CoC issue dates separately.",
+          "checked_at": "2026-09-12T10:00:00.000Z",
+          "source_manifest": [
+            {
+              "title": "News 1st: housing-complex age claim, 12 September 2026",
+              "url": "https://english.newsfirst.lk/2026/09/12/40-of-colombo-housing-complexes-over-40-years-old",
+              "note": "The report is located; its underlying inventory is not published here."
+            },
+            {
+              "title": "Parliament: 45 ageing projects in Colombo District, 14 August 2025",
+              "url": "https://www.parliament.lk/en/home/parliament-news/view/4734",
+              "note": "A different date, geographic area and count; not a denominator for the 2026 percentage."
+            },
+            {
+              "title": "NHDA: safety programme for older flats",
+              "url": "https://nhda.gov.lk/latest-news/51",
+              "note": "Names Wakanda as built in 1981; this is one scheme, not a complete inventory."
+            },
+            {
+              "title": "UDA: middle-income housing projects",
+              "url": "https://www.uda.gov.lk/middle-income-housing.html",
+              "note": "Publishes individual project durations, not the age distribution of NHDA complexes."
+            }
+          ]
+        }
+      },
+      {
+        "id": "public-building-construction-register",
+        "slug": "public-building-construction-register",
+        "status": "draft",
+        "data": {
+          "title": "Construction years for government buildings",
+          "summary": "Government reporting already asks for construction years. A populated inventory would extend building-age checks beyond apartments.",
+          "country_code": "LK",
+          "theme_ids": [
+            "GOVE",
+            "REGI"
+          ],
+          "publisher_id": "sri-lanka-comptroller-general",
+          "publisher_name": "Comptroller General’s Office",
+          "publisher_type": "government",
+          "availability": "not_public",
+          "needed_fields": "One record per building: stable ID, address, district and DS/GN division, owning or managing institution, use, construction year, date evidence, refurbishment history and missing-year flags. Include an inventory reference date and coverage statement.",
+          "available_evidence": "The Annexure to Asset Management Circular 01/2023 explicitly includes Year of construction, address, ownership, floors and floor area. The public document is a blank reporting template, not the populated building inventory. No complete public extract was located in this review.",
+          "next_steps": "Request a populated Colombo extract from the Comptroller General’s Office and participating institutions, with field definitions, record coverage and permission to republish. Keep this broader government-building inventory separate from the NHDA housing-complex denominator.",
+          "checked_at": "2026-09-12T10:00:00.000Z",
+          "source_manifest": [
+            {
+              "title": "Treasury building inventory reporting form, Circular 01/2023",
+              "url": "https://publicfinance.lk/public/uploads/act/file/1683709797_en.pdf"
+            },
+            {
+              "title": "Treasury: official circular listing",
+              "url": "https://www.treasury.gov.lk/web/comptroller-general%27s-Office-circular/section/2023?page=2"
+            }
+          ]
+        }
+      }
+    ],
+    "pages": [
+      {
+        "id": "home",
+        "slug": "home",
+        "status": "published",
+        "data": {
+          "title": "Sri Lanka’s public data, brought together and explained",
+          "description": "Public projects, transport, schools, hospitals and population data—starting with Sri Lanka.",
+          "content": [
+            {
+              "_type": "dcHero",
+              "_key": "home-hero",
+              "eyebrow": "Starting with Sri Lanka",
+              "headline": "Put the country in view.",
+              "subheadline": "Public projects, transport, schools, hospitals and population data—brought together, sourced and explained.",
+              "primaryLabel": "Explore the map",
+              "primaryUrl": "/countries/lk",
+              "secondaryLabel": "Read our thoughts",
+              "secondaryUrl": "/analysis"
+            },
+            {
+              "_type": "dcStats",
+              "_key": "home-stats",
+              "value1": "15",
+              "label1": "versioned datasets",
+              "value2": "15",
+              "label2": "cited sources",
+              "value3": "5",
+              "label3": "known data gaps",
+              "source": "Current Sri Lanka data inventory."
+            },
+            {
+              "_type": "block",
+              "_key": "home-h2",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "home-h2-span",
+                  "text": "“Developing country” should describe a problem, not excuse it."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "home-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "home-body-span",
+                  "text": "Sri Lanka is full of plans, promises and public spending. It is much harder to find one reliable account of what was planned, what it cost, who was responsible and what happened next. This project starts by putting that information in one place."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "about",
+        "slug": "about",
+        "status": "published",
+        "data": {
+          "title": "About",
+          "description": "Why I am bringing Sri Lanka’s public-interest data together in one place.",
+          "content": [
+            {
+              "_type": "dcHero",
+              "_key": "about-hero",
+              "eyebrow": "About",
+              "headline": "You cannot hold a government to account with data you cannot find.",
+              "subheadline": "Developing Country is my project to put Sri Lanka’s public-interest data in one place—and write clearly about what it shows.",
+              "primaryLabel": "Read our thoughts",
+              "primaryUrl": "/analysis"
+            },
+            {
+              "_type": "block",
+              "_key": "about-body-1",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "about-body-span-1",
+                  "text": "I live in Sri Lanka and previously lived in Hong Kong, where I saw what well-run urban development can do for daily life. Back home, “developing country” too often works as a shrug. Corruption, missing records and institutions that do not publish make it hard to establish what is happening, let alone what to fix."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "about-body-2",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "about-body-span-2",
+                  "text": "This site is the groundwork. It brings together datasets on public projects, transport, schools, hospitals, population and more. Every dataset carries its source, its vintage, the date it was last checked and an honest account of its limits—including the gaps where usable data does not exist."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "about-body-3",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "about-body-span-3",
+                  "text": "The long-term ambition is an independent think tank: analysis that asks why a policy is failing, what better urban development could look like and whether public promises were kept. That standing has to be earned through the work. For now, this is a personal project built in the open."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "countries": [
+      {
+        "id": "sri-lanka",
+        "slug": "sri-lanka",
+        "status": "published",
+        "data": {
+          "name": "Sri Lanka",
+          "code": "LK",
+          "strapline": "Public projects, transport, schools, hospitals and population—Sri Lanka’s data in one place, with the gaps left visible.",
+          "platform_url": "https://explore.developing-country.org",
+          "coverage_note": "Coverage is uneven: some topics have official sources, some only community maps and some nothing at all. Where data is missing, we say so instead of filling the gap.",
+          "content": [
+            {
+              "_type": "block",
+              "_key": "lk-h2",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-h2-span",
+                  "text": "Ask a question, then open the map."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-body-span",
+                  "text": "Which neighbourhoods sit beyond walking distance of a bus stop? Which announced projects have gone quiet? Where do schools and hospitals cluster, and where are they missing? Start with a question. The same result can open as a map or chart, and anything used in an essay stays interactive on the page."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "articles": [
+      {
+        "id": "colombo-housing-age-claim",
+        "slug": "colombo-housing-age-claim",
+        "status": "draft",
+        "data": {
+          "title": "Are 40% of Colombo’s housing complexes over 40 years old?",
+          "dek": "News 1st reports a ministry claim about ageing housing. The original report is located, but the complete inventory needed to reproduce the percentage has not been found publicly.",
+          "format": "analysis",
+          "analysis_kind": "tracked_claim",
+          "claim_status": "awaiting_data",
+          "claim_source_title": "40% Of Colombo Housing Complexes Over 40 Years Old",
+          "claim_source_url": "https://english.newsfirst.lk/2026/09/12/40-of-colombo-housing-complexes-over-40-years-old",
+          "claim_reported_at": "2026-09-12T05:17:00.000Z",
+          "missing_data": [
+            "$ref:colombo-housing-construction-register",
+            "$ref:public-building-construction-register"
+          ],
+          "country_code": "LK",
+          "research_question": "Can the reported 40% share of ageing Colombo housing complexes be independently reproduced?",
+          "methodology": "Located the original News 1st report and compared its geographic scope and reference date with Parliament, NHDA and UDA publications. Reviewed the Treasury building-return template. No complete eligible-complex inventory was located; this tracks an external claim and does not present a verified percentage.",
+          "evidence_bundle": {
+            "version": 1,
+            "kind": "claim-review",
+            "country": "LK",
+            "generatedAt": "2026-09-12T10:00:00.000Z",
+            "datasetVersions": [],
+            "dataViews": []
+          },
+          "source_manifest": [
+            {
+              "title": "News 1st: housing-complex age claim, 12 September 2026",
+              "url": "https://english.newsfirst.lk/2026/09/12/40-of-colombo-housing-complexes-over-40-years-old",
+              "note": "The report is located; its underlying inventory is not published here."
+            },
+            {
+              "title": "Parliament: 45 ageing projects in Colombo District, 14 August 2025",
+              "url": "https://www.parliament.lk/en/home/parliament-news/view/4734",
+              "note": "A different date, geographic area and count; not a denominator for the 2026 percentage."
+            },
+            {
+              "title": "NHDA: safety programme for older flats",
+              "url": "https://nhda.gov.lk/latest-news/51",
+              "note": "Names Wakanda as built in 1981; this is one scheme, not a complete inventory."
+            },
+            {
+              "title": "UDA: middle-income housing projects",
+              "url": "https://www.uda.gov.lk/middle-income-housing.html",
+              "note": "Publishes individual project durations, not the age distribution of NHDA complexes."
+            },
+            {
+              "title": "Treasury building inventory reporting form",
+              "url": "https://publicfinance.lk/public/uploads/act/file/1683709797_en.pdf"
+            }
+          ],
+          "content": [
+            {
+              "_type": "block",
+              "_key": "claim-0",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "claim-span-0",
+                  "text": "What was reported",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "claim-1",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "claim-span-1",
+                  "text": "News 1st’s 12 September 2026 report attributes a 40% share of housing complexes older than 40 years to the housing ministry. It separately attributes a count of 96 authority-managed apartment complexes within Colombo city limits to Deputy Minister T. B. Sarath. The article does not supply the list or explicitly establish the denominator used for the percentage.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "claim-2",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "claim-span-2",
+                  "text": "What we can establish",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "claim-3",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "claim-span-3",
+                  "text": "The original article matches the Instagram screenshot. That establishes the source of the statement, not the underlying age distribution. NHDA and UDA publish dates for individual schemes. Parliament’s August 2025 report concerns 45 ageing projects in Colombo District, so it cannot independently verify a city-level percentage reported in September 2026.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "claim-4",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "claim-span-4",
+                  "text": "What would verify it",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "claim-5",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "claim-span-5",
+                  "text": "Obtain the full eligible-complex inventory and the age calculation as of the claim’s reference date. Identify the number exceeding the age threshold and divide it by the eligible total using the publisher’s counting and rounding rules. Treat mixed-age blocks, reconstruction and uncertain dates explicitly. The 96-complex total must be confirmed as the denominator before using it.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "claim-6",
+              "style": "h2",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "claim-span-6",
+                  "text": "Can this extend to other public buildings?",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "claim-7",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "claim-span-7",
+                  "text": "Yes, there is a concrete collection mechanism: Treasury’s 2023 building-return template includes construction year. A populated extract and coverage assessment are still needed. This is a related data gap; it does not verify the housing claim. A CoC issue date should remain distinct from a completion year, and building age alone does not establish structural condition.",
+                  "marks": []
+                }
+              ]
+            }
+          ],
+          "editorial_notes": "Review source links, claim scope and the distinction between reporting and independent verification. The exact News 1st article is linked. Both data-gap records and this claim are drafts; publish gaps first, then the reviewed claim. Missing-data references are resolved to CMS IDs by the seed importer."
+        }
+      }
+    ]
+  }
+}

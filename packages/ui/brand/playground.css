@@ -1,0 +1,9 @@
+.brand-lab { width: min(calc(100% - 40px), 1100px); margin: 80px auto 120px; color: #050505; font-family: var(--dc-font-sans); }
+.brand-lab__eyebrow { font: 11px var(--dc-font-data); letter-spacing: .04em; text-transform: uppercase; }
+.brand-lab h1 { margin: 30px 0; font-size: clamp(120px, 22vw, 240px); line-height: .9; }
+.brand-lab__tagline { font-size: clamp(20px, 3vw, 32px); color: #6f6d68; }
+.brand-lab__samples { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 70px; border: 1px solid rgba(5, 5, 5, .22); }
+.brand-lab figure { display: flex; min-height: 280px; margin: 0; padding: 36px; flex-direction: column; justify-content: space-between; background: #f7f6f4; font-size: 96px; }
+.brand-lab figcaption { font: 11px var(--dc-font-data); letter-spacing: .04em; text-transform: uppercase; }
+.brand-lab .brand-lab__inverse { background: #050505; color: #f7f6f4; }
+@media (max-width: 600px) { .brand-lab__samples { grid-template-columns: 1fr; } }

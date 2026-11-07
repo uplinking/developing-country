@@ -1,0 +1,214 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2026-02-01",
+  "2026-02-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "en",
+ "articles_read": 24,
+ "rejected": 20,
+ "rejected_ids": [
+  "2026-02-02-dailyftlk-675b085e",
+  "2026-02-05-dailyftlk-8148ea1f",
+  "2026-02-05-islandlk-5f5414d0",
+  "2026-02-07-dailyftlk-4d37ef17",
+  "2026-02-11-dailyftlk-0036865d",
+  "2026-02-11-dailyftlk-808d1c12",
+  "2026-02-11-dailyftlk-fea015d4",
+  "2026-02-12-dailyftlk-16929ac1",
+  "2026-02-12-islandlk-f75e2121",
+  "2026-02-14-dailyftlk-5454bf1d",
+  "2026-02-14-dbsjeyarajcom-9caaa11b",
+  "2026-02-15-islandlk-cbf88be2",
+  "2026-02-18-dailyftlk-94a35718",
+  "2026-02-18-dailyftlk-d0caf73e",
+  "2026-02-19-dailyftlk-08ae7b7c",
+  "2026-02-20-dailyftlk-9969fb27",
+  "2026-02-21-islandlk-5681a174",
+  "2026-02-23-dailyftlk-fb1e27f3",
+  "2026-02-24-islandlk-e7ace03b",
+  "2026-02-27-dailyftlk-57782ef9"
+ ],
+ "unattributed_ids": [],
+ "dropped": [],
+ "projects": [
+  {
+   "id": "srilankan-airlines-cdg-handling-contracts",
+   "name": "SriLankan Airlines passenger, ramp and cargo handling contracts, Paris CDG",
+   "sector": "transport",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rebuilding-sri-lanka-fund",
+   "name": "Rebuilding Sri Lanka fund for cyclone Ditwah relief",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "un-cyclone-ditwah-hpp",
+   "name": "UN Humanitarian Priorities Plan for Cyclone Ditwah",
+   "sector": "disaster_recovery",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "gosl-srilankan-cdg-handling-contracts",
+   "project_id": "srilankan-airlines-cdg-handling-contracts",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka (SriLankan Airlines)",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "project"
+  },
+  {
+   "id": "rebuilding-sri-lanka-fund-firstcapital",
+   "project_id": "rebuilding-sri-lanka-fund",
+   "funder": "private",
+   "funder_name": "First Capital Holdings PLC",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "grant",
+   "purpose": "relief"
+  },
+  {
+   "id": "un-ditwah-hpp-un",
+   "project_id": "un-cyclone-ditwah-hpp",
+   "funder": "un",
+   "funder_name": "United Nations / humanitarian partners",
+   "funder_type": "multilateral",
+   "origin": "overseas",
+   "instrument": "grant",
+   "purpose": "relief"
+  }
+ ],
+ "events": [
+  {
+   "id": "gosl-srilankan-cdg-handling-contracts-contract_awarded-2026-02-23",
+   "line_id": "gosl-srilankan-cdg-handling-contracts",
+   "date": "2026-02-23",
+   "date_basis": "report",
+   "stage": "contract_awarded",
+   "amount": 7730000,
+   "currency": "EUR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet awarded passenger and ramp handling contract at Paris CDG.",
+   "confidence": "high",
+   "reports": [
+    "2026-02-27-dailyftlk-515b8335"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "wb-p508317-wb-govt_authorised-2026-02-16",
+   "line_id": "wb-p508317-wb",
+   "date": "2026-02-16",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 50000000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved $50m World Bank loan for digital transformation",
+   "confidence": "high",
+   "reports": [
+    "2026-02-18-dailyftlk-7d370463"
+   ],
+   "relation": "update_of:wb-p508317-funder_approved",
+   "notes": null
+  },
+  {
+   "id": "rebuilding-sri-lanka-fund-firstcapital-disbursed-2026-02-11",
+   "line_id": "rebuilding-sri-lanka-fund-firstcapital",
+   "date": "2026-02-11",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 15000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Company donates Rs. 15 million to cyclone relief fund",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-11-dailyftlk-db3fa111"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "un-ditwah-hpp-un-disbursed-2026-02-06",
+   "line_id": "un-ditwah-hpp-un",
+   "date": "2026-02-06",
+   "date_basis": "report",
+   "stage": "disbursed",
+   "amount": 22400000,
+   "currency": "USD",
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "UN-coordinated Cyclone Ditwah humanitarian plan receives partial funding",
+   "confidence": "medium",
+   "reports": [
+    "2026-02-10-dailyftlk-90f8e955"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2026-02-27-dailyftlk-515b8335": {
+   "date": "2026-02-27",
+   "title": "Cabinet approves UL’s passenger and cargo handling contracts worth € 9.63 m",
+   "url": "https://www.ft.lk/business/Cabinet-approves-UL-s-passenger-and-cargo-handling-contracts-worth-9-63-m/34-788897",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-02-18-dailyftlk-7d370463": {
+   "date": "2026-02-18",
+   "title": "Cabinet clears $ 50 m  World Bank financing for  digital transformation project",
+   "url": "https://www.ft.lk/news/Cabinet-clears-50-m-World-Bank-financing-for-digital-transformation-project/56-788472",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-02-11-dailyftlk-db3fa111": {
+   "date": "2026-02-11",
+   "title": "First Capital Holdings donates Rs. 15 m to ‘Rebuilding Sri Lanka’ fund",
+   "url": "https://www.ft.lk/business/First-Capital-Holdings-donates-Rs-15-m-to-Rebuilding-Sri-Lanka-fund/34-788174",
+   "outlet": "Daily FT",
+   "lang": "en"
+  },
+  "2026-02-10-dailyftlk-90f8e955": {
+   "date": "2026-02-10",
+   "title": "UN flags 36.5% funding gap in Cyclone Ditwah HPP, with $ 12.8 m unmet",
+   "url": "https://www.ft.lk/news/UN-flags-36-5-funding-gap-in-Cyclone-Ditwah-HPP-with-12-8-m-unmet/56-788135",
+   "outlet": "Daily FT",
+   "lang": "en"
+  }
+ }
+}

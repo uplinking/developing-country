@@ -1,0 +1,405 @@
+{
+ "schema_version": 1,
+ "kind": "backfill",
+ "window": [
+  "2025-01-01",
+  "2025-01-31"
+ ],
+ "upstream": "nuuuwan/lk_news@595dcf2372f07bb066760727c98f27b508741a65",
+ "extracted_by": "Claude Code sonnet (medium effort)",
+ "extracted_at": "2026-11-05",
+ "language": "si",
+ "articles_read": 54,
+ "rejected": 42,
+ "rejected_ids": [
+  "2025-01-07-adaderanasinhalalk-06d74a47",
+  "2025-01-07-adaderanasinhalalk-1f33c43b",
+  "2025-01-07-adaderanasinhalalk-5452a678",
+  "2025-01-07-adaderanasinhalalk-762800f1",
+  "2025-01-07-adaderanasinhalalk-a17db83e",
+  "2025-01-07-adaderanasinhalalk-a333e0d8",
+  "2025-01-07-adaderanasinhalalk-c2d7d032",
+  "2025-01-07-adaderanasinhalalk-cfe34af8",
+  "2025-01-07-adalk-02556af6",
+  "2025-01-07-adalk-357fc56c",
+  "2025-01-07-adalk-6b09ac53",
+  "2025-01-07-adalk-83e4adfc",
+  "2025-01-07-adalk-c1967832",
+  "2025-01-08-adaderanasinhalalk-02e9a688",
+  "2025-01-08-adaderanasinhalalk-3fa455ed",
+  "2025-01-08-adaderanasinhalalk-54074e4c",
+  "2025-01-08-adaderanasinhalalk-59520fcc",
+  "2025-01-08-adaderanasinhalalk-a7e658b6",
+  "2025-01-08-adaderanasinhalalk-aee1b2a4",
+  "2025-01-08-adaderanasinhalalk-bd7b2166",
+  "2025-01-08-adaderanasinhalalk-c2be7575",
+  "2025-01-08-adaderanasinhalalk-c31ccff5",
+  "2025-01-08-adalk-234390a8",
+  "2025-01-08-adalk-236beeeb",
+  "2025-01-08-adalk-53e8f370",
+  "2025-01-08-adalk-79a69e13",
+  "2025-01-08-adalk-a4b20586",
+  "2025-01-08-adalk-a4e1430c",
+  "2025-01-08-adalk-a82e0d24",
+  "2025-01-08-adalk-acea6500",
+  "2025-01-08-adalk-b3628a7f",
+  "2025-01-08-adalk-e7535989",
+  "2025-01-08-bbccomsinhala-1073434a",
+  "2025-01-09-adaderanasinhalalk-0e880a37",
+  "2025-01-09-adaderanasinhalalk-3a450901",
+  "2025-01-09-adaderanasinhalalk-b0a0d4b1",
+  "2025-01-09-adaderanasinhalalk-d3fa8160",
+  "2025-01-09-adalk-01613076",
+  "2025-01-09-adalk-22327a51",
+  "2025-01-09-adalk-925f80f9",
+  "2025-01-09-adalk-a7cd39e5",
+  "2025-01-09-adalk-c48a7ec3",
+  "2025-01-10-bbccomsinhala-55818efc"
+ ],
+ "unattributed_ids": [
+  "2025-01-09-adaderanasinhalalk-0e880a37"
+ ],
+ "dropped": [
+  "chunk 10 failed: claude exited 1: ",
+  "chunk 11 failed: claude exited 1: ",
+  "chunk 12 failed: claude exited 1: ",
+  "chunk 13 failed: claude exited 1: ",
+  "chunk 14 failed: claude exited 1: ",
+  "chunk 15 failed: claude exited 1: ",
+  "chunk 16 failed: claude exited 1: ",
+  "chunk 17 failed: claude exited 1: ",
+  "chunk 18 failed: claude exited 1: ",
+  "chunk 19 failed: claude exited 1: ",
+  "chunk 20 failed: claude exited 1: ",
+  "chunk 21 failed: claude exited 1: "
+ ],
+ "projects": [
+  {
+   "id": "paddy-purchase-concessional-loan-scheme-2024-25",
+   "name": "Concessional loan scheme for paddy purchase by rice millers and cooperatives, Maha 2024/25",
+   "sector": "agriculture",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "sl-2025-annual-budget",
+   "name": "2025 Appropriation Bill (Annual Budget)",
+   "sector": "governance",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "rd-commercialization-launch-nirdc",
+   "name": "Research and Development Commercialisation Approach and NIRDC website",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "national",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "valaichchenai-paper-mill-waste-supply",
+   "name": "Supply of government waste paper to Valaichchenai paper mill",
+   "sector": "industry",
+   "status": "unknown",
+   "place": "Valaichchenai",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  },
+  {
+   "id": "kataragama-devalaya-moneragala-cardiac-unit",
+   "name": "Cardiac unit at Moneragala District General Hospital funded by Kataragama temple",
+   "sector": "health",
+   "status": "unknown",
+   "place": "Moneragala",
+   "lat": null,
+   "lon": null,
+   "parent_id": null
+  }
+ ],
+ "lines": [
+  {
+   "id": "paddy-purchase-concessional-loan-gosl-2024-25",
+   "project_id": "paddy-purchase-concessional-loan-scheme-2024-25",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "loan",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-annual-budget-2025",
+   "project_id": "sl-2025-annual-budget",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "budget_support"
+  },
+  {
+   "id": "gosl-rd-commercialization-launch",
+   "project_id": "rd-commercialization-launch-nirdc",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "govt_funds",
+   "purpose": "programme"
+  },
+  {
+   "id": "gosl-waste-paper-valaichchenai-mill",
+   "project_id": "valaichchenai-paper-mill-waste-supply",
+   "funder": "gosl",
+   "funder_name": "Government of Sri Lanka",
+   "funder_type": "government",
+   "origin": "domestic",
+   "instrument": "in_kind",
+   "purpose": "project"
+  },
+  {
+   "id": "kataragama-devalaya-moneragala-cardiac-unit-temple",
+   "project_id": "kataragama-devalaya-moneragala-cardiac-unit",
+   "funder": "private",
+   "funder_name": "Kataragama Maha Devalaya (temple funds and donations)",
+   "funder_type": "private",
+   "origin": "domestic",
+   "instrument": "in_kind",
+   "purpose": "project"
+  }
+ ],
+ "events": [
+  {
+   "id": "paddy-purchase-concessional-loan-gosl-2024-25-govt_authorised-2024-12-30",
+   "line_id": "paddy-purchase-concessional-loan-gosl-2024-25",
+   "date": "2024-12-30",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 10000000000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves concessional loan scheme for paddy purchase, Maha season",
+   "confidence": "high",
+   "reports": [
+    "2025-01-10-adalk-b88957b2"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-annual-budget-2025-proposed-2025-01-09",
+   "line_id": "gosl-annual-budget-2025",
+   "date": "2025-01-09",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": 4218248018000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "2025 Appropriation Bill presented to Parliament for first reading.",
+   "confidence": "high",
+   "reports": [
+    "2025-01-09-adalk-cdd8c63a",
+    "2025-01-09-adaderanasinhalalk-04e263c3",
+    "2025-01-09-adalk-abb7341b",
+    "2025-01-09-adaderanasinhalalk-634db10c",
+    "2025-01-09-adaderanasinhalalk-163e0c75"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "gosl-rd-commercialization-launch-launched-2025-01-08",
+   "line_id": "gosl-rd-commercialization-launch",
+   "date": "2025-01-08",
+   "date_basis": "report",
+   "stage": "launched",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "President launches R&D commercialisation programme and NIRDC website",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-08-adaderanasinhalalk-3a199682"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "stationery-voucher-expansion-gosl-govt_authorised-2025-01-07",
+   "line_id": "stationery-voucher-expansion-gosl",
+   "date": "2025-01-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": 6000,
+   "currency": "LKR",
+   "raw": null,
+   "basis": "component",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approves Rs 6,000 stationery allowance for small-school students",
+   "confidence": "high",
+   "reports": [
+    "2025-01-07-adaderanasinhalalk-368d073c"
+   ],
+   "relation": "repeat_of:stationery-voucher-expansion-gosl-govt_authorised-2025-01-06",
+   "notes": null
+  },
+  {
+   "id": "rice-import-gosl-underway-2025-01-07",
+   "line_id": "rice-import-gosl",
+   "date": "2025-01-07",
+   "date_basis": "report",
+   "stage": "underway",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "cumulative",
+   "equivalents": [],
+   "components": [],
+   "summary": "106,000 MT of rice imported so far under programme",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-07-adalk-c2a86a08"
+   ],
+   "relation": "update_of:rice-import-gosl-govt_authorised-2024-11-20",
+   "notes": null
+  },
+  {
+   "id": "gosl-waste-paper-valaichchenai-mill-govt_authorised-2025-01-07",
+   "line_id": "gosl-waste-paper-valaichchenai-mill",
+   "date": "2025-01-07",
+   "date_basis": "report",
+   "stage": "govt_authorised",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Cabinet approved supplying government waste paper to Valaichchenai mill",
+   "confidence": "high",
+   "reports": [
+    "2025-01-07-adalk-43a626ba"
+   ],
+   "relation": "new",
+   "notes": null
+  },
+  {
+   "id": "kataragama-devalaya-moneragala-cardiac-unit-temple-proposed-2025-01-07",
+   "line_id": "kataragama-devalaya-moneragala-cardiac-unit-temple",
+   "date": "2025-01-07",
+   "date_basis": "report",
+   "stage": "proposed",
+   "amount": null,
+   "currency": null,
+   "raw": null,
+   "basis": "total",
+   "equivalents": [],
+   "components": [],
+   "summary": "Kataragama temple to fund cardiac unit at Moneragala hospital",
+   "confidence": "medium",
+   "reports": [
+    "2025-01-07-adalk-b1368968"
+   ],
+   "relation": "new",
+   "notes": null
+  }
+ ],
+ "articles": {
+  "2025-01-10-adalk-b88957b2": {
+   "date": "2025-01-10",
+   "title": "මහ කන්නයේ වී මිලදි ගැනිමට රු.බි. 10ක ඔඩපණ ණය යෝජනාවලියක්",
+   "url": "https://www.ada.lk/breaking_news/මහ-කන්නයේ-වී-මිලදි-ගැනිමට-රු-බි--10ක-ඔඩපණ-ණය-යෝජනාවලියක්/11-414130",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2025-01-09-adalk-abb7341b": {
+   "date": "2025-01-09",
+   "title": "ජනපතිවරයාගේ වැය ශීර්ෂය රු.බි.3.6කින් අඩුවෙයි",
+   "url": "https://www.ada.lk/breaking_news/ජනපතිවරයාගේ-වැය-ශීර්ෂය-රු-බි-3-6කින්-අඩුවෙයි/11-414123",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2025-01-09-adalk-cdd8c63a": {
+   "date": "2025-01-09",
+   "title": "2025 අයවැය පළමුවර කියවීම සඳහා පාර්ලිමේන්තුවට ඉදිරිපත් කරයි",
+   "url": "https://www.ada.lk/breaking_news/2025-අයවැය-පළමුවර-කියවීම-සඳහා-පාර්ලිමේන්තුවට-ඉදිරිපත්-කරයි/11-414108",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2025-01-09-adaderanasinhalalk-04e263c3": {
+   "date": "2025-01-09",
+   "title": "2025 ආණ්ඩුවේ වියදම් මෙන්න",
+   "url": "http://sinhala.adaderana.lk/news/205203",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2025-01-09-adaderanasinhalalk-634db10c": {
+   "date": "2025-01-09",
+   "title": "විසර්ජන පනත් කෙටුම්පත පාර්ලිමේන්තුවට",
+   "url": "http://sinhala.adaderana.lk/news/205201",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2025-01-09-adaderanasinhalalk-163e0c75": {
+   "date": "2025-01-09",
+   "title": "විසර්ජන පනත්  කෙටුම්පත අද පාර්ලිමේන්තුවට",
+   "url": "http://sinhala.adaderana.lk/news/205192",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2025-01-08-adaderanasinhalalk-3a199682": {
+   "date": "2025-01-08",
+   "title": "නවෝත්පාදන දිරි ගැන්වීම සඳහා නව රජයෙන් කඩිනම් වැඩපිළිවෙළක්",
+   "url": "http://sinhala.adaderana.lk/news/205182",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2025-01-07-adaderanasinhalalk-368d073c": {
+   "date": "2025-01-07",
+   "title": "තවත් කොටසකට රු 6000ක දීමනාව ලැබෙයි",
+   "url": "http://sinhala.adaderana.lk/news/205136",
+   "outlet": "adaderanasinhalalk",
+   "lang": "si"
+  },
+  "2025-01-07-adalk-c2a86a08": {
+   "date": "2025-01-07",
+   "title": "සහල් ටොන් 106000ක් ආනයනය කරලා",
+   "url": "https://www.ada.lk/breaking_news/සහල්-ටොන්-106000ක්-ආනයනය-කරලා/11-414065",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2025-01-07-adalk-43a626ba": {
+   "date": "2025-01-07",
+   "title": "රජයෙන් ඉවතලන කඩදාසි වාලච්චේන කඩදාසි කම්හලට",
+   "url": "https://www.ada.lk/breaking_news/රජයෙන්-ඉවතලන-කඩදාසි-වාලච්චේන-කඩදාසි-කම්හලට/11-414060",
+   "outlet": "Ada",
+   "lang": "si"
+  },
+  "2025-01-07-adalk-b1368968": {
+   "date": "2025-01-07",
+   "title": "කතරගම දේවාලයෙන් මොණරාගල රෝහලට හෘද රෝග ඒකකයක්",
+   "url": "https://www.ada.lk/breaking_news/කතරගම-දේවාලයෙන්-මොණරාගල-රෝහලට-හෘද-රෝග-ඒකකයක්/11-414058",
+   "outlet": "Ada",
+   "lang": "si"
+  }
+ }
+}

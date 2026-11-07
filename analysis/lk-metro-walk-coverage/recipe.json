@@ -1,0 +1,428 @@
+{
+  "$comment": "Every figure in 'How far Colombo's Metro Bus reaches' as a query_data call. Run with: bun scripts/analysis-article.ts analysis/lk-metro-walk-coverage [--mcp <url>]",
+  "figures": {
+    "headline": {
+      "op": "select",
+      "dataset_id": "metro-coverage-lines",
+      "fields": [
+        "line_code",
+        "line_name",
+        "study_area_pop",
+        "pop_5min",
+        "pop_10min",
+        "pop_circle_800m",
+        "share_5min_pct",
+        "share_10min_pct",
+        "share_circle_800m_pct",
+        "study_area_offices",
+        "offices_10min",
+        "offices_share_10min_pct"
+      ],
+      "order_by": [
+        {
+          "field": "pop_10min",
+          "direction": "desc"
+        }
+      ],
+      "presentation": {
+        "kind": "chart",
+        "title": "Residents within a ten-minute walk of a stop, by line",
+        "description": "Network-wide and per line. The network row counts each resident once.",
+        "family": "ranking",
+        "dimension": {
+          "field": "line_name",
+          "label": "Line"
+        },
+        "measure": {
+          "field": "share_10min_pct",
+          "label": "Share of residents within 2 km of a line",
+          "unit": "%"
+        },
+        "orientation": "horizontal",
+        "highlight": [
+          "All seven CM lines"
+        ]
+      }
+    },
+    "stops_map": {
+      "op": "select",
+      "dataset_id": "metro-coverage-stops",
+      "fields": [
+        "stop_id",
+        "stop",
+        "routes",
+        "route_count",
+        "lng",
+        "lat",
+        "pop_5min",
+        "pop_10min",
+        "schools_10min",
+        "hospitals_10min",
+        "offices_10min",
+        "businesses_10min"
+      ],
+      "limit": 200,
+      "presentation": {
+        "kind": "map",
+        "title": "The 110 Metro Bus stops",
+        "camera": {
+          "center": [
+            79.905,
+            6.895
+          ],
+          "zoom": 10.2
+        },
+        "layers": [
+          {
+            "id": "metro-coverage-stops",
+            "label": "Metro Bus stop",
+            "style": {
+              "geometry": "circle",
+              "color": "route-system",
+              "radiusBy": {
+                "field": "pop_10min",
+                "range": [
+                  3,
+                  15
+                ],
+                "label": "Residents within a 10-minute walk"
+              },
+              "opacity": 0.85,
+              "labelField": "stop"
+            }
+          }
+        ]
+      }
+    },
+    "walkshed_compare": {
+      "op": "bbox",
+      "entities": "metro_walkshed",
+      "bbox": [
+        79.75,
+        6.65,
+        80.05,
+        7.1
+      ],
+      "include_geometry": true,
+      "where": {
+        "kind": "network",
+        "minutes": 10
+      },
+      "presentation": {
+        "kind": "map",
+        "title": "A ten-minute walk, and an 800 m circle",
+        "camera": {
+          "center": [
+            79.868,
+            6.925
+          ],
+          "zoom": 12.2
+        },
+        "layers": [
+          {
+            "id": "metro_walkshed",
+            "label": "Area within reach",
+            "style": {
+              "geometry": "fill",
+              "opacity": 0.55,
+              "colorBy": {
+                "field": "method",
+                "scale": "categorical",
+                "label": "Measured as",
+                "categories": {
+                  "network": "route-system",
+                  "circle_800m": "ink-dim"
+                },
+                "labels": {
+                  "network": "10-minute walk on streets",
+                  "circle_800m": "800 m circle"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "density_map": {
+      "op": "select",
+      "dataset_id": "metro-coverage-gnd",
+      "fields": [
+        "gnd_id",
+        "gnd",
+        "dsd",
+        "pop_2024",
+        "density_per_km2"
+      ],
+      "limit": 1000,
+      "presentation": {
+        "kind": "map",
+        "title": "Where people live",
+        "camera": {
+          "center": [
+            79.895,
+            6.905
+          ],
+          "zoom": 10.6
+        },
+        "layers": [
+          {
+            "id": "metro-coverage-gnd",
+            "label": "Residents per km²",
+            "join": {
+              "tileset": "demographics",
+              "sourceLayer": "gnd",
+              "rowKey": "gnd_id"
+            },
+            "style": {
+              "geometry": "fill",
+              "opacity": 0.8,
+              "colorBy": {
+                "field": "density_per_km2",
+                "scale": "threshold",
+                "label": "Residents per km²",
+                "breaks": [
+                  3000,
+                  6000,
+                  10000,
+                  20000
+                ],
+                "colors": [
+                  "#e7f3f1",
+                  "#b4dcd5",
+                  "#6fbfb3",
+                  "#23978a",
+                  "#05665c"
+                ],
+                "classLabels": [
+                  "Under 3,000",
+                  "3,000–6,000",
+                  "6,000–10,000",
+                  "10,000–20,000",
+                  "20,000 or more"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "share_map": {
+      "op": "select",
+      "dataset_id": "metro-coverage-gnd",
+      "fields": [
+        "gnd_id",
+        "gnd",
+        "dsd",
+        "pop_2024",
+        "share_10min",
+        "share_10min_pct",
+        "nearest_stop",
+        "walk_m_to_stop"
+      ],
+      "limit": 1000,
+      "presentation": {
+        "kind": "map",
+        "title": "Who can walk to a stop in ten minutes",
+        "camera": {
+          "center": [
+            79.895,
+            6.905
+          ],
+          "zoom": 10.6
+        },
+        "layers": [
+          {
+            "id": "metro-coverage-gnd",
+            "label": "Share within 10 minutes",
+            "join": {
+              "tileset": "demographics",
+              "sourceLayer": "gnd",
+              "rowKey": "gnd_id"
+            },
+            "style": {
+              "geometry": "fill",
+              "opacity": 0.8,
+              "colorBy": {
+                "field": "share_10min",
+                "scale": "threshold",
+                "label": "Share within a 10-minute walk",
+                "breaks": [
+                  0.01,
+                  0.25,
+                  0.5,
+                  0.75
+                ],
+                "colors": [
+                  "#efeee9",
+                  "#cfe9e4",
+                  "#8fd0c5",
+                  "#3fae9f",
+                  "#05776c"
+                ],
+                "classLabels": [
+                  "Under 1%",
+                  "1–25%",
+                  "25–50%",
+                  "50–75%",
+                  "75% or more"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "facilities_map": {
+      "op": "select",
+      "dataset_id": "metro-coverage-facilities",
+      "fields": [
+        "facility_id",
+        "name",
+        "kind",
+        "lng",
+        "lat",
+        "nearest_stop",
+        "walk_m",
+        "within_10min"
+      ],
+      "where": [
+        {
+          "field": "kind",
+          "op": "in",
+          "value": [
+            "school",
+            "hospital"
+          ]
+        }
+      ],
+      "limit": 1000,
+      "presentation": {
+        "kind": "map",
+        "title": "Schools and hospitals near the lines",
+        "camera": {
+          "center": [
+            79.895,
+            6.905
+          ],
+          "zoom": 10.8
+        },
+        "layers": [
+          {
+            "id": "metro-coverage-facilities",
+            "label": "School or hospital",
+            "style": {
+              "geometry": "circle",
+              "radius": 3.5,
+              "opacity": 0.9,
+              "colorBy": {
+                "field": "within_10min",
+                "scale": "categorical",
+                "label": "Within a 10-minute walk",
+                "categories": {
+                  "true": "route-system",
+                  "false": "route-flag"
+                },
+                "labels": {
+                  "true": "Within a 10-minute walk",
+                  "false": "Beyond a 10-minute walk"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "offices_map": {
+      "op": "select",
+      "dataset_id": "metro-coverage-facilities",
+      "fields": [
+        "facility_id",
+        "name",
+        "kind",
+        "office_type",
+        "lng",
+        "lat",
+        "nearest_stop",
+        "walk_m",
+        "within_10min"
+      ],
+      "where": [
+        {
+          "field": "kind",
+          "op": "eq",
+          "value": "office"
+        }
+      ],
+      "limit": 5000,
+      "presentation": {
+        "kind": "map",
+        "title": "Offices near the lines",
+        "camera": {
+          "center": [
+            79.87,
+            6.91
+          ],
+          "zoom": 11.6
+        },
+        "layers": [
+          {
+            "id": "metro-coverage-facilities",
+            "label": "Office",
+            "style": {
+              "geometry": "circle",
+              "radius": 2.6,
+              "opacity": 0.9,
+              "colorBy": {
+                "field": "within_10min",
+                "scale": "categorical",
+                "label": "Within a 10-minute walk",
+                "categories": {
+                  "true": "route-system",
+                  "false": "route-flag"
+                },
+                "labels": {
+                  "true": "Office within a 10-minute walk",
+                  "false": "Office beyond a 10-minute walk"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "metro_lines": {
+      "op": "bbox",
+      "entities": "metro_line",
+      "bbox": [
+        79.75,
+        6.65,
+        80.05,
+        7.15
+      ],
+      "include_geometry": true,
+      "presentation": {
+        "kind": "map",
+        "title": "The seven Metro Bus lines",
+        "camera": {
+          "center": [
+            79.905,
+            6.895
+          ],
+          "zoom": 10.2
+        },
+        "layers": [
+          {
+            "id": "metro_line",
+            "label": "Metro Bus line",
+            "style": {
+              "geometry": "line",
+              "color": "ink-dim",
+              "width": 2.5,
+              "opacity": 0.8
+            }
+          }
+        ]
+      }
+    }
+  }
+}

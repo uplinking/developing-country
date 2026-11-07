@@ -1,0 +1,1881 @@
+{
+  "caveats": [
+    "Rows are not mutually exclusive. Filter by series_kind and hierarchy before calculating; value_rs_million is deliberately non-additive across rows.",
+    "Current-price and constant-price values answer different questions and must not be combined into one series.",
+    "The source flags 2020–2024 values as revised or provisional."
+  ],
+  "country": "LK",
+  "dataset_id": "gdp-by-industry",
+  "description": "DCS national-accounts component, subcomponent, subtotal, adjustment and total lines at current prices and constant 2015 prices.",
+  "fields": [
+    {
+      "id": "year",
+      "label": "Year",
+      "role": "dimension",
+      "type": "year"
+    },
+    {
+      "id": "price_basis",
+      "label": "Price basis",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "activity_id",
+      "label": "Activity id",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "activity",
+      "label": "Economic activity",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "series_kind",
+      "label": "Series kind",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "parent_series_id",
+      "label": "Parent series id",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "provisional_or_revised",
+      "label": "Provisional or revised",
+      "role": "dimension",
+      "type": "boolean"
+    },
+    {
+      "aggregation": "none",
+      "id": "value_rs_million",
+      "label": "Value",
+      "role": "measure",
+      "type": "integer",
+      "unit": "LKR million"
+    }
+  ],
+  "grain": "One non-additive published series line per year and price basis.",
+  "notes": [
+    "Top-level gva_component rows reconcile to GVA within published rounding; manufacturing is a nested_component of industry and must not be added again.",
+    "The published accounting identity is GDP at market prices = GVA at basic prices + taxes on products − subsidies on products, subject to rounding."
+  ],
+  "primary_key": [
+    "year",
+    "price_basis",
+    "activity_id"
+  ],
+  "rows": [
+    {
+      "activity": "Agriculture, forestry and fishing",
+      "activity_id": "agriculture",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 1154540,
+      "year": 2019
+    },
+    {
+      "activity": "Agriculture, forestry and fishing",
+      "activity_id": "agriculture",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1291023,
+      "year": 2020
+    },
+    {
+      "activity": "Agriculture, forestry and fishing",
+      "activity_id": "agriculture",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1548117,
+      "year": 2021
+    },
+    {
+      "activity": "Agriculture, forestry and fishing",
+      "activity_id": "agriculture",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2032845,
+      "year": 2022
+    },
+    {
+      "activity": "Agriculture, forestry and fishing",
+      "activity_id": "agriculture",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2227561,
+      "year": 2023
+    },
+    {
+      "activity": "Agriculture, forestry and fishing",
+      "activity_id": "agriculture",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2481487,
+      "year": 2024
+    },
+    {
+      "activity": "Manufacturing, mining, quarrying and other industries",
+      "activity_id": "industry",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 3082297,
+      "year": 2019
+    },
+    {
+      "activity": "Manufacturing, mining, quarrying and other industries",
+      "activity_id": "industry",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 3037059,
+      "year": 2020
+    },
+    {
+      "activity": "Manufacturing, mining, quarrying and other industries",
+      "activity_id": "industry",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 3703400,
+      "year": 2021
+    },
+    {
+      "activity": "Manufacturing, mining, quarrying and other industries",
+      "activity_id": "industry",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 5250868,
+      "year": 2022
+    },
+    {
+      "activity": "Manufacturing, mining, quarrying and other industries",
+      "activity_id": "industry",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 5649200,
+      "year": 2023
+    },
+    {
+      "activity": "Manufacturing, mining, quarrying and other industries",
+      "activity_id": "industry",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 5988981,
+      "year": 2024
+    },
+    {
+      "activity": "Manufacturing activities",
+      "activity_id": "manufacturing",
+      "parent_series_id": "industry",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "nested_component",
+      "value_rs_million": 2571341,
+      "year": 2019
+    },
+    {
+      "activity": "Manufacturing activities",
+      "activity_id": "manufacturing",
+      "parent_series_id": "industry",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "nested_component",
+      "value_rs_million": 2548143,
+      "year": 2020
+    },
+    {
+      "activity": "Manufacturing activities",
+      "activity_id": "manufacturing",
+      "parent_series_id": "industry",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "nested_component",
+      "value_rs_million": 3164083,
+      "year": 2021
+    },
+    {
+      "activity": "Manufacturing activities",
+      "activity_id": "manufacturing",
+      "parent_series_id": "industry",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "nested_component",
+      "value_rs_million": 4728665,
+      "year": 2022
+    },
+    {
+      "activity": "Manufacturing activities",
+      "activity_id": "manufacturing",
+      "parent_series_id": "industry",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "nested_component",
+      "value_rs_million": 4949432,
+      "year": 2023
+    },
+    {
+      "activity": "Manufacturing activities",
+      "activity_id": "manufacturing",
+      "parent_series_id": "industry",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "nested_component",
+      "value_rs_million": 5259692,
+      "year": 2024
+    },
+    {
+      "activity": "Construction",
+      "activity_id": "construction",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 1562278,
+      "year": 2019
+    },
+    {
+      "activity": "Construction",
+      "activity_id": "construction",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1380791,
+      "year": 2020
+    },
+    {
+      "activity": "Construction",
+      "activity_id": "construction",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1572211,
+      "year": 2021
+    },
+    {
+      "activity": "Construction",
+      "activity_id": "construction",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1921358,
+      "year": 2022
+    },
+    {
+      "activity": "Construction",
+      "activity_id": "construction",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1420359,
+      "year": 2023
+    },
+    {
+      "activity": "Construction",
+      "activity_id": "construction",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1643766,
+      "year": 2024
+    },
+    {
+      "activity": "Trade, transport, accommodation and food services",
+      "activity_id": "trade_transport_hospitality",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 3868757,
+      "year": 2019
+    },
+    {
+      "activity": "Trade, transport, accommodation and food services",
+      "activity_id": "trade_transport_hospitality",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 3801974,
+      "year": 2020
+    },
+    {
+      "activity": "Trade, transport, accommodation and food services",
+      "activity_id": "trade_transport_hospitality",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 4064134,
+      "year": 2021
+    },
+    {
+      "activity": "Trade, transport, accommodation and food services",
+      "activity_id": "trade_transport_hospitality",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 6338599,
+      "year": 2022
+    },
+    {
+      "activity": "Trade, transport, accommodation and food services",
+      "activity_id": "trade_transport_hospitality",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 7898921,
+      "year": 2023
+    },
+    {
+      "activity": "Trade, transport, accommodation and food services",
+      "activity_id": "trade_transport_hospitality",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 8270177,
+      "year": 2024
+    },
+    {
+      "activity": "Information and communication",
+      "activity_id": "information_communication",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 349192,
+      "year": 2019
+    },
+    {
+      "activity": "Information and communication",
+      "activity_id": "information_communication",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 385981,
+      "year": 2020
+    },
+    {
+      "activity": "Information and communication",
+      "activity_id": "information_communication",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 475127,
+      "year": 2021
+    },
+    {
+      "activity": "Information and communication",
+      "activity_id": "information_communication",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 575546,
+      "year": 2022
+    },
+    {
+      "activity": "Information and communication",
+      "activity_id": "information_communication",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 559246,
+      "year": 2023
+    },
+    {
+      "activity": "Information and communication",
+      "activity_id": "information_communication",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 606743,
+      "year": 2024
+    },
+    {
+      "activity": "Financial and insurance activities",
+      "activity_id": "finance_insurance",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 740512,
+      "year": 2019
+    },
+    {
+      "activity": "Financial and insurance activities",
+      "activity_id": "finance_insurance",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 890111,
+      "year": 2020
+    },
+    {
+      "activity": "Financial and insurance activities",
+      "activity_id": "finance_insurance",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1120638,
+      "year": 2021
+    },
+    {
+      "activity": "Financial and insurance activities",
+      "activity_id": "finance_insurance",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1701400,
+      "year": 2022
+    },
+    {
+      "activity": "Financial and insurance activities",
+      "activity_id": "finance_insurance",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2133830,
+      "year": 2023
+    },
+    {
+      "activity": "Financial and insurance activities",
+      "activity_id": "finance_insurance",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2218227,
+      "year": 2024
+    },
+    {
+      "activity": "Real estate including ownership of dwellings",
+      "activity_id": "real_estate",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 737948,
+      "year": 2019
+    },
+    {
+      "activity": "Real estate including ownership of dwellings",
+      "activity_id": "real_estate",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 741750,
+      "year": 2020
+    },
+    {
+      "activity": "Real estate including ownership of dwellings",
+      "activity_id": "real_estate",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 821121,
+      "year": 2021
+    },
+    {
+      "activity": "Real estate including ownership of dwellings",
+      "activity_id": "real_estate",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1015929,
+      "year": 2022
+    },
+    {
+      "activity": "Real estate including ownership of dwellings",
+      "activity_id": "real_estate",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1159790,
+      "year": 2023
+    },
+    {
+      "activity": "Real estate including ownership of dwellings",
+      "activity_id": "real_estate",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1193511,
+      "year": 2024
+    },
+    {
+      "activity": "Professional, scientific, technical, administration and support",
+      "activity_id": "professional_admin_support",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 365255,
+      "year": 2019
+    },
+    {
+      "activity": "Professional, scientific, technical, administration and support",
+      "activity_id": "professional_admin_support",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 352460,
+      "year": 2020
+    },
+    {
+      "activity": "Professional, scientific, technical, administration and support",
+      "activity_id": "professional_admin_support",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 382833,
+      "year": 2021
+    },
+    {
+      "activity": "Professional, scientific, technical, administration and support",
+      "activity_id": "professional_admin_support",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 445576,
+      "year": 2022
+    },
+    {
+      "activity": "Professional, scientific, technical, administration and support",
+      "activity_id": "professional_admin_support",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 554182,
+      "year": 2023
+    },
+    {
+      "activity": "Professional, scientific, technical, administration and support",
+      "activity_id": "professional_admin_support",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 580609,
+      "year": 2024
+    },
+    {
+      "activity": "Public administration, defence, education, health and social work",
+      "activity_id": "public_social_services",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 1530443,
+      "year": 2019
+    },
+    {
+      "activity": "Public administration, defence, education, health and social work",
+      "activity_id": "public_social_services",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1665963,
+      "year": 2020
+    },
+    {
+      "activity": "Public administration, defence, education, health and social work",
+      "activity_id": "public_social_services",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1770239,
+      "year": 2021
+    },
+    {
+      "activity": "Public administration, defence, education, health and social work",
+      "activity_id": "public_social_services",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1947558,
+      "year": 2022
+    },
+    {
+      "activity": "Public administration, defence, education, health and social work",
+      "activity_id": "public_social_services",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2055872,
+      "year": 2023
+    },
+    {
+      "activity": "Public administration, defence, education, health and social work",
+      "activity_id": "public_social_services",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2231482,
+      "year": 2024
+    },
+    {
+      "activity": "Other services",
+      "activity_id": "other_services",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 1277604,
+      "year": 2019
+    },
+    {
+      "activity": "Other services",
+      "activity_id": "other_services",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1210362,
+      "year": 2020
+    },
+    {
+      "activity": "Other services",
+      "activity_id": "other_services",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1206712,
+      "year": 2021
+    },
+    {
+      "activity": "Other services",
+      "activity_id": "other_services",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1707403,
+      "year": 2022
+    },
+    {
+      "activity": "Other services",
+      "activity_id": "other_services",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2046582,
+      "year": 2023
+    },
+    {
+      "activity": "Other services",
+      "activity_id": "other_services",
+      "parent_series_id": "gva",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2081811,
+      "year": 2024
+    },
+    {
+      "activity": "Gross value added at basic prices",
+      "activity_id": "gva",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "subtotal",
+      "value_rs_million": 14668824,
+      "year": 2019
+    },
+    {
+      "activity": "Gross value added at basic prices",
+      "activity_id": "gva",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "subtotal",
+      "value_rs_million": 14757475,
+      "year": 2020
+    },
+    {
+      "activity": "Gross value added at basic prices",
+      "activity_id": "gva",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "subtotal",
+      "value_rs_million": 16664532,
+      "year": 2021
+    },
+    {
+      "activity": "Gross value added at basic prices",
+      "activity_id": "gva",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "subtotal",
+      "value_rs_million": 22937082,
+      "year": 2022
+    },
+    {
+      "activity": "Gross value added at basic prices",
+      "activity_id": "gva",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "subtotal",
+      "value_rs_million": 25705544,
+      "year": 2023
+    },
+    {
+      "activity": "Gross value added at basic prices",
+      "activity_id": "gva",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "subtotal",
+      "value_rs_million": 27296792,
+      "year": 2024
+    },
+    {
+      "activity": "Taxes on products",
+      "activity_id": "taxes",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "adjustment_add",
+      "value_rs_million": 1277118,
+      "year": 2019
+    },
+    {
+      "activity": "Taxes on products",
+      "activity_id": "taxes",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_add",
+      "value_rs_million": 925466,
+      "year": 2020
+    },
+    {
+      "activity": "Taxes on products",
+      "activity_id": "taxes",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_add",
+      "value_rs_million": 969074,
+      "year": 2021
+    },
+    {
+      "activity": "Taxes on products",
+      "activity_id": "taxes",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_add",
+      "value_rs_million": 1186265,
+      "year": 2022
+    },
+    {
+      "activity": "Taxes on products",
+      "activity_id": "taxes",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_add",
+      "value_rs_million": 1768128,
+      "year": 2023
+    },
+    {
+      "activity": "Taxes on products",
+      "activity_id": "taxes",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_add",
+      "value_rs_million": 2641646,
+      "year": 2024
+    },
+    {
+      "activity": "Subsidies on products",
+      "activity_id": "subsidies",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "adjustment_subtract",
+      "value_rs_million": 34966,
+      "year": 2019
+    },
+    {
+      "activity": "Subsidies on products",
+      "activity_id": "subsidies",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_subtract",
+      "value_rs_million": 36687,
+      "year": 2020
+    },
+    {
+      "activity": "Subsidies on products",
+      "activity_id": "subsidies",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_subtract",
+      "value_rs_million": 21235,
+      "year": 2021
+    },
+    {
+      "activity": "Subsidies on products",
+      "activity_id": "subsidies",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_subtract",
+      "value_rs_million": 60185,
+      "year": 2022
+    },
+    {
+      "activity": "Subsidies on products",
+      "activity_id": "subsidies",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_subtract",
+      "value_rs_million": 53869,
+      "year": 2023
+    },
+    {
+      "activity": "Subsidies on products",
+      "activity_id": "subsidies",
+      "parent_series_id": "gdp",
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_subtract",
+      "value_rs_million": 39873,
+      "year": 2024
+    },
+    {
+      "activity": "GDP at market prices",
+      "activity_id": "gdp",
+      "parent_series_id": null,
+      "price_basis": "current",
+      "provisional_or_revised": false,
+      "series_kind": "total",
+      "value_rs_million": 15910976,
+      "year": 2019
+    },
+    {
+      "activity": "GDP at market prices",
+      "activity_id": "gdp",
+      "parent_series_id": null,
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "total",
+      "value_rs_million": 15646254,
+      "year": 2020
+    },
+    {
+      "activity": "GDP at market prices",
+      "activity_id": "gdp",
+      "parent_series_id": null,
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "total",
+      "value_rs_million": 17612370,
+      "year": 2021
+    },
+    {
+      "activity": "GDP at market prices",
+      "activity_id": "gdp",
+      "parent_series_id": null,
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "total",
+      "value_rs_million": 24063162,
+      "year": 2022
+    },
+    {
+      "activity": "GDP at market prices",
+      "activity_id": "gdp",
+      "parent_series_id": null,
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "total",
+      "value_rs_million": 27419804,
+      "year": 2023
+    },
+    {
+      "activity": "GDP at market prices",
+      "activity_id": "gdp",
+      "parent_series_id": null,
+      "price_basis": "current",
+      "provisional_or_revised": true,
+      "series_kind": "total",
+      "value_rs_million": 29898564,
+      "year": 2024
+    },
+    {
+      "activity": "Agriculture, forestry and fishing",
+      "activity_id": "agriculture",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 949582,
+      "year": 2019
+    },
+    {
+      "activity": "Agriculture, forestry and fishing",
+      "activity_id": "agriculture",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 941046,
+      "year": 2020
+    },
+    {
+      "activity": "Agriculture, forestry and fishing",
+      "activity_id": "agriculture",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 950548,
+      "year": 2021
+    },
+    {
+      "activity": "Agriculture, forestry and fishing",
+      "activity_id": "agriculture",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 911252,
+      "year": 2022
+    },
+    {
+      "activity": "Agriculture, forestry and fishing",
+      "activity_id": "agriculture",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 925822,
+      "year": 2023
+    },
+    {
+      "activity": "Agriculture, forestry and fishing",
+      "activity_id": "agriculture",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 937104,
+      "year": 2024
+    },
+    {
+      "activity": "Manufacturing, mining, quarrying and other industries",
+      "activity_id": "industry",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 2694028,
+      "year": 2019
+    },
+    {
+      "activity": "Manufacturing, mining, quarrying and other industries",
+      "activity_id": "industry",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2601439,
+      "year": 2020
+    },
+    {
+      "activity": "Manufacturing, mining, quarrying and other industries",
+      "activity_id": "industry",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2765135,
+      "year": 2021
+    },
+    {
+      "activity": "Manufacturing, mining, quarrying and other industries",
+      "activity_id": "industry",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2381254,
+      "year": 2022
+    },
+    {
+      "activity": "Manufacturing, mining, quarrying and other industries",
+      "activity_id": "industry",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2268148,
+      "year": 2023
+    },
+    {
+      "activity": "Manufacturing, mining, quarrying and other industries",
+      "activity_id": "industry",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 2455669,
+      "year": 2024
+    },
+    {
+      "activity": "Manufacturing activities",
+      "activity_id": "manufacturing",
+      "parent_series_id": "industry",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "nested_component",
+      "value_rs_million": 2147376,
+      "year": 2019
+    },
+    {
+      "activity": "Manufacturing activities",
+      "activity_id": "manufacturing",
+      "parent_series_id": "industry",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "nested_component",
+      "value_rs_million": 2092317,
+      "year": 2020
+    },
+    {
+      "activity": "Manufacturing activities",
+      "activity_id": "manufacturing",
+      "parent_series_id": "industry",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "nested_component",
+      "value_rs_million": 2247151,
+      "year": 2021
+    },
+    {
+      "activity": "Manufacturing activities",
+      "activity_id": "manufacturing",
+      "parent_series_id": "industry",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "nested_component",
+      "value_rs_million": 1962453,
+      "year": 2022
+    },
+    {
+      "activity": "Manufacturing activities",
+      "activity_id": "manufacturing",
+      "parent_series_id": "industry",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "nested_component",
+      "value_rs_million": 1900282,
+      "year": 2023
+    },
+    {
+      "activity": "Manufacturing activities",
+      "activity_id": "manufacturing",
+      "parent_series_id": "industry",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "nested_component",
+      "value_rs_million": 2045301,
+      "year": 2024
+    },
+    {
+      "activity": "Construction",
+      "activity_id": "construction",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 1239700,
+      "year": 2019
+    },
+    {
+      "activity": "Construction",
+      "activity_id": "construction",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1123127,
+      "year": 2020
+    },
+    {
+      "activity": "Construction",
+      "activity_id": "construction",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1172761,
+      "year": 2021
+    },
+    {
+      "activity": "Construction",
+      "activity_id": "construction",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 927319,
+      "year": 2022
+    },
+    {
+      "activity": "Construction",
+      "activity_id": "construction",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 734821,
+      "year": 2023
+    },
+    {
+      "activity": "Construction",
+      "activity_id": "construction",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 877339,
+      "year": 2024
+    },
+    {
+      "activity": "Trade, transport, accommodation and food services",
+      "activity_id": "trade_transport_hospitality",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 3269056,
+      "year": 2019
+    },
+    {
+      "activity": "Trade, transport, accommodation and food services",
+      "activity_id": "trade_transport_hospitality",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 3110376,
+      "year": 2020
+    },
+    {
+      "activity": "Trade, transport, accommodation and food services",
+      "activity_id": "trade_transport_hospitality",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 3149945,
+      "year": 2021
+    },
+    {
+      "activity": "Trade, transport, accommodation and food services",
+      "activity_id": "trade_transport_hospitality",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 3226013,
+      "year": 2022
+    },
+    {
+      "activity": "Trade, transport, accommodation and food services",
+      "activity_id": "trade_transport_hospitality",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 3330249,
+      "year": 2023
+    },
+    {
+      "activity": "Trade, transport, accommodation and food services",
+      "activity_id": "trade_transport_hospitality",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 3461076,
+      "year": 2024
+    },
+    {
+      "activity": "Information and communication",
+      "activity_id": "information_communication",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 321711,
+      "year": 2019
+    },
+    {
+      "activity": "Information and communication",
+      "activity_id": "information_communication",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 357578,
+      "year": 2020
+    },
+    {
+      "activity": "Information and communication",
+      "activity_id": "information_communication",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 418083,
+      "year": 2021
+    },
+    {
+      "activity": "Information and communication",
+      "activity_id": "information_communication",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 416328,
+      "year": 2022
+    },
+    {
+      "activity": "Information and communication",
+      "activity_id": "information_communication",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 361295,
+      "year": 2023
+    },
+    {
+      "activity": "Information and communication",
+      "activity_id": "information_communication",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 379388,
+      "year": 2024
+    },
+    {
+      "activity": "Financial and insurance activities",
+      "activity_id": "finance_insurance",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 630917,
+      "year": 2019
+    },
+    {
+      "activity": "Financial and insurance activities",
+      "activity_id": "finance_insurance",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 674951,
+      "year": 2020
+    },
+    {
+      "activity": "Financial and insurance activities",
+      "activity_id": "finance_insurance",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 744764,
+      "year": 2021
+    },
+    {
+      "activity": "Financial and insurance activities",
+      "activity_id": "finance_insurance",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 607931,
+      "year": 2022
+    },
+    {
+      "activity": "Financial and insurance activities",
+      "activity_id": "finance_insurance",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 578719,
+      "year": 2023
+    },
+    {
+      "activity": "Financial and insurance activities",
+      "activity_id": "finance_insurance",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 571587,
+      "year": 2024
+    },
+    {
+      "activity": "Real estate including ownership of dwellings",
+      "activity_id": "real_estate",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 610231,
+      "year": 2019
+    },
+    {
+      "activity": "Real estate including ownership of dwellings",
+      "activity_id": "real_estate",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 604259,
+      "year": 2020
+    },
+    {
+      "activity": "Real estate including ownership of dwellings",
+      "activity_id": "real_estate",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 630570,
+      "year": 2021
+    },
+    {
+      "activity": "Real estate including ownership of dwellings",
+      "activity_id": "real_estate",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 554456,
+      "year": 2022
+    },
+    {
+      "activity": "Real estate including ownership of dwellings",
+      "activity_id": "real_estate",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 521463,
+      "year": 2023
+    },
+    {
+      "activity": "Real estate including ownership of dwellings",
+      "activity_id": "real_estate",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 543265,
+      "year": 2024
+    },
+    {
+      "activity": "Professional, scientific, technical, administration and support",
+      "activity_id": "professional_admin_support",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 297462,
+      "year": 2019
+    },
+    {
+      "activity": "Professional, scientific, technical, administration and support",
+      "activity_id": "professional_admin_support",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 287781,
+      "year": 2020
+    },
+    {
+      "activity": "Professional, scientific, technical, administration and support",
+      "activity_id": "professional_admin_support",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 301890,
+      "year": 2021
+    },
+    {
+      "activity": "Professional, scientific, technical, administration and support",
+      "activity_id": "professional_admin_support",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 248467,
+      "year": 2022
+    },
+    {
+      "activity": "Professional, scientific, technical, administration and support",
+      "activity_id": "professional_admin_support",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 254360,
+      "year": 2023
+    },
+    {
+      "activity": "Professional, scientific, technical, administration and support",
+      "activity_id": "professional_admin_support",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 263382,
+      "year": 2024
+    },
+    {
+      "activity": "Public administration, defence, education, health and social work",
+      "activity_id": "public_social_services",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 1124679,
+      "year": 2019
+    },
+    {
+      "activity": "Public administration, defence, education, health and social work",
+      "activity_id": "public_social_services",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1147662,
+      "year": 2020
+    },
+    {
+      "activity": "Public administration, defence, education, health and social work",
+      "activity_id": "public_social_services",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1172791,
+      "year": 2021
+    },
+    {
+      "activity": "Public administration, defence, education, health and social work",
+      "activity_id": "public_social_services",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1169143,
+      "year": 2022
+    },
+    {
+      "activity": "Public administration, defence, education, health and social work",
+      "activity_id": "public_social_services",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1162341,
+      "year": 2023
+    },
+    {
+      "activity": "Public administration, defence, education, health and social work",
+      "activity_id": "public_social_services",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1149427,
+      "year": 2024
+    },
+    {
+      "activity": "Other services",
+      "activity_id": "other_services",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "gva_component",
+      "value_rs_million": 1052980,
+      "year": 2019
+    },
+    {
+      "activity": "Other services",
+      "activity_id": "other_services",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 983900,
+      "year": 2020
+    },
+    {
+      "activity": "Other services",
+      "activity_id": "other_services",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 992662,
+      "year": 2021
+    },
+    {
+      "activity": "Other services",
+      "activity_id": "other_services",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 995147,
+      "year": 2022
+    },
+    {
+      "activity": "Other services",
+      "activity_id": "other_services",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 998069,
+      "year": 2023
+    },
+    {
+      "activity": "Other services",
+      "activity_id": "other_services",
+      "parent_series_id": "gva",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "gva_component",
+      "value_rs_million": 1012933,
+      "year": 2024
+    },
+    {
+      "activity": "Gross value added at basic prices",
+      "activity_id": "gva",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "subtotal",
+      "value_rs_million": 12190346,
+      "year": 2019
+    },
+    {
+      "activity": "Gross value added at basic prices",
+      "activity_id": "gva",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "subtotal",
+      "value_rs_million": 11832118,
+      "year": 2020
+    },
+    {
+      "activity": "Gross value added at basic prices",
+      "activity_id": "gva",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "subtotal",
+      "value_rs_million": 12299149,
+      "year": 2021
+    },
+    {
+      "activity": "Gross value added at basic prices",
+      "activity_id": "gva",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "subtotal",
+      "value_rs_million": 11437311,
+      "year": 2022
+    },
+    {
+      "activity": "Gross value added at basic prices",
+      "activity_id": "gva",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "subtotal",
+      "value_rs_million": 11135286,
+      "year": 2023
+    },
+    {
+      "activity": "Gross value added at basic prices",
+      "activity_id": "gva",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "subtotal",
+      "value_rs_million": 11651170,
+      "year": 2024
+    },
+    {
+      "activity": "Taxes on products",
+      "activity_id": "taxes",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "adjustment_add",
+      "value_rs_million": 1059823,
+      "year": 2019
+    },
+    {
+      "activity": "Taxes on products",
+      "activity_id": "taxes",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_add",
+      "value_rs_million": 811898,
+      "year": 2020
+    },
+    {
+      "activity": "Taxes on products",
+      "activity_id": "taxes",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_add",
+      "value_rs_million": 877730,
+      "year": 2021
+    },
+    {
+      "activity": "Taxes on products",
+      "activity_id": "taxes",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_add",
+      "value_rs_million": 775977,
+      "year": 2022
+    },
+    {
+      "activity": "Taxes on products",
+      "activity_id": "taxes",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_add",
+      "value_rs_million": 796243,
+      "year": 2023
+    },
+    {
+      "activity": "Taxes on products",
+      "activity_id": "taxes",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_add",
+      "value_rs_million": 873082,
+      "year": 2024
+    },
+    {
+      "activity": "Subsidies on products",
+      "activity_id": "subsidies",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "adjustment_subtract",
+      "value_rs_million": 43892,
+      "year": 2019
+    },
+    {
+      "activity": "Subsidies on products",
+      "activity_id": "subsidies",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_subtract",
+      "value_rs_million": 48466,
+      "year": 2020
+    },
+    {
+      "activity": "Subsidies on products",
+      "activity_id": "subsidies",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_subtract",
+      "value_rs_million": 51374,
+      "year": 2021
+    },
+    {
+      "activity": "Subsidies on products",
+      "activity_id": "subsidies",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_subtract",
+      "value_rs_million": 52401,
+      "year": 2022
+    },
+    {
+      "activity": "Subsidies on products",
+      "activity_id": "subsidies",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_subtract",
+      "value_rs_million": 53973,
+      "year": 2023
+    },
+    {
+      "activity": "Subsidies on products",
+      "activity_id": "subsidies",
+      "parent_series_id": "gdp",
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "adjustment_subtract",
+      "value_rs_million": 51783,
+      "year": 2024
+    },
+    {
+      "activity": "GDP at market prices",
+      "activity_id": "gdp",
+      "parent_series_id": null,
+      "price_basis": "constant_2015",
+      "provisional_or_revised": false,
+      "series_kind": "total",
+      "value_rs_million": 13206276,
+      "year": 2019
+    },
+    {
+      "activity": "GDP at market prices",
+      "activity_id": "gdp",
+      "parent_series_id": null,
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "total",
+      "value_rs_million": 12595550,
+      "year": 2020
+    },
+    {
+      "activity": "GDP at market prices",
+      "activity_id": "gdp",
+      "parent_series_id": null,
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "total",
+      "value_rs_million": 13125505,
+      "year": 2021
+    },
+    {
+      "activity": "GDP at market prices",
+      "activity_id": "gdp",
+      "parent_series_id": null,
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "total",
+      "value_rs_million": 12160886,
+      "year": 2022
+    },
+    {
+      "activity": "GDP at market prices",
+      "activity_id": "gdp",
+      "parent_series_id": null,
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "total",
+      "value_rs_million": 11877556,
+      "year": 2023
+    },
+    {
+      "activity": "GDP at market prices",
+      "activity_id": "gdp",
+      "parent_series_id": null,
+      "price_basis": "constant_2015",
+      "provisional_or_revised": true,
+      "series_kind": "total",
+      "value_rs_million": 12472469,
+      "year": 2024
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "dcs-statistical-abstract-2025-gdp-current",
+    "dcs-statistical-abstract-2025-gdp-constant"
+  ],
+  "title": "GDP by major economic activity",
+  "vintage": "2019–2024 (source flags revisions and provisional values)"
+}

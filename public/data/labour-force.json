@@ -1,0 +1,203 @@
+{
+  "country": "LK",
+  "dataset_id": "labour-force",
+  "description": "National Labour Force Survey aggregates for the household population aged 15 and over.",
+  "fields": [
+    {
+      "id": "year",
+      "label": "Year",
+      "role": "dimension",
+      "type": "year"
+    },
+    {
+      "id": "provisional",
+      "label": "Provisional",
+      "role": "dimension",
+      "type": "boolean"
+    },
+    {
+      "aggregation": "sum",
+      "id": "household_population_15_plus",
+      "label": "Household population aged 15+",
+      "role": "measure",
+      "type": "integer",
+      "unit": "people"
+    },
+    {
+      "aggregation": "sum",
+      "id": "total_labour_force",
+      "label": "Labour force",
+      "role": "measure",
+      "type": "integer",
+      "unit": "people"
+    },
+    {
+      "aggregation": "none",
+      "id": "labour_force_participation_rate_pct",
+      "label": "Labour-force participation rate",
+      "role": "measure",
+      "type": "number",
+      "unit": "percent"
+    },
+    {
+      "aggregation": "sum",
+      "id": "employed",
+      "label": "Employed population",
+      "role": "measure",
+      "type": "integer",
+      "unit": "people"
+    },
+    {
+      "aggregation": "none",
+      "id": "employment_share_of_labour_force_pct",
+      "label": "Employed share of labour force",
+      "role": "measure",
+      "type": "number",
+      "unit": "percent"
+    },
+    {
+      "aggregation": "sum",
+      "id": "unemployed",
+      "label": "Unemployed population",
+      "role": "measure",
+      "type": "integer",
+      "unit": "people"
+    },
+    {
+      "aggregation": "none",
+      "id": "unemployment_rate_pct",
+      "label": "Unemployment rate",
+      "role": "measure",
+      "type": "number",
+      "unit": "percent"
+    },
+    {
+      "aggregation": "sum",
+      "id": "not_in_labour_force",
+      "label": "Population not in labour force",
+      "role": "measure",
+      "type": "integer",
+      "unit": "people"
+    }
+  ],
+  "grain": "One national row per year.",
+  "primary_key": [
+    "year"
+  ],
+  "rows": [
+    {
+      "employed": 7947683,
+      "employment_share_of_labour_force_pct": 95.6,
+      "household_population_15_plus": 15448679,
+      "labour_force_participation_rate_pct": 53.8,
+      "not_in_labour_force": 7137997,
+      "provisional": false,
+      "total_labour_force": 8310682,
+      "unemployed": 362999,
+      "unemployment_rate_pct": 4.4,
+      "year": 2016
+    },
+    {
+      "employed": 8208179,
+      "employment_share_of_labour_force_pct": 95.8,
+      "household_population_15_plus": 15843735,
+      "labour_force_participation_rate_pct": 54.1,
+      "not_in_labour_force": 7277049,
+      "provisional": false,
+      "total_labour_force": 8566686,
+      "unemployed": 358507,
+      "unemployment_rate_pct": 4.2,
+      "year": 2017
+    },
+    {
+      "employed": 8015166,
+      "employment_share_of_labour_force_pct": 95.6,
+      "household_population_15_plus": 16196232,
+      "labour_force_participation_rate_pct": 51.8,
+      "not_in_labour_force": 7808473,
+      "provisional": false,
+      "total_labour_force": 8387759,
+      "unemployed": 372593,
+      "unemployment_rate_pct": 4.4,
+      "year": 2018
+    },
+    {
+      "employed": 8180693,
+      "employment_share_of_labour_force_pct": 95.2,
+      "household_population_15_plus": 16424016,
+      "labour_force_participation_rate_pct": 52.3,
+      "not_in_labour_force": 7832006,
+      "provisional": false,
+      "total_labour_force": 8592010,
+      "unemployed": 411318,
+      "unemployment_rate_pct": 4.8,
+      "year": 2019
+    },
+    {
+      "employed": 7999093,
+      "employment_share_of_labour_force_pct": 94.5,
+      "household_population_15_plus": 16739396,
+      "labour_force_participation_rate_pct": 50.6,
+      "not_in_labour_force": 8272790,
+      "provisional": false,
+      "total_labour_force": 8466606,
+      "unemployed": 467513,
+      "unemployment_rate_pct": 5.5,
+      "year": 2020
+    },
+    {
+      "employed": 8113507,
+      "employment_share_of_labour_force_pct": 94.9,
+      "household_population_15_plus": 17133659,
+      "labour_force_participation_rate_pct": 49.9,
+      "not_in_labour_force": 8580369,
+      "provisional": false,
+      "total_labour_force": 8553290,
+      "unemployed": 439783,
+      "unemployment_rate_pct": 5.1,
+      "year": 2021
+    },
+    {
+      "employed": 8147731,
+      "employment_share_of_labour_force_pct": 95.3,
+      "household_population_15_plus": 17161973,
+      "labour_force_participation_rate_pct": 49.8,
+      "not_in_labour_force": 8614911,
+      "provisional": false,
+      "total_labour_force": 8547062,
+      "unemployed": 399332,
+      "unemployment_rate_pct": 4.7,
+      "year": 2022
+    },
+    {
+      "employed": 8009916,
+      "employment_share_of_labour_force_pct": 95.3,
+      "household_population_15_plus": 17306492,
+      "labour_force_participation_rate_pct": 48.6,
+      "not_in_labour_force": 8898161,
+      "provisional": false,
+      "total_labour_force": 8408331,
+      "unemployed": 398415,
+      "unemployment_rate_pct": 4.7,
+      "year": 2023
+    },
+    {
+      "employed": 7949751,
+      "employment_share_of_labour_force_pct": 95.6,
+      "household_population_15_plus": 17547864,
+      "labour_force_participation_rate_pct": 47.4,
+      "not_in_labour_force": 9232162,
+      "provisional": true,
+      "total_labour_force": 8315702,
+      "unemployed": 365951,
+      "unemployment_rate_pct": 4.4,
+      "year": 2024
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "dcs-statistical-abstract-2025-labour"
+  ],
+  "title": "Labour-force participation, employment and unemployment",
+  "vintage": "2016–2024 (2024 provisional)"
+}

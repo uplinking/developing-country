@@ -1,0 +1,48 @@
+---
+import { BoundStat } from '@developing-country/figures'
+import '@developing-country/figures/styles.css'
+import { figureIslandConfig, numberField, safeFigureViewUrl, textField } from '../figure-view'
+
+interface Props {
+  node?: Record<string, unknown>
+  value?: Record<string, unknown>
+  devApiBase?: string
+}
+
+const node = Astro.props.node ?? Astro.props.value ?? {}
+const configuredOrigin = import.meta.env.PUBLIC_DATA_VIEW_ORIGIN || undefined
+const viewUrl = safeFigureViewUrl(node.view_url, Astro.url.origin, configuredOrigin)
+const config = figureIslandConfig({
+  configuredOrigin,
+  devApiBase: import.meta.env.DEV ? Astro.props.devApiBase : undefined,
+})
+const label = textField(node, 'label')
+const field = textField(node, 'field') ?? ''
+const aggregate = textField(node, 'aggregate')
+---
+
+{viewUrl && label && (field || aggregate === 'count') ? (
+  <div class="dc-block dc-block--inline" data-dc-block="stat">
+    <BoundStat
+      client:only="react"
+      view_url={viewUrl}
+      field={field}
+      label={label}
+      where_field={textField(node, 'where_field')}
+      where_value={textField(node, 'where_value')}
+      aggregate={aggregate}
+      scale={numberField(node, 'scale')}
+      format={textField(node, 'format')}
+      unit={textField(node, 'unit')}
+      note={textField(node, 'note')}
+      guess_id={textField(node, 'guess_id')}
+      config={config}
+    >
+      <div slot="fallback" class="dcf-island-fallback" data-kind="stat" aria-hidden="true"></div>
+    </BoundStat>
+  </div>
+) : (
+  <aside class="dc-live-view dc-live-view--invalid" role="note">
+    Number unavailable: a stat needs a label, a field and a canonical <code>/views/view_…</code> link.
+  </aside>
+)}

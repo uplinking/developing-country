@@ -1,0 +1,497 @@
+{
+ "$comment": "Human review decisions for the money ledger, applied by scripts/initiatives/build.ts. project_alias joins one initiative named differently by different sources; line_alias joins funding lines; merge_events [keep, drop] collapses duplicate reports the matcher missed; retract marks an event withdrawn (kept, never counted); set_event / set_project fix fields (evidence \"disputed\" keeps an implausible printed amount on the record but out of every total). Every entry should say why in review. Sectors for initiatives the reader left as \"other\" were classified in one Codex gpt-6-luna pass (6 Nov 2026) and spot-checked.",
+ "project_alias": {
+  "adb-inclusive-recovery-sdp": "inclusive-recovery-program",
+  "rebuilding-sri-lanka-fund-disaster-recovery": "rebuilding-sri-lanka-fund",
+  "rebuilding-sri-lanka-fund-ditwah": "rebuilding-sri-lanka-fund"
+ },
+ "line_alias": {
+  "imf-eff-loan": "imf-eff-2023"
+ },
+ "merge_events": [
+  [
+   "prime-land-grant-rebuilding-sri-lanka-fund-disbursed-2025-12-22",
+   "primelands-donation-rebuilding-sl-disbursed-2025-12-29"
+  ],
+  [
+   "rebuilding-sri-lanka-fund-bank-of-ceylon-disbursed-2025-12-31",
+   "boc-donation-rebuilding-sl-disbursed-2025-12-31"
+  ]
+ ],
+ "retract": [],
+ "set_event": {
+  "korea-grant-koica-ocean-university-pledged-2024-07-22": {
+   "evidence": "disputed",
+   "notes": "Source prints USD 85 billion for a KOICA university grant, larger than Sri Lanka's external debt; almost certainly a misprint. Kept, not counted."
+  },
+  "school-clusters-grouping-china-loan-pledged-2024-07-12": {
+   "evidence": "disputed",
+   "notes": "Source prints USD 20 billion for school clustering, an implausible figure for the programme; not counted until confirmed."
+  },
+  "frankfurt-cargo-warehouse-srilankan-airlines-govt_authorised-2025-12-10": {
+   "evidence": "disputed",
+   "notes": "Tamil source reads '6947,766 million euro' for a three-year warehouse services contract; the figure is likely EUR 6.95m with a misplaced separator. Not counted until confirmed."
+  }
+ },
+ "set_project": {
+  "2026-government-vesak-event-matale": {
+   "sector": "culture_sport"
+  },
+  "2026-national-vesak-week": {
+   "sector": "culture_sport"
+  },
+  "2027-public-capital-expenditure-plan": {
+   "sector": "governance"
+  },
+  "adb-2026-sri-lanka-financing-envelope": {
+   "sector": "governance"
+  },
+  "ai-buddhism-research-fund": {
+   "sector": "culture_sport"
+  },
+  "ampara-district-infrastructure-works-2026": {
+   "sector": "governance"
+  },
+  "anaikottai-archaeological-excavation": {
+   "sector": "culture_sport"
+  },
+  "anuradhapura-international-sports-complex": {
+   "sector": "culture_sport"
+  },
+  "archaeological-site-conservation-programme": {
+   "sector": "culture_sport"
+  },
+  "ashraf-memorial-museum": {
+   "sector": "culture_sport"
+  },
+  "batticaloa-district-planned-infrastructure": {
+   "sector": "water"
+  },
+  "bingiriya-sports-complex-running-tracks": {
+   "sector": "culture_sport"
+  },
+  "chavakachcheri-memorial-monument-reconstruction": {
+   "sector": "culture_sport"
+  },
+  "china-bomb-disposal-equipment-donation": {
+   "sector": "defence"
+  },
+  "colombo-reid-avenue-artificial-hockey-ground": {
+   "sector": "culture_sport"
+  },
+  "dambana-indigenous-products-stalls-herbal-soap": {
+   "sector": "industry"
+  },
+  "dambulla-cricket-centre-of-excellence": {
+   "sector": "culture_sport"
+  },
+  "dambulla-post-office-construction": {
+   "sector": "digital"
+  },
+  "decentralized-budget-2024-development-projects": {
+   "sector": "governance"
+  },
+  "diyagama-mahinda-rajapaksa-stadium-renovation": {
+   "sector": "culture_sport"
+  },
+  "domestic-dollar-bond-issuance-2025": {
+   "sector": "governance"
+  },
+  "domestic-oceanographic-survey-security": {
+   "sector": "defence"
+  },
+  "festival-egg-import-2024": {
+   "sector": "agriculture"
+  },
+  "fifa-football-development-plan": {
+   "sector": "culture_sport"
+  },
+  "film-television-corporation-modernisation": {
+   "sector": "culture_sport"
+  },
+  "fishing-vessels-vms-expansion": {
+   "sector": "agriculture"
+  },
+  "fuel-needs-data-collection-food-transport": {
+   "sector": "governance"
+  },
+  "galle-nugaduwa-auditorium": {
+   "sector": "culture_sport"
+  },
+  "gaza-children-fund": {
+   "sector": "social_protection"
+  },
+  "gosl-gold-pawning-interest-subsidy-2024": {
+   "sector": "social_protection"
+  },
+  "gosl-vehicle-import-liberalization-roadmap": {
+   "sector": "industry"
+  },
+  "gurukkalmadam-mass-grave-excavation": {
+   "sector": "culture_sport"
+  },
+  "heritage-for-life-1000-archaeological-sites": {
+   "sector": "culture_sport"
+  },
+  "heritage-restoration-committee": {
+   "sector": "culture_sport"
+  },
+  "hisathel-gelveema-national-festival-2026": {
+   "sector": "culture_sport"
+  },
+  "imf-rfi-2025": {
+   "sector": "governance"
+  },
+  "inclusive-recovery-program": {
+   "sector": "social_protection"
+  },
+  "india-2026-budget-sri-lanka-assistance": {
+   "sector": "governance"
+  },
+  "india-eastern-province-development": {
+   "sector": "governance"
+  },
+  "india-loan-grant-conversion-seven-projects": {
+   "sector": "governance"
+  },
+  "india-military-vehicle-assistance": {
+   "sector": "defence"
+  },
+  "india-multi-sectoral-grant-package": {
+   "sector": "governance"
+  },
+  "india-northern-province-development-support": {
+   "sector": "governance"
+  },
+  "india-sri-lanka-army-military-supplies-donation-2026": {
+   "sector": "defence"
+  },
+  "india-sri-lanka-development-partnership": {
+   "sector": "governance"
+  },
+  "india-sri-lanka-foundation-projects-2025": {
+   "sector": "governance"
+  },
+  "india-sri-lanka-navy-sailing-training-visit": {
+   "sector": "defence"
+  },
+  "india-sri-lanka-sanskrit-festival": {
+   "sector": "culture_sport"
+  },
+  "iran-oil-debt-tea-export-repayment": {
+   "sector": "industry"
+  },
+  "iranian-navy-ship-humanitarian-assistance": {
+   "sector": "defence"
+  },
+  "itc-she-trades-hub-sri-lanka": {
+   "sector": "industry"
+  },
+  "jaffna-fort-boundary-stones": {
+   "sector": "culture_sport"
+  },
+  "jaffna-indoor-stadium": {
+   "sector": "culture_sport"
+  },
+  "jaffna-international-cricket-stadium": {
+   "sector": "culture_sport"
+  },
+  "jaffna-old-park-indoor-stadium": {
+   "sector": "culture_sport"
+  },
+  "jaffna-vesak-zone-2026": {
+   "sector": "culture_sport"
+  },
+  "japan-economic-social-development-grant-2024": {
+   "sector": "governance"
+  },
+  "japan-osa-navy-drones": {
+   "sector": "defence"
+  },
+  "japan-resumed-projects-2024": {
+   "sector": "governance"
+  },
+  "jica-sri-lanka-assistance-continuation": {
+   "sector": "governance"
+  },
+  "journalist-skills-development-support-2026": {
+   "sector": "education"
+  },
+  "journalist-support-programme": {
+   "sector": "social_protection"
+  },
+  "kachchativu-st-anthony-festival-navy-support": {
+   "sector": "culture_sport"
+  },
+  "kalutara-sports-club-equipment-2025": {
+   "sector": "culture_sport"
+  },
+  "kandy-hisathel-gaama-state-festival": {
+   "sector": "culture_sport"
+  },
+  "kanniya-archaeological-excavation": {
+   "sector": "culture_sport"
+  },
+  "kataragama-stray-dog-population-control-program": {
+   "sector": "environment"
+  },
+  "kattankudy-indoor-sports-arena": {
+   "sector": "culture_sport"
+  },
+  "keerimalai-radar-installation": {
+   "sector": "defence"
+  },
+  "kekirawa-correctional-centre": {
+   "sector": "defence"
+  },
+  "kilinochchi-public-playground-development": {
+   "sector": "culture_sport"
+  },
+  "kirimale-krishna-temple-access": {
+   "sector": "culture_sport"
+  },
+  "kodavaya-maritime-archaeology-exhibition": {
+   "sector": "culture_sport"
+  },
+  "kolonnawa-drainage": {
+   "sector": "water"
+  },
+  "korea-eximbank-development-support": {
+   "sector": "governance"
+  },
+  "lanka-sathosa-essential-goods-price-reduction": {
+   "sector": "social_protection"
+  },
+  "lotus-intersection-feasibility": {
+   "sector": "transport"
+  },
+  "mannar-district-development-programme": {
+   "sector": "governance"
+  },
+  "maskeliya-public-playground-development": {
+   "sector": "culture_sport"
+  },
+  "matale-artificial-hockey-ground": {
+   "sector": "culture_sport"
+  },
+  "matara-rural-development-programmes-2024": {
+   "sector": "governance"
+  },
+  "mayilitti-harbour-fishing-access-management": {
+   "sector": "agriculture"
+  },
+  "million-young-entrepreneurs-programme": {
+   "sector": "industry"
+  },
+  "naguleswaram-temple-access": {
+   "sector": "culture_sport"
+  },
+  "naruvilkulam-swimming-pool": {
+   "sector": "culture_sport"
+  },
+  "national-ai-film-production-support": {
+   "sector": "culture_sport"
+  },
+  "national-art-gallery-reopening": {
+   "sector": "culture_sport"
+  },
+  "national-cultural-zone-development": {
+   "sector": "culture_sport"
+  },
+  "national-sports-development-plan": {
+   "sector": "culture_sport"
+  },
+  "navinna-public-sports-ground-renovation": {
+   "sector": "culture_sport"
+  },
+  "navy-satellite-interception-system": {
+   "sector": "defence"
+  },
+  "nawalapitiya-jayathilaka-sports-complex-development": {
+   "sector": "culture_sport"
+  },
+  "netherlands-sri-lanka-multisector-cooperation": {
+   "sector": "governance"
+  },
+  "nindavur-cultural-hall-completion": {
+   "sector": "culture_sport"
+  },
+  "nintavur-cultural-centre-construction": {
+   "sector": "culture_sport"
+  },
+  "north-east-regional-development": {
+   "sector": "governance"
+  },
+  "northern-development-jewelry-proceeds": {
+   "sector": "governance"
+  },
+  "northern-province-development-foreign-aid-2024": {
+   "sector": "governance"
+  },
+  "nsb-slsbl-voluntary-retirement-scheme": {
+   "sector": "industry"
+  },
+  "nuwara-eliya-high-altitude-sports-complex": {
+   "sector": "culture_sport"
+  },
+  "performing-arts-literature-development": {
+   "sector": "culture_sport"
+  },
+  "poson-week-public-services-2026": {
+   "sector": "governance"
+  },
+  "post-department-modernisation-2025": {
+   "sector": "digital"
+  },
+  "postal-delivery-fuel-restrictions-2026": {
+   "sector": "digital"
+  },
+  "postal-infrastructure-modernisation-2025": {
+   "sector": "digital"
+  },
+  "postal-sub-postmaster-permanent-appointments-192": {
+   "sector": "digital"
+  },
+  "re-vive-northern-eastern-development": {
+   "sector": "governance"
+  },
+  "sathosa-essential-food-price-reduction-2024": {
+   "sector": "social_protection"
+  },
+  "semmani-mass-grave-excavation": {
+   "sector": "culture_sport"
+  },
+  "six-district-rishad-development-projects": {
+   "sector": "governance"
+  },
+  "slaf-beechcraft-king-air-donation-australia": {
+   "sector": "defence"
+  },
+  "slaf-l70-gun-upgrade": {
+   "sector": "defence"
+  },
+  "slinex-2025-joint-naval-exercise": {
+   "sector": "defence"
+  },
+  "somawathiya-archaeology-museum": {
+   "sector": "culture_sport"
+  },
+  "southern-fishery-harbours-development": {
+   "sector": "agriculture"
+  },
+  "sports-sector-development-2026": {
+   "sector": "culture_sport"
+  },
+  "sri-lanka-cricket-pakistan-revenue-rebuilding-fund": {
+   "sector": "disaster_recovery"
+  },
+  "sri-lanka-maldives-sector-cooperation-mous-2026": {
+   "sector": "governance"
+  },
+  "sri-lanka-post-ups-strategic-collaboration": {
+   "sector": "digital"
+  },
+  "srilankan-airlines-microsoft-licensing-contract": {
+   "sector": "digital"
+  },
+  "sudarshi-theatre-construction": {
+   "sector": "culture_sport"
+  },
+  "sugathadasa-stadium-rehabilitation": {
+   "sector": "culture_sport"
+  },
+  "uae-sri-lanka-sports-development-cooperation": {
+   "sector": "culture_sport"
+  },
+  "undp-cbsl-financial-literacy-phase2": {
+   "sector": "industry"
+  },
+  "us-australia-aircraft-assistance": {
+   "sector": "defence"
+  },
+  "us-coast-guard-cutter-decisive-transfer": {
+   "sector": "defence"
+  },
+  "us-coast-guard-vessel-transfer": {
+   "sector": "defence"
+  },
+  "us-navy-fleet-broadband-satellite-communications": {
+   "sector": "defence"
+  },
+  "us-patrol-vessel-donation": {
+   "sector": "defence"
+  },
+  "usa-fourth-coast-guard-cutter-sri-lanka": {
+   "sector": "defence"
+  },
+  "usa-grant-slaf-aircraft": {
+   "sector": "defence"
+  },
+  "uva-temple-development-monaragala-badulla": {
+   "sector": "culture_sport"
+  },
+  "valachchenai-fisheries-port-2026": {
+   "sector": "agriculture"
+  },
+  "valikamam-south-indoor-complex": {
+   "sector": "culture_sport"
+  },
+  "vat-free-shops-network": {
+   "sector": "social_protection"
+  },
+  "vavuniya-omandai-sports-complex": {
+   "sector": "culture_sport"
+  },
+  "vavuniya-samanankulam-vihara-construction": {
+   "sector": "culture_sport"
+  },
+  "vedda-heritage-museum-dambana": {
+   "sector": "culture_sport"
+  },
+  "wb-cpf-sri-lanka-2026": {
+   "sector": "governance"
+  },
+  "wb-p178432": {
+   "sector": "governance"
+  },
+  "wb-p178973": {
+   "sector": "social_protection"
+  },
+  "wb-p179808": {
+   "sector": "governance"
+  },
+  "wb-p180549": {
+   "sector": "governance"
+  },
+  "wb-p180861": {
+   "sector": "industry"
+  },
+  "wb-p181564": {
+   "sector": "health"
+  },
+  "wb-p505052": {
+   "sector": "energy"
+  },
+  "wb-p505241": {
+   "sector": "urban"
+  },
+  "wb-p508317": {
+   "sector": "digital"
+  },
+  "wb-p509477": {
+   "sector": "education"
+  },
+  "wb-p510192": {
+   "sector": "health"
+  },
+  "wb-p511605": {
+   "sector": "industry"
+  },
+  "wb-p511828": {
+   "sector": "tourism"
+  },
+  "yala-pilgrim-services-2026": {
+   "sector": "social_protection"
+  }
+ }
+}

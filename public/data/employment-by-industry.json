@@ -1,0 +1,1012 @@
+{
+  "country": "LK",
+  "dataset_id": "employment-by-industry",
+  "description": "National employed population by the 17 industry groups used in the DCS Labour Force Survey table.",
+  "fields": [
+    {
+      "id": "year",
+      "label": "Year",
+      "role": "dimension",
+      "type": "year"
+    },
+    {
+      "id": "industry_id",
+      "label": "Industry id",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "industry",
+      "label": "Industry",
+      "role": "dimension",
+      "type": "string"
+    },
+    {
+      "id": "provisional",
+      "label": "Provisional",
+      "role": "dimension",
+      "type": "boolean"
+    },
+    {
+      "aggregation": "sum",
+      "id": "employed",
+      "label": "Employed population",
+      "role": "measure",
+      "type": "integer",
+      "unit": "people"
+    },
+    {
+      "aggregation": "none",
+      "id": "share_of_employment_pct",
+      "label": "Share of employment",
+      "role": "measure",
+      "type": "number",
+      "unit": "percent"
+    }
+  ],
+  "grain": "One row per year and industry group.",
+  "primary_key": [
+    "year",
+    "industry_id"
+  ],
+  "rows": [
+    {
+      "employed": 2043698,
+      "industry": "Agriculture, forestry and fishing",
+      "industry_id": "isic_group_01",
+      "provisional": false,
+      "share_of_employment_pct": 25.4979,
+      "year": 2018
+    },
+    {
+      "employed": 62136,
+      "industry": "Mining and quarrying",
+      "industry_id": "isic_group_02",
+      "provisional": false,
+      "share_of_employment_pct": 0.7752,
+      "year": 2018
+    },
+    {
+      "employed": 1463919,
+      "industry": "Manufacturing",
+      "industry_id": "isic_group_03",
+      "provisional": false,
+      "share_of_employment_pct": 18.2644,
+      "year": 2018
+    },
+    {
+      "employed": 713207,
+      "industry": "Construction, utilities, water and waste",
+      "industry_id": "isic_group_04",
+      "provisional": false,
+      "share_of_employment_pct": 8.8982,
+      "year": 2018
+    },
+    {
+      "employed": 1141416,
+      "industry": "Wholesale and retail trade; vehicle repair",
+      "industry_id": "isic_group_05",
+      "provisional": false,
+      "share_of_employment_pct": 14.2407,
+      "year": 2018
+    },
+    {
+      "employed": 502126,
+      "industry": "Transportation and storage",
+      "industry_id": "isic_group_06",
+      "provisional": false,
+      "share_of_employment_pct": 6.2647,
+      "year": 2018
+    },
+    {
+      "employed": 238145,
+      "industry": "Accommodation and food services",
+      "industry_id": "isic_group_07",
+      "provisional": false,
+      "share_of_employment_pct": 2.9712,
+      "year": 2018
+    },
+    {
+      "employed": 55220,
+      "industry": "Information and communication",
+      "industry_id": "isic_group_08",
+      "provisional": false,
+      "share_of_employment_pct": 0.6889,
+      "year": 2018
+    },
+    {
+      "employed": 173330,
+      "industry": "Financial and insurance activities",
+      "industry_id": "isic_group_09",
+      "provisional": false,
+      "share_of_employment_pct": 2.1625,
+      "year": 2018
+    },
+    {
+      "employed": 86286,
+      "industry": "Professional, scientific and technical activities",
+      "industry_id": "isic_group_10",
+      "provisional": false,
+      "share_of_employment_pct": 1.0765,
+      "year": 2018
+    },
+    {
+      "employed": 166978,
+      "industry": "Administrative and support services",
+      "industry_id": "isic_group_11",
+      "provisional": false,
+      "share_of_employment_pct": 2.0833,
+      "year": 2018
+    },
+    {
+      "employed": 434348,
+      "industry": "Public administration, defence and compulsory social security",
+      "industry_id": "isic_group_12",
+      "provisional": false,
+      "share_of_employment_pct": 5.4191,
+      "year": 2018
+    },
+    {
+      "employed": 425092,
+      "industry": "Education",
+      "industry_id": "isic_group_13",
+      "provisional": false,
+      "share_of_employment_pct": 5.3036,
+      "year": 2018
+    },
+    {
+      "employed": 142861,
+      "industry": "Human health and social work",
+      "industry_id": "isic_group_14",
+      "provisional": false,
+      "share_of_employment_pct": 1.7824,
+      "year": 2018
+    },
+    {
+      "employed": 116733,
+      "industry": "Other service activities",
+      "industry_id": "isic_group_15",
+      "provisional": false,
+      "share_of_employment_pct": 1.4564,
+      "year": 2018
+    },
+    {
+      "employed": 194303,
+      "industry": "Households as employers and own-use production",
+      "industry_id": "isic_group_16",
+      "provisional": false,
+      "share_of_employment_pct": 2.4242,
+      "year": 2018
+    },
+    {
+      "employed": 55368,
+      "industry": "Other activities",
+      "industry_id": "isic_group_17",
+      "provisional": false,
+      "share_of_employment_pct": 0.6908,
+      "year": 2018
+    },
+    {
+      "employed": 2071940,
+      "industry": "Agriculture, forestry and fishing",
+      "industry_id": "isic_group_01",
+      "provisional": false,
+      "share_of_employment_pct": 25.3272,
+      "year": 2019
+    },
+    {
+      "employed": 60902,
+      "industry": "Mining and quarrying",
+      "industry_id": "isic_group_02",
+      "provisional": false,
+      "share_of_employment_pct": 0.7445,
+      "year": 2019
+    },
+    {
+      "employed": 1504314,
+      "industry": "Manufacturing",
+      "industry_id": "isic_group_03",
+      "provisional": false,
+      "share_of_employment_pct": 18.3886,
+      "year": 2019
+    },
+    {
+      "employed": 693205,
+      "industry": "Construction, utilities, water and waste",
+      "industry_id": "isic_group_04",
+      "provisional": false,
+      "share_of_employment_pct": 8.4737,
+      "year": 2019
+    },
+    {
+      "employed": 1134496,
+      "industry": "Wholesale and retail trade; vehicle repair",
+      "industry_id": "isic_group_05",
+      "provisional": false,
+      "share_of_employment_pct": 13.868,
+      "year": 2019
+    },
+    {
+      "employed": 514469,
+      "industry": "Transportation and storage",
+      "industry_id": "isic_group_06",
+      "provisional": false,
+      "share_of_employment_pct": 6.2888,
+      "year": 2019
+    },
+    {
+      "employed": 232344,
+      "industry": "Accommodation and food services",
+      "industry_id": "isic_group_07",
+      "provisional": false,
+      "share_of_employment_pct": 2.8402,
+      "year": 2019
+    },
+    {
+      "employed": 64382,
+      "industry": "Information and communication",
+      "industry_id": "isic_group_08",
+      "provisional": false,
+      "share_of_employment_pct": 0.787,
+      "year": 2019
+    },
+    {
+      "employed": 187933,
+      "industry": "Financial and insurance activities",
+      "industry_id": "isic_group_09",
+      "provisional": false,
+      "share_of_employment_pct": 2.2973,
+      "year": 2019
+    },
+    {
+      "employed": 90317,
+      "industry": "Professional, scientific and technical activities",
+      "industry_id": "isic_group_10",
+      "provisional": false,
+      "share_of_employment_pct": 1.104,
+      "year": 2019
+    },
+    {
+      "employed": 205009,
+      "industry": "Administrative and support services",
+      "industry_id": "isic_group_11",
+      "provisional": false,
+      "share_of_employment_pct": 2.506,
+      "year": 2019
+    },
+    {
+      "employed": 436175,
+      "industry": "Public administration, defence and compulsory social security",
+      "industry_id": "isic_group_12",
+      "provisional": false,
+      "share_of_employment_pct": 5.3318,
+      "year": 2019
+    },
+    {
+      "employed": 425931,
+      "industry": "Education",
+      "industry_id": "isic_group_13",
+      "provisional": false,
+      "share_of_employment_pct": 5.2065,
+      "year": 2019
+    },
+    {
+      "employed": 169232,
+      "industry": "Human health and social work",
+      "industry_id": "isic_group_14",
+      "provisional": false,
+      "share_of_employment_pct": 2.0687,
+      "year": 2019
+    },
+    {
+      "employed": 135247,
+      "industry": "Other service activities",
+      "industry_id": "isic_group_15",
+      "provisional": false,
+      "share_of_employment_pct": 1.6532,
+      "year": 2019
+    },
+    {
+      "employed": 186970,
+      "industry": "Households as employers and own-use production",
+      "industry_id": "isic_group_16",
+      "provisional": false,
+      "share_of_employment_pct": 2.2855,
+      "year": 2019
+    },
+    {
+      "employed": 67828,
+      "industry": "Other activities",
+      "industry_id": "isic_group_17",
+      "provisional": false,
+      "share_of_employment_pct": 0.8291,
+      "year": 2019
+    },
+    {
+      "employed": 2169679,
+      "industry": "Agriculture, forestry and fishing",
+      "industry_id": "isic_group_01",
+      "provisional": false,
+      "share_of_employment_pct": 27.1241,
+      "year": 2020
+    },
+    {
+      "employed": 56856,
+      "industry": "Mining and quarrying",
+      "industry_id": "isic_group_02",
+      "provisional": false,
+      "share_of_employment_pct": 0.7108,
+      "year": 2020
+    },
+    {
+      "employed": 1397689,
+      "industry": "Manufacturing",
+      "industry_id": "isic_group_03",
+      "provisional": false,
+      "share_of_employment_pct": 17.4731,
+      "year": 2020
+    },
+    {
+      "employed": 698201,
+      "industry": "Construction, utilities, water and waste",
+      "industry_id": "isic_group_04",
+      "provisional": false,
+      "share_of_employment_pct": 8.7285,
+      "year": 2020
+    },
+    {
+      "employed": 1095384,
+      "industry": "Wholesale and retail trade; vehicle repair",
+      "industry_id": "isic_group_05",
+      "provisional": false,
+      "share_of_employment_pct": 13.6939,
+      "year": 2020
+    },
+    {
+      "employed": 523654,
+      "industry": "Transportation and storage",
+      "industry_id": "isic_group_06",
+      "provisional": false,
+      "share_of_employment_pct": 6.5464,
+      "year": 2020
+    },
+    {
+      "employed": 217281,
+      "industry": "Accommodation and food services",
+      "industry_id": "isic_group_07",
+      "provisional": false,
+      "share_of_employment_pct": 2.7163,
+      "year": 2020
+    },
+    {
+      "employed": 57828,
+      "industry": "Information and communication",
+      "industry_id": "isic_group_08",
+      "provisional": false,
+      "share_of_employment_pct": 0.7229,
+      "year": 2020
+    },
+    {
+      "employed": 183474,
+      "industry": "Financial and insurance activities",
+      "industry_id": "isic_group_09",
+      "provisional": false,
+      "share_of_employment_pct": 2.2937,
+      "year": 2020
+    },
+    {
+      "employed": 85990,
+      "industry": "Professional, scientific and technical activities",
+      "industry_id": "isic_group_10",
+      "provisional": false,
+      "share_of_employment_pct": 1.075,
+      "year": 2020
+    },
+    {
+      "employed": 164829,
+      "industry": "Administrative and support services",
+      "industry_id": "isic_group_11",
+      "provisional": false,
+      "share_of_employment_pct": 2.0606,
+      "year": 2020
+    },
+    {
+      "employed": 447051,
+      "industry": "Public administration, defence and compulsory social security",
+      "industry_id": "isic_group_12",
+      "provisional": false,
+      "share_of_employment_pct": 5.5888,
+      "year": 2020
+    },
+    {
+      "employed": 402808,
+      "industry": "Education",
+      "industry_id": "isic_group_13",
+      "provisional": false,
+      "share_of_employment_pct": 5.0357,
+      "year": 2020
+    },
+    {
+      "employed": 156424,
+      "industry": "Human health and social work",
+      "industry_id": "isic_group_14",
+      "provisional": false,
+      "share_of_employment_pct": 1.9555,
+      "year": 2020
+    },
+    {
+      "employed": 123220,
+      "industry": "Other service activities",
+      "industry_id": "isic_group_15",
+      "provisional": false,
+      "share_of_employment_pct": 1.5404,
+      "year": 2020
+    },
+    {
+      "employed": 167255,
+      "industry": "Households as employers and own-use production",
+      "industry_id": "isic_group_16",
+      "provisional": false,
+      "share_of_employment_pct": 2.0909,
+      "year": 2020
+    },
+    {
+      "employed": 51470,
+      "industry": "Other activities",
+      "industry_id": "isic_group_17",
+      "provisional": false,
+      "share_of_employment_pct": 0.6434,
+      "year": 2020
+    },
+    {
+      "employed": 2213015,
+      "industry": "Agriculture, forestry and fishing",
+      "industry_id": "isic_group_01",
+      "provisional": false,
+      "share_of_employment_pct": 27.2757,
+      "year": 2021
+    },
+    {
+      "employed": 54586,
+      "industry": "Mining and quarrying",
+      "industry_id": "isic_group_02",
+      "provisional": false,
+      "share_of_employment_pct": 0.6728,
+      "year": 2021
+    },
+    {
+      "employed": 1362311,
+      "industry": "Manufacturing",
+      "industry_id": "isic_group_03",
+      "provisional": false,
+      "share_of_employment_pct": 16.7907,
+      "year": 2021
+    },
+    {
+      "employed": 692585,
+      "industry": "Construction, utilities, water and waste",
+      "industry_id": "isic_group_04",
+      "provisional": false,
+      "share_of_employment_pct": 8.5362,
+      "year": 2021
+    },
+    {
+      "employed": 1153516,
+      "industry": "Wholesale and retail trade; vehicle repair",
+      "industry_id": "isic_group_05",
+      "provisional": false,
+      "share_of_employment_pct": 14.2172,
+      "year": 2021
+    },
+    {
+      "employed": 481703,
+      "industry": "Transportation and storage",
+      "industry_id": "isic_group_06",
+      "provisional": false,
+      "share_of_employment_pct": 5.9371,
+      "year": 2021
+    },
+    {
+      "employed": 214497,
+      "industry": "Accommodation and food services",
+      "industry_id": "isic_group_07",
+      "provisional": false,
+      "share_of_employment_pct": 2.6437,
+      "year": 2021
+    },
+    {
+      "employed": 72881,
+      "industry": "Information and communication",
+      "industry_id": "isic_group_08",
+      "provisional": false,
+      "share_of_employment_pct": 0.8983,
+      "year": 2021
+    },
+    {
+      "employed": 182313,
+      "industry": "Financial and insurance activities",
+      "industry_id": "isic_group_09",
+      "provisional": false,
+      "share_of_employment_pct": 2.247,
+      "year": 2021
+    },
+    {
+      "employed": 80762,
+      "industry": "Professional, scientific and technical activities",
+      "industry_id": "isic_group_10",
+      "provisional": false,
+      "share_of_employment_pct": 0.9954,
+      "year": 2021
+    },
+    {
+      "employed": 136073,
+      "industry": "Administrative and support services",
+      "industry_id": "isic_group_11",
+      "provisional": false,
+      "share_of_employment_pct": 1.6771,
+      "year": 2021
+    },
+    {
+      "employed": 490106,
+      "industry": "Public administration, defence and compulsory social security",
+      "industry_id": "isic_group_12",
+      "provisional": false,
+      "share_of_employment_pct": 6.0406,
+      "year": 2021
+    },
+    {
+      "employed": 423135,
+      "industry": "Education",
+      "industry_id": "isic_group_13",
+      "provisional": false,
+      "share_of_employment_pct": 5.2152,
+      "year": 2021
+    },
+    {
+      "employed": 174539,
+      "industry": "Human health and social work",
+      "industry_id": "isic_group_14",
+      "provisional": false,
+      "share_of_employment_pct": 2.1512,
+      "year": 2021
+    },
+    {
+      "employed": 128418,
+      "industry": "Other service activities",
+      "industry_id": "isic_group_15",
+      "provisional": false,
+      "share_of_employment_pct": 1.5828,
+      "year": 2021
+    },
+    {
+      "employed": 201726,
+      "industry": "Households as employers and own-use production",
+      "industry_id": "isic_group_16",
+      "provisional": false,
+      "share_of_employment_pct": 2.4863,
+      "year": 2021
+    },
+    {
+      "employed": 51342,
+      "industry": "Other activities",
+      "industry_id": "isic_group_17",
+      "provisional": false,
+      "share_of_employment_pct": 0.6328,
+      "year": 2021
+    },
+    {
+      "employed": 2158560,
+      "industry": "Agriculture, forestry and fishing",
+      "industry_id": "isic_group_01",
+      "provisional": false,
+      "share_of_employment_pct": 26.4928,
+      "year": 2022
+    },
+    {
+      "employed": 58980,
+      "industry": "Mining and quarrying",
+      "industry_id": "isic_group_02",
+      "provisional": false,
+      "share_of_employment_pct": 0.7239,
+      "year": 2022
+    },
+    {
+      "employed": 1408820,
+      "industry": "Manufacturing",
+      "industry_id": "isic_group_03",
+      "provisional": false,
+      "share_of_employment_pct": 17.291,
+      "year": 2022
+    },
+    {
+      "employed": 690400,
+      "industry": "Construction, utilities, water and waste",
+      "industry_id": "isic_group_04",
+      "provisional": false,
+      "share_of_employment_pct": 8.4735,
+      "year": 2022
+    },
+    {
+      "employed": 1142754,
+      "industry": "Wholesale and retail trade; vehicle repair",
+      "industry_id": "isic_group_05",
+      "provisional": false,
+      "share_of_employment_pct": 14.0254,
+      "year": 2022
+    },
+    {
+      "employed": 486347,
+      "industry": "Transportation and storage",
+      "industry_id": "isic_group_06",
+      "provisional": false,
+      "share_of_employment_pct": 5.9691,
+      "year": 2022
+    },
+    {
+      "employed": 235543,
+      "industry": "Accommodation and food services",
+      "industry_id": "isic_group_07",
+      "provisional": false,
+      "share_of_employment_pct": 2.8909,
+      "year": 2022
+    },
+    {
+      "employed": 71056,
+      "industry": "Information and communication",
+      "industry_id": "isic_group_08",
+      "provisional": false,
+      "share_of_employment_pct": 0.8721,
+      "year": 2022
+    },
+    {
+      "employed": 182379,
+      "industry": "Financial and insurance activities",
+      "industry_id": "isic_group_09",
+      "provisional": false,
+      "share_of_employment_pct": 2.2384,
+      "year": 2022
+    },
+    {
+      "employed": 87338,
+      "industry": "Professional, scientific and technical activities",
+      "industry_id": "isic_group_10",
+      "provisional": false,
+      "share_of_employment_pct": 1.0719,
+      "year": 2022
+    },
+    {
+      "employed": 146490,
+      "industry": "Administrative and support services",
+      "industry_id": "isic_group_11",
+      "provisional": false,
+      "share_of_employment_pct": 1.7979,
+      "year": 2022
+    },
+    {
+      "employed": 456842,
+      "industry": "Public administration, defence and compulsory social security",
+      "industry_id": "isic_group_12",
+      "provisional": false,
+      "share_of_employment_pct": 5.607,
+      "year": 2022
+    },
+    {
+      "employed": 461829,
+      "industry": "Education",
+      "industry_id": "isic_group_13",
+      "provisional": false,
+      "share_of_employment_pct": 5.6682,
+      "year": 2022
+    },
+    {
+      "employed": 169298,
+      "industry": "Human health and social work",
+      "industry_id": "isic_group_14",
+      "provisional": false,
+      "share_of_employment_pct": 2.0779,
+      "year": 2022
+    },
+    {
+      "employed": 162098,
+      "industry": "Other service activities",
+      "industry_id": "isic_group_15",
+      "provisional": false,
+      "share_of_employment_pct": 1.9895,
+      "year": 2022
+    },
+    {
+      "employed": 157590,
+      "industry": "Households as employers and own-use production",
+      "industry_id": "isic_group_16",
+      "provisional": false,
+      "share_of_employment_pct": 1.9342,
+      "year": 2022
+    },
+    {
+      "employed": 71405,
+      "industry": "Other activities",
+      "industry_id": "isic_group_17",
+      "provisional": false,
+      "share_of_employment_pct": 0.8764,
+      "year": 2022
+    },
+    {
+      "employed": 2088344,
+      "industry": "Agriculture, forestry and fishing",
+      "industry_id": "isic_group_01",
+      "provisional": false,
+      "share_of_employment_pct": 26.072,
+      "year": 2023
+    },
+    {
+      "employed": 64606,
+      "industry": "Mining and quarrying",
+      "industry_id": "isic_group_02",
+      "provisional": false,
+      "share_of_employment_pct": 0.8066,
+      "year": 2023
+    },
+    {
+      "employed": 1377686,
+      "industry": "Manufacturing",
+      "industry_id": "isic_group_03",
+      "provisional": false,
+      "share_of_employment_pct": 17.1998,
+      "year": 2023
+    },
+    {
+      "employed": 600862,
+      "industry": "Construction, utilities, water and waste",
+      "industry_id": "isic_group_04",
+      "provisional": false,
+      "share_of_employment_pct": 7.5015,
+      "year": 2023
+    },
+    {
+      "employed": 1127497,
+      "industry": "Wholesale and retail trade; vehicle repair",
+      "industry_id": "isic_group_05",
+      "provisional": false,
+      "share_of_employment_pct": 14.0763,
+      "year": 2023
+    },
+    {
+      "employed": 504645,
+      "industry": "Transportation and storage",
+      "industry_id": "isic_group_06",
+      "provisional": false,
+      "share_of_employment_pct": 6.3003,
+      "year": 2023
+    },
+    {
+      "employed": 277739,
+      "industry": "Accommodation and food services",
+      "industry_id": "isic_group_07",
+      "provisional": false,
+      "share_of_employment_pct": 3.4674,
+      "year": 2023
+    },
+    {
+      "employed": 78347,
+      "industry": "Information and communication",
+      "industry_id": "isic_group_08",
+      "provisional": false,
+      "share_of_employment_pct": 0.9781,
+      "year": 2023
+    },
+    {
+      "employed": 176891,
+      "industry": "Financial and insurance activities",
+      "industry_id": "isic_group_09",
+      "provisional": false,
+      "share_of_employment_pct": 2.2084,
+      "year": 2023
+    },
+    {
+      "employed": 89946,
+      "industry": "Professional, scientific and technical activities",
+      "industry_id": "isic_group_10",
+      "provisional": false,
+      "share_of_employment_pct": 1.1229,
+      "year": 2023
+    },
+    {
+      "employed": 135523,
+      "industry": "Administrative and support services",
+      "industry_id": "isic_group_11",
+      "provisional": false,
+      "share_of_employment_pct": 1.6919,
+      "year": 2023
+    },
+    {
+      "employed": 438156,
+      "industry": "Public administration, defence and compulsory social security",
+      "industry_id": "isic_group_12",
+      "provisional": false,
+      "share_of_employment_pct": 5.4702,
+      "year": 2023
+    },
+    {
+      "employed": 429311,
+      "industry": "Education",
+      "industry_id": "isic_group_13",
+      "provisional": false,
+      "share_of_employment_pct": 5.3597,
+      "year": 2023
+    },
+    {
+      "employed": 185014,
+      "industry": "Human health and social work",
+      "industry_id": "isic_group_14",
+      "provisional": false,
+      "share_of_employment_pct": 2.3098,
+      "year": 2023
+    },
+    {
+      "employed": 209128,
+      "industry": "Other service activities",
+      "industry_id": "isic_group_15",
+      "provisional": false,
+      "share_of_employment_pct": 2.6109,
+      "year": 2023
+    },
+    {
+      "employed": 160913,
+      "industry": "Households as employers and own-use production",
+      "industry_id": "isic_group_16",
+      "provisional": false,
+      "share_of_employment_pct": 2.0089,
+      "year": 2023
+    },
+    {
+      "employed": 65308,
+      "industry": "Other activities",
+      "industry_id": "isic_group_17",
+      "provisional": false,
+      "share_of_employment_pct": 0.8153,
+      "year": 2023
+    },
+    {
+      "employed": 2066651,
+      "industry": "Agriculture, forestry and fishing",
+      "industry_id": "isic_group_01",
+      "provisional": true,
+      "share_of_employment_pct": 25.9964,
+      "year": 2024
+    },
+    {
+      "employed": 60445,
+      "industry": "Mining and quarrying",
+      "industry_id": "isic_group_02",
+      "provisional": true,
+      "share_of_employment_pct": 0.7603,
+      "year": 2024
+    },
+    {
+      "employed": 1366492,
+      "industry": "Manufacturing",
+      "industry_id": "isic_group_03",
+      "provisional": true,
+      "share_of_employment_pct": 17.1891,
+      "year": 2024
+    },
+    {
+      "employed": 604479,
+      "industry": "Construction, utilities, water and waste",
+      "industry_id": "isic_group_04",
+      "provisional": true,
+      "share_of_employment_pct": 7.6037,
+      "year": 2024
+    },
+    {
+      "employed": 1175059,
+      "industry": "Wholesale and retail trade; vehicle repair",
+      "industry_id": "isic_group_05",
+      "provisional": true,
+      "share_of_employment_pct": 14.7811,
+      "year": 2024
+    },
+    {
+      "employed": 521450,
+      "industry": "Transportation and storage",
+      "industry_id": "isic_group_06",
+      "provisional": true,
+      "share_of_employment_pct": 6.5593,
+      "year": 2024
+    },
+    {
+      "employed": 259043,
+      "industry": "Accommodation and food services",
+      "industry_id": "isic_group_07",
+      "provisional": true,
+      "share_of_employment_pct": 3.2585,
+      "year": 2024
+    },
+    {
+      "employed": 80357,
+      "industry": "Information and communication",
+      "industry_id": "isic_group_08",
+      "provisional": true,
+      "share_of_employment_pct": 1.0108,
+      "year": 2024
+    },
+    {
+      "employed": 158144,
+      "industry": "Financial and insurance activities",
+      "industry_id": "isic_group_09",
+      "provisional": true,
+      "share_of_employment_pct": 1.9893,
+      "year": 2024
+    },
+    {
+      "employed": 85106,
+      "industry": "Professional, scientific and technical activities",
+      "industry_id": "isic_group_10",
+      "provisional": true,
+      "share_of_employment_pct": 1.0705,
+      "year": 2024
+    },
+    {
+      "employed": 147556,
+      "industry": "Administrative and support services",
+      "industry_id": "isic_group_11",
+      "provisional": true,
+      "share_of_employment_pct": 1.8561,
+      "year": 2024
+    },
+    {
+      "employed": 419058,
+      "industry": "Public administration, defence and compulsory social security",
+      "industry_id": "isic_group_12",
+      "provisional": true,
+      "share_of_employment_pct": 5.2713,
+      "year": 2024
+    },
+    {
+      "employed": 422348,
+      "industry": "Education",
+      "industry_id": "isic_group_13",
+      "provisional": true,
+      "share_of_employment_pct": 5.3127,
+      "year": 2024
+    },
+    {
+      "employed": 183209,
+      "industry": "Human health and social work",
+      "industry_id": "isic_group_14",
+      "provisional": true,
+      "share_of_employment_pct": 2.3046,
+      "year": 2024
+    },
+    {
+      "employed": 200086,
+      "industry": "Other service activities",
+      "industry_id": "isic_group_15",
+      "provisional": true,
+      "share_of_employment_pct": 2.5169,
+      "year": 2024
+    },
+    {
+      "employed": 138315,
+      "industry": "Households as employers and own-use production",
+      "industry_id": "isic_group_16",
+      "provisional": true,
+      "share_of_employment_pct": 1.7399,
+      "year": 2024
+    },
+    {
+      "employed": 61951,
+      "industry": "Other activities",
+      "industry_id": "isic_group_17",
+      "provisional": true,
+      "share_of_employment_pct": 0.7793,
+      "year": 2024
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "dcs-statistical-abstract-2025-employment"
+  ],
+  "title": "Employment by major industry group",
+  "vintage": "2018–2024 (2024 provisional)"
+}

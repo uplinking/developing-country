@@ -1,0 +1,49 @@
+{
+  "name": "@developing-country/site",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "emdash": {
+    "seed": "seed/runtime.json"
+  },
+  "scripts": {
+    "dev": "bun run data:catalog:local && astro dev --force",
+    "build": "astro build",
+    "preview": "astro preview",
+    "typecheck": "astro check",
+    "test": "bun test src/*.test.ts",
+    "seed:sync-notes": "bun ../../packages/datasets/scripts/build-registry.ts && bun scripts/sync-dataset-notes.ts && bun scripts/build-runtime-seed.ts",
+    "seed:runtime": "bun scripts/build-runtime-seed.ts",
+    "data:catalog": "bun scripts/build-dataset-catalog.ts",
+    "data:catalog:local": "bun run data:catalog && bun scripts/upload-dataset-catalog.ts --local",
+    "data:catalog:upload:remote": "bun run data:catalog && bun scripts/upload-dataset-catalog.ts --remote",
+    "content:sync-notes:remote": "bun scripts/sync-remote-dataset-notes.ts",
+    "seed:validate": "bun ../../packages/datasets/scripts/build-registry.ts --check && bun scripts/sync-dataset-notes.ts --check && bun scripts/build-runtime-seed.ts --check && bun scripts/build-dataset-catalog.ts --check && emdash seed seed/seed.json --validate && bun scripts/validate-publication-seed.ts",
+    "db:migrate:local": "env -u CLOUDFLARE_ACCOUNT_ID -u CLOUDFLARE_API_TOKEN bun scripts/migrate.ts --local",
+    "db:migrate:remote": "env -u CLOUDFLARE_ACCOUNT_ID -u CLOUDFLARE_API_TOKEN bun scripts/migrate.ts --remote",
+    "check": "bun run seed:validate && bun run test && bun run typecheck && bun run build",
+    "deploy": "astro build && env -u CLOUDFLARE_ACCOUNT_ID -u CLOUDFLARE_API_TOKEN wrangler deploy",
+    "content:sync-claim-drafts": "bun scripts/sync-claim-drafts.ts"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "14.2.5",
+    "@astrojs/react": "6.0.4",
+    "@astrojs/rss": "4.0.19",
+    "@developing-country/countries": "workspace:*",
+    "@developing-country/datasets": "workspace:*",
+    "@developing-country/emdash-blocks": "workspace:*",
+    "@developing-country/figures": "workspace:*",
+    "@developing-country/ui": "workspace:*",
+    "@developing-country/views": "workspace:*",
+    "@emdash-cms/cloudflare": "0.35.0",
+    "astro": "7.2.7",
+    "emdash": "0.35.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@cloudflare/workers-types": "5.20260710.1",
+    "wrangler": "4.125.0"
+  }
+}

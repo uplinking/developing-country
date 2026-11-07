@@ -1,0 +1,118 @@
+---
+import { SiteHeader } from '@developing-country/ui/SiteHeader'
+import { Wordmark } from '@developing-country/ui/Wordmark'
+import { getSiteSettings } from 'emdash'
+import { EmDashBodyEnd, EmDashBodyStart, EmDashHead } from 'emdash/ui'
+import { createPublicPageContext } from 'emdash/page'
+import { CANONICAL_EXPLORER_ORIGIN } from '../lib/explorer'
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  description?: string | null
+  image?: string | null
+  immersiveHeader?: boolean
+  type?: 'website' | 'article'
+  publishedTime?: string | null
+  modifiedTime?: string | null
+  content?: { collection: string; id: string; slug?: string | null }
+}
+
+const {
+  title,
+  description = 'Sri Lanka’s public data, brought together and explained.',
+  image,
+  immersiveHeader = false,
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  content,
+} = Astro.props
+const settings = await getSiteSettings()
+const siteTitle = settings.title || 'developing-country.org'
+const fullTitle = title === siteTitle ? title : `${title} — ${siteTitle}`
+const explorerUrl = import.meta.env.DEV ? 'http://127.0.0.1:5173' : CANONICAL_EXPLORER_ORIGIN
+const SITE_URL = 'https://developing-country.org'
+const publicUrl = new URL(Astro.url.pathname, SITE_URL)
+// Every page shares a link-preview card: its own when it has one, else the site card.
+// Cards under /og/ are generated at 1200 × 630.
+const ogImage = new URL(image || '/og/default.jpg', SITE_URL).href
+const ogImageIsCard = new URL(ogImage).pathname.startsWith('/og/')
+const ogImageAlt = ogImageIsCard ? `${title === siteTitle ? 'Developing country' : title}, on developing-country.org` : title
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Developing Country',
+  url: SITE_URL,
+  logo: `${SITE_URL}/icon-512.png`,
+  description: 'Sri Lanka’s public data, brought together and explained.',
+}
+const page = createPublicPageContext({
+  url: publicUrl,
+  kind: content ? 'content' : 'custom',
+  pageType: type,
+  title: fullTitle,
+  pageTitle: title,
+  description,
+  image: ogImage,
+  canonical: publicUrl.href,
+  content,
+  seo: { ogImage },
+  articleMeta: { publishedTime, modifiedTime },
+  siteName: siteTitle,
+  siteUrl: SITE_URL,
+})
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101216" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="alternate" type="application/rss+xml" title={siteTitle} href="/rss.xml" />
+    <title>{fullTitle}</title>
+    <EmDashHead page={page} />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+    {ogImageIsCard && <meta property="og:image:width" content="1200" />}
+    {ogImageIsCard && <meta property="og:image:height" content="630" />}
+    <script type="application/ld+json" set:html={JSON.stringify(organization)} />
+  </head>
+  <body class:list={['site-body', { 'site-body--immersive': immersiveHeader }]}>
+    <EmDashBodyStart page={page} />
+    <SiteHeader siteUrl="" explorerUrl={explorerUrl} />
+    <main><slot /></main>
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-wordmark" href="/" aria-label="Developing Country home"><Wordmark /></a>
+          <p>{settings.tagline || 'Sri Lanka’s public data, brought together and explained.'}</p>
+        </div>
+        <div>
+          <p class="footer-label">Coverage</p>
+          <a href="/countries/lk">Sri Lanka</a>
+          <span>More countries will follow</span>
+        </div>
+        <div>
+          <p class="footer-label">Read and explore</p>
+          <a href="/data">Data notes</a>
+          <a href="/analysis">Thoughts</a>
+          <a href="/rss.xml">RSS</a>
+          <a href={explorerUrl}>Explore the map</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Independent and built in public.</span>
+        <span>Sources cited. Gaps left visible.</span>
+      </div>
+    </footer>
+    <EmDashBodyEnd page={page} />
+  </body>
+</html>

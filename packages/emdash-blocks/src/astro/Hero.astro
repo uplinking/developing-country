@@ -1,0 +1,29 @@
+---
+import { safeCmsHref } from '../safe-href'
+
+interface Props {
+  node: {
+    eyebrow?: string
+    headline?: string
+    subheadline?: string
+    primaryLabel?: string
+    primaryUrl?: string
+    secondaryLabel?: string
+    secondaryUrl?: string
+  }
+}
+
+const value = Astro.props.node
+const primaryUrl = safeCmsHref(value.primaryUrl)
+const secondaryUrl = safeCmsHref(value.secondaryUrl)
+---
+
+<section class="dc-hero">
+  <p class="dc-hero__eyebrow">{value.eyebrow || 'Public data, made legible'}</p>
+  <h1>{value.headline}</h1>
+  {value.subheadline && <p class="dc-hero__summary">{value.subheadline}</p>}
+  <div class="dc-hero__actions">
+    {value.primaryLabel && primaryUrl && <a class="dc-button dc-button--primary" href={primaryUrl}>{value.primaryLabel}</a>}
+    {value.secondaryLabel && secondaryUrl && <a class="dc-button" href={secondaryUrl}>{value.secondaryLabel}</a>}
+  </div>
+</section>

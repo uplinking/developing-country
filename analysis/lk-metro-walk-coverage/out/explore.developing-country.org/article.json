@@ -1,0 +1,368 @@
+{
+  "collection": "articles",
+  "slug": "how-far-colombos-metro-bus-reaches",
+  "data": {
+    "title": "How far Colombo's Metro Bus reaches",
+    "dek": "We walked ten minutes from every Metro Bus stop along real streets and counted the homes, schools, hospitals and offices within reach.",
+    "research_question": "How many residents, schools, hospitals and offices are within a ten-minute walk of a Colombo Metro Bus stop?",
+    "methodology": "We built a walking network from OpenStreetMap streets and footpaths and walked it outward from each of the 110 Metro Bus stops compiled by the open lk_metro project, at 80 metres a minute, so 400 m in five minutes and 800 m in ten. Every street reached was buffered 50 m on each side, the frontage a pedestrian can reach, and the buffers were merged on a 5 m grid so overlapping walksheds are never counted twice. Residents come from the 2024 Census of Population and Housing for each GN division, shared out by the fraction of the division's area inside a walkshed, which assumes people are spread evenly within a division. The study area is every GN division within 2 km of a line: 568 divisions and 2.58 million residents. We compare the walk with the 800 m straight-line circle often used to describe a stop's catchment. Schools and hospitals are named amenities in OpenStreetMap. Offices are business, professional, financial and government office listings in Overture Maps Places (release 2026-09-23.1, confidence 0.5 or higher). Every school, hospital and office is assigned to its nearest stop by walking distance. Every figure is a saved query on the platform, pinned to the Dataset Versions listed below, and can be reopened in the explorer.",
+    "editorial_notes": "First piece in the Colombo Metro Bus series, authored through the platform MCP with scripts/analysis-article.ts (recipe in analysis/lk-metro-walk-coverage). Rewritten into the slide-deck shape in the house style: plain title, short opening, one six-step deck, one bound number, one lookup, limits, and an 'In short' conclusion. The earlier draft led with an offices-versus-homes finding and five standalone charts; those views were dropped from the recipe rather than left unused. Numbers in prose come from the pinned metro-coverage Dataset Versions; the one stat is bound to the 'headline' view. The neighbourhoods the walk misses are the second piece. Reviewed by dc-editor after the rewrite; its edits were applied (circle radius wording, no ridership claim in 'In short', plain explorer labels). Rejected: none. This draft is a revision of the published article 'colombo-metro-bus-walking-reach'; if it is approved, the editor should replace or unpublish that one. The stop lookup was removed after publication: it was too large for the piece. Every map slide draws the seven Metro Bus lines underneath, so readers can see where the buses run. The limits section was removed at the publisher's request; the data's known gaps stay in Method & sources. Slide notes rewritten to describe places, not map colours or shading.",
+    "format": "analysis",
+    "analysis_kind": "essay",
+    "country_code": "LK",
+    "content": [
+      {
+        "_type": "block",
+        "_key": "k0000",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "k0001",
+            "text": "Colombo's Metro Bus has seven lines and 110 stops. The lines run from Kadawatha in the north to Panadura in the south, and from Ekala to Kesbewa. They follow the main roads into the city.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "k0002",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "k0003",
+            "text": "A bus is only useful if you can get to a stop, and for most people that means walking. So we asked a simple question: who lives within a ten-minute walk of a stop?",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "k0004",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "k0005",
+            "text": "We measured the walk on the real street map, from OpenStreetMap, at a steady pace of about 800 metres in ten minutes. The slides below build up the picture one layer at a time.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "dcScrolly",
+        "title": "A ten-minute walk from every stop",
+        "_key": "k0006",
+        "steps": [
+          {
+            "text": "These are the 110 stops on the seven lines. The stops with the most people living close by are at Maradana railway station and around Wellawatta and Dehiwala.",
+            "_key": "k0007",
+            "view_url": "https://explore.developing-country.org/views/view_6e1fe27a69fe41f1a798",
+            "underlay_urls": "https://explore.developing-country.org/views/view_0fbb5d83af674aeca7eb"
+          },
+          {
+            "text": "From every stop we walked ten minutes along real streets and mapped everything you can reach. A plan usually draws a simple circle 800 metres out from each stop instead. The real walk covers about half the area the circles do.",
+            "_key": "k0008",
+            "view_url": "https://explore.developing-country.org/views/view_64290f3a9606441c842f",
+            "underlay_urls": "https://explore.developing-country.org/views/view_0fbb5d83af674aeca7eb"
+          },
+          {
+            "text": "Now add the people, from the 2024 census. The inner north of Colombo, around Kotahena, Grandpass and Modara, is the most crowded part of the city.",
+            "_key": "k0009",
+            "view_url": "https://explore.developing-country.org/views/view_c4038a8967ca4e0286be",
+            "underlay_urls": "https://explore.developing-country.org/views/view_0fbb5d83af674aeca7eb"
+          },
+          {
+            "text": "Put the two together. Neighbourhoods along Galle Road do best, with many residents a short walk from a stop. Much of the crowded north is beyond the walk.",
+            "_key": "k000a",
+            "view_url": "https://explore.developing-country.org/views/view_63a2c8caf6cd4cd897ee",
+            "underlay_urls": "https://explore.developing-country.org/views/view_0fbb5d83af674aeca7eb"
+          },
+          {
+            "text": "Schools and hospitals near the lines. About three in five hospitals are within a ten-minute walk of a stop, and a little under half the schools.",
+            "_key": "k000b",
+            "view_url": "https://explore.developing-country.org/views/view_2892504ea7a34da188db",
+            "underlay_urls": "https://explore.developing-country.org/views/view_0fbb5d83af674aeca7eb"
+          },
+          {
+            "text": "Offices near the lines. Most sit on the same main roads the buses run along, so three in five are within a ten-minute walk of a stop.",
+            "_key": "k000c",
+            "view_url": "https://explore.developing-country.org/views/view_fa2d3cc7b55540929c82",
+            "underlay_urls": "https://explore.developing-country.org/views/view_0fbb5d83af674aeca7eb"
+          }
+        ]
+      },
+      {
+        "_type": "dcStat",
+        "label": "of the people living along the lines can walk to a stop in ten minutes",
+        "field": "share_10min_pct",
+        "where_field": "line_code",
+        "where_value": "ALL",
+        "aggregate": "first",
+        "format": "percent",
+        "note": "About 510,000 of the 2.6 million people who live within 2 km of a line, from the 2024 census.",
+        "_key": "k000d",
+        "view_url": "https://explore.developing-country.org/views/view_14075544bee8423087ac"
+      },
+      {
+        "_type": "block",
+        "_key": "k000e",
+        "style": "h2",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "k000f",
+            "text": "In short",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "k000g",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "k000h",
+            "text": "The Metro Bus goes where the main roads go. That is a sensible place to start. The main roads carry most of the offices and hospitals, and a bus on Galle Road is easy to find.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "k000i",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "k000j",
+            "text": "But people live in the streets behind those roads, and the walk from home is the one most riders have to make first. Today, one person in five along the lines can walk to a stop in ten minutes. The other four cannot.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "k000k",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "k000l",
+            "text": "We think the lesson for the next line is in the second slide. Measure the walk, not the circle. A circle drawn around a stop counts almost twice as many people as can really get there, and the extra people are exactly the ones the bus misses.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "k000m",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "k000n",
+            "text": "The biggest of those gaps is the crowded north of the city, a few kilometres from Fort. We think that is where a new stop would reach the most people, and it is where our next piece goes.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "primary_view_url": "https://explore.developing-country.org/views/view_6e1fe27a69fe41f1a798",
+    "evidence_bundle": {
+      "version": 1,
+      "kind": "platform-query",
+      "country": "LK",
+      "generatedAt": "2026-10-21T17:51:00Z",
+      "datasetVersions": [
+        {
+          "datasetId": "metro",
+          "versionId": "dsv_e06433f8f9c19803662f310d6d8ba502",
+          "country": "LK",
+          "checksum": "sha256:7f8e99638e09fc1723b650b11cb408c7f11cd155d60661c440d556f935078b23",
+          "vintage": "2026",
+          "refreshedAt": "2026-10-19T00:00:00.000Z",
+          "sourceIds": [
+            "lk-metro"
+          ]
+        },
+        {
+          "datasetId": "metro_walksheds",
+          "versionId": "dsv_6343c6315e2b5f0a82653fbff61a617c",
+          "country": "LK",
+          "checksum": "sha256:6451e98ffd58e0a0c5ff2d057a3f440751216602509cb9d719a0058b058d85ba",
+          "vintage": "Census 2012 GN boundaries · 2024 · 2026 · 2026-10 · 2026-09-23.1",
+          "refreshedAt": "2026-08-20T00:00:00.000Z",
+          "sourceIds": [
+            "gig-data-gnd-boundaries",
+            "lk-census-2024",
+            "lk-metro",
+            "metro-coverage",
+            "osm",
+            "osm-walk-colombo",
+            "overture-places"
+          ]
+        },
+        {
+          "datasetId": "metro-coverage-facilities",
+          "versionId": "dsv_dc0c210a22d1ec6460e1d17f3eadc61a",
+          "country": "LK",
+          "checksum": "sha256:a6674c5eb0d9e9261242b181d5d0cba1c0f5177e113665c13fc261608a3303fb",
+          "vintage": "Census 2012 GN boundaries · 2024 · 2026 · 2026-10 · 2026-09-23.1",
+          "refreshedAt": "2026-08-20T00:00:00.000Z",
+          "sourceIds": [
+            "gig-data-gnd-boundaries",
+            "lk-census-2024",
+            "lk-metro",
+            "metro-coverage",
+            "osm",
+            "osm-walk-colombo",
+            "overture-places"
+          ]
+        },
+        {
+          "datasetId": "metro-coverage-gnd",
+          "versionId": "dsv_7d6e9703998375f624037044f2ba5cdf",
+          "country": "LK",
+          "checksum": "sha256:3a64f9e5437a1bd322cbd75182b7e20bfe770a8c9aecb627988e6d4661f751d0",
+          "vintage": "Census 2012 GN boundaries · 2024 · 2026 · 2026-10 · 2026-09-23.1",
+          "refreshedAt": "2026-08-20T00:00:00.000Z",
+          "sourceIds": [
+            "gig-data-gnd-boundaries",
+            "lk-census-2024",
+            "lk-metro",
+            "metro-coverage",
+            "osm",
+            "osm-walk-colombo",
+            "overture-places"
+          ]
+        },
+        {
+          "datasetId": "metro-coverage-lines",
+          "versionId": "dsv_1c596514c1cc2f1a685b5f3e9612f148",
+          "country": "LK",
+          "checksum": "sha256:09261536b367218aa0ea6d80e000752180e756264dead1f7b4565e4a2aa90ddc",
+          "vintage": "Census 2012 GN boundaries · 2024 · 2026 · 2026-10 · 2026-09-23.1",
+          "refreshedAt": "2026-08-20T00:00:00.000Z",
+          "sourceIds": [
+            "gig-data-gnd-boundaries",
+            "lk-census-2024",
+            "lk-metro",
+            "metro-coverage",
+            "osm",
+            "osm-walk-colombo",
+            "overture-places"
+          ]
+        },
+        {
+          "datasetId": "metro-coverage-stops",
+          "versionId": "dsv_d73ba3f736414e7e567f262605726c8a",
+          "country": "LK",
+          "checksum": "sha256:869f1cfbafa87a416f47a202e97e0570ec321cdf4f92d08bfd2532272fd2f08d",
+          "vintage": "Census 2012 GN boundaries · 2024 · 2026 · 2026-10 · 2026-09-23.1",
+          "refreshedAt": "2026-08-20T00:00:00.000Z",
+          "sourceIds": [
+            "gig-data-gnd-boundaries",
+            "lk-census-2024",
+            "lk-metro",
+            "metro-coverage",
+            "osm",
+            "osm-walk-colombo",
+            "overture-places"
+          ]
+        }
+      ],
+      "dataViews": [
+        {
+          "viewUrl": "https://explore.developing-country.org/views/view_6e1fe27a69fe41f1a798",
+          "queryId": "query_dc9af7f5b3a3460e8b4b",
+          "resultChecksum": "sha256:8131684be889acac6ba9483ca63a8ee53048ea46b6c4e7a13d70295a10a0d89e"
+        },
+        {
+          "viewUrl": "https://explore.developing-country.org/views/view_0fbb5d83af674aeca7eb",
+          "queryId": "query_603ab0be9e4343ccb2a8",
+          "resultChecksum": "sha256:176f5533501c4c54959bab8abef9576c26dc5a034fd201276bb5838da7485a80"
+        },
+        {
+          "viewUrl": "https://explore.developing-country.org/views/view_64290f3a9606441c842f",
+          "queryId": "query_952beffaa1804dcb9035",
+          "resultChecksum": "sha256:c28e52832cffe2332363ccb1ff9a76875ab8b700f64eb1c02111c072a643d209"
+        },
+        {
+          "viewUrl": "https://explore.developing-country.org/views/view_c4038a8967ca4e0286be",
+          "queryId": "query_56937641fba54a6a9d14",
+          "resultChecksum": "sha256:ec3debe331c3c6d203d1f8d3466e7e0bbb35f74a24539ec8e98051e63967c3b7"
+        },
+        {
+          "viewUrl": "https://explore.developing-country.org/views/view_63a2c8caf6cd4cd897ee",
+          "queryId": "query_2615eaea15004b6cacd2",
+          "resultChecksum": "sha256:cef69f55c30d329247be374588a5d301e0445230cf64e4c6995b01b4144b2cb3"
+        },
+        {
+          "viewUrl": "https://explore.developing-country.org/views/view_2892504ea7a34da188db",
+          "queryId": "query_f3ec66caeb834a608c52",
+          "resultChecksum": "sha256:5042609936e0384b8cd275c06ec4dd76bebf7c526d13ec815852abdbd5e4fb57"
+        },
+        {
+          "viewUrl": "https://explore.developing-country.org/views/view_fa2d3cc7b55540929c82",
+          "queryId": "query_8a5c76956de7493fb28d",
+          "resultChecksum": "sha256:9537435bc984bc3e24bfa0c739b76f800371f7e19c24bb7a80e4eef13757ecbd"
+        },
+        {
+          "viewUrl": "https://explore.developing-country.org/views/view_14075544bee8423087ac",
+          "queryId": "query_78a8dd765b754767ad91",
+          "resultChecksum": "sha256:9c7fbf7eabd34402d4159d03a8a00c6202aa19caeffd7db6d9758031d2708aef"
+        }
+      ]
+    },
+    "source_manifest": [
+      {
+        "sourceId": "gig-data-gnd-boundaries",
+        "title": "GN division boundaries (nuuuwan/gig-data geo/gnd)",
+        "url": "https://github.com/nuuuwan/gig-data"
+      },
+      {
+        "sourceId": "lk-census-2024",
+        "title": "Sri Lanka Census of Population & Housing 2024 (via nuuuwan/lk_census_2024)",
+        "url": "https://github.com/nuuuwan/lk_census_2024"
+      },
+      {
+        "sourceId": "lk-metro",
+        "title": "nuuuwan/lk_metro",
+        "url": "https://github.com/nuuuwan/lk_metro"
+      },
+      {
+        "sourceId": "metro-coverage",
+        "title": "Colombo Metro Bus walking coverage (derived analysis)",
+        "url": "https://developing-country.org/data/metro-coverage-lines"
+      },
+      {
+        "sourceId": "osm",
+        "title": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/"
+      },
+      {
+        "sourceId": "osm-walk-colombo",
+        "title": "Colombo OSM foot graph (isochrone)",
+        "url": "https://www.openstreetmap.org/"
+      },
+      {
+        "sourceId": "overture-places",
+        "title": "Overture Maps Places (release 2026-09-23.1)",
+        "url": "https://docs.overturemaps.org/guides/places/"
+      }
+    ]
+  },
+  "taxonomies": {}
+}

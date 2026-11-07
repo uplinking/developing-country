@@ -1,0 +1,1327 @@
+{
+  "caveats": [
+    "January 2026 onward is not directly comparable with 2009–2025 because of the May 2026 methodology revision.",
+    "CBSL makes the workbook freely downloadable but does not state an open-data reuse licence on the statistical-table page; this artifact contains normalized aggregate facts and does not redistribute the workbook."
+  ],
+  "country": "LK",
+  "dataset_id": "tourism-earnings-monthly",
+  "description": "Monthly earnings from tourism in US dollars, published by the Central Bank of Sri Lanka from Sri Lanka Tourism Development Authority survey estimates.",
+  "fields": [
+    {
+      "id": "period",
+      "label": "Month",
+      "role": "dimension",
+      "type": "period"
+    },
+    {
+      "id": "provisional",
+      "label": "Provisional",
+      "role": "dimension",
+      "type": "boolean"
+    },
+    {
+      "id": "methodology_revised",
+      "label": "Uses the May 2026 SLTDA methodology",
+      "role": "dimension",
+      "type": "boolean"
+    },
+    {
+      "aggregation": "none",
+      "id": "value_usd_million",
+      "label": "Earnings from tourism",
+      "role": "measure",
+      "type": "number",
+      "unit": "USD million"
+    }
+  ],
+  "grain": "One national row per month.",
+  "notes": [
+    "Values are rounded to one decimal place in USD millions.",
+    "(a) Based on the survey conducted by the Sri Lanka Tourism Development Authority.",
+    "(b) Provisional.",
+    "(c) SLTDA revised the monthly earnings methodology in May 2026, applying country-specific arrivals, average daily expenditure and average duration of stay retrospectively from January 2026."
+  ],
+  "primary_key": [
+    "period"
+  ],
+  "rows": [
+    {
+      "methodology_revised": false,
+      "period": "2009-01",
+      "provisional": false,
+      "value_usd_million": 30
+    },
+    {
+      "methodology_revised": false,
+      "period": "2009-02",
+      "provisional": false,
+      "value_usd_million": 26.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2009-03",
+      "provisional": false,
+      "value_usd_million": 26.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2009-04",
+      "provisional": false,
+      "value_usd_million": 20.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2009-05",
+      "provisional": false,
+      "value_usd_million": 19.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2009-06",
+      "provisional": false,
+      "value_usd_million": 23.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2009-07",
+      "provisional": false,
+      "value_usd_million": 33
+    },
+    {
+      "methodology_revised": false,
+      "period": "2009-08",
+      "provisional": false,
+      "value_usd_million": 32.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2009-09",
+      "provisional": false,
+      "value_usd_million": 29.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2009-10",
+      "provisional": false,
+      "value_usd_million": 29.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2009-11",
+      "provisional": false,
+      "value_usd_million": 34.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2009-12",
+      "provisional": false,
+      "value_usd_million": 44.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2010-01",
+      "provisional": false,
+      "value_usd_million": 44.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2010-02",
+      "provisional": false,
+      "value_usd_million": 50.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2010-03",
+      "provisional": false,
+      "value_usd_million": 46.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2010-04",
+      "provisional": false,
+      "value_usd_million": 33.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2010-05",
+      "provisional": false,
+      "value_usd_million": 31
+    },
+    {
+      "methodology_revised": false,
+      "period": "2010-06",
+      "provisional": false,
+      "value_usd_million": 39.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2010-07",
+      "provisional": false,
+      "value_usd_million": 55.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2010-08",
+      "provisional": false,
+      "value_usd_million": 49.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2010-09",
+      "provisional": false,
+      "value_usd_million": 41.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2010-10",
+      "provisional": false,
+      "value_usd_million": 46.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2010-11",
+      "provisional": false,
+      "value_usd_million": 63.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2010-12",
+      "provisional": false,
+      "value_usd_million": 74.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2011-01",
+      "provisional": false,
+      "value_usd_million": 72
+    },
+    {
+      "methodology_revised": false,
+      "period": "2011-02",
+      "provisional": false,
+      "value_usd_million": 63.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2011-03",
+      "provisional": false,
+      "value_usd_million": 72.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2011-04",
+      "provisional": false,
+      "value_usd_million": 61.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2011-05",
+      "provisional": false,
+      "value_usd_million": 47.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2011-06",
+      "provisional": false,
+      "value_usd_million": 52
+    },
+    {
+      "methodology_revised": false,
+      "period": "2011-07",
+      "provisional": false,
+      "value_usd_million": 81.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2011-08",
+      "provisional": false,
+      "value_usd_million": 70.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2011-09",
+      "provisional": false,
+      "value_usd_million": 58.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2011-10",
+      "provisional": false,
+      "value_usd_million": 67.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2011-11",
+      "provisional": false,
+      "value_usd_million": 88.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2011-12",
+      "provisional": false,
+      "value_usd_million": 94.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2012-01",
+      "provisional": false,
+      "value_usd_million": 88.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2012-02",
+      "provisional": false,
+      "value_usd_million": 84.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2012-03",
+      "provisional": false,
+      "value_usd_million": 92.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2012-04",
+      "provisional": false,
+      "value_usd_million": 73.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2012-05",
+      "provisional": false,
+      "value_usd_million": 57.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2012-06",
+      "provisional": false,
+      "value_usd_million": 62.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2012-07",
+      "provisional": false,
+      "value_usd_million": 100.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2012-08",
+      "provisional": false,
+      "value_usd_million": 81.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2012-09",
+      "provisional": false,
+      "value_usd_million": 68.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2012-10",
+      "provisional": false,
+      "value_usd_million": 79.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2012-11",
+      "provisional": false,
+      "value_usd_million": 114.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2012-12",
+      "provisional": false,
+      "value_usd_million": 133.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2013-01",
+      "provisional": false,
+      "value_usd_million": 148.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2013-02",
+      "provisional": false,
+      "value_usd_million": 153.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2013-03",
+      "provisional": false,
+      "value_usd_million": 152.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2013-04",
+      "provisional": false,
+      "value_usd_million": 108.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2013-05",
+      "provisional": false,
+      "value_usd_million": 100.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2013-06",
+      "provisional": false,
+      "value_usd_million": 121.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2013-07",
+      "provisional": false,
+      "value_usd_million": 144
+    },
+    {
+      "methodology_revised": false,
+      "period": "2013-08",
+      "provisional": false,
+      "value_usd_million": 165.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2013-09",
+      "provisional": false,
+      "value_usd_million": 121.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2013-10",
+      "provisional": false,
+      "value_usd_million": 144.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2013-11",
+      "provisional": false,
+      "value_usd_million": 147.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2013-12",
+      "provisional": false,
+      "value_usd_million": 207.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2014-01",
+      "provisional": false,
+      "value_usd_million": 233.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2014-02",
+      "provisional": false,
+      "value_usd_million": 225.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2014-03",
+      "provisional": false,
+      "value_usd_million": 211.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2014-04",
+      "provisional": false,
+      "value_usd_million": 179.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2014-05",
+      "provisional": false,
+      "value_usd_million": 143.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2014-06",
+      "provisional": false,
+      "value_usd_million": 164.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2014-07",
+      "provisional": false,
+      "value_usd_million": 213.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2014-08",
+      "provisional": false,
+      "value_usd_million": 223.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2014-09",
+      "provisional": false,
+      "value_usd_million": 168
+    },
+    {
+      "methodology_revised": false,
+      "period": "2014-10",
+      "provisional": false,
+      "value_usd_million": 193.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2014-11",
+      "provisional": false,
+      "value_usd_million": 190.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2014-12",
+      "provisional": false,
+      "value_usd_million": 284.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2015-01",
+      "provisional": false,
+      "value_usd_million": 259
+    },
+    {
+      "methodology_revised": false,
+      "period": "2015-02",
+      "provisional": false,
+      "value_usd_million": 274.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2015-03",
+      "provisional": false,
+      "value_usd_million": 260.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2015-04",
+      "provisional": false,
+      "value_usd_million": 202.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2015-05",
+      "provisional": false,
+      "value_usd_million": 188.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2015-06",
+      "provisional": false,
+      "value_usd_million": 191.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2015-07",
+      "provisional": false,
+      "value_usd_million": 291.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2015-08",
+      "provisional": false,
+      "value_usd_million": 276.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2015-09",
+      "provisional": false,
+      "value_usd_million": 237.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2015-10",
+      "provisional": false,
+      "value_usd_million": 219.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2015-11",
+      "provisional": false,
+      "value_usd_million": 238.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2015-12",
+      "provisional": false,
+      "value_usd_million": 341.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2016-01",
+      "provisional": false,
+      "value_usd_million": 333.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2016-02",
+      "provisional": false,
+      "value_usd_million": 339.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2016-03",
+      "provisional": false,
+      "value_usd_million": 330.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2016-04",
+      "provisional": false,
+      "value_usd_million": 234
+    },
+    {
+      "methodology_revised": false,
+      "period": "2016-05",
+      "provisional": false,
+      "value_usd_million": 214.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2016-06",
+      "provisional": false,
+      "value_usd_million": 202.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2016-07",
+      "provisional": false,
+      "value_usd_million": 359.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2016-08",
+      "provisional": false,
+      "value_usd_million": 319.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2016-09",
+      "provisional": false,
+      "value_usd_million": 254.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2016-10",
+      "provisional": false,
+      "value_usd_million": 258.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2016-11",
+      "provisional": false,
+      "value_usd_million": 286.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2016-12",
+      "provisional": false,
+      "value_usd_million": 385.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2017-01",
+      "provisional": false,
+      "value_usd_million": 406.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2017-02",
+      "provisional": false,
+      "value_usd_million": 366.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2017-03",
+      "provisional": false,
+      "value_usd_million": 348.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2017-04",
+      "provisional": false,
+      "value_usd_million": 297.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2017-05",
+      "provisional": false,
+      "value_usd_million": 226.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2017-06",
+      "provisional": false,
+      "value_usd_million": 228.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2017-07",
+      "provisional": false,
+      "value_usd_million": 381.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2017-08",
+      "provisional": false,
+      "value_usd_million": 354.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2017-09",
+      "provisional": false,
+      "value_usd_million": 269
+    },
+    {
+      "methodology_revised": false,
+      "period": "2017-10",
+      "provisional": false,
+      "value_usd_million": 282.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2017-11",
+      "provisional": false,
+      "value_usd_million": 310.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2017-12",
+      "provisional": false,
+      "value_usd_million": 453.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2018-01",
+      "provisional": false,
+      "value_usd_million": 448.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2018-02",
+      "provisional": false,
+      "value_usd_million": 442.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2018-03",
+      "provisional": false,
+      "value_usd_million": 438.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2018-04",
+      "provisional": false,
+      "value_usd_million": 338.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2018-05",
+      "provisional": false,
+      "value_usd_million": 243
+    },
+    {
+      "methodology_revised": false,
+      "period": "2018-06",
+      "provisional": false,
+      "value_usd_million": 275.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2018-07",
+      "provisional": false,
+      "value_usd_million": 408.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2018-08",
+      "provisional": false,
+      "value_usd_million": 376.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2018-09",
+      "provisional": false,
+      "value_usd_million": 279.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2018-10",
+      "provisional": false,
+      "value_usd_million": 287.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2018-11",
+      "provisional": false,
+      "value_usd_million": 367.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2018-12",
+      "provisional": false,
+      "value_usd_million": 475.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2019-01",
+      "provisional": false,
+      "value_usd_million": 460.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2019-02",
+      "provisional": false,
+      "value_usd_million": 475
+    },
+    {
+      "methodology_revised": false,
+      "period": "2019-03",
+      "provisional": false,
+      "value_usd_million": 460.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2019-04",
+      "provisional": false,
+      "value_usd_million": 314.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2019-05",
+      "provisional": false,
+      "value_usd_million": 71.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2019-06",
+      "provisional": false,
+      "value_usd_million": 118.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2019-07",
+      "provisional": false,
+      "value_usd_million": 218.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2019-08",
+      "provisional": false,
+      "value_usd_million": 270.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2019-09",
+      "provisional": false,
+      "value_usd_million": 204.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2019-10",
+      "provisional": false,
+      "value_usd_million": 223.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2019-11",
+      "provisional": false,
+      "value_usd_million": 333.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2019-12",
+      "provisional": false,
+      "value_usd_million": 455.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2020-01",
+      "provisional": false,
+      "value_usd_million": 307
+    },
+    {
+      "methodology_revised": false,
+      "period": "2020-02",
+      "provisional": false,
+      "value_usd_million": 278.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2020-03",
+      "provisional": false,
+      "value_usd_million": 95.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2020-04",
+      "provisional": false,
+      "value_usd_million": 0
+    },
+    {
+      "methodology_revised": false,
+      "period": "2020-05",
+      "provisional": false,
+      "value_usd_million": 0
+    },
+    {
+      "methodology_revised": false,
+      "period": "2020-06",
+      "provisional": false,
+      "value_usd_million": 0
+    },
+    {
+      "methodology_revised": false,
+      "period": "2020-07",
+      "provisional": false,
+      "value_usd_million": 0
+    },
+    {
+      "methodology_revised": false,
+      "period": "2020-08",
+      "provisional": false,
+      "value_usd_million": 0
+    },
+    {
+      "methodology_revised": false,
+      "period": "2020-09",
+      "provisional": false,
+      "value_usd_million": 0
+    },
+    {
+      "methodology_revised": false,
+      "period": "2020-10",
+      "provisional": false,
+      "value_usd_million": 0
+    },
+    {
+      "methodology_revised": false,
+      "period": "2020-11",
+      "provisional": false,
+      "value_usd_million": 0
+    },
+    {
+      "methodology_revised": false,
+      "period": "2020-12",
+      "provisional": false,
+      "value_usd_million": 0.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2021-01",
+      "provisional": false,
+      "value_usd_million": 4.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2021-02",
+      "provisional": false,
+      "value_usd_million": 8.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2021-03",
+      "provisional": false,
+      "value_usd_million": 11.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2021-04",
+      "provisional": false,
+      "value_usd_million": 10.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2021-05",
+      "provisional": false,
+      "value_usd_million": 3.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2021-06",
+      "provisional": false,
+      "value_usd_million": 4.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2021-07",
+      "provisional": false,
+      "value_usd_million": 6.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2021-08",
+      "provisional": false,
+      "value_usd_million": 13.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2021-09",
+      "provisional": false,
+      "value_usd_million": 35.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2021-10",
+      "provisional": false,
+      "value_usd_million": 59.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2021-11",
+      "provisional": false,
+      "value_usd_million": 115.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2021-12",
+      "provisional": false,
+      "value_usd_million": 233.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2022-01",
+      "provisional": false,
+      "value_usd_million": 151.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2022-02",
+      "provisional": false,
+      "value_usd_million": 169.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2022-03",
+      "provisional": false,
+      "value_usd_million": 161.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2022-04",
+      "provisional": false,
+      "value_usd_million": 108.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2022-05",
+      "provisional": false,
+      "value_usd_million": 43.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2022-06",
+      "provisional": false,
+      "value_usd_million": 45
+    },
+    {
+      "methodology_revised": false,
+      "period": "2022-07",
+      "provisional": false,
+      "value_usd_million": 85
+    },
+    {
+      "methodology_revised": false,
+      "period": "2022-08",
+      "provisional": false,
+      "value_usd_million": 67.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2022-09",
+      "provisional": false,
+      "value_usd_million": 40.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2022-10",
+      "provisional": false,
+      "value_usd_million": 54.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2022-11",
+      "provisional": false,
+      "value_usd_million": 81
+    },
+    {
+      "methodology_revised": false,
+      "period": "2022-12",
+      "provisional": false,
+      "value_usd_million": 127.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2023-01",
+      "provisional": false,
+      "value_usd_million": 153.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2023-02",
+      "provisional": false,
+      "value_usd_million": 161.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2023-03",
+      "provisional": false,
+      "value_usd_million": 188.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2023-04",
+      "provisional": false,
+      "value_usd_million": 148.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2023-05",
+      "provisional": false,
+      "value_usd_million": 100
+    },
+    {
+      "methodology_revised": false,
+      "period": "2023-06",
+      "provisional": false,
+      "value_usd_million": 122.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2023-07",
+      "provisional": false,
+      "value_usd_million": 219
+    },
+    {
+      "methodology_revised": false,
+      "period": "2023-08",
+      "provisional": false,
+      "value_usd_million": 210.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2023-09",
+      "provisional": false,
+      "value_usd_million": 152.2
+    },
+    {
+      "methodology_revised": false,
+      "period": "2023-10",
+      "provisional": false,
+      "value_usd_million": 136.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2023-11",
+      "provisional": false,
+      "value_usd_million": 205.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2023-12",
+      "provisional": false,
+      "value_usd_million": 269.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2024-01",
+      "provisional": false,
+      "value_usd_million": 341.8
+    },
+    {
+      "methodology_revised": false,
+      "period": "2024-02",
+      "provisional": false,
+      "value_usd_million": 345.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2024-03",
+      "provisional": false,
+      "value_usd_million": 338.4
+    },
+    {
+      "methodology_revised": false,
+      "period": "2024-04",
+      "provisional": false,
+      "value_usd_million": 225.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2024-05",
+      "provisional": false,
+      "value_usd_million": 154
+    },
+    {
+      "methodology_revised": false,
+      "period": "2024-06",
+      "provisional": false,
+      "value_usd_million": 151.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2024-07",
+      "provisional": false,
+      "value_usd_million": 328.3
+    },
+    {
+      "methodology_revised": false,
+      "period": "2024-08",
+      "provisional": false,
+      "value_usd_million": 282.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2024-09",
+      "provisional": false,
+      "value_usd_million": 181
+    },
+    {
+      "methodology_revised": false,
+      "period": "2024-10",
+      "provisional": false,
+      "value_usd_million": 185.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2024-11",
+      "provisional": false,
+      "value_usd_million": 272.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2024-12",
+      "provisional": false,
+      "value_usd_million": 362.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2025-01",
+      "provisional": false,
+      "value_usd_million": 400.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2025-02",
+      "provisional": false,
+      "value_usd_million": 367.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2025-03",
+      "provisional": false,
+      "value_usd_million": 354
+    },
+    {
+      "methodology_revised": false,
+      "period": "2025-04",
+      "provisional": false,
+      "value_usd_million": 256.7
+    },
+    {
+      "methodology_revised": false,
+      "period": "2025-05",
+      "provisional": false,
+      "value_usd_million": 164.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2025-06",
+      "provisional": false,
+      "value_usd_million": 169.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2025-07",
+      "provisional": false,
+      "value_usd_million": 318.5
+    },
+    {
+      "methodology_revised": false,
+      "period": "2025-08",
+      "provisional": false,
+      "value_usd_million": 258.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2025-09",
+      "provisional": false,
+      "value_usd_million": 182.9
+    },
+    {
+      "methodology_revised": false,
+      "period": "2025-10",
+      "provisional": false,
+      "value_usd_million": 186.1
+    },
+    {
+      "methodology_revised": false,
+      "period": "2025-11",
+      "provisional": false,
+      "value_usd_million": 251.6
+    },
+    {
+      "methodology_revised": false,
+      "period": "2025-12",
+      "provisional": false,
+      "value_usd_million": 308.6
+    },
+    {
+      "methodology_revised": true,
+      "period": "2026-01",
+      "provisional": true,
+      "value_usd_million": 413.8
+    },
+    {
+      "methodology_revised": true,
+      "period": "2026-02",
+      "provisional": true,
+      "value_usd_million": 381.4
+    },
+    {
+      "methodology_revised": true,
+      "period": "2026-03",
+      "provisional": true,
+      "value_usd_million": 244.8
+    },
+    {
+      "methodology_revised": true,
+      "period": "2026-04",
+      "provisional": true,
+      "value_usd_million": 164.3
+    },
+    {
+      "methodology_revised": true,
+      "period": "2026-05",
+      "provisional": true,
+      "value_usd_million": 155.7
+    },
+    {
+      "methodology_revised": true,
+      "period": "2026-06",
+      "provisional": true,
+      "value_usd_million": 151.1
+    },
+    {
+      "methodology_revised": true,
+      "period": "2026-07",
+      "provisional": true,
+      "value_usd_million": 285.5
+    },
+    {
+      "methodology_revised": true,
+      "period": "2026-08",
+      "provisional": true,
+      "value_usd_million": 264.4
+    }
+  ],
+  "schema_version": 1,
+  "source_ids": [
+    "cbsl-tourism-earnings-table-2-14-1"
+  ],
+  "title": "Monthly earnings from tourism",
+  "vintage": "2009-01–2026-08; 2026 onward provisional and methodologically revised"
+}

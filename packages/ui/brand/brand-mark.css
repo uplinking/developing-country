@@ -1,0 +1,23 @@
+/* The corner mark: the site header's lilac brand tile, shrunk to a plate. */
+.dc-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  padding: 3px 8px 0;
+  border: 1px solid var(--header-line, #050505);
+  border-radius: var(--dc-radius, 2px);
+  background: var(--brand-lilac);
+  color: var(--header-ink, #050505);
+  font-size: 19px;
+  line-height: 1;
+  text-decoration: none;
+}
+.dc-brand-mark:hover {
+  background: var(--brand-coral);
+  color: var(--on-brand, #050505);
+}
+.dc-brand-mark:focus-visible {
+  outline: 2px solid var(--header-focus, #2456c4);
+  outline-offset: 2px;
+}

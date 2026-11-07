@@ -1,0 +1,33 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "developing-country-site",
+  "main": "./src/worker.ts",
+  "compatibility_date": "2026-08-25",
+  "compatibility_flags": ["nodejs_compat"],
+  "routes": [
+    { "pattern": "developing-country.org", "custom_domain": true }
+  ],
+  "workers_dev": false,
+  "cache": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "developing-country-cms",
+      "migrations_dir": "./migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "developing-country-media"
+    },
+    {
+      "binding": "DATASETS",
+      "bucket_name": "developing-country-data"
+    }
+  ],
+  "triggers": {
+    "crons": ["0 * * * *"]
+  },
+  "observability": { "enabled": true }
+}

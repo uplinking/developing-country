@@ -1,0 +1,44 @@
+---
+import { DEFAULT_DATA_VIEW_ORIGIN, isDataViewUrl } from '@developing-country/views'
+import { liveViewUrlFromNode, type LiveViewNode } from '../live-view'
+
+interface Props {
+  node?: LiveViewNode
+  value?: LiveViewNode
+}
+
+// astro-portabletext passes custom types as `node`; direct site usage may pass
+// `value`. Supporting both keeps the renderer identical in articles and blocks.
+const value = Astro.props.node ?? Astro.props.value ?? {}
+const rawUrl = liveViewUrlFromNode(value)
+let safeUrl: string | null = null
+try {
+  const configuredOrigin = import.meta.env.PUBLIC_DATA_VIEW_ORIGIN || DEFAULT_DATA_VIEW_ORIGIN
+  const candidateOrigin = new URL(rawUrl).origin
+  if (candidateOrigin !== Astro.url.origin && isDataViewUrl(rawUrl, configuredOrigin)) safeUrl = rawUrl
+} catch {
+  safeUrl = null
+}
+---
+
+{safeUrl ? (
+  <figure class="dc-live-view">
+    <div class="dc-live-view__frame">
+      <iframe
+        src={safeUrl}
+        title={value.title || 'Interactive developing-country.org data view'}
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+    </div>
+    <figcaption>
+      <span>{value.caption || value.title || 'Interactive data view'}</span>
+      <a href={safeUrl}>Open full view <span aria-hidden="true">↗</span></a>
+    </figcaption>
+  </figure>
+) : (
+  <aside class="dc-live-view dc-live-view--invalid" role="note">
+    Live view unavailable: use a canonical <code>/views/view_…</code> link from the platform.
+  </aside>
+)}

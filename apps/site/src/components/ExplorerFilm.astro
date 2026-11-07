@@ -1,0 +1,27 @@
+---
+import CameraFilm from './CameraFilm.astro'
+import { explorerTour, filmSrc, type ExplorerShot } from '../lib/films'
+
+interface Props {
+  shot: ExplorerShot
+  label: string
+  class?: string
+}
+
+const { shot, label, class: className } = Astro.props
+---
+
+<CameraFilm class={className} label={label} keys={explorerTour(shot)} sceneWidth={shot.width} plate="explore.developing-country.org">
+  <picture>
+    <source media="(max-width: 700px)" srcset={filmSrc(shot, shot.small)} />
+    <img
+      data-film-shot
+      src={filmSrc(shot, shot.large)}
+      width={shot.width}
+      height={shot.height}
+      alt=""
+      loading="lazy"
+      decoding="async"
+    />
+  </picture>
+</CameraFilm>

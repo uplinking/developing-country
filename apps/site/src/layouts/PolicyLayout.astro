@@ -1,0 +1,29 @@
+---
+import SiteLayout from './SiteLayout.astro'
+
+interface Props { title: string; description: string }
+const { title, description } = Astro.props
+---
+
+<SiteLayout title={title} description={description}>
+  <article class="policy">
+    <header>
+      <p class="policy-meta">Developing Country · 13 October 2026</p>
+      <h1>{title}</h1>
+      <p class="policy-intro">{description}</p>
+    </header>
+    <div class="policy-copy"><slot /></div>
+  </article>
+</SiteLayout>
+
+<style>
+  .policy { width: min(calc(100% - 40px), 760px); margin: 90px auto 120px; }
+  .policy-meta { font: 11px var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+  h1 { margin: 28px 0; font-size: clamp(44px, 7vw, 72px); line-height: 1; letter-spacing: -.045em; font-weight: 500; }
+  .policy-intro { margin-bottom: 50px; color: var(--report-muted); font-size: 20px; line-height: 1.6; }
+  .policy-copy { border-top: 1px solid var(--report-line); font-size: 17px; line-height: 1.75; overflow-wrap: anywhere; }
+  .policy-copy :global(h2) { margin: 42px 0 16px; font-size: 25px; line-height: 1.25; font-weight: 500; letter-spacing: -.025em; }
+  .policy-copy :global(p) { margin: 0 0 20px; }
+  .policy-copy :global(a) { text-underline-offset: 4px; }
+  @media (max-width: 600px) { .policy { margin-top: 48px; } }
+</style>
