@@ -14,6 +14,8 @@ import { isJsonNumber, isJsonObject, jsonObjectFromSerializable } from './shared
 import { MCP_APP_VERSION } from './shared/mcpApp'
 import { BrandMark } from '@developing-country/ui/BrandMark'
 import { dataPanelKind, expectsMap, rawFromResult } from './mcpData'
+import { inlineHeight, safeAreaVars } from './mcpLayout'
+import { canRequestFullscreen, extensionMaxHeight, openExternalLink, requestDisplayMode } from './hostExtensions'
 import './App.css'
 import type { DataViewSpec } from '@developing-country/views'
 
@@ -29,24 +31,15 @@ function applyTheme(ctx: McpUiHostContext | undefined) {
   document.documentElement.setAttribute('data-theme', ctx.theme)
 }
 
-const INLINE_HEIGHT_DESKTOP = 480
-const INLINE_HEIGHT_MOBILE = 360
-// Tables, cards and charts need more room than the map: the chart engine
-// reserves ~360px of its own for title, axes and rotated period labels.
-const DATA_HEIGHT_DESKTOP = 640
-const DATA_HEIGHT_MOBILE = 560
+function applySafeArea(ctx: McpUiHostContext | undefined) {
+  const style = document.documentElement.style
+  for (const [name, value] of safeAreaVars(ctx)) style.setProperty(name, value)
+}
 
 function syncInlineSize(app: McpApp, data = false) {
   const ctx = app.getHostContext()
-  if (ctx?.displayMode === 'fullscreen') return
-  const dimensions = ctx?.containerDimensions
-  const width = dimensions && 'width' in dimensions ? dimensions.width : window.innerWidth
-  const mobile = width <= 520
-  void app.sendSizeChanged({
-    height: data
-      ? mobile ? DATA_HEIGHT_MOBILE : DATA_HEIGHT_DESKTOP
-      : mobile ? INLINE_HEIGHT_MOBILE : INLINE_HEIGHT_DESKTOP,
-  })
+  if (ctx?.displayMode && ctx.displayMode !== 'inline') return
+  void app.sendSizeChanged({ height: inlineHeight(ctx, data, window.innerWidth, extensionMaxHeight()) })
 }
 
 function deferred() {
@@ -96,6 +89,7 @@ export default function AppMcp() {
   // Dataset browser / Indicator Table results own the whole view.
   const [dataResult, setDataResult] = useState<{ raw: JsonObject; args: JsonObject } | null>(null)
   const [canFullscreen, setCanFullscreen] = useState(false)
+  const [displayMode, setDisplayMode] = useState<string>('inline')
   // The map mounts on the first result that needs it and then stays (hidden
   // under data answers) so a later spatial result plays without a reload.
   const [needsMap, setNeedsMap] = useState(false)
@@ -209,6 +203,14 @@ export default function AppMcp() {
     })()
   }, [setAnalyzeError, setAnalyzeLoading, setAnalyzePoint, setAnalyzeResult, setFeature])
 
+  const toggleFullscreen = useCallback(() => {
+    const current = appRef.current
+    const shown = current?.getHostContext()?.displayMode ?? displayMode
+    void requestDisplayMode(current, shown === 'fullscreen' ? 'inline' : 'fullscreen').then((granted) => {
+      if (granted) setDisplayMode(granted)
+    })
+  }, [displayMode])
+
   const { app, isConnected } = useApp({
     appInfo: { name: 'developing-country.org', version: MCP_APP_VERSION },
     capabilities: { availableDisplayModes: ['inline', 'fullscreen'] },
@@ -236,8 +238,11 @@ export default function AppMcp() {
       }
       created.onhostcontextchanged = (ctx) => {
         applyTheme(ctx)
+        const merged = created.getHostContext()
+        applySafeArea(merged)
         syncInlineSize(created, dataModeRef.current)
-        setCanFullscreen(Boolean(created.getHostContext()?.availableDisplayModes?.includes('fullscreen')))
+        setCanFullscreen(canRequestFullscreen(created))
+        setDisplayMode(merged?.displayMode ?? 'inline')
       }
       created.onteardown = async () => ({})
     },
@@ -247,9 +252,12 @@ export default function AppMcp() {
 
   useEffect(() => {
     if (!isConnected || readyOnce.current) return
-    applyTheme(app?.getHostContext())
+    const ctx = app?.getHostContext()
+    applyTheme(ctx)
+    applySafeArea(ctx)
     if (app) syncInlineSize(app)
-    setCanFullscreen(Boolean(app?.getHostContext()?.availableDisplayModes?.includes('fullscreen')))
+    setCanFullscreen(canRequestFullscreen(app ?? null))
+    setDisplayMode(ctx?.displayMode ?? 'inline')
     readyOnce.current = true
     mcpBeacon('ready')
   }, [isConnected, app])
@@ -324,12 +332,9 @@ export default function AppMcp() {
             initial={dataResult}
             onOpenLink={(url) => {
               mcpBeacon('open_link')
-              void appRef.current?.openLink({ url })
+              void openExternalLink(appRef.current, url)
             }}
-            onFullscreen={canFullscreen ? () => {
-              const mode = appRef.current?.getHostContext()?.displayMode === 'fullscreen' ? 'inline' : 'fullscreen'
-              void appRef.current?.requestDisplayMode({ mode })
-            } : undefined}
+            onFullscreen={canFullscreen ? toggleFullscreen : undefined}
           />
         </Suspense>
       ) : dataView?.kind === 'chart' ? (
@@ -349,21 +354,33 @@ export default function AppMcp() {
           onClose={exitAnalyze}
         />
       ) : null}
-      <button
-        type="button"
-        className="btn mcp-open-full"
-        onClick={() => {
-          mcpBeacon('open_link')
-          void appRef.current?.openLink({ url: webUrl })
-        }}
-      >
-        {dataView ? 'Open live view' : 'Open full map'}
-      </button>
+      <div className="mcp-actions">
+        <button
+          type="button"
+          className="btn mcp-open-full"
+          onClick={() => {
+            mcpBeacon('open_link')
+            void openExternalLink(appRef.current, webUrl)
+          }}
+        >
+          {dataView ? 'Open live view' : 'Open full map'}
+        </button>
+        {canFullscreen && needsMap && !dataResult && dataView?.kind !== 'chart' ? (
+          <button
+            type="button"
+            className="btn mcp-expand"
+            aria-pressed={displayMode === 'fullscreen'}
+            onClick={toggleFullscreen}
+          >
+            {displayMode === 'fullscreen' ? 'Exit full screen' : 'Full screen'}
+          </button>
+        ) : null}
+      </div>
       <BrandMark
         className="mcp-brand"
         onOpen={(url) => {
           mcpBeacon('open_link')
-          void appRef.current?.openLink({ url })
+          void openExternalLink(appRef.current, url)
         }}
       />
     </div>

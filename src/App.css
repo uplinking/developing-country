@@ -113,7 +113,8 @@
 
 html[data-mcp-app] .app.mcp-app {
   position: fixed;
-  inset: 0;
+  /* Host-reported safe-area insets (phones, fullscreen); 0 everywhere else. */
+  inset: var(--mcp-safe-top, 0px) var(--mcp-safe-right, 0px) var(--mcp-safe-bottom, 0px) var(--mcp-safe-left, 0px);
 }
 
 /* Durable live views: one composition for standalone links, article embeds,
@@ -212,11 +213,14 @@ html[data-mcp-app] .feature-sheet {
   right: 10px;
   max-height: calc(100% - 20px);
 }
-html[data-mcp-app] .mcp-open-full {
+/* "Open full map" and "Full screen" share the bottom-left band. */
+html[data-mcp-app] .mcp-actions {
   position: absolute;
   left: 10px;
   bottom: 10px;
   z-index: 26;
+  display: flex;
+  gap: 10px;
 }
 /* Brand mark: bottom-right of every frame. Under the readout sheets on the
    map, over the data panel when a table, chart or dataset owns the frame. */
@@ -247,6 +251,7 @@ html[data-mcp-app] .feature-sheet {
    presses flat. --board stays dark in both themes, so it never reads as a
    light button on a dark band. */
 html[data-mcp-app] .mcp-open-full,
+html[data-mcp-app] .mcp-expand,
 .mcp-data .btn {
   height: 32px;
   padding: 0 14px;
@@ -261,12 +266,16 @@ html[data-mcp-app] .mcp-open-full,
   cursor: pointer;
 }
 html[data-mcp-app] .mcp-open-full:hover,
+html[data-mcp-app] .mcp-expand:hover,
 .mcp-data .btn:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--panel-line); }
 html[data-mcp-app] .mcp-open-full:active,
+html[data-mcp-app] .mcp-expand:active,
 .mcp-data .btn:active { transform: translate(3px, 3px); box-shadow: none; }
 @media (prefers-reduced-motion: reduce) {
   html[data-mcp-app] .mcp-open-full:hover,
   html[data-mcp-app] .mcp-open-full:active,
+  html[data-mcp-app] .mcp-expand:hover,
+  html[data-mcp-app] .mcp-expand:active,
   .mcp-data .btn:hover,
   .mcp-data .btn:active { transform: none; }
 }
@@ -288,6 +297,14 @@ html[data-mcp-app] .mcp-open-full:active,
   html[data-mcp-app] .feature-sheet {
     left: 10px;
     width: auto;
+  }
+}
+/* Touch: signage buttons reach a 44px target without changing their look. */
+@media (pointer: coarse) {
+  html[data-mcp-app] .mcp-open-full,
+  html[data-mcp-app] .mcp-expand,
+  .mcp-data .btn {
+    height: 44px;
   }
 }
 

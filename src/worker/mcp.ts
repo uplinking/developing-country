@@ -61,9 +61,10 @@ import {
   requestOffersUi,
   sessionOffersUi,
   stashSession,
-  uiCsp,
+  uiResourceMeta,
 } from './mcpUi'
 import { missFromBody, writeMiss, writeSearchZero, writeToolCall } from './analytics'
+import { toolDescriptorMeta, toolPresentationFields } from './mcpToolMeta'
 import { MCP_APP_VERSION, PREVIOUS_MCP_UI_RESOURCE_URIS } from '../shared/mcpApp'
 import { SUPPORTED_COUNTRY_CODES } from '@developing-country/countries'
 import { PUBLIC_DATA_THEMES } from '@developing-country/datasets'
@@ -124,13 +125,13 @@ const TOOLS: ToolDef[] = [
     name: 'analyze_location',
     batchSafe: false,
     description:
-      'THE flagship point composite. Given a lat/lng (and optional radius_km, default 10), returns a provenance-tagged readout: district demographics (point-in-polygon), nearest expressway + status, nearby planned developments, attractions, waterfalls, trails, cycling routes, parks, open civic issues, and your own prospects. Completeness is first-class: known_absent means we have no geometry (silent zones, MoH clinics, courts) — do not invent polygons; osm_only is not an official register. Gazette 924/12 defines a 100 m silent-zone facility class; we do not ship those buffers as law. Use query_data for bounded spatial or indicator-table research; this tool stays a point readout. Every run is saved (`saved.url` map link). If the user gives a listing URL: extract location, then call with lat/lng plus source_url and title.',
+      'Use this when the user asks what is at, near or around a place in Sri Lanka (a town, address, listing or map point). Given the place\'s lat/lng (and optional radius_km, default 10), returns a provenance-tagged readout: district demographics (point-in-polygon), nearest expressway + status, nearby planned developments, attractions, waterfalls, trails, cycling routes, parks, open civic issues, and your own prospects. Completeness is first-class: known_absent means we have no geometry (silent zones, MoH clinics, courts) — do not invent polygons; osm_only is not an official register. Gazette 924/12 defines a 100 m silent-zone facility class; we do not ship those buffers as law. Use query_data for bounded spatial or indicator-table research; this tool stays a point readout. Every run is saved (`saved.url` map link). If the user gives a listing URL: extract location, then call with lat/lng plus source_url and title.',
     inputSchema: {
       type: 'object',
       properties: {
         country: countryProp,
-        lat: numberProp('Latitude (WGS84).'),
-        lng: numberProp('Longitude (WGS84).'),
+        lat: numberProp('Latitude (WGS84) of the place being analysed.'),
+        lng: numberProp('Longitude (WGS84) of the place being analysed.'),
         radius_km: numberProp('Search radius in km (default 10, max 100).'),
         source_url: stringProp('Optional: the property-listing URL this analysis is for (saved with the run so it shows in the web app).'),
         title: stringProp('Optional: a human label for the point (listing title / place name).'),
@@ -161,7 +162,7 @@ const TOOLS: ToolDef[] = [
     name: 'search_places',
     batchSafe: false,
     description:
-      'Search by name across searchable ontology stores (metro stops and lines, expressways, developments, BOI zones, attractions, waterfalls, trails, cycling, parks) plus your prospects and civic issues. Does not scan the 11 MB metro catchment, sea-route trunks, or admin rings. Returns matches with layer, coordinates, and provenance.',
+      'Use this to find a named place in Sri Lanka and its coordinates (e.g. before analyze_location). Searches by name across searchable ontology stores (metro stops and lines, expressways, developments, BOI zones, attractions, waterfalls, trails, cycling, parks) plus your prospects and civic issues. Does not scan the 11 MB metro catchment, sea-route trunks, or admin rings. Returns matches with layer, coordinates, and provenance.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -248,8 +249,8 @@ const TOOLS: ToolDef[] = [
     inputSchema: {
       type: 'object',
       properties: {
-        lat: numberProp('Latitude (WGS84).'),
-        lng: numberProp('Longitude (WGS84).'),
+        lat: numberProp('Latitude (WGS84) of the issue being reported.'),
+        lng: numberProp('Longitude (WGS84) of the issue being reported.'),
         category: stringProp("Category, e.g. 'pothole' | 'flooding' | 'streetlight' | 'culvert'."),
         description: stringProp('Optional: what is wrong.'),
       },
@@ -309,7 +310,7 @@ const TOOLS: ToolDef[] = [
     name: 'query_data',
     batchSafe: false,
     description:
-      'Bounded queries over every registered platform Dataset. op=select reads one Indicator Table: dataset_id plus exact field ids, optional where/order_by/limit (rows capped at 200, or 5000 when saved with a presentation), or aggregate it with group_by (dimension fields) + aggregates [{fn: sum|mean|min|max|count, field, as}] instead of fields (sum only on fields the table declares summable). Get the field ids, filterable values and ready-to-run preset calls from get_layer_catalog {dataset_id} first — never guess a field id. ' +
+      'Use this to read statistics, rankings, trends or map features from a dataset found with get_layer_catalog, and to save them as a live chart or map. Bounded queries over every registered platform Dataset. op=select reads one Indicator Table: dataset_id plus exact field ids, optional where/order_by/limit (rows capped at 200, or 5000 when saved with a presentation), or aggregate it with group_by (dimension fields) + aggregates [{fn: sum|mean|min|max|count, field, as}] instead of fields (sum only on fields the table declares summable). Get the field ids, filterable values and ready-to-run preset calls from get_layer_catalog {dataset_id} first — never guess a field id. ' +
       'Spatial ops (bbox, nearest, point_in_polygon, overlay, gap, choropleth_join, isochrone) take an ontology entity in `entities`; bbox with include_geometry (+ where property filters) returns any GeoJSON entity\'s own geometry, e.g. polygons, for a saved map. ' +
       'Without presentation the result is a preview the MCP App tables and charts inline; add presentation to persist a live, citable view_url (requires a signed-in verified account). Chart: family, dimension, measure, optional series and highlight. ' +
       'Map: optional camera, annotations [{id, coordinates:[lng,lat], text}], and layers merged onto the result layers by id (entity ids for spatial ops; the dataset_id for a select) with label, style {geometry fill|line|circle, color token or #hex, colorBy {field, scale sequential|diverging|threshold|categorical, breaks, colors, labels, classLabels}, radius, radiusBy, labelField}, legend and join. A select becomes a map when every row has numeric lng/lat or its layer has join {tileset:"demographics", sourceLayer: gnd|dsd|district|province, rowKey}. ' +
@@ -429,9 +430,9 @@ async function toolListPayload(params: JsonObject, sessionId: string | null) {
   const ui = (await sessionOffersUi(sessionId)) || requestOffersUi(params)
   return {
     tools: TOOLS.map((t) => {
-      const base = { name: t.name, description: t.description, inputSchema: t.inputSchema }
-      if (ui && UI_TOOLS.has(t.name)) return { ...base, _meta: UI_TOOL_META }
-      return base
+      const base = { name: t.name, description: t.description, inputSchema: t.inputSchema, ...toolPresentationFields(t.name) }
+      const meta = toolDescriptorMeta(t.name, ui && UI_TOOLS.has(t.name) ? UI_TOOL_META.ui.resourceUri : null)
+      return meta ? { ...base, _meta: meta } : base
     }),
   }
 }
@@ -724,7 +725,7 @@ async function loadMapHtml(env: Env): Promise<string | null> {
 export async function readMcpResource(
   uri: string,
   env: Env,
-): Promise<Array<{ uri: string; mimeType: string; text: string; _meta?: { ui: ReturnType<typeof uiCsp> } }> | null> {
+): Promise<Array<{ uri: string; mimeType: string; text: string; _meta?: ReturnType<typeof uiResourceMeta> }> | null> {
   if (uri === UI_RESOURCE_URI || PREVIOUS_MCP_UI_RESOURCE_URIS.includes(uri)) {
     const html = await loadMapHtml(env)
     if (!html) return null
@@ -733,7 +734,7 @@ export async function readMcpResource(
         uri,
         mimeType: UI_RESOURCE_MIME,
         text: html,
-        _meta: { ui: uiCsp(env) },
+        _meta: uiResourceMeta(env),
       },
     ]
   }

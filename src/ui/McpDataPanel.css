@@ -53,6 +53,14 @@
 }
 .mcp-data-back:hover,
 .mcp-data-link:hover { text-decoration: underline; }
+/* Touch: the bar's text links keep their look but get a 44px tap target. */
+@media (pointer: coarse) {
+  .mcp-data-back,
+  .mcp-data-link {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
 
 .mcp-data-body {
   flex: 1;
