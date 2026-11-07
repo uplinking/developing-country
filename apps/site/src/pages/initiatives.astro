@@ -16,6 +16,14 @@ const dataUrl = `${explorer}/data/lk-initiatives.json`
   <header>
     <h1>Public initiatives &amp; funding</h1>
     <div class="q" id="q" role="group" aria-label="Question"><span class="sw" data-slot="what"></span> from <span class="sw" data-slot="src"></span> in <span class="sw" data-slot="sector"></span> · <span class="sw" data-slot="when"></span></div>
+    <!-- Works without JavaScript as a plain GET; the script below takes over and keeps ?q= in sync. -->
+    <form class="find" id="find" role="search" action="/initiatives" method="get">
+      <label class="sr" for="fq">Search initiatives</label>
+      <svg class="find-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="10.3" y1="10.3" x2="15" y2="15" stroke="currentColor" stroke-width="1.6"/></svg>
+      <input id="fq" name="q" type="search" placeholder="Search projects, funders, places" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" maxlength="200" aria-describedby="findnote">
+      <button type="button" class="find-x" id="fqx" aria-label="Clear search" hidden>×</button>
+    </form>
+    <p class="findnote" id="findnote" aria-live="polite"></p>
   </header>
 
   <section aria-label="Money by stage">
@@ -71,7 +79,26 @@ const dataUrl = `${explorer}/data/lk-initiatives.json`
 .money .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .money.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
 .money h1{font:700 15px/1.3 var(--sans);color:var(--dim);margin:44px 0 10px}
-.money .q{font:600 clamp(24px,5.4vw,34px)/1.5 var(--sans);letter-spacing:-.01em;margin:0 0 44px}
+.money .q{font:600 clamp(24px,5.4vw,34px)/1.5 var(--sans);letter-spacing:-.01em;margin:0 0 20px}
+.money .find{position:relative;max-width:560px}
+.money .find input{display:block;width:100%;height:44px;margin:0;font:400 16px/1.2 var(--sans);color:var(--ink);background:var(--raised);
+  border:1px solid var(--quiet);border-radius:2px;padding:0 44px 0 38px;-webkit-appearance:none;appearance:none}
+.money .find input:hover{border-color:var(--dim)}
+.money .find input:focus{border-color:var(--ink)}
+.money .find input::placeholder{color:var(--dim);opacity:1}
+.money .find input::-webkit-search-cancel-button,.money .find input::-webkit-search-decoration{-webkit-appearance:none;appearance:none}
+.money .find-ico{position:absolute;left:13px;top:14px;width:16px;height:16px;color:var(--dim);pointer-events:none}
+.money .find-x{position:absolute;right:0;top:0;width:44px;height:44px;border:0;background:none;padding:0;cursor:pointer;font:400 24px/1 var(--sans);color:var(--dim)}
+.money .find-x:hover{color:var(--ink)}
+/* Reserved height so the line appearing under the box never pushes the page down. */
+.money .findnote{min-height:19px;margin:8px 0 26px;font:500 12px/1.6 var(--mono);color:var(--dim)}
+.money .findnote b{font-weight:500;color:var(--ink)}
+.money .findnote button{background:none;border:0;padding:12px 2px;margin:-12px 0;color:var(--blue);cursor:pointer;font:inherit;text-decoration:underline;text-underline-offset:3px}
+.money .acts{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 8px}
+.money .act{min-height:40px;font:500 12px/1 var(--mono);background:none;border:1px solid var(--ink);border-radius:2px;padding:0 14px;cursor:pointer}
+.money .act:hover{background:var(--ink);color:var(--paper)}
+.money .act.quiet{border-color:var(--hair)}
+.money .act.quiet:hover{background:none;color:var(--ink);border-color:var(--ink)}
 .money .sw{position:relative;display:inline-block}
 .money .slot{font:inherit;letter-spacing:inherit;background:none;border:0;border-bottom:2px solid var(--ink);border-radius:0;padding:0 2px;margin:0;cursor:pointer;line-height:1.15}
 .money .slot:hover{border-bottom-color:var(--teal)}
@@ -195,6 +222,8 @@ const dataUrl = `${explorer}/data/lk-initiatives.json`
 .money .detail{padding:4px 12px 16px 12px}
 .money .band{gap:10px}
 .money .seg{margin-left:0}
+.money .findnote{min-height:38px;margin-bottom:18px}
+.money .act{min-height:44px}
 
 }
 @media (prefers-reduced-motion: reduce){.money .fig.tick,.money .cell.tick .amt{animation:none}
@@ -206,6 +235,7 @@ const dataUrl = `${explorer}/data/lk-initiatives.json`
 <script>
 // @ts-nocheck -- plain DOM code; the counting rules it relies on are typed and tested in packages/datasets.
 import { AGGREGATE_PURPOSES, moneyTotals, STAGE_BUCKET } from '@developing-country/datasets/money'
+import { buildSearchIndex, initiativeSearchText } from '../lib/initiativeSearch'
 
 
 function start(DATA){
@@ -295,6 +325,14 @@ const EV=D.events.filter(e=>e&&e.id&&typeof e.date==='string'&&e.date.length>=10
     _wk:monday(e.date.slice(0,10)),_dn:dayNum(e.date.slice(0,10))});
 });
 const byId=new Map(EV.map(e=>[e.id,e]));
+
+/* ---------- search: over the ledger already in memory (src/lib/initiativeSearch.ts) ---------- */
+let INDEX=null;
+function searchIndex(){
+  if(!INDEX) INDEX=buildSearchIndex(EV.map(e=>{ const l=L.get(e.line_id), p=l&&P.get(l.project_id);
+    return [e.id,initiativeSearchText(p,l,e,[secLabel(e._sector),STAGE[e.stage],e._short])]; }));
+  return INDEX;
+}
 const byProject=new Map();
 for(const e of EV){ (byProject.get(e._pid)||byProject.set(e._pid,[]).get(e._pid)).push(e); }
 for(const list of byProject.values()) list.sort((a,b)=>a.date<b.date?-1:a.date>b.date?1:(a.id<b.id?-1:1));
@@ -326,11 +364,14 @@ function rangeLabel(r){
 
 /* ---------- state ---------- */
 const state={what:'all',src:'any',sector:'any',when:'y'+NOWY,custom:null,dom:presetDomain('y'+NOWY),
-  split:'none',cur:null,pin:null,playWk:null,playing:false,timer:null,limit:40,open:new Set(),moreCols:new Set()};
+  split:'none',cur:null,pin:null,playWk:null,playing:false,timer:null,limit:40,open:new Set(),moreCols:new Set(),
+  q:'',match:null,fix:[]};
 const range=()=>state.when==='custom'?state.custom:presetRange(state.when);
 const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)');
 
 function qMatch(e){
+  // Search narrows the question; it never replaces it.
+  if(state.match&&!state.match.has(e.id)) return false;
   // Follows the money column: an event is "with money" when a source reported an amount.
   if(state.what==='money'&&e.amount==null) return false;
   if(state.what==='none'&&e.amount!=null) return false;
@@ -702,7 +743,8 @@ function renderFeed(inR){
   const pinIds=state.pin?new Set(state.pin.ids):null;
   if(!list.length){
     if(state.playWk&&!state.pin) feed.append(h('h3',{class:'wk now',text:fmtWk(state.playWk)}));
-    feed.append(h('p',{class:'empty',text:state.playWk&&!state.pin?'Nothing recorded this week.':'Nothing matches this question.'}));
+    if(state.q&&!state.pin&&!state.playWk) feed.append(...noResults());
+    else feed.append(h('p',{class:'empty',text:state.playWk&&!state.pin?'Nothing recorded this week.':'Nothing matches this question.'}));
   }
   let wk=null, ul=null;
   for(const e of list.slice(0,state.limit)){
@@ -717,6 +759,79 @@ function renderFeed(inR){
   more.hidden=list.length<=state.limit;
 }
 $('more').addEventListener('click',()=>{ state.limit+=40; render(); });
+
+/* ---------- search box ---------- */
+const findF=$('find'), fq=$('fq'), fqx=$('fqx'), note=$('findnote');
+const urlQ=()=>(new URLSearchParams(location.search).get('q')||'').trim();
+const quote=s=>'\u201c'+s+'\u201d';
+function setQuery(raw){
+  const q=raw.trim().slice(0,200);
+  if(q===state.q) return false;
+  const r=q?searchIndex().search(q):{ids:null,corrections:[]};
+  state.q=q; state.match=r.ids; state.fix=r.corrections;
+  resetView();
+  return true;
+}
+// One history entry per edit: the first change pushes, later keystrokes replace it, so Back
+// returns to the previous search instead of stepping through every letter.
+let editing=false, deb=0;
+function writeUrl(){
+  const u=new URL(location.href);
+  if(state.q) u.searchParams.set('q',state.q); else u.searchParams.delete('q');
+  if(u.href===location.href) return;
+  if(editing) history.replaceState(history.state,'',u); else history.pushState(null,'',u);
+  editing=true;
+}
+function applyInput(){
+  clearTimeout(deb);
+  fqx.hidden=!fq.value;
+  if(setQuery(fq.value)){ writeUrl(); render(); }
+}
+fq.addEventListener('input',()=>{ fqx.hidden=!fq.value; clearTimeout(deb); deb=setTimeout(applyInput,140); });
+fq.addEventListener('blur',()=>{ applyInput(); editing=false; });
+fq.addEventListener('keydown',ev=>{
+  if(ev.key!=='Escape'||!fq.value) return;
+  ev.preventDefault(); ev.stopPropagation(); fq.value=''; applyInput(); editing=false;
+});
+findF.addEventListener('submit',()=>{
+  applyInput(); editing=false;
+  if(matchMedia('(pointer: coarse)').matches) fq.blur(); // put the phone keyboard away to show results
+});
+addEventListener('popstate',()=>{
+  const q=urlQ(); fq.value=q; fqx.hidden=!q; editing=false; clearTimeout(deb);
+  if(setQuery(q)) render();
+});
+function widen(){
+  const w=PRESETS[PRESETS.length-1].k;
+  Object.assign(state,{what:'all',src:'any',sector:'any',when:w,custom:null,dom:presetDomain(w)});
+  resetView(); render();
+}
+function clearSearch(){ fq.value=''; editing=false; applyInput(); editing=false; fq.focus(); }
+fqx.addEventListener('click',clearSearch);
+function renderFind(inR){
+  if(!state.q){ note.replaceChildren(); return; }
+  const total=state.match.size, shown=inR.length, kids=[];
+  if(!total) kids.push('No events match');
+  else if(shown===total) kids.push(h('b',{text:String(total)}),total===1?' event matches':' events match');
+  else kids.push(h('b',{text:String(shown)}),' of '+total+' matches in view · ',
+    h('button',{type:'button',onclick:widen,text:'Show all'}));
+  for(const c of state.fix) kids.push(' · showing ',h('b',{text:c.to}),' for '+c.from);
+  note.replaceChildren(...kids);
+}
+function noResults(){
+  const total=state.match?state.match.size:0;
+  const acts=h('div',{class:'acts'});
+  if(total) acts.append(h('button',{type:'button',class:'act',onclick:widen,text:total===1?'Show the 1 match':'Show all '+total+' matches'}));
+  acts.append(h('button',{type:'button',class:'act quiet',onclick:clearSearch,text:'Clear search'}));
+  return [h('p',{class:'empty',text:total
+    ?'Nothing matches '+quote(state.q)+' with this question. '+(total===1?'One event matches':total+' events match')+' outside it.'
+    :'Nothing in the ledger matches '+quote(state.q)+'. Try a project, funder or place name, in English, Sinhala or Tamil.'}),acts];
+}
+// A query from the URL (or typed while the ledger loaded) applies before the first render.
+if(!fq.value) fq.value=urlQ();
+fqx.hidden=!fq.value;
+setQuery(fq.value);
+if(state.q!==urlQ()){ editing=true; writeUrl(); editing=false; } // tidy the URL in place, no new entry
 
 function rowEl(e,pinIds){
   const open=state.open.has(e.id);
@@ -784,6 +899,7 @@ function aiQuestion(){
   let s='Using the developing-country connector, show me '+what;
   if(state.src!=='any') s+=' from '+(state.src==='overseas'?'all overseas sources':state.src==='none'?'sources that are not stated':SRCNAME[state.src]);
   if(state.sector!=='any') s+=' in the '+secLabel(state.sector).toLowerCase()+' sector';
+  if(state.q) s+=' whose initiative, summary or reports mention "'+state.q+'"';
   s+=', dated '+r.from+' to '+r.to;
   if(state.split!=='none') s+=', split by '+state.split;
   if(state.pin) s+=' — specifically the '+state.pin.line.replace(/^Showing the /,'');
@@ -828,6 +944,7 @@ function render(){
   renderStrip(stripEvs);
   renderBand(base,r);
   renderFeed(inR);
+  renderFind(inR);
   last={base,r};
   playBtn.textContent=state.playing?'❚❚':'▶';
   playBtn.setAttribute('aria-pressed',String(state.playing));
@@ -842,6 +959,11 @@ render();
 
 (async () => {
   const root = document.getElementById('money')
+  // Until the ledger arrives, keep Enter from reloading the page; start() then runs the search.
+  document.getElementById('find')?.addEventListener('submit', (event) => event.preventDefault())
+  const box = document.getElementById('fq')
+  const q = new URLSearchParams(location.search).get('q')
+  if (box && q && !box.value) box.value = q
   try {
     const res = await fetch(root.dataset.src, { headers: { Accept: 'application/json' } })
     const type = res.headers.get('content-type') || ''
