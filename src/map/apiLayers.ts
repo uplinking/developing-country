@@ -1,4 +1,4 @@
-// Runtime-fetched map layers (Stepper / prospects / issues). Each is backed by
+// Runtime-fetched map layers (Stepper / prospects / analyses). Each is backed by
 // a same-origin API endpoint; this module fetches the endpoint and adapts the
 // response into a MapLibre-ready GeoJSON FeatureCollection. Failure is never
 // fatal: on any error we resolve to an empty collection and a not-ok status, so
@@ -51,8 +51,6 @@ export async function fetchApiLayer(groupId: string, endpoint: string): Promise<
         return adaptFeatureCollection(json)
       case 'prospects':
         return adaptProspects(json)
-      case 'issues':
-        return adaptIssues(json)
       case 'analyses':
         return adaptAnalyses(json)
       default:
@@ -100,28 +98,6 @@ function adaptProspects(json: JsonValue): ApiLayerResult {
         og_image: isJsonString(meta.og_image) ? meta.og_image : null,
         og_description: isJsonString(meta.og_description) ? meta.og_description : null,
         created_at: String(p.created_at ?? ''),
-      },
-    })
-  }
-  return ok(features)
-}
-
-
-function adaptIssues(json: JsonValue): ApiLayerResult {
-  const list = objectList(json, 'issues')
-  if (!list) return fail('no issues array')
-  const features: Feature[] = []
-  for (const it of list) {
-    if (!isJsonNumber(it.lat) || !isJsonNumber(it.lng)) continue
-    features.push({
-      type: 'Feature',
-      geometry: { type: 'Point', coordinates: [it.lng, it.lat] },
-      properties: {
-        id: String(it.id ?? ''),
-        category: String(it.category ?? ''),
-        description: isJsonString(it.description) ? it.description : null,
-        status: String(it.status ?? ''),
-        created_at: String(it.created_at ?? ''),
       },
     })
   }

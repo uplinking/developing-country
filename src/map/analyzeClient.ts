@@ -25,7 +25,6 @@ export interface AnalyzeResult {
   trails_nearby: JsonObject[]
   cycling_nearby: JsonObject[]
   parks_containing_or_near: JsonObject[]
-  open_issues_nearby: JsonObject[]
   prospects_nearby: JsonObject[]
 }
 

@@ -453,14 +453,6 @@ export function formatFeature(
     )
     linkList = links(googleMapsLink(lngLat))
     if (str(p.source_url)) link = { label: 'Open listing ↗', url: String(p.source_url) }
-  } else if (groupId === 'issues') {
-    title = humanize(p.category) || 'Civic issue'
-    detail = rows(
-      { label: 'Status', value: humanize(p.status) },
-      str(p.description) ? { label: 'Description', value: String(p.description) } : null,
-      dateRow('Reported', p.created_at),
-    )
-    linkList = links(googleMapsLink(lngLat))
   }
 
   return {
@@ -645,21 +637,7 @@ export function formatAnalyze(r: AnalyzeResult): FeatureInfo {
     rows: nature,
   })
 
-  // 5. Open civic issues nearby
-  const issues = r.open_issues_nearby ?? []
-  sections.push({
-    title: 'Open civic issues nearby',
-    source: sourceTag(issues[0]) ?? 'developing-country.org community',
-    empty: 'No open issues reported nearby.',
-    rows: issues.length
-      ? issues.slice(0, 4).map((it) => ({
-          label: humanize(it.category),
-          value: `${it.distance_km ?? '?'} km${str(it.description) ? ` — ${str(it.description)}` : ''}`,
-        }))
-      : [],
-  })
-
-  // 6. Your prospects nearby
+  // 5. Your prospects nearby
   const prospects = r.prospects_nearby ?? []
   if (prospects.length) {
     sections.push({

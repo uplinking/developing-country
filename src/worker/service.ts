@@ -5,20 +5,12 @@
 
 import type { Env, Identity } from './types'
 import {
-  ContributionRow,
-  IssueRow,
   ProspectRow,
   deleteProspectRow,
-  getIssueRow,
   getProspectRow,
-  hydrateIssue,
   hydrateProspect,
-  insertContribution,
-  insertIssue,
   insertProspect,
   listAnalysisRows,
-  listContributionRows,
-  listIssueRows,
   listProspectRows,
   listVisibleProspectRows,
   newId,
@@ -33,7 +25,7 @@ import { getCoverageLedger, searchableGeojsonStores } from './ontology'
 import { ApiError } from './errors'
 import { loadFc, loadJson } from './assets'
 import { firstCoord as firstCoordForSearch } from './geo'
-import type { JsonObject, JsonValue } from '../shared/json'
+import type { JsonObject } from '../shared/json'
 import { isJsonNumber, isJsonString } from '../shared/json'
 import { createDataView, getDataView } from './dataViews'
 import { publicationEvidence } from './publication'
@@ -362,104 +354,6 @@ export async function deleteProspect(env: Env, id: Identity, prospectId: string)
   return { deleted: true, id: prospectId }
 }
 
-// ---- Issues -----------------------------------------------------------------
-
-export interface ReportIssueParams {
-  lat: number
-  lng: number
-  category: string
-  description?: string
-  media?: JsonValue[]
-}
-
-export async function reportIssue(env: Env, id: Identity, p: ReportIssueParams) {
-  if (!isFinite(p.lat) || !isFinite(p.lng)) {
-    throw new ApiError(400, 'lat and lng are required (WGS84 decimal degrees)')
-  }
-  if (!p.category) {
-    throw new ApiError(400, "category is required, e.g. 'pothole' | 'flooding' | 'streetlight' | 'culvert'")
-  }
-  const row: IssueRow = {
-    id: newId('iss'),
-    user_email: id.email,
-    lat: p.lat,
-    lng: p.lng,
-    category: p.category.trim(),
-    description: p.description ?? null,
-    status: 'open',
-    media: p.media && p.media.length ? JSON.stringify(p.media) : null,
-    created_at: now(),
-  }
-  await insertIssue(env, row)
-  // v4: media uploads → hand back an upload URL. For now, echo the row + where to
-  // see it (web_url recentres the map on the report).
-  const web_url = webUrl(env, row.lat, row.lng)
-  return {
-    ...hydrateIssue(row),
-    media_upload_url: null,
-    web_url,
-    saved_to: `Reported to developing-country.org — view on the map at ${web_url}`,
-  }
-}
-
-export interface ListIssuesParams {
-  bbox?: string | [number, number, number, number]
-  category?: string
-  status?: string
-  limit?: number
-}
-
-export async function listIssues(env: Env, _id: Identity | null, p: ListIssuesParams) {
-  let bbox: [number, number, number, number] | undefined
-  if (p.bbox) {
-    const arr = Array.isArray(p.bbox) ? p.bbox : p.bbox.split(',').map(Number)
-    if (arr.length === 4 && arr.every((n) => isFinite(n))) {
-      bbox = [arr[0], arr[1], arr[2], arr[3]]
-    }
-  }
-  const rows = await listIssueRows(env, { bbox, category: p.category, status: p.status, limit: p.limit })
-  return { issues: rows.map(hydrateIssue), count: rows.length }
-}
-
-export interface ContributeParams {
-  issue_id: string
-  kind?: 'comment' | 'solution' | 'evidence'
-  body?: string
-}
-
-const KINDS = new Set(['comment', 'solution', 'evidence'])
-
-export async function contribute(env: Env, id: Identity, p: ContributeParams) {
-  if (!p.issue_id) throw new ApiError(400, 'issue_id is required — the id of the issue to contribute to')
-  // kind is low-friction: default to a comment when the caller omits it.
-  const kind = p.kind ?? 'comment'
-  if (!KINDS.has(kind)) throw new ApiError(400, 'kind must be one of: comment | solution | evidence')
-  const issue = await getIssueRow(env, p.issue_id)
-  if (!issue) throw new ApiError(404, `issue not found: ${p.issue_id}`)
-  const row: ContributionRow = {
-    id: newId('con'),
-    issue_id: p.issue_id,
-    user_email: id.email,
-    kind,
-    body: p.body ?? null,
-    created_at: now(),
-  }
-  await insertContribution(env, row)
-  const web_url = webUrl(env, issue.lat, issue.lng)
-  return {
-    ...row,
-    web_url,
-    saved_to: `Added to issue ${p.issue_id} — view on the map at ${web_url}`,
-  }
-}
-
-export async function getIssue(env: Env, _id: Identity | null, issueId: string) {
-  const issue = await getIssueRow(env, issueId)
-  if (!issue) throw new ApiError(404, 'issue not found')
-  const contributions = await listContributionRows(env, issueId)
-  return { ...hydrateIssue(issue), contributions }
-}
-
 // ---- Analyze / stepper / catalog (pass-through) -----------------------------
 
 export async function analyze(env: Env, id: Identity | null, p: AnalyzeParams) {
@@ -557,7 +451,7 @@ export async function viewEvidence(env: Env, viewId: string) {
 }
 
 // ---- search_places ----------------------------------------------------------
-// Substring search across every GeoJSON layer + prospects + issues by name.
+// Substring search across every GeoJSON layer + prospects by name.
 
 export interface SearchParams {
   q: string
@@ -663,16 +557,6 @@ export async function searchPlaces(env: Env, id: Identity | null, p: SearchParam
   for (const r of prospects) {
     if ((r.title ?? '').toLowerCase().includes(q)) {
       results.push({ layer: 'prospects', id: r.id, name: r.title, lat: r.lat, lng: r.lng, visibility: r.visibility })
-      if (results.length >= limit) return { query: p.q, country: pack.profile.code, results, count: results.length }
-    }
-  }
-
-  // Issues (by category/description substring).
-  const issues = await listIssueRows(env, { limit: 1000 })
-  for (const r of issues) {
-    const hay = `${r.category} ${r.description ?? ''}`.toLowerCase()
-    if (hay.includes(q)) {
-      results.push({ layer: 'issues', id: r.id, name: `${r.category}: ${r.description ?? ''}`.trim(), lat: r.lat, lng: r.lng, status: r.status })
       if (results.length >= limit) return { query: p.q, country: pack.profile.code, results, count: results.length }
     }
   }

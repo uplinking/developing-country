@@ -19,27 +19,6 @@ export interface ProspectRow {
   updated_at: string
 }
 
-export interface IssueRow {
-  id: string
-  user_email: string
-  lat: number
-  lng: number
-  category: string
-  description: string | null
-  status: string
-  media: string | null
-  created_at: string
-}
-
-export interface ContributionRow {
-  id: string
-  issue_id: string
-  user_email: string
-  kind: string
-  body: string | null
-  created_at: string
-}
-
 export interface AnalysisRow {
   id: string
   user_email: string
@@ -57,18 +36,11 @@ export function newId(prefix: string): string {
   return `${prefix}_${crypto.randomUUID().replace(/-/g, '').slice(0, 20)}`
 }
 
-/** Parse the JSON metadata/media columns back into objects for API output. */
+/** Parse the JSON metadata column back into an object for API output. */
 export function hydrateProspect(row: ProspectRow) {
   return {
     ...row,
     metadata: row.metadata ? safeJson(row.metadata) : null,
-  }
-}
-
-export function hydrateIssue(row: IssueRow) {
-  return {
-    ...row,
-    media: row.media ? safeJson(row.media) : null,
   }
 }
 
@@ -152,85 +124,6 @@ export async function listVisibleProspectRows(
 
 export async function deleteProspectRow(env: Env, id: string): Promise<void> {
   await env.DB.prepare(`DELETE FROM prospects WHERE id = ?1`).bind(id).run()
-}
-
-// ---- Issues -----------------------------------------------------------------
-
-export async function insertIssue(env: Env, row: IssueRow): Promise<void> {
-  await env.DB.prepare(
-    `INSERT INTO issues (id, user_email, lat, lng, category, description, status, media, created_at)
-     VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)`,
-  )
-    .bind(
-      row.id,
-      row.user_email,
-      row.lat,
-      row.lng,
-      row.category,
-      row.description,
-      row.status,
-      row.media,
-      row.created_at,
-    )
-    .run()
-}
-
-export async function getIssueRow(env: Env, id: string): Promise<IssueRow | null> {
-  return await env.DB.prepare(`SELECT * FROM issues WHERE id = ?1`).bind(id).first<IssueRow>()
-}
-
-export interface IssueQuery {
-  bbox?: [number, number, number, number] // [minLng, minLat, maxLng, maxLat]
-  category?: string
-  status?: string
-  limit?: number
-}
-
-export async function listIssueRows(env: Env, q: IssueQuery): Promise<IssueRow[]> {
-  const where: string[] = []
-  const binds: unknown[] = []
-  let i = 1
-  if (q.bbox) {
-    where.push(`lng >= ?${i++} AND lng <= ?${i++} AND lat >= ?${i++} AND lat <= ?${i++}`)
-    binds.push(q.bbox[0], q.bbox[2], q.bbox[1], q.bbox[3])
-  }
-  if (q.category) {
-    where.push(`category = ?${i++}`)
-    binds.push(q.category)
-  }
-  if (q.status) {
-    where.push(`status = ?${i++}`)
-    binds.push(q.status)
-  }
-  const limit = Math.min(Math.max(q.limit ?? 500, 1), 1000)
-  const sql =
-    `SELECT * FROM issues` +
-    (where.length ? ` WHERE ${where.join(' AND ')}` : '') +
-    ` ORDER BY created_at DESC LIMIT ${limit}`
-  const res = await env.DB.prepare(sql)
-    .bind(...binds)
-    .all<IssueRow>()
-  return res.results ?? []
-}
-
-// ---- Contributions ----------------------------------------------------------
-
-export async function insertContribution(env: Env, row: ContributionRow): Promise<void> {
-  await env.DB.prepare(
-    `INSERT INTO contributions (id, issue_id, user_email, kind, body, created_at)
-     VALUES (?1, ?2, ?3, ?4, ?5, ?6)`,
-  )
-    .bind(row.id, row.issue_id, row.user_email, row.kind, row.body, row.created_at)
-    .run()
-}
-
-export async function listContributionRows(env: Env, issueId: string): Promise<ContributionRow[]> {
-  const res = await env.DB.prepare(
-    `SELECT * FROM contributions WHERE issue_id = ?1 ORDER BY created_at ASC`,
-  )
-    .bind(issueId)
-    .all<ContributionRow>()
-  return res.results ?? []
 }
 
 // ---- Analyses (logged analyze_location runs) --------------------------------

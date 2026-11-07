@@ -79,8 +79,6 @@ describe('MCP batch limits', () => {
       'search_places',
       'add_prospect',
       'update_prospect',
-      'report_issue',
-      'contribute',
       'query_spatial',
     ]) {
       expect(
@@ -90,7 +88,7 @@ describe('MCP batch limits', () => {
   })
 
   test('allows only explicitly bounded reads and ping in a batch', () => {
-    for (const name of ['list_prospects', 'list_issues', 'get_layer_catalog']) {
+    for (const name of ['list_prospects', 'get_layer_catalog']) {
       expect(
         mcpToolBatchRejection({ jsonrpc: '2.0', method: 'tools/call', params: { name } }),
       ).toBeNull()

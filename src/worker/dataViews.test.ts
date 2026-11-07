@@ -355,11 +355,11 @@ describe('durable live views', () => {
       createDataView(
         memoryHarness().env,
         { email: 'researcher@example.com', emailVerified: true, mode: 'user' },
-        { kind: 'map', title: 'Live issues only' },
+        { kind: 'map', title: 'Live prospects only' },
         { op: 'bbox' },
-        result({ entities: ['gnd', 'issues'] }),
+        result({ entities: ['gnd', 'prospects'] }),
       ),
-    ).rejects.toThrow('unversioned: issues')
+    ).rejects.toThrow('unversioned: prospects')
   })
 
   test('requires a verified account for persistent storage', async () => {

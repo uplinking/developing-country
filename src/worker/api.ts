@@ -10,20 +10,15 @@ import {
   analyze,
   catalog,
   coverage,
-  contribute,
   deleteProspect,
-  getIssue,
   getProspect,
   listAnalyses,
-  listIssues,
   listProspects,
-  reportIssue,
   ontology,
   query,
   searchPlaces,
   stepper,
   updateProspect,
-  type ContributeParams,
 } from './service'
 import { extractStage, persistAndFanout } from './stageFanout'
 import { normalizeEmail } from './identity'
@@ -94,16 +89,6 @@ function prospectParams(value: JsonObject) {
     notes: optionalString(value.notes),
     verdict: optionalString(value.verdict),
     visibility: optionalString(value.visibility),
-  }
-}
-
-function contributionParams(value: JsonObject, issueId: string): ContributeParams {
-  const kind = optionalString(value.kind)
-  return {
-    issue_id: issueId,
-    kind:
-      kind === 'comment' || kind === 'solution' || kind === 'evidence' ? kind : undefined,
-    body: optionalString(value.body),
   }
 }
 
@@ -225,22 +210,6 @@ export async function handleApi(request: Request, env: Env, ctx?: ExecutionConte
       }
       return json(args.include_geometry ? result : rest)
     }
-    // Viewing crowdsourced issues is public; only reporting needs a session.
-    if (path === '/api/issues' && method === 'GET') {
-      return json(
-        await listIssues(env, identity, {
-          bbox: url.searchParams.get('bbox') ?? undefined,
-          category: url.searchParams.get('category') ?? undefined,
-          status: url.searchParams.get('status') ?? undefined,
-          limit: url.searchParams.get('limit') ? Number(url.searchParams.get('limit')) : undefined,
-        }),
-      )
-    }
-    const publicIssueGet = /^\/api\/issues\/([^/]+)$/.exec(path)
-    if (publicIssueGet && method === 'GET') {
-      return json(await getIssue(env, identity, decodeURIComponent(publicIssueGet[1])))
-    }
-
     // ---- Everything below writes or touches personal data: require a session.
     if (!identity) return err(401, 'unauthorized — sign in required')
     return await route(request, env, identity, path, method, url)
@@ -262,7 +231,7 @@ async function route(
   method: string,
   url: URL,
 ): Promise<Response> {
-  // Public reads (/api/me, catalog, stepper, analyze, search, GET issues) are
+  // Public reads (/api/me, catalog, stepper, analyze, search) are
   // handled in handleApi BEFORE the auth gate. Everything here requires a
   // session (identity is guaranteed non-null).
 
@@ -343,52 +312,6 @@ async function route(
       return json(await updateProspect(env, identity, { ...patch, id }))
     }
     if (method === 'DELETE') return json(await deleteProspect(env, identity, id))
-    return err(405, 'method not allowed')
-  }
-
-  // /api/issues
-  if (path === '/api/issues') {
-    if (method === 'GET') {
-      return json(
-        await listIssues(env, identity, {
-          bbox: url.searchParams.get('bbox') ?? undefined,
-          category: url.searchParams.get('category') ?? undefined,
-          status: url.searchParams.get('status') ?? undefined,
-          limit: url.searchParams.get('limit') ? Number(url.searchParams.get('limit')) : undefined,
-        }),
-      )
-    }
-    if (method === 'POST') {
-      const value = await body(request)
-      return json(
-        await reportIssue(env, identity, {
-          lat: Number(value.lat),
-          lng: Number(value.lng),
-          category: String(value.category ?? ''),
-          description: optionalString(value.description),
-          media: Array.isArray(value.media) ? value.media : undefined,
-        }),
-        201,
-      )
-    }
-    return err(405, 'method not allowed')
-  }
-
-  // /api/issues/:id/contributions
-  const contribMatch = /^\/api\/issues\/([^/]+)\/contributions$/.exec(path)
-  if (contribMatch) {
-    const issue_id = decodeURIComponent(contribMatch[1])
-    if (method === 'POST') {
-      return json(await contribute(env, identity, contributionParams(await body(request), issue_id)), 201)
-    }
-    return err(405, 'method not allowed')
-  }
-
-  // /api/issues/:id
-  const issueMatch = /^\/api\/issues\/([^/]+)$/.exec(path)
-  if (issueMatch) {
-    const id = decodeURIComponent(issueMatch[1])
-    if (method === 'GET') return json(await getIssue(env, identity, id))
     return err(405, 'method not allowed')
   }
 

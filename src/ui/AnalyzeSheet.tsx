@@ -44,7 +44,7 @@ export default function AnalyzeSheet({ point, result, loading, error, onClose }:
         <Head title="Pick a spot" onClose={onClose} />
         <p className="sun-hint">
           Tap anywhere on the map. developing-country.org pulls every layer together at that point —
-          demographics, expressways, planned developments, nature and civic issues — into one
+          demographics, expressways, planned developments and nature — into one
           readout.
         </p>
       </div>

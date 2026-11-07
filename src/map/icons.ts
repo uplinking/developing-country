@@ -74,75 +74,11 @@ export interface IconSpec {
 }
 
 type IconRegistry = Record<string, IconSpec>
-type IssueGlyphRegistry = Record<string, Pick<IconSpec, 'label' | 'stroke' | 'fill'>>
 type DevelopmentGlyphRegistry = Record<string, { label: string } & Pick<IconSpec, 'stroke' | 'fill'>>
 type IconColorRegistry = Record<string, string>
 
-// --- Civic issues ----------------------------------------------------------
-// The glyph carries the CATEGORY, the colour carries the STATUS, so both axes
-// stay readable at once. Ids are `issue-<category>-<state>`; the match
-// expression that picks one lives in layers.ts (issueIconImage).
-// Declared before ICONS because ICONS spreads issueIcons() at module init.
-
-/** Issue palette: open/in_progress = red, resolved/closed = green. */
-export const ISSUE_STATE_COLORS = { open: '#dc2626', done: '#16a34a' } as const
-
-/** Glyphs for the civic-issue categories the MCP tool + web form emit. */
-const ISSUE_GLYPHS = {
-  // A hole in the ground: the road surface breaks either side of a crater.
-  pothole: {
-    label: 'Pothole',
-    stroke: ['M6.6 9.2h2.4', 'M15 9.2h2.4', 'M9 9.2c.5 5 5.5 5 6 0'],
-    fill: ['M8.2 13.6a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8z', 'M15.8 13.6a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8z'],
-  },
-  flooding: {
-    label: 'Flooding',
-    stroke: [
-      'M6.8 8.6q1.7-1.5 3.4 0t3.4 0 3.4 0',
-      'M6.8 11.6q1.7-1.5 3.4 0t3.4 0 3.4 0',
-      'M6.8 14.6q1.7-1.5 3.4 0t3.4 0 3.4 0',
-    ],
-  },
-  // A lamp, not a pole: a bare pole + head reads as an up-arrow at 16px.
-  streetlight: {
-    label: 'Streetlight',
-    stroke: [
-      'M12 6.9a3 3 0 0 1 3 3c0 1.4-1.1 2-1.3 3h-3.4c-.2-1-1.3-1.6-1.3-3a3 3 0 0 1 3-3z',
-      'M10.6 14.6h2.8',
-      'M12 4.4v1',
-      'M6.9 9.9h1',
-      'M16.1 9.9h1',
-      'M8.4 6.3l.7.7',
-      'M15.6 6.3l-.7.7',
-    ],
-  },
-  // An arched culvert mouth with water running out of it.
-  culvert: {
-    label: 'Culvert / drain',
-    stroke: ['M7.4 13.6V11a4.6 4.6 0 0 1 9.2 0v2.6', 'M6.8 15.3q1.7-1.3 3.4 0t3.4 0 3.4 0'],
-  },
-  other: {
-    label: 'Other report',
-    stroke: ['M12 5.9 17.6 15.4H6.4z', 'M12 9.5v2.6', 'M12 13.5v.1'],
-  },
-} satisfies IssueGlyphRegistry
-
-/** Every issue category × state, expanded into concrete pin icons. */
-function issueIcons() {
-  const out: IconRegistry = {}
-  for (const [cat, glyph] of Object.entries(ISSUE_GLYPHS)) {
-    for (const [state, color] of Object.entries(ISSUE_STATE_COLORS)) {
-      out[`issue-${cat}-${state}`] = { ...glyph, color }
-    }
-  }
-  return out
-}
-
-/** Issue categories with a dedicated glyph (everything else falls back to `other`). */
-export const ISSUE_CATEGORIES = Object.keys(ISSUE_GLYPHS).filter((c) => c !== 'other')
-
 // --- Planned developments --------------------------------------------------
-// Project pins carry TWO axes like civic issues: the glyph says WHAT the project
+// Project pins carry TWO axes: the glyph says WHAT the project
 // is (a port, an airport, a power project…), the colour says WHERE it stands
 // (operational / under-construction / approved / proposed). Ids are
 // `dev-<glyph>-<bucket>`; the match expression that picks one lives in layers.ts
@@ -438,9 +374,6 @@ export const ICONS = {
     color: '#475569', // slate (was indigo)
     stroke: ['M10.9 6a3.4 3.4 0 1 1 0 6.8 3.4 3.4 0 0 1 0-6.8z', 'M13.4 12.1l2.9 3'],
   },
-
-  // Civic issues (see ISSUE_GLYPHS above).
-  ...issueIcons(),
 
   // Planned developments — the project icon pack (see DEV_GLYPHS above).
   ...devIcons(),

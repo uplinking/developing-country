@@ -14,7 +14,7 @@ There are three kinds of layer. Pick the row that matches your data:
 |---|---|---|---|
 | **Static GeoJSON** (light, < a few MB) | `public/data/<name>.geojson` | `{ type: 'geojson', url: 'data/<name>.geojson' }` | attractions, waterfalls, parks |
 | **Vector tiles** (heavy — roads, water, climate) | `*.pmtiles` on R2, served from `tiles.developing-country.org` | `{ type: 'vector-pmtiles', file: '<name>.pmtiles' }` | roads, water, climate |
-| **Runtime API** (live / per-user data) | a same-origin endpoint under `/api/*` | `{ type: 'api', endpoint: '/api/<name>' }` | stepper, prospects, issues |
+| **Runtime API** (live / per-user data) | a same-origin endpoint under `/api/*` | `{ type: 'api', endpoint: '/api/<name>' }` | stepper, prospects, analyses |
 
 ---
 
@@ -187,7 +187,7 @@ Gotchas that have already bitten:
 ## Variant — a runtime API layer (`type: 'api'`)
 
 Use this when the data is live or per-user (a creator feed, the user's
-prospects, civic issues). The registry entry is the same shape, but:
+prospects, analysis runs). The registry entry is the same shape, but:
 
 - `source: { type: 'api', endpoint: '/api/<name>' }`.
 - `MapView` adds an **empty** GeoJSON source on load, then `loadApiLayers()`

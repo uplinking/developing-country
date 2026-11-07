@@ -5,7 +5,7 @@
 
 import type { ExpressionSpecification, FilterSpecification, LayerSpecification } from 'maplibre-gl'
 import { AVAILABLE_TILES, TERRAIN_TILES } from '../config'
-import { iconSpec, ISSUE_CATEGORIES, ISSUE_STATE_COLORS, DEV_STATUS_COLORS, DEV_GLYPHS, iconId } from './icons'
+import { iconSpec, DEV_STATUS_COLORS, DEV_GLYPHS, iconId } from './icons'
 import registryIds from '../shared/registry-ids.json' with { type: 'json' }
 
 export type LayerCategory =
@@ -154,23 +154,8 @@ const attractionIconMatch = asExpression([
   iconId('attraction'),
 ])
 
-/** Issue pins: glyph = category, colour = status. `<category>-<state>` ids. */
-const issueCatMatch = (state: 'open' | 'done') => asExpression([
-  'match',
-  ['get', 'category'],
-  ...ISSUE_CATEGORIES.flatMap((c) => [c, iconId(`issue-${c}-${state}`)]),
-  iconId(`issue-other-${state}`),
-])
-const issueIconMatch = asExpression([
-  'match',
-  ['get', 'status'],
-  ['resolved', 'closed'], issueCatMatch('done'),
-  issueCatMatch('open'),
-])
-
 // Planned-development pins: glyph = project type, colour = status. Maps a
-// feature's `type` to a glyph and its `status` to a colour bucket, mirroring the
-// civic-issue pattern. Image ids are `dev-<glyph>-<bucket>` (see map/icons.ts).
+// feature's `type` to a glyph and its `status` to a colour bucket. Image ids are `dev-<glyph>-<bucket>` (see map/icons.ts).
 const DEV_TYPE_GLYPH: [string, string][] = [
   ['special-economic-zone', 'sez'],
   ['port-terminal', 'port'],
@@ -286,8 +271,6 @@ const hospitalIconMatch = asExpression([
 
 const COMMUNITY_COLORS = {
   prospect: iconColor('prospect'),
-  issueOpen: ISSUE_STATE_COLORS.open,
-  issueResolved: ISSUE_STATE_COLORS.done,
   analysis: iconColor('analysis'),
 }
 
@@ -1387,7 +1370,7 @@ export const LAYER_GROUPS: LayerGroup[] = [
     ],
     legend: [{ swatch: EXPLORE_COLORS.stepper, label: 'Stepper spot', icon: iconId('stepper') }],
   },
-  // ---- Community: prospects & civic issues -------------------------------
+  // ---- Community: your prospects -----------------------------------------
   {
     id: 'prospects',
     info: {
@@ -1421,33 +1404,6 @@ export const LAYER_GROUPS: LayerGroup[] = [
       },
     ],
     legend: [{ swatch: COMMUNITY_COLORS.prospect, label: 'Prospect', icon: iconId('prospect') }],
-  },
-  {
-    id: 'issues',
-    info: {
-      source: 'Community reports (developing-country.org)',
-      detail: 'Community-reported problems — potholes, broken culverts, flooding blackspots and more — coloured by whether they are still open or resolved.',
-      year: 'live',
-      url: 'https://explore.developing-country.org',
-    },
-    label: 'Reported issues',
-    blurb: 'Potholes, flooding and other problems people reported nearby.',
-    category: 'community',
-    defaultVisible: false,
-    interactive: true,
-    source: { type: 'api', endpoint: '/api/issues' },
-    render: [
-      // Glyph = what was reported, colour = whether it's still open.
-      pinLayer({ id: 'issues-points', icon: issueIconMatch, size: [0.55, 1.05] }),
-    ],
-    legend: [
-      { swatch: COMMUNITY_COLORS.issueOpen, label: 'Pothole', icon: iconId('issue-pothole-open') },
-      { swatch: COMMUNITY_COLORS.issueOpen, label: 'Flooding', icon: iconId('issue-flooding-open') },
-      { swatch: COMMUNITY_COLORS.issueOpen, label: 'Streetlight', icon: iconId('issue-streetlight-open') },
-      { swatch: COMMUNITY_COLORS.issueOpen, label: 'Culvert / drain', icon: iconId('issue-culvert-open') },
-      { swatch: COMMUNITY_COLORS.issueOpen, label: 'Other report', icon: iconId('issue-other-open') },
-      { swatch: COMMUNITY_COLORS.issueResolved, label: 'Green pin = resolved', icon: iconId('issue-other-done') },
-    ],
   },
   {
     id: 'analyses',

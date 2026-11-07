@@ -267,7 +267,7 @@ The app uses the MCP Apps bridge for everything. It falls back to a host's
 
 Tools are organized by intent rather than by dataset. The current surface
 includes location analysis, place search, the layer catalog, bounded spatial
-queries, prospects, civic reports, contributions, and saved account results.
+queries, prospects, and saved account results.
 Every result carries provenance and vintage. `known_absent` is a typed result,
 not permission to invent geometry; `osm_only` is never presented as an official
 register.
