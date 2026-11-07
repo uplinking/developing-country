@@ -54,6 +54,17 @@ const ORIGIN_FIX: Record<string, string> = { external: 'overseas' }
 const PURPOSE_FIX: Record<string, string> = { macroeconomic: 'balance_of_payments', sector_programme: 'programme', general_budget_support: 'budget_support' }
 const INSTRUMENT_FIX: Record<string, string> = { government_contribution: 'govt_funds' }
 
+// Whole budgets and debt operations hold or finance many initiatives, so the counting contract
+// lists them but never adds them (AGGREGATE_PURPOSES in money.ts). Readers tag them
+// inconsistently (budget_support, programme, relief), so the name decides; text in brackets is
+// ignored because "Relief package (Supplementary Estimate No. 3)" is a package, not the estimate.
+const WHOLE_BUDGET = /\b(appropriation|vote on account|interim budget|capital expenditure plan|supplementary estimate|transfers? to provincial councils|council \d{4} budget)\b/i
+const DEBT_OPERATION = /\b(debt repayments?|debt (treatment|restructuring|service)|bond(holders?)? restructuring|sovereign bonds?|paris club|treasury (bill|bond) auctions?|bond issuance|loan repayments?)\b/i
+export const aggregatePurpose = (projectName: string): 'budget' | 'debt' | null => {
+  const name = projectName.replace(/\([^)]*\)/g, '')
+  return WHOLE_BUDGET.test(name) ? 'budget' : DEBT_OPERATION.test(name) ? 'debt' : null
+}
+
 // Readers sometimes record a per-unit figure (Rs 110 per meal, Rs 6,000 a month) as a total.
 // Those become basis "rate", which the counting contract lists but never adds.
 const RATE = /\b(per|each|monthly|a month|per month|every month|daily|a day|per day)\b(?! cent)/i
@@ -309,6 +320,16 @@ for (const [id, patch] of Object.entries<Json>(overrides.set_project ?? {})) {
   if (!p) throw new Error(`overrides.set_project: unknown ${id}`)
   Object.assign(p, patch)
 }
+let aggregateLines = 0
+for (const l of lines.values()) {
+  const purpose = aggregatePurpose(projects.get(l.project_id)?.name ?? '')
+  if (purpose) { l.purpose = purpose; aggregateLines++ }
+}
+for (const [id, patch] of Object.entries<Json>(overrides.set_line ?? {})) {
+  const l = lines.get(id)
+  if (!l) throw new Error(`overrides.set_line: unknown ${id}`)
+  Object.assign(l, patch)
+}
 
 // 8. Finish: news sources, cumulative positions, summaries; drop unused lines/projects.
 for (const e of events) {
@@ -407,4 +428,4 @@ for (const [path, text] of outputs) {
   await rename(`${path}.tmp`, path)
 }
 if (check && stale) process.exit(1)
-console.log(`money: ${ledger.events.length} events, ${ledger.lines.length} lines, ${ledger.projects.length} projects; ${confirmed} news events confirmed by official records${check ? '' : `; wrote ${stale} file(s)`}`)
+console.log(`money: ${ledger.events.length} events, ${ledger.lines.length} lines (${aggregateLines} whole-budget or debt, never added), ${ledger.projects.length} projects; ${confirmed} news events confirmed by official records${check ? '' : `; wrote ${stale} file(s)`}`)

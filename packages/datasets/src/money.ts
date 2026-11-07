@@ -44,7 +44,17 @@ export const SECTORS = ['transport', 'water', 'energy', 'health', 'education', '
 
 export const INSTRUMENTS = ['loan', 'grant', 'govt_funds', 'equity', 'guarantee', 'in_kind', 'mixed', 'unknown'] as const
 export const ORIGINS = ['overseas', 'domestic', 'unknown'] as const
-export const PURPOSES = ['project', 'programme', 'budget_support', 'balance_of_payments', 'relief', 'unknown'] as const
+export const PURPOSES = ['project', 'programme', 'budget_support', 'balance_of_payments', 'relief', 'budget', 'debt', 'unknown'] as const
+/**
+ * Lines that hold or finance many initiatives at once, so adding them to initiative totals would
+ * count the same money twice (or count a whole national budget as one initiative):
+ * - `budget`: a whole budget or estimate (an Appropriation Act, a vote on account, an interim or
+ *   council budget, a capital expenditure plan, a supplementary estimate, transfers to provincial
+ *   councils). The initiatives it funds are recorded on their own lines.
+ * - `debt`: debt service and debt operations (repayments, restructurings, bond and bill issues).
+ * They stay in the ledger and the feed; moneyTotals lists them but never adds them.
+ */
+export const AGGREGATE_PURPOSES: readonly string[] = ['budget', 'debt']
 /** `rate` is a per-person, per-unit or per-month figure (Rs 110 per meal): never a total, never summed. */
 export const BASES = ['total', 'tranche', 'cumulative', 'annual', 'component', 'rate'] as const
 export const EVIDENCE = ['machine_read', 'reviewed', 'disputed', 'retracted'] as const
@@ -63,6 +73,8 @@ export interface CountableEvent {
   currency: string | null
   basis?: string | null
   evidence?: string
+  /** The funding line's purpose; `budget` and `debt` lines are never added (AGGREGATE_PURPOSES). */
+  purpose?: string | null
 }
 
 export interface CurrencyTotal { amount: number; ids: string[] }
@@ -70,6 +82,8 @@ export interface MoneyTotals {
   totals: Record<Bucket, Record<string, CurrencyTotal>>
   /** Events in a bucket whose amount was not reported: never counted as zero. */
   missing: Record<Bucket, string[]>
+  /** Events in a bucket on whole-budget or debt lines: listed, never added. */
+  aggregates: Record<Bucket, string[]>
 }
 
 /**
@@ -84,14 +98,23 @@ export interface MoneyTotals {
  * - Retracted events never count. A rate (per person, per unit, per month) or a disputed amount
  *   (the source printed an impossible figure, e.g. "USD 85bn" for a university grant) is listed
  *   as missing, never added.
+ * - Whole budgets and debt operations (AGGREGATE_PURPOSES) are listed under `aggregates`, never
+ *   added: an Appropriation Act already contains the projects it funds.
  */
 export function moneyTotals(events: readonly CountableEvent[]): MoneyTotals {
   const totals = { announced: {}, approved: {}, contracted: {}, paid: {} } as MoneyTotals['totals']
   const missing: MoneyTotals['missing'] = { announced: [], approved: [], contracted: [], paid: [] }
+  const aggregates: MoneyTotals['aggregates'] = { announced: [], approved: [], contracted: [], paid: [] }
   const latest = new Map<string, CountableEvent>()
   const tranched = new Set<string>()
   const uncountable = (e: CountableEvent) => e.basis === 'rate' || e.evidence === 'disputed'
-  const live = events.filter(e => e.evidence !== 'retracted')
+  const live: CountableEvent[] = []
+  for (const e of events) {
+    if (e.evidence === 'retracted') continue
+    const b = bucketOf(e.stage)
+    if (b && e.purpose && AGGREGATE_PURPOSES.includes(e.purpose)) aggregates[b].push(e.id)
+    else live.push(e)
+  }
   for (const e of live) {
     if (bucketOf(e.stage) === 'paid' && e.basis !== 'cumulative' && !uncountable(e) && e.amount != null && e.currency) tranched.add(`${e.line_id}|${e.currency}`)
   }
@@ -111,5 +134,5 @@ export function moneyTotals(events: readonly CountableEvent[]): MoneyTotals {
     if (!cur || e.date > cur.date || (e.date === cur.date && e.id > cur.id)) latest.set(key, e)
   }
   for (const [key, e] of latest) add(key.split('|')[0] as Bucket, e)
-  return { totals, missing }
+  return { totals, missing, aggregates }
 }

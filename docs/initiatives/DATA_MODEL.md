@@ -73,7 +73,12 @@ Kept as independent axes, never one overloaded category.
   `opec_fund`, `aiib`, `korea`, `un`, `gosl`, `private`, `other:*`, `unknown`. Types are
   multilateral, bilateral, government, private and unknown.
 - **origin**: `overseas`, `domestic`, `unknown`. Never inferred from currency or contractor nationality.
-- **purpose**: `project`, `programme`, `budget_support`, `balance_of_payments`, `relief`, `unknown`.
+- **purpose**: `project`, `programme`, `budget_support`, `balance_of_payments`, `relief`, `budget`, `debt`, `unknown`.
+  `budget` is a whole budget or estimate that funds many initiatives (an Appropriation Act, a vote on
+  account, an interim or council budget, a capital expenditure plan, a supplementary estimate,
+  transfers to provincial councils); `debt` is repaying, restructuring, issuing or auctioning debt.
+  `build.ts` sets both from the initiative's name (text in brackets ignored), and `overrides.set_line`
+  can set or correct them by hand.
   IMF money is `balance_of_payments` and has no map location.
 - **basis**: `total`, `tranche`, `cumulative`, `annual`, `component`, `rate` (per person, per unit or per month; never a total).
 - **sector** and **delivery status**: as in the extraction spec. Status is only set when a source states it.
@@ -99,7 +104,10 @@ materialised. UI code never adds two amounts.
 6. A parent programme and its child lines are alternative aggregation levels. Overlap that can't be
    resolved is excluded and disclosed in the count.
 7. National lines (`balance_of_payments`, `budget_support`) never enter a place's total.
-8. A missing amount is "not reported" and never zero. `machine_read` events count separately from
+8. `budget` and `debt` lines are listed beside each total ("budget or debt, not added") and never
+   added: an Appropriation Act already contains the projects it funds, and debt service is not an
+   initiative.
+9. A missing amount is "not reported" and never zero. `machine_read` events count separately from
    `reviewed` ones until review. The total shows both: "USD 400m approved, of which 250m reviewed".
 
 ## Duplicate detection vs genuine updates

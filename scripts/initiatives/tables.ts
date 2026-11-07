@@ -109,7 +109,7 @@ export async function writeTables(ledger: Json): Promise<[string, string][]> {
       for (const x of scoped) {
         const [k, label] = keyOf(x)
         const g = groups.get(k) ?? { label, items: [] }
-        g.items.push(x.e); groups.set(k, g)
+        g.items.push({ ...x.e, purpose: x.l.purpose }); groups.set(k, g)
       }
       for (const [group, { label, items }] of [...groups].sort()) {
         const r = moneyTotals(items)
@@ -140,6 +140,7 @@ export async function writeTables(ledger: Json): Promise<[string, string][]> {
     notes: [
       'Pick one period, one group_by and one bucket; read each currency separately. Rows overlap across groupings and periods and must not be summed.',
       'Within a stage each funding line counts once (its latest event); paid tranches add up; cumulative positions never add to tranches.',
+      'Whole budgets (Appropriation Acts, votes on account, council budgets, capital expenditure plans, supplementary estimates) and debt operations (repayments, restructurings, bond and bill issues) are never added: they contain or finance the initiatives counted here. They stay in lk-initiative-events with purpose budget or debt.',
     ],
   })
 

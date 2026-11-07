@@ -79,4 +79,21 @@ describe('moneyTotals', () => {
     expect(r.totals.announced.USD).toEqual({ amount: 5_000_000, ids: ['real'] })
     expect(r.missing.announced).toEqual(['typo'])
   })
+
+  test('a whole budget and a debt operation are listed, never added to initiative totals', () => {
+    const r = moneyTotals([
+      ev({ id: 'budget', line_id: 'appropriation-2027', stage: 'proposed', currency: 'LKR', amount: 4_992e9, purpose: 'budget' }),
+      ev({ id: 'repay', line_id: 'debt-repayment', stage: 'spent', currency: 'LKR', amount: 4_981e9, purpose: 'debt' }),
+      ev({ id: 'road', line_id: 'expressway', stage: 'proposed', currency: 'LKR', amount: 112e9, purpose: 'project' }),
+    ])
+    expect(r.totals.announced.LKR).toEqual({ amount: 112e9, ids: ['road'] })
+    expect(r.totals.paid).toEqual({})
+    expect(r.aggregates).toEqual({ announced: ['budget'], approved: [], contracted: [], paid: ['repay'] })
+    expect(r.missing.paid).toEqual([])
+  })
+
+  test('a retracted whole budget is neither added nor listed', () => {
+    const r = moneyTotals([ev({ id: 'gone', purpose: 'budget', evidence: 'retracted' })])
+    expect(r.aggregates.approved).toEqual([])
+  })
 })

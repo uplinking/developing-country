@@ -1,5 +1,5 @@
 {
- "$comment": "Human review decisions for the money ledger, applied by scripts/initiatives/build.ts. project_alias joins one initiative named differently by different sources; line_alias joins funding lines; merge_events [keep, drop] collapses duplicate reports the matcher missed; retract marks an event withdrawn (kept, never counted); set_event / set_project fix fields (evidence \"disputed\" keeps an implausible printed amount on the record but out of every total). Every entry should say why in review. Sectors for initiatives the reader left as \"other\" were classified in one Codex gpt-6-luna pass (6 Nov 2026) and spot-checked.",
+ "$comment": "Human review decisions for the money ledger, applied by scripts/initiatives/build.ts. project_alias joins one initiative named differently by different sources; line_alias joins funding lines; merge_events [keep, drop] collapses duplicate reports the matcher missed; retract marks an event withdrawn (kept, never counted); set_event / set_line / set_project fix fields (evidence \"disputed\" keeps an implausible printed amount on the record but out of every total). Every entry should say why in review. Sectors for initiatives the reader left as \"other\" were classified in one Codex gpt-6-luna pass (6 Nov 2026) and spot-checked.",
  "project_alias": {
   "adb-inclusive-recovery-sdp": "inclusive-recovery-program",
   "rebuilding-sri-lanka-fund-disaster-recovery": "rebuilding-sri-lanka-fund",
@@ -16,6 +16,30 @@
   [
    "rebuilding-sri-lanka-fund-bank-of-ceylon-disbursed-2025-12-31",
    "boc-donation-rebuilding-sl-disbursed-2025-12-31"
+  ],
+  [
+   "ditwah-disaster-relief-supplementary-estimate-gosl-allocated-2026-01-28",
+   "ditwah-public-infrastructure-repairs-gosl-allocated-2026-06-01"
+  ],
+  [
+   "ditwah-disaster-relief-supplementary-estimate-gosl-allocated-2026-01-28",
+   "ditwah-disaster-relief-payments-gosl-allocated-2026-06-03"
+  ],
+  [
+   "middle-east-crisis-relief-package-2026-gosl-allocated-2026-04-07",
+   "middle-east-emergency-assistance-sri-lankans-gosl-allocated-2026-05-01"
+  ],
+  [
+   "middle-east-crisis-relief-package-2026-gosl-allocated-2026-04-07",
+   "middle-east-crisis-assistance-gosl-allocated-2026-06-03"
+  ],
+  [
+   "se3-relief-copf-approval",
+   "fuel-subsidy-allocation-2026-gosl-allocated-2026-07-28"
+  ],
+  [
+   "se3-relief-copf-approval",
+   "fuel-subsidy-allocation-2026-gosl-allocated-2026-08-03"
   ]
  ],
  "retract": [],
@@ -31,6 +55,11 @@
   "frankfurt-cargo-warehouse-srilankan-airlines-govt_authorised-2025-12-10": {
    "evidence": "disputed",
    "notes": "Tamil source reads '6947,766 million euro' for a three-year warehouse services contract; the figure is likely EUR 6.95m with a misplaced separator. Not counted until confirmed."
+  }
+ },
+ "set_line": {
+  "government-health-service-funding-2024-2026-gosl": {
+   "purpose": "budget"
   }
  },
  "set_project": {

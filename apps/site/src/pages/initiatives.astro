@@ -151,6 +151,7 @@ const dataUrl = `${explorer}/data/lk-initiatives.json`
 .money .row .st.halt{color:var(--verm);font-weight:600}
 .money .row .amt{grid-area:amt;font:500 13px/1.4 var(--mono)}
 .money .row .amt.none,.money .row .src.none{color:var(--dim);font:400 13px/1.4 var(--sans);cursor:help}
+.money .row .amt.agg{color:var(--dim);text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
 .money .row .src{grid-area:src;font-size:14px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .money .row .meta{grid-area:meta;display:flex;justify-content:flex-end;align-items:center;gap:8px;font:500 11px/1 var(--mono);color:var(--dim);white-space:nowrap}
 .money .ev{display:inline-block;width:8px;height:8px;border-radius:50%;flex:none}
@@ -204,7 +205,7 @@ const dataUrl = `${explorer}/data/lk-initiatives.json`
 
 <script>
 // @ts-nocheck -- plain DOM code; the counting rules it relies on are typed and tested in packages/datasets.
-import { moneyTotals, STAGE_BUCKET } from '@developing-country/datasets/money'
+import { AGGREGATE_PURPOSES, moneyTotals, STAGE_BUCKET } from '@developing-country/datasets/money'
 
 
 function start(DATA){
@@ -274,6 +275,7 @@ function shortName(l){
   if(f.startsWith('other:')){ const t=f.slice(6); return t.length<=5?t.toUpperCase():(l.funder_name||cap(t)); }
   return l.funder_name||cap(f);
 }
+const AGG_WHY='A whole budget or a debt operation. It contains or pays for many initiatives, so it is listed but never added to the totals.';
 // A blank cell says why it is blank. The reader never guesses, so a gap means the reports left it out.
 function gapAmt(e){
   return e.raw?['No single total','The reports give '+e.raw+', in more than one currency and with no single total, so nothing is added up.']
@@ -288,6 +290,7 @@ const typeKey=l=>{const i=l&&l.instrument; return i==='loan'?'loan':i==='grant'?
 const EV=D.events.filter(e=>e&&e.id&&typeof e.date==='string'&&e.date.length>=10).map(e=>{
   const l=L.get(e.line_id), p=l&&P.get(l.project_id);
   return Object.assign({},e,{date:e.date.slice(0,10),_pid:p?p.id:'x:'+e.line_id,_name:p?p.name:(e.summary||'Untitled'),
+    purpose:l?l.purpose:null,_agg:!!(l&&AGGREGATE_PURPOSES.includes(l.purpose)),
     _src:srcKey(l),_short:shortName(l),_sector:(p&&p.sector)||'other',_tk:typeKey(l),_b:BUCKET[e.stage]||null,
     _wk:monday(e.date.slice(0,10)),_dn:dayNum(e.date.slice(0,10))});
 });
@@ -495,6 +498,13 @@ function plainStrip(all){
       const key='m|'+b;
       col.append(h('button',{type:'button',class:'lnk','aria-pressed':String(pinBtnAttrs(key)),text:'+'+miss.length+' without amount',
         onclick:()=>togglePin({key,ids:miss.slice(),line:'Showing the '+plural(miss.length,'item')+' '+b+' without an amount reported',bucket:b})}));
+    }
+    const agg=all.aggregates[b];
+    if(agg.length){
+      const key='a|'+b;
+      col.append(h('button',{type:'button',class:'lnk','aria-pressed':String(pinBtnAttrs(key)),text:'+'+agg.length+' budget or debt, not added',
+        title:AGG_WHY,
+        onclick:()=>togglePin({key,ids:agg.slice(),line:'Showing the '+plural(agg.length,'whole budget or debt item')+' '+b+', listed but not added',bucket:b})}));
     }
     grid.append(col);
   }
@@ -719,7 +729,7 @@ function rowEl(e,pinIds){
     h('span',{class:'n'},h('span',{text:e._name}),
       e._sector!=='other'?h('span',{class:'theme-tag','data-theme':SECTOR_THEME[e._sector]||null,text:secLabel(e._sector)}):null),
     h('span',{class:'st'+(e.stage==='halted'?' halt':''),text:STAGE[e.stage]||cap(e.stage||'unclear')}),
-    hasAmt?h('span',{class:'amt',text:fmtAmt(e.amount,e.currency)})
+    hasAmt?h('span',{class:'amt'+(e._agg?' agg':''),title:e._agg?AGG_WHY:null,text:fmtAmt(e.amount,e.currency)})
       :h('span',{class:'amt none',title:gapAmt(e)[1],text:gapAmt(e)[0]}),
     e._short?h('span',{class:'src',text:e._short}):h('span',{class:'src none',title:gapSrc(e)[1],text:gapSrc(e)[0]}),
     h('span',{class:'meta'},nrep>1?h('span',{text:nrep+' reports'}):null,
@@ -761,7 +771,7 @@ function detailEl(e){
       s.date?h('span',{class:'dt',text:fmtDY(s.date.slice(0,10))}):null,
       /^https?:\/\//i.test(s.url||'')?h('a',{href:s.url,target:'_blank',rel:'noopener noreferrer',text:title}):h('span',{text:title})));
   }
-  const gaps=[e.amount!=null&&e.currency?null:gapAmt(e)[1],e._short?null:gapSrc(e)[1]].filter(Boolean);
+  const gaps=[e._agg?AGG_WHY:null,e.amount!=null&&e.currency?null:gapAmt(e)[1],e._short?null:gapSrc(e)[1]].filter(Boolean);
   return h('div',{class:'detail',id:domId(e.id)},track,srcs.childNodes.length?srcs:null,
     e.notes?h('p',{class:'notes',text:e.notes}):null,
     gaps.length?h('p',{class:'notes gaps',text:gaps.join(' ')}):null);
