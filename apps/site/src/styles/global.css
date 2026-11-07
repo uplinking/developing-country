@@ -1014,3 +1014,35 @@ main { overflow-x: clip; }
   .article-header--title .article-header__summary { min-height: 0; }
   .article-shell .article-contents { display: none; }
 }
+
+/* Data catalogue search */
+/* Search often leaves a part-filled last row: draw each card's rule instead of
+   letting the grid's ink background fill the empty cells. */
+.data-index__grid { background: var(--report-paper); }
+.data-index__grid > .dataset-card { outline: 1px solid var(--report-ink); }
+.data-search { margin: 0 0 24px; }
+.data-search label { display: block; margin-bottom: 8px; font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.data-search__row { display: flex; max-width: 760px; border: 1px solid var(--report-ink); background: white; }
+.data-search__row:focus-within { outline: 2px solid var(--report-blue); outline-offset: 2px; }
+.data-search input[type='search'] { flex: 1 1 auto; min-width: 0; min-height: 52px; padding: 0 16px; border: 0; background: transparent; color: var(--report-ink); font: inherit; font-size: 18px; }
+.data-search input[type='search']:focus { outline: none; }
+.data-search input[type='search']::placeholder { color: var(--report-muted); }
+.data-search button { flex: 0 0 auto; min-height: 52px; padding: 0 22px; border: 0; border-left: 1px solid var(--report-ink); background: var(--report-ink); color: var(--report-paper); font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+.data-search button:hover { background: var(--report-blue); }
+.data-search button:focus-visible { outline: 2px solid var(--report-blue); outline-offset: 2px; }
+.data-search__hint { max-width: 760px; margin: 10px 0 0; color: var(--report-muted); font-size: 15px; line-height: 1.5; }
+.data-search__hint strong { color: var(--report-ink); }
+.data-search__hint a { color: var(--report-ink); text-underline-offset: 3px; }
+.data-search__related { display: block; margin-top: 4px; font-size: 13px; }
+.data-search__notice { margin: 0 0 16px; padding: 12px 16px; border-left: 3px solid var(--report-ochre); background: color-mix(in srgb, var(--report-ochre) 13%, var(--report-paper)); font-size: 15px; line-height: 1.5; }
+.data-search__empty { min-height: 0; }
+.data-search__empty p { margin: 0 0 16px; }
+.data-search__empty ul { margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.7; }
+.data-search__empty a { color: var(--report-ink); text-underline-offset: 3px; }
+@media (max-width: 760px) {
+  .data-search input[type='search'] { font-size: 16px; }
+  .data-search button { padding: 0 16px; }
+  /* While searching on a phone, show matches before the long filter list. */
+  .data-index__catalogue[data-searching] .data-index__results { order: -1; }
+  .data-search__empty { padding: 24px; font-size: 18px; }
+}

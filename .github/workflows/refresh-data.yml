@@ -130,7 +130,7 @@ jobs:
           branch="automated-refresh/$SOURCE_ID"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/data scripts/data-sources.json scripts/dataset-versions.json packages/datasets/src/registry.generated.ts apps/site/seed apps/site/data/dataset-catalog.json apps/site/src/generated/datasetCatalogPointer.ts
+          git add public/data public/catalog scripts/data-sources.json scripts/dataset-versions.json packages/datasets/src/registry.generated.ts apps/site/seed apps/site/data/dataset-catalog.json apps/site/src/generated/datasetCatalogPointer.ts
           if git diff --cached --quiet; then
             echo 'changed=false' >> "$GITHUB_OUTPUT"
             exit 0

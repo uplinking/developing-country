@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'bun:test'
 import { readFileSync } from 'node:fs'
+import catalogJson from '../data/dataset-catalog.json'
 import { DATASET_CATALOG_POINTER } from './generated/datasetCatalogPointer'
 import {
   DatasetCatalogError,
@@ -31,6 +32,17 @@ describe('R2-backed dataset catalogue', () => {
     const catalog = parseDatasetCatalog(value, expectedIds)
     expect(catalog.versions).toHaveLength(expectedIds.length)
     expect(catalog.versions.map((version) => version.datasetId).sort()).toEqual([...expectedIds].sort())
+  })
+
+  test('carries build-time search terms and synonyms for /data search', () => {
+    const catalog = parseDatasetCatalog(catalogJson, expectedIds)
+    expect(catalog.search.datasets['housing-occupancy-tenure']?.fields).toContain('Tenure category')
+    expect(catalog.search.datasets['housing-occupancy-tenure']?.values).toContain('Jaffna')
+    expect(catalog.search.synonyms.outage).toContain('power cut')
+    expect(() => parseDatasetCatalog({ ...catalogJson, search: undefined }, expectedIds)).toThrow(DatasetCatalogError)
+    const stray = { fields: '', values: '', description: '' }
+    const withStray = { ...catalogJson, search: { ...catalogJson.search, datasets: { ...catalogJson.search.datasets, stray } } }
+    expect(() => parseDatasetCatalog(withStray, expectedIds)).toThrow('not a registered dataset')
   })
 
   test('verifies the immutable object bytes before parsing them', async () => {
