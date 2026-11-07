@@ -22,6 +22,15 @@ For Claude on the web, add a custom connector with the same URL. The first
 authenticated call opens the browser sign-in and consent flow. Use the same
 account as the web explorer.
 
+The Claude Code plugin in `plugins/developing-country` bundles the same connector
+with the `developing-country-evidence` skill, which covers the research loop,
+citing source and vintage, and saving Data Views:
+
+```bash
+claude plugin marketplace add uplinking/developing-country
+claude plugin install developing-country@developing-country
+```
+
 For local development, run `bun run cf:dev` with `DEV_AUTH=1` in `.dev.vars`
 (add `ENABLE_HEAVY_SPATIAL=1` there to enable request-time isochrones locally):
 
@@ -244,6 +253,9 @@ before a call, so they describe each tool's worst case:
   read-only.
 - `query_data` with `presentation` saves a public-by-link view, so it is not
   read-only.
+
+Only `get_layer_catalog`, `search_places` and `list_prospects` are read-only:
+each reads platform data or the caller's own prospects and writes nothing.
 
 `src/worker/mcpToolMeta.test.ts` fails if a tool ships without a row in that
 file.
