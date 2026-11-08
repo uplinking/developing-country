@@ -5,7 +5,7 @@ import seedJson from '../seed/seed.json'
 import runtimeJson from '../seed/runtime.json'
 import { gapFields } from './lib/claims'
 import { parseDatasetCatalog } from './lib/datasetCatalog'
-import { datasetSearchDocument, gapSearchDocument } from './lib/dataSearch'
+import { datasetSearchDocument, gapSearchDocument } from '@developing-country/datasets/search'
 import { datasetMeta, datasetNotes, isDatasetId } from './lib/datasets'
 
 export const catalog = parseDatasetCatalog(catalogJson, datasetNotes.map((dataset) => dataset.id))

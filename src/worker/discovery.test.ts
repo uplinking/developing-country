@@ -73,6 +73,80 @@ describe('dataset search', () => {
   })
 })
 
+// Plain-language queries an assistant passes straight through from a reader.
+// The synonym map is the one /data uses (@developing-country/datasets/search-synonyms).
+describe('plain-language dataset search', () => {
+  const search = (q: string) => searchDatasets(catalog, index, { q })
+  const ids = (q: string) => search(q).datasets.map((d) => d.dataset_id)
+  const hit = (q: string, id: string) => search(q).datasets.find((d) => d.dataset_id === id)
+
+  test('"school dropouts" finds school enrolment through a synonym', () => {
+    expect(ids('school dropouts')[0]).toBe('school-resources')
+    expect(hit('school dropouts', 'school-resources')?.matched_on).toContain('synonym')
+  })
+
+  test('"Colombo rent" finds Colombo asking prices as well as housing tenure', () => {
+    const found = ids('Colombo rent')
+    expect(found).toContain('colombo-asking-price-indices')
+    expect(found).toContain('housing-occupancy-tenure')
+    expect(hit('Colombo rent', 'colombo-asking-price-indices')?.matched_on).toContain('synonym')
+  })
+
+  test('"power cuts" and "blackouts" reach electricity supply reliability', () => {
+    for (const q of ['power cuts', 'blackouts', 'power cut', 'blackout']) {
+      expect(ids(q)[0]).toBe('electricity-supply-reliability')
+      expect(search(q).datasets[0]?.matched_on).toContain('synonym')
+    }
+  })
+
+  test('queries that matched before still match on the typed words', () => {
+    const outages = search('electricity outages').datasets
+    expect(outages[0]?.dataset_id).toBe('electricity-supply-reliability')
+    expect(outages[0]?.matched_on).not.toContain('synonym')
+
+    const inflation = search('inflation').datasets
+    expect(inflation.slice(0, 2).map((d) => d.dataset_id).sort()).toEqual(['ccpi-monthly', 'ncpi-monthly'])
+    expect(inflation[0]?.matched_on).not.toContain('synonym')
+
+    const poverty = search('poverty').datasets
+    expect(poverty.length).toBeGreaterThanOrEqual(4)
+    for (const d of poverty.slice(0, 4)) {
+      expect(d.title.toLowerCase()).toContain('poverty')
+      expect(d.matched_on).toEqual(['title'])
+    }
+  })
+
+  test('a synonym match ranks below every match on the typed word, even a description match', () => {
+    const inflation = search('inflation').datasets
+    const synonymOnly = inflation.filter((d) => d.matched_on.includes('synonym'))
+    const typed = inflation.filter((d) => !d.matched_on.includes('synonym'))
+    expect(synonymOnly.some((d) => d.matched_on.includes('title'))).toBe(true)
+    expect(typed.some((d) => d.matched_on.includes('description'))).toBe(true)
+    expect(inflation).toEqual([...typed, ...synonymOnly])
+    expect(Math.min(...typed.map((d) => d.score))).toBeGreaterThan(Math.max(...synonymOnly.map((d) => d.score)))
+  })
+
+  test('title and field matches rank above description matches', () => {
+    const inflation = search('inflation').datasets
+    const fields = inflation.find((d) => d.matched_on.includes('fields') && !d.matched_on.includes('synonym'))!
+    const description = inflation.find((d) => d.matched_on.includes('description') && !d.matched_on.includes('synonym'))!
+    expect(fields.score).toBeGreaterThan(description.score)
+    expect(inflation.indexOf(fields)).toBeLessThan(inflation.indexOf(description))
+  })
+
+  test('keeps the response shape', () => {
+    const result = search('school dropouts')
+    expect(Object.keys(result).sort()).toEqual(['datasets', 'next', 'query', 'spatial_entities', 'total', 'view'])
+    expect(result.next[0]).toEqual({
+      why: expect.any(String),
+      tool: 'get_layer_catalog',
+      arguments: { dataset_id: 'school-resources' },
+    })
+    expect(result.datasets[0]?.score).toBeGreaterThan(0)
+    expect(result.datasets[0]?.matched_on).toEqual(['title', 'synonym'])
+  })
+})
+
 describe('dataset card', () => {
   const card = datasetCard(catalog, index, 'census-age-sex-dsd') as JsonObject & {
     fields: Array<{ id: string }>

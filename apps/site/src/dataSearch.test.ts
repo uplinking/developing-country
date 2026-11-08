@@ -7,7 +7,7 @@ import {
   search,
   stem,
   type SearchDocument,
-} from './lib/dataSearch'
+} from '@developing-country/datasets/search'
 
 const synonyms = catalog.search.synonyms
 

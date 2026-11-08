@@ -1,5 +1,5 @@
 {
-  "$comment": "Plain-language synonyms for /data search. Each key is a word or phrase a reader might type; its list holds the catalogue's own words for the same idea. Matching ignores case, accents, punctuation and plurals. A synonym match ranks below a match on the typed word. Keep entries short and evidence-led: add a term only when a real Dataset or Missing Data record uses it. Built into the R2 dataset catalogue by apps/site/scripts/build-dataset-catalog.ts.",
+  "$comment": "Plain-language synonyms for dataset search, shared by the /data page and the MCP get_layer_catalog {q} tool. Each key is a word or phrase a reader might type; its list holds the catalogue's own words for the same idea. Matching ignores case, accents, punctuation and plurals. A synonym match ranks below a match on the typed word. Keep entries short and evidence-led: add a term only when a real Dataset or Missing Data record uses it. The site reads them from the R2 dataset catalogue (built by apps/site/scripts/build-dataset-catalog.ts); the explore Worker bundles them through @developing-country/datasets/search-synonyms.",
   "synonyms": {
     "dropout": ["school leaving", "out of school", "enrolment", "admissions", "pupils"],
     "drop out": ["school leaving", "out of school", "enrolment", "admissions", "pupils"],

@@ -279,7 +279,7 @@ const TOOLS: ToolDef[] = [
       type: 'object',
       properties: {
         country: countryProp,
-        q: stringProp('Search words. Matches titles, publishers, themes, field names and dimension values such as district names.'),
+        q: stringProp('Search words, plain language is fine ("school dropouts", "power cuts"). Matches titles, publishers, themes, field names and dimension values such as district names, plus the same synonyms as the /data page; matched_on lists "synonym" when one produced the match.'),
         theme: { type: 'string', enum: PUBLIC_DATA_THEMES.map((t) => t.id), description: 'EU data-theme code filter (ECON economy, SOCI population and society, REGI regions, TRAN transport, …).' },
         publisher: stringProp('Publisher name or id filter, e.g. "Central Bank" or "census".'),
         dataset_id: stringProp('Exact dataset id (or spatial entity id) to open as a full card.'),
