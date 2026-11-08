@@ -15,7 +15,7 @@ import { DEFAULT_DATA_VIEW_ORIGIN } from '@developing-country/views'
 import {
   AnalysisRow,
   listVisibleProspectRows,
-  hydrateProspect,
+  prospectForViewer,
   insertAnalysis,
   newId,
   type ProspectRow,
@@ -204,7 +204,7 @@ export async function analyzeLocation(env: Env, identity: Identity | null, param
     .filter((x) => x.d <= radius)
     .sort((a, b) => a.d - b.d)
     .slice(0, 50)
-    .map((x) => ({ ...hydrateProspect(x.r), distance_km: round(x.d), ...catInfo('prospects') }))
+    .map((x) => ({ ...prospectForViewer(x.r, identity?.email), distance_km: round(x.d), ...catInfo('prospects') }))
 
   // --- log this run against the caller's account (both web + MCP funnel here) ---
   // Anonymous callers (Analyze works signed-out) have no account to trace to, so

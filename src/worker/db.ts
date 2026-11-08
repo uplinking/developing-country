@@ -44,6 +44,26 @@ export function hydrateProspect(row: ProspectRow) {
   }
 }
 
+/**
+ * A prospect as one viewer may see it. The owner gets the full row. Anyone else
+ * (another account, or an anonymous caller) can only reach `public`/`link` rows,
+ * and gets the shared listing fields only: no owner account, notes or metadata.
+ */
+export function prospectForViewer(row: ProspectRow, viewerEmail: string | null | undefined) {
+  if (viewerEmail && row.user_email === viewerEmail) return hydrateProspect(row)
+  return {
+    id: row.id,
+    title: row.title,
+    url: row.url,
+    lat: row.lat,
+    lng: row.lng,
+    verdict: row.verdict,
+    visibility: row.visibility,
+    created_at: row.created_at,
+    updated_at: row.updated_at,
+  }
+}
+
 function safeJson(s: string): JsonValue | null {
   try {
     return JSON.parse(s)

@@ -9,6 +9,7 @@ import {
   deleteProspectRow,
   getProspectRow,
   hydrateProspect,
+  prospectForViewer,
   insertProspect,
   listAnalysisRows,
   listProspectRows,
@@ -311,7 +312,7 @@ export async function getProspect(env: Env, id: Identity, prospectId: string) {
   if (row.user_email !== id.email && row.visibility === 'private') {
     throw new ApiError(404, 'prospect not found')
   }
-  return hydrateProspect(row)
+  return prospectForViewer(row, id.email)
 }
 
 export interface UpdateProspectParams {
