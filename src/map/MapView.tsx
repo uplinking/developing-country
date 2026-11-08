@@ -754,7 +754,7 @@ async function loadApiLayers(map: maplibregl.Map, statusRef: { current: ApiStatu
       const result = await fetchApiLayer(g.id, g.source.endpoint)
       const src = geoJsonSource(map, g.id)
       if (src) src.setData(result.data)
-      statusRef.current(g.id, { loading: false, ok: result.ok, count: result.count })
+      statusRef.current(g.id, { loading: false, ok: result.ok, count: result.count, reason: result.reason, stale: result.stale })
     }),
   )
 }
