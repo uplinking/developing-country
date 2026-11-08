@@ -14,6 +14,7 @@ export default defineConfig({
   routeRules: {
     '/': { maxAge: 300, swr: 86400 },
     '/about': { maxAge: 300, swr: 86400 },
+    '/connect': { maxAge: 300, swr: 86400 },
     '/initiatives': { maxAge: 300, swr: 86400 },
     '/data': { maxAge: 300, swr: 86400 },
     '/data/**': { maxAge: 300, swr: 86400 },

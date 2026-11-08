@@ -15,17 +15,28 @@ import PolicyLayout from '../layouts/PolicyLayout.astro'
   <p>Saved prospects, analysis locations, and related notes are associated with your account. You choose which locations and information to submit. Prospects you make public are visible to other users, and public Data View links can be viewed by anyone who has the link. Avoid including private personal information in public prospects or shared views.</p>
 
   <h2>Connected AI tools</h2>
-  <p>When you authorize an MCP client, we store its authorization and tokens so it can use Developing Country tools under your account. A connected client can receive the information returned by the tools it calls, including account-specific results where authorized. Review the client's own privacy practices before connecting it. Google sign-in by itself does not connect an AI client.</p>
+  <p>When you authorize an MCP client, such as ChatGPT or Claude, we store its registration, your approval and its tokens so it can use Developing Country tools under your account. Access tokens expire after one hour; refresh tokens that go unused stop working after 30 days. Google sign-in by itself does not connect an AI client. <a href="/connect">Connect an AI assistant</a> explains how to add and remove one.</p>
+  <p>For each tool call, the client sends us the tool name and the inputs it chose, such as a search term, a dataset id or the coordinates of a place you asked about. We do not receive your conversation, chat history, the assistant's memory or your files, and we do not ask for your device's location. We use the inputs to answer that call and keep only the records below:</p>
+  <ul>
+    <li>Each location analysis stores the point, radius, any title or listing link supplied, and a short summary in your analysis history.</li>
+    <li>Prospects and saved charts or maps are stored as described under map activity.</li>
+    <li>When a map result is not shown inside the assistant, a copy is kept for up to 7 days so a signed-in explorer tab can display it.</li>
+    <li>Usage counts record the tool, operation, timing and number of results, plus the search text or coordinates of queries that found nothing. They do not include your account, email or IP address.</li>
+  </ul>
+  <p>If you give a listing link to save a prospect, our server fetches that page to read its title, description, image and location. The client receives the information returned by the tools it calls, including your own account results where authorized, and handles it under its provider's privacy policy. Review that policy before connecting it.</p>
 
   <h2>Hosting and service information</h2>
-  <p>Cloudflare hosts the service and its databases and storage. Requests and authentication operations can generate operational and security logs. Your browser may contact third-party map, imagery, or data services used by the explorer; those services receive the requests sent to them and handle them under their own policies.</p>
+  <p>Cloudflare hosts the service and its databases and storage. Requests and authentication operations can generate operational and security logs, which Cloudflare keeps for a short period. Your browser may contact third-party map, imagery, or data services used by the explorer, such as OpenFreeMap map tiles; those services receive the requests sent to them and handle them under their own policies. We do not sell personal information, show advertising, or share it with anyone except these service providers, the AI client you connect, or where the law requires.</p>
 
   <h2>Use of Google data</h2>
   <p>Google account information is used for authentication and account features. We do not sell it, use it for advertising, or use it to train general-purpose AI models. Developing Country's use and transfer of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
 
   <h2>Your choices and deletion requests</h2>
-  <p>You can sign out, delete saved prospects using the app, and revoke the Google connection through <a href="https://myaccount.google.com/connections">Google Account connections</a>. Revoking Google's connection does not itself delete records already stored by Developing Country.</p>
-  <p>Account records and saved content persist until deleted; the app does not currently provide automatic account deletion. Contact the maintainer to request access, correction, or deletion of your account information. Public prospects and shared views should be identified in your request so we can review them too. Service logs and backups may have separate retention from active account records.</p>
+  <p>You can sign out, ask a connected AI client to change a prospect's visibility, disconnect an AI client in its own settings, and revoke the Google connection through <a href="https://myaccount.google.com/connections">Google Account connections</a>. Revoking Google's connection does not itself delete records already stored by Developing Country.</p>
+  <p>Account records, analysis history, prospects and saved views persist until deleted; the app does not yet provide self-service deletion. Email the maintainer from your account's email address to request access, correction, or deletion of your account and any of these records, including public prospects and shared views; we will confirm when it is done. Service logs and backups may have separate retention from active account records.</p>
+
+  <h2>Children</h2>
+  <p>Developing Country is a general-audience research service. It is not directed at children under 13, and we do not knowingly collect their personal information. If you believe a child under 13 has created an account, contact the maintainer and we will delete it.</p>
 
   <h2>Changes</h2>
   <p>We will update this page when the service's data practices change. The date above identifies the latest version. See also the <a href="/terms">terms of use</a>.</p>
