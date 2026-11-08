@@ -3,12 +3,14 @@ import { useApp, useHostStyleVariables } from '@modelcontextprotocol/ext-apps/re
 import type { App as McpApp, McpUiHostContext } from '@modelcontextprotocol/ext-apps'
 import FeatureSheet from './ui/FeatureSheet'
 import LayerPanel from './ui/LayerPanel'
+import ViewBoundary from './ui/ViewBoundary'
 import AnalyzeSheet from './ui/AnalyzeSheet'
 import { playEnvelope, type MapHandle, type StagePlayerHost } from './map/stagePlayer'
 import { useMapEngine } from './useMapEngine'
 import type { AnalyzeResult } from './map/analyzeClient'
 import { withBase } from './base'
 import { bodyFromResult, mcpBeacon, modelContextFromFeature, type ToolBody } from './mcpResult'
+import { cameraForDrawing, fetchGeometry } from './mcpGeometry'
 import type { JsonObject } from './shared/json'
 import { isJsonNumber, isJsonObject, jsonObjectFromSerializable } from './shared/json'
 import { MCP_APP_VERSION } from './shared/mcpApp'
@@ -25,6 +27,10 @@ const loadMapView = () => import('./map/MapView')
 const MapView = lazy(loadMapView)
 const LiveChart = lazy(() => import('./views/LiveChart'))
 const McpDataPanel = lazy(() => import('./ui/McpDataPanel'))
+
+// Terrain tiles come from s3.amazonaws.com, which the app's CSP does not (and
+// should not broadly) allow, so the toggle would only produce blocked fetches.
+const MCP_HIDDEN_LAYER_GROUPS: ReadonlySet<string> = new Set(['hillshade'])
 
 function applyTheme(ctx: McpUiHostContext | undefined) {
   if (!ctx?.theme) return
@@ -146,8 +152,9 @@ export default function AppMcp() {
       const host = hostRef.current
       if (!host) return
       setNeedsMap(true)
-      await host.map.whenReady()
       if (body.web_url) setWebUrl(body.web_url)
+      // The readout never waits on the basemap: a slow style or tile host
+      // must not leave the answer blank. Only camera and drawing wait below.
       if (body.error) {
         setFeature({
           groupId: 'agent-narrate',
@@ -166,6 +173,8 @@ export default function AppMcp() {
         setAnalyzeLoading(false)
         setFeature(null)
       }
+      await host.map.whenReady()
+      host.map.setDraw(null)
       const events = Array.isArray(body.stage) ? body.stage : []
       if (events.length) {
         await playEnvelope(host, {
@@ -176,6 +185,20 @@ export default function AppMcp() {
         })
       } else if (body.location) {
         await host.map.flyTo(body.location.lng, body.location.lat, 13, 700)
+      }
+      if (body.op === 'bbox' && (body.geometry || body.geometry_ref)) {
+        // Small shapes ride in the result; large ones are re-selected from the
+        // public asset so the tool result stays small (see mcpEnvelope.ts).
+        let drawn = body.geometry ?? null
+        if (!drawn && body.geometry_ref) {
+          mcpBeacon('geometry_fetch')
+          drawn = await fetchGeometry(body.geometry_ref)
+        }
+        if (drawn?.features.length) {
+          host.map.setDraw(drawn)
+          const camera = cameraForDrawing(drawn)
+          if (camera) await host.map.flyTo(camera.lng, camera.lat, camera.zoom, 700)
+        }
       }
       if (body.op === 'isochrone' && !body.geometry) {
         const iso = events.find((ev) => ev.t === 'isochrone')
@@ -268,6 +291,7 @@ export default function AppMcp() {
 
   return (
     <div className={`app mcp-app${dataView?.kind === 'chart' && !dataResult ? ' has-chart' : ''}${dataResult ? ' has-data' : ''}`}>
+      <ViewBoundary what="map">
       {needsMap ? (
         <Suspense fallback={<div className="live-view-state"><p>Loading map…</p></div>}>
           <MapView
@@ -299,10 +323,12 @@ export default function AppMcp() {
       ) : !dataResult && dataView?.kind !== 'chart' ? (
         <div className="live-view-state"><p>Waiting for the answer…</p></div>
       ) : null}
+      </ViewBoundary>
       {needsMap && !dataResult && dataView?.kind !== 'chart' ? (
         <LayerPanel
           variant="overlay"
           tools={false}
+          hiddenGroups={MCP_HIDDEN_LAYER_GROUPS}
           visibility={visibility}
           onToggle={toggle}
           onSetMany={setMany}
@@ -325,6 +351,7 @@ export default function AppMcp() {
           yieldTo={Boolean(feature) || Boolean(analyzeResult)}
         />
       ) : null}
+      <ViewBoundary what="view" resetKey={dataResult ?? dataView ?? feature ?? analyzeResult}>
       {dataResult ? (
         <Suspense fallback={<div className="live-view-state"><p>Preparing data…</p></div>}>
           <McpDataPanel
@@ -354,6 +381,7 @@ export default function AppMcp() {
           onClose={exitAnalyze}
         />
       ) : null}
+      </ViewBoundary>
       <div className="mcp-actions">
         <button
           type="button"

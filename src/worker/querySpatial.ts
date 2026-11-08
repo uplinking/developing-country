@@ -15,6 +15,13 @@ import { loadFc, loadJson, type AssetFeature, type AssetFc } from './assets'
 import { dijkstraWalk, loadWalkGraph, originOnGraph } from './graph'
 import { webUrl } from './analyze'
 import {
+  featureId,
+  featureName,
+  drawnFeature,
+  selectBboxGeometry,
+  type GeometryRef,
+} from '../shared/bboxGeometry'
+import {
   getEntity,
   knownAbsentResponse,
   ONTOLOGY,
@@ -225,15 +232,13 @@ function featurePoint(f: AssetFeature): { lat: number; lng: number } | null {
 }
 
 function nameOf(props: AssetFeature['properties']): string {
-  if (!props) return 'unnamed'
-  return String(props.name ?? props.title ?? props.ref ?? props.code ?? 'unnamed')
+  return featureName(props)
 }
 
 function matchesEntity(e: EntityType, f: AssetFeature): boolean {
   const kind = f.properties?.kind
-  if (e.id === 'metro_stop') return !kind || kind === 'stop'
-  if (e.id === 'metro_line') return !kind || kind === 'line'
-  return true
+  const want = entityKind(e)
+  return !want || !kind || kind === want
 }
 
 function popVintageOf(r: Pick<AdminRow, 'pop' | 'pop_2012' | 'pop_vintage'>): number {
@@ -277,10 +282,7 @@ async function loadDistrictGeometry(
 }
 
 function idOf(f: AssetFeature, field: string): string {
-  const p = f.properties ?? {}
-  if (p[field] != null) return String(p[field])
-  if (f.id != null) return String(f.id)
-  return nameOf(p)
+  return featureId(f, field)
 }
 
 async function loadEntityFc(env: Env, e: EntityType): Promise<AssetFc | null> {
@@ -385,25 +387,37 @@ function asPropertyWhere(value: JsonValue | undefined): Array<[string, string | 
   })
 }
 
-function geometryBbox(coords: JsonValue | undefined, acc = [Infinity, Infinity, -Infinity, -Infinity]): number[] {
-  if (!Array.isArray(coords)) return acc
-  if (coords.length >= 2 && isJsonNumber(coords[0]) && isJsonNumber(coords[1])) {
-    acc[0] = Math.min(acc[0] as number, coords[0])
-    acc[1] = Math.min(acc[1] as number, coords[1])
-    acc[2] = Math.max(acc[2] as number, coords[0])
-    acc[3] = Math.max(acc[3] as number, coords[1])
-    return acc
-  }
-  for (const c of coords) geometryBbox(c, acc)
-  return acc
-}
-
-function bboxesIntersect(a: number[], b: number[]): boolean {
-  return (a[0] as number) <= (b[2] as number) && (a[2] as number) >= (b[0] as number)
-    && (a[1] as number) <= (b[3] as number) && (a[3] as number) >= (b[1] as number)
-}
-
 const MAX_GEOMETRY_FEATURES = 500
+
+function entityKind(e: EntityType): string | undefined {
+  if (e.id === 'metro_stop') return 'stop'
+  if (e.id === 'metro_line') return 'line'
+  return undefined
+}
+
+/**
+ * The asset and selection a bbox include_geometry call runs, from its
+ * arguments. opBboxGeometry answers with it, and the MCP envelope hands the
+ * same descriptor to the widget when the shapes are too large to inline.
+ */
+export function bboxGeometrySource(args: JsonObject): Omit<GeometryRef, 'features' | 'bytes'> {
+  const e = entityOrThrow(String(args.entities))
+  if (e.storage.kind !== 'geojson') typed(400, { error: 'store_unavailable', entity: e.id })
+  const limit = args.limit === undefined
+    ? MAX_GEOMETRY_FEATURES
+    : Math.min(Math.max(Math.trunc(asNum(args.limit, 'limit')), 1), MAX_GEOMETRY_FEATURES)
+  const source: Omit<GeometryRef, 'features' | 'bytes'> = {
+    entity: e.id,
+    path: e.storage.path,
+    bbox: asBbox(args.bbox),
+    where: asPropertyWhere(args.where),
+    limit,
+    idField: e.id_field,
+  }
+  const kind = entityKind(e)
+  if (kind) source.kind = kind
+  return source
+}
 
 /**
  * bbox with include_geometry returns the matching features' own geometry (any
@@ -411,36 +425,24 @@ const MAX_GEOMETRY_FEATURES = 500
  * polygons such as walksheds. The snapshot byte cap still bounds the result.
  */
 async function opBboxGeometry(env: Env, e: EntityType, args: JsonObject): Promise<QuerySpatialResult> {
-  if (e.storage.kind !== 'geojson') typed(400, { error: 'store_unavailable', entity: e.id })
-  const bbox = asBbox(args.bbox)
-  const where = asPropertyWhere(args.where)
-  const limit = args.limit === undefined
-    ? MAX_GEOMETRY_FEATURES
-    : Math.min(Math.max(Math.trunc(asNum(args.limit, 'limit')), 1), MAX_GEOMETRY_FEATURES)
+  const source = bboxGeometrySource(args)
   const fc = await loadEntityFc(env, e)
   if (!fc) typed(400, { error: 'store_unavailable', entity: e.id })
+  const { picked, matched } = selectBboxGeometry(fc.features, source)
   const features: JsonObject[] = []
-  const shapes: JsonFc['features'] = []
-  let matched = 0
-  for (const f of fc.features) {
-    if (!matchesEntity(e, f) || !f.geometry) continue
-    const props = f.properties ?? {}
-    if (!where.every(([key, value]) => props[key] === value)) continue
-    if (!bboxesIntersect(geometryBbox(f.geometry.coordinates), bbox)) continue
-    matched += 1
-    if (features.length >= limit) continue
-    const id = idOf(f, e.id_field)
-    const row: JsonObject = {
-      ...props,
+  const drawn: JsonFc['features'] = []
+  for (const { feature: f, id } of picked) {
+    features.push({
+      ...(f.properties ?? {}),
       id,
-      name: nameOf(props),
+      name: nameOf(f.properties),
       source: e.provenance.source,
       vintage: e.provenance.vintage,
-    }
-    features.push(row)
-    shapes.push({ type: 'Feature', id, properties: { ...props, id }, geometry: f.geometry } as JsonFc['features'][number])
+    })
+    drawn.push(drawnFeature(f, id))
   }
-  const filters = where.map(([key, value]) => `${key}=${value}`).join(', ')
+  const filters = source.where.map(([key, value]) => `${key}=${value}`).join(', ')
+  const bbox = source.bbox
   return result({
     env,
     op: 'bbox',
@@ -452,7 +454,7 @@ async function opBboxGeometry(env: Env, e: EntityType, args: JsonObject): Promis
     count: features.length,
     truncated: matched > features.length,
     features,
-    geometry: { type: 'FeatureCollection', features: shapes },
+    geometry: { type: 'FeatureCollection', features: drawn },
     stage: [],
     origin: { lat: (bbox[1] + bbox[3]) / 2, lng: (bbox[0] + bbox[2]) / 2 },
   })

@@ -1,0 +1,21 @@
+<!doctype html>
+<!--
+  Build entry for the MCP App only. The Worker does not serve this page to a
+  host as-is: it reads the built copy, takes its script, modulepreload and
+  stylesheet tags, and writes the ui:// resource from them (mcpLoader.ts).
+  A separate entry lets Vite list the app's whole static import graph as
+  modulepreload links, so the frame fetches it in one round instead of
+  main.tsx → AppMcp → its chunks.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>developing-country.org</title>
+    <script>window.__DEVELOPING_COUNTRY_MCP__ = true</script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/mcpMain.tsx"></script>
+  </body>
+</html>
