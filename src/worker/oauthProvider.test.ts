@@ -11,9 +11,9 @@ import { signPrivateKeyJwtClientAssertion } from 'better-auth/oauth2'
 import { cimd } from '@better-auth/cimd'
 import { mcp } from '@better-auth/mcp'
 import { authenticateMcp } from './auth'
-import { getAuth, MCP_SCOPES } from './betterAuth'
+import { getAuth, MCP_SCOPES, OAUTH_PROVIDER_SCHEMA } from './betterAuth'
 import { hashLikeProvider } from './oauthLegacy'
-import { handleOAuthRequest } from './oauthRoutes'
+import { handleOAuthRequest, resetOAuthSchemaCheck } from './oauthRoutes'
 import { TestD1 } from './testing/d1'
 import type { Env } from './types'
 
@@ -21,6 +21,9 @@ const ORIGIN = 'https://example.org'
 const RESOURCE = `${ORIGIN}/mcp`
 const CLAUDE_CALLBACK = 'https://claude.ai/api/mcp/auth_callback'
 const SECRET = 'k9Q2v7Lm4Zx8Rt1Wp6Ys3Nd5Hb0Jc2Fg'
+
+// The schema check caches "ready" per isolate; each test starts fresh.
+beforeEach(() => resetOAuthSchemaCheck())
 
 function makeEnv(db: TestD1): Env {
   const env: Partial<Env> = { DB: db as unknown as D1Database, BETTER_AUTH_SECRET: SECRET, BETTER_AUTH_URL: ORIGIN, BASE_PATH: '' }
@@ -137,7 +140,7 @@ describe('migration 0013', () => {
       rateLimit: { enabled: true, storage: 'database' },
       plugins: [
         jwt(),
-        mcp({ loginPage: '/', consentPage: '/', resource: RESOURCE }),
+        mcp({ loginPage: '/', consentPage: '/', resource: RESOURCE, schema: OAUTH_PROVIDER_SCHEMA }),
         cimd({ fetchClientMetadataResource: async () => new Response('{}') }),
       ],
     })
@@ -146,15 +149,83 @@ describe('migration 0013', () => {
     db.close()
   })
 
-  test('keeps every pre-upgrade row in the legacy tables', () => {
+  test('is additive: the 1.6 tables, their columns and their rows are untouched', () => {
+    const db = new TestD1().migrate({ before: '0013' })
+    seedLegacy(db)
+    const shape = (table: string) => db.sqlite.query(`PRAGMA table_info("${table}")`).all()
+    const dump = (table: string) => db.sqlite.query(`SELECT * FROM "${table}" ORDER BY id`).all()
+    const tables = ['oauthApplication', 'oauthAccessToken', 'oauthConsent', 'user', 'session', 'account']
+    const before = tables.map((table) => [shape(table), dump(table)])
+    db.migrate({ only: '0013_oauth_provider.sql' })
+    expect(tables.map((table) => [shape(table), dump(table)])).toEqual(before)
+    // Nothing is copied by SQL; the Worker moves rows on first use.
+    expect(db.sqlite.query('SELECT COUNT(*) AS n FROM oauthClient').get()).toEqual({ n: 0 })
+    const sql = readFileSync(new URL('../../migrations/0013_oauth_provider.sql', import.meta.url), 'utf8')
+    const statements = sql
+      .split('\n')
+      .filter((line) => !line.startsWith('--'))
+      .join('\n')
+      .split(';')
+      .map((statement) => statement.trim())
+      .filter(Boolean)
+    for (const statement of statements) {
+      expect(statement).toMatch(/^(CREATE TABLE|CREATE INDEX|CREATE UNIQUE INDEX|ALTER TABLE "\w+" ADD COLUMN) /)
+    }
+  })
+
+  test('the 1.6 Worker\'s queries still work after 0013 is applied', () => {
+    // The exact statement shapes Better Auth 1.6's mcp() plugin ran.
     const db = new TestD1().migrate({ before: '0013' })
     seedLegacy(db)
     db.migrate({ only: '0013_oauth_provider.sql' })
-    const count = (table: string) => (db.sqlite.query(`SELECT COUNT(*) AS n FROM "${table}"`).get() as { n: number }).n
-    expect(count('legacyOauthApplication')).toBe(2)
-    expect(count('legacyOauthAccessToken')).toBe(3)
-    expect(count('legacyOauthConsent')).toBe(1)
-    expect(count('oauthClient')).toBe(0)
+    expect(db.sqlite.query('SELECT * FROM "oauthAccessToken" WHERE "refreshToken" = ?').get(LEGACY.refresh)).toMatchObject({ clientId: LEGACY.publicClient })
+    expect(db.sqlite.query('SELECT * FROM "oauthApplication" WHERE "clientId" = ?').get(LEGACY.webClient)).toMatchObject({ type: 'web' })
+    const now = new Date().toISOString()
+    db.sqlite
+      .query(
+        `INSERT INTO "oauthAccessToken" (id, accessToken, refreshToken, accessTokenExpiresAt, refreshTokenExpiresAt, clientId, userId, scopes, createdAt, updatedAt)
+         VALUES ('tok-new', 'a2', 'r2', ?, ?, ?, ?, 'openid', ?, ?)`,
+      )
+      .run(now, now, LEGACY.publicClient, LEGACY.userId, now, now)
+    db.sqlite.query('INSERT INTO "jwks" (id, publicKey, privateKey, createdAt) VALUES (?, ?, ?, ?)').run('k-1.6', '{}', '{}', now)
+    expect(db.sqlite.query('SELECT id, publicKey, privateKey, createdAt, expiresAt FROM "jwks"').all()).toHaveLength(1)
+  })
+})
+
+describe('before migration 0013 is applied', () => {
+  test('auth routes answer a clear 503 and write nothing; 1.6 access tokens still work', async () => {
+    const db = new TestD1().migrate({ before: '0013' })
+    seedLegacy(db)
+    const env = makeEnv(db)
+    const tablesBefore = db.sqlite.query("SELECT name FROM sqlite_master WHERE type = 'table' ORDER BY name").all()
+    const paths = [
+      ['GET', '/.well-known/oauth-authorization-server'],
+      ['GET', '/.well-known/oauth-protected-resource/mcp'],
+      ['GET', `/api/auth/oauth2/authorize?client_id=${LEGACY.publicClient}&response_type=code`],
+      ['POST', '/api/auth/oauth2/token'],
+      ['POST', '/api/auth/mcp/token'],
+      ['POST', '/api/auth/oauth2/register'],
+      ['POST', '/api/auth/oauth2/consent'],
+      ['GET', '/api/auth/jwks'],
+      ['POST', '/api/auth/sign-in/email'],
+      ['GET', '/api/auth/get-session'],
+    ] as const
+    for (const [method, path] of paths) {
+      const init: RequestInit = method === 'POST' ? form({ grant_type: 'refresh_token', refresh_token: LEGACY.refresh, client_id: LEGACY.publicClient }) : {}
+      const res = await call(env, new Request(`${ORIGIN}${path}`, init))
+      expect(res.status, path).toBe(503)
+      expect(await json(res), path).toMatchObject({ error: 'temporarily_unavailable' })
+    }
+    expect(db.sqlite.query("SELECT name FROM sqlite_master WHERE type = 'table' ORDER BY name").all()).toEqual(tablesBefore)
+    expect(await mcpIdentity(env, LEGACY.access)).toMatchObject({ email: LEGACY.email })
+
+    // Once the migration lands, the same Worker recovers without a restart.
+    db.migrate({ only: '0013_oauth_provider.sql' })
+    const res = await call(
+      env,
+      new Request(`${ORIGIN}/api/auth/mcp/token`, form({ grant_type: 'refresh_token', refresh_token: LEGACY.refresh, client_id: LEGACY.publicClient })),
+    )
+    expect(res.status).toBe(200)
   })
 })
 
@@ -425,7 +496,7 @@ describe('connections made before the upgrade', () => {
     // Sign the legacy user in: give them a password account and a session.
     const { cookie } = await signUp(env, 'later@example.org')
     const later = db.sqlite.query('SELECT id FROM "user" WHERE email = ?').get('later@example.org') as { id: string }
-    db.sqlite.query('UPDATE "legacyOauthConsent" SET userId = ?').run(later.id)
+    db.sqlite.query('UPDATE "oauthConsent" SET userId = ?').run(later.id)
     const { verifier, challenge } = await pkce()
     const query = new URLSearchParams({
       response_type: 'code',

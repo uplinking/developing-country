@@ -39,6 +39,24 @@ import { mcp } from '@better-auth/mcp'
 import { createCimdFetch, parseAllowedHosts } from './cimdFetch'
 import type { Env } from './types'
 
+/**
+ * Table names for the OAuth provider's models. Two of the provider's tables
+ * share names with Better Auth 1.6's MCP tables (`oauthAccessToken`,
+ * `oauthConsent`) but not their columns. Renaming the provider's copies lets
+ * migration 0013 be purely additive: the 1.6 tables stay exactly as they are,
+ * so a Worker still running 1.6 keeps working after the migration, and the
+ * new Worker reads them for the carry-over in oauthLegacy.ts.
+ */
+export const OAUTH_PROVIDER_TABLES = {
+  accessToken: 'oauthProviderAccessToken',
+  consent: 'oauthProviderConsent',
+} as const
+
+export const OAUTH_PROVIDER_SCHEMA = {
+  oauthAccessToken: { modelName: OAUTH_PROVIDER_TABLES.accessToken },
+  oauthConsent: { modelName: OAUTH_PROVIDER_TABLES.consent },
+}
+
 /** Scopes this server grants. `offline_access` is what earns a refresh token. */
 export const MCP_SCOPES = ['openid', 'profile', 'email', 'offline_access']
 
@@ -195,6 +213,7 @@ function buildAuth(env: Env) {
         consentPage: appPath,
         resource: mcpResource(env),
         scopes: MCP_SCOPES,
+        schema: OAUTH_PROVIDER_SCHEMA,
         // DCR stays on as a fallback for clients without CIMD support. Better
         // Auth never enables it implicitly. Anonymous registrations get only
         // the scopes above, and 'infer' accepts native clients' loopback and

@@ -1,7 +1,9 @@
 // Bridge from the Better Auth 1.6 MCP OAuth tables to the 1.7 OAuth provider.
 //
-// Migration 0013 renamed the old tables to legacyOauthApplication,
-// legacyOauthAccessToken and legacyOauthConsent and left their rows alone,
+// Migration 0013 is additive: the 1.6 tables (oauthApplication,
+// oauthAccessToken, oauthConsent) stay exactly as the 1.6 Worker left them,
+// and the new provider has its own tables (its access-token and consent
+// models are renamed; see OAUTH_PROVIDER_SCHEMA). Rows are not copied in SQL
 // because the new provider stores client secrets and tokens as SHA-256 hashes
 // and SQLite cannot compute those. This module moves each old client across the
 // first time it shows up at the authorize or token endpoint, hashing values
@@ -93,11 +95,11 @@ function metadataObject(value: string | JsonObject | null | undefined): JsonObje
   return parseJsonObject(value) ?? {}
 }
 
-/** True while the legacy tables exist (they are absent on a fresh database). */
+/** True while the 1.6 tables exist (a later migration drops them). */
 async function legacyTablesExist(env: Env): Promise<boolean> {
   try {
     const row = await env.DB.prepare(
-      "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'legacyOauthApplication'",
+      "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'oauthApplication'",
     ).first<{ name: string }>()
     return row !== null
   } catch {
@@ -164,7 +166,7 @@ export async function bridgeLegacyClient(
     return
   }
 
-  const legacy = await env.DB.prepare('SELECT * FROM "legacyOauthApplication" WHERE "clientId" = ?1')
+  const legacy = await env.DB.prepare('SELECT * FROM "oauthApplication" WHERE "clientId" = ?1')
     .bind(clientId)
     .first<LegacyClientRow>()
   if (!legacy) return
@@ -215,7 +217,7 @@ async function settlePendingAuthMethod(
   clientId: string,
   observed: { method: ObservedAuthMethod; secret?: string | null },
 ): Promise<void> {
-  const legacy = await env.DB.prepare('SELECT "clientSecret" FROM "legacyOauthApplication" WHERE "clientId" = ?1')
+  const legacy = await env.DB.prepare('SELECT "clientSecret" FROM "oauthApplication" WHERE "clientId" = ?1')
     .bind(clientId)
     .first<{ clientSecret: string | null }>()
   // Only a request that proves the secret may pick the method.
@@ -236,7 +238,7 @@ async function settlePendingAuthMethod(
 
 async function bridgeLegacyConsents(env: Env, ctx: AuthContext, clientId: string, resource: string): Promise<void> {
   const { results } = await env.DB.prepare(
-    'SELECT * FROM "legacyOauthConsent" WHERE "clientId" = ?1 AND "consentGiven" = 1',
+    'SELECT * FROM "oauthConsent" WHERE "clientId" = ?1 AND "consentGiven" = 1',
   )
     .bind(clientId)
     .all<LegacyConsentRow>()
@@ -281,7 +283,7 @@ export async function bridgeLegacyRefreshToken(
   const hashed = await hashLikeProvider(refreshToken)
   const already = await ctx.adapter.findOne({ model: 'oauthRefreshToken', where: [{ field: 'token', value: hashed }] })
   if (already) return
-  const legacy = await env.DB.prepare('SELECT * FROM "legacyOauthAccessToken" WHERE "refreshToken" = ?1')
+  const legacy = await env.DB.prepare('SELECT * FROM "oauthAccessToken" WHERE "refreshToken" = ?1')
     .bind(refreshToken)
     .first<LegacyTokenRow>()
   if (!legacy?.userId) return
@@ -315,7 +317,7 @@ export async function bridgeLegacyRefreshToken(
 export async function legacyAccessTokenUser(env: Env, accessToken: string): Promise<string | null> {
   if (!accessToken || !(await legacyTablesExist(env))) return null
   const row = await env.DB.prepare(
-    'SELECT "userId", "accessTokenExpiresAt" FROM "legacyOauthAccessToken" WHERE "accessToken" = ?1',
+    'SELECT "userId", "accessTokenExpiresAt" FROM "oauthAccessToken" WHERE "accessToken" = ?1',
   )
     .bind(accessToken)
     .first<{ userId: string | null; accessTokenExpiresAt: string | number }>()
