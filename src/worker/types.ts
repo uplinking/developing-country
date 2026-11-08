@@ -14,6 +14,10 @@ export interface Env {
   // URL is the deployment origin (baseURL for cookies + OAuth redirects).
   BETTER_AUTH_SECRET: string
   BETTER_AUTH_URL?: string
+  // Optional comma-separated hostnames whose Client ID Metadata Documents the
+  // OAuth server will fetch (e.g. "claude.ai,chatgpt.com"). Unset accepts any
+  // public host; see src/worker/cimdFetch.ts.
+  CIMD_ALLOWED_HOSTS?: string
   // Stable map/chart links are independent of the OAuth/cookie base URL.
   PUBLIC_VIEW_ORIGIN?: string
   // Path prefix the Worker is mounted under on a custom zone, e.g. "/app"

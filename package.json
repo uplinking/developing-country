@@ -80,6 +80,9 @@
     "lint:articles": "for d in analysis/*/; do bun scripts/lint-article.mjs \"$d\" > /dev/null || { bun scripts/lint-article.mjs \"$d\"; exit 1; }; done"
   },
   "dependencies": {
+    "@better-auth/cimd": "1.7.18",
+    "@better-auth/mcp": "1.7.18",
+    "@better-auth/oauth-provider": "1.7.18",
     "@developing-country/countries": "workspace:*",
     "@developing-country/datasets": "workspace:*",
     "@developing-country/domain": "workspace:*",
@@ -88,7 +91,7 @@
     "@developing-country/views": "workspace:*",
     "@modelcontextprotocol/ext-apps": "^1.7.5",
     "@protomaps/basemaps": "^5.7.2",
-    "better-auth": "1.6.23",
+    "better-auth": "1.7.18",
     "echarts": "6.1.0",
     "flint-chart": "0.5.1",
     "maplibre-gl": "^5.24.0",
