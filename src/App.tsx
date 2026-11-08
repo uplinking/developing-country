@@ -171,6 +171,7 @@ export default function App() {
         onAnalyzePick={e.onAnalyzePick}
         onApiLayerStatus={e.onApiLayerStatus}
         reloadApiKey={reloadApiKey}
+        signedIn={signedIn}
         initialView={embedConfig.initialView}
         showNavigation={!embedded}
       />

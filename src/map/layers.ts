@@ -51,7 +51,9 @@ export type OverlaySource =
   // GeoJSON source on load, then fills it from `endpoint` (adapted to a
   // FeatureCollection in map/apiLayers.ts). If the fetch fails the layer is
   // simply empty — the card stays toggleable and shows an "unavailable" state.
-  | { type: 'api'; endpoint: string }
+  // `auth: 'session'` marks a per-user endpoint that 401s without the Better
+  // Auth cookie; it is not fetched while signed out or inside an MCP App frame.
+  | { type: 'api'; endpoint: string; auth?: 'session' }
 
 // A render layer is a normal MapLibre layer spec minus `source` (MapView wires
 // that up). `source-layer` stays here since it's per-layer for vector tiles.
@@ -1384,7 +1386,7 @@ export const LAYER_GROUPS: LayerGroup[] = [
     category: 'community',
     defaultVisible: false,
     interactive: true,
-    source: { type: 'api', endpoint: '/api/prospects' },
+    source: { type: 'api', endpoint: '/api/prospects', auth: 'session' },
     render: [
       // A handful of user-owned pins — never let collision hide one.
       pinLayer({ id: 'prospects-points', icon: iconId('prospect'), size: [0.6, 1.1] }),
@@ -1418,7 +1420,7 @@ export const LAYER_GROUPS: LayerGroup[] = [
     category: 'community',
     defaultVisible: false,
     interactive: true,
-    source: { type: 'api', endpoint: '/api/analyses' },
+    source: { type: 'api', endpoint: '/api/analyses', auth: 'session' },
     render: [
       pinLayer({ id: 'analyses-points', icon: iconId('analysis'), size: [0.6, 1.1] }),
       {

@@ -26,7 +26,7 @@
     "preinstall": "bun scripts/require-bun.mjs",
     "typecheck:packages": "tsc -p packages/domain/tsconfig.json && tsc -p packages/countries/tsconfig.json && tsc -p packages/datasets/tsconfig.json && tsc -p packages/views/tsconfig.json && tsc -p packages/figures/tsconfig.json",
     "typecheck:site": "bun run --cwd apps/site typecheck",
-    "test": "bun test packages src/worker/*.test.ts scripts/*.test.mjs scripts/*.test.ts",
+    "test": "bun test packages src/worker/*.test.ts src/map/*.test.ts scripts/*.test.mjs scripts/*.test.ts",
     "check": "bun run --cwd packages/datasets registry:check && bun run typecheck:packages && bun run typecheck:worker && bun run typecheck:ingestion && bun run test && bun run lint:articles && bun run check:ontology && bun run check:dataset-versions && bun run check:dataset-index && bun run build && bun run check:site",
     "check:site": "bun run --cwd apps/site check",
     "check:bundle-size": "bun scripts/check-bundle-size.mjs",

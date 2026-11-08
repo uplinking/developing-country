@@ -189,7 +189,10 @@ Gotchas that have already bitten:
 Use this when the data is live or per-user (a creator feed, the user's
 prospects, analysis runs). The registry entry is the same shape, but:
 
-- `source: { type: 'api', endpoint: '/api/<name>' }`.
+- `source: { type: 'api', endpoint: '/api/<name>' }`. Add `auth: 'session'`
+  when the endpoint is per-user and 401s without the session cookie: the map
+  then skips the request while signed out and inside the MCP App frame (which
+  never has the cookie), and shows the "sign in" state instead.
 - `MapView` adds an **empty** GeoJSON source on load, then `loadApiLayers()`
   fetches the endpoint and `setData()`s it. Failure is non-fatal — the layer
   renders nothing and its card shows a badge: **"sign in"** for a 401/403,

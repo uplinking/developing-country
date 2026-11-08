@@ -17,7 +17,8 @@ import {
 import { registerMapIcons } from './icons'
 import { formatFeature, formatClimate, formatPopulation } from './featureFormat'
 import { cameraFromDeepLink } from './queryCamera'
-import { fetchApiLayer } from './apiLayers'
+import { loadApiLayer, type ApiLayerContext } from './apiLayers'
+import { isMcpApp } from '../mcpMode'
 import { initialGeoJsonData, loadLazyGeoJson } from './lazyGeoJson'
 import { sunRays, sunRayAt, sunPositionAt, noonAzimuth } from './sun'
 import type { ApiLayerStatus, ClimateState, FeatureInfo, LngLat, VisibilityState } from '../types'
@@ -89,6 +90,8 @@ interface MapViewProps {
   onApiLayerStatus: ApiStatusFn
   /** Bump to re-fetch API-backed layers (e.g. after sign-in/out). */
   reloadApiKey: number
+  /** A Better Auth session exists; session-only layers are skipped without one. */
+  signedIn: boolean
   /** Optional camera for small, reusable map embeds. */
   initialView?: Readonly<{ longitude: number; latitude: number; zoom: number }>
   /** Keep article embeds visually pure while preserving attribution. */
@@ -111,6 +114,7 @@ export default function MapView({
   onAnalyzePick,
   onApiLayerStatus,
   reloadApiKey,
+  signedIn,
   initialView,
   showNavigation = true,
   ref,
@@ -136,6 +140,8 @@ export default function MapView({
   analyzePickRef.current = onAnalyzePick
   const apiStatusRef = useRef(onApiLayerStatus)
   apiStatusRef.current = onApiLayerStatus
+  const apiContextRef = useRef<ApiLayerContext>({ signedIn, mcpApp: false })
+  apiContextRef.current = { signedIn, mcpApp: isMcpApp() }
   const visibilityRef = useRef(visibility)
   visibilityRef.current = visibility
   const readyWaiters = useRef<Array<() => void>>([])
@@ -270,7 +276,7 @@ export default function MapView({
 
     map.on('load', () => {
       // Add every overlay source/layer and restore persistent state.
-      buildOverlays(map, visibilityRef.current, climateRef.current, populationRef.current, apiStatusRef)
+      buildOverlays(map, visibilityRef.current, climateRef.current, populationRef.current, apiStatusRef, apiContextRef)
       // Wire interactions ONCE — delegated (map.on('click', layerId, …)) handlers
       // survive a later setStyle, so a theme swap must not re-register them.
       wireInteractions(map, clickRef, sunActiveRef, analyzeActiveRef, climateRef, populationRef)
@@ -321,7 +327,7 @@ export default function MapView({
       readyRef.current = false
       map.setStyle(getBaseStyle())
       map.once('style.load', () => {
-        buildOverlays(map, visibilityRef.current, climateRef.current, populationRef.current, apiStatusRef)
+        buildOverlays(map, visibilityRef.current, climateRef.current, populationRef.current, apiStatusRef, apiContextRef)
         map.once('idle', () => {
           flushReady()
           setThemeVersion((v) => v + 1)
@@ -361,7 +367,7 @@ export default function MapView({
     }
     const map = mapRef.current
     if (!map || !readyRef.current) return
-    void loadApiLayers(map, apiStatusRef)
+    void loadApiLayers(map, apiStatusRef, apiContextRef.current)
   }, [reloadApiKey])
 
   // --- Climate variable / month --------------------------------------------
@@ -469,6 +475,7 @@ function buildOverlays(
   climate: ClimateState,
   population: PopLevelId | null,
   apiStatusRef: { current: ApiStatusFn },
+  apiContextRef: { current: ApiLayerContext },
 ) {
   // Marker artwork FIRST: setStyle drops images along with sources and layers,
   // so every rebuild must re-register them, and it must happen before addLayer
@@ -492,7 +499,7 @@ function buildOverlays(
   addAgentLayers(map)
   // Runtime-fetched layers (stepper / prospects / issues / analyses): fill their
   // empty sources, reporting count/ok back so the panel can badge them.
-  void loadApiLayers(map, apiStatusRef)
+  void loadApiLayers(map, apiStatusRef, apiContextRef.current)
 }
 
 // --- Per-stop walk catchment reveal -----------------------------------------
@@ -746,12 +753,12 @@ function addAnalyzeLayers(map: maplibregl.Map) {
 
 // Fetch every api-backed group's data and push it into the (already-added)
 // empty GeoJSON source. Never throws — reports ok/count per layer instead.
-async function loadApiLayers(map: maplibregl.Map, statusRef: { current: ApiStatusFn }) {
+async function loadApiLayers(map: maplibregl.Map, statusRef: { current: ApiStatusFn }, context: ApiLayerContext) {
   const apiGroups = LAYER_GROUPS.filter(isApiLayerGroup)
   await Promise.all(
     apiGroups.map(async (g) => {
       statusRef.current(g.id, { loading: true, ok: false, count: 0 })
-      const result = await fetchApiLayer(g.id, g.source.endpoint)
+      const result = await loadApiLayer(g.id, g.source, context)
       const src = geoJsonSource(map, g.id)
       if (src) src.setData(result.data)
       statusRef.current(g.id, { loading: false, ok: result.ok, count: result.count, reason: result.reason, stale: result.stale })
