@@ -135,22 +135,56 @@ registration and the destination Worker's secrets. `GET /api/auth-providers`
 must include `google`; an empty list means the credential pair is missing,
 even if Google Console already has the correct callback.
 
-The JWT plugin also encrypts its stored signing private key with
-`BETTER_AUTH_SECRET`. Reusing the platform database with a different auth
-secret can make authenticated `GET /api/auth/get-session` fail with
-`Failed to decrypt private key`, even after Google successfully redirects
-back. Keep the auth secret stable when moving Workers. If the original secret
-cannot be restored, rotate the affected signing key with an authorised
-database operation: record the newest `jwks` row's id and previous expiry,
-set that row's `expiresAt` to a past Unix timestamp **in milliseconds**, then
-make an authenticated session request so Better Auth creates a new encrypted
-key. Preserve the old row; the plugin retains its public key for its default
-30-day verification grace period. Do not disable private-key encryption or
-delete users and sessions to work around this error.
+## Signing key cannot be decrypted
+
+The JWT plugin stores its signing private keys in the `jwks` table, encrypted
+with `BETTER_AUTH_SECRET`. Better Auth 1.7 signs **every MCP access token**
+with the newest live key, so a key encrypted under an earlier secret stops all
+new MCP connections and refreshes: `/api/auth/oauth2/token` answers 500 and
+Better Auth reports `Failed to decrypt private key`. (Production hit this on
+the 1.7 upgrade: its only `jwks` row predated the current secret, and 1.6 had
+never used it.)
+
+How it shows up:
+
+- The Worker logs one `op: "jwks_signing_key_undecryptable"` line naming the
+  key id (`kid`), its creation time and the exact recovery SQL.
+- `GET /api/health` answers 503 with
+  `auth.signing_key.status: "undecryptable"` and the `kid`. It answers 200 when
+  the key decrypts (`ok`) or no key exists yet (`none`; Better Auth mints one on
+  first use). Run it after every deploy and after any change to the secret.
+
+Recovery:
+
+1. If the previous secret is still available, restore it. Nothing else changes.
+2. Otherwise expire the key so Better Auth mints a fresh one on the next token
+   request. Record the row's id and current `expiresAt` first, then run an
+   authorised D1 update with an **ISO 8601 text** timestamp, the format Better
+   Auth writes:
+
+   ```sql
+   UPDATE jwks SET expiresAt = '2026-11-09T12:00:00.000Z' WHERE id = '<kid>';
+   ```
+
+   Do not write an integer (epoch milliseconds): Better Auth reads it back as a
+   number and `GET /api/auth/jwks` then fails with
+   `expiresAt.getTime is not a function`, which breaks verification of every
+   MCP access token.
+3. **Never delete the row.** The key set keeps publishing an expired key's
+   public half for the plugin's 30-day grace period, so tokens it already
+   signed still verify. Do not disable private-key encryption, and do not
+   delete users or sessions to work around this error.
+4. Confirm: `GET /api/health` returns 200, `GET /api/auth/jwks` lists both the
+   old and the new `kid`, and an MCP client can connect.
+
+Keep the auth secret stable when moving Workers: reusing the platform database
+with a different secret causes the same failure, and can also make
+authenticated `GET /api/auth/get-session` fail.
 
 ## Deployment checks
 
 Before deployment, run `bun run check`, `bun run dry-run:explore`, and
-`bun run check:bundle-size`. After deployment verify discovery, an
+`bun run check:bundle-size`. After deployment verify `GET /api/health`
+returns 200 (see "Signing key cannot be decrypted"), discovery, an
 unauthenticated MCP `401` with `WWW-Authenticate`, browser sign-in, consent,
 token exchange, and one authenticated tool call. See `docs/MCP.md`.

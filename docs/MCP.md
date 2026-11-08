@@ -297,7 +297,10 @@ RS256 JWTs whose `aud` is that resource. Discovery is served under
 `/.well-known/` (RFC 8414, OpenID Connect and RFC 9728). The authorization
 server is Better Auth's `@better-auth/mcp` plugin, with endpoints under
 `/api/auth/oauth2/` (`authorize`, `token`, `register`, `userinfo`) and keys at
-`/api/auth/jwks`.
+`/api/auth/jwks`. If token requests answer 500 with `Failed to decrypt private
+key`, the signing key predates the current `BETTER_AUTH_SECRET`; `GET
+/api/health` confirms it, and `docs/AUTH_SETUP.md` ("Signing key cannot be
+decrypted") has the recovery. Expire the key; never delete it.
 
 Clients identify themselves in one of two ways:
 

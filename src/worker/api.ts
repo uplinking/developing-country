@@ -4,6 +4,7 @@
 import type { Env, Identity } from './types'
 import { authenticate } from './auth'
 import { configuredProviders } from './betterAuth'
+import { checkSigningKey, type SigningKeyHealth } from './jwksHealth'
 import {
   ApiError,
   addProspect,
@@ -56,6 +57,27 @@ function json<T extends object | JsonPrimitive>(
 
 function err(status: number, message: string): Response {
   return json({ error: message }, status)
+}
+
+// GET /api/health is public, so its D1 read + decrypt runs at most once a
+// minute per isolate.
+const HEALTH_TTL_MS = 60_000
+let healthMemo: { at: number; value: SigningKeyHealth } | null = null
+
+async function cachedSigningKeyHealth(env: Env): Promise<SigningKeyHealth> {
+  if (healthMemo && Date.now() - healthMemo.at < HEALTH_TTL_MS) return healthMemo.value
+  const value = await checkSigningKey(env)
+  healthMemo = { at: Date.now(), value }
+  return value
+}
+
+/** The recovery SQL belongs in the logs and docs, not a public response. */
+function publicSigningKeyHealth(health: SigningKeyHealth): JsonObject {
+  if (health.status === 'undecryptable') {
+    return { status: health.status, kid: health.kid, created_at: health.created_at, docs: 'docs/AUTH_SETUP.md#signing-key-cannot-be-decrypted' }
+  }
+  if (health.status === 'unknown') return { status: health.status }
+  return { ...health }
 }
 
 async function body(request: Request): Promise<JsonObject> {
@@ -118,6 +140,11 @@ export async function handleApi(request: Request, env: Env, ctx?: ExecutionConte
     }
     if (path === '/api/auth-providers' && method === 'GET') {
       return json({ providers: configuredProviders(env) })
+    }
+    if (path === '/api/health' && method === 'GET') {
+      const signingKey = await cachedSigningKeyHealth(env)
+      const ok = signingKey.status === 'ok' || signingKey.status === 'none'
+      return json({ ok, auth: { signing_key: publicSigningKeyHealth(signingKey) } }, ok ? 200 : 503, { 'Cache-Control': 'no-store' })
     }
     if (path === '/api/me' && method === 'GET') {
       return json(identity ? { email: identity.email, mode: identity.mode } : { email: null, mode: 'anon' })
