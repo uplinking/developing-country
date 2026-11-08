@@ -319,12 +319,19 @@ export function createCimdFetch(options: CimdFetchOptions = {}): MetadataFetch {
   const cache = options.cache === undefined ? sharedCache : options.cache
 
   return async (input, init) => {
-    const request = new Request(input, init)
-    const method = request.method.toUpperCase()
+    // Never build `new Request(input, init)`: Better Auth's CIMD plugin passes
+    // `redirect: "error"`, which Workers reject outright ("error" won't be
+    // implemented at the edge), so every CIMD client failed on production while
+    // Bun-based tests passed. Read the parts we use instead. Redirects stay
+    // refused below: we always fetch with `redirect: 'manual'` and reject 3xx.
+    const source = input instanceof Request ? input : null
+    const method = (init?.method ?? source?.method ?? 'GET').toUpperCase()
     if (method !== 'GET' && method !== 'HEAD') throw new CimdFetchError('only GET and HEAD are allowed')
+    const requestHeaders = new Headers(init?.headers ?? source?.headers)
+    const outer = init?.signal ?? source?.signal ?? null
     let url: URL
     try {
-      url = new URL(request.url)
+      url = new URL(source ? source.url : input.toString())
     } catch {
       throw new CimdFetchError('invalid URL')
     }
@@ -344,9 +351,8 @@ export function createCimdFetch(options: CimdFetchOptions = {}): MetadataFetch {
 
     const controller = new AbortController()
     const timer = setTimeout(() => controller.abort(), timeoutMs)
-    const outer = request.signal
     const onAbort = () => controller.abort()
-    outer.addEventListener('abort', onAbort)
+    outer?.addEventListener('abort', onAbort)
     try {
       const addresses = await resolve(hostname, controller.signal)
       if (addresses.length === 0) throw new CimdFetchError('metadata hostname has no addresses')
@@ -355,7 +361,7 @@ export function createCimdFetch(options: CimdFetchOptions = {}): MetadataFetch {
       }
       const response = await fetchImpl(url.toString(), {
         method,
-        headers: request.headers,
+        headers: requestHeaders,
         redirect: 'manual',
         signal: controller.signal,
       })
@@ -364,7 +370,10 @@ export function createCimdFetch(options: CimdFetchOptions = {}): MetadataFetch {
         throw new CimdFetchError('metadata fetch must not redirect')
       }
       const body = method === 'HEAD' ? new Uint8Array() : await readLimited(response, maxBytes)
-      const headers = [...response.headers.entries()]
+      // The body is already decoded, so drop the transfer headers that describe the wire form.
+      const headers = [...response.headers.entries()].filter(
+        ([name]) => name !== 'content-encoding' && name !== 'content-length',
+      )
       if (response.status === 200 && cache) {
         const seconds = cacheSeconds(response.headers)
         if (seconds > 0) cache.set(cacheKey, { status: 200, headers, body, expiresAt: now() + seconds * 1000 })
@@ -375,7 +384,7 @@ export function createCimdFetch(options: CimdFetchOptions = {}): MetadataFetch {
       throw error
     } finally {
       clearTimeout(timer)
-      outer.removeEventListener('abort', onAbort)
+      outer?.removeEventListener('abort', onAbort)
     }
   }
 }
