@@ -54,11 +54,21 @@ export interface FeatureInfo {
   lngLat: { lng: number; lat: number }
 }
 
-/** Runtime status of an API-backed layer (stepper / prospects / issues). */
+/**
+ * Why an API-backed layer has no data: it needs a signed-in session, or its
+ * upstream source is down (an outage, not something the user can fix).
+ */
+export type ApiLayerFailure = 'sign-in' | 'unavailable'
+
+/** Runtime status of an API-backed layer (stepper / prospects / analyses). */
 export interface ApiLayerStatus {
   loading: boolean
   ok: boolean
   count: number
+  /** Set when ok is false. */
+  reason?: ApiLayerFailure
+  /** ok, but the live source failed and this is its last good copy. */
+  stale?: boolean
 }
 
 export type ApiLayerStatusMap = Record<string, ApiLayerStatus>

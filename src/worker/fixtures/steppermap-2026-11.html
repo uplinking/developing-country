@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+  Trimmed copy of https://steppermap.com/ as fetched on 2026-11-09, kept for
+  src/worker/stepper.test.ts. The page structure is preserved exactly: the data
+  block is `const SPOTS = [ … ];` (it was `const spots` before), keys are
+  unquoted, strings are double-quoted, entries end in a trailing comma, and the
+  app script after it holds other array/object literals. Styles, markup and
+  most spots are cut; descriptions are shortened placeholders (the originals
+  are © @Stepper9210), and the page's Maps key is replaced with a placeholder.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Steppermap — Sri Lanka, Mapped</title>
+<meta name="description" content="An interactive map of waterfalls, trails, cultural sites and rest stops across Sri Lanka.">
+<style>
+:root { --color-bg: #f5ead8; }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+</head>
+<body>
+<div class="app">
+  <div class="toast hidden" id="toast"></div>
+</div>
+
+<!-- ===== data ===== -->
+<script>
+const SPOTS = [
+  { id:0, name:"Martin Wickramasinghe Folk Museum", region:"Koggala, Southern Province", cat:"cultural", emoji:"🏛️", lat:5.9901834, lng:80.3280173,
+    desc:"Placeholder: a writer's childhood home, now a museum of rural life.",
+    tags:[], ytId:"1wfN4v1lBOQ", igUrl:"https://www.instagram.com/Stepper9210" },
+  { id:1, name:"Paravithota", region:"Sabaragamuwa Province", cat:"waterfall", emoji:"💧", lat:6.611236956186576, lng:80.27651985165593,
+    desc:"Placeholder: an easy roadside stop - about 1.5 hours from Colombo!",
+    tags:[], ytId:"eLgSQk40OxY", isShort:true, igUrl:"https://www.instagram.com/Stepper9210" },
+  { id:41, name:"Galway's Land National Park", region:"Nuwara Eliya, Central Province", cat:"forest", emoji:"🌳", lat:6.9663221, lng:80.7779056,
+    desc:"Submitted by the Stepper community. We haven't visited this one personally — let us know what you find!<br><br><strong>Visitor tips:</strong> Placeholder [early mornings] are best.",
+    tags:[], community:true, igUrl:"https://www.instagram.com/Stepper9210" },
+  { id:60, name:"Kobothura Gala", region:"Western Province", cat:"mountain", emoji:"⛰️", lat:6.9526957, lng:80.243462,
+    desc:"Submitted by the Stepper community. We haven't visited this one personally — let us know what you find!",
+    tags:[], community:true, igUrl:"https://www.instagram.com/Stepper9210" },
+];
+
+</script>
+
+<!-- ===== app ===== -->
+<script>
+
+const MAPS_KEY = 'PLACEHOLDER_MAPS_KEY';
+const NATURE = ['waterfall','hike','forest','mountain'];
+const CAT_LABEL = {waterfall:'Waterfalls & streams',hike:'Trails & treks',cultural:'Cultural & archaeological',pitstop:'Food & rest stops',forest:'Parks & forests',mountain:'Mountains'};
+const SAGE = '#728157', TERRA = '#c67139';
+const CAT_COLOR = {
+  waterfall: '#4a90b8',  // blue
+  hike:      '#728157',  // sage green
+  cultural:  '#9b6b9e',  // purple
+  forest:    '#3d7a4f',  // deep green
+  mountain:  '#7a6b55',  // warm brown/stone
+  pitstop:   '#c67139'   // terracotta
+};
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const tint = s => CAT_COLOR[s.cat] || TERRA;
+</script>
+</body>
+</html>

@@ -192,7 +192,11 @@ prospects, analysis runs). The registry entry is the same shape, but:
 - `source: { type: 'api', endpoint: '/api/<name>' }`.
 - `MapView` adds an **empty** GeoJSON source on load, then `loadApiLayers()`
   fetches the endpoint and `setData()`s it. Failure is non-fatal — the layer
-  renders nothing and its card shows an **"unavailable"** badge.
+  renders nothing and its card shows a badge: **"sign in"** for a 401/403,
+  **"source unavailable"** for anything else (an upstream outage).
+- An endpoint that proxies a third-party page should keep its last good copy
+  and serve it with `stale: true` when the upstream breaks; the card then says
+  it is showing a saved copy. `/api/stepper` (`src/worker/stepper.ts`) does this.
 - Add an adapter case in `src/map/apiLayers.ts` (`fetchApiLayer`) that converts
   the endpoint's JSON into a `FeatureCollection`. If the endpoint already
   returns GeoJSON (like `/api/stepper`), reuse `adaptFeatureCollection`.

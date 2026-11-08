@@ -222,9 +222,16 @@ function InfoCorner({
 function ApiBadge({ status, signedIn }: { status: ApiLayerStatus | undefined; signedIn: boolean }) {
   if (!status) return null
   if (status.loading) return <span className="badge">loading…</span>
+  // An upstream outage is nobody's fault and signing in won't fix it.
+  if (!status.ok && status.reason === 'unavailable') return <span className="badge badge-warn">source unavailable</span>
   // Signed out ⇒ the API returns 401; frame it as "sign in", not a fault.
   if (!status.ok) return <span className="badge badge-warn">{signedIn ? 'unavailable' : 'sign in'}</span>
   return <span className="badge count-badge">{status.count}</span>
+}
+
+/** Sign-in prompts apply only to layers that failed for want of a session. */
+function needsSignIn(status: ApiLayerStatus | undefined): boolean {
+  return Boolean(status && !status.loading && !status.ok && status.reason !== 'unavailable')
 }
 
 function LayerCard({
@@ -278,10 +285,23 @@ function LayerCard({
       </div>
       <p className="layer-blurb">{group.blurb}</p>
 
-      {isApi && !signedIn && status && !status.loading && !status.ok && (
+      {isApi && !signedIn && needsSignIn(status) && (
         <button className="layer-signin" onClick={onRequestSignIn}>
           Sign in to use
         </button>
+      )}
+
+      {isApi && status && !status.loading && !status.ok && status.reason === 'unavailable' && (
+        <p className="layer-empty">
+          {group.attribution ?? 'The source'} isn't responding right now, so this layer is empty. It will come back
+          once the source does.
+        </p>
+      )}
+
+      {isApi && status && !status.loading && status.ok && status.stale && (
+        <p className="layer-empty">
+          {group.attribution ?? 'The source'} isn't responding right now. Showing the last copy we saved.
+        </p>
       )}
 
       {isApi && status && !status.loading && status.ok && status.count === 0 && (
