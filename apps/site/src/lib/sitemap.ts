@@ -6,7 +6,7 @@ export interface SitemapEntry {
 }
 
 /** Pages that are not CMS entries but are worth indexing. */
-export const STATIC_PATHS = ['/', '/analysis', '/data', '/initiatives', '/about', '/privacy', '/terms'] as const
+export const STATIC_PATHS = ['/', '/analysis', '/data', '/initiatives', '/about', '/connect', '/privacy', '/terms'] as const
 
 /**
  * Every public URL, at the route that actually serves it. EmDash's own sitemap builds

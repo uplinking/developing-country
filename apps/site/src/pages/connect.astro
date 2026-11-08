@@ -1,0 +1,75 @@
+---
+// Public help page for the developing-country.org connector (ChatGPT, Claude and
+// other MCP clients). The directories link here as the documentation and support
+// URL, so keep the server URL, the data list and the contact in step with
+// docs/MCP.md, src/worker/mcpToolMeta.ts and the privacy policy.
+import PolicyLayout from '../layouts/PolicyLayout.astro'
+import { CANONICAL_EXPLORER_ORIGIN } from '../lib/explorer'
+
+const serverUrl = `${CANONICAL_EXPLORER_ORIGIN}/mcp`
+---
+
+<PolicyLayout
+  title="Connect an AI assistant"
+  meta="Help · developing-country.org connector"
+  description="Use Sri Lanka’s public statistics and maps from ChatGPT, Claude or another assistant, with every number tied to its source and date."
+>
+  <h2>What it does</h2>
+  <p>The developing-country.org connector lets an AI assistant look things up in this site’s evidence: more than 100 official statistics tables (census, Central Bank, Treasury, Department of Census and Statistics, World Bank and others) and map layers such as administrative boundaries, transport and planned developments. The assistant can find a dataset, read or chart it, describe what is around a place in Sri Lanka, and show the result as an interactive map or chart inside the chat. Each result names its source and the period it describes, so the assistant can cite them.</p>
+  <p>It covers Sri Lanka only. It does not give live news, weather, or professional, legal or financial advice.</p>
+
+  <h2>Add it to your assistant</h2>
+  <p>The server address is:</p>
+  <p><code>{serverUrl}</code></p>
+
+  <h3>ChatGPT</h3>
+  <ol>
+    <li>If developing-country.org is listed in ChatGPT’s plugin directory, open it there and select <strong>Connect</strong>.</li>
+    <li>Otherwise open <a href="https://chatgpt.com/plugins">chatgpt.com/plugins</a>, select <strong>+</strong>, then <strong>Add custom MCP server</strong>. Paste the address above, name it <em>developing-country.org</em>, choose <strong>OAuth</strong> and create it as a plugin.</li>
+    <li>Sign in when ChatGPT asks (see below), then mention <strong>@developing-country.org</strong> in a chat or ask a question about Sri Lankan data.</li>
+  </ol>
+
+  <h3>Claude</h3>
+  <ol>
+    <li>If developing-country.org is listed in Claude’s Connectors Directory, open it from <strong>Settings → Connectors</strong> and select <strong>Connect</strong>.</li>
+    <li>Otherwise, on claude.ai or in the desktop app, open <a href="https://claude.ai/settings/connectors">Settings → Connectors</a>, choose <strong>Add custom connector</strong>, name it <em>developing-country.org</em> and paste the address above.</li>
+    <li>Sign in when Claude asks, then turn the connector on for a chat from the <strong>+</strong> menu. Connectors you add on the web or desktop also work in the Claude mobile apps.</li>
+  </ol>
+  <p>In Claude Code, run <code>claude mcp add --transport http developing-country {serverUrl}</code>. Other assistants that support remote MCP servers with OAuth use the same address. The <a href={`${CANONICAL_EXPLORER_ORIGIN}/?connect=1`}>connect dialog in the explorer</a> has a copy button and steps for Grok and Cursor.</p>
+
+  <h2>Signing in</h2>
+  <p>The first time the assistant uses the connector, it opens a developing-country.org sign-in page. Sign in with Google or with an email address and password, then approve the assistant on the consent page. The assistant never sees your password: it receives an access token that only works for this connector. Use the same account as the <a href={CANONICAL_EXPLORER_ORIGIN}>map explorer</a> to see your saved places there too.</p>
+
+  <h2>What the assistant can see and do</h2>
+  <ul>
+    <li><strong>Find datasets</strong> and <strong>search places</strong>: read the public catalogue and place names. These only read.</li>
+    <li><strong>Query data</strong>: read rows, totals, rankings and trends from a dataset, or map features. If you ask it to save a chart or map, it creates a live view that anyone with the link can open.</li>
+    <li><strong>Analyze a location</strong>: describe what is around a point in Sri Lanka. Each run is recorded in your private analysis history (see below).</li>
+    <li><strong>Property prospects</strong>: save, list and update places you are considering. They are private unless you choose link-only or public visibility. If you give a listing link, our server fetches that page to read its title, description, image and location.</li>
+  </ul>
+  <p>The tools that save something are marked as such, so your assistant can ask you before it uses them. The connector cannot read other people’s private records, your chats, your assistant’s memory or your files.</p>
+
+  <h2>What we record</h2>
+  <p>For each call the assistant sends the tool name and the inputs it chose, such as a dataset id, a search term or the coordinates of a place. We do not receive your conversation. We keep:</p>
+  <ul>
+    <li><strong>Analysis history.</strong> Each <em>Analyze a location</em> run stores the point, radius, any title or listing link the assistant passed, and a short summary against your account, so it appears under “My analyses” in the explorer.</li>
+    <li><strong>Things you save.</strong> Prospects and saved charts or maps, until they are deleted.</li>
+    <li><strong>Map hand-off.</strong> When the assistant cannot show the map inside the chat, the map result is copied to your account for up to 7 days so an open explorer tab can display it.</li>
+    <li><strong>Usage counts.</strong> Tool name, operation, timing and result counts, plus the search text or coordinates of queries that found nothing. These carry no account details.</li>
+    <li><strong>Sign-in records.</strong> The assistant’s authorization and tokens. Access tokens expire after an hour; unused refresh tokens stop working after 30 days.</li>
+  </ul>
+  <p>The <a href="/privacy">privacy policy</a> has the full list.</p>
+
+  <h2>Disconnect and delete your data</h2>
+  <p>To disconnect, remove or disconnect developing-country.org in your assistant’s connector or plugin settings. The assistant can no longer call the connector once its token expires or is revoked.</p>
+  <p>To delete your account, analysis history, prospects or saved views, or to take a public prospect or view down, email the address below from your account’s email address. We confirm when it is done.</p>
+
+  <h2 id="support">Support</h2>
+  <!-- TODO(maintainer): if a role address is set up later, replace the personal address here, on /privacy and on /terms together. -->
+  <ul>
+    <li><strong>Help, account and data requests:</strong> <a href="mailto:ghoshanjega@gmail.com">ghoshanjega@gmail.com</a></li>
+    <li><strong>Bugs and data corrections:</strong> <a href="https://github.com/uplinking/developing-country/issues">GitHub issues</a></li>
+    <li><strong>Security problems:</strong> report privately through <a href="https://github.com/uplinking/developing-country/security/advisories/new">GitHub private vulnerability reporting</a></li>
+  </ul>
+  <p>Developer documentation for the server, including OAuth details, is in <a href="https://github.com/uplinking/developing-country/blob/main/docs/MCP.md">docs/MCP.md</a>.</p>
+</PolicyLayout>
