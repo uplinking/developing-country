@@ -294,6 +294,8 @@ export default function AppMcp() {
             onAnalyzePick={() => {}}
             onApiLayerStatus={onApiLayerStatus}
             reloadApiKey={0}
+            // The host frame has no session cookie, so per-user layers would only 401.
+            signedIn={false}
           />
         </Suspense>
       ) : !dataResult && dataView?.kind !== 'chart' ? (

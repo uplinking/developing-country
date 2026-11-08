@@ -33,6 +33,36 @@ function ok(features: Feature[]): ApiLayerResult {
   return { data: { type: 'FeatureCollection', features }, ok: true, count: features.length }
 }
 
+/** An api layer's source, as declared in map/layers.ts. */
+export interface ApiLayerSource {
+  endpoint: string
+  auth?: 'session'
+}
+
+export interface ApiLayerContext {
+  /** A Better Auth session cookie is known to exist. */
+  signedIn: boolean
+  /** Running inside an MCP Apps host frame (ChatGPT, Claude), which never has the cookie. */
+  mcpApp: boolean
+}
+
+/**
+ * Session-only endpoints (prospects, analyses) are fetched only when they can
+ * succeed. In an MCP App frame they always 401, so they are never requested
+ * there; the assistant already receives the user's prospects in tool results
+ * (analyze_location's prospects_nearby, list_prospects).
+ */
+export function shouldFetchApiLayer(source: ApiLayerSource, ctx: ApiLayerContext): boolean {
+  if (source.auth !== 'session') return true
+  return ctx.signedIn && !ctx.mcpApp
+}
+
+/** Load one API-backed layer, skipping the request when it could only 401. */
+export async function loadApiLayer(groupId: string, source: ApiLayerSource, ctx: ApiLayerContext): Promise<ApiLayerResult> {
+  if (!shouldFetchApiLayer(source, ctx)) return fail('needs a signed-in session', 'sign-in')
+  return fetchApiLayer(groupId, source.endpoint)
+}
+
 /** Fetch + adapt one API-backed layer by its group id. */
 export async function fetchApiLayer(groupId: string, endpoint: string): Promise<ApiLayerResult> {
   let json: JsonValue
