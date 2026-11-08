@@ -32,6 +32,53 @@ export type ToolBody = {
   district_demographics?: JsonValue
   view?: DataViewSpec
   view_url?: string
+  // analyze_location readout. The inline analyze sheet renders these, so the
+  // parser must keep them (it used to drop everything but the demographics).
+  generated_at?: string
+  saved?: { id: string; url: string } | null
+  nearest_gnd?: JsonObject | null
+  nearest_expressway?: JsonObject | null
+  planned_developments_nearby?: JsonObject[]
+  attractions_nearby?: JsonObject[]
+  waterfalls_nearby?: JsonObject[]
+  trails_nearby?: JsonObject[]
+  cycling_nearby?: JsonObject[]
+  parks_containing_or_near?: JsonObject[]
+  prospects_nearby?: JsonObject[]
+}
+
+const ANALYZE_LISTS = [
+  'planned_developments_nearby',
+  'attractions_nearby',
+  'waterfalls_nearby',
+  'trails_nearby',
+  'cycling_nearby',
+  'parks_containing_or_near',
+  'prospects_nearby',
+] as const
+
+function objectOrNull(value: JsonValue | undefined): JsonObject | null | undefined {
+  if (value === null) return null
+  return isJsonObject(value) ? value : undefined
+}
+
+function analyzeFields(value: JsonObject): Partial<ToolBody> {
+  const out: Partial<ToolBody> = {}
+  for (const key of ANALYZE_LISTS) {
+    const list = value[key]
+    if (Array.isArray(list)) out[key] = list.filter(isJsonObject)
+  }
+  const gnd = objectOrNull(value.nearest_gnd)
+  if (gnd !== undefined) out.nearest_gnd = gnd
+  const exp = objectOrNull(value.nearest_expressway)
+  if (exp !== undefined) out.nearest_expressway = exp
+  if (isJsonString(value.generated_at)) out.generated_at = value.generated_at
+  const saved = value.saved
+  if (saved === null) out.saved = null
+  else if (isJsonObject(saved) && isJsonString(saved.id) && isJsonString(saved.url)) {
+    out.saved = { id: saved.id, url: saved.url }
+  }
+  return out
 }
 
 export function bodyFromResult(result: {
@@ -100,6 +147,7 @@ function toolBodyFromObject(value: JsonObject): ToolBody {
       (value.view === undefined || checkedView?.ok) && isJsonString(value.view_url)
         ? value.view_url
         : undefined,
+    ...analyzeFields(value),
   }
 }
 
