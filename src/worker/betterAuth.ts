@@ -20,12 +20,47 @@
 // Social providers are wired ONLY when their client id + secret are present, so
 // email/password works out of the box for the closed beta with zero OAuth
 // setup, and Google/GitHub light up the moment the human adds credentials.
-// The mcp() plugin turns Better Auth into an OAuth 2.1 provider so AI clients
-// can authorise against /mcp (discovery at /api/auth/.well-known/...).
+// The mcp() plugin (@better-auth/mcp, built on @better-auth/oauth-provider)
+// turns Better Auth into the OAuth 2.1 authorization server for /mcp. Clients
+// identify themselves two ways:
+//   - Client ID Metadata Documents (cimd()): the client_id is an HTTPS URL to a
+//     JSON document the client hosts. Claude and ChatGPT use this when the
+//     server advertises it, so no client row is created per connection.
+//   - Dynamic Client Registration (RFC 7591), kept on for clients that do not
+//     support CIMD yet.
+// Endpoints live under <app base>/api/auth/oauth2/*. The old 1.6 paths
+// (/api/auth/mcp/*) that already-connected clients stored are aliased in
+// index.ts, and their stored clients and tokens move across in oauthLegacy.ts.
 
 import { betterAuth } from 'better-auth'
-import { jwt, mcp } from 'better-auth/plugins'
+import { jwt } from 'better-auth/plugins'
+import { cimd } from '@better-auth/cimd'
+import { mcp } from '@better-auth/mcp'
+import { createCimdFetch, parseAllowedHosts } from './cimdFetch'
 import type { Env } from './types'
+
+/** Scopes this server grants. `offline_access` is what earns a refresh token. */
+export const MCP_SCOPES = ['openid', 'profile', 'email', 'offline_access']
+
+/** Public app base without a trailing slash, e.g. https://example.org/app. */
+export function appBaseUrl(env: Env): string {
+  return (env.BETTER_AUTH_URL?.trim() || 'http://localhost:8787').replace(/\/+$/, '').replace(/\/api\/auth$/, '')
+}
+
+/** Canonical MCP resource identifier; access tokens carry it as `aud`. */
+export function mcpResource(env: Env): string {
+  return `${appBaseUrl(env)}/mcp`
+}
+
+/**
+ * OAuth issuer: the bare origin. That is what the 1.6 setup put in `iss`, so
+ * clients connected before the upgrade see no issuer change, and it keeps the
+ * RFC 8414 / OIDC discovery documents at the zone root
+ * (/.well-known/oauth-authorization-server, /.well-known/openid-configuration).
+ */
+export function oauthIssuer(env: Env): string {
+  return new URL(appBaseUrl(env)).origin
+}
 
 interface SocialProvider {
   clientId: string
@@ -49,8 +84,8 @@ function buildSocialProviders(env: Env) {
   return providers
 }
 
-// Construct the instance. Its return type (with the mcp plugin's endpoints like
-// getMcpSession) is inferred here and preserved through getAuth — we never
+// Construct the instance. Its return type (with the plugins' endpoints, such as
+// the jwt plugin's getJwks) is inferred here and preserved through getAuth — we never
 // annotate it with a widened `BetterAuthOptions`, which would erase the plugin
 // API surface.
 function buildAuth(env: Env) {
@@ -63,9 +98,10 @@ function buildAuth(env: Env) {
   // becomes <app base>/api/auth, e.g. https://example.org/app/api/auth,
   // and every generated URL correctly stays under /app. On workers.dev
   // staging / local dev (no prefix) this yields https://…/api/auth as before.
-  const appBase = (env.BETTER_AUTH_URL?.trim() || 'http://localhost:8787').replace(/\/+$/, '')
-  const baseURL = appBase.endsWith('/api/auth') ? appBase : `${appBase}/api/auth`
+  const appBase = appBaseUrl(env)
+  const baseURL = `${appBase}/api/auth`
   const origin = new URL(baseURL).origin
+  const appPath = new URL(appBase).pathname.replace(/\/+$/, '') || '/'
   // FAIL CLOSED on a missing/weak secret. Better Auth's own guard falls back to
   // a globally-known DEFAULT_SECRET and only throws when `NODE_ENV==='production'`
   // — but on Cloudflare Workers NODE_ENV is never set, so that guard is inert and
@@ -135,32 +171,45 @@ function buildAuth(env: Env) {
         '/sign-in/social': { window: 60, max: 20 },
       },
     },
-    // `resource` is the CANONICAL URI of the protected resource — our MCP
-    // endpoint, <app base>/mcp. RFC 9728 §3.3 requires the `resource` field of
-    // the protected-resource metadata to be identical to the URL the client
-    // used; Better Auth's default is the bare ORIGIN, which is correct only for
-    // a server mounted at the zone root. Under the /app path prefix that
-    // default advertised the bare origin for a server that actually
-    // lives at `https://example.org/app/mcp`, and strict clients
-    // (claude.ai's connector) reject the mismatch — the popup finishes the
-    // OAuth dance and then reports "Authorization with <server> failed".
+    // The jwt plugin's /token route would hand out session JWTs signed with the
+    // same key as OAuth access tokens; clients use /oauth2/token instead.
+    disabledPaths: ['/token'],
     plugins: [
-      // The jwt plugin owns an RS256 key pair in D1 (migration 0006) and is
-      // what makes the mcp plugin's discovery document HONEST. Without it the
-      // oidc-provider signs the id_token HS256 with the client's secret, while
-      // the metadata hardcodes RS256 + a jwks_uri — so a client that verifies
-      // the id_token per the metadata (claude.ai's connector) fails right after
-      // a SUCCESSFUL token exchange, which is exactly what we were seeing:
-      // registration, code and access token all landed, then the connector
-      // reported "Authorization with <server> failed". `useJWTPlugin` below
-      // switches the id_token over to those keys.
-      jwt({ jwks: { keyPairConfig: { alg: 'RS256' } } }),
+      // RS256 key pair in D1 (migration 0006). Signs id_tokens AND the JWT
+      // access tokens the provider mints for the MCP resource, and serves them
+      // at <base>/api/auth/jwks. `issuer` pins `iss` to the origin (see
+      // oauthIssuer). No set-auth-jwt header: nothing in the app reads it.
+      jwt({
+        jwks: { keyPairConfig: { alg: 'RS256' } },
+        jwt: { issuer: origin },
+        disableSettingJwtHeader: true,
+      }),
+      // `resource` is the CANONICAL URI of the protected resource: our MCP
+      // endpoint, <app base>/mcp. RFC 9728 §3.3 requires the protected-resource
+      // metadata's `resource` to equal the URL the client used, and strict
+      // clients (claude.ai) reject a mismatch after an otherwise good OAuth.
+      // Access tokens are audience-bound to it.
       mcp({
-        loginPage: new URL(appBase).pathname || '/',
-        resource: `${appBase}/mcp`,
-        // `loginPage` is duplicated here because OIDCOptions requires it; the
-        // mcp plugin passes this object straight through to oidcProvider().
-        oidcConfig: { loginPage: new URL(appBase).pathname || '/', useJWTPlugin: true },
+        loginPage: appPath,
+        // The same SPA route renders the consent card (ConnectFlow).
+        consentPage: appPath,
+        resource: mcpResource(env),
+        scopes: MCP_SCOPES,
+        // DCR stays on as a fallback for clients without CIMD support. Better
+        // Auth never enables it implicitly. Anonymous registrations get only
+        // the scopes above, and 'infer' accepts native clients' loopback and
+        // custom-scheme callbacks (Cursor, Claude Code).
+        allowDynamicClientRegistration: true,
+        allowUnauthenticatedClientRegistration: true,
+        clientRegistrationDefaultScopes: MCP_SCOPES,
+        clientRegistrationDefaultApplicationType: 'infer',
+      }),
+      // Client ID Metadata Documents, MCP 2026-07-28 profile (requires
+      // client_name and redirect_uris). The Workers transport and its limits
+      // are documented in cimdFetch.ts.
+      cimd({
+        fetchClientMetadataResource: createCimdFetch({ allowedHosts: parseAllowedHosts(env.CIMD_ALLOWED_HOSTS) }),
+        metadataProfile: 'mcp-2026-07-28',
       }),
     ],
   })

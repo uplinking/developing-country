@@ -94,6 +94,15 @@ bun run db:migrate:remote -- --profile uplinking
 Never edit an applied migration. Change the auth schema by adding a new numbered
 migration.
 
+`0013_oauth_provider.sql` moves MCP OAuth to Better Auth 1.7's OAuth provider.
+It renames the 1.6 tables to `legacyOauthApplication`, `legacyOauthAccessToken`
+and `legacyOauthConsent` and creates the new ones empty. Rows move across on
+first use (see `src/worker/oauthLegacy.ts`), so apply the migration and deploy
+the Worker together: the old Worker cannot read the renamed tables, and the new
+Worker needs the new ones. Once every row in `legacyOauthAccessToken` has a
+`refreshTokenExpiresAt` in the past, the legacy tables can be dropped in a later
+migration.
+
 ## Social provider callbacks
 
 Register these exact production callbacks with the providers:

@@ -3,6 +3,7 @@
 // our own /api fetches just need `credentials: 'include'` to ride along.
 
 import { createAuthClient } from 'better-auth/react'
+import { oauthProviderClient } from '@better-auth/oauth-provider/client'
 import { appUrl, withBase } from '../base'
 import { isJsonObject, isJsonString } from '../shared/json'
 import type { JsonValue } from '../shared/json'
@@ -14,6 +15,10 @@ export const authClient = createAuthClient({
   // module loaded from /assets/.
   baseURL: appUrl('/api/auth'),
   fetchOptions: { credentials: 'include' },
+  // On the MCP connect page the URL carries a signed copy of the OAuth request.
+  // This plugin sends it with sign-in and consent calls so the server can
+  // resume the authorization. On any other page it adds nothing.
+  plugins: [oauthProviderClient()],
 })
 
 export const { useSession, signIn, signUp, signOut } = authClient

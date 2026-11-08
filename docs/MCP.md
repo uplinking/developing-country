@@ -279,11 +279,39 @@ not advertised to new clients.
 
 ## OAuth behavior
 
-OAuth issuer and MCP resource origin are both
-`https://explore.developing-country.org`. Discovery is available under
-`/.well-known/`; authorize, registration and token endpoints live under
-`/api/auth/mcp/`. Better Auth redirects an unauthenticated authorization request
-to the explorer's consent UI, then returns the authorization code to the client.
+The OAuth issuer is `https://explore.developing-country.org` and the protected
+resource is `https://explore.developing-country.org/mcp`; access tokens are
+RS256 JWTs whose `aud` is that resource. Discovery is served under
+`/.well-known/` (RFC 8414, OpenID Connect and RFC 9728). The authorization
+server is Better Auth's `@better-auth/mcp` plugin, with endpoints under
+`/api/auth/oauth2/` (`authorize`, `token`, `register`, `userinfo`) and keys at
+`/api/auth/jwks`.
+
+Clients identify themselves in one of two ways:
+
+- **Client ID Metadata Documents (CIMD).** The `client_id` is an HTTPS URL to a
+  JSON document the client hosts (ChatGPT's is
+  `https://chatgpt.com/oauth/client.json`). Discovery advertises
+  `client_id_metadata_document_supported: true`, so clients that support it use
+  it and no client row is created per connection. The server fetches the
+  document through a Workers transport with SSRF guards
+  (`src/worker/cimdFetch.ts`); set `CIMD_ALLOWED_HOSTS` to restrict which hosts
+  it will fetch from.
+- **Dynamic Client Registration (RFC 7591)** at `/api/auth/oauth2/register`,
+  kept for clients without CIMD support.
+
+Public clients (`token_endpoint_auth_method: none`) must use PKCE S256. Tokens
+are bearer tokens only: DPoP proofs are ignored and DPoP is not advertised.
+
+An authorization request without a session goes to the explorer's sign-in card;
+a client the user has not approved yet goes to its consent card. Both pages get
+a signed copy of the request, and consent is recorded through
+`/api/auth/oauth2/consent`, which then redirects to the client's registered
+`redirect_uri`.
+
+The Better Auth 1.6 endpoints under `/api/auth/mcp/` still answer for clients
+connected before the upgrade, and their clients, consents and refresh tokens are
+moved to the new tables the first time they are used (`src/worker/oauthLegacy.ts`).
 
 The auth instance must remain request-scoped. See `docs/AUTH_SETUP.md` for
 secrets, callbacks, migrations, and production verification.
