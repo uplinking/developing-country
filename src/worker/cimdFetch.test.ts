@@ -212,3 +212,62 @@ describe('parseAllowedHosts', () => {
     expect(parseAllowedHosts(undefined)).toBeNull()
   })
 })
+
+describe('Workers runtime compatibility', () => {
+  // Better Auth's CIMD plugin calls the transport with `redirect: "error"`. Workers
+  // throw on that value in `new Request()`; Bun does not, which hid a production
+  // outage where every CIMD client failed with "Failed to fetch metadata document".
+  test('accepts the options Better Auth passes, even where Request rejects redirect "error"', async () => {
+    const RealRequest = globalThis.Request
+    class WorkersRequest extends RealRequest {
+      constructor(input: RequestInfo | URL, init?: RequestInit) {
+        if (init?.redirect === 'error') {
+          throw new TypeError('Invalid redirect value, must be one of "follow" or "manual"')
+        }
+        super(input, init)
+      }
+    }
+    globalThis.Request = WorkersRequest as typeof Request
+    try {
+      let seen: RequestInit | undefined
+      const { transport } = harness({
+        respond: (_url, init) => {
+          seen = init
+          return Response.json({ client_id: DOC_URL })
+        },
+      })
+      const controller = new AbortController()
+      const res = await transport(DOC_URL, {
+        headers: new Headers({ Accept: 'application/json' }),
+        redirect: 'error',
+        signal: controller.signal,
+      })
+      expect(res.status).toBe(200)
+      expect(await res.json()).toEqual({ client_id: DOC_URL })
+      expect(seen?.redirect).toBe('manual')
+      expect(new Headers(seen?.headers).get('accept')).toBe('application/json')
+    } finally {
+      globalThis.Request = RealRequest
+    }
+  })
+
+  test('still refuses a redirecting metadata URL', async () => {
+    const { transport } = harness({
+      respond: () => new Response(null, { status: 302, headers: { Location: 'https://evil.example/x' } }),
+    })
+    await rejects(transport(DOC_URL, { redirect: 'error' }), /must not redirect/)
+  })
+
+  test('drops wire-encoding headers from the rebuilt response', async () => {
+    const { transport } = harness({
+      respond: () =>
+        new Response(JSON.stringify({ client_id: DOC_URL }), {
+          headers: { 'content-type': 'application/json', 'content-encoding': 'gzip', 'content-length': '5' },
+        }),
+    })
+    const res = await transport(DOC_URL)
+    expect(res.headers.get('content-encoding')).toBeNull()
+    expect(res.headers.get('content-length')).toBeNull()
+    expect(res.headers.get('content-type')).toBe('application/json')
+  })
+})
