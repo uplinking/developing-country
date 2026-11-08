@@ -32,10 +32,13 @@ export function uiCsp(env: { BASE_PATH?: string; BETTER_AUTH_URL?: string; PUBLI
     'https://tiles.developing-country.org',
     'https://tiles.openfreemap.org',
   ]
+  let local = !env.BETTER_AUTH_URL?.trim()
   for (const value of [env.BETTER_AUTH_URL, env.PUBLIC_VIEW_ORIGIN]) {
     if (!value?.trim()) continue
     try {
-      const origin = new URL(value).origin
+      const url = new URL(value)
+      if (LOCAL_HOSTS.has(url.hostname)) local = true
+      const origin = url.origin
       if (!resourceDomains.includes(origin)) resourceDomains.push(origin)
       if (!connectDomains.includes(origin)) connectDomains.push(origin)
     } catch {
@@ -43,13 +46,36 @@ export function uiCsp(env: { BASE_PATH?: string; BETTER_AUTH_URL?: string; PUBLI
       // never copied into an MCP App CSP.
     }
   }
-  if (!env.BASE_PATH?.trim()) {
+  // The wrangler dev origins, only for a local deployment. Production sets
+  // BASE_PATH to "" too, so an empty BASE_PATH is not a local signal.
+  if (local) {
     for (const origin of ['http://localhost:8787', 'http://127.0.0.1:8787']) {
-      resourceDomains.push(origin)
-      connectDomains.push(origin)
+      if (!resourceDomains.includes(origin)) resourceDomains.push(origin)
+      if (!connectDomains.includes(origin)) connectDomains.push(origin)
     }
   }
   return { csp: { resourceDomains, connectDomains }, prefersBorder: true }
+}
+
+const LOCAL_HOSTS: ReadonlySet<string> = new Set(['localhost', '127.0.0.1'])
+
+const CANONICAL_APP_ORIGIN = 'https://explore.developing-country.org'
+
+/**
+ * ChatGPT's dedicated widget origin, required to submit a plugin with UI.
+ * Sent only as the ChatGPT alias `openai/widgetDomain`, never as the standard
+ * `ui.domain`: Claude validates `ui.domain` against its own
+ * `{sha256(server URL)}.claudemcpcontent.com` form and refuses to render the
+ * app on a mismatch, so one static `ui.domain` cannot serve both hosts.
+ */
+export function widgetDomain(env: { BETTER_AUTH_URL?: string }): string {
+  const configured = env.BETTER_AUTH_URL?.trim()
+  if (!configured) return CANONICAL_APP_ORIGIN
+  try {
+    return new URL(configured).origin
+  } catch {
+    return CANONICAL_APP_ORIGIN
+  }
 }
 
 // Display modes the app handles: inline, plus fullscreen for maps and the
@@ -59,13 +85,14 @@ export const UI_DISPLAY_MODES = ['inline', 'fullscreen'] as const
 /**
  * Resource-contents `_meta` for the app. `ui` is the MCP Apps standard block
  * every host reads. The `openai/*` keys are ChatGPT's resource hints (display
- * modes known before the frame loads; a one-line summary for the model so it
- * does not re-narrate the frame); other hosts ignore them.
+ * modes known before the frame loads; the widget origin; a one-line summary for
+ * the model so it does not re-narrate the frame); other hosts ignore them.
  */
 export function uiResourceMeta(env: { BASE_PATH?: string; BETTER_AUTH_URL?: string; PUBLIC_VIEW_ORIGIN?: string }) {
   return {
     ui: uiCsp(env),
     'openai/ui': { availableDisplayModes: [...UI_DISPLAY_MODES] },
+    'openai/widgetDomain': widgetDomain(env),
     'openai/widgetDescription':
       'Interactive developing-country.org view of this result: a map, chart, table or dataset browser with sources. The user can pan, open datasets and save a live view, so do not restate every value it shows.',
   }

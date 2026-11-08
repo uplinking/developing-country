@@ -2,7 +2,8 @@
 //
 // Platform Worker — the explorer backbone. Routes:
 //   /api/auth/*  → Better Auth handler (sign-up/in, social, MCP OAuth, discovery)
-//   /.well-known/*  → OAuth discovery proxied to Better Auth (oauthRoutes.ts)
+//   /.well-known/*  → OAuth discovery proxied to Better Auth (oauthRoutes.ts),
+//                     plus OpenAI's domain challenge (openaiChallenge.ts)
 //   /tiles/*  → legacy R2 PMTiles range-proxy; production browsers use the
 //               direct tiles.developing-country.org R2 custom domain
 //   /api/*    → REST API (api.ts → service.ts)
@@ -38,6 +39,7 @@ import { basePrefix, handleOAuthRequest } from './oauthRoutes'
 import { MapSession } from './session'
 import { normalizeEmail } from './identity'
 import { authenticate } from './auth'
+import { OPENAI_APPS_CHALLENGE_PATH, openaiAppsChallenge } from './openaiChallenge'
 
 export { MapSession }
 
@@ -51,6 +53,9 @@ export default {
     // that clients connected before the upgrade still use. See oauthRoutes.ts.
     const oauth = await handleOAuthRequest(request, env)
     if (oauth) return oauth
+
+    // (1b) OpenAI plugin domain verification, also at the zone root.
+    if (url.pathname === OPENAI_APPS_CHALLENGE_PATH) return openaiAppsChallenge(request, env)
 
     const authBase = `${prefix}/api/auth`
 
