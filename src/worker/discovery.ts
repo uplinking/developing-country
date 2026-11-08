@@ -13,6 +13,8 @@ import {
   indicatorDataset,
   type IndicatorChartPreset,
 } from '@developing-country/datasets'
+import { parseQuery, type SearchQuery } from '@developing-country/datasets/search'
+import { SEARCH_SYNONYMS } from '@developing-country/datasets/search-synonyms'
 import type { JsonObject } from '../shared/json'
 import { isJsonString } from '../shared/json'
 import { loadJson } from './assets'
@@ -214,13 +216,75 @@ function words(text: string): string[] {
 
 // A query word hits a haystack word when one is a prefix of the other
 // ("remit" → "remittances", "prices" → "price").
-function hits(queryWord: string, hay: string[]): boolean {
-  return hay.some((w) => w.startsWith(queryWord) || (queryWord.length > 3 && queryWord.startsWith(w) && w.length > 3))
+function wordHits(queryWord: string, w: string): boolean {
+  return w.startsWith(queryWord) || (queryWord.length > 3 && queryWord.startsWith(w) && w.length > 3)
 }
+
+function hits(queryWord: string, hay: string[]): boolean {
+  return hay.some((w) => wordHits(queryWord, w))
+}
+
+/** Every word of a phrase ("power cut", "asking price"), in order and adjacent. */
+function phraseHits(phrase: readonly string[], hay: string[], match = wordHits): boolean {
+  if (phrase.length === 0 || phrase.length > hay.length) return false
+  for (let start = 0; start + phrase.length <= hay.length; start++) {
+    if (phrase.every((word, offset) => match(word, hay[start + offset]!))) return true
+  }
+  return false
+}
+
+// The query is parsed by the same parser and synonym map as the /data page
+// (@developing-country/datasets/search): plurals stemmed, filler words dropped,
+// and each concept carries the words the reader typed plus its synonyms.
+type Concept = SearchQuery['concepts'][number]
+
+function queryConcepts(q: string | undefined): Concept[] {
+  // Single letters carry no meaning on their own unless they start a synonym ("o level").
+  return (parseQuery(q, SEARCH_SYNONYMS)?.concepts ?? []).filter((c) => c.term.length > 1 || c.alternatives.length > 1)
+}
+
+/** The zone that won, so `matched_on` can say a synonym produced it. */
+interface ConceptMatch { score: number; zone: string; synonym: boolean; value?: string }
 
 interface Scored { score: number; words: number; matched: Set<string>; values: string[] }
 
-function scoreEntry(entry: IndexEntry, qWords: string[]): Scored {
+const VALUE_WEIGHT = 1.2
+// A synonym counts for this share of the word the reader typed. Lower than
+// /data's factor because these zone weights span 4:1 (title 4 … description 1):
+// below 1/4, any synonym match ranks below any typed-word match, so a generic
+// synonym ("prices" for "inflation") never outranks the tables that use the word.
+const SYNONYM_FACTOR = 0.2
+
+// Ranking rules (as on /data): a concept scores the weight of the best zone it
+// matched, so title/field matches outrank description matches, and a synonym
+// match counts for less than a match on the word the reader typed.
+function scoreConcept(zones: Array<[string, number, string[]]>, fields: IndexField[], concept: Concept): ConceptMatch | null {
+  let best: ConceptMatch | null = null
+  for (const alternative of concept.alternatives) {
+    const factor = alternative.synonym ? SYNONYM_FACTOR : 1
+    for (const [zone, weight, hay] of zones) {
+      const score = weight * factor
+      if (score > (best?.score ?? 0) && phraseHits(alternative.tokens, hay)) best = { score, zone, synonym: alternative.synonym }
+    }
+  }
+  if (best && !best.synonym) return best
+  // Dimension values, when the typed word hit no zone: "jaffna" finds every
+  // table with a Jaffna row, "rent" a tenure of "Free of rent".
+  for (const alternative of concept.alternatives) {
+    const score = VALUE_WEIGHT * (alternative.synonym ? SYNONYM_FACTOR : 1)
+    if (score <= (best?.score ?? 0)) continue
+    for (const f of fields) {
+      const v = (f.values ?? f.examples ?? []).find((value) => phraseHits(alternative.tokens, words(value), (q, w) => w.startsWith(q)))
+      if (v) {
+        best = { score, zone: 'values', synonym: alternative.synonym, value: `${f.id}=${v}` }
+        break
+      }
+    }
+  }
+  return best
+}
+
+function scoreEntry(entry: IndexEntry, concepts: Concept[]): Scored {
   const fields = analysableFields(entry)
   const zones: Array<[string, number, string[]]> = [
     ['title', 4, words(`${entry.title} ${entry.label} ${entry.dataset_id}`)],
@@ -230,34 +294,20 @@ function scoreEntry(entry: IndexEntry, qWords: string[]): Scored {
     ['description', 1, words(`${entry.description} ${entry.question}`)],
   ]
   const out: Scored = { score: 0, words: 0, matched: new Set(), values: [] }
-  for (const qw of qWords) {
-    let best = 0
-    for (const [zone, weight, hay] of zones) {
-      if (weight > best && hits(qw, hay)) {
-        best = weight
-        out.matched.add(zone)
-      }
-    }
-    if (best === 0) {
-      // Dimension values: "jaffna" finds every table with a Jaffna row.
-      for (const f of fields) {
-        const v = (f.values ?? f.examples ?? []).find((value) => words(value).some((w) => w.startsWith(qw)))
-        if (v) {
-          best = 1.2
-          out.matched.add('values')
-          out.values.push(`${f.id}=${v}`)
-          break
-        }
-      }
-    }
-    out.score += best
-    if (best > 0) out.words += 1
+  for (const concept of concepts) {
+    const match = scoreConcept(zones, fields, concept)
+    if (!match) continue
+    out.score += match.score
+    out.words += 1
+    out.matched.add(match.zone)
+    if (match.synonym) out.matched.add('synonym')
+    if (match.value) out.values.push(match.value)
   }
   return out
 }
 
 export function searchDatasets(catalog: Catalog, index: DatasetIndex, params: SearchParams) {
-  const qWords = words(params.q ?? '')
+  const concepts = queryConcepts(params.q)
   const theme = params.theme?.toUpperCase()
   const publisher = params.publisher?.toLowerCase()
   const limit = Math.min(Math.max(Math.trunc(params.limit ?? 12), 1), 50)
@@ -265,18 +315,18 @@ export function searchDatasets(catalog: Catalog, index: DatasetIndex, params: Se
   const tableHits = index.datasets.flatMap((entry) => {
     if (theme && !entry.themes.includes(theme)) return []
     if (publisher && !`${entry.publisher.id} ${entry.publisher.name}`.toLowerCase().includes(publisher)) return []
-    const scored = qWords.length ? scoreEntry(entry, qWords) : { score: 1, words: 0, matched: new Set<string>(), values: [] }
-    // Every query word must land somewhere, or the hit is noise.
-    if (scored.words < qWords.length) return []
+    const scored = concepts.length ? scoreEntry(entry, concepts) : { score: 1, words: 0, matched: new Set<string>(), values: [] }
+    // Every query concept (a word, or a phrase from the synonym map) must land somewhere, or the hit is noise.
+    if (scored.words < concepts.length) return []
     return [{ entry, ...scored }]
   })
   tableHits.sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title))
 
-  const spatialHits = theme || publisher || !qWords.length ? [] : catalog.layers.flatMap((layer) => {
+  const spatialHits = theme || publisher || !concepts.length ? [] : catalog.layers.flatMap((layer) => {
     if (layer.kind === 'table') return []
     const hay = words(`${layer.id} ${layer.title} ${layer.description}`)
-    const n = qWords.filter((qw) => hits(qw, hay)).length
-    return n === qWords.length ? [{ layer, score: n }] : []
+    const n = concepts.filter((c) => c.alternatives.some((a) => phraseHits(a.tokens, hay))).length
+    return n === concepts.length ? [{ layer, score: n }] : []
   })
 
   const datasets = tableHits.slice(0, limit).map(({ entry, score, matched, values }) => {

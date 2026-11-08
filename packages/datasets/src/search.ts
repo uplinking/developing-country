@@ -1,10 +1,13 @@
-// Plain-language search over the /data catalogue.
+// Plain-language search over the dataset catalogue: the /data page ranks with
+// search(); the MCP get_layer_catalog {q} tool (src/worker/discovery.ts) parses
+// with parseQuery() and the same synonym map (./searchSynonyms), then ranks with
+// its own zones under the same rules.
 //
 // Pure and dependency-free so it can run inside the site Worker, which has very
 // little bundle headroom. The bulky inputs (field labels, dimension values such
 // as district names, and the reviewable synonym map) are built at build time
 // into the R2 dataset catalogue (see apps/site/scripts/build-dataset-catalog.ts),
-// so only this scorer ships in the Worker.
+// so only this scorer ships in the site Worker.
 //
 // Ranking: every query concept (a word, or a phrase from the synonym map) must
 // match somewhere in a document. A concept scores the weight of the best field

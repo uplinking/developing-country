@@ -1,4 +1,4 @@
-import type { DatasetSearchTerms } from './dataSearch'
+import type { DatasetSearchTerms } from '@developing-country/datasets/search'
 
 export interface DatasetVersionRecord {
   checksum: string
@@ -29,7 +29,7 @@ export interface KnownDataGap {
   lastChecked: string
 }
 
-/** Build-time inputs for /data search; see apps/site/src/lib/dataSearch.ts. */
+/** Build-time inputs for /data search; see @developing-country/datasets/search. */
 export interface DatasetCatalogSearch {
   synonyms: Record<string, string[]>
   datasets: Record<string, DatasetSearchTerms>

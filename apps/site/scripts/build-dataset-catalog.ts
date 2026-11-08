@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto'
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import type { IndexEntry } from '../../../scripts/build-dataset-index'
-import synonymFile from '../data/search-synonyms.json'
+import { SEARCH_SYNONYMS } from '@developing-country/datasets/search-synonyms'
 import { datasetNotes } from '../src/lib/datasets'
 
 const root = resolve(import.meta.dir, '../../..')
@@ -133,7 +133,7 @@ const searchTerms = Object.fromEntries(datasetIndex.datasets
     }]
   }))
 
-const synonyms = Object.fromEntries(Object.entries(synonymFile.synonyms)
+const synonyms = Object.fromEntries(Object.entries(SEARCH_SYNONYMS)
   .sort(([left], [right]) => left.localeCompare(right))
   .map(([key, values]) => {
     if (!key || key !== key.trim().toLowerCase()) throw new Error(`search synonym key "${key}" must be lowercase and unpadded`)
