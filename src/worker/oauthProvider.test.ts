@@ -2,7 +2,7 @@
 // migrations, on a bun:sqlite-backed D1 binding (testing/d1.ts). Nothing here
 // touches the network: CIMD fetches go through a stubbed global fetch.
 
-import { afterEach, beforeEach, describe, expect, test } from 'bun:test'
+import { afterEach, beforeEach, describe, expect, spyOn, test } from 'bun:test'
 import { Database } from 'bun:sqlite'
 import { readdirSync, readFileSync } from 'node:fs'
 import { getMigrations } from 'better-auth/db/migration'
@@ -10,8 +10,10 @@ import { jwt } from 'better-auth/plugins'
 import { signPrivateKeyJwtClientAssertion } from 'better-auth/oauth2'
 import { cimd } from '@better-auth/cimd'
 import { mcp } from '@better-auth/mcp'
+import { handleApi } from './api'
 import { authenticateMcp } from './auth'
 import { getAuth, MCP_SCOPES, OAUTH_PROVIDER_SCHEMA } from './betterAuth'
+import { checkSigningKey } from './jwksHealth'
 import { hashLikeProvider } from './oauthLegacy'
 import { handleOAuthRequest, resetOAuthSchemaCheck } from './oauthRoutes'
 import { TestD1 } from './testing/d1'
@@ -653,5 +655,114 @@ describe('client ID metadata documents', () => {
     const res = await call(env, new Request(`${ORIGIN}/api/auth/oauth2/authorize?${query}`, { headers: { cookie } }))
     const location = res.headers.get('location') ?? ''
     expect(location.startsWith('https://attacker.example')).toBe(false)
+  })
+})
+
+describe('a JWKS signing key encrypted under an earlier secret', () => {
+  async function registerClaude(env: Env): Promise<string> {
+    const registered = await call(
+      env,
+      new Request(`${ORIGIN}/api/auth/oauth2/register`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ client_name: 'Claude', redirect_uris: [CLAUDE_CALLBACK], token_endpoint_auth_method: 'none' }),
+      }),
+    )
+    expect(registered.status).toBe(201)
+    return str((await json(registered)).client_id)
+  }
+
+  /** The first authorization goes through consent; later ones redirect straight back with a code. */
+  async function code(env: Env, cookie: string, clientId: string, challenge: string, consented: boolean): Promise<string> {
+    if (!consented) return authorizeCode(env, cookie, clientId, CLAUDE_CALLBACK, challenge)
+    const query = new URLSearchParams({
+      response_type: 'code',
+      client_id: clientId,
+      redirect_uri: CLAUDE_CALLBACK,
+      scope: MCP_SCOPES.join(' '),
+      state: 'state-2',
+      code_challenge: challenge,
+      code_challenge_method: 'S256',
+      resource: RESOURCE,
+    })
+    const authorize = await call(env, new Request(`${ORIGIN}/api/auth/oauth2/authorize?${query}`, { headers: { cookie } }))
+    const location = new URL(str(authorize.headers.get('location')))
+    expect(location.origin + location.pathname).toBe(CLAUDE_CALLBACK)
+    return str(location.searchParams.get('code'))
+  }
+
+  async function exchange(env: Env, cookie: string, clientId: string, consented = false): Promise<Response> {
+    const { verifier, challenge } = await pkce()
+    const code_ = await code(env, cookie, clientId, challenge, consented)
+    return call(
+      env,
+      new Request(
+        `${ORIGIN}/api/auth/oauth2/token`,
+        form({ grant_type: 'authorization_code', code: code_, redirect_uri: CLAUDE_CALLBACK, client_id: clientId, code_verifier: verifier, resource: RESOURCE }),
+      ),
+    )
+  }
+
+  test('fails token issuance loudly, is reported by /api/health, and recovers when the row is expired', async () => {
+    const db = new TestD1().migrate()
+    const env = makeEnv(db)
+    // What production had: the only jwks row was minted under a previous secret.
+    const previous: Env = { ...env, BETTER_AUTH_SECRET: 'an-earlier-secret-0123456789abcdef' }
+    expect((await getAuth(previous).handler(new Request(`${ORIGIN}/api/auth/jwks`))).status).toBe(200)
+    const rows = db.sqlite.query<{ id: string }, []>('SELECT id FROM jwks').all()
+    expect(rows).toHaveLength(1)
+    const kid = str(rows[0]?.id)
+
+    // The self-check sees it before any client does.
+    expect(await checkSigningKey(previous)).toMatchObject({ status: 'ok', kid })
+    expect(await checkSigningKey(env)).toMatchObject({ status: 'undecryptable', kid })
+    const health = await handleApi(new Request(`${ORIGIN}/api/health`), env)
+    expect(health.status).toBe(503)
+    const healthBody = await json(health)
+    expect(healthBody.ok).toBe(false)
+    expect(JSON.stringify(healthBody.auth)).toContain(kid)
+    expect(JSON.stringify(healthBody)).not.toContain('UPDATE jwks')
+
+    // Token issuance fails, and the log names the key and the recovery.
+    const { cookie } = await signUp(env)
+    const clientId = await registerClaude(env)
+    const logged: string[] = []
+    const spy = spyOn(console, 'error').mockImplementation((...args: unknown[]) => {
+      logged.push(args.map(String).join(' '))
+    })
+    let failed: Response
+    try {
+      failed = await exchange(env, cookie, clientId)
+    } finally {
+      spy.mockRestore()
+    }
+    expect(failed.status).toBe(500)
+    const report = logged.find((line) => line.includes('jwks_signing_key_undecryptable'))
+    if (!report) throw new Error(`no actionable log line; got:\n${logged.join('\n')}`)
+    const entry = JSON.parse(report)
+    expect(entry).toMatchObject({ op: 'jwks_signing_key_undecryptable', kid })
+    expect(entry.recovery).toContain('Never DELETE')
+
+    // Recovery, exactly as the log says: expire the row, keep it.
+    const sql = /UPDATE jwks SET expiresAt = '[^']+' WHERE id = '[^']+';/.exec(entry.recovery)?.[0]
+    if (!sql) throw new Error(`no recovery SQL in: ${entry.recovery}`)
+    db.sqlite.run(sql.replace(/expiresAt = '[^']+'/, `expiresAt = '${new Date(Date.now() - 1000).toISOString()}'`))
+
+    const recovered = await exchange(env, cookie, clientId, true)
+    expect(recovered.status).toBe(200)
+    const accessToken = str((await json(recovered)).access_token)
+    const header = JSON.parse(Buffer.from(accessToken.split('.')[0] ?? '', 'base64url').toString('utf8'))
+    expect(header).toMatchObject({ alg: 'RS256' })
+    expect(header.kid).not.toBe(kid)
+    expect(await mcpIdentity(env, accessToken)).toMatchObject({ email: 'person@example.org' })
+    // The expired row is kept; Better Auth added a fresh key beside it, and the
+    // key set still publishes the old public key for its grace period.
+    expect(db.sqlite.query('SELECT COUNT(*) AS n FROM jwks').get()).toEqual({ n: 2 })
+    const jwks = await call(env, new Request(`${ORIGIN}/api/auth/jwks`))
+    expect(jwks.status).toBe(200)
+    const published = JSON.stringify((await json(jwks)).keys)
+    expect(published).toContain(`"kid":"${kid}"`)
+    expect(published).toContain(`"kid":"${header.kid}"`)
+    expect(await checkSigningKey(env)).toMatchObject({ status: 'ok', kid: header.kid })
   })
 })

@@ -37,6 +37,7 @@ import { jwt } from 'better-auth/plugins'
 import { cimd } from '@better-auth/cimd'
 import { mcp } from '@better-auth/mcp'
 import { createCimdFetch, parseAllowedHosts } from './cimdFetch'
+import { isSigningKeyDecryptError, JWT_SIGNING_ALG, reportUndecryptableSigningKey } from './jwksHealth'
 import type { Env } from './types'
 
 /**
@@ -192,13 +193,25 @@ function buildAuth(env: Env) {
     // The jwt plugin's /token route would hand out session JWTs signed with the
     // same key as OAuth access tokens; clients use /oauth2/token instead.
     disabledPaths: ['/token'],
+    // A signing key encrypted under an earlier BETTER_AUTH_SECRET makes every
+    // MCP token request fail with "Failed to decrypt private key", which on its
+    // own names neither the key nor the fix. Log both (jwksHealth.ts). This
+    // hook replaces Better Auth's own error logging; the router still logs
+    // non-API errors itself, so only 500 APIErrors need logging here.
+    onAPIError: {
+      onError: async (error) => {
+        if (!(error instanceof Error)) return
+        if (isSigningKeyDecryptError(error)) await reportUndecryptableSigningKey(env)
+        else if (isInternalApiError(error)) console.error('[better-auth]', error)
+      },
+    },
     plugins: [
       // RS256 key pair in D1 (migration 0006). Signs id_tokens AND the JWT
       // access tokens the provider mints for the MCP resource, and serves them
       // at <base>/api/auth/jwks. `issuer` pins `iss` to the origin (see
       // oauthIssuer). No set-auth-jwt header: nothing in the app reads it.
       jwt({
-        jwks: { keyPairConfig: { alg: 'RS256' } },
+        jwks: { keyPairConfig: { alg: JWT_SIGNING_ALG } },
         jwt: { issuer: origin },
         disableSettingJwtHeader: true,
       }),
@@ -232,6 +245,10 @@ function buildAuth(env: Env) {
       }),
     ],
   })
+}
+
+function isInternalApiError(error: Error): boolean {
+  return error.name === 'APIError' && 'status' in error && error.status === 'INTERNAL_SERVER_ERROR'
 }
 
 /**
