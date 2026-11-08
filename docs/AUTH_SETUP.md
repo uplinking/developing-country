@@ -94,13 +94,21 @@ bun run db:migrate:remote -- --profile uplinking
 Never edit an applied migration. Change the auth schema by adding a new numbered
 migration.
 
-`0013_oauth_provider.sql` moves MCP OAuth to Better Auth 1.7's OAuth provider.
-It renames the 1.6 tables to `legacyOauthApplication`, `legacyOauthAccessToken`
-and `legacyOauthConsent` and creates the new ones empty. Rows move across on
-first use (see `src/worker/oauthLegacy.ts`), so apply the migration and deploy
-the Worker together: the old Worker cannot read the renamed tables, and the new
-Worker needs the new ones. Once every row in `legacyOauthAccessToken` has a
-`refreshTokenExpiresAt` in the past, the legacy tables can be dropped in a later
+`0013_oauth_provider.sql` adds Better Auth 1.7's OAuth provider tables. It is
+purely additive: the 1.6 tables (`oauthApplication`, `oauthAccessToken`,
+`oauthConsent`) are not touched, and the provider's own access-token and
+consent tables are named `oauthProviderAccessToken` and `oauthProviderConsent`
+to avoid the clash. Apply it to production any time before the Worker that
+needs it is deployed; the 1.6 Worker keeps working on a migrated database.
+
+The new Worker moves each 1.6 client, its consents and its refresh token into
+the new tables the first time the client uses them
+(`src/worker/oauthLegacy.ts`). If it runs before 0013 is applied, every
+`/api/auth/*` route and the OAuth discovery documents answer `503` naming the
+missing migration, and nothing is written.
+
+Once every row in `oauthAccessToken` (the 1.6 table) has a
+`refreshTokenExpiresAt` in the past, drop the three 1.6 tables in a later
 migration.
 
 ## Social provider callbacks

@@ -17,7 +17,7 @@
 import { verifyJwsAccessToken } from 'better-auth/oauth2'
 import type { Env, Identity } from './types'
 import type { JsonValue } from '../shared/json'
-import { getAuth, mcpResource, oauthIssuer } from './betterAuth'
+import { OAUTH_PROVIDER_TABLES, getAuth, mcpResource, oauthIssuer } from './betterAuth'
 import { hashLikeProvider, legacyAccessTokenUser } from './oauthLegacy'
 
 /**
@@ -81,7 +81,7 @@ function isJwt(token: string): boolean {
  *   carrying a DPoP confirmation (`cnf`) is refused: this server only accepts
  *   bearer tokens.
  * - Opaque: issued when a client omits `resource`. Looked up by its hash in
- *   oauthAccessToken; must be unexpired, unrevoked and, when it names
+ *   the provider's access-token table; must be unexpired, unrevoked and, when it names
  *   resources, name this one.
  * - Legacy: an unexpired opaque token from Better Auth 1.6 (see oauthLegacy).
  */
@@ -106,7 +106,7 @@ export async function verifyMcpAccessToken(
   }
   try {
     const row = await env.DB.prepare(
-      'SELECT "userId", "expiresAt", "revoked", "resources" FROM "oauthAccessToken" WHERE "token" = ?1',
+      `SELECT "userId", "expiresAt", "revoked", "resources" FROM "${OAUTH_PROVIDER_TABLES.accessToken}" WHERE "token" = ?1`,
     )
       .bind(await hashLikeProvider(token))
       .first<{ userId: string | null; expiresAt: string | number; revoked: string | number | null; resources: string | null }>()

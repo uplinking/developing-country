@@ -11,7 +11,10 @@
 //      so they keep answering, backed by the new endpoints.
 //   3. The legacy bridge (oauthLegacy.ts) runs before the authorize and token
 //      endpoints so a pre-upgrade client finds its record and refresh token.
-//   4. Bearer tokens only. The provider would bind tokens to a key if a client
+//   4. A clear 503 on every auth route while migration 0013 has not been
+//      applied. Better Auth 1.7 checks its schema at startup and refuses to run
+//      on the old one, so this turns that into one readable answer.
+//   5. Bearer tokens only. The provider would bind tokens to a key if a client
 //      sent a DPoP proof; this server does not verify DPoP on /mcp, so proofs
 //      are dropped and DPoP is not advertised.
 
@@ -78,6 +81,59 @@ async function serveDiscovery(kind: DiscoveryKind, request: Request, env: Env): 
     return new Response(request.method === 'HEAD' ? null : JSON.stringify(doc), { status: res.status, headers })
   }
   return new Response(JSON.stringify(body), { status: res.status, headers })
+}
+
+// ---------------------------------------------------------------------------
+// Schema guard. Production migrations are applied by hand, so this Worker can
+// start before 0013 is on D1. Better Auth 1.7 then throws SCHEMA_MISMATCH for
+// every call, so every /api/auth/* route and discovery answers 503 with a
+// message naming the migration, and nothing is written. Session checks on
+// /api fail closed (401). 1.6 access tokens on /mcp keep working, because they
+// are read with plain SQL from the untouched 1.6 tables.
+// ---------------------------------------------------------------------------
+
+/** Tables 0013 creates that the provider cannot run without. */
+const REQUIRED_TABLES = ['oauthClient', 'oauthRefreshToken', 'oauthResource']
+// Only ever flips to true (a boolean, never a promise: see betterAuth.ts).
+let schemaReady = false
+
+export async function oauthSchemaReady(env: Env): Promise<boolean> {
+  if (schemaReady) return true
+  try {
+    const { results } = await env.DB.prepare(
+      `SELECT name FROM sqlite_master WHERE type = 'table' AND name IN (${REQUIRED_TABLES.map((_, i) => `?${i + 1}`).join(', ')})`,
+    )
+      .bind(...REQUIRED_TABLES)
+      .all<{ name: string }>()
+    schemaReady = results.length === REQUIRED_TABLES.length
+  } catch {
+    schemaReady = false
+  }
+  return schemaReady
+}
+
+/** Test hook: forget a cached "ready". */
+export function resetOAuthSchemaCheck(): void {
+  schemaReady = false
+}
+
+function schemaMissing(): Response {
+  console.log(JSON.stringify({ op: 'oauth_schema_missing', migration: '0013_oauth_provider.sql' }))
+  return new Response(
+    JSON.stringify({
+      error: 'temporarily_unavailable',
+      error_description: 'Sign-in is being upgraded: database migration 0013_oauth_provider.sql has not been applied yet.',
+    }),
+    {
+      status: 503,
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-store',
+        'Retry-After': '60',
+        'Access-Control-Allow-Origin': '*',
+      },
+    },
+  )
 }
 
 /** Old 1.6 endpoint → its 1.7 replacement, relative to the auth base. */
@@ -147,15 +203,16 @@ function logBridgeFailure(step: string, error: Error | string): void {
 /**
  * Handle an OAuth or discovery request, or return null when `request` is not
  * one. Everything else under <BASE_PATH>/api/auth/* is passed to Better Auth by
- * the caller.
+ * the caller, after the schema guard here has let it through.
  */
 export async function handleOAuthRequest(request: Request, env: Env): Promise<Response | null> {
   const url = new URL(request.url)
   const kind = discoveryKind(url.pathname)
-  if (kind) return serveDiscovery(kind, request, env)
+  if (kind) return (await oauthSchemaReady(env)) ? serveDiscovery(kind, request, env) : schemaMissing()
 
   const authBase = `${basePrefix(env)}/api/auth`
-  if (!url.pathname.startsWith(`${authBase}/`)) return null
+  if (url.pathname !== authBase && !url.pathname.startsWith(`${authBase}/`)) return null
+  if (!(await oauthSchemaReady(env))) return schemaMissing()
   let sub = url.pathname.slice(authBase.length)
   let req = request
   const alias = LEGACY_ALIASES.get(sub)
