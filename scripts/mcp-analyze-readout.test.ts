@@ -1,5 +1,11 @@
 import { describe, expect, test } from 'bun:test'
-import { bodyFromResult } from '../src/mcpResult'
+import type { AnalyzeResult } from '../src/map/analyzeClient'
+
+// src/base.ts reads BASE_URL when first loaded, and bun shares that module across
+// test files, so set it before importing anything that pulls it in.
+process.env.BASE_URL = process.env.BASE_URL ?? '/'
+const { bodyFromResult } = await import('../src/mcpResult')
+const { formatAnalyze } = await import('../src/map/featureFormat')
 
 // Trimmed from a real analyze_location result for Colombo Fort railway station.
 const result = {
@@ -46,6 +52,20 @@ describe('MCP App analyze readout', () => {
       'prospects_nearby',
     ] as const) {
       expect(Array.isArray(body[key])).toBe(true)
+    }
+  })
+
+  test('the sheet shows the GND and expressway instead of empty states', () => {
+    // SAFETY: the parsed body carries every AnalyzeResult field asserted above.
+    const info = formatAnalyze(bodyFromResult({ structuredContent: result }) as unknown as AnalyzeResult)
+    const text = JSON.stringify(info)
+    expect(text).toContain('Slave Island')
+    expect(text).toContain('Port Access Elevated Highway')
+    expect(text).toContain('Pettah Market')
+    // Each section keeps its `empty` text; the sheet shows it only when rows are empty.
+    for (const title of ['Nearest GN division', 'Nearest expressway', 'Nature & tourism nearby']) {
+      const section = info.sections?.find((s) => s.title === title)
+      expect(section?.rows.length ?? 0).toBeGreaterThan(0)
     }
   })
 
