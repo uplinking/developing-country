@@ -1,4 +1,5 @@
 import type { JsonFc, StageEvent } from './shared/stage'
+import { parseGeometryRef, type GeometryRef } from './shared/bboxGeometry'
 import type { JsonObject, JsonValue } from './shared/json'
 import {
   isJsonNumber,
@@ -22,7 +23,9 @@ export type ToolBody = {
   aggregates?: JsonObject
   hull?: { type: 'Polygon'; coordinates: number[][][] }
   geometry?: JsonFc
-  geometry_omitted?: 'storage_limit'
+  geometry_omitted?: 'storage_limit' | 'size_limit'
+  /** Set when the shapes were too large to inline; the widget re-selects them from the asset. */
+  geometry_ref?: GeometryRef
   web_url?: string
   stage?: StageEvent[]
   location?: { lat: number; lng: number; radius_km?: number }
@@ -134,7 +137,9 @@ function toolBodyFromObject(value: JsonObject): ToolBody {
     aggregates: isJsonObject(value.aggregates) ? value.aggregates : undefined,
     hull,
     geometry,
-    geometry_omitted: value.geometry_omitted === 'storage_limit' ? 'storage_limit' : undefined,
+    geometry_omitted:
+      value.geometry_omitted === 'storage_limit' || value.geometry_omitted === 'size_limit' ? value.geometry_omitted : undefined,
+    geometry_ref: parseGeometryRef(value.geometry_ref) ?? undefined,
     web_url: isJsonString(value.web_url) ? value.web_url : undefined,
     stage,
     location,

@@ -59,6 +59,8 @@ interface LayerPanelProps {
   tools?: boolean
   /** Another sheet took the screen: drop a phone sheet to its peek bar. */
   yieldTo?: boolean
+  /** Layer groups this surface cannot load (the MCP App's CSP has no terrain tile host). */
+  hiddenGroups?: ReadonlySet<string>
 }
 
 /**
@@ -572,6 +574,7 @@ export default function LayerPanel({
   variant = 'dock',
   tools = true,
   yieldTo = false,
+  hiddenGroups,
 }: LayerPanelProps) {
   const [size, setSize] = useState<RailSize>(() => initialSize(variant))
   const [infoId, setInfoId] = useState<string | null>(null)
@@ -663,7 +666,7 @@ export default function LayerPanel({
         )}
 
         {CATEGORIES.map((cat) => {
-          const groups = LAYER_GROUPS.filter((g) => g.category === cat.id)
+          const groups = LAYER_GROUPS.filter((g) => g.category === cat.id && !hiddenGroups?.has(g.id))
           const isEnv = cat.id === 'environment'
           const isDemo = cat.id === 'demographics'
           if (groups.length === 0 && !isEnv && !isDemo) return null

@@ -7,3 +7,11 @@
 
 /assets/*
   Access-Control-Allow-Origin: *
+
+# The MCP App loader re-reads this page when a host serves a cached copy of the
+# ui:// resource whose hashed chunks a later deploy removed (src/worker/mcpLoader.ts).
+/mcp-app
+  Access-Control-Allow-Origin: *
+
+/mcp-app.html
+  Access-Control-Allow-Origin: *

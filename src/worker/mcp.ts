@@ -22,11 +22,13 @@ import {
   updateProspect,
   viewEvidence,
 } from './service'
-import { AGENT_PREVIEW_ROWS, UI_PREVIEW_ROWS, previewSavedResult } from './resultPreview'
+import { AGENT_PREVIEW_ROWS } from './resultPreview'
+import { toolResultEnvelope } from './mcpEnvelope'
+import { loadMcpAppHtml } from './mcpLoader'
 import { AGGREGATE_LIMITS } from './queryAggregate'
 import { PRESENTATION_MAX_ROWS, SELECT_MAX_ROWS } from './queryData'
 import { getEntity, ONTOLOGY } from './ontology'
-import { queryErrorBody } from './querySpatial'
+import { bboxGeometrySource, queryErrorBody } from './querySpatial'
 import queryDataSchema from './fixtures/query-spatial.schema.json' with { type: 'json' }
 import { coerceStructuredArgs, flattenOperatorSchema } from './mcpSchema'
 import {
@@ -238,7 +240,7 @@ const TOOLS: ToolDef[] = [
     batchSafe: false,
     description:
       'Use this to read statistics, rankings, trends or map features from a dataset found with get_layer_catalog, and to save them as a live chart or map. Bounded queries over every registered platform Dataset. op=select reads one Indicator Table: dataset_id plus exact field ids, optional where/order_by/limit (rows capped at 200, or 5000 when saved with a presentation), or aggregate it with group_by (dimension fields) + aggregates [{fn: sum|mean|min|max|count, field, as}] instead of fields (sum only on fields the table declares summable). Get the field ids, filterable values and ready-to-run preset calls from get_layer_catalog {dataset_id} first — never guess a field id. ' +
-      'Spatial ops (bbox, nearest, point_in_polygon, overlay, gap, choropleth_join, isochrone) take an ontology entity in `entities`; bbox with include_geometry (+ where property filters) returns any GeoJSON entity\'s own geometry, e.g. polygons, for a saved map. ' +
+      'Spatial ops (bbox, nearest, point_in_polygon, overlay, gap, choropleth_join, isochrone) take an ontology entity in `entities`; bbox with include_geometry (+ where property filters) returns any GeoJSON entity\'s own geometry, e.g. polygons, for a saved map; large shapes are not inlined in the text (geometry_omitted, geometry_ref names the asset and selection) while every feature row is. ' +
       'Without presentation the result is a preview the MCP App tables and charts inline; add presentation to persist a live, citable view_url (requires a signed-in verified account). Chart: family, dimension, measure, optional series and highlight. ' +
       'Map: optional camera, annotations [{id, coordinates:[lng,lat], text}], and layers merged onto the result layers by id (entity ids for spatial ops; the dataset_id for a select) with label, style {geometry fill|line|circle, color token or #hex, colorBy {field, scale sequential|diverging|threshold|categorical, breaks, colors, labels, classLabels}, radius, radiusBy, labelField}, legend and join. A select becomes a map when every row has numeric lng/lat or its layer has join {tileset:"demographics", sourceLayer: gnd|dsd|district|province, rowKey}. ' +
       'A saved view also returns `publication` {dataView, datasetVersions, sourceManifest}: the exact CMS evidence_bundle entries (developing-country://evidence/{view_id} re-reads it). Every result carries provenance, completeness and a `next` list of ready-to-send follow-up calls.',
@@ -484,32 +486,28 @@ async function dispatch(
             }),
           )
         }
-        let mcpBody: JsonObject = rec && args.include_geometry ? rec : rest
-        if (rec && args.include_geometry && geometry && JSON.stringify(geometry).length > 2 * 1024 * 1024) {
-          mcpBody = { ...rest, truncated: true, geometry_omitted: 'over_2mb' }
-        }
-        const recBody = isJsonObject(mcpBody) ? mcpBody : null
-        // A saved view may hold thousands of rows; the agent gets a preview and
-        // the view/result URLs, the inline MCP App keeps the old 200-row bound.
-        const textBody = name === 'query_data' && recBody ? previewSavedResult(recBody, AGENT_PREVIEW_ROWS) : mcpBody
-        const structuredBody = name === 'query_data' && recBody ? previewSavedResult(recBody, UI_PREVIEW_ROWS) : recBody
+        const recBody = rec ?? {}
+        // Bounded text + structuredContent: oversized geometry is described in
+        // the text and handed to the widget by reference (mcpEnvelope.ts).
+        const envelope = toolResultEnvelope(name, args, recBody, {
+          origin: zoneOrigin(env),
+          geometrySource: name === 'query_data' && args.op === 'bbox' && args.include_geometry === true
+            ? bboxGeometrySource(args)
+            : null,
+        })
+        const structured = envelope.structuredContent
         writeToolCall(env, {
           tool: name,
-          op: recBody && isJsonString(recBody.op) ? recBody.op : undefined,
-          entities: Array.isArray(recBody?.entities) ? recBody.entities.map(String) : undefined,
+          op: isJsonString(recBody.op) ? recBody.op : undefined,
+          entities: Array.isArray(recBody.entities) ? recBody.entities.map(String) : undefined,
           ms: Date.now() - t0,
-          count: isJsonNumber(recBody?.count) ? recBody.count : undefined,
-          truncated: recBody?.truncated === true || recBody?.geometry_omitted === 'over_2mb',
+          count: isJsonNumber(recBody.count) ? recBody.count : undefined,
+          truncated: recBody.truncated === true || structured?.geometry_omitted === 'size_limit',
         })
-        if (name === 'search_places' && recBody && Number(recBody.count) === 0) {
+        if (name === 'search_places' && Number(recBody.count) === 0) {
           writeSearchZero(env, String(args.q ?? ''))
         }
-        return {
-          body: rpcResult(id, {
-            content: [{ type: 'text', text: JSON.stringify(textBody, null, 2) }],
-            structuredContent: structuredBody ?? undefined,
-          }),
-        }
+        return { body: rpcResult(id, envelope) }
       } catch (e) {
         const body =
           e instanceof ApiError
@@ -600,53 +598,10 @@ const SELECT_OPERATOR_EXTENSIONS = {
   },
 }
 
-let mapHtmlCache: string | null | undefined
-
 function zoneOrigin(env: Env): string {
   const configured = env.BETTER_AUTH_URL?.trim()
   if (configured) return new URL(configured).origin
   return 'https://explore.developing-country.org'
-}
-
-function mcpLoaderFromIndex(indexHtml: string, origin: string): string | null {
-  const scripts = [...indexHtml.matchAll(/<script type="module"[^>]*\bsrc="([^"]+)"/g)].map((m) => m[1])
-  const styles = [...indexHtml.matchAll(/<link rel="stylesheet"[^>]*\bhref="([^"]+)"/g)].map((m) => m[1])
-  if (scripts.length === 0) return null
-  const abs = (p: string) => (p.startsWith('http') ? p : new URL(p, `${origin}/`).href)
-  const links = styles.map((h) => `    <link rel="stylesheet" crossorigin href="${abs(h)}" />`).join('\n')
-  const tags = scripts.map((s) => `    <script type="module" crossorigin src="${abs(s)}"></script>`).join('\n')
-  return `<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>developing-country.org</title>
-    <script>window.__DEVELOPING_COUNTRY_MCP__=1</script>
-${links}
-${tags}
-  </head>
-  <body><div id="root"></div></body>
-</html>`
-}
-
-async function loadMapHtml(env: Env): Promise<string | null> {
-  if (mapHtmlCache !== undefined) return mapHtmlCache
-  const origin = zoneOrigin(env)
-  for (const path of ['/index.html', '/']) {
-    try {
-      const res = await env.ASSETS.fetch(new Request(`https://assets.local${path}`))
-      if (!res.ok) continue
-      const text = await res.text()
-      const html = mcpLoaderFromIndex(text, origin)
-      if (!html) continue
-      mapHtmlCache = html
-      return mapHtmlCache
-    } catch {
-      continue
-    }
-  }
-  mapHtmlCache = null
-  return null
 }
 
 export async function readMcpResource(
@@ -654,7 +609,7 @@ export async function readMcpResource(
   env: Env,
 ): Promise<Array<{ uri: string; mimeType: string; text: string; _meta?: ReturnType<typeof uiResourceMeta> }> | null> {
   if (uri === UI_RESOURCE_URI || PREVIOUS_MCP_UI_RESOURCE_URIS.includes(uri)) {
-    const html = await loadMapHtml(env)
+    const html = await loadMcpAppHtml(env, zoneOrigin(env))
     if (!html) return null
     return [
       {

@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
+import { fileURLToPath } from 'node:url'
 
 // https://vite.dev/config/
 //
@@ -27,6 +28,12 @@ export default defineConfig(({ mode }) => {
       // retain a close ceiling that warns if this known vendor chunk grows.
       chunkSizeWarningLimit: 1050,
       rolldownOptions: {
+        // mcp-app.html is the MCP App's own entry: the Worker builds the ui://
+        // resource from its tags (src/worker/mcpLoader.ts).
+        input: {
+          index: fileURLToPath(new URL('./index.html', import.meta.url)),
+          'mcp-app': fileURLToPath(new URL('./mcp-app.html', import.meta.url)),
+        },
         output: {
           codeSplitting: {
             groups: [
