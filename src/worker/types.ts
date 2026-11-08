@@ -46,6 +46,9 @@ export interface Env {
   VIEW_HOURLY_LIMIT?: string
   VIEW_EDITOR_HOURLY_LIMIT?: string
   VIEW_EDITOR_EMAILS?: string
+  // Domain-verification token from OpenAI's plugin submission portal, served
+  // as plain text at /.well-known/openai-apps-challenge. Public, not a secret.
+  OPENAI_APPS_CHALLENGE?: string
 }
 
 export interface Identity {

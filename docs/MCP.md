@@ -265,10 +265,15 @@ tool runs (`openai/toolInvocation/invoking` and `openai/toolInvocation/invoked`
 in the tool's `_meta`).
 
 The UI resource carries the standard `_meta.ui` block (CSP and border). It
-also carries two ChatGPT hints that other hosts ignore:
+also carries three ChatGPT hints that other hosts ignore:
 
 - `openai/ui.availableDisplayModes`
 - `openai/widgetDescription`
+- `openai/widgetDomain`, the app's dedicated origin, which ChatGPT requires
+  for a directory listing with UI. It is deliberately not sent as the
+  standard `ui.domain`: Claude only accepts its own
+  `{sha256(server URL)}.claudemcpcontent.com` value there and refuses to
+  render the app otherwise.
 
 The app uses the MCP Apps bridge for everything. It falls back to a host's
 `window.openai` extension only when a standard call such as `openLink` or
@@ -327,6 +332,18 @@ moved to the new tables the first time they are used (`src/worker/oauthLegacy.ts
 
 The auth instance must remain request-scoped. See `docs/AUTH_SETUP.md` for
 secrets, callbacks, migrations, and production verification.
+
+## Directory listings
+
+The public help page for connector users is
+[developing-country.org/connect](https://developing-country.org/connect); the
+directories link to it for documentation and support.
+
+OpenAI's plugin portal verifies the MCP host by fetching
+`/.well-known/openai-apps-challenge`. Set the token the portal shows as the
+`OPENAI_APPS_CHALLENGE` secret on the explore Worker (a secret, so a deploy
+does not clear it); the Worker serves it as plain text and returns `404` while
+it is unset.
 
 ## Quick local verification
 
