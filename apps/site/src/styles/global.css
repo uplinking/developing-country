@@ -534,9 +534,11 @@ main { min-height: 70vh; }
   grid-template-rows: auto auto 1fr auto;
   color: var(--report-ink);
   text-decoration: none;
-  transition: background-color .18s ease, color .18s ease;
+  transition: background-color .18s ease;
 }
-.dataset-card > a:hover { background: var(--report-deep); color: white; }
+.dataset-card > a:hover { background: color-mix(in srgb, var(--report-lilac) 14%, var(--report-paper)); }
+.dataset-card > a:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .12em; }
+.dataset-card > a:focus-visible { outline: 2px solid var(--report-blue); outline-offset: -2px; }
 .dataset-card__topline { display: flex; min-width: 0; justify-content: space-between; gap: 18px; font-family: var(--mono); font-size: 9px; letter-spacing: .05em; line-height: 1.35; text-transform: uppercase; }
 .dataset-card__topline time { text-align: right; }
 .dataset-card__themes { display: flex; min-height: 64px; margin-top: 20px; align-content: flex-start; flex-wrap: wrap; gap: 7px; }
@@ -1018,7 +1020,7 @@ main { overflow-x: clip; }
 /* Data catalogue search */
 /* Search often leaves a part-filled last row: draw each card's rule instead of
    letting the grid's ink background fill the empty cells. */
-.data-index__grid { background: var(--report-paper); }
+.data-index__grid { padding: 1px; border: 0; background: transparent; }
 .data-index__grid > .dataset-card { outline: 1px solid var(--report-ink); }
 .data-search { margin: 0 0 24px; }
 .data-search label { display: block; margin-bottom: 8px; font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
