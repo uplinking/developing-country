@@ -31,6 +31,16 @@ describe('query_data advertised schema', () => {
     expect(props.method.enum).toEqual(['centroid_in_polygon', 'point_in_polygon', 'centroid_distance', 'street_intersect'])
   })
 
+  test('gives every parameter its own type, inferred through $ref, enum and const', () => {
+    for (const [key, value] of Object.entries(props)) expect([key, value.type !== undefined]).toEqual([key, true])
+    expect(props.country.type).toBe('string')
+    expect(props.presentation.type).toBe('object')
+    expect(props.presentation.$ref).toBe('#/$defs/presentation')
+    expect(props.within.type).toBe('object')
+    expect(props.mode.type).toBe('string')
+    expect(props.minutes.type).toBe('integer')
+  })
+
   test('drops a default that only one op owns', () => {
     expect(props.limit.default).toBeUndefined()
   })

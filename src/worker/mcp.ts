@@ -119,7 +119,7 @@ const TOOLS: ToolDef[] = [
     name: 'analyze_location',
     batchSafe: false,
     description:
-      'Use this when the user asks what is at, near or around a place in Sri Lanka (a town, address, listing or map point). Given the place\'s lat/lng (and optional radius_km, default 10), returns a provenance-tagged readout: district demographics (point-in-polygon), nearest expressway + status, nearby planned developments, attractions, waterfalls, trails, cycling routes, parks, and your own prospects. Completeness is first-class: known_absent means we have no geometry (silent zones, MoH clinics, courts) — do not invent polygons; osm_only is not an official register. Gazette 924/12 defines a 100 m silent-zone facility class; we do not ship those buffers as law. Use query_data for bounded spatial or indicator-table research; this tool stays a point readout. Each run is logged privately to the signed-in account history (`saved.url` map link). If the user gives a listing URL: extract location, then call with lat/lng plus source_url and title.',
+      'Use this when the user asks what is at, near or around a place in Sri Lanka (a town, address, listing or map point). Given the place\'s lat/lng (and optional radius_km, default 10), returns a provenance-tagged readout: district demographics (point-in-polygon), nearest expressway + status, nearby planned developments, attractions, waterfalls, trails, cycling routes, parks, and your own prospects. Completeness is first-class: known_absent means the platform holds no geometry for that class (silent zones, MoH clinics, courts); osm_only is not an official register. Gazette 924/12 defines a 100 m silent-zone facility class; those buffers are not published as law. The result is a point readout, not a bounded spatial or indicator-table query. Each run is logged privately to the signed-in account history (`saved.url` map link). For a property listing, source_url and title store the listing with the run.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -156,7 +156,7 @@ const TOOLS: ToolDef[] = [
     name: 'search_places',
     batchSafe: false,
     description:
-      'Use this to find a named place in Sri Lanka and its coordinates (e.g. before analyze_location). Searches by name across searchable ontology stores (metro stops and lines, expressways, developments, BOI zones, attractions, waterfalls, trails, cycling, parks) plus your prospects. Does not search the metro catchment, sea-route or administrative-boundary layers; use query_data for those. Returns matches with layer, coordinates, and provenance.',
+      'Use this to find a named place in Sri Lanka and its coordinates. Searches by name across searchable ontology stores (metro stops and lines, expressways, developments, BOI zones, attractions, waterfalls, trails, cycling, parks) plus your prospects. Does not search the metro catchment, sea-route or administrative-boundary layers. Returns matches with layer, coordinates, and provenance.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -176,7 +176,7 @@ const TOOLS: ToolDef[] = [
     name: 'add_prospect',
     batchSafe: false,
     description:
-      'Register a property prospect. Provide a listing url (the server fetches og:title/description/image and any lat/lng), and/or explicit title + lat/lng. Private by default. Returns the stored prospect with scraped metadata plus `web_url` — a map link you can give the user (it appears live under "My prospects" in the web app).',
+      'Register a property prospect. Provide a listing url (the server fetches og:title/description/image and any lat/lng), and/or explicit title + lat/lng. Private by default. Returns the stored prospect with scraped metadata plus `web_url`, a map link to the prospect (it appears live under "My prospects" in the web app).',
     inputSchema: {
       type: 'object',
       properties: {
@@ -239,7 +239,7 @@ const TOOLS: ToolDef[] = [
     name: 'query_data',
     batchSafe: false,
     description:
-      'Use this to read statistics, rankings, trends or map features from a dataset found with get_layer_catalog, and to save them as a live chart or map. Bounded queries over every registered platform Dataset. op=select reads one Indicator Table: dataset_id plus exact field ids, optional where/order_by/limit (rows capped at 200, or 5000 when saved with a presentation), or aggregate it with group_by (dimension fields) + aggregates [{fn: sum|mean|min|max|count, field, as}] instead of fields (sum only on fields the table declares summable). Get the field ids, filterable values and ready-to-run preset calls from get_layer_catalog {dataset_id} first — never guess a field id. ' +
+      'Use this to read statistics, rankings, trends or map features from a platform dataset, and to save them as a live chart or map. Bounded queries over every registered platform Dataset. op=select reads one Indicator Table: dataset_id plus exact field ids, optional where/order_by/limit (rows capped at 200, or 5000 when saved with a presentation), or aggregate it with group_by (dimension fields) + aggregates [{fn: sum|mean|min|max|count, field, as}] instead of fields (sum only on fields the table declares summable). Field ids must match the table exactly; get_layer_catalog {dataset_id} lists them with filterable values and ready-to-run preset calls. ' +
       'Spatial ops (bbox, nearest, point_in_polygon, overlay, gap, choropleth_join, isochrone) take an ontology entity in `entities`; bbox with include_geometry (+ where property filters) returns any GeoJSON entity\'s own geometry, e.g. polygons, for a saved map; large shapes are not inlined in the text (geometry_omitted, geometry_ref names the asset and selection) while every feature row is. ' +
       'Without presentation the result is a preview the MCP App tables and charts inline; add presentation to persist a live, citable view_url (requires a signed-in verified account). Chart: family, dimension, measure, optional series and highlight. ' +
       'Map: optional camera, annotations [{id, coordinates:[lng,lat], text}], and layers merged onto the result layers by id (entity ids for spatial ops; the dataset_id for a select) with label, style {geometry fill|line|circle, color token or #hex, colorBy {field, scale sequential|diverging|threshold|categorical, breaks, colors, labels, classLabels}, radius, radiusBy, labelField}, legend and join. A select becomes a map when every row has numeric lng/lat or its layer has join {tileset:"demographics", sourceLayer: gnd|dsd|district|province, rowKey}. ' +
@@ -418,9 +418,9 @@ async function dispatch(
             'developing-country.org — Sri Lanka evidence platform: 100+ official Indicator Tables (census, CBSL, Treasury, DCS, World Bank) plus spatial layers. ' +
             'Research loop: (1) get_layer_catalog {q} or {theme} to find datasets; (2) get_layer_catalog {dataset_id} for exact field ids, filterable values, presets and related datasets; ' +
             '(3) query_data {op:"select"} — start from a preset call; (4) follow the `next` list on every result (narrow, chart, related, map). ' +
-            'Never guess a field id or dataset id. Use analyze_location for a point composite; its `next` hands off to district tables. ' +
+            'Field and dataset ids are exact; get_layer_catalog lists them. analyze_location returns a point composite; its `next` hands off to district tables. ' +
             'Spatial query_data ops cover overlay/gap/isochrone. Cite source + vintage from each result. Completeness is first-class: ' +
-            'known_absent means we have no geometry — do not invent silent-zone polygons. ' +
+            'known_absent means the platform holds no geometry for that class (e.g. silent-zone polygons). ' +
             'The 1996 Noise Control Regulations define a 100 m facility class (gazette 924/12); ' +
             'we do not ship those buffers as law. Hosts that negotiated io.modelcontextprotocol/ui ' +
             'render analyze_location and query_data inline in one app (map, tables, charts; the dataset browser opens inside it); query_data.presentation can persist the result as a live map or chart, and its view_url is safe to embed in an article. A saved view also returns `publication` (dataView, datasetVersions, sourceManifest) for the CMS evidence_bundle; developing-country://evidence/{view_id} re-reads it. The JSON body ' +

@@ -33,6 +33,34 @@ function mergeProperty(left: JsonValue, right: JsonValue): JsonValue {
   return rest
 }
 
+function scalarType(value: JsonValue): string {
+  if (typeof value === 'number') return Number.isInteger(value) ? 'integer' : 'number'
+  if (value === null) return 'null'
+  if (Array.isArray(value)) return 'array'
+  return typeof value === 'object' ? 'object' : typeof value
+}
+
+// Directory scans (and some hosts) read a property's own `type` and flag one
+// that only has `$ref`, `enum`, `const` or `oneOf`. Infer it from those, so the
+// advertised property says what it is without changing what validates.
+function inferTypes(value: JsonValue, defs: JsonObject | undefined, seen: Set<string> = new Set()): string[] {
+  if (!isJsonObject(value)) return []
+  if (isJsonString(value.type)) return [value.type]
+  if (Array.isArray(value.type)) return value.type.filter(isJsonString)
+  if (Array.isArray(value.enum)) return [...new Set(value.enum.map(scalarType))]
+  if ('const' in value && value.const !== undefined) return [scalarType(value.const)]
+  if (isJsonString(value.$ref) && value.$ref.startsWith('#/$defs/')) {
+    const name = value.$ref.slice('#/$defs/'.length)
+    if (seen.has(name) || !defs) return []
+    return inferTypes(defs[name] ?? null, defs, new Set([...seen, name]))
+  }
+  const branches = Array.isArray(value.oneOf) ? value.oneOf : Array.isArray(value.anyOf) ? value.anyOf : null
+  if (!branches) return []
+  const types = branches.map((branch) => inferTypes(branch, defs, seen))
+  if (types.some((t) => t.length === 0)) return []
+  return [...new Set(types.flat())]
+}
+
 export function flattenOperatorSchema(schema: OneOfSchema, opDescriptions: Record<string, string>): JsonObject {
   const ops: string[] = []
   const usedBy = new Map<string, string[]>()
@@ -61,6 +89,10 @@ export function flattenOperatorSchema(schema: OneOfSchema, opDescriptions: Recor
     const need = required.length ? ` Required for ${required.join(', ')}.` : ''
     const own = isJsonObject(value) && isJsonString(value.description) ? ` ${value.description}` : ''
     const described: JsonObject = isJsonObject(value) ? { ...value } : {}
+    if (!('type' in described)) {
+      const types = inferTypes(value, schema.$defs)
+      if (types.length) described.type = types.length === 1 ? types[0] : types
+    }
     described.description = `${scope}${need}${own}`
     properties[key] = described
   }
