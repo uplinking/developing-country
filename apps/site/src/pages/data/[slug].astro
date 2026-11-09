@@ -16,7 +16,7 @@ if (Astro.cache?.enabled) Astro.cache.set({ ...cacheHint, maxAge: 60, swr: 0 })
 
 const settings = await getSiteSettings()
 const data = articleFields(article.data)
-if (data.format !== 'dataset_note') return Astro.redirect(`/analysis/${slug}`)
+if (data.format !== 'dataset_note') return Astro.redirect(`/analysis/${slug}`, 301)
 if (!isDatasetId(data.datasetId)) return Astro.rewrite('/404')
 const dataset = datasetMeta(await loadSiteDatasetCatalog(), data.datasetId)
 const explorerOrigin = import.meta.env.PUBLIC_EXPLORER_ORIGIN
