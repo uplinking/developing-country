@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import './App.css'
 import { isMcpApp } from './mcpMode'
+import { applyCrawlHint, crawlHint } from './crawlHints'
 
 const root = document.getElementById('root')!
 
@@ -17,6 +18,7 @@ async function boot() {
     return
   }
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, '')
+  applyCrawlHint(crawlHint(window.location.href, basePath))
   const escapedBase = basePath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   if (window.location.pathname.replace(/\/$/, '') === `${basePath}/brand`) {
     document.body.classList.add('document-scroll')

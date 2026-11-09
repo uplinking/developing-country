@@ -1,0 +1,6 @@
+User-agent: *
+# Sign-in, OAuth and the MCP endpoint answer crawlers with 4xx; they are not pages.
+Disallow: /api/auth/
+Disallow: /oauth2/
+Disallow: /mcp
+Allow: /

@@ -16,7 +16,7 @@ if (Astro.cache?.enabled) Astro.cache.set(cacheHint)
 
 const settings = await getSiteSettings()
 const data = articleFields(article.data)
-if (data.format === 'dataset_note') return Astro.redirect(`/data/${slug}`)
+if (data.format === 'dataset_note') return Astro.redirect(`/data/${slug}`, 301)
 const seo = getSeoMeta(article, {
   siteTitle: settings.title || 'developing-country.org',
   siteUrl: 'https://developing-country.org',
