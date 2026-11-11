@@ -37,6 +37,7 @@ import {
   loadDatasetIndex,
   searchDatasets,
   selectNext,
+  suggestedPresentation,
   selectRepair,
   slimCatalog,
 } from './discovery'
@@ -260,8 +261,9 @@ const TOOLS: ToolDef[] = [
       const index = await loadDatasetIndex(env)
       try {
         const result = await query(env, id, a)
-        const persisted = 'view_url' in result
-        return { ...result, next: selectNext(index, a, result, persisted) }
+        const body = { ...result, next: selectNext(index, a, result) }
+        const presentation = 'view_url' in result ? null : suggestedPresentation(index, a)
+        return presentation ? { ...body, suggested_presentation: presentation } : body
       } catch (error) {
         // A rejected select is the moment the model most needs the real field
         // ids; fold repair hints into the typed error body.

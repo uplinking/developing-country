@@ -341,12 +341,53 @@ export function hourlyViewLimit(env: Env, identity: Identity): number {
   return Math.max(standard, configuredLimit(env.VIEW_EDITOR_HOURLY_LIMIT, DEFAULT_EDITOR_VIEWS_PER_HOUR))
 }
 
+interface EvictableView {
+  id: string
+  result_bytes: number
+}
+
+/**
+ * Make room for one more view by revoking the owner's oldest live views until
+ * the per-owner count and byte caps fit. A saved view is a convenience link, so
+ * a full account keeps working instead of failing every save.
+ */
+async function evictOldestViews(
+  env: Env,
+  ownerEmail: string,
+  ownerViews: number,
+  ownerBytes: number,
+  nextBytes: number,
+): Promise<number> {
+  const { results } = await env.DB.prepare(
+    `SELECT id, result_bytes FROM data_views
+     WHERE owner_email = ?1 AND revoked_at IS NULL
+     ORDER BY created_at ASC, id ASC`,
+  )
+    .bind(ownerEmail)
+    .all<EvictableView>()
+  let views = ownerViews
+  let bytes = ownerBytes
+  let evicted = 0
+  const revokedAt = new Date().toISOString()
+  for (const view of results) {
+    if (views < MAX_VIEWS_PER_OWNER && bytes + nextBytes <= MAX_BYTES_PER_OWNER) break
+    if (await revokeOwnedView(env, ownerEmail, view.id, revokedAt)) {
+      views -= 1
+      bytes -= Number(view.result_bytes)
+      evicted += 1
+    }
+  }
+  if (evicted > 0) console.log(JSON.stringify({ op: 'data_view_evict_oldest', evicted }))
+  return evicted
+}
+
 async function assertStorageQuota(
   env: Env,
   ownerEmail: string,
   hourlyLimit: number,
   nextBytes: number,
   nextInlineBytes: number,
+  evictWhenFull: boolean,
 ): Promise<void> {
   const cutoff = new Date(Date.now() - 60 * 60 * 1000).toISOString()
   const usage = await env.DB.prepare(
@@ -354,7 +395,7 @@ async function assertStorageQuota(
        COALESCE(SUM(CASE WHEN owner_email = ?1 AND revoked_at IS NULL THEN 1 ELSE 0 END), 0) AS owner_views,
        COALESCE(SUM(CASE WHEN owner_email = ?1 AND revoked_at IS NULL THEN result_bytes ELSE 0 END), 0) AS owner_bytes,
        COALESCE(SUM(CASE WHEN owner_email = ?1 AND created_at >= ?2 THEN 1 ELSE 0 END), 0) AS recent_views,
-       COUNT(*) AS platform_views,
+       COALESCE(SUM(CASE WHEN revoked_at IS NULL THEN 1 ELSE 0 END), 0) AS platform_views,
        COALESCE(SUM(CASE WHEN revoked_at IS NULL THEN result_bytes ELSE 0 END), 0) AS platform_bytes,
        COALESCE(SUM(CASE WHEN revoked_at IS NULL AND result_json IS NOT NULL THEN result_bytes ELSE 0 END), 0) AS platform_inline_bytes
      FROM data_views`,
@@ -365,7 +406,13 @@ async function assertStorageQuota(
   if (Number(usage.recent_views) >= hourlyLimit) {
     throw new ApiError(429, `live view creation is limited to ${hourlyLimit} per hour for this account`)
   }
-  if (Number(usage.owner_views) >= MAX_VIEWS_PER_OWNER || Number(usage.owner_bytes) + nextBytes > MAX_BYTES_PER_OWNER) {
+  const ownerFull = () =>
+    Number(usage.owner_views) >= MAX_VIEWS_PER_OWNER || Number(usage.owner_bytes) + nextBytes > MAX_BYTES_PER_OWNER
+  if (ownerFull() && evictWhenFull) {
+    await evictOldestViews(env, ownerEmail, Number(usage.owner_views), Number(usage.owner_bytes), nextBytes)
+    return assertStorageQuota(env, ownerEmail, hourlyLimit, nextBytes, nextInlineBytes, false)
+  }
+  if (ownerFull()) {
     throw new ApiError(429, 'your live view storage quota is full; revoke an old view before creating another')
   }
   if (Number(usage.platform_views) >= MAX_PLATFORM_VIEWS || Number(usage.platform_bytes) + nextBytes > MAX_PLATFORM_BYTES) {
@@ -447,7 +494,9 @@ export async function createDataView(
   const path = stored.inline === null ? resultPath(id, checksum) : null
   const datasetVersionIds = checked.value.evidence.datasetVersions.map((version) => version.versionId)
   const ownerEmail = identity.email.toLowerCase()
-  await assertStorageQuota(env, ownerEmail, hourlyViewLimit(env, identity), stored.bytes, stored.inline === null ? 0 : stored.bytes)
+  // Editors' views back published articles, so they are never evicted.
+  const evictWhenFull = !isViewEditor(env, identity)
+  await assertStorageQuota(env, ownerEmail, hourlyViewLimit(env, identity), stored.bytes, stored.inline === null ? 0 : stored.bytes, evictWhenFull)
   if (path) {
     await env.VIEWS.put(path, stored.json, {
       httpMetadata: {
@@ -583,8 +632,14 @@ export async function getDataViewResult(
 }
 
 export async function revokeDataView(env: Env, identity: Identity, id: string): Promise<boolean> {
-  const revokedAt = new Date().toISOString()
-  const ownerEmail = identity.email.toLowerCase()
+  return revokeOwnedView(env, identity.email.toLowerCase(), id, new Date().toISOString())
+}
+
+/**
+ * Tombstone one live view. The claim (spec, checksum, dataset versions) stays;
+ * the result payload goes, inline or in R2, since nothing serves it again.
+ */
+async function revokeOwnedView(env: Env, ownerEmail: string, id: string, revokedAt: string): Promise<boolean> {
   const owned = await env.DB.prepare(
     `SELECT result_path FROM data_views
      WHERE id = ?1 AND owner_email = ?2 AND revoked_at IS NULL LIMIT 1`,
@@ -593,7 +648,8 @@ export async function revokeDataView(env: Env, identity: Identity, id: string): 
     .first<Pick<DataViewRow, 'result_path'>>()
   if (!owned) return false
   const result = await env.DB.prepare(
-    `UPDATE data_views SET revoked_at = ?1
+    `UPDATE data_views SET revoked_at = ?1,
+       result_json = CASE WHEN result_json IS NULL THEN NULL ELSE '' END
      WHERE id = ?2 AND owner_email = ?3 AND revoked_at IS NULL`,
   )
     .bind(revokedAt, id, ownerEmail)

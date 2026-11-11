@@ -93,9 +93,8 @@ export function chartForTable(raw: JsonObject): { spec: ChartViewSpec; saved: bo
   const saved = raw.view === undefined ? null : validateDataViewSpec(raw.view)
   if (saved?.ok && saved.value.kind === 'chart') return { spec: saved.value, saved: true }
 
-  const suggestion = nextSteps(raw).find((s) => isJsonObject(s.arguments.presentation) && s.arguments.presentation.kind === 'chart')
-  const p = suggestion?.arguments.presentation
-  if (!isJsonObject(p)) return null
+  const p = raw.suggested_presentation
+  if (!isJsonObject(p) || p.kind !== 'chart') return null
   const dimension = encoding(p.dimension)
   const measure = encoding(p.measure)
   // SAFETY: FAMILIES holds exactly the ChartFamily members, and membership is checked first.

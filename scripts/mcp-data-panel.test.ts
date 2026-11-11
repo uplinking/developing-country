@@ -4,18 +4,18 @@ import { resolve } from 'node:path'
 import { selectRows, parseIndicatorTable } from '@developing-country/datasets'
 import { chartForTable, dataPanelKind, errorText, nextSteps, rawFromResult, tableFields } from '../src/mcpData'
 import { getLayerCatalog } from '../src/worker/catalog'
-import { selectNext, slimCatalog, type DatasetIndex } from '../src/worker/discovery'
+import { selectNext, slimCatalog, suggestedPresentation, type DatasetIndex } from '../src/worker/discovery'
 import type { JsonObject } from '../src/shared/json'
 
 const ROOT = resolve(import.meta.dir, '..')
 const index = JSON.parse(readFileSync(resolve(ROOT, 'public/catalog/dataset-index.json'), 'utf8')) as DatasetIndex
 
-/** A select result shaped like queryData's envelope, plus the MCP `next`. */
+/** A select result shaped like queryData's envelope, plus what the MCP handler adds. */
 function selectResult(datasetId: string, fields: string[]): JsonObject {
   const table = parseIndicatorTable(JSON.parse(readFileSync(resolve(ROOT, 'public/data', `${datasetId}.json`), 'utf8')))
   const { rows, total, truncated } = selectRows(table, { fields, limit: 50 })
   const args = { op: 'select', dataset_id: datasetId, fields }
-  return {
+  const body: JsonObject = {
     op: 'select',
     result_kind: 'table',
     dataset_id: datasetId,
@@ -25,8 +25,10 @@ function selectResult(datasetId: string, fields: string[]): JsonObject {
     total_count: total,
     truncated,
     country: 'LK',
-    next: selectNext(index, args, { truncated, total_count: total, count: rows.length }, false) as unknown as JsonObject[],
+    next: selectNext(index, args, { truncated, total_count: total, count: rows.length }) as unknown as JsonObject[],
   }
+  const presentation = suggestedPresentation(index, args)
+  return presentation ? { ...body, suggested_presentation: presentation } : body
 }
 
 describe('MCP App data routing', () => {
@@ -51,7 +53,7 @@ describe('MCP App data routing', () => {
 })
 
 describe('table preview chart', () => {
-  test('builds a transient chart from the Worker suggestion for a time series', () => {
+  test('builds a transient chart from the suggested presentation for a time series', () => {
     const raw = selectResult('workers-remittances-monthly', ['period', 'value_usd_million'])
     const chart = chartForTable(raw)
     expect(chart?.saved).toBe(false)

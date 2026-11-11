@@ -335,27 +335,6 @@
 /* Two to four upright bars read best short and wide, not as tall slabs. */
 .mcp-chart-frame .dcf-chart[data-shape='few'] .dcf-chart__canvas { max-height: 380px; }
 
-/* One tidy row: the signage slab for the live view, an outlined twin to interpret. */
-.mcp-result-actions {
-  flex: none;
-  flex-wrap: nowrap;
-  gap: 10px;
-  margin-top: 12px;
-}
-.mcp-result-actions .mcp-data-link {
-  height: 32px;
-  padding: 0 14px;
-  border: 1px solid var(--panel-line);
-  border-radius: var(--dc-radius);
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0;
-  text-transform: none;
-}
-.mcp-result-actions .mcp-data-link:hover { background: var(--paper-2); text-decoration: none; }
 .mcp-grid {
   width: 100%;
   border-collapse: collapse;

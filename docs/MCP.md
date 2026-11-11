@@ -80,8 +80,9 @@ What the app renders depends on the result:
 - **All datasets** opens the dataset browser in the same frame. Search and
   theme chips lead to dataset cards, and a card's presets lead to charts.
 - **Indicator Table selects** render as a chart and table with provenance. The
-  chart is an unsaved preview built from the Worker's suggested presentation.
-  **Save live view** persists it only when clicked.
+  chart is an unsaved preview built from the result's `suggested_presentation`.
+  The app has no save button: a view is saved only when the user asks the model
+  for a link, and the model passes that `presentation` back to `query_data`.
 
 The map engine (MapLibre, its style and tiles) loads only when a result needs
 it, so data-only frames start without it. A spatial tool call warms the map
@@ -89,8 +90,8 @@ chunk from its arguments while the Worker answers; once mounted, the map stays
 in the frame so a later spatial result plays without a reload.
 
 Every in-app navigation is a real `callServerTool` call. The app mirrors what
-the viewer opened into the model context, and "Ask about this" sends a
-research prompt back to the conversation. App copy never names a host: the same
+the viewer opened into the model context; it never posts prompts into the
+conversation on the user's behalf. App copy never names a host: the same
 app runs in Claude, ChatGPT and any other MCP Apps host.
 
 `query_data` accepts a closed set of spatial operators plus bounded Indicator
@@ -193,9 +194,14 @@ Example — a ranking chart with a highlight, aggregated in one call:
 Saving is limited per owner per hour: `VIEW_HOURLY_LIMIT` (default 5). Emails
 listed in `VIEW_EDITOR_EMAILS` (comma-separated var or secret) get
 `VIEW_EDITOR_HOURLY_LIMIT` (default 60). Under `wrangler dev` with `DEV_AUTH=1`
-the dev user always gets the editor limit. The per-owner total of 50 live
-views and 128 MiB, and the platform budgets, are unchanged; revoke old views to
-make room.
+the dev user always gets the editor limit.
+
+Each owner keeps at most 50 live views and 128 MiB. When an ordinary account is
+full, saving revokes its oldest views to make room. Editors' views back
+published articles, so a full editor account is refused instead and the editor
+revokes old views by hand. Revoking keeps the view's claim but drops its result
+payload (inline or R2). The platform budgets count live views only (migration
+`0014`).
 
 Request-time isochrones and `gap` with `method: "centroid_distance"` are
 disabled in production (`ENABLE_HEAVY_SPATIAL=0`). For local authoring, add
