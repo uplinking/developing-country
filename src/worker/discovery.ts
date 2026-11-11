@@ -487,12 +487,27 @@ function spatialNext(layer: CatalogLayer): NextStep[] {
 
 // ---- `next` hints on query results --------------------------------------------
 
+/**
+ * The chart an unsaved select would draw: the matching preset, else an inferred
+ * trend or ranking. The MCP App draws it inline, and it is the `presentation`
+ * to pass if the user asks for a saved link. It is never offered as a next step:
+ * saving is the user's call, not a default.
+ */
+export function suggestedPresentation(index: DatasetIndex | null, args: JsonObject): JsonObject | null {
+  const datasetId = isJsonString(args.dataset_id) ? args.dataset_id : ''
+  const entry = index ? byId(index).get(datasetId) : undefined
+  if (!entry) return null
+  const fields = Array.isArray(args.fields) ? args.fields.filter(isJsonString) : []
+  const definition = indicatorDataset(datasetId)
+  const preset = definition?.presets.find((p) => p.chart.dimension.field && fields.includes(p.chart.dimension.field) && fields.includes(p.chart.measure.field))
+  return preset ? presetPresentation(preset) : inferPresentation(entry, fields)
+}
+
 /** Hints after an Indicator Table select. Pure: index + args + result shape. */
-export function selectNext(index: DatasetIndex | null, args: JsonObject, result: { truncated?: boolean; total_count?: number; count?: number }, persisted: boolean): NextStep[] {
+export function selectNext(index: DatasetIndex | null, args: JsonObject, result: { truncated?: boolean; total_count?: number; count?: number }): NextStep[] {
   const datasetId = isJsonString(args.dataset_id) ? args.dataset_id : ''
   const entry = index ? byId(index).get(datasetId) : undefined
   const next: NextStep[] = []
-  const fields = Array.isArray(args.fields) ? args.fields.filter(isJsonString) : []
 
   if (result.truncated && entry) {
     const filter = exampleFilter(entry)
@@ -503,19 +518,6 @@ export function selectNext(index: DatasetIndex | null, args: JsonObject, result:
       tool: 'query_data',
       arguments: narrowed,
     })
-  }
-
-  if (!persisted && entry) {
-    const definition = indicatorDataset(datasetId)
-    const preset = definition?.presets.find((p) => p.chart.dimension.field && fields.includes(p.chart.dimension.field) && fields.includes(p.chart.measure.field))
-    const presentation = preset ? presetPresentation(preset) : inferPresentation(entry, fields)
-    if (presentation) {
-      next.push({
-        why: 'Save this as a live, citable chart (view_url embeds in articles; needs a signed-in verified account)',
-        tool: 'query_data',
-        arguments: { ...args, presentation },
-      })
-    }
   }
 
   const entries = index ? byId(index) : new Map<string, IndexEntry>()

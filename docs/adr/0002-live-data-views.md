@@ -6,4 +6,4 @@ Each Data View claim is immutable in D1. Its complete canonical Query Snapshot i
 
 Evidence references the real Dataset Versions in `scripts/dataset-versions.json`. A query id identifies a Query Snapshot and is never substituted for a Dataset Version. Until a live/D1/remote source has an immutable export workflow, any result containing one of those unversioned entities cannot become a persistent Data View.
 
-Revocation stops the platform from resolving or newly serving the Data View; it is not deletion or recall. A client that already fetched an immutable Query Snapshot may retain those bytes, just as it could retain any cited source artifact.
+Revocation stops the platform from resolving or newly serving the Data View; it is not deletion or recall. Revocation drops the stored result payload (inline or R2), since nothing serves it again; the claim itself stays. Ordinary accounts are capped at 50 live views and evict their oldest on save; views saved by editors, which back articles, are never evicted. A client that already fetched an immutable Query Snapshot may retain those bytes, just as it could retain any cited source artifact.

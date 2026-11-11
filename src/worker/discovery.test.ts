@@ -9,6 +9,7 @@ import {
   inferPresentation,
   searchDatasets,
   selectNext,
+  suggestedPresentation,
   selectRepair,
   slimCatalog,
   type DatasetIndex,
@@ -189,19 +190,18 @@ describe('dataset card', () => {
 describe('next hints', () => {
   test('a truncated select suggests a narrowing filter that still runs', () => {
     const args = { op: 'select', dataset_id: 'workers-remittances-monthly', fields: ['period', 'value'] }
-    const steps = selectNext(index, args, { truncated: true, count: 50, total_count: 212 }, false)
+    const steps = selectNext(index, args, { truncated: true, count: 50, total_count: 212 })
     const narrow = steps[0]!
     expect(narrow.why).toContain('Truncated')
     expect(Array.isArray(narrow.arguments.where)).toBe(true)
   })
 
-  test('an unsaved select offers a chart presentation', () => {
+  test('a select suggests a chart but never offers saving as a next step', () => {
     const entry = index.datasets.find((d) => d.dataset_id === 'workers-remittances-monthly')!
     const fields = entry.fields.filter((f) => !f.provenance).map((f) => f.id)
-    const steps = selectNext(index, { op: 'select', dataset_id: entry.dataset_id, fields }, {}, false)
-    expect(steps.some((s) => (s.arguments.presentation as JsonObject | undefined)?.kind === 'chart')).toBe(true)
-    expect(selectNext(index, { op: 'select', dataset_id: entry.dataset_id, fields }, {}, true)
-      .some((s) => s.arguments.presentation)).toBe(false)
+    const args = { op: 'select', dataset_id: entry.dataset_id, fields }
+    expect(suggestedPresentation(index, args)?.kind).toBe('chart')
+    expect(selectNext(index, args, {}).some((s) => s.arguments.presentation)).toBe(false)
   })
 
   test('inferred charts use time for trends and names for rankings', () => {

@@ -111,10 +111,6 @@ export default function McpDataPanel({ app, initial, onOpenLink, onFullscreen }:
     else void app?.sendMessage({ role: 'user', content: [{ type: 'text', text: `${step.why}: call ${step.tool} with ${JSON.stringify(step.arguments)}` }] })
   }, [app, call])
 
-  const ask = useCallback((text: string) => {
-    void app?.sendMessage({ role: 'user', content: [{ type: 'text', text }] })
-  }, [app])
-
   if (!current) return null
 
   return (
@@ -152,18 +148,12 @@ export default function McpDataPanel({ app, initial, onOpenLink, onFullscreen }:
             raw={current.raw}
             onRun={(args, title) => void call('query_data', args, title)}
             onOpen={(id, title) => void call('get_layer_catalog', { dataset_id: id }, title)}
-            onAsk={ask}
             onOpenLink={onOpenLink}
           />
         ) : (
-          <TableResult
-            state={current}
-            onSave={(args) => void call('query_data', args, 'Saving live view')}
-            onAsk={ask}
-            onOpenLink={onOpenLink}
-          />
+          <TableResult state={current} />
         )}
-        {/* A result ends on its two actions; its next hints stay in the structured result for the model. */}
+        {/* A result ends on its chart or table; its next hints stay in the structured result for the model. */}
         <NextList steps={nextSteps(current.raw)} hide={current.kind === 'dataset' || current.kind === 'table'} onRun={runStep} />
       </div>
     </section>
@@ -293,11 +283,10 @@ function Browser({ state, themes, onSearch, onOpen }: {
 
 // ---- Dataset card --------------------------------------------------------------
 
-function DatasetCard({ raw, onRun, onOpen, onAsk, onOpenLink }: {
+function DatasetCard({ raw, onRun, onOpen, onOpenLink }: {
   raw: JsonObject
   onRun: (args: JsonObject, title: string) => void
   onOpen: (id: string, title: string) => void
-  onAsk: (text: string) => void
   onOpenLink: (url: string) => void
 }) {
   const id = str(raw.dataset_id) ?? str(raw.id) ?? ''
@@ -323,17 +312,11 @@ function DatasetCard({ raw, onRun, onOpen, onAsk, onOpenLink }: {
       <p className="mcp-meta">
         {[vintage !== time ? vintage : undefined, licence ? `licence ${licence.replace(/_/g, ' ')}` : undefined, freshness ? `freshness ${freshness}` : undefined].filter(Boolean).join(' · ')}
       </p>
-      <div className="mcp-card-actions">
-        <button type="button" className="btn" onClick={() => onAsk(
-          `Research "${title}" (dataset_id ${id}) on developing-country.org${str(raw.question) ? `: ${str(raw.question)}` : ''}. ` +
-          'Use get_layer_catalog with this dataset_id, run its presets with query_data, and compare against its related datasets. Cite source and vintage.',
-        )}>
-          Ask about this
-        </button>
-        {str(raw.web_url) ? (
+      {str(raw.web_url) ? (
+        <div className="mcp-card-actions">
           <button type="button" className="mcp-data-link" onClick={() => onOpenLink(str(raw.web_url)!)}>Dataset page ↗</button>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
 
       {presets.length ? (
         <>
@@ -417,19 +400,13 @@ function DatasetCard({ raw, onRun, onOpen, onAsk, onOpenLink }: {
 
 // ---- Table result --------------------------------------------------------------
 
-function TableResult({ state, onSave, onAsk, onOpenLink }: {
-  state: PanelState
-  onSave: (args: JsonObject) => void
-  onAsk: (text: string) => void
-  onOpenLink: (url: string) => void
-}) {
-  const { raw, args } = state
+function TableResult({ state }: { state: PanelState }) {
+  const { raw } = state
   const rows = tableRows(raw)
   const fields = tableFields(raw)
   const chart = useMemo(() => chartForTable(raw), [raw])
   const [mode, setMode] = useState<'chart' | 'table'>(chart ? 'chart' : 'table')
   useEffect(() => setMode(chart ? 'chart' : 'table'), [chart])
-  const viewUrl = str(raw.view_url)
   const total = isJsonNumber(raw.total_count) ? raw.total_count : rows.length
 
   return (
@@ -464,21 +441,6 @@ function TableResult({ state, onSave, onAsk, onOpenLink }: {
           </table>
         </div>
       )}
-
-      {/* Provenance travels with the live view and the structured result, not this footer. */}
-      <div className="mcp-card-actions mcp-result-actions">
-        {viewUrl ? (
-          <button type="button" className="btn" onClick={() => onOpenLink(viewUrl)}>Open live view ↗</button>
-        ) : chart?.presentation ? (
-          <button type="button" className="btn" onClick={() => onSave({ ...args, presentation: chart.presentation! })}>Save live view</button>
-        ) : null}
-        <button type="button" className="mcp-data-link" onClick={() => onAsk(
-          `Interpret this developing-country.org result: ${String(raw.dataset_id)} with ${JSON.stringify(args.where ?? [])} filters (${rows.length} rows). ` +
-          'What does it show, what are the caveats, and which related dataset should we check next?',
-        )}>
-          Interpret
-        </button>
-      </div>
     </div>
   )
 }
@@ -486,7 +448,7 @@ function TableResult({ state, onSave, onAsk, onOpenLink }: {
 // ---- Next steps ----------------------------------------------------------------
 
 function NextList({ steps, hide, onRun }: { steps: NextStep[]; hide: boolean; onRun: (step: NextStep) => void }) {
-  // Save suggestions render as the Save button; the card shows presets instead.
+  // Saving a view is the user's call through the model, never a one-click step.
   const visible = hide ? [] : steps.filter((s) => !isJsonObject(s.arguments.presentation))
   if (!visible.length) return null
   return (
