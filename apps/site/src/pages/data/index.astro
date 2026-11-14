@@ -17,7 +17,8 @@ import {
   isPublicDataThemeId,
 } from '../../lib/datasets'
 
-if (Astro.cache?.enabled) Astro.cache.set({ tags: ['articles', 'data_gaps'], maxAge: 60, swr: 0 })
+// EmDash purges these tags whenever an article or data gap changes, so a long life is safe.
+if (Astro.cache?.enabled) Astro.cache.set({ tags: ['articles', 'data_gaps'], maxAge: 300, swr: 86400 })
 
 const [entries, gapEntries, catalog] = await Promise.all([
   publishedEntries('articles'),
@@ -176,38 +177,38 @@ const exampleQueries = ['school dropouts', 'electricity outages', 'Colombo rent'
             {activeRows.length === 0
               ? <>No {noun(tab, 2)} match “{query.text}”.</>
               : <><strong>{activeRows.length}</strong> {noun(tab, activeRows.length)} {partialMatch ? 'partly match' : (activeRows.length === 1 ? 'matches' : 'match')} “{query.text}”{filtersActive && notes.length !== activeRows.length && <>, {notes.length} with these filters</>}.</>}
-            {' '}<a href={filterHref({ q: '' })}>Clear search</a>
+            {' '}<a rel="nofollow" href={filterHref({ q: '' })}>Clear search</a>
             {query.expansions.length > 0 && <span class="data-search__related">Also searched for: {query.expansions.join(', ')}</span>}
           </p>
         ) : (
           <p class="data-search__hint" id="data-search-hint">
-            Try {exampleQueries.map((example, index) => <>{index > 0 && ', '}<a href={filterHref({ q: example })}>{example}</a></>)}.
+            Try {exampleQueries.map((example, index) => <>{index > 0 && ', '}<a rel="nofollow" href={filterHref({ q: example })}>{example}</a></>)}.
           </p>
         )}
       </form>
 
       <nav class="catalogue-tabs" aria-label="Data availability">
-        <a href={filterHref({ tab: 'available' })} aria-current={tab === 'available' ? 'page' : undefined}>Available data <span>{query ? fullMatches('available') : allNotes.length}</span></a>
-        <a href={filterHref({ tab: 'missing' })} aria-current={tab === 'missing' ? 'page' : undefined}>Missing data <span>{query ? fullMatches('missing') : gaps.length}</span></a>
+        <a rel="nofollow" href={filterHref({ tab: 'available' })} aria-current={tab === 'available' ? 'page' : undefined}>Available data <span>{query ? fullMatches('available') : allNotes.length}</span></a>
+        <a rel="nofollow" href={filterHref({ tab: 'missing' })} aria-current={tab === 'missing' ? 'page' : undefined}>Missing data <span>{query ? fullMatches('missing') : gaps.length}</span></a>
       </nav>
       <div class="data-index__catalogue" data-searching={query ? 'true' : undefined}>
         <nav class="dataset-filters" aria-label="Filter data">
           <div class="dataset-filters__header">
             <strong>Filter</strong>
-            {filtersActive && <a href={filterHref({ theme: '', publisherType: '', publisher: '' })}>Reset all</a>}
+            {filtersActive && <a rel="nofollow" href={filterHref({ theme: '', publisherType: '', publisher: '' })}>Reset all</a>}
           </div>
 
           <section class="dataset-filter-group" data-filter="theme" aria-labelledby="theme-filter-title">
             <h2 id="theme-filter-title">Theme</h2>
             <ul>
               <li>
-                <a href={filterHref({ theme: '' })} aria-current={!selectedTheme ? 'true' : undefined}>
+                <a rel="nofollow" href={filterHref({ theme: '' })} aria-current={!selectedTheme ? 'true' : undefined}>
                   <i aria-hidden="true"></i><span>All themes</span><small>{activeRows.length}</small>
                 </a>
               </li>
               {availableThemes.map((theme) => (
                 <li>
-                  <a href={filterHref({ theme: theme.id })} aria-current={selectedTheme === theme.id ? 'true' : undefined}>
+                  <a rel="nofollow" href={filterHref({ theme: theme.id })} aria-current={selectedTheme === theme.id ? 'true' : undefined}>
                     <i aria-hidden="true"></i><span>{theme.label}</span><small>{themeCount(theme.id)}</small>
                   </a>
                 </li>
@@ -219,13 +220,13 @@ const exampleQueries = ['school dropouts', 'electricity outages', 'Colombo rent'
             <h2 id="publisher-type-filter-title">{tab === 'missing' ? 'Data holder type' : 'Publisher type'}</h2>
             <ul>
               <li>
-                <a href={filterHref({ publisherType: '', publisher: '' })} aria-current={!selectedPublisherType ? 'true' : undefined}>
+                <a rel="nofollow" href={filterHref({ publisherType: '', publisher: '' })} aria-current={!selectedPublisherType ? 'true' : undefined}>
                   <i aria-hidden="true"></i><span>All types</span><small>{activeRows.length}</small>
                 </a>
               </li>
               {availablePublisherTypes.map((type) => (
                 <li>
-                  <a href={filterHref({ publisherType: type.id, publisher: '' })} aria-current={selectedPublisherType === type.id ? 'true' : undefined}>
+                  <a rel="nofollow" href={filterHref({ publisherType: type.id, publisher: '' })} aria-current={selectedPublisherType === type.id ? 'true' : undefined}>
                     <i aria-hidden="true"></i><span>{type.label}</span><small>{publisherTypeCount(type.id)}</small>
                   </a>
                 </li>
@@ -237,13 +238,13 @@ const exampleQueries = ['school dropouts', 'electricity outages', 'Colombo rent'
             <h2 id="publisher-filter-title">{tab === 'missing' ? 'Expected data holder' : 'Publisher'}</h2>
             <ul>
               <li>
-                <a href={filterHref({ publisher: '' })} aria-current={!selectedPublisher ? 'true' : undefined}>
+                <a rel="nofollow" href={filterHref({ publisher: '' })} aria-current={!selectedPublisher ? 'true' : undefined}>
                   <i aria-hidden="true"></i><span>All publishers</span><small>{selectedPublisherType ? publisherTypeCount(selectedPublisherType) : activeRows.length}</small>
                 </a>
               </li>
               {availablePublishers.map((publisher) => (
                 <li>
-                  <a href={filterHref({ publisher: publisher.id })} aria-current={selectedPublisher === publisher.id ? 'true' : undefined}>
+                  <a rel="nofollow" href={filterHref({ publisher: publisher.id })} aria-current={selectedPublisher === publisher.id ? 'true' : undefined}>
                     <i aria-hidden="true"></i><span>{publisher.name}</span><small>{publisherCount(publisher.id)}</small>
                   </a>
                 </li>
@@ -256,7 +257,7 @@ const exampleQueries = ['school dropouts', 'electricity outages', 'Colombo rent'
           {query && partialMatch && notes.length > 0 && (
             <p class="data-search__notice">
               No {tab === 'missing' ? 'data gap' : 'dataset'} matches every word in “{query.text}”. These match some of them.
-              {fullMatches(otherTab) > 0 && <> <a href={filterHref({ tab: otherTab, theme: '', publisherType: '', publisher: '' })}>See {fullMatches(otherTab)} {noun(otherTab, fullMatches(otherTab))} that {fullMatches(otherTab) === 1 ? 'matches' : 'match'} every word</a>.</>}
+              {fullMatches(otherTab) > 0 && <> <a rel="nofollow" href={filterHref({ tab: otherTab, theme: '', publisherType: '', publisher: '' })}>See {fullMatches(otherTab)} {noun(otherTab, fullMatches(otherTab))} that {fullMatches(otherTab) === 1 ? 'matches' : 'match'} every word</a>.</>}
             </p>
           )}
           {notes.length > 0 ? (
@@ -282,12 +283,12 @@ const exampleQueries = ['school dropouts', 'electricity outages', 'Colombo rent'
                 ? <>No {noun(tab, 2)} match “{query.text}” with these filters.</>
                 : <>No {noun(tab, 2)} match “{query.text}”.</>}</p>
               <ul>
-                {activeRows.length > 0 && <li><a href={filterHref({ theme: '', publisherType: '', publisher: '' })}>Search all themes and publishers</a></li>}
+                {activeRows.length > 0 && <li><a rel="nofollow" href={filterHref({ theme: '', publisherType: '', publisher: '' })}>Search all themes and publishers</a></li>}
                 {fullMatches(otherTab) > 0 && (
-                  <li><a href={filterHref({ tab: otherTab, theme: '', publisherType: '', publisher: '' })}>See {fullMatches(otherTab)} {noun(otherTab, fullMatches(otherTab))} that {fullMatches(otherTab) === 1 ? 'matches' : 'match'}</a></li>
+                  <li><a rel="nofollow" href={filterHref({ tab: otherTab, theme: '', publisherType: '', publisher: '' })}>See {fullMatches(otherTab)} {noun(otherTab, fullMatches(otherTab))} that {fullMatches(otherTab) === 1 ? 'matches' : 'match'}</a></li>
                 )}
                 <li>Try fewer or broader words, or search by publisher (Central Bank), place (Jaffna) or field (tenure).</li>
-                <li><a href={filterHref({ q: '' })}>Clear search</a></li>
+                <li><a rel="nofollow" href={filterHref({ q: '' })}>Clear search</a></li>
               </ul>
             </div>
           ) : (

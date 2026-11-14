@@ -5,6 +5,7 @@ import emdashWorker, { PluginBridge } from '@emdash-cms/cloudflare/worker'
 import type { ExportedHandlerFetchHandler } from '@cloudflare/workers-types'
 import { cacheDisposition } from './cachePolicy'
 import { canonicalRedirect } from './canonicalUrl'
+import { robotsResponse } from './robots'
 
 export { PluginBridge }
 
@@ -14,6 +15,7 @@ const fetch: ExportedHandlerFetchHandler<Record<string, unknown>> = async (reque
   if (request.method === 'GET' || request.method === 'HEAD') {
     const location = canonicalRedirect(request.url)
     if (location) return new Response(null, { status: 301, headers: { Location: location } })
+    if (new URL(request.url).pathname === '/robots.txt') return robotsResponse()
   }
   const response = await upstreamFetch(request, env, ctx)
   if (response.status === 101) return response
