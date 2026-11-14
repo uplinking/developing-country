@@ -63,7 +63,8 @@ import {
   stashSession,
   uiResourceMeta,
 } from './mcpUi'
-import { missFromBody, writeMiss, writeSearchZero, writeToolCall } from './analytics'
+import { missFromBody, writeMiss, writeSearchZero, writeToolCall, type ToolCallPoint } from './analytics'
+import { clientLabel, meteredEnv, newToolMeter, takeColdFlag, type ToolMeter } from './toolMeter'
 import { toolDescriptorMeta, toolPresentationFields } from './mcpToolMeta'
 import { MCP_APP_VERSION, PREVIOUS_MCP_UI_RESOURCE_URIS } from '../shared/mcpApp'
 import { SUPPORTED_COUNTRY_CODES } from '@developing-country/countries'
@@ -386,13 +387,18 @@ function hullFromResult(
   return value as { type: 'Polygon'; coordinates: number[][][] }
 }
 
+/** A tool call's measurements; handleMcp adds bytes, auth time and client once the response is serialised. */
+type ToolCallRecord = Omit<ToolCallPoint, 'bytes' | 'authMs' | 'client' | 'cold' | 'meter'> & { meter: ToolMeter }
+
+type DispatchResult = { body: object; sessionId?: string; call?: ToolCallRecord }
+
 async function dispatch(
   rpc: RpcRequest,
   env: Env,
   identity: Identity,
   ctx: ExecutionContext | undefined,
   sessionId: string | null,
-): Promise<{ body: object; sessionId?: string }> {
+): Promise<DispatchResult> {
   const id = rpc.id ?? null
   const method = rpc.method
   const params = rpc.params ?? {}
@@ -469,8 +475,9 @@ async function dispatch(
       const tool = TOOLS.find((t) => t.name === name)
       if (!tool) return { body: rpcError(id, -32602, `unknown tool: ${name}`) }
       const t0 = Date.now()
+      const meter = newToolMeter()
       try {
-        const result = await tool.handler(env, identity, args)
+        const result = await tool.handler(meteredEnv(env, meter), identity, args)
         const rec = jsonObjectFromSerializable(result)
         const geometry = geometryFromResult(rec?.geometry)
         const hull = hullFromResult(rec?.hull)
@@ -498,18 +505,22 @@ async function dispatch(
             : null,
         })
         const structured = envelope.structuredContent
-        writeToolCall(env, {
-          tool: name,
-          op: isJsonString(recBody.op) ? recBody.op : undefined,
-          entities: Array.isArray(recBody.entities) ? recBody.entities.map(String) : undefined,
-          ms: Date.now() - t0,
-          count: isJsonNumber(recBody.count) ? recBody.count : undefined,
-          truncated: recBody.truncated === true || structured?.geometry_omitted === 'size_limit',
-        })
         if (name === 'search_places' && Number(recBody.count) === 0) {
           writeSearchZero(env, String(args.q ?? ''))
         }
-        return { body: rpcResult(id, envelope) }
+        return {
+          body: rpcResult(id, envelope),
+          call: {
+            tool: name,
+            op: isJsonString(recBody.op) ? recBody.op : undefined,
+            entities: Array.isArray(recBody.entities) ? recBody.entities.map(String) : undefined,
+            ms: Date.now() - t0,
+            count: isJsonNumber(recBody.count) ? recBody.count : undefined,
+            truncated: recBody.truncated === true || structured?.geometry_omitted === 'size_limit',
+            outcome: 'ok',
+            meter,
+          },
+        }
       } catch (e) {
         const body =
           e instanceof ApiError
@@ -517,13 +528,20 @@ async function dispatch(
             : { error: e instanceof Error ? e.message : String(e) || 'tool error' }
         const miss = missFromBody(body)
         if (miss) writeMiss(env, miss)
-        writeToolCall(env, { tool: name, op: String(body.op ?? args.op ?? ''), ms: Date.now() - t0, count: 0 })
         return {
           body: rpcResult(id, {
             content: [{ type: 'text', text: JSON.stringify(body, null, 2) }],
             structuredContent: body,
             isError: true,
           }),
+          call: {
+            tool: name,
+            op: String(body.op ?? args.op ?? ''),
+            ms: Date.now() - t0,
+            count: 0,
+            outcome: miss ? 'miss' : 'error',
+            meter,
+          },
         }
       }
     }
@@ -688,7 +706,9 @@ export async function handleMcp(request: Request, env: Env, ctx?: ExecutionConte
   }
   if (request.method !== 'POST') return new Response('Method Not Allowed', { status: 405, headers: CORS })
 
+  const authStarted = Date.now()
   const identity = await authenticateMcp(request, env)
+  const authMs = Date.now() - authStarted
   if (!identity) {
     // Per the MCP auth spec, point the client at the protected-resource
     // metadata so it can discover the Better Auth OAuth server and log in.
@@ -779,6 +799,18 @@ export async function handleMcp(request: Request, env: Env, ctx?: ExecutionConte
 
   const out = await dispatch(rpc, env, identity, ctx, sessionId)
   const errored = errorDetails(out.body)
+  // Serialise once: the same text is measured, logged and sent.
+  const text = JSON.stringify(out.body)
+  const call = out.call
+    ? {
+        ...out.call,
+        bytes: new TextEncoder().encode(text).byteLength,
+        authMs,
+        client: clientLabel(request.headers.get('authorization')),
+        cold: takeColdFlag(),
+      }
+    : undefined
+  if (call) writeToolCall(env, call)
   console.log(
     JSON.stringify({
       op: 'mcp',
@@ -788,8 +820,31 @@ export async function handleMcp(request: Request, env: Env, ctx?: ExecutionConte
       pv: request.headers.get('mcp-protocol-version') ?? '',
       mode: identity.mode,
       err: errored ? `${errored.code} ${errored.message}` : undefined,
-      bytes: JSON.stringify(out.body).length,
+      bytes: call?.bytes ?? text.length,
+      auth_ms: authMs,
+      ...(call && {
+        tool: call.tool,
+        tool_op: call.op || undefined,
+        dataset: call.entities?.[0],
+        outcome: call.outcome,
+        client: call.client,
+        cold: call.cold,
+        ms: call.ms,
+        rows: call.count,
+        truncated: call.truncated || undefined,
+        d1_queries: call.meter.d1Queries,
+        d1_rows_read: call.meter.d1RowsRead,
+        d1_rows_written: call.meter.d1RowsWritten,
+        r2_class_a: call.meter.r2ClassA,
+        r2_class_b: call.meter.r2ClassB,
+        r2_bytes_read: call.meter.r2BytesRead,
+        asset_fetches: call.meter.assetFetches,
+        asset_bytes: call.meter.assetBytes,
+      }),
     }),
   )
-  return jsonResponse(out.body, 200, out.sessionId ? { 'Mcp-Session-Id': out.sessionId } : undefined)
+  return new Response(text, {
+    status: 200,
+    headers: { 'Content-Type': 'application/json', ...CORS, ...(out.sessionId ? { 'Mcp-Session-Id': out.sessionId } : {}) },
+  })
 }

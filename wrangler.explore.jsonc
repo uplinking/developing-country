@@ -8,7 +8,9 @@
   "routes": [
     { "pattern": "explore.developing-country.org", "custom_domain": true }
   ],
-  "workers_dev": true,
+  // Off: a *.workers.dev origin would serve the same Worker outside the zone's
+  // WAF and rate-limit rules. The custom domain is the only public address.
+  "workers_dev": false,
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
@@ -46,7 +48,17 @@
     "VIEW_HOURLY_LIMIT": "5",
     "VIEW_EDITOR_HOURLY_LIMIT": "60"
   },
-  "observability": { "enabled": true },
+  "observability": {
+    "enabled": true,
+    // Sampled traces show every D1, R2 and asset call inside a request, including
+    // auth, which the per-tool meter (src/worker/toolMeter.ts) does not wrap.
+    "traces": { "enabled": true, "head_sampling_rate": 0.1 }
+  },
+  // Per-tool MCP metrics (src/worker/analytics.ts). The dataset is created on
+  // first write; query it with scripts/mcp-metrics.sql.
+  "analytics_engine_datasets": [
+    { "binding": "ANALYTICS", "dataset": "developing_country_mcp" }
+  ],
   "durable_objects": {
     "bindings": [{ "name": "SESSIONS", "class_name": "MapSession" }]
   },
