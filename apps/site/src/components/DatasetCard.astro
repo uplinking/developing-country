@@ -21,6 +21,8 @@ interface Props {
   themes: PublicDataTheme[]
   publisher: DatasetPublisher
   sources: CardSource[]
+  /** Extra attributes for the card element, such as the /data page's row markers. */
+  attrs?: Record<string, string | boolean | undefined>
 }
 
 const {
@@ -32,6 +34,7 @@ const {
   themes,
   publisher,
   sources,
+  attrs = {},
 } = Astro.props
 const licences = [...new Map(
   sources.map((source) => [
@@ -43,7 +46,7 @@ const licenceSignal = datasetLicenceSignal(licences)
 const licenceTooltipId = `licence-${href.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '')}`
 ---
 
-<article class="dataset-card">
+<article class="dataset-card" {...attrs}>
   <a href={href} aria-label={title} aria-describedby={licenceTooltipId}>
     <div class="dataset-card__topline">
       <span>{country || 'LK'}</span>
