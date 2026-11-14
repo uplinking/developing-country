@@ -1,7 +1,7 @@
 import { sourceForDataset } from '../../packages/ingestion/src/registry'
 import type { DatasetVersionRef } from '@developing-country/domain'
 import { SiteHeader } from '@developing-country/ui/SiteHeader'
-import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
+import { Suspense, useEffect, useMemo, useState } from 'react'
 import {
   indicatorDataset,
   indicatorDatasetPath,
@@ -15,7 +15,10 @@ import { withBase } from '../base'
 import { datasetVersionEvidence, resultChecksum } from './datasetChartEvidence'
 import './DatasetChartPage.css'
 
-const LiveChart = lazy(() => import('./LiveChart'))
+import { LiveChart } from './lazyViews'
+
+// This page always ends in a chart: fetch its chunk alongside the data.
+void LiveChart.preload()
 
 interface DatasetChartPageProps {
   datasetId: string

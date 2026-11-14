@@ -1,9 +1,8 @@
-import { lazy, Suspense, useMemo } from 'react'
+import { Suspense, useMemo } from 'react'
 import { useDataViewById } from '@developing-country/figures'
 import { appUrl, withBase } from '../base'
 
-const LiveChart = lazy(() => import('./LiveChart'))
-const LiveMap = lazy(() => import('./LiveMap'))
+import { LiveChart, LiveMap } from './lazyViews'
 
 /**
  * The canonical /views/{id} page. Loading, validation and snapshot resolution
