@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
+import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { useApp, useHostStyleVariables } from '@modelcontextprotocol/ext-apps/react'
 import type { App as McpApp, McpUiHostContext } from '@modelcontextprotocol/ext-apps'
 import FeatureSheet from './ui/FeatureSheet'
@@ -20,13 +20,13 @@ import { inlineHeight, safeAreaVars } from './mcpLayout'
 import { canRequestFullscreen, extensionMaxHeight, openExternalLink, requestDisplayMode } from './hostExtensions'
 import './App.css'
 import type { DataViewSpec } from '@developing-country/views'
+import { preloadable } from './preloadable'
+import { LiveChart } from './views/lazyViews'
 
 // MapLibre, its style and tiles are the heaviest part of the frame. Data
 // answers never touch them, so the map chunk loads only when a result needs it.
-const loadMapView = () => import('./map/MapView')
-const MapView = lazy(loadMapView)
-const LiveChart = lazy(() => import('./views/LiveChart'))
-const McpDataPanel = lazy(() => import('./ui/McpDataPanel'))
+const MapView = preloadable(() => import('./map/MapView'))
+const McpDataPanel = preloadable(() => import('./ui/McpDataPanel'))
 
 // Terrain tiles come from s3.amazonaws.com, which the app's CSP does not (and
 // should not broadly) allow, so the toggle would only produce blocked fetches.
@@ -245,8 +245,12 @@ export default function AppMcp() {
       appRef.current = created
       created.ontoolinput = (params) => {
         lastArgsRef.current = jsonObjectFromSerializable(params.arguments ?? {}) ?? {}
-        // Warm the chunk only; the map mounts (style, tiles) when the result needs it.
-        if (expectsMap(lastArgsRef.current, created.getHostContext()?.toolInfo?.tool.name)) void loadMapView()
+        // Warm the chunk the result will need while the tool runs; it mounts
+        // (map style, tiles) only when the result arrives.
+        const args = lastArgsRef.current
+        if (expectsMap(args, created.getHostContext()?.toolInfo?.tool.name)) void MapView.preload()
+        else if (isJsonObject(args.presentation) && args.presentation.kind === 'chart') void LiveChart.preload()
+        else void McpDataPanel.preload()
       }
       created.ontoolresult = (result) => {
         const raw = rawFromResult(result)

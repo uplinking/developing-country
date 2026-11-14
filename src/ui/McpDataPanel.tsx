@@ -6,7 +6,7 @@
 // related); this component only renders and dispatches. What the viewer opens
 // is mirrored into the model's context so the conversation can pick it up.
 
-import { lazy, Suspense, useCallback, useEffect, useMemo, useState, type FormEvent } from 'react'
+import { Suspense, useCallback, useEffect, useMemo, useState, type FormEvent } from 'react'
 import type { App as McpApp } from '@modelcontextprotocol/ext-apps'
 import type { JsonObject, JsonValue } from '../shared/json'
 import { isJsonNumber, isJsonObject, isJsonString } from '../shared/json'
@@ -24,7 +24,7 @@ import {
 } from '../mcpData'
 import './McpDataPanel.css'
 
-const LiveChart = lazy(() => import('../views/LiveChart'))
+import { LiveChart } from '../views/lazyViews'
 
 const IN_APP_TOOLS = new Set(['get_layer_catalog', 'query_data'])
 
