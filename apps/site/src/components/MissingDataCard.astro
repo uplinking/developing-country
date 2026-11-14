@@ -1,10 +1,10 @@
 ---
 import { GAP_STATUSES, type DataGap, type ClaimLink } from '../lib/claims'
 import { formatRefreshDate } from '../lib/datasets'
-interface Props { gap: DataGap; claims: ClaimLink[] }
-const { gap, claims } = Astro.props
+interface Props { gap: DataGap; claims: ClaimLink[]; attrs?: Record<string, string | boolean | undefined> }
+const { gap, claims, attrs = {} } = Astro.props
 ---
-<article class="dataset-card missing-data-card" id={`gap-${gap.id}`}>
+<article class="dataset-card missing-data-card" id={`gap-${gap.id}`} {...attrs}>
   <div class="dataset-card__topline">
     <span>{gap.country}</span>
     <time datetime={gap.checkedAt}>Checked {formatRefreshDate(gap.checkedAt)}</time>

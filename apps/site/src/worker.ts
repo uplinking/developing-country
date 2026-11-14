@@ -5,6 +5,8 @@ import emdashWorker, { PluginBridge } from '@emdash-cms/cloudflare/worker'
 import type { ExportedHandlerFetchHandler } from '@cloudflare/workers-types'
 import { cacheDisposition } from './cachePolicy'
 import { canonicalRedirect } from './canonicalUrl'
+import { robotsResponse } from './robots'
+import { dataQueryRedirect } from './lib/dataIndex'
 
 export { PluginBridge }
 
@@ -14,6 +16,10 @@ const fetch: ExportedHandlerFetchHandler<Record<string, unknown>> = async (reque
   if (request.method === 'GET' || request.method === 'HEAD') {
     const location = canonicalRedirect(request.url)
     if (location) return new Response(null, { status: 301, headers: { Location: location } })
+    if (new URL(request.url).pathname === '/robots.txt') return robotsResponse()
+    // /data filters live in the URL fragment; old ?query links move there without a render.
+    const dataLocation = dataQueryRedirect(request.url)
+    if (dataLocation) return new Response(null, { status: 301, headers: { Location: dataLocation } })
   }
   const response = await upstreamFetch(request, env, ctx)
   if (response.status === 101) return response

@@ -22,7 +22,7 @@ const seo = getSeoMeta(article, {
   siteUrl: 'https://developing-country.org',
   path: `/analysis/${slug}`,
 })
-if (data.analysisKind === 'tracked_claim') return Astro.redirect('/data?tab=missing', 301)
+if (data.analysisKind === 'tracked_claim') return Astro.redirect('/data#tab=missing', 301)
 const sources = sourceLinks(data.sourceManifest)
 const evidenceViews = evidenceViewList(data.evidenceBundle, data.primaryViewUrl, viewUrlsInContent(data.content))
 const sections = contentsOf(data.content)

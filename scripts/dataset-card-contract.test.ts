@@ -62,7 +62,9 @@ describe('public dataset cards', () => {
     expect(page).toContain('aria-current=')
     expect(page).not.toContain('<select')
     expect(page).not.toContain('Apply filters')
-    expect(page).toContain("<h1 id=\"available-data-title\">{tab === 'missing' ? 'Missing data' : 'Available data'}</h1>")
+    // The page renders the default tab; the browser script retitles it when the Missing data tab is chosen.
+    expect(page).toContain('<h1 id="available-data-title">Available data</h1>')
+    expect(page).toContain("byId('available-data-title').textContent = tab === 'missing' ? 'Missing data' : 'Available data'")
     expect(page).not.toContain('data-index__hero')
     expect(page).not.toContain('knownDataGaps')
     expect(page).not.toContain('missing-data')

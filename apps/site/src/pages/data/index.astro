@@ -5,26 +5,21 @@ import MissingDataCard from '../../components/MissingDataCard.astro'
 import DatasetCard from '../../components/DatasetCard.astro'
 import SiteLayout from '../../layouts/SiteLayout.astro'
 import { articleFields } from '../../lib/content'
-import { datasetSearchDocument, gapSearchDocument, parseQuery, search } from '@developing-country/datasets/search'
+import { datasetSearchDocument, gapSearchDocument } from '@developing-country/datasets/search'
 import { loadSiteDatasetCatalog } from '../../lib/datasetCatalogCloudflare'
-import {
-  PUBLISHER_TYPES,
-  PUBLIC_DATA_THEMES,
-  datasetMeta,
-  datasetNotes,
-  isDatasetId,
-  isPublisherTypeId,
-  isPublicDataThemeId,
-} from '../../lib/datasets'
+import { EMPTY_STATE, dataIndexView, noun, type DataIndexPayload } from '../../lib/dataIndex'
+import { PUBLISHER_TYPES, PUBLIC_DATA_THEMES, datasetMeta, datasetNotes, isDatasetId } from '../../lib/datasets'
 
-if (Astro.cache?.enabled) Astro.cache.set({ tags: ['articles', 'data_gaps'], maxAge: 60, swr: 0 })
+// One document for every visitor: filters and search run in the browser from the URL fragment
+// (see lib/dataIndex.ts), so this page renders once per cache period, not once per filter.
+// EmDash purges these tags whenever an article or data gap changes, so a long life is safe.
+if (Astro.cache?.enabled) Astro.cache.set({ tags: ['articles', 'data_gaps'], maxAge: 300, swr: 86400 })
 
 const [entries, gapEntries, catalog] = await Promise.all([
   publishedEntries('articles'),
   publishedEntries('data_gaps'),
   loadSiteDatasetCatalog(),
 ])
-const tab = Astro.url.searchParams.get('tab') === 'missing' ? 'missing' : 'available'
 const claims = entries.map((entry) => ({ slug: entry.id, data: articleFields(entry.data) }))
   .filter(({ data }) => data.format === 'analysis' && data.analysisKind === 'tracked_claim')
   .filter(({ data }) => data.claimSourceUrl)
@@ -60,155 +55,89 @@ const allRows = [
   })),
 ]
 
-// Search runs per tab, so each tab ranks and counts its own matches.
-const query = parseQuery(Astro.url.searchParams.get('q'), catalog.search.synonyms)
-const searchTab = (kind: 'available' | 'missing') => {
-  const rows = allRows.filter((row) => row.kind === kind)
-  if (!query) return { rows, partial: false }
-  const result = search(rows.map((row) => row.document), query)
-  const byId = new Map(rows.map((row) => [row.document.id, row]))
-  return { rows: result.hits.map((hit) => byId.get(hit.id)!), partial: result.partial }
+const payload: DataIndexPayload = {
+  rows: allRows.map(({ kind, dataset, document }) => ({
+    id: document.id,
+    kind,
+    themeIds: [...dataset.themeIds],
+    publisherTypeId: dataset.publisher.type.id,
+    publisherId: dataset.publisher.id,
+    publisherName: dataset.publisher.name,
+  })),
+  documents: allRows.map((row) => row.document),
+  synonyms: catalog.search.synonyms,
+  themeIds: PUBLIC_DATA_THEMES.map((theme) => theme.id),
+  publisherTypeIds: PUBLISHER_TYPES.map((type) => type.id),
 }
-const tabResults = { available: searchTab('available'), missing: searchTab('missing') }
-const fullMatches = (kind: 'available' | 'missing') => tabResults[kind].partial ? 0 : tabResults[kind].rows.length
-const otherTab = tab === 'missing' ? 'available' : 'missing'
-const tabRows = allRows.filter((row) => row.kind === tab)
-const activeRows = tabResults[tab].rows
-const partialMatch = tabResults[tab].partial
-const availableThemes = PUBLIC_DATA_THEMES.filter((theme) =>
-  allRows.some(({ dataset }) => dataset.themeIds.includes(theme.id)),
-)
-const themeParam = Astro.url.searchParams.get('theme') || ''
-const publisherTypeParam = Astro.url.searchParams.get('publisher_type') || ''
-const publisherParam = Astro.url.searchParams.get('publisher') || ''
-const selectedTheme = isPublicDataThemeId(themeParam) && availableThemes.some((theme) => theme.id === themeParam)
-  ? themeParam
-  : ''
-const availablePublisherTypes = PUBLISHER_TYPES.filter((type) =>
-  allRows.some(({ dataset }) => dataset.publisher.type.id === type.id),
-)
-const selectedPublisherType = isPublisherTypeId(publisherTypeParam)
-  && availablePublisherTypes.some((type) => type.id === publisherTypeParam)
-  ? publisherTypeParam
-  : ''
-const availablePublishers = [...new Map(
-  allRows
-    .filter(({ dataset }) => !selectedPublisherType || dataset.publisher.type.id === selectedPublisherType)
-    .map(({ dataset }) => [dataset.publisher.id, dataset.publisher]),
-).values()].sort((left, right) => left.name.localeCompare(right.name))
-const selectedPublisher = availablePublishers.some((publisher) => publisher.id === publisherParam)
-  ? publisherParam
-  : ''
-const notes = activeRows.filter(({ dataset }) =>
-  (!selectedTheme || dataset.themeIds.includes(selectedTheme))
-  && (!selectedPublisherType || dataset.publisher.type.id === selectedPublisherType)
-  && (!selectedPublisher || dataset.publisher.id === selectedPublisher),
-)
-
-interface FilterPatch {
-  theme?: string
-  publisherType?: string
-  publisher?: string
-  tab?: string
-  q?: string
-}
-
-const filterHref = (patch: FilterPatch = {}) => {
-  const next = {
-    theme: patch.theme ?? selectedTheme,
-    publisherType: patch.publisherType ?? selectedPublisherType,
-    publisher: patch.publisher ?? selectedPublisher,
-  }
-  const params = new URLSearchParams()
-  const q = patch.q ?? query?.text ?? ''
-  if (q) params.set('q', q)
-  if ((patch.tab ?? tab) === 'missing') params.set('tab', 'missing')
-  if (next.theme) params.set('theme', next.theme)
-  if (next.publisherType) params.set('publisher_type', next.publisherType)
-  if (next.publisher) params.set('publisher', next.publisher)
-  const href = params.toString()
-  return href ? `/data?${href}` : '/data'
-}
-
-const themeCount = (themeId: (typeof PUBLIC_DATA_THEMES)[number]['id']) => activeRows.filter(({ dataset }) => dataset.themeIds.includes(themeId)).length
-const publisherTypeCount = (typeId: string) => activeRows.filter(({ dataset }) => dataset.publisher.type.id === typeId).length
-const publisherCount = (publisherId: string) => activeRows.filter(({ dataset }) => dataset.publisher.id === publisherId).length
-const filtersActive = Boolean(selectedTheme || selectedPublisherType || selectedPublisher)
-const noun = (kind: 'available' | 'missing', count: number) => kind === 'missing'
-  ? (count === 1 ? 'data gap' : 'data gaps')
-  : (count === 1 ? 'dataset' : 'datasets')
+// The default view, so the page reads correctly before (or without) JavaScript.
+const view = dataIndexView(payload, EMPTY_STATE)
+const visible = new Set(view.visibleIds)
+const themeLabels = new Map<string, string>(PUBLIC_DATA_THEMES.map((theme) => [theme.id, theme.label]))
+const typeLabels = new Map<string, string>(PUBLISHER_TYPES.map((type) => [type.id, type.label]))
+// Every publisher across both tabs; the script hides the ones the current filters rule out.
+const allPublishers = [...new Map(payload.rows.map((row) => [row.publisherId, row.publisherName])).entries()]
+  .sort(([, left], [, right]) => left.localeCompare(right))
+const publisherCounts = new Map(view.publishers.map((option) => [option.id, option.count]))
 const exampleQueries = ['school dropouts', 'electricity outages', 'Colombo rent', 'Central Bank', 'Jaffna']
+// JSON inside <script> must not contain "</": escape it so a CMS string cannot end the element.
+const payloadJson = JSON.stringify(payload).replace(/</g, '\\u003c')
 ---
 
 <SiteLayout
   title="Data"
   description="Explore available datasets and the missing records needed to verify public claims."
 >
-  <div class="page-shell data-index">
+  <div class="page-shell data-index" id="data-index">
     <section class="data-index__available" aria-labelledby="available-data-title">
       <div class="section-rule">
-        <h1 id="available-data-title">{tab === 'missing' ? 'Missing data' : 'Available data'}</h1>
-        <span>{notes.length} of {tabRows.length} {tab === 'missing' ? 'data gaps' : 'datasets'}</span>
+        <h1 id="available-data-title">Available data</h1>
+        <span id="data-count">{view.visibleIds.length} of {view.tabCount} datasets</span>
       </div>
 
-      <form class="data-search" method="get" action="/data" role="search" aria-label="Search data">
-        <label for="data-search-input">Search {tab === 'missing' ? 'missing data' : 'datasets'}</label>
+      <form class="data-search" id="data-search" method="get" action="/data" role="search" aria-label="Search data">
+        <label for="data-search-input" id="data-search-label">Search datasets</label>
         <div class="data-search__row">
           <input
             id="data-search-input"
             type="search"
             name="q"
-            value={query?.text ?? ''}
+            value=""
             maxlength="200"
             autocomplete="off"
             enterkeyhint="search"
             placeholder="Topic, place, publisher or field"
             aria-describedby="data-search-hint"
           />
-          {tab === 'missing' && <input type="hidden" name="tab" value="missing" />}
-          {selectedTheme && <input type="hidden" name="theme" value={selectedTheme} />}
-          {selectedPublisherType && <input type="hidden" name="publisher_type" value={selectedPublisherType} />}
-          {selectedPublisher && <input type="hidden" name="publisher" value={selectedPublisher} />}
           <button type="submit">Search</button>
         </div>
-        {query ? (
-          <p class="data-search__hint" id="data-search-hint">
-            {activeRows.length === 0
-              ? <>No {noun(tab, 2)} match “{query.text}”.</>
-              : <><strong>{activeRows.length}</strong> {noun(tab, activeRows.length)} {partialMatch ? 'partly match' : (activeRows.length === 1 ? 'matches' : 'match')} “{query.text}”{filtersActive && notes.length !== activeRows.length && <>, {notes.length} with these filters</>}.</>}
-            {' '}<a href={filterHref({ q: '' })}>Clear search</a>
-            {query.expansions.length > 0 && <span class="data-search__related">Also searched for: {query.expansions.join(', ')}</span>}
-          </p>
-        ) : (
-          <p class="data-search__hint" id="data-search-hint">
-            Try {exampleQueries.map((example, index) => <>{index > 0 && ', '}<a href={filterHref({ q: example })}>{example}</a></>)}.
-          </p>
-        )}
+        <p class="data-search__hint" id="data-search-hint" aria-live="polite">
+          Try {exampleQueries.map((example, index) => <>{index > 0 && ', '}<a data-nav href={`#q=${encodeURIComponent(example)}`}>{example}</a></>)}.
+        </p>
       </form>
 
       <nav class="catalogue-tabs" aria-label="Data availability">
-        <a href={filterHref({ tab: 'available' })} aria-current={tab === 'available' ? 'page' : undefined}>Available data <span>{query ? fullMatches('available') : allNotes.length}</span></a>
-        <a href={filterHref({ tab: 'missing' })} aria-current={tab === 'missing' ? 'page' : undefined}>Missing data <span>{query ? fullMatches('missing') : gaps.length}</span></a>
+        <a data-nav data-tab="available" href="#" aria-current="page">Available data <span>{view.totals.available}</span></a>
+        <a data-nav data-tab="missing" href="#tab=missing">Missing data <span>{view.totals.missing}</span></a>
       </nav>
-      <div class="data-index__catalogue" data-searching={query ? 'true' : undefined}>
+      <div class="data-index__catalogue" id="data-catalogue">
         <nav class="dataset-filters" aria-label="Filter data">
           <div class="dataset-filters__header">
             <strong>Filter</strong>
-            {filtersActive && <a href={filterHref({ theme: '', publisherType: '', publisher: '' })}>Reset all</a>}
+            <a data-nav id="data-filter-reset" href="#" hidden>Reset all</a>
           </div>
 
           <section class="dataset-filter-group" data-filter="theme" aria-labelledby="theme-filter-title">
             <h2 id="theme-filter-title">Theme</h2>
             <ul>
               <li>
-                <a href={filterHref({ theme: '' })} aria-current={!selectedTheme ? 'true' : undefined}>
-                  <i aria-hidden="true"></i><span>All themes</span><small>{activeRows.length}</small>
+                <a data-nav data-filter="theme" data-value="" href="#" aria-current="true">
+                  <i aria-hidden="true"></i><span>All themes</span><small>{view.activeCount}</small>
                 </a>
               </li>
-              {availableThemes.map((theme) => (
+              {view.themes.map((theme) => (
                 <li>
-                  <a href={filterHref({ theme: theme.id })} aria-current={selectedTheme === theme.id ? 'true' : undefined}>
-                    <i aria-hidden="true"></i><span>{theme.label}</span><small>{themeCount(theme.id)}</small>
+                  <a data-nav data-filter="theme" data-value={theme.id} href={`#theme=${theme.id}`}>
+                    <i aria-hidden="true"></i><span>{themeLabels.get(theme.id)}</span><small>{theme.count}</small>
                   </a>
                 </li>
               ))}
@@ -216,17 +145,17 @@ const exampleQueries = ['school dropouts', 'electricity outages', 'Colombo rent'
           </section>
 
           <section class="dataset-filter-group" data-filter="publisher_type" aria-labelledby="publisher-type-filter-title">
-            <h2 id="publisher-type-filter-title">{tab === 'missing' ? 'Data holder type' : 'Publisher type'}</h2>
+            <h2 id="publisher-type-filter-title">Publisher type</h2>
             <ul>
               <li>
-                <a href={filterHref({ publisherType: '', publisher: '' })} aria-current={!selectedPublisherType ? 'true' : undefined}>
-                  <i aria-hidden="true"></i><span>All types</span><small>{activeRows.length}</small>
+                <a data-nav data-filter="publisherType" data-value="" href="#" aria-current="true">
+                  <i aria-hidden="true"></i><span>All types</span><small>{view.activeCount}</small>
                 </a>
               </li>
-              {availablePublisherTypes.map((type) => (
+              {view.publisherTypes.map((type) => (
                 <li>
-                  <a href={filterHref({ publisherType: type.id, publisher: '' })} aria-current={selectedPublisherType === type.id ? 'true' : undefined}>
-                    <i aria-hidden="true"></i><span>{type.label}</span><small>{publisherTypeCount(type.id)}</small>
+                  <a data-nav data-filter="publisherType" data-value={type.id} href={`#publisher_type=${type.id}`}>
+                    <i aria-hidden="true"></i><span>{typeLabels.get(type.id)}</span><small>{type.count}</small>
                   </a>
                 </li>
               ))}
@@ -234,17 +163,17 @@ const exampleQueries = ['school dropouts', 'electricity outages', 'Colombo rent'
           </section>
 
           <section class="dataset-filter-group" data-filter="publisher" aria-labelledby="publisher-filter-title">
-            <h2 id="publisher-filter-title">{tab === 'missing' ? 'Expected data holder' : 'Publisher'}</h2>
+            <h2 id="publisher-filter-title">Publisher</h2>
             <ul>
               <li>
-                <a href={filterHref({ publisher: '' })} aria-current={!selectedPublisher ? 'true' : undefined}>
-                  <i aria-hidden="true"></i><span>All publishers</span><small>{selectedPublisherType ? publisherTypeCount(selectedPublisherType) : activeRows.length}</small>
+                <a data-nav data-filter="publisher" data-value="" href="#" aria-current="true">
+                  <i aria-hidden="true"></i><span>All publishers</span><small>{view.activeCount}</small>
                 </a>
               </li>
-              {availablePublishers.map((publisher) => (
-                <li>
-                  <a href={filterHref({ publisher: publisher.id })} aria-current={selectedPublisher === publisher.id ? 'true' : undefined}>
-                    <i aria-hidden="true"></i><span>{publisher.name}</span><small>{publisherCount(publisher.id)}</small>
+              {allPublishers.map(([id, name]) => (
+                <li hidden={!publisherCounts.has(id)}>
+                  <a data-nav data-filter="publisher" data-value={id} href={`#publisher=${encodeURIComponent(id)}`}>
+                    <i aria-hidden="true"></i><span>{name}</span><small>{publisherCounts.get(id) ?? 0}</small>
                   </a>
                 </li>
               ))}
@@ -253,16 +182,11 @@ const exampleQueries = ['school dropouts', 'electricity outages', 'Colombo rent'
         </nav>
 
         <div class="data-index__results">
-          {query && partialMatch && notes.length > 0 && (
-            <p class="data-search__notice">
-              No {tab === 'missing' ? 'data gap' : 'dataset'} matches every word in “{query.text}”. These match some of them.
-              {fullMatches(otherTab) > 0 && <> <a href={filterHref({ tab: otherTab, theme: '', publisherType: '', publisher: '' })}>See {fullMatches(otherTab)} {noun(otherTab, fullMatches(otherTab))} that {fullMatches(otherTab) === 1 ? 'matches' : 'match'} every word</a>.</>}
-            </p>
-          )}
-          {notes.length > 0 ? (
-            <div class="dataset-card-grid data-index__grid">
-              {notes.map(({ dataset, article, gap, claims }) => (
-                gap ? <MissingDataCard gap={gap} claims={claims} /> : article && (
+          <p class="data-search__notice" id="data-search-notice" hidden></p>
+          <div class="dataset-card-grid data-index__grid" id="data-grid">
+            {allRows.map(({ dataset, article, gap, claims, document }) => {
+              const attrs = { 'data-row-id': document.id, hidden: !visible.has(document.id) }
+              return gap ? <MissingDataCard gap={gap} claims={claims} attrs={attrs} /> : article && (
                 <DatasetCard
                   href={`/data/${dataset.id}`}
                   title={article.data.title}
@@ -272,29 +196,188 @@ const exampleQueries = ['school dropouts', 'electricity outages', 'Colombo rent'
                   themes={dataset.themes}
                   publisher={dataset.publisher}
                   sources={dataset.sources}
+                  attrs={attrs}
                 />
-                )
-              ))}
-            </div>
-          ) : query ? (
-            <div class="dataset-filter-empty data-search__empty">
-              <p>{activeRows.length > 0
-                ? <>No {noun(tab, 2)} match “{query.text}” with these filters.</>
-                : <>No {noun(tab, 2)} match “{query.text}”.</>}</p>
-              <ul>
-                {activeRows.length > 0 && <li><a href={filterHref({ theme: '', publisherType: '', publisher: '' })}>Search all themes and publishers</a></li>}
-                {fullMatches(otherTab) > 0 && (
-                  <li><a href={filterHref({ tab: otherTab, theme: '', publisherType: '', publisher: '' })}>See {fullMatches(otherTab)} {noun(otherTab, fullMatches(otherTab))} that {fullMatches(otherTab) === 1 ? 'matches' : 'match'}</a></li>
-                )}
-                <li>Try fewer or broader words, or search by publisher (Central Bank), place (Jaffna) or field (tenure).</li>
-                <li><a href={filterHref({ q: '' })}>Clear search</a></li>
-              </ul>
-            </div>
-          ) : (
-            <p class="dataset-filter-empty">No {tab === 'missing' ? 'data gaps' : 'datasets'} match these filters. Try another theme or data holder.</p>
-          )}
+              )
+            })}
+          </div>
+          <div class="dataset-filter-empty data-search__empty" id="data-empty" hidden></div>
         </div>
       </div>
     </section>
   </div>
+  <script type="application/json" id="data-index-payload" set:html={payloadJson} />
 </SiteLayout>
+
+<script>
+import { dataIndexView, noun, parseState, stateFragment, type DataIndexPayload, type DataIndexState, type DataTab } from '../../lib/dataIndex'
+
+const root = document.getElementById('data-index')
+const payloadElement = document.getElementById('data-index-payload')
+if (root && payloadElement?.textContent) {
+  const payload = JSON.parse(payloadElement.textContent) as DataIndexPayload
+  const byId = <T extends HTMLElement>(id: string) => document.getElementById(id) as T
+  const grid = byId<HTMLElement>('data-grid')
+  const cards = new Map([...grid.querySelectorAll<HTMLElement>('[data-row-id]')].map((card) => [card.dataset.rowId!, card]))
+  const input = byId<HTMLInputElement>('data-search-input')
+  const hint = byId<HTMLElement>('data-search-hint')
+  const exampleHint = [...hint.childNodes].map((node) => node.cloneNode(true))
+  const notice = byId<HTMLElement>('data-search-notice')
+  const empty = byId<HTMLElement>('data-empty')
+
+  let current: DataIndexState = parseState(location.hash)
+  const href = (patch: Partial<DataIndexState>) => {
+    const fragment = stateFragment({ ...current, ...patch })
+    return fragment ? `#${fragment}` : '#'
+  }
+  const link = (text: string, patch: Partial<DataIndexState>) => {
+    const anchor = document.createElement('a')
+    anchor.dataset.nav = ''
+    anchor.href = href(patch)
+    anchor.textContent = text
+    return anchor
+  }
+  const quoted = (text: string) => `“${text}”`
+  const matchWord = (count: number) => count === 1 ? 'matches' : 'match'
+  const otherOf = (tab: DataTab): DataTab => tab === 'missing' ? 'available' : 'missing'
+  const clearFilters = { theme: '', publisherType: '', publisher: '' }
+
+  function render() {
+    const view = dataIndexView(payload, current)
+    current = view.state
+    const { tab, q } = current
+    const other = otherOf(tab)
+    const query = view.query
+
+    byId('available-data-title').textContent = tab === 'missing' ? 'Missing data' : 'Available data'
+    byId('data-count').textContent = `${view.visibleIds.length} of ${view.tabCount} ${noun(tab, 2)}`
+    byId('data-search-label').textContent = `Search ${tab === 'missing' ? 'missing data' : 'datasets'}`
+    byId('publisher-type-filter-title').textContent = tab === 'missing' ? 'Data holder type' : 'Publisher type'
+    byId('publisher-filter-title').textContent = tab === 'missing' ? 'Expected data holder' : 'Publisher'
+    if (document.activeElement !== input) input.value = q
+    byId('data-catalogue').toggleAttribute('data-searching', Boolean(query))
+
+    // Search hint.
+    hint.replaceChildren()
+    if (!query) {
+      hint.append(...exampleHint.map((node) => node.cloneNode(true)))
+    } else {
+      if (view.activeCount === 0) {
+        hint.append(`No ${noun(tab, 2)} match ${quoted(q)}.`)
+      } else {
+        const strong = document.createElement('strong')
+        strong.textContent = String(view.activeCount)
+        const verb = view.partial ? 'partly match' : matchWord(view.activeCount)
+        const filtered = view.filtersActive && view.visibleIds.length !== view.activeCount
+          ? `, ${view.visibleIds.length} with these filters`
+          : ''
+        hint.append(strong, ` ${noun(tab, view.activeCount)} ${verb} ${quoted(q)}${filtered}.`)
+      }
+      hint.append(' ', link('Clear search', { q: '' }))
+      if (query.expansions.length > 0) {
+        const related = document.createElement('span')
+        related.className = 'data-search__related'
+        related.textContent = `Also searched for: ${query.expansions.join(', ')}`
+        hint.append(related)
+      }
+    }
+
+    // Tabs.
+    for (const anchor of root!.querySelectorAll<HTMLAnchorElement>('a[data-tab]')) {
+      const kind = anchor.dataset.tab as DataTab
+      anchor.href = href({ tab: kind })
+      if (kind === tab) anchor.setAttribute('aria-current', 'page')
+      else anchor.removeAttribute('aria-current')
+      anchor.querySelector('span')!.textContent = String(query ? view.fullMatches[kind] : view.totals[kind])
+    }
+
+    // Filters.
+    const reset = byId<HTMLAnchorElement>('data-filter-reset')
+    reset.hidden = !view.filtersActive
+    reset.href = href(clearFilters)
+    const counts = {
+      theme: new Map(view.themes.map((option) => [option.id, option.count])),
+      publisherType: new Map(view.publisherTypes.map((option) => [option.id, option.count])),
+      publisher: new Map(view.publishers.map((option) => [option.id, option.count])),
+    }
+    for (const anchor of root!.querySelectorAll<HTMLAnchorElement>('a[data-filter]')) {
+      const filter = anchor.dataset.filter as 'theme' | 'publisherType' | 'publisher'
+      const value = anchor.dataset.value ?? ''
+      const patch: Partial<DataIndexState> = filter === 'publisherType' ? { publisherType: value, publisher: '' } : { [filter]: value }
+      anchor.href = href(patch)
+      if (current[filter] === value) anchor.setAttribute('aria-current', 'true')
+      else anchor.removeAttribute('aria-current')
+      const count = value
+        ? counts[filter].get(value)
+        : filter === 'publisher' && current.publisherType ? counts.publisherType.get(current.publisherType) : view.activeCount
+      anchor.parentElement!.hidden = count === undefined
+      anchor.querySelector('small')!.textContent = String(count ?? 0)
+    }
+
+    // Results, in ranked order.
+    const shown = new Set(view.visibleIds)
+    for (const id of view.visibleIds) grid.append(cards.get(id)!)
+    for (const [id, card] of cards) card.hidden = !shown.has(id)
+
+    // Partial-match notice.
+    notice.replaceChildren()
+    notice.hidden = !(query && view.partial && view.visibleIds.length > 0)
+    if (!notice.hidden) {
+      notice.append(`No ${tab === 'missing' ? 'data gap' : 'dataset'} matches every word in ${quoted(q)}. These match some of them.`)
+      const full = view.fullMatches[other]
+      if (full > 0) {
+        notice.append(' ', link(`See ${full} ${noun(other, full)} that ${matchWord(full)} every word`, { tab: other, ...clearFilters }), '.')
+      }
+    }
+
+    // Empty state.
+    empty.replaceChildren()
+    empty.hidden = view.visibleIds.length > 0
+    if (!empty.hidden) {
+      const message = document.createElement('p')
+      if (!query) {
+        message.textContent = `No ${noun(tab, 2)} match these filters. Try another theme or data holder.`
+        empty.append(message)
+      } else {
+        message.textContent = view.activeCount > 0
+          ? `No ${noun(tab, 2)} match ${quoted(q)} with these filters.`
+          : `No ${noun(tab, 2)} match ${quoted(q)}.`
+        const list = document.createElement('ul')
+        const item = (...content: (Node | string)[]) => {
+          const li = document.createElement('li')
+          li.append(...content)
+          list.append(li)
+        }
+        if (view.activeCount > 0) item(link('Search all themes and publishers', clearFilters))
+        const full = view.fullMatches[other]
+        if (full > 0) item(link(`See ${full} ${noun(other, full)} that ${matchWord(full)}`, { tab: other, ...clearFilters }))
+        item('Try fewer or broader words, or search by publisher (Central Bank), place (Jaffna) or field (tenure).')
+        item(link('Clear search', { q: '' }))
+        empty.append(message, list)
+      }
+    }
+  }
+
+  function go(state: DataIndexState) {
+    current = state
+    const fragment = stateFragment(state)
+    history.pushState(null, '', `${location.pathname}${fragment ? `#${fragment}` : ''}`)
+    render()
+  }
+
+  root.addEventListener('click', (event) => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+    const anchor = (event.target as Element).closest<HTMLAnchorElement>('a[data-nav]')
+    if (!anchor) return
+    event.preventDefault()
+    go(parseState(new URL(anchor.href).hash))
+  })
+  byId<HTMLFormElement>('data-search').addEventListener('submit', (event) => {
+    event.preventDefault()
+    go({ ...current, q: input.value })
+  })
+  addEventListener('popstate', () => { current = parseState(location.hash); render() })
+  addEventListener('hashchange', () => { current = parseState(location.hash); render() })
+  if (location.hash.length > 1) render()
+}
+</script>

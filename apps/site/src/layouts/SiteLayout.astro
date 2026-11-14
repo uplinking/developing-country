@@ -57,7 +57,9 @@ const page = createPublicPageContext({
   image: ogImage,
   canonical: publicUrl.href,
   content,
-  seo: { ogImage },
+  // A query string only filters or searches a page whose canonical is the plain path, so
+  // keep those variants out of the index while still letting crawlers reach linked pages.
+  seo: { ogImage, robots: Astro.url.search ? 'noindex, follow' : null },
   articleMeta: { publishedTime, modifiedTime },
   siteName: siteTitle,
   siteUrl: SITE_URL,
