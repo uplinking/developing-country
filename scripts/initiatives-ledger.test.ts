@@ -3,9 +3,9 @@ import { readFileSync } from 'node:fs'
 import { spawnSync } from 'node:child_process'
 import { moneyTotals } from '../packages/datasets/src/money'
 
-const ledger = JSON.parse(readFileSync('public/data/lk-initiatives.json', 'utf8'))
-const totals = JSON.parse(readFileSync('public/data/lk-initiative-funding.json', 'utf8'))
-const events = JSON.parse(readFileSync('public/data/lk-initiative-events.json', 'utf8'))
+const ledger = JSON.parse(readFileSync('apps/explore/public/data/lk-initiatives.json', 'utf8'))
+const totals = JSON.parse(readFileSync('apps/explore/public/data/lk-initiative-funding.json', 'utf8'))
+const events = JSON.parse(readFileSync('apps/explore/public/data/lk-initiative-events.json', 'utf8'))
 const lines = new Map<string, any>(ledger.lines.map((l: any) => [l.id, l]))
 
 describe('money ledger', () => {

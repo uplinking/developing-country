@@ -114,7 +114,7 @@ jobs:
           SOURCE_ID: ${{ matrix.source }}
         run: |
           bun scripts/refresh.mjs touch "$SOURCE_ID"
-          git add public/data
+          git add apps/explore/public/data
           bun run build:dataset-versions
           bun run datasets:sync
 
@@ -130,7 +130,7 @@ jobs:
           branch="automated-refresh/$SOURCE_ID"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/data public/catalog scripts/data-sources.json scripts/dataset-versions.json packages/datasets/src/registry.generated.ts apps/site/seed apps/site/data/dataset-catalog.json apps/site/src/generated/datasetCatalogPointer.ts
+          git add apps/explore/public/data apps/explore/public/catalog scripts/data-sources.json scripts/dataset-versions.json packages/datasets/src/registry.generated.ts apps/site/seed apps/site/data/dataset-catalog.json apps/site/src/generated/datasetCatalogPointer.ts
           if git diff --cached --quiet; then
             echo 'changed=false' >> "$GITHUB_OUTPUT"
             exit 0

@@ -10,7 +10,7 @@
 //   coverage.json     lk_news articles per week per outlet|lang, and which weeks we have read
 //   overrides.json    human review decisions (aliases, merges, retractions, field fixes)
 // Outputs:
-//   public/data/money.json    the dashboard ledger (projects, lines, events, coverage)
+//   apps/explore/public/data/money.json    the dashboard ledger (projects, lines, events, coverage)
 //   + indicator tables via ./tables.ts
 import { readFile, readdir, writeFile, rename } from 'node:fs/promises'
 import { DELIVERY_STAGES, MONEY_STAGES, INSTRUMENTS, ORIGINS, PURPOSES, BASES } from '../../packages/datasets/src/money'
@@ -416,7 +416,7 @@ const ledger = {
   },
 }
 
-const outputs = new Map<string, string>([['public/data/lk-initiatives.json', JSON.stringify(ledger) + '\n'], ...await writeTables(ledger)])
+const outputs = new Map<string, string>([['apps/explore/public/data/lk-initiatives.json', JSON.stringify(ledger) + '\n'], ...await writeTables(ledger)])
 let stale = 0
 for (const [path, text] of outputs) {
   let prev = ''

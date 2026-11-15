@@ -41,11 +41,11 @@ describe('metro alternatives helpers', () => {
 })
 
 describe('metro alternatives artifacts', () => {
-  const clusters = parseIndicatorTable(read('public/data/metro-gap-clusters.json'))
-  const unique = parseIndicatorTable(read('public/data/metro-stop-uniqueness.json'))
-  const candidates = parseIndicatorTable(read('public/data/metro-route-candidates.json'))
-  const scenarios = parseIndicatorTable(read('public/data/metro-route-scenarios.json'))
-  const lines = parseIndicatorTable(read('public/data/metro-coverage-lines.json'))
+  const clusters = parseIndicatorTable(read('apps/explore/public/data/metro-gap-clusters.json'))
+  const unique = parseIndicatorTable(read('apps/explore/public/data/metro-stop-uniqueness.json'))
+  const candidates = parseIndicatorTable(read('apps/explore/public/data/metro-route-candidates.json'))
+  const scenarios = parseIndicatorTable(read('apps/explore/public/data/metro-route-scenarios.json'))
+  const lines = parseIndicatorTable(read('apps/explore/public/data/metro-coverage-lines.json'))
   const all = lines.rows.find((r) => r.line_code === 'ALL')
 
   test('tables share the coverage source chain', () => {
@@ -53,7 +53,7 @@ describe('metro alternatives artifacts', () => {
   })
 
   test('gap clusters meet the floor and match their outlines', () => {
-    const fc = read('public/data/metro-gap-clusters.geojson')
+    const fc = read('apps/explore/public/data/metro-gap-clusters.geojson')
     expect(clusters.rows.length).toBeGreaterThanOrEqual(3)
     expect(fc.features.map((f) => f.properties.cluster_id)).toEqual(clusters.rows.map((r) => r.cluster_id))
     for (const r of clusters.rows) {
@@ -84,7 +84,7 @@ describe('metro alternatives artifacts', () => {
   })
 
   test('every candidate has a route line and its stops', () => {
-    const fc = read('public/data/metro-route-candidates.geojson')
+    const fc = read('apps/explore/public/data/metro-route-candidates.geojson')
     for (const r of candidates.rows) {
       const route = fc.features.filter((f) => f.properties.part === 'route' && f.properties.candidate_id === r.candidate_id)
       expect(route.length).toBe(1)

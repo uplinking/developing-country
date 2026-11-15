@@ -4,7 +4,7 @@ import { resolve } from 'node:path'
 import { parseIndicatorTable } from '../packages/datasets/src/table.ts'
 import { buildPopulationChangeFromCollection, DISTRICT_IDS } from './build-population-change.mjs'
 
-const DATA = resolve(import.meta.dir, '../public/data')
+const DATA = resolve(import.meta.dir, '../apps/explore/public/data')
 
 describe('population-change builder', () => {
   test('requires 25 joined 2024 district features', () => {

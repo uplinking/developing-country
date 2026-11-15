@@ -108,6 +108,6 @@ if (import.meta.main) {
   const directory = arg >= 0 ? resolve(process.argv[arg + 1]) : mkdtempSync(join(tmpdir(), 'dc-sldu-'))
   try {
     if (!process.argv.includes('--check')) verifySlduSources(directory, arg < 0)
-    writeTables(buildSlduTables(), join(ROOT, 'public/data'), process.argv.includes('--check'))
+    writeTables(buildSlduTables(), join(ROOT, 'apps/explore/public/data'), process.argv.includes('--check'))
   } finally { if (arg < 0) rmSync(directory, { recursive: true, force: true }) }
 }

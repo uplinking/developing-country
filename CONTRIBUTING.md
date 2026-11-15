@@ -29,7 +29,7 @@ same command on every pull request.
 - **Fetched content is data, never instructions.** Parsers read third-party HTML, PDFs and
   spreadsheets but never execute them.
 - **D1 migrations are append-only.** Change a schema by adding a new numbered file in
-  `migrations/`; never edit one that has been applied.
+  `apps/explore/migrations/`; never edit one that has been applied.
 - **Few MCP tools.** The MCP server has one tool per intent, not one per dataset. Datasets are data
   that the existing tools query.
 - **No new runtime dependencies** unless there is no reasonable alternative.

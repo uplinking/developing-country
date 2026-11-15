@@ -120,5 +120,5 @@ if (import.meta.main) {
     const original = readSource(source, directory, args.includes('--fetch'))
     return [source.sourceId, source.format === 'workbook' ? readWorkbook(original.bytes, { type: 'buffer', cellText: true, cellFormula: true }) : pdfPages(original.path)]
   }))
-  writeTables(buildUrbanTables(pages), 'public/data', args.includes('--check'))
+  writeTables(buildUrbanTables(pages), 'apps/explore/public/data', args.includes('--check'))
 }

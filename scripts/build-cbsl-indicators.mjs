@@ -11,7 +11,7 @@ import { parseIndicatorTable } from '../packages/datasets/src/table.ts'
 import { readXlsxSheet } from './lib/xlsx.mjs'
 
 const ROOT = resolve(import.meta.dir, '..')
-const DEFAULT_OUTPUT = join(ROOT, 'public/data')
+const DEFAULT_OUTPUT = join(ROOT, 'apps/explore/public/data')
 const TRADE_SHEET = 'xl/worksheets/sheet2.xml'
 
 export const CBSL_SOURCES = Object.freeze({

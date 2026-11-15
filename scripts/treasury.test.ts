@@ -32,7 +32,7 @@ describe('Treasury public artifacts', () => {
     const manifest = JSON.parse(readFileSync('scripts/treasury/recipes.json', 'utf8'))
     expect(manifest.datasets).toEqual([...TREASURY_TABLES])
   })
-  const tables = new Map(TREASURY_TABLES.map(d => [d.id, parseIndicatorTable(JSON.parse(readFileSync(`public/data/${d.id}.json`, 'utf8')))]))
+  const tables = new Map(TREASURY_TABLES.map(d => [d.id, parseIndicatorTable(JSON.parse(readFileSync(`apps/explore/public/data/${d.id}.json`, 'utf8')))]))
   test('every preset returns data with one unit and no duplicate display labels', () => {
     for (const d of TREASURY_DATASETS) {
       const table = tables.get(d.id as typeof TREASURY_TABLES[number]['id'])!
@@ -57,7 +57,7 @@ describe('Treasury public artifacts', () => {
 })
 
 describe('Treasury historical and merged-cell coverage', () => {
-  const read = (id: string) => parseIndicatorTable(JSON.parse(readFileSync(`public/data/${id}.json`, 'utf8')))
+  const read = (id: string) => parseIndicatorTable(JSON.parse(readFileSync(`apps/explore/public/data/${id}.json`, 'utf8')))
   const editions = ['2022-09-30', '2023-03-31', '2023-06-30', '2023-09-30', '2023-12-31', '2024-03-31', '2024-06-30', '2024-09-30', '2024-12-31', '2025-03-31', '2025-06-30', '2025-09-30', '2025-12-31', '2026-03-31', '2026-06-30']
   test('covers every listed quarterly edition in all three historical debt tables', () => {
     for (const id of ['treasury-public-debt', 'treasury-domestic-debt', 'treasury-external-creditors']) {
@@ -110,7 +110,7 @@ describe('Treasury historical and merged-cell coverage', () => {
 })
 
 test('backfills nine provinces in each of the seven published subnational tables', () => {
-  const table = parseIndicatorTable(JSON.parse(readFileSync('public/data/treasury-province-debt.json', 'utf8')))
+  const table = parseIndicatorTable(JSON.parse(readFileSync('apps/explore/public/data/treasury-province-debt.json', 'utf8')))
   expect([...new Set(table.rows.map(r => r.reporting_period))].sort()).toEqual(['2024-12-31', '2025-03-31', '2025-06-30', '2025-09-30', '2025-12-31', '2026-03-31', '2026-06-30'])
   for (const edition of new Set(table.rows.map(r => r.reporting_period))) {
     expect(table.rows.filter(r => r.reporting_period === edition)).toHaveLength(27)

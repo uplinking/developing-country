@@ -2,21 +2,21 @@
 // Colombo Metro Bus coverage — "Who will Colombo's metro buses reach?"
 //
 // WHAT THIS BUILDS (derived Dataset Versions, completeness `derived`)
-//   public/data/metro_walksheds.geojson     5/10-min network walksheds + 800 m circles
+//   apps/explore/public/data/metro_walksheds.geojson     5/10-min network walksheds + 800 m circles
 //                                           per stop, per line and for the network
-//   public/data/metro-coverage-stops.json   Indicator Table, one row per stop
-//   public/data/metro-coverage-lines.json   Indicator Table, one row per line + 'ALL'
-//   public/data/metro-coverage-gnd.json     Indicator Table, one row per study-area GN division
-//   public/data/metro-coverage-facilities.json  Indicator Table, schools, hospitals + offices
-//   public/data/metro-coverage-deciles.json Indicator Table, study-area density deciles
+//   apps/explore/public/data/metro-coverage-stops.json   Indicator Table, one row per stop
+//   apps/explore/public/data/metro-coverage-lines.json   Indicator Table, one row per line + 'ALL'
+//   apps/explore/public/data/metro-coverage-gnd.json     Indicator Table, one row per study-area GN division
+//   apps/explore/public/data/metro-coverage-facilities.json  Indicator Table, schools, hospitals + offices
+//   apps/explore/public/data/metro-coverage-deciles.json Indicator Table, study-area density deciles
 //
 // INPUTS (all already tracked except the GN polygons, which are cached)
-//   public/data/metro.geojson     7 CM lines + 110 stops (lk-metro, MIT; OSRM geometry ODbL)
-//   public/data/walk-colombo.json OSM foot graph (osm-walk-colombo, ODbL) — envelope
+//   apps/explore/public/data/metro.geojson     7 CM lines + 110 stops (lk-metro, MIT; OSRM geometry ODbL)
+//   apps/explore/public/data/walk-colombo.json OSM foot graph (osm-walk-colombo, ODbL) — envelope
 //                                 = stop bbox + 1.5 km, so every stop is inside it
-//   public/data/gnd-index.json    GN population (Census 2024 via lk_census_2024; the
+//   apps/explore/public/data/gnd-index.json    GN population (Census 2024 via lk_census_2024; the
 //                                 Census 2012 count where the 2024 id join failed)
-//   public/data/schools.geojson, hospitals.geojson (OSM, ODbL)
+//   apps/explore/public/data/schools.geojson, hospitals.geojson (OSM, ODbL)
 //   Overture Maps Places (CDLA-Permissive-2.0), classified into offices and other
 //   businesses by scripts/build-workplaces.mjs from the gitignored cache written by
 //   `uvx --with duckdb python -I scripts/fetch-overture-places.py` (needs uv)
@@ -893,11 +893,11 @@ function table(id, title, description, grain, primaryKey, fields, rows, extra = 
  * snapped stops, study-area GN raster, counted points and the per-set evaluator.
  */
 export async function prepare({ log = console.log } = {}) {
-  const metro = readJson('public/data/metro.geojson')
-  const gndIndex = readJson('public/data/gnd-index.json')
-  const schoolsFc = readJson('public/data/schools.geojson')
-  const hospitalsFc = readJson('public/data/hospitals.geojson')
-  const g = buildGraph(readJson('public/data/walk-colombo.json'))
+  const metro = readJson('apps/explore/public/data/metro.geojson')
+  const gndIndex = readJson('apps/explore/public/data/gnd-index.json')
+  const schoolsFc = readJson('apps/explore/public/data/schools.geojson')
+  const hospitalsFc = readJson('apps/explore/public/data/hospitals.geojson')
+  const g = buildGraph(readJson('apps/explore/public/data/walk-colombo.json'))
   const eidx = edgeIndex(g)
   log(`walk graph: ${g.n} nodes, ${g.m} edges`)
 
@@ -1589,12 +1589,12 @@ export async function build({ log = console.log } = {}) {
   const report = validate({ stops, lines, stopRows, lineRows, gndRows, facilityRows, deciles, walksheds, gndById, snapReport, studyPop, network })
   return {
     files: {
-      'public/data/metro_walksheds.geojson': walksheds,
-      'public/data/metro-coverage-stops.json': stopsTable,
-      'public/data/metro-coverage-lines.json': linesTable,
-      'public/data/metro-coverage-gnd.json': gndTable,
-      'public/data/metro-coverage-facilities.json': facilitiesTable,
-      'public/data/metro-coverage-deciles.json': decilesTable,
+      'apps/explore/public/data/metro_walksheds.geojson': walksheds,
+      'apps/explore/public/data/metro-coverage-stops.json': stopsTable,
+      'apps/explore/public/data/metro-coverage-lines.json': linesTable,
+      'apps/explore/public/data/metro-coverage-gnd.json': gndTable,
+      'apps/explore/public/data/metro-coverage-facilities.json': facilitiesTable,
+      'apps/explore/public/data/metro-coverage-deciles.json': decilesTable,
     },
     report,
   }
@@ -1717,13 +1717,13 @@ async function main() {
     writeFileSync(path, text)
     console.log(`  wrote ${rel} (${kb} KB)`)
   }
-  const walkshedBytes = Buffer.byteLength(serialize('x.geojson', files['public/data/metro_walksheds.geojson']))
+  const walkshedBytes = Buffer.byteLength(serialize('x.geojson', files['apps/explore/public/data/metro_walksheds.geojson']))
   if (walkshedBytes > 3 * 1024 * 1024) console.warn(`warning: metro_walksheds.geojson is ${(walkshedBytes / 1048576).toFixed(2)} MB (> 3 MB target)`)
   if (report.exceptions.length) {
     console.log(`10-min walk population exceeds the 800 m circle (${report.exceptions.length}):`)
     for (const e of report.exceptions) console.log(`  ${e}`)
   }
-  const lines = files['public/data/metro-coverage-lines.json'].rows
+  const lines = files['apps/explore/public/data/metro-coverage-lines.json'].rows
   console.log('\nline     pop_5    pop_10   circle   share10%  per_km  shared%')
   for (const r of lines) {
     console.log(

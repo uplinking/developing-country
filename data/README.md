@@ -12,13 +12,13 @@ brew install osmium-tool tippecanoe gdal go-pmtiles
 ```
 
 The **expressways** overlay ships in the repo already
-(`public/data/expressways.geojson`, produced by
+(`apps/explore/public/data/expressways.geojson`, produced by
 `node scripts/fetch-expressways.mjs` from the Overpass API). Everything else is
 built by `pipeline.sh`.
 
 ## Layers & expected property schema
 
-The app (`src/map/layers.ts`) expects these tileset layer names and properties.
+The app (`apps/explore/src/map/layers.ts`) expects these tileset layer names and properties.
 If you change the pipeline, keep these in sync.
 
 | PMTiles | source-layer | key properties |
@@ -105,5 +105,5 @@ Property keys: attractions/waterfalls → `name`, `category`, `osm_type`,
 `osm_id`, `source` (+ `tourism`/`historic` or `height`); trails/cycling →
 `name`, `category`, `ref`, `distance`, `network`, `route`, `osm_id`; parks →
 `name`, `category`, `boundary`, `leisure`, `protect_class`, `protection_title`,
-`osm_id`. These ship as static assets in `public/data/` (served by the SPA), no
+`osm_id`. These ship as static assets in `apps/explore/public/data/` (served by the SPA), no
 tiling required.

@@ -271,9 +271,9 @@ ${fmtExtra(dsd.extra) || '(none)'}
 }
 
 async function patchDistrictGeojson(districtEnts, census, provinceEnts) {
-  const path = resolve(ROOT, 'public/data/demographics.geojson')
+  const path = resolve(ROOT, 'apps/explore/public/data/demographics.geojson')
   if (!existsSync(path)) {
-    console.warn('  public/data/demographics.geojson missing — skip district patch')
+    console.warn('  apps/explore/public/data/demographics.geojson missing — skip district patch')
     return
   }
   const fc = JSON.parse(await readFile(path, 'utf8'))
@@ -368,8 +368,8 @@ async function main() {
     match_rate: Math.round(gndJoin.rate * 1e6) / 1e6,
   }
 
-  const gndOut = resolve(ROOT, 'public/data/gnd-index.json')
-  const dsdOut = resolve(ROOT, 'public/data/dsd-index.json')
+  const gndOut = resolve(ROOT, 'apps/explore/public/data/gnd-index.json')
+  const dsdOut = resolve(ROOT, 'apps/explore/public/data/dsd-index.json')
   const gndDoc = { ...provenance, count: gndRows.length, features: gndRows }
   const dsdDoc = { ...provenance, match_rate: Math.round(dsdJoin.rate * 1e6) / 1e6, count: dsdRows.length, features: dsdRows }
 

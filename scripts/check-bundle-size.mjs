@@ -21,7 +21,7 @@
 //
 // Sources of truth per target (never the `--outdir` for the site: wrangler does
 // not clear it, so stale hashed chunks from earlier builds accumulate there):
-//   explore  .wrangler/dry-run-explore/index.js   (single esbuild bundle,
+//   explore  apps/explore/.wrangler/dry-run-explore/index.js  (single esbuild bundle,
 //            overwritten on every dry run; README.md carries the timestamp)
 //   site     apps/site/.wrangler/deploy/config.json -> configPath ->
 //            dist/server/wrangler.json (Astro's redirected config: no_bundle,
@@ -45,7 +45,7 @@ const TARGETS = {
     label: 'explore.developing-country.org (developing-country-explore)',
     limitKiB: 1024,
     dryRunScript: 'dry-run:explore',
-    outdir: '.wrangler/dry-run-explore',
+    outdir: 'apps/explore/.wrangler/dry-run-explore',
     resolveModules: resolveExploreModules,
   },
   site: {

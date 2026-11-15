@@ -4,8 +4,8 @@
 // values and ranked related Datasets. The MCP reads it to search, describe and
 // suggest next queries without loading 109 table artifacts per request.
 //
-// Inputs: INDICATOR_DATASETS (packages/datasets) + public/data/<id>.json.
-// Output: public/catalog/dataset-index.json, served at /catalog/dataset-index.json
+// Inputs: INDICATOR_DATASETS (packages/datasets) + apps/explore/public/data/<id>.json.
+// Output: apps/explore/public/catalog/dataset-index.json, served at /catalog/dataset-index.json
 // and loaded lazily by the Worker (kept out of the Worker bundle).
 //   bun scripts/build-dataset-index.ts          write
 //   bun scripts/build-dataset-index.ts --check  fail if stale
@@ -20,10 +20,10 @@ import {
   type IndicatorField,
   type IndicatorTableV1,
 } from '@developing-country/datasets'
-import { isJsonString } from '../src/shared/json'
+import { isJsonString } from '@developing-country/domain/json'
 
 const ROOT = resolve(import.meta.dir, '..')
-const OUTPUT = resolve(ROOT, 'public/catalog/dataset-index.json')
+const OUTPUT = resolve(ROOT, 'apps/explore/public/catalog/dataset-index.json')
 
 // Columns that carry row-level provenance rather than analysable content.
 const PROVENANCE_FIELDS = new Set(['record_id', 'review_note', 'reported_token', 'extraction_method'])
@@ -75,7 +75,7 @@ interface DatasetIndex {
 }
 
 function loadTable(id: string): IndicatorTableV1 {
-  const path = resolve(ROOT, 'public/data', `${id}.json`)
+  const path = resolve(ROOT, 'apps/explore/public/data', `${id}.json`)
   const table = parseIndicatorTable(JSON.parse(readFileSync(path, 'utf8')))
   if (table.dataset_id !== id) throw new Error(`${path} declares dataset_id ${table.dataset_id}`)
   return table

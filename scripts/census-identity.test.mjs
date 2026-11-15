@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { parseIndicatorTable } from '../packages/datasets/src/table.ts'
 
-const DATA = resolve(import.meta.dir, '../public/data')
+const DATA = resolve(import.meta.dir, '../apps/explore/public/data')
 
 describe('census identity artifacts', () => {
   test('ethnicity covers 2012 and 2024 for every district and published group', () => {

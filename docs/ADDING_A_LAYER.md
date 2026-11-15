@@ -12,7 +12,7 @@ There are three kinds of layer. Pick the row that matches your data:
 
 | Kind | Data lives in | Registry `source` | Example |
 |---|---|---|---|
-| **Static GeoJSON** (light, < a few MB) | `public/data/<name>.geojson` | `{ type: 'geojson', url: 'data/<name>.geojson' }` | attractions, waterfalls, parks |
+| **Static GeoJSON** (light, < a few MB) | `apps/explore/public/data/<name>.geojson` | `{ type: 'geojson', url: 'data/<name>.geojson' }` | attractions, waterfalls, parks |
 | **Vector tiles** (heavy — roads, water, climate) | `*.pmtiles` on R2, served from `tiles.developing-country.org` | `{ type: 'vector-pmtiles', file: '<name>.pmtiles' }` | roads, water, climate |
 | **Runtime API** (live / per-user data) | a same-origin endpoint under `/api/*` | `{ type: 'api', endpoint: '/api/<name>' }` | stepper, prospects, analyses |
 
@@ -20,7 +20,7 @@ There are three kinds of layer. Pick the row that matches your data:
 
 ## Worked example — a static GeoJSON layer ("Viewpoints")
 
-### 1. Fetch the data into `public/data/`
+### 1. Fetch the data into `apps/explore/public/data/`
 
 Fetch scripts live in `scripts/`. A fetch script must be **idempotent** and
 **stamp provenance on the FeatureCollection root**:
@@ -39,12 +39,12 @@ const fc = {
     properties: { name: r.name, category: 'viewpoint', osm_type: r.type, osm_id: r.id, source: 'OpenStreetMap' },
   })),
 }
-fs.writeFileSync('public/data/viewpoints.geojson', JSON.stringify(fc))
+fs.writeFileSync('apps/explore/public/data/viewpoints.geojson', JSON.stringify(fc))
 ```
 
 Run it, and add a Bun script alias in `package.json` (`"fetch:explore": "bun scripts/fetch-explore.mjs"`).
 
-### 2. Register it in `src/map/layers.ts`
+### 2. Register it in `apps/explore/src/map/layers.ts`
 
 Add one `LayerGroup` to `LAYER_GROUPS`. This is the single source of truth — the
 map and the legend both read it, so they can never drift.
@@ -74,7 +74,7 @@ map and the legend both read it, so they can never drift.
 }
 ```
 
-Then add `'viewpoints'` to `STACK_ORDER` in `src/map/MapView.tsx` at the right
+Then add `'viewpoints'` to `STACK_ORDER` in `apps/explore/src/map/MapView.tsx` at the right
 height (points near the top, fills near the bottom). If your category is new,
 add it to `CATEGORIES` in `layers.ts` and to the `LayerCategory` union.
 
@@ -84,8 +84,8 @@ off the registry entry. No panel edits needed for an ordinary layer.
 
 Then keep the **LLM catalog** in lock-step (dual SSOT — do not scrape `layers.ts`):
 
-1. Add the group id to `src/shared/registry-ids.json` `layer_groups` (same order as `LAYER_GROUPS`).
-2. Add an `EntityType` in `src/worker/ontology.ts` with `layer_id` equal to that id, provenance, completeness, `searchable` (false unless the GeoJSON is a light name-scan; **never** mark a file ≳ 2 MB searchable), and `related` ids that already exist.
+1. Add the group id to `apps/explore/src/shared/registry-ids.json` `layer_groups` (same order as `LAYER_GROUPS`).
+2. Add an `EntityType` in `apps/explore/src/worker/ontology.ts` with `layer_id` equal to that id, provenance, completeness, `searchable` (false unless the GeoJSON is a light name-scan; **never** mark a file ≳ 2 MB searchable), and `related` ids that already exist.
 3. Add a row to `scripts/coverage-ledger.json` if this is civic/official-vs-OSM data.
 4. Run `bun run check:ontology` — it fails if a paint id has no ontology row, if `related` ids dangle, or if a searchable GeoJSON is too big.
 
@@ -93,7 +93,7 @@ Missing either the JSON id or the ontology entity is a bug: `layers.ts` throws a
 
 ### 3. Teach the click formatter about it
 
-In `src/map/featureFormat.ts`, add a branch to `formatFeature` keyed on your
+In `apps/explore/src/map/featureFormat.ts`, add a branch to `formatFeature` keyed on your
 `groupId`. Map the GeoJSON properties to sheet rows and links:
 
 ```ts
@@ -117,7 +117,7 @@ automatically. There is no separate step; a missing `info` is a type error.
 
 ## Giving a layer an icon
 
-Every point marker on the map comes from **`src/map/icons.ts`** — one registry
+Every point marker on the map comes from **`apps/explore/src/map/icons.ts`** — one registry
 of hand-drawn pins. It is *original artwork*: no icon pack, no npm
 dependency, no runtime fetch, and therefore no third-party licence to carry. If
 you ever do vendor a glyph from an open pack, paste the path data in as static
@@ -127,7 +127,7 @@ applies to artwork exactly like it applies to data.
 **Adding an icon is a one-file change:**
 
 ```ts
-// src/map/icons.ts — add one entry to ICONS
+// apps/explore/src/map/icons.ts — add one entry to ICONS
 kollam: {
   label: 'Kollam',                       // used by the legend + a11y label
   color: '#8b5cf6',                      // the pin body; this is also the palette
@@ -199,8 +199,8 @@ prospects, analysis runs). The registry entry is the same shape, but:
   **"source unavailable"** for anything else (an upstream outage).
 - An endpoint that proxies a third-party page should keep its last good copy
   and serve it with `stale: true` when the upstream breaks; the card then says
-  it is showing a saved copy. `/api/stepper` (`src/worker/stepper.ts`) does this.
-- Add an adapter case in `src/map/apiLayers.ts` (`fetchApiLayer`) that converts
+  it is showing a saved copy. `/api/stepper` (`apps/explore/src/worker/stepper.ts`) does this.
+- Add an adapter case in `apps/explore/src/map/apiLayers.ts` (`fetchApiLayer`) that converts
   the endpoint's JSON into a `FeatureCollection`. If the endpoint already
   returns GeoJSON (like `/api/stepper`), reuse `adaptFeatureCollection`.
 - The panel shows a live **count badge** / **loading** / **unavailable** state
@@ -218,10 +218,10 @@ is live. Every render layer needs a `'source-layer'`.
 
 ## Checklist
 
-- [ ] Data fetched into `public/data/` (GeoJSON, provenance on the root) **or** endpoint under `/api/*` **or** PMTiles on R2
+- [ ] Data fetched into `apps/explore/public/data/` (GeoJSON, provenance on the root) **or** endpoint under `/api/*` **or** PMTiles on R2
 - [ ] `package.json` refresh script alias, if a fetch script
 - [ ] `LayerGroup` added to `LAYER_GROUPS` with a filled `info` block
-- [ ] (point layers) icon added to `ICONS` in `src/map/icons.ts`, declared with `pinLayer()`, and mirrored in the `legend`
+- [ ] (point layers) icon added to `ICONS` in `apps/explore/src/map/icons.ts`, declared with `pinLayer()`, and mirrored in the `legend`
 - [ ] `id` added to `STACK_ORDER`; new `category` added to `CATEGORIES` + the union if needed
 - [ ] `formatFeature` branch for click → detail sheet
 - [ ] (API layers) adapter case in `apiLayers.ts`

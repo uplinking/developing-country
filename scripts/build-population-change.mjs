@@ -10,8 +10,8 @@ import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
-const DEFAULT_GEOJSON = join(ROOT, 'public/data/demographics.geojson')
-const DEFAULT_OUTPUT = join(ROOT, 'public/data/population-change-district.json')
+const DEFAULT_GEOJSON = join(ROOT, 'apps/explore/public/data/demographics.geojson')
+const DEFAULT_OUTPUT = join(ROOT, 'apps/explore/public/data/population-change-district.json')
 
 export const DISTRICT_IDS = Object.freeze([
   'LK-11', 'LK-12', 'LK-13',

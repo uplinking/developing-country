@@ -40,7 +40,7 @@ describe('published indicator presets', () => {
     for (const dataset of INDICATOR_DATASETS) {
       expect(ids.has(dataset.id)).toBe(false)
       ids.add(dataset.id)
-      const path = join(ROOT, 'public', indicatorDatasetPath(dataset.id))
+      const path = join(ROOT, 'apps/explore/public', indicatorDatasetPath(dataset.id))
       const table = parseIndicatorTable(JSON.parse(readFileSync(path, 'utf8')))
       expect(table.dataset_id).toBe(dataset.id)
       expect([...table.source_ids].sort()).toEqual([...dataset.sourceIds].sort())
@@ -50,7 +50,7 @@ describe('published indicator presets', () => {
 
   test('every preset selects rows and references registered fields', () => {
     for (const dataset of INDICATOR_DATASETS) {
-      const path = join(ROOT, 'public', indicatorDatasetPath(dataset.id))
+      const path = join(ROOT, 'apps/explore/public', indicatorDatasetPath(dataset.id))
       const table = parseIndicatorTable(JSON.parse(readFileSync(path, 'utf8')))
       const fieldIds = new Set(table.fields.map((field) => field.id))
       const presetIds = new Set<string>()

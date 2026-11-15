@@ -10,7 +10,7 @@ import { tmpdir } from 'node:os'
 import { readXlsxSheet } from './lib/xlsx.mjs'
 
 const ROOT = resolve(import.meta.dir, '..')
-const DEFAULT_OUTPUT = join(ROOT, 'public/data')
+const DEFAULT_OUTPUT = join(ROOT, 'apps/explore/public/data')
 
 const SOURCES = {
   households: {

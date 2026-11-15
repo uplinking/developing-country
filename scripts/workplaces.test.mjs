@@ -40,7 +40,7 @@ describe('Overture place classification', () => {
 })
 
 describe('workplaces artifact', () => {
-  const fc = JSON.parse(readFileSync(join(ROOT, 'public/data/workplaces.geojson'), 'utf8'))
+  const fc = JSON.parse(readFileSync(join(ROOT, 'apps/explore/public/data/workplaces.geojson'), 'utf8'))
 
   test('offices only, with provenance and a valid office type', () => {
     expect(fc.vintage).toBe('2026-09-23.1')
@@ -54,6 +54,6 @@ describe('workplaces artifact', () => {
   })
 
   test('stays under the searchable GeoJSON cap', () => {
-    expect(statSync(join(ROOT, 'public/data/workplaces.geojson')).size).toBeLessThan(2.1 * 1024 * 1024)
+    expect(statSync(join(ROOT, 'apps/explore/public/data/workplaces.geojson')).size).toBeLessThan(2.1 * 1024 * 1024)
   })
 })

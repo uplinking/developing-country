@@ -27,13 +27,13 @@ and R2 reads without broadening the private-response boundary.
 ## Before the first deploy
 
 1. Put the `developing-country.org` zone in the same Cloudflare account named by
-   `wrangler.explore.jsonc`. Custom Domains require an active owned zone and no
+   `apps/explore/wrangler.jsonc`. Custom Domains require an active owned zone and no
    conflicting CNAME at either hostname.
 2. Run `bunx wrangler whoami` and confirm the account before any mutation.
 3. Add `https://explore.developing-country.org/api/auth/callback/google` and the
    equivalent GitHub callback to the provider consoles before switching OAuth.
 4. Configure platform secrets with `bunx wrangler secret put --config
-   wrangler.explore.jsonc <NAME>`: `BETTER_AUTH_SECRET` is required; provider
+   apps/explore/wrangler.jsonc <NAME>`: `BETTER_AUTH_SECRET` is required; provider
    client ids/secrets are optional pairs.
 5. Create the dedicated immutable Query Snapshot bucket once with `bunx
    wrangler r2 bucket create developing-country-views`. The explorer binds it
@@ -63,7 +63,7 @@ Wrangler auto-provisions the site’s ID-less `SESSION` KV, CMS D1, media R2, an
 Images bindings. The private `DATASETS` bucket is deliberately pre-created and
 populated because the site fails closed if its checksummed catalogue is absent.
 EmDash applies core CMS migrations. Platform migrations remain
-append-only in the root `migrations/` directory. Migration `0008` freezes all
+append-only in `apps/explore/migrations/`. Migration `0008` freezes all
 Data View claim fields and adds the R2 result pointer; apply it only after the
 `developing-country-views` bucket exists. Migration `0009` adds hard per-owner,
 hourly, and platform Data View storage ceilings. Migration `0010` indexes global

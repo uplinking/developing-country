@@ -10,7 +10,7 @@
 
 import { execSync } from 'node:child_process'
 import { readFile, writeFile } from 'node:fs/promises'
-import { freshnessOf, refreshedPeriod, refreshKind } from '../src/shared/freshness.ts'
+import { freshnessOf, refreshedPeriod, refreshKind } from '@developing-country/domain/freshness'
 
 const CATALOGUE = new URL('./data-sources.json', import.meta.url)
 const load = async () => JSON.parse(await readFile(CATALOGUE, 'utf8'))

@@ -22,7 +22,7 @@ if (import.meta.main) {
   if (!start || !end || !validDate(start) || !validDate(end) || start > end) throw new Error('Use --date=YYYY-MM-DD or --from=YYYY-MM-DD --to=YYYY-MM-DD (up to 31 days)')
   const count = (Date.parse(end) - Date.parse(start)) / 86400000 + 1
   if (count > 31) throw new Error('Backfill in batches of at most 31 days')
-  const output = resolve(arg('output-dir') || join(ROOT, 'public/data'))
+  const output = resolve(arg('output-dir') || join(ROOT, 'apps/explore/public/data'))
   const sourceDir = arg('source-dir')
   const batches = { [POWER_ID]: [], [ENERGY_ID]: [] }
   const archive = []

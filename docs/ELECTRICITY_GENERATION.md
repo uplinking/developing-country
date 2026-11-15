@@ -32,7 +32,7 @@ bun run datasets:sync
 
 The importer fetches both endpoints, checks dates, duplicates, numeric values and unexpected power fields, then validates normalized tables. Raw responses are archived under `data/sources/nso-generation/<date>/` with SHA-256 filenames and URL/retrieval-time sidecars. Revisions produce new raw files. Validated dates replace corresponding served rows; all other dates remain. Empty or invalid responses fail the batch before served files change. No interpolation, zero filling or conversion of MW samples into invented daily energy occurs.
 
-Normalized tables live in `public/data/`, following the existing platform table/ASSETS path. They are registered in the ontology, source registry, immutable Dataset Version manifest and R2-backed site catalogue. CMS notes and charts derive from the definitions in `packages/datasets`. The normal release process publishes each validated version.
+Normalized tables live in `apps/explore/public/data/`, following the existing platform table/ASSETS path. They are registered in the ontology, source registry, immutable Dataset Version manifest and R2-backed site catalogue. CMS notes and charts derive from the definitions in `packages/datasets`. The normal release process publishes each validated version.
 
 For offline replay, `--source-dir=<dir>` expects `load-curve-YYYY-MM-DD.json` and `energy-data-YYYY-MM-DD.json`. `--output-dir=<dir>` avoids changing served tables and the source registry; validated inputs are still archived locally.
 

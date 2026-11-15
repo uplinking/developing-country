@@ -4,10 +4,10 @@
 // (walk graph, 80 m/min, 50 m frontage, 5 m raster, area-weighted GN population,
 // Overture offices, OSM schools and hospitals). Writes:
 //
-//   public/data/metro-gap-clusters.geojson + .json   dense, unserved GN-division clusters
-//   public/data/metro-stop-uniqueness.json           residents/offices only one stop reaches
-//   public/data/metro-route-candidates.geojson + .json  illustrative links/extensions, marginal scores
-//   public/data/metro-route-scenarios.json           current network vs network + best 3
+//   apps/explore/public/data/metro-gap-clusters.geojson + .json   dense, unserved GN-division clusters
+//   apps/explore/public/data/metro-stop-uniqueness.json           residents/offices only one stop reaches
+//   apps/explore/public/data/metro-route-candidates.geojson + .json  illustrative links/extensions, marginal scores
+//   apps/explore/public/data/metro-route-scenarios.json           current network vs network + best 3
 //
 // GAP CLUSTERS
 //   Tier 1: GN divisions with density ≥ 10,000 residents/km² (about the top fifth of
@@ -561,7 +561,7 @@ export async function build({ log = console.log } = {}) {
   const rg = roadGraph(roads.ways)
   const ridx = edgeIndex(rg)
   log(`road graph: ${rg.n} nodes, ${rg.m} edges (${roads.via})`)
-  const metro = readJson('public/data/metro.geojson')
+  const metro = readJson('apps/explore/public/data/metro.geojson')
   const spacing = medianStopSpacing(metro, stops)
   log(`median CM stop spacing: ${Math.round(spacing)} m`)
   const termini = new Map() // stop name -> line codes ending there
@@ -915,12 +915,12 @@ export async function build({ log = console.log } = {}) {
   validate({ clusterRows, uniqueRows, candidateRows, scenarioRows, network, studyPop, gndById: ctx.gndById, study, clusters })
   return {
     files: {
-      'public/data/metro-gap-clusters.geojson': clusterFc,
-      'public/data/metro-gap-clusters.json': tables['metro-gap-clusters'],
-      'public/data/metro-stop-uniqueness.json': tables['metro-stop-uniqueness'],
-      'public/data/metro-route-candidates.geojson': candidateFc,
-      'public/data/metro-route-candidates.json': tables['metro-route-candidates'],
-      'public/data/metro-route-scenarios.json': tables['metro-route-scenarios'],
+      'apps/explore/public/data/metro-gap-clusters.geojson': clusterFc,
+      'apps/explore/public/data/metro-gap-clusters.json': tables['metro-gap-clusters'],
+      'apps/explore/public/data/metro-stop-uniqueness.json': tables['metro-stop-uniqueness'],
+      'apps/explore/public/data/metro-route-candidates.geojson': candidateFc,
+      'apps/explore/public/data/metro-route-candidates.json': tables['metro-route-candidates'],
+      'apps/explore/public/data/metro-route-scenarios.json': tables['metro-route-scenarios'],
     },
     spacing,
   }

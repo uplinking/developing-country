@@ -86,7 +86,7 @@ Table 1: Asking Price Indices
 
 describe('colombo-asking-price-indices artifact', () => {
   const table = parseIndicatorTable(JSON.parse(
-    readFileSync(resolve(import.meta.dir, '../public/data/colombo-asking-price-indices.json'), 'utf8'),
+    readFileSync(resolve(import.meta.dir, '../apps/explore/public/data/colombo-asking-price-indices.json'), 'utf8'),
   ))
 
   test('keeps three property types for every published month', () => {

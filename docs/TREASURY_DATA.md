@@ -85,7 +85,7 @@ revisions, facility identities and shared-balance non-duplication.
 
 ## Evidence and interpretation
 
-`public/data/treasury-*.json` contains numeric cells with their source PDF URL,
+`apps/explore/public/data/treasury-*.json` contains numeric cells with their source PDF URL,
 SHA-256, physical page and extracted line. `source_value` preserves the printed
 number; source dashes and ND remain null. The `unit` dimension distinguishes
 currency, percentage and counts. `value` is explicitly nonadditive: many rows
@@ -120,7 +120,7 @@ bun scripts/refresh.mjs due
 bun scripts/refresh.mjs run treasury-debt
 # Only after a successful live refresh:
 bun scripts/refresh.mjs touch treasury-debt
-git add public/data
+git add apps/explore/public/data
 bun run build:dataset-versions
 bun run datasets:sync
 bun run check

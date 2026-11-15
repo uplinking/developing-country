@@ -117,7 +117,7 @@ const distinct = (values: string[]) => [...new Map(values.map((value) => [value.
 
 // SAFETY: scripts/build-dataset-index.ts writes this file from IndexEntry and
 // `bun run check:dataset-index` fails when it is stale.
-const datasetIndex = JSON.parse(readFileSync(resolve(root, 'public/catalog/dataset-index.json'), 'utf8')) as { datasets: IndexEntry[] }
+const datasetIndex = JSON.parse(readFileSync(resolve(root, 'apps/explore/public/catalog/dataset-index.json'), 'utf8')) as { datasets: IndexEntry[] }
 const searchTerms = Object.fromEntries(datasetIndex.datasets
   .filter((dataset) => expectedIds.has(dataset.dataset_id))
   .sort((left, right) => left.dataset_id.localeCompare(right.dataset_id))

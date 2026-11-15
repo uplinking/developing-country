@@ -1,4 +1,4 @@
-// Builds public/data/developments.geojson — curated planned developments from
+// Builds apps/explore/public/data/developments.geojson — curated planned developments from
 // Sri Lankan government planning documents, so each feature links back to its
 // source (page-anchored where possible) for people to verify themselves.
 //
@@ -290,6 +290,6 @@ for (const [name, lat, lng, type, status, page] of kandyProjects) {
 }
 
 const fc = { type: 'FeatureCollection', features }
-await writeFile('public/data/developments.geojson', JSON.stringify(fc))
+await writeFile('apps/explore/public/data/developments.geojson', JSON.stringify(fc))
 const byStatus = features.reduce((a, f) => ((a[f.properties.status] = (a[f.properties.status] || 0) + 1), a), {})
 console.log(`Wrote ${features.length} developments →`, byStatus)

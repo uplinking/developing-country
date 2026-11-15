@@ -17,7 +17,7 @@ request for another country with Sri Lankan evidence.
 `@developing-country/countries` is a small typed registry of Country Profiles.
 A profile owns only stable product framing: ISO alpha-2 code, slug, display
 name, default locale, data bounds, map bounds, and initial camera. The Worker
-extends the profile with its ontology in `src/worker/country.ts` and verifies
+extends the profile with its ontology in `apps/explore/src/worker/country.ts` and verifies
 that both country stamps match. Absence selects the explicit product default;
 any supplied unsupported or case-wrong code fails closed.
 

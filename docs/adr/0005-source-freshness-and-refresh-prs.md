@@ -15,7 +15,7 @@ schema change silently replace reviewed evidence.
 
 `scripts/data-sources.json` owns Source verification dates, refresh kind,
 per-Source threshold overrides, and explicit scheduling opt-in. The pure domain
-model in `src/shared/freshness.ts` computes `fresh`, `due`, `overdue`, `live`, or
+model in `packages/domain/src/freshness.ts` computes `fresh`, `due`, `overdue`, `live`, or
 `invalid` using one assessed date. Year and month precision use the end of that
 period so imprecise records are not declared due prematurely. Dataset catalog
 entries aggregate the worst required Source state and expose the full states to

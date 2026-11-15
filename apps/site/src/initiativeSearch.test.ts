@@ -107,7 +107,7 @@ test('an event is found by its initiative, funding line, own text and report tit
 })
 
 test('the published ledger builds and searches quickly enough to run on every keystroke', async () => {
-  const file = Bun.file(new URL('../../../public/data/lk-initiatives.json', import.meta.url))
+  const file = Bun.file(new URL('../../../apps/explore/public/data/lk-initiatives.json', import.meta.url))
   if (!(await file.exists())) return
   const ledger: {
     projects: ({ id: string } & Parameters<typeof initiativeSearchText>[0])[]

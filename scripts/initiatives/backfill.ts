@@ -72,7 +72,7 @@ async function ask(system: string, user: string, schema: Json, schemaFile: strin
 
 const sha = await pinRevision()
 const rows = await loadIndex(sha)
-const ledger = JSON.parse(await readFile('public/data/lk-initiatives.json', 'utf8'))
+const ledger = JSON.parse(await readFile('apps/explore/public/data/lk-initiatives.json', 'utf8'))
 const seen = await alreadyRead(ROOT)
 
 // A job is one month (backfill_<month>_<lang>.json) or, with --since, one window ending today

@@ -60,7 +60,7 @@ describe('WorldCover district indicator table', () => {
 
 describe('committed WorldCover artifacts', () => {
   test('grid is compact, class-safe, and explicit about method limitations', () => {
-    const path = new URL('../public/data/land-cover-grid.geojson', import.meta.url)
+    const path = new URL('../apps/explore/public/data/land-cover-grid.geojson', import.meta.url)
     const grid = JSON.parse(readFileSync(path, 'utf8'))
     expect(grid.type).toBe('FeatureCollection')
     expect(grid.features.length).toBeGreaterThan(500)
@@ -79,7 +79,7 @@ describe('committed WorldCover artifacts', () => {
   })
 
   test('district table is compact, contract-valid, complete, and internally coherent', () => {
-    const path = new URL('../public/data/land-cover-district.json', import.meta.url)
+    const path = new URL('../apps/explore/public/data/land-cover-district.json', import.meta.url)
     const table = parseIndicatorTable(JSON.parse(readFileSync(path, 'utf8')))
     expect(table.dataset_id).toBe('land-cover-district')
     expect(table.source_ids).toEqual(['esa-worldcover-2021'])
@@ -97,7 +97,7 @@ describe('committed WorldCover artifacts', () => {
   })
 
   test('tree-cover ranking covers every district and puts Kegalle first', () => {
-    const path = new URL('../public/data/land-cover-district.json', import.meta.url)
+    const path = new URL('../apps/explore/public/data/land-cover-district.json', import.meta.url)
     const table = parseIndicatorTable(JSON.parse(readFileSync(path, 'utf8')))
     const ranked = table.rows
       .filter((row) => row.class_code === 10)

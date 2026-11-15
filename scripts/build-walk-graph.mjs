@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Colombo foot graph for request-time walk isochrone.
 // Output: compact { nodes: [lng,lat][], edges: [a,b,metres][] }
-// Upload the JSON to R2 as graphs/walk/colombo.json (or drop in public/data/walk-colombo.json).
+// Upload the JSON to R2 as graphs/walk/colombo.json (or drop in apps/explore/public/data/walk-colombo.json).
 // Target < 8 MB. Envelope: CM stops bbox + 3 km.
 
 import { readFile, writeFile } from 'node:fs/promises'
@@ -9,7 +9,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
-const OUT = resolve(ROOT, 'public/data/walk-colombo.json')
+const OUT = resolve(ROOT, 'apps/explore/public/data/walk-colombo.json')
 const UA = 'developing-country.org/1.0'
 const PAD_DEG = 1.5 / 111 // ~1.5 km around CM stops; packed JSON must stay < 8 MB
 const MIN_EDGE_M = 1
@@ -29,7 +29,7 @@ function haversine([lo1, la1], [lo2, la2]) {
 }
 const nodeKey = ([lon, lat]) => `${Math.round(lon * DEC)},${Math.round(lat * DEC)}`
 
-const metro = JSON.parse(await readFile(resolve(ROOT, 'public/data/metro.geojson'), 'utf8'))
+const metro = JSON.parse(await readFile(resolve(ROOT, 'apps/explore/public/data/metro.geojson'), 'utf8'))
 const stops = metro.features.filter((f) => f.properties?.kind === 'stop')
 let minLat = 90,
   maxLat = -90,
@@ -131,4 +131,4 @@ if (buf.length > 8 * 1024 * 1024) {
   console.warn(`warning: ${(buf.length / 1024 / 1024).toFixed(2)} MB > 8 MB target; still shipping packed`)
 }
 console.log(`wrote ${OUT} — ${nodes.length} nodes, ${edges.length} edges, ${(buf.length / 1024 / 1024).toFixed(2)} MB`)
-console.log('Upload to R2 key graphs/walk/colombo.json (or leave in public/data for ASSETS fallback).')
+console.log('Upload to R2 key graphs/walk/colombo.json (or leave in apps/explore/public/data for ASSETS fallback).')

@@ -69,7 +69,7 @@ async function main() {
   await sh(['bun', 'scripts/refresh.mjs', 'touch', 'lk-initiatives-ledger', TODAY])
 
   await sh(['bun', 'scripts/initiatives/build.ts'])
-  await sh(['git', 'add', '-A', 'scripts/initiatives', 'public/data', sourcesPath])
+  await sh(['git', 'add', '-A', 'scripts/initiatives', 'apps/explore/public/data', sourcesPath])
   await sh(['bun', 'run', 'build:dataset-versions'])
   await sh(['bun', 'run', 'datasets:sync'])
   const check = await sh(['bun', 'run', 'check'], { allow: [1] })
@@ -78,7 +78,7 @@ async function main() {
   const added = (await sh(['git', 'status', '--porcelain', 'scripts/initiatives/news'])).out.trim().split('\n').filter(l => /weekly_|backfill_/.test(l) && !l.startsWith(' M'))
   if (!added.length) { log('No new batches; nothing to publish'); notify('No new initiatives this week.'); return }
   const summary = (await sh(['bun', 'scripts/initiatives/build.ts', '--check'], { allow: [1] })).out.trim()
-  const ledgerNow = JSON.parse(await readFile('public/data/lk-initiatives.json', 'utf8'))
+  const ledgerNow = JSON.parse(await readFile('apps/explore/public/data/lk-initiatives.json', 'utf8'))
   const title = `Initiatives: weekly read to ${TODAY}`
   const body = [
     `Weekly machine read of lk_news. Review before merging; merging releases.`,

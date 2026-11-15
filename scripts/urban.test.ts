@@ -8,7 +8,7 @@ import { canonical } from './lib/reviewed-source.mjs'
 test('reviewed urban tables reproduce artifacts and every chart has one value per category', () => {
   for (const raw of buildUrbanTables()) {
     const table = parseIndicatorTable({ schema_version: 1, country: 'LK', ...raw })
-    expect(canonical(table)).toEqual(JSON.parse(readFileSync(`public/data/${raw.dataset_id}.json`, 'utf8')))
+    expect(canonical(table)).toEqual(JSON.parse(readFileSync(`apps/explore/public/data/${raw.dataset_id}.json`, 'utf8')))
     for (const preset of URBAN_DATASETS.find(d => d.id === raw.dataset_id)!.presets) {
       const result = selectRows(table, preset.query)
       expect(result.rows.length).toBeGreaterThan(0)

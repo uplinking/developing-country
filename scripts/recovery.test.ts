@@ -8,7 +8,7 @@ import { SLDU_RECIPES, buildSlduTables } from './build-sldu.mjs'
 import { htmlTables } from './build-recovery-data.mjs'
 import { canonical, readSource, sha256, writeTables } from './lib/reviewed-source.mjs'
 
-const tables = new Map(RECOVERY_DATASETS.map(d => [d.id, parseIndicatorTable(JSON.parse(readFileSync(`public/data/${d.id}.json`, 'utf8')))]))
+const tables = new Map(RECOVERY_DATASETS.map(d => [d.id, parseIndicatorTable(JSON.parse(readFileSync(`apps/explore/public/data/${d.id}.json`, 'utf8')))]))
 const rows = (id: string) => tables.get(id)!.rows
 
 describe('reviewed historical-source imports', () => {

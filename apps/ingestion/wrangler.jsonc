@@ -1,0 +1,10 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "developing-country-ingestion",
+  "main": "index.ts",
+  "compatibility_date": "2026-08-25",
+  "workers_dev": false,
+  "triggers": { "crons": ["23 */6 * * *"] },
+  "r2_buckets": [{ "binding": "DATASETS", "bucket_name": "developing-country-data" }],
+  "observability": { "enabled": true }
+}

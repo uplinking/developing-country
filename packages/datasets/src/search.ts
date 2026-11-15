@@ -1,5 +1,5 @@
 // Plain-language search over the dataset catalogue: the /data page ranks with
-// search(); the MCP get_layer_catalog {q} tool (src/worker/discovery.ts) parses
+// search(); the MCP get_layer_catalog {q} tool (apps/explore/src/worker/discovery.ts) parses
 // with parseQuery() and the same synonym map (./searchSynonyms), then ranks with
 // its own zones under the same rules.
 //

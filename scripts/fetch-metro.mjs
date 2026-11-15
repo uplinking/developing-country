@@ -12,7 +12,7 @@
 //   is unreachable we fall back to straight segments and stamp
 //   `geometry: 'straight'` so the map copy can stay honest.
 //
-// Idempotent + self-validating: re-running rebuilds public/data/metro.geojson
+// Idempotent + self-validating: re-running rebuilds apps/explore/public/data/metro.geojson
 // and checks it before writing.
 //
 // Usage: bun run fetch:metro
@@ -147,11 +147,11 @@ function validate(fc) {
 const run = async () => {
   const fc = await build()
   validate(fc)
-  await writeFile('public/data/metro.geojson', JSON.stringify(fc))
+  await writeFile('apps/explore/public/data/metro.geojson', JSON.stringify(fc))
   const straight = fc.features.filter((f) => f.properties.geometry === 'straight').length
   const lines = fc.features.filter((f) => f.properties.kind === 'line').length
   const stops = fc.features.filter((f) => f.properties.kind === 'stop').length
-  console.log(`Wrote public/data/metro.geojson — ${lines} lines, ${stops} stops` + (straight ? ` (${straight} straight-line)` : ' (all road-snapped)'))
+  console.log(`Wrote apps/explore/public/data/metro.geojson — ${lines} lines, ${stops} stops` + (straight ? ` (${straight} straight-line)` : ' (all road-snapped)'))
 }
 
 run().catch((e) => {

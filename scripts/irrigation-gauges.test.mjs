@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { EXPECTED_STATIONS, buildGaugeCollection } from './fetch-irrigation-gauges.mjs'
 
-const DATA = resolve(import.meta.dir, '../public/data/irrigation-gauges.geojson')
+const DATA = resolve(import.meta.dir, '../apps/explore/public/data/irrigation-gauges.geojson')
 
 const FIXTURE = [
   {
