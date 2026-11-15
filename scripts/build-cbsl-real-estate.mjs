@@ -18,7 +18,7 @@ import {
 } from './build-cbsl-indicators.mjs'
 
 const ROOT = resolve(import.meta.dir, '..')
-const DEFAULT_OUTPUT = join(ROOT, 'public/data')
+const DEFAULT_OUTPUT = join(ROOT, 'apps/explore/public/data')
 const SURVEY_PAGE = 'https://www.cbsl.gov.lk/en/statistics/business-surveys/condominium-market-survey'
 const PDF_BASE = 'https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/statistics'
 

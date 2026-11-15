@@ -49,5 +49,5 @@ export function useFiguresConfig(input?: FiguresConfigInput): FiguresConfig {
 const OPENFREEMAP_LIGHT = 'https://tiles.openfreemap.org/styles/positron'
 const OPENFREEMAP_DARK = 'https://tiles.openfreemap.org/styles/dark'
 
-/** The same key-less hosted styles the explorer uses in production (src/map/basemap.ts). */
+/** The same key-less hosted styles the explorer uses in production (apps/explore/src/map/basemap.ts). */
 export const defaultBasemap: BasemapResolver = (theme) => (theme === 'dark' ? OPENFREEMAP_DARK : OPENFREEMAP_LIGHT)

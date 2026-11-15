@@ -5,7 +5,7 @@ import { parseIndicatorTable } from '../packages/datasets/src/table.ts'
 import { buildHousingStructureFromSheet, HOUSING_STRUCTURE_CATEGORIES } from './build-census-housing.mjs'
 import { readXlsxSheet } from './lib/xlsx.mjs'
 
-const DATA = resolve(import.meta.dir, '../public/data')
+const DATA = resolve(import.meta.dir, '../apps/explore/public/data')
 
 describe('housing-structure builder', () => {
   test('rejects a sheet that is missing geographies', () => {

@@ -20,7 +20,7 @@ Registered API adapter → validate daily tables → immutable R2 objects
 - `packages/ingestion/src/pipeline.ts`: bounded HTTP reads, raw archives,
   validation, daily partition publication, correction handling, concurrency
   control, and run records. It has no electricity-specific branches.
-- `workers/ingestion/index.ts`: adapter wiring and scheduled entry point.
+- `apps/ingestion/index.ts`: adapter wiring and scheduled entry point.
 - `packages/ingestion/src/electricity.ts`: pure NSO normalization shared with
   the existing offline importer. MW and GWh remain separate tables. Missing
   observations remain absent/null; signed battery power remains signed.
@@ -55,7 +55,7 @@ Orphaned staging objects are harmless and are not public versions.
 
 ## Schedule and failures
 
-`wrangler.ingestion.jsonc` runs at 00:23, 06:23, 12:23 and 18:23 UTC. Each source
+`apps/ingestion/wrangler.jsonc` runs at 00:23, 06:23, 12:23 and 18:23 UTC. Each source
 revisits its last three completed local report dates and fills up to three other
 missing dates per run, starting at its configured `startDate`. Backlog retries
 rotate so permanently absent reports cannot block later gaps. Current local-day
@@ -123,7 +123,7 @@ freshness reports that schedule once the first snapshot is published.
 ## Local validation and replay
 
 ```sh
-bunx wrangler dev --config wrangler.ingestion.jsonc --test-scheduled \
+bunx wrangler dev --config apps/ingestion/wrangler.jsonc --test-scheduled \
   --port 8893 --persist-to .wrangler/ingestion-validation
 curl 'http://localhost:8893/cdn-cgi/local/scheduled?format=json'
 ```
@@ -135,7 +135,7 @@ The normal Vite frontend proxies `/api` to the local Explorer Worker on 8787.
 For a bounded historical replay, start the same local Worker with:
 
 ```sh
-bunx wrangler dev --config wrangler.ingestion.jsonc --test-scheduled \
+bunx wrangler dev --config apps/ingestion/wrangler.jsonc --test-scheduled \
   --port 8893 --persist-to .wrangler/ingestion-validation \
   --var BACKFILL_SOURCE:nso-generation-api \
   --var BACKFILL_FROM:2026-09-11 --var BACKFILL_TO:2026-09-13

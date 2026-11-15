@@ -237,7 +237,7 @@ function stopEdges(adj, coord, dist, stopName) {
 }
 
 async function build() {
-  const metro = JSON.parse(await readFile('public/data/metro.geojson', 'utf8'))
+  const metro = JSON.parse(await readFile('apps/explore/public/data/metro.geojson', 'utf8'))
   const stops = metro.features
     .filter((f) => f.properties.kind === 'stop')
     .map((f) => ({ name: f.properties.name, lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] }))
@@ -299,12 +299,12 @@ function validate(fc, nStops) {
 }
 
 const run = async () => {
-  const metro = JSON.parse(await readFile('public/data/metro.geojson', 'utf8'))
+  const metro = JSON.parse(await readFile('apps/explore/public/data/metro.geojson', 'utf8'))
   const nStops = metro.features.filter((f) => f.properties.kind === 'stop').length
   const fc = await build()
   validate(fc, nStops)
-  await writeFile('public/data/metro_catchment.geojson', JSON.stringify(fc))
-  console.log(`Wrote public/data/metro_catchment.geojson — ${fc.features.length} features`)
+  await writeFile('apps/explore/public/data/metro_catchment.geojson', JSON.stringify(fc))
+  console.log(`Wrote apps/explore/public/data/metro_catchment.geojson — ${fc.features.length} features`)
 }
 
 run().catch((e) => { console.error(e); process.exit(1) })

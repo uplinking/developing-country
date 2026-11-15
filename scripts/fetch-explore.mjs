@@ -1,6 +1,6 @@
 // Fetch Sri Lanka's "Explore" layers (nature, tourism, trails) from
 // OpenStreetMap via the Overpass API and write them as GeoJSON in
-// public/data/ for the explorer's nature and tourism layers.
+// apps/explore/public/data/ for the explorer's nature and tourism layers.
 //
 // Produces five layers:
 //   attractions.geojson  — points: tourism attractions/museums/zoos/viewpoints
@@ -21,7 +21,7 @@ import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const OUT_DIR = resolve(__dirname, '..', 'public', 'data')
+const OUT_DIR = resolve(__dirname, '..', 'apps', 'explore', 'public', 'data')
 
 const OVERPASS_ENDPOINTS = [
   'https://overpass-api.de/api/interpreter',
@@ -511,7 +511,7 @@ async function run() {
       if (!ok) failed = true
       await writeFile(path, json)
       summary.push({ key, count: n, min, sizeMB, ok })
-      console.log(`  wrote ${n} features → public/data/${key}.geojson (${sizeMB}MB) ${ok ? 'OK' : 'FAIL (below min ' + min + ')'}`)
+      console.log(`  wrote ${n} features → apps/explore/public/data/${key}.geojson (${sizeMB}MB) ${ok ? 'OK' : 'FAIL (below min ' + min + ')'}`)
     } catch (e) {
       failed = true
       summary.push({ key, count: 0, min: BUILDERS[key] ? '?' : '?', sizeMB: '0', ok: false })

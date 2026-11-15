@@ -4,14 +4,14 @@ const read = (path: string) => Bun.file(path).text()
 
 describe('shared product navigation shell', () => {
   test('both Workers and dataset reports render the same header component', async () => {
-    for (const path of ['apps/site/src/layouts/SiteLayout.astro', 'src/App.tsx', 'src/views/DatasetChartPage.tsx']) {
+    for (const path of ['apps/site/src/layouts/SiteLayout.astro', 'apps/explore/src/App.tsx', 'apps/explore/src/views/DatasetChartPage.tsx']) {
       const source = await read(path)
       expect(source).toContain("from '@developing-country/ui/SiteHeader'")
       expect(source).toContain('<SiteHeader ')
       expect(source).not.toContain('dc-report-nav')
       expect(source).not.toContain('dc-product-nav')
     }
-    const explorer = await read('src/App.tsx')
+    const explorer = await read('apps/explore/src/App.tsx')
     expect(explorer).toContain('aria-label="Map controls"')
     // MCP and Sign in live once on the map: the toolbar's stateful controls own
     // them, and the explorer's header leaves its static copies out.

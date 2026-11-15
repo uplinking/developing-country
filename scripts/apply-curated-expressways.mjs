@@ -1,5 +1,5 @@
 // Inject the curated proposed expressways (scripts/expressways-curated.mjs) into
-// public/data/expressways.geojson WITHOUT a network round-trip. Use this when
+// apps/explore/public/data/expressways.geojson WITHOUT a network round-trip. Use this when
 // Overpass is unavailable and you just need the curated alignments applied to
 // the existing OSM-derived data. Idempotent: it strips any features whose id we
 // own before re-appending, so re-running produces the same file.
@@ -9,7 +9,7 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { CURATED_EXPRESSWAY_IDS, curatedExpresswayFeatures } from './expressways-curated.mjs'
 
-const PATH = 'public/data/expressways.geojson'
+const PATH = 'apps/explore/public/data/expressways.geojson'
 const fc = JSON.parse(await readFile(PATH, 'utf8'))
 if (fc.type !== 'FeatureCollection' || !Array.isArray(fc.features)) {
   throw new Error(`${PATH} is not a FeatureCollection`)

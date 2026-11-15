@@ -8,7 +8,7 @@ import {
   buildRegisteredStockFromText,
 } from './build-motor-vehicles.mjs'
 
-const DATA = resolve(import.meta.dir, '../public/data')
+const DATA = resolve(import.meta.dir, '../apps/explore/public/data')
 
 const STOCK_FIXTURE = `
 8.2 Registered Motor Vehicles, 2020 - 2024

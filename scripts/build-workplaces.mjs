@@ -4,7 +4,7 @@
 // Input:  data/src/overture/places-<release>-colombo.json (gitignored), written by
 //           uvx --with duckdb python -I scripts/fetch-overture-places.py
 //         (prerequisite: uv; DuckDB is supplied by uvx, not a repo dependency)
-// Output: public/data/workplaces.geojson — office points only (name, office_type,
+// Output: apps/explore/public/data/workplaces.geojson — office points only (name, office_type,
 //         category, confidence), provenance on the root.
 //
 // CLASSIFICATION (shared with scripts/build-metro-coverage.mjs via classifyPlace)
@@ -27,7 +27,7 @@ import { fileURLToPath } from 'node:url'
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 export const OVERTURE_RELEASE = '2026-09-23.1'
 export const OVERTURE_CACHE = join(ROOT, `data/src/overture/places-${OVERTURE_RELEASE}-colombo.json`)
-const OUT = join(ROOT, 'public/data/workplaces.geojson')
+const OUT = join(ROOT, 'apps/explore/public/data/workplaces.geojson')
 export const MIN_CONFIDENCE = 0.5
 export const ALLOWED_LICENCES = new Set(['CDLA-Permissive-2.0', 'Apache-2.0', 'CC0', 'CC0-1.0'])
 
@@ -162,12 +162,12 @@ if (import.meta.main) {
   console.log(`places ${tally.rows}; dropped ${JSON.stringify(tally.dropped)}`)
   console.log(`offices ${fc.features.length} ${JSON.stringify(tally.office)}; businesses ${tally.business}`)
   const kb = (Buffer.byteLength(text) / 1024).toFixed(0)
-  if (previous === text) console.log(`build-workplaces: unchanged public/data/workplaces.geojson (${kb} KB)`)
+  if (previous === text) console.log(`build-workplaces: unchanged apps/explore/public/data/workplaces.geojson (${kb} KB)`)
   else if (process.argv.includes('--check')) {
-    console.error('build-workplaces: public/data/workplaces.geojson is stale')
+    console.error('build-workplaces: apps/explore/public/data/workplaces.geojson is stale')
     process.exit(1)
   } else {
     writeFileSync(OUT, text)
-    console.log(`build-workplaces: wrote public/data/workplaces.geojson (${kb} KB)`)
+    console.log(`build-workplaces: wrote apps/explore/public/data/workplaces.geojson (${kb} KB)`)
   }
 }

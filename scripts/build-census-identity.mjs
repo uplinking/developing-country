@@ -8,7 +8,7 @@ import { join, resolve } from 'node:path'
 import { tmpdir } from 'node:os'
 
 const ROOT = resolve(import.meta.dir, '..')
-const DEFAULT_OUTPUT = join(ROOT, 'public/data')
+const DEFAULT_OUTPUT = join(ROOT, 'apps/explore/public/data')
 const SOURCE = {
   file: 'CPH2024_Final_Eng.pdf',
   url: 'https://www.statistics.gov.lk/Resource/en/Population/CPH_2024/CPH2024_Final_Eng.pdf',

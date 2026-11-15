@@ -5,6 +5,27 @@
     "": {
       "name": "developing-country",
       "dependencies": {
+        "@developing-country/countries": "workspace:*",
+        "@developing-country/datasets": "workspace:*",
+        "@developing-country/domain": "workspace:*",
+        "@developing-country/ui": "workspace:*",
+      },
+      "devDependencies": {
+        "@oxlint/plugins": "^1.80.0",
+        "@turf/turf": "^7.4.0",
+        "@types/bun": "^1.4.0",
+        "@types/node": "^24.13.2",
+        "oxlint": "^1.80.0",
+        "searoute-js": "^0.1.0",
+        "typescript": "~6.0.2",
+        "wrangler": "^4.110.0",
+        "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
+      },
+    },
+    "apps/explore": {
+      "name": "@developing-country/explore",
+      "version": "0.1.0",
+      "dependencies": {
         "@better-auth/cimd": "1.7.18",
         "@better-auth/mcp": "1.7.18",
         "@better-auth/oauth-provider": "1.7.18",
@@ -27,8 +48,6 @@
       },
       "devDependencies": {
         "@cloudflare/workers-types": "^5.20260710.1",
-        "@oxlint/plugins": "^1.80.0",
-        "@turf/turf": "^7.4.0",
         "@types/bun": "^1.4.0",
         "@types/geojson": "^7946.0.16",
         "@types/node": "^24.13.2",
@@ -36,12 +55,18 @@
         "@types/react-dom": "^19.2.3",
         "@types/suncalc": "^1.9.2",
         "@vitejs/plugin-react": "^6.0.3",
-        "oxlint": "^1.80.0",
-        "searoute-js": "^0.1.0",
         "typescript": "~6.0.2",
         "vite": "^8.1.1",
         "wrangler": "^4.110.0",
-        "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
+      },
+    },
+    "apps/ingestion": {
+      "name": "@developing-country/ingestion-worker",
+      "version": "0.1.0",
+      "devDependencies": {
+        "@cloudflare/workers-types": "^5.20260710.1",
+        "typescript": "~6.0.2",
+        "wrangler": "^4.110.0",
       },
     },
     "apps/site": {
@@ -109,6 +134,7 @@
         "pmtiles": "^4.4.1",
       },
       "devDependencies": {
+        "@types/react": "^19.2.17",
         "react": "19.2.8",
       },
       "peerDependencies": {
@@ -118,6 +144,11 @@
     "packages/ui": {
       "name": "@developing-country/ui",
       "version": "0.1.0",
+      "devDependencies": {
+        "@types/react": "^19.2.17",
+        "react": "19.2.8",
+        "react-dom": "19.2.8",
+      },
       "peerDependencies": {
         "react": "^19.0.0",
       },
@@ -322,7 +353,11 @@
 
     "@developing-country/emdash-blocks": ["@developing-country/emdash-blocks@workspace:packages/emdash-blocks"],
 
+    "@developing-country/explore": ["@developing-country/explore@workspace:apps/explore"],
+
     "@developing-country/figures": ["@developing-country/figures@workspace:packages/figures"],
+
+    "@developing-country/ingestion-worker": ["@developing-country/ingestion-worker@workspace:apps/ingestion"],
 
     "@developing-country/site": ["@developing-country/site@workspace:apps/site"],
 

@@ -42,7 +42,7 @@ Never deploy `DEV_AUTH`. `GET /api/me` reports the active user and mode.
 
 ## Configuration
 
-Non-secret values live in `wrangler.explore.jsonc`:
+Non-secret values live in `apps/explore/wrangler.jsonc`:
 
 ```json
 {
@@ -64,14 +64,14 @@ Use the repository's Wrangler profile:
 
 ```bash
 env -u CLOUDFLARE_ACCOUNT_ID -u CLOUDFLARE_API_TOKEN \
-  bunx wrangler secret put BETTER_AUTH_SECRET --config wrangler.explore.jsonc --profile uplinking
+  bunx wrangler secret put BETTER_AUTH_SECRET --config apps/explore/wrangler.jsonc --profile uplinking
 env -u CLOUDFLARE_ACCOUNT_ID -u CLOUDFLARE_API_TOKEN \
-  bunx wrangler secret put GOOGLE_CLIENT_ID --config wrangler.explore.jsonc --profile uplinking
+  bunx wrangler secret put GOOGLE_CLIENT_ID --config apps/explore/wrangler.jsonc --profile uplinking
 env -u CLOUDFLARE_ACCOUNT_ID -u CLOUDFLARE_API_TOKEN \
-  bunx wrangler secret put GOOGLE_CLIENT_SECRET --config wrangler.explore.jsonc --profile uplinking
+  bunx wrangler secret put GOOGLE_CLIENT_SECRET --config apps/explore/wrangler.jsonc --profile uplinking
 ```
 
-Local `.dev.vars` is gitignored:
+Local `apps/explore/.dev.vars` is gitignored:
 
 ```dotenv
 DEV_AUTH="1"
@@ -79,11 +79,11 @@ BETTER_AUTH_SECRET="<random hex>"
 BETTER_AUTH_URL="http://localhost:8787"
 ```
 
-Run `bun run cf:dev`. The Worker loads `.dev.vars` and listens on port 8787.
+Run `bun run cf:dev`. The Worker loads `apps/explore/.dev.vars` and listens on port 8787.
 
 ## Database migrations
 
-Better Auth and MCP OAuth tables are append-only migrations in `migrations/`.
+Better Auth and MCP OAuth tables are append-only migrations in `apps/explore/migrations/`.
 Apply them with:
 
 ```bash
@@ -103,7 +103,7 @@ needs it is deployed; the 1.6 Worker keeps working on a migrated database.
 
 The new Worker moves each 1.6 client, its consents and its refresh token into
 the new tables the first time the client uses them
-(`src/worker/oauthLegacy.ts`). If it runs before 0013 is applied, every
+(`apps/explore/src/worker/oauthLegacy.ts`). If it runs before 0013 is applied, every
 `/api/auth/*` route and the OAuth discovery documents answer `503` naming the
 missing migration, and nothing is written.
 

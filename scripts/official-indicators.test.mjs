@@ -4,7 +4,7 @@ import { resolve } from 'node:path'
 import { parseIndicatorTable } from '../packages/datasets/src/table.ts'
 import { buildCcpiFromText } from './build-official-indicators.mjs'
 
-const DATA = resolve(import.meta.dir, '../public/data')
+const DATA = resolve(import.meta.dir, '../apps/explore/public/data')
 const EXPECTED_ROWS = {
   'census-age-sex-dsd': 340,
   'census-households-dsd': 340,

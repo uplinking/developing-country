@@ -51,20 +51,24 @@ bun run cf:dev           # platform Worker (API, MCP) on :8787
 ## Repository
 
 ```text
-apps/site/                Astro + EmDash site and CMS
-src/                      explorer (React)
-src/worker/               platform Worker: API, MCP, OAuth, queries, saved views
+apps/site/                developing-country.org: Astro + EmDash site and CMS
+apps/explore/             explore.developing-country.org: explorer (React) and platform Worker
+apps/explore/src/worker/  platform Worker: API, MCP, OAuth, queries, saved views
+apps/explore/public/data/ validated datasets served by the explorer
+apps/explore/migrations/  append-only D1 migrations
+apps/ingestion/           scheduled ingestion Worker (no domain)
 packages/datasets/        dataset definitions, publishers, licences, counting rules
 packages/domain/          evidence and provenance vocabulary
 packages/views/           Data View contract shared by explorer, site and MCP
 packages/figures/         chart and map figures for Data Views
-packages/ui/              shared design tokens
+packages/ui/              shared design tokens, header and fonts
 scripts/                  idempotent fetch, build and check scripts
 scripts/data-sources.json source registry: publisher, licence, vintage, refresh
-public/data/              validated datasets served by the explorer
-migrations/               append-only D1 migrations
 docs/                     guides and architecture decisions
 ```
+
+Each deployable Worker is an app under `apps/<name>/` with its own `package.json` and
+`wrangler.jsonc`; `bun run --cwd apps/<name> <script>` runs its scripts directly.
 
 ## Documentation
 

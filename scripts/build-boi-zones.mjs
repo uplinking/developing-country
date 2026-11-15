@@ -1,4 +1,4 @@
-// Builds public/data/boi-zones.geojson — the Board of Investment (BOI) economic
+// Builds apps/explore/public/data/boi-zones.geojson — the Board of Investment (BOI) economic
 // zones: Sri Lanka's Export Processing Zones (EPZ) and Industrial Parks. Curated
 // from BOI / press material; each zone cites the BOI catalogue source so the map
 // popover can show provenance + last-checked without a second fetch.
@@ -85,6 +85,6 @@ const fc = {
   features,
 }
 
-await writeFile('public/data/boi-zones.geojson', JSON.stringify(fc))
+await writeFile('apps/explore/public/data/boi-zones.geojson', JSON.stringify(fc))
 const byStatus = features.reduce((a, f) => ((a[f.properties.status] = (a[f.properties.status] || 0) + 1), a), {})
 console.log(`Wrote ${features.length} BOI zones →`, byStatus)

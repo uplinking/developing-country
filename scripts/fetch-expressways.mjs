@@ -217,7 +217,7 @@ const run = async () => {
     a[f.properties.status] = (a[f.properties.status] || 0) + 1
     return a
   }, {})
-  await writeFile('public/data/expressways.geojson', JSON.stringify(fc))
+  await writeFile('apps/explore/public/data/expressways.geojson', JSON.stringify(fc))
   console.log(`Wrote ${features.length} segments →`, counts)
   const refs = [...new Set(features.map((f) => f.properties.ref).filter(Boolean))].sort()
   console.log('Refs found:', refs.join(', '))

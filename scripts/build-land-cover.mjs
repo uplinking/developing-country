@@ -56,9 +56,9 @@ function parseArgs(argv) {
       ? resolve(process.env.WORLDCOVER_SOURCE_DIR)
       : undefined,
     cacheDir: resolve(process.env.WORLDCOVER_CACHE_DIR || join(REPO_ROOT, 'data/src/worldcover-2021')),
-    districtsPath: resolve(join(REPO_ROOT, 'public/data/demographics.geojson')),
-    gridPath: resolve(join(REPO_ROOT, 'public/data/land-cover-grid.geojson')),
-    tablePath: resolve(join(REPO_ROOT, 'public/data/land-cover-district.json')),
+    districtsPath: resolve(join(REPO_ROOT, 'apps/explore/public/data/demographics.geojson')),
+    gridPath: resolve(join(REPO_ROOT, 'apps/explore/public/data/land-cover-grid.geojson')),
+    tablePath: resolve(join(REPO_ROOT, 'apps/explore/public/data/land-cover-district.json')),
   }
   for (let index = 0; index < argv.length; index++) {
     const flag = argv[index]
@@ -282,7 +282,7 @@ function normalizeClippedGrid(featureCollection) {
       cell_size_degrees: GRID_DEGREES,
       sample_size_degrees: GRID_SAMPLE_DEGREES,
       aggregation: 'dominant WorldCover class among deterministic nearest-neighbour samples; equal counts use the lower class code',
-      clip: 'Sri Lanka district boundaries from public/data/demographics.geojson',
+      clip: 'Sri Lanka district boundaries from apps/explore/public/data/demographics.geojson',
     },
     caveats: [
       'Vegetated is a grouping of categorical WorldCover classes; it is not NDVI, vegetation condition, or a current greenness measurement.',

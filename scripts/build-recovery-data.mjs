@@ -213,5 +213,5 @@ export function buildRecoveryTables(directory, fetchRemote=false) {
 }
 if(import.meta.main){
   const arg=process.argv.indexOf('--source-dir'),directory=arg>=0?resolve(process.argv[arg+1]):mkdtempSync(join(tmpdir(),'dc-recovery-'))
-  try{writeTables(buildRecoveryTables(directory,arg<0),join(ROOT,'public/data'),process.argv.includes('--check'))}finally{if(arg<0)rmSync(directory,{recursive:true,force:true})}
+  try{writeTables(buildRecoveryTables(directory,arg<0),join(ROOT,'apps/explore/public/data'),process.argv.includes('--check'))}finally{if(arg<0)rmSync(directory,{recursive:true,force:true})}
 }

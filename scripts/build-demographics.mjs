@@ -12,7 +12,7 @@
 // Output: newline-delimited GeoJSON per level in $OUT_DIR (default /tmp/demo),
 // which scripts/build-demographics-tiles.sh feeds to tippecanoe → one
 // demographics.pmtiles (4 source-layers). Also writes the small
-// public/data/demographics.geojson (district) for anything still on GeoJSON.
+// apps/explore/public/data/demographics.geojson (district) for anything still on GeoJSON.
 //
 // Data: DCS Census 2012 on gig-data geometries; Census 2024 Person-Sex joined when
 // CENSUS_DIR is present (id = region_id). Missing census is a warning, not a hard fail —
@@ -152,7 +152,7 @@ async function buildLevel(level, parentNames, censusPop) {
   console.log(`  ${level}: ${done} units → ${OUT}/${level}.geojsonl (${joined} with 2024 pop)`)
 
   if (districtFeatures) {
-    await writeFile('public/data/demographics.geojson', JSON.stringify({
+    await writeFile('apps/explore/public/data/demographics.geojson', JSON.stringify({
       type: 'FeatureCollection',
       source: 'Dept. of Census & Statistics via nuuuwan/lk_census_2024 + gig-data',
       vintage: joined ? '2024' : '2012',

@@ -8,7 +8,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 
 const ROOT = resolve(import.meta.dir, '..')
-const DEFAULT_OUTPUT = join(ROOT, 'public/data/irrigation-gauges.geojson')
+const DEFAULT_OUTPUT = join(ROOT, 'apps/explore/public/data/irrigation-gauges.geojson')
 export const STATIONS_URL = 'https://raw.githubusercontent.com/nuuuwan/lk_irrigation/main/data/static/stations.json'
 export const OFFICIAL_URL = 'https://www.irrigation.gov.lk/web/index.php?option=com_content&view=article&id=27&Itemid=128&lang=en'
 export const EXPECTED_STATIONS = 40

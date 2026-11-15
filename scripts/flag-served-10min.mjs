@@ -7,8 +7,8 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
-const INDEX = resolve(ROOT, 'public/data/gnd-index.json')
-const CATCHMENT = resolve(ROOT, 'public/data/metro_catchment.geojson')
+const INDEX = resolve(ROOT, 'apps/explore/public/data/gnd-index.json')
+const CATCHMENT = resolve(ROOT, 'apps/explore/public/data/metro_catchment.geojson')
 const NEAR_M = 200
 const CELL = 0.004 // ~440 m
 

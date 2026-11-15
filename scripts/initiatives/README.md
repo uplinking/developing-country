@@ -10,7 +10,7 @@ rules are in [`docs/initiatives/DATA_MODEL.md`](../../docs/initiatives/DATA_MODE
 | `extraction.ts` | The reading prompt and output schema, shared by every run |
 | `backfill.ts` | Reads months (`--from/--to`) or recent days (`--since`) with a local LLM command-line tool (Codex or Claude Code); one batch file per month or week and language in `news/` |
 | `weekly.ts` | The weekly run: recent weeks, then older months while usage allows; rebuilds, runs the full check and opens a draft PR |
-| `build.ts` | Deterministic merge of batches, official records and `overrides.json` into `public/data/lk-initiative*.json` |
+| `build.ts` | Deterministic merge of batches, official records and `overrides.json` into `apps/explore/public/data/lk-initiative*.json` |
 | `overrides.json` | Review decisions: aliases, merges, retractions, disputed amounts, sectors |
 
 News events are machine-read and marked so until someone reviews them. The newspapers' own text

@@ -145,7 +145,7 @@ export async function writeTables(ledger: Json): Promise<[string, string][]> {
   })
 
   return [
-    ['public/data/lk-initiative-events.json', JSON.stringify(events) + '\n'],
-    ['public/data/lk-initiative-funding.json', JSON.stringify(totals) + '\n'],
+    ['apps/explore/public/data/lk-initiative-events.json', JSON.stringify(events) + '\n'],
+    ['apps/explore/public/data/lk-initiative-funding.json', JSON.stringify(totals) + '\n'],
   ]
 }

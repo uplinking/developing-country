@@ -1,5 +1,5 @@
 // Fetch Sri Lanka civic POIs (schools, hospitals) from OpenStreetMap via
-// Overpass and write GeoJSON in public/data/. osm_only — not MoE/MoH registers.
+// Overpass and write GeoJSON in apps/explore/public/data/. osm_only — not MoE/MoH registers.
 //
 // Produces:
 //   schools.geojson    — amenity=school|college|university|kindergarten (named)
@@ -16,7 +16,7 @@ import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const OUT_DIR = resolve(__dirname, '..', 'public', 'data')
+const OUT_DIR = resolve(__dirname, '..', 'apps', 'explore', 'public', 'data')
 
 const OVERPASS_ENDPOINTS = [
   'https://overpass-api.de/api/interpreter',
@@ -158,7 +158,7 @@ async function run() {
       if (n < min) {
         failed = true
         summary.push({ key, count: n, min, sizeMB: '0', ok: false })
-        console.error(`  FAIL: ${n} features (min ${min}) — not writing public/data/${key}.geojson`)
+        console.error(`  FAIL: ${n} features (min ${min}) — not writing apps/explore/public/data/${key}.geojson`)
         continue
       }
       const fc = { type: 'FeatureCollection', ...COMMON, features }
@@ -167,7 +167,7 @@ async function run() {
       const sizeMB = (Buffer.byteLength(json) / 1e6).toFixed(2)
       await writeFile(resolve(OUT_DIR, `${key}.geojson`), json)
       summary.push({ key, count: n, min, sizeMB, ok: true })
-      console.log(`  wrote ${n} features → public/data/${key}.geojson (${sizeMB}MB) OK`)
+      console.log(`  wrote ${n} features → apps/explore/public/data/${key}.geojson (${sizeMB}MB) OK`)
     } catch (e) {
       failed = true
       summary.push({ key, count: 0, min: '?', sizeMB: '0', ok: false })

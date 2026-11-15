@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test'
 import registry from './data-sources.json'
-import { freshnessOf } from '../src/shared/freshness'
+import { freshnessOf } from '@developing-country/domain/freshness'
 
 const expectedDue = registry.sources.filter(source => {
   const state = freshnessOf(source, registry.freshness_policy, '2027-01-01')

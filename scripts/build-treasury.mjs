@@ -79,7 +79,7 @@ try {
   }
   // Validate the entire selected batch before writing any dataset.
   const tables = definitions.map(d => buildTable(d, manifest.rows, manifest.documents, texts))
-  mkdirSync(join(root, 'public/data'), { recursive: true })
-  for (const table of tables) writeFileSync(join(root, `public/data/${table.dataset_id}.json`), JSON.stringify(table) + '\n')
+  mkdirSync(join(root, 'apps/explore/public/data'), { recursive: true })
+  for (const table of tables) writeFileSync(join(root, `apps/explore/public/data/${table.dataset_id}.json`), JSON.stringify(table) + '\n')
   console.log(`Built ${tables.length} Treasury datasets; ${tables.reduce((n, t) => n + t.rows.length, 0)} observations. ${offline ? 'Offline rebuild only.' : 'Publication discovery and PDF hashes verified.'}`)
 } finally { rmSync(work, { recursive: true, force: true }) }

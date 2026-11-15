@@ -11,7 +11,7 @@ import { tmpdir } from 'node:os'
 import { parseIndicatorTable } from '../packages/datasets/src/table.ts'
 
 const ROOT = resolve(import.meta.dir, '..')
-const DEFAULT_OUTPUT = join(ROOT, 'public/data')
+const DEFAULT_OUTPUT = join(ROOT, 'apps/explore/public/data')
 const YEARS = Object.freeze([2020, 2021, 2022, 2023, 2024])
 
 export const SOURCES = Object.freeze({

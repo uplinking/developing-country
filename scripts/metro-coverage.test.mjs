@@ -121,7 +121,7 @@ describe('metro coverage geometry', () => {
 
 describe('metro coverage artifacts', () => {
   const tables = ['stops', 'lines', 'gnd', 'facilities', 'deciles'].map((name) =>
-    parseIndicatorTable(read(`public/data/metro-coverage-${name}.json`)),
+    parseIndicatorTable(read(`apps/explore/public/data/metro-coverage-${name}.json`)),
   )
   const [stops, lines, gnd, facilities, deciles] = tables
 
@@ -153,18 +153,18 @@ describe('metro coverage artifacts', () => {
   })
 
   test('every GN id joins the demographics index', () => {
-    const ids = new Set(read('public/data/gnd-index.json').features.map((r) => r.id))
+    const ids = new Set(read('apps/explore/public/data/gnd-index.json').features.map((r) => r.id))
     for (const r of gnd.rows) expect(ids.has(r.gnd_id)).toBe(true)
   })
 
   test('walksheds cover every stop, line and the network and stay small', () => {
-    const fc = read('public/data/metro_walksheds.geojson')
+    const fc = read('apps/explore/public/data/metro_walksheds.geojson')
     expect(fc.features.length).toBe((110 + 7 + 1) * 3)
     for (const s of stops.rows) {
       const own = fc.features.filter((f) => f.properties.kind === 'stop' && f.properties.id === s.stop_id)
       expect(own.map((f) => `${f.properties.minutes}/${f.properties.method}`).sort()).toEqual(['10/circle_800m', '10/network', '5/network'])
       expect(own.every((f) => f.properties.area_km2 > 0)).toBe(true)
     }
-    expect(statSync(join(ROOT, 'public/data/metro_walksheds.geojson')).size).toBeLessThan(3 * 1024 * 1024)
+    expect(statSync(join(ROOT, 'apps/explore/public/data/metro_walksheds.geojson')).size).toBeLessThan(3 * 1024 * 1024)
   })
 })

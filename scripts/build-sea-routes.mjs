@@ -1,4 +1,4 @@
-// Builds public/data/sea-routes.geojson — Sri Lanka's sea routes: container-
+// Builds apps/explore/public/data/sea-routes.geojson — Sri Lanka's sea routes: container-
 // shipping lanes from the Port of Colombo AND the KKS passenger ferry to India.
 //
 // CARGO lanes are computed by SEA ROUTING over a real global marine network
@@ -111,7 +111,7 @@ const fc = {
   features,
 }
 
-await writeFile('public/data/sea-routes.geojson', JSON.stringify(fc))
+await writeFile('apps/explore/public/data/sea-routes.geojson', JSON.stringify(fc))
 const byService = features.reduce((a, f) => ((a[f.properties.service] = (a[f.properties.service] || 0) + 1), a), {})
 console.log(`Wrote ${features.length} sea routes →`, byService)
 for (const f of features) console.log(`  ${f.properties.name.padEnd(38)} ${f.properties.distance_km} km`)

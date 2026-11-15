@@ -9,7 +9,7 @@ import { tmpdir } from 'node:os'
 import { readXlsxSheet } from './lib/xlsx.mjs'
 
 const ROOT = resolve(import.meta.dir, '..')
-const DEFAULT_OUTPUT = join(ROOT, 'public/data')
+const DEFAULT_OUTPUT = join(ROOT, 'apps/explore/public/data')
 const SOURCE = {
   file: 'A1.xlsx',
   url: 'https://www.statistics.gov.lk/Population/StaticalInformation/CPH2024/HousingA/A1',
