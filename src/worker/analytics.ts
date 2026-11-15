@@ -4,6 +4,7 @@
 import type { Env } from './types'
 import type { JsonObject } from '../shared/json'
 import { isJsonNumber, isJsonObject } from '../shared/json'
+import type { ToolMeter } from './toolMeter'
 
 export type ToolCallPoint = {
   tool: string
@@ -12,6 +13,15 @@ export type ToolCallPoint = {
   ms: number
   count?: number
   truncated?: boolean
+  outcome?: 'ok' | 'error' | 'miss'
+  /** Serialised JSON-RPC response size in bytes. */
+  bytes?: number
+  authMs?: number
+  /** OAuth client (`azp`) or 'session' / 'opaque'. */
+  client?: string
+  /** First tool call served by this isolate. */
+  cold?: boolean
+  meter?: ToolMeter
 }
 
 export type MissPoint = {
@@ -33,6 +43,9 @@ export function writeToolCall(env: Env, p: ToolCallPoint): void {
   const ae = dataset(env)
   if (!ae) return
   try {
+    // Column positions are a contract with saved queries (scripts/mcp-metrics.sql):
+    // append new fields, never reorder. blob1–4 and double1–2 predate Phase 0.
+    const m = p.meter
     ae.writeDataPoint({
       indexes: ['tool_call'],
       blobs: [
@@ -40,9 +53,24 @@ export function writeToolCall(env: Env, p: ToolCallPoint): void {
         (p.op ?? '').slice(0, 64),
         firstEntity(p.entities),
         p.truncated ? 'truncated' : '',
-        '',
+        p.outcome ?? '',
+        (p.client ?? '').slice(0, 96),
+        p.cold === undefined ? '' : p.cold ? 'cold' : 'warm',
       ],
-      doubles: [p.ms, p.count ?? 0, 0, 0],
+      doubles: [
+        p.ms,
+        p.count ?? 0,
+        p.bytes ?? 0,
+        p.authMs ?? 0,
+        m?.d1Queries ?? 0,
+        m?.d1RowsRead ?? 0,
+        m?.d1RowsWritten ?? 0,
+        m?.r2ClassA ?? 0,
+        m?.r2ClassB ?? 0,
+        m?.r2BytesRead ?? 0,
+        m?.assetFetches ?? 0,
+        m?.assetBytes ?? 0,
+      ],
     })
   } catch {
     /* never fail the tool on telemetry */
