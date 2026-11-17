@@ -166,7 +166,8 @@ function crumb(state: PanelState): string {
     const q = isJsonObject(state.raw.query) ? Object.values(state.raw.query).filter(isJsonString).join(' · ') : ''
     return `Search · ${q}`
   }
-  if (state.kind === 'dataset') return str(state.raw.title) ?? 'Dataset'
+  // The card's heading already names the dataset.
+  if (state.kind === 'dataset') return 'Dataset'
   return str(state.raw.dataset_id) ?? 'Result'
 }
 
@@ -283,6 +284,34 @@ function Browser({ state, themes, onSearch, onOpen }: {
 
 // ---- Dataset card --------------------------------------------------------------
 
+function licenceWords(status: string): string {
+  if (status === 'open') return 'Open licence'
+  if (status === 'permission_unclear') return 'Reuse terms not stated by the publisher'
+  return status.replace(/_/g, ' ')
+}
+
+/** A small line drawing of the chart a preset makes. */
+function FamilyGlyph({ family }: { family: string | undefined }) {
+  const common = { fill: 'none', stroke: 'currentColor', strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const }
+  const drawing = (() => {
+    switch (family) {
+      case 'trend': return <polyline {...common} points="3,19 9,12 14,15 21,6" />
+      case 'ranking': return <g {...common}><line x1="4" y1="6" x2="20" y2="6" /><line x1="4" y1="12" x2="15" y2="12" /><line x1="4" y1="18" x2="10" y2="18" /></g>
+      case 'distribution': return <polyline {...common} points="3,20 3,14 8,14 8,8 13,8 13,12 18,12 18,17 21,17 21,20" />
+      case 'composition': return <g {...common}><rect x="5" y="4" width="14" height="16" /><line x1="5" y1="10" x2="19" y2="10" /><line x1="5" y1="15" x2="19" y2="15" /></g>
+      case 'relationship': return <g fill="currentColor"><circle cx="6" cy="17" r="1.8" /><circle cx="10" cy="12" r="1.8" /><circle cx="15" cy="13" r="1.8" /><circle cx="18" cy="7" r="1.8" /></g>
+      default: return <g {...common}><line x1="6" y1="20" x2="6" y2="11" /><line x1="12" y1="20" x2="12" y2="5" /><line x1="18" y1="20" x2="18" y2="14" /></g>
+    }
+  })()
+  return <svg className="mcp-glyph" viewBox="0 0 24 24" width="22" height="22" aria-hidden>{drawing}</svg>
+}
+
+function shortDate(value: string | undefined): string | undefined {
+  if (!value) return undefined
+  const date = new Date(value)
+  return Number.isNaN(date.getTime()) ? value : date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+}
+
 function DatasetCard({ raw, onRun, onOpen, onOpenLink }: {
   raw: JsonObject
   onRun: (args: JsonObject, title: string) => void
@@ -293,106 +322,114 @@ function DatasetCard({ raw, onRun, onOpen, onOpenLink }: {
   const title = str(raw.title) ?? id
   const fields = list(raw.fields)
   const presets = list(raw.presets)
-  const related = list(raw.related)
+  // Map layers relate by entity id only; show the ones a reader can name.
+  const related = list(raw.related).filter((r) => str(r.title) && str(r.dataset_id))
   const provenance = isJsonObject(raw.provenance) ? raw.provenance : {}
-  const freshness = isJsonObject(provenance.freshness) ? str(provenance.freshness.status) : isJsonObject(raw.freshness) ? str(raw.freshness.status) : undefined
+  const source = list(provenance.sources)[0] ?? list(raw.sources)[0]
   const time = isJsonObject(raw.time) ? (raw.time.min === raw.time.max ? String(raw.time.min) : `${String(raw.time.min)}–${String(raw.time.max)}`) : undefined
-  const publisher = isJsonObject(raw.publisher) ? str(raw.publisher.name) : str(raw.source)
+  const publisher = isJsonObject(raw.publisher) ? str(raw.publisher.name) : (source ? str(source.publisher) : undefined) ?? str(raw.source)
   const isSpatial = !raw.dataset_id || !Array.isArray(raw.presets)
   const vintage = str(provenance.vintage) ?? str(raw.vintage)
   const licence = str(provenance.licence_status) ?? str(raw.licence_status)
+  const refreshed = shortDate(str(provenance.refreshed_at) ?? str(raw.refreshed_at))
+  const caveats = Array.isArray(raw.caveats) ? raw.caveats.filter(isJsonString) : []
+  const webUrl = str(raw.web_url)
+  const sourceUrl = source ? str(source.url) : str(raw.source_url)
+  const facts = [isSpatial ? 'Map layer' : undefined, time, isJsonNumber(raw.row_count) ? `${raw.row_count.toLocaleString('en-GB')} rows` : undefined].filter(Boolean)
+  const about: Array<[string, string]> = []
+  const sourceName = source ? str(source.name) : undefined
+  if (publisher) about.push(['Publisher', publisher])
+  if (str(raw.grain)) about.push(['Each row', str(raw.grain)!])
+  if (vintage && vintage !== time) about.push(['Edition', vintage])
+  if (refreshed) about.push(['Updated', refreshed])
+  if (licence) about.push(['Licence', licenceWords(licence)])
 
   return (
     <article className="mcp-card">
-      <h2>{title}</h2>
-      {str(raw.question) ? <p className="mcp-card-q">{str(raw.question)}</p> : null}
-      <p className="mcp-meta">
-        {[publisher, time, str(raw.grain), isJsonNumber(raw.row_count) ? `${raw.row_count} rows` : undefined].filter(Boolean).join(' · ')}
-      </p>
-      <p className="mcp-meta">
-        {[vintage !== time ? vintage : undefined, licence ? `licence ${licence.replace(/_/g, ' ')}` : undefined, freshness ? `freshness ${freshness}` : undefined].filter(Boolean).join(' · ')}
-      </p>
-      {str(raw.web_url) ? (
-        <div className="mcp-card-actions">
-          <button type="button" className="mcp-data-link" onClick={() => onOpenLink(str(raw.web_url)!)}>Dataset page ↗</button>
-        </div>
-      ) : null}
+      <header className="mcp-card-head">
+        <h2>{title}</h2>
+        <p className="mcp-card-facts">
+          {facts.map((fact) => <span key={fact}>{fact}</span>)}
+          {webUrl ? <button type="button" className="mcp-inline-link" onClick={() => onOpenLink(webUrl)}>Dataset page ↗</button> : null}
+        </p>
+      </header>
 
       {presets.length ? (
-        <>
-          <p className="mcp-label">Ready-made views</p>
+        <section className="mcp-card-section">
+          <p className="mcp-label">Charts</p>
           <ul className="mcp-presets">
             {presets.map((p) => {
               const callArgs = isJsonObject(p.call) && isJsonObject(p.call.arguments) ? p.call.arguments : null
               return (
                 <li key={str(p.id)}>
-                  <button type="button" disabled={!callArgs} onClick={() => callArgs && onRun(callArgs, str(p.title) ?? 'Preset')}>
-                    <span className="mcp-roundel" aria-hidden>{(str(p.family) ?? '?').slice(0, 1).toUpperCase()}</span>
-                    <span>
-                      <strong>{str(p.title)}</strong>
-                      <span className="mcp-meta">{str(p.family)}</span>
-                    </span>
+                  <button type="button" title={str(p.description)} disabled={!callArgs} onClick={() => callArgs && onRun(callArgs, str(p.title) ?? 'Preset')}>
+                    <FamilyGlyph family={str(p.family)} />
+                    <strong>{str(p.title)}</strong>
                   </button>
                 </li>
               )
             })}
           </ul>
-        </>
+        </section>
       ) : null}
 
-      {fields.length ? (
-        <>
-          <p className="mcp-label">Fields</p>
-          <table className="mcp-fields">
-            <tbody>
-              {fields.map((f) => {
-                const values = Array.isArray(f.values) ? f.values.filter(isJsonString) : []
-                return (
-                  <tr key={str(f.id)}>
-                    <th scope="row"><code>{str(f.id)}</code></th>
-                    <td>
-                      {str(f.label)}
-                      {str(f.unit) ? <span className="mcp-meta"> · {str(f.unit)}</span> : null}
-                      {values.length ? (
-                        <span className="mcp-values">{values.slice(0, 8).join(' · ')}{values.length > 8 ? ` · +${values.length - 8}` : ''}</span>
-                      ) : isJsonNumber(f.distinct) ? (
-                        <span className="mcp-values">{f.distinct} values, e.g. {Array.isArray(f.examples) ? f.examples.filter(isJsonString).slice(0, 3).join(' · ') : ''}</span>
-                      ) : null}
-                    </td>
-                    <td className="mcp-role">{str(f.role)}</td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </>
-      ) : null}
 
       {related.length ? (
-        <>
-          <p className="mcp-label">Related datasets</p>
-          <ul className="mcp-list mcp-related">
-            {related.map((r) => {
+        <section className="mcp-card-section">
+          <p className="mcp-label">Related</p>
+          <ul className="mcp-related">
+            {related.slice(0, 4).map((r) => {
               const rid = str(r.dataset_id) ?? ''
               return (
                 <li key={rid}>
-                  <button type="button" onClick={() => onOpen(rid, str(r.title) ?? rid)}>
-                    <strong>{str(r.title) ?? rid}</strong>
-                    <span className="mcp-meta">{str(r.why)}</span>
-                  </button>
+                  <button type="button" onClick={() => onOpen(rid, str(r.title) ?? rid)}>{str(r.title) ?? rid}</button>
                 </li>
               )
             })}
           </ul>
-        </>
+        </section>
       ) : null}
 
-      {isSpatial ? <p className="mcp-meta">Spatial layer — ask in the chat to put it on the map.</p> : null}
-      {Array.isArray(raw.caveats) && raw.caveats.length ? (
-        <>
-          <p className="mcp-label">Caveats</p>
-          {raw.caveats.filter(isJsonString).map((c) => <p key={c} className="mcp-caveat">{c}</p>)}
-        </>
+      {about.length || caveats.length || sourceName || fields.length ? (
+        <details className="mcp-about">
+          <summary>About this data{caveats.length ? <span className="mcp-meta"> · {caveats.length} {caveats.length === 1 ? 'caveat' : 'caveats'}</span> : null}</summary>
+          {sourceName ? (
+            <p className="mcp-about-source">
+              {sourceUrl ? <button type="button" className="mcp-inline-link" onClick={() => onOpenLink(sourceUrl)}>{sourceName} ↗</button> : sourceName}
+            </p>
+          ) : null}
+          {about.length ? (
+            <dl className="mcp-about-facts">
+              {about.map(([term, value]) => (
+                <div key={term}><dt>{term}</dt><dd>{value}</dd></div>
+              ))}
+            </dl>
+          ) : null}
+          {caveats.length ? (
+            <ul className="mcp-caveats">
+              {caveats.map((c) => <li key={c}>{c}</li>)}
+            </ul>
+          ) : null}
+          {fields.length ? (
+            <>
+              <p className="mcp-label">Fields</p>
+              <ul className="mcp-fields">
+                {fields.map((f) => {
+                  const values = Array.isArray(f.values) ? f.values.filter(isJsonString) : []
+                  return (
+                    <li key={str(f.id)} title={str(f.id)}>
+                      <strong>{str(f.label) ?? str(f.id)}</strong>
+                      {str(f.unit) ? <span className="mcp-meta"> · {str(f.unit)}</span> : null}
+                      {values.length ? (
+                        <span className="mcp-values">{values.slice(0, 6).join(', ')}{values.length > 6 ? ` and ${values.length - 6} more` : ''}</span>
+                      ) : null}
+                    </li>
+                  )
+                })}
+              </ul>
+            </>
+          ) : null}
+        </details>
       ) : null}
     </article>
   )

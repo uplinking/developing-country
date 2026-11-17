@@ -109,16 +109,18 @@ describe('saved view eviction', () => {
 describe('data view eviction migration', () => {
   test('revoked rows no longer count toward the platform ceiling', () => {
     const { db } = harness()
-    // Seed with the insert triggers off (each one rescans the table), then
-    // re-apply this migration to restore the platform ceiling under test.
+    // Seed with the insert triggers off (each one rescans the table, so 20,000
+    // guarded inserts are quadratic), then re-apply this migration to restore
+    // the platform ceiling under test. 19,999 rows sit far past the old
+    // all-rows ceiling; only 9,999 of them are live.
     const triggers = db.sqlite.query<{ name: string }, []>("SELECT name FROM sqlite_master WHERE type = 'trigger' AND sql LIKE '%BEFORE INSERT ON data_views%'").all()
     for (const { name } of triggers) db.sqlite.run(`DROP TRIGGER ${name}`)
     seed(db, 'old@example.com', 10_000, true)
+    seed(db, 'live@example.com', 9_999)
     db.migrate({ only: '0014_data_view_eviction.sql' })
     expect(() => seed(db, OWNER, 1)).not.toThrow()
-    seed(db, 'live@example.com', 9_999)
     expect(() => seed(db, 'extra@example.com', 1)).toThrow('platform count quota exceeded')
-  })
+  }, 20_000)
 
   test('the claim stays frozen: only a revoked row may clear its payload, and only to empty', () => {
     const { db } = harness()
