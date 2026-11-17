@@ -9,16 +9,16 @@ const dataUrl = `${explorer}/data/lk-initiatives.json`
 ---
 
 <SiteLayout
-  title="Initiatives"
+  title="Funding dashboard"
   description="What Sri Lanka's public initiatives are, where the money comes from, and what happened to it: announced, approved, contracted and paid, week by week."
 >
 <div class="money wrap" id="money" data-src={dataUrl}>
   <header>
-    <h1>Public initiatives &amp; funding</h1>
+    <h1>Funding dashboard</h1>
     <div class="q" id="q" role="group" aria-label="Question"><span class="sw" data-slot="what"></span> from <span class="sw" data-slot="src"></span> in <span class="sw" data-slot="sector"></span> · <span class="sw" data-slot="when"></span></div>
     <!-- Works without JavaScript as a plain GET; the script below takes over and keeps ?q= in sync. -->
-    <form class="find" id="find" role="search" action="/initiatives" method="get">
-      <label class="sr" for="fq">Search initiatives</label>
+    <form class="find" id="find" role="search" action="/funding" method="get">
+      <label class="sr" for="fq">Search funding</label>
       <svg class="find-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="10.3" y1="10.3" x2="15" y2="15" stroke="currentColor" stroke-width="1.6"/></svg>
       <input id="fq" name="q" type="search" placeholder="Search projects, funders, places" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" maxlength="200" aria-describedby="findnote">
       <button type="button" class="find-x" id="fqx" aria-label="Clear search" hidden>×</button>

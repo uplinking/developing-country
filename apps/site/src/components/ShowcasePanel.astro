@@ -1,0 +1,50 @@
+---
+/** One part of the app on the landing page: a film of it working, what it is, and the way in. */
+type Tone = 'lilac' | 'pink' | 'peach' | 'sky'
+
+interface Action {
+  href: string
+  label: string
+  /** Leaves our sites for another maker's (an assistant), so it opens in a new tab. */
+  external?: boolean
+}
+
+interface Props {
+  index: number
+  title: string
+  summary: string
+  actions: readonly Action[]
+  tone: Tone
+}
+
+const { index, title, summary, actions, tone } = Astro.props
+const number = String(index).padStart(2, '0')
+---
+
+<article
+  class:list={['showcase-panel', `showcase-panel--${tone}`]}
+  style={`--panel-index: ${index}`}
+  aria-labelledby={`showcase-${number}-title`}
+>
+  <div class="showcase-panel__inner">
+    <div class="showcase-panel__identity">
+      <p class="showcase-panel__number" aria-hidden="true">{number}</p>
+      <h3 id={`showcase-${number}-title`}>{title}</h3>
+      <div class="showcase-panel__media">
+        <slot name="film" />
+      </div>
+    </div>
+
+    <div class="showcase-panel__story">
+      <p class="showcase-panel__summary">{summary}</p>
+      <div class="showcase-panel__actions">
+        {actions.map((action) => (
+          <a href={action.href} target={action.external ? '_blank' : undefined} rel={action.external ? 'noopener' : undefined}>
+            <span>{action.label}</span>
+            <span aria-hidden="true">{action.external ? '↗' : '→'}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</article>

@@ -46,15 +46,8 @@ export const COLOMBO_SHOT: ExplorerShot = {
   legend: [170, 300], feature: [690, 330], sheet: [1240, 160],
 }
 
-const chapterShot = (name: string, legend: Point, feature: Point, sheet: Point): ExplorerShot => ({
-  name: `explorer-${name}`, width: 1200, height: 750, large: 1800, small: 1200, legend, feature, sheet,
-})
-
-/** One still per landing chapter, captured from the production explorer at 1200 × 750, 2×. */
-export const CHAPTER_SHOTS = {
-  developments: chapterShot('developments', [170, 330], [725, 295], [1010, 210]),
-  demographics: chapterShot('demographics', [170, 280], [520, 283], [1010, 190]),
-  metro_catchment: chapterShot('metro-catchment', [170, 230], [853, 509], [1010, 166]),
-  schools: chapterShot('schools', [170, 190], [762, 271], [1010, 160]),
-  hospitals: chapterShot('hospitals', [170, 210], [584, 332], [1010, 160]),
-} as const satisfies Record<string, ExplorerShot>
+/** The funding dashboard's top: money by stage and the weekly timeline, captured at 1200 × 750, 2×. */
+export const FUNDING_SHOT: ExplorerShot = {
+  name: 'funding-dashboard', width: 1200, height: 750, large: 1800, small: 1200,
+  legend: [190, 420], feature: [600, 650], sheet: [960, 432],
+}

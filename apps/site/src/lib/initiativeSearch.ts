@@ -1,5 +1,5 @@
 /**
- * Search over the initiatives ledger the /initiatives page has already downloaded.
+ * Search over the initiatives ledger the /funding page has already downloaded.
  *
  * The page needs every event to total the money strip, so the full ledger is in memory anyway.
  * Searching it in the browser costs no extra bytes, no requests and no Cloudflare quota.

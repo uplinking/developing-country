@@ -111,65 +111,43 @@ main { min-height: 70vh; }
 
 /* Landing report */
 .report-hero {
+  /* How far the scene runs on past the hero, into the quiet space above the quote, for the falling river. */
+  --scene-bleed: 100px;
   position: relative;
   min-height: max(720px, 100svh);
-  overflow: hidden;
-  background: white;
+  overflow: visible;
+  background: var(--report-paper);
   color: var(--report-ink);
 }
-.report-hero__placeholder {
+/* The country's scene fills the hero; the title stands in front of its near shore. */
+.report-hero__scene {
   position: absolute;
-  inset: 0 0 auto;
-  height: 34%;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 9% 48%, rgba(209,221,211,.95), transparent 25%),
-    radial-gradient(circle at 48% 16%, rgba(205,171,254,.96), transparent 26%),
-    radial-gradient(circle at 82% 68%, rgba(247,246,244,.78), transparent 25%),
-    linear-gradient(112deg, var(--report-coral), #ff9a72 52%, var(--report-lilac));
-}
-.report-hero__placeholder::before {
-  content: '';
-  position: absolute;
-  width: 34%;
-  height: 78%;
-  top: 16%;
-  left: 50%;
-  border: 1px solid rgba(255,255,255,.76);
-  background: linear-gradient(120deg, rgba(209,221,211,.85), rgba(255,255,255,.9));
-  box-shadow: -360px -76px 0 -45px rgba(205,171,254,.82), 430px -12px 0 -62px rgba(209,221,211,.78);
-}
-.report-hero__placeholder::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: .28;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
-  mix-blend-mode: soft-light;
-}
-.report-hero__placeholder > span {
-  position: absolute;
-  right: 18px;
-  bottom: 12px;
+  inset: 0 0 calc(-1 * var(--scene-bleed));
   z-index: 1;
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: .08em;
-  opacity: .62;
-  text-transform: uppercase;
+  /* The sunset the island draws over it, so the hero isn't bare white while it loads or without WebGL. */
+  background:
+    radial-gradient(ellipse 30% 10% at 74% 17%, rgb(255 228 181 / .65), transparent),
+    linear-gradient(to bottom, #d6e4f1, #fdf1e4 7%, #ffd09c 13%, #ffa85c 21%, var(--report-paper) 42%);
 }
-.report-hero__grid {
-  position: absolute;
-  width: 14%;
-  height: 55%;
-  top: -6%;
-  left: 15%;
-  border: 1px solid rgba(255,255,255,.7);
-  background: rgba(247,246,244,.82);
+.report-hero__scene canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: grab;
+  touch-action: pan-y;
+  transition: opacity .9s ease;
+  /* The falling river thins to drops by itself; this only softens the last of them at the canvas's edge. */
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 48px), transparent);
+}
+.report-hero__scene[data-ready] canvas { opacity: 1; }
+.report-hero__scene[data-dragging] canvas { cursor: grabbing; }
+@media (prefers-reduced-motion: reduce) {
+  .report-hero__scene canvas { transition: none; }
 }
 .report-hero__content {
   position: absolute;
-  inset: 34% 0 0;
+  inset: 0;
   z-index: 2;
   display: grid;
   width: min(100%, var(--site-max));
@@ -177,97 +155,50 @@ main { min-height: 70vh; }
   margin: auto;
   padding: var(--edge);
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 1fr auto;
   gap: var(--grid-gap);
-  align-items: center;
+  align-items: end;
+  pointer-events: none;
 }
-.report-hero__title-wrap { grid-column: 2; grid-row: 1; align-self: start; }
+.report-hero__title-wrap { grid-column: 2; grid-row: 2; align-self: end; }
 .report-hero h1 {
+  --title-size: clamp(72px, 9.35vw, 156px);
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(72px, 9.35vw, 156px);
+  font-size: var(--title-size);
   font-weight: 500;
   letter-spacing: -.065em;
   line-height: .88;
 }
 .report-hero h1 span { display: block; }
+/* The country the page is about, worn like a superscript on "country". */
+.report-hero__badge {
+  display: inline-block;
+  margin-left: .75em;
+  padding: .5em .8em .44em;
+  border-radius: 999px;
+  background: var(--report-coral);
+  font-family: var(--mono);
+  font-size: clamp(14px, 1.65vw, 25px);
+  font-weight: 500;
+  letter-spacing: .06em;
+  line-height: 1;
+  text-transform: uppercase;
+  vertical-align: top;
+  /* Top edge level with the top of the lowercase letters (x-height) of "country". */
+  transform: translateY(calc(var(--title-size) * .172));
+  white-space: nowrap;
+}
 
-.country-feature,
 .mission-fold,
 .research-showcase {
   width: 100%;
 }
-.country-feature__inner,
 .mission-fold__inner,
 .research-showcase__inner {
   width: min(100%, var(--site-max));
   margin-inline: auto;
 }
-.country-feature__inner { padding: 88px var(--edge) 0; }
-/* Two front doors: the explorer map and the dataset library, each a slab with its own film. */
-.front-doors {
-  display: grid;
-  padding-bottom: 8px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: calc(var(--grid-gap) + 4px);
-}
-.front-door {
-  --door-route: var(--report-coral);
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  overflow: hidden;
-  border: 1px solid var(--report-ink);
-  border-top: 6px solid var(--door-route);
-  border-radius: var(--dc-radius);
-  background: var(--report-paper);
-  box-shadow: 4px 4px 0 var(--report-ink);
-}
-.front-door--data { --door-route: var(--report-lilac); }
-.front-door__film { aspect-ratio: 16 / 10; border-bottom: 1px solid var(--report-ink); }
-.front-door__plate { display: flex; padding: 18px 20px 22px; flex: 1; flex-direction: column; gap: 12px; }
-.front-door__route {
-  display: flex;
-  margin: 0;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .055em;
-  text-transform: uppercase;
-}
-.front-door__route span {
-  display: inline-grid;
-  width: 24px;
-  height: 24px;
-  place-items: center;
-  border-radius: 50%;
-  border: 1px solid var(--report-ink);
-  background: var(--door-route);
-  color: var(--report-ink);
-  letter-spacing: 0;
-}
-.front-door h3 { margin: 4px 0 0; font-size: clamp(36px, 3.6vw, 56px); font-weight: 500; letter-spacing: -.06em; line-height: .92; }
-.front-door__plate > p:not(.front-door__route) { max-width: 540px; margin: 0; font-size: 17px; line-height: 1.45; }
-.front-door__action {
-  display: inline-flex;
-  width: max-content;
-  margin-top: auto;
-  padding: 11px 15px 10px;
-  align-items: center;
-  gap: 12px;
-  border: 1px solid var(--report-ink);
-  border-radius: var(--dc-radius);
-  background: var(--report-ink);
-  color: var(--report-paper);
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-}
-.front-door__plate > p + .front-door__action { margin-top: 10px; }
-.front-door__action:hover { background: var(--report-paper); color: var(--report-ink); }
-.front-door__action:focus-visible { outline: 2px solid var(--report-blue); outline-offset: 2px; }
-
 /* A camera film: a real piece of UI under a moving, tilting lens. The frame is chrome (opaque,
    squared, no blur); only the camera inside it moves smoothly. */
 .camera-film {
@@ -307,6 +238,18 @@ main { min-height: 70vh; }
 .film-library__label { display: flex; margin-bottom: 24px; padding-top: 10px; justify-content: space-between; border-top: 1px solid var(--report-ink); }
 .film-library .dataset-card h3 { font-size: 46px; }
 .film-library .dataset-card__body { padding-top: 70px; }
+/* The connector film: one question to an assistant, the tool call, and its charted, cited answer. */
+.film-chat { display: flex; padding: 72px 96px 64px; flex-direction: column; gap: 28px; background: var(--report-paper); }
+.film-chat__ask { align-self: flex-end; max-width: 760px; margin: 0; padding: 22px 28px; border-radius: 26px 26px 6px 26px; background: var(--report-ink); color: var(--report-paper); font-size: 34px; font-weight: 500; letter-spacing: -.03em; line-height: 1.15; }
+.film-chat__tool { display: flex; width: max-content; margin: 0; padding: 10px 16px; align-items: center; gap: 14px; border: 1px solid var(--report-ink); border-radius: 999px; font-family: var(--mono); font-size: 18px; letter-spacing: .02em; }
+.film-chat__tool span { padding: 3px 10px; border-radius: 999px; background: #f6c1d9; }
+.film-chat__answer { display: flex; flex-direction: column; gap: 24px; }
+.film-chat__answer > p:first-child { max-width: 980px; margin: 0; font-size: 32px; letter-spacing: -.025em; line-height: 1.25; }
+.film-chat__chart { width: 100%; height: auto; overflow: visible; }
+.film-chat__zero { stroke: var(--report-ink); stroke-dasharray: 4 6; stroke-width: 1.5; opacity: .5; }
+.film-chat__area { fill: #d4bdec; opacity: .55; }
+.film-chat__line { fill: none; stroke: var(--report-ink); stroke-width: 4; stroke-linejoin: round; }
+.film-chat__source { margin: 0; font-family: var(--mono); font-size: 16px; letter-spacing: .02em; opacity: .7; }
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -316,12 +259,13 @@ main { min-height: 70vh; }
   white-space: nowrap;
 }
 
+.mission-fold { position: relative; z-index: 2; }
 .mission-fold__inner { padding: 120px var(--edge); }
 .mission-fold__quote { max-width: 1100px; margin: 0 auto; }
 .mission-fold__quote blockquote { margin: 0; font-size: clamp(34px, 4vw, 52px); font-weight: 500; letter-spacing: -.045em; line-height: 1.08; }
 
-.dataset-chapters { padding-bottom: 0; }
-.dataset-panel {
+.showcase { padding-bottom: 0; }
+.showcase-panel {
   position: sticky;
   top: 0;
   z-index: var(--panel-index);
@@ -331,7 +275,7 @@ main { min-height: 70vh; }
   color: var(--report-ink);
   box-shadow: 0 -1px 0 rgba(0,0,0,.2);
 }
-.dataset-panel__inner {
+.showcase-panel__inner {
   display: grid;
   width: min(100%, var(--site-max));
   min-height: max(740px, 100svh);
@@ -340,44 +284,45 @@ main { min-height: 70vh; }
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: var(--grid-gap);
 }
-.dataset-panel--coral { background: var(--report-coral); }
-.dataset-panel--lilac { background: var(--report-lilac); }
-.dataset-panel--sage { background: var(--report-sage); }
-.dataset-panel--ochre { background: var(--report-ochre); }
-.dataset-panel--blue { background: var(--report-blue); color: white; }
-.dataset-panel__identity { display: flex; min-width: 0; flex-direction: column; }
-.dataset-panel__eyebrow { margin: 0; font-family: var(--mono); font-size: 10px; letter-spacing: .05em; text-transform: uppercase; }
-.dataset-panel__number { margin: auto 0 0; font-size: clamp(64px, 7.7vw, 98px); font-weight: 500; letter-spacing: -.07em; line-height: .8; }
-.dataset-panel h3 { margin: 5px 0 24px; font-size: clamp(52px, 6.2vw, 104px); font-weight: 500; letter-spacing: -.065em; line-height: .88; }
-.dataset-panel__film {
+/* The panels keep a lilac and purple theme of their own, apart from the hero's sunset. */
+.showcase-panel--lilac { background: #d4bdec; }
+.showcase-panel--pink { background: #f6c1d9; }
+.showcase-panel--peach { background: #fbd5c2; }
+.showcase-panel--sky { background: #b8c4ee; }
+.showcase-panel__identity { display: flex; min-width: 0; flex-direction: column; }
+.showcase-panel__number { margin: auto 0 0; font-size: clamp(64px, 7.7vw, 98px); font-weight: 500; letter-spacing: -.07em; line-height: .8; }
+.showcase-panel h3 { margin: 5px 0 24px; font-size: clamp(52px, 6.2vw, 104px); font-weight: 500; letter-spacing: -.065em; line-height: .88; }
+.showcase-panel__film {
   aspect-ratio: 16 / 10;
   border: 1px solid var(--report-ink);
   border-radius: var(--dc-radius);
   box-shadow: 4px 4px 0 var(--report-ink);
 }
-.dataset-panel__story { display: flex; max-width: 560px; padding-top: 78px; flex-direction: column; }
-.dataset-panel__summary { margin: 0; font-size: clamp(24px, 2.5vw, 32px); font-weight: 500; letter-spacing: -.025em; line-height: 1.18; }
-.dataset-panel__facts { display: grid; margin: 46px 0 0; grid-template-columns: repeat(2, 1fr); border-top: 1px solid currentColor; }
-.dataset-panel__facts > div { padding: 15px 16px 0 0; }
-.dataset-panel__facts > div + div { padding-left: 16px; border-left: 1px solid currentColor; }
-.dataset-panel__facts dt { font-family: var(--mono); font-size: 9px; letter-spacing: .04em; text-transform: uppercase; }
-.dataset-panel__facts dd { margin: 8px 0 0; font-size: 18px; }
-.dataset-panel__actions { display: flex; margin-top: 34px; gap: 8px; }
-.dataset-panel__actions a {
-  display: flex;
-  min-height: 48px;
-  padding: 13px 15px;
+.showcase-panel__story { display: flex; max-width: 560px; padding-top: 78px; flex-direction: column; }
+.showcase-panel__summary { margin: 0; font-size: clamp(24px, 2.5vw, 32px); font-weight: 500; letter-spacing: -.025em; line-height: 1.18; }
+/* One column sized to the widest button, so two buttons stack at the same width and weight. */
+.showcase-panel__actions { display: grid; margin-top: 44px; grid-template-columns: max-content; gap: 12px; }
+/* The panel's way in: big, solid and impossible to miss. */
+.showcase-panel__actions a {
+  display: inline-flex;
+  min-height: 72px;
+  padding: 18px 26px 17px;
+  align-items: center;
   justify-content: space-between;
-  gap: 30px;
-  border: 1px solid currentColor;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .04em;
+  gap: 40px;
+  border: 1px solid var(--report-ink);
+  border-radius: 999px;
+  background: var(--report-ink);
+  color: var(--report-paper);
+  font-size: clamp(22px, 2.1vw, 30px);
+  font-weight: 500;
+  letter-spacing: -.03em;
+  line-height: 1;
   text-decoration: none;
-  text-transform: uppercase;
+  transition: background-color .2s ease, color .2s ease;
 }
-.dataset-panel__actions a:hover { background: var(--report-ink); color: var(--report-paper); }
-.dataset-panel--blue .dataset-panel__actions a:hover { color: var(--report-blue); background: white; }
+.showcase-panel__actions a:hover { background: var(--report-paper); color: var(--report-ink); }
+.showcase-panel__actions a:focus-visible { outline: 2px solid var(--report-ink); outline-offset: 3px; }
 
 .research-showcase {
   position: relative;
@@ -821,18 +766,19 @@ main { min-height: 70vh; }
   .dataset-card-grid { grid-template-columns: 1fr; }
   .data-index__catalogue { grid-template-columns: 220px minmax(0, 1fr); }
   .report-hero__content,
-  .dataset-panel__inner,
+  .showcase-panel__inner,
   .research-showcase__inner,
   .dc-hero,
   .article-shell,
   .article-header { grid-template-columns: minmax(0, 40%) minmax(0, 60%); }
-  .dataset-panel,
-  .dataset-panel__inner { min-height: 680px; }
+  .showcase-panel,
+  .showcase-panel__inner { min-height: 680px; }
   .article-evidence { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 760px) {
-  .report-hero { min-height: 760px; }
+  /* On a phone the island is wide and short: a short band of sunset, the island, then the title, all in the first screen. */
+  .report-hero { --scene-bleed: 56px; min-height: 0; height: min(100svh, calc(100vw + 180px)); }
   .report-hero__content {
     display: flex;
     padding: 82px 16px 16px;
@@ -841,31 +787,28 @@ main { min-height: 70vh; }
   }
   .report-hero__title-wrap { order: 1; }
   .report-hero__title-wrap .report-label { margin-bottom: 16px; }
-  .report-hero h1 { font-size: clamp(55px, 17vw, 82px); }
-  .country-feature__inner { padding-top: 64px; }
+  .report-hero h1 { --title-size: clamp(55px, 17vw, 82px); }
+  .report-hero__badge { font-size: 13px; }
   .research-showcase__inner,
   .dc-hero,
   .article-shell,
   .article-header { grid-template-columns: 1fr; }
-  .front-doors { grid-template-columns: 1fr; }
-  .front-door__plate { padding: 16px 16px 18px; }
-  .front-door__action { width: 100%; justify-content: space-between; }
   .mission-fold__inner { padding-top: 72px; padding-bottom: 72px; }
-  .dataset-panel {
+  .showcase-panel {
     position: relative;
     min-height: 0;
   }
-  .dataset-panel__inner {
+  .showcase-panel__inner {
     display: flex;
     min-height: 0;
     padding: 16px;
     flex-direction: column;
   }
-  .dataset-panel__number { margin-top: 72px; }
-  .dataset-panel h3 { font-size: clamp(50px, 15vw, 76px); }
-  .dataset-panel__story { max-width: none; padding: 54px 0 16px; }
-  .dataset-panel__actions { margin-top: 32px; flex-direction: column; }
-  .dataset-panel__actions a { width: 100%; }
+  .showcase-panel__number { margin-top: 72px; }
+  .showcase-panel h3 { font-size: clamp(50px, 15vw, 76px); }
+  .showcase-panel__story { max-width: none; padding: 54px 0 16px; }
+  .showcase-panel__actions { margin-top: 32px; grid-template-columns: 1fr; }
+  .showcase-panel__actions a { width: 100%; }
   .research-showcase__inner { padding-top: 110px; padding-bottom: 110px; }
   .research-showcase__heading { padding: 0 0 70px; }
   .article-grid { grid-template-columns: 1fr; }
@@ -917,7 +860,7 @@ main { min-height: 70vh; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
-  .dataset-panel { position: relative; }
+  .showcase-panel { position: relative; }
 }
 
 /* Availability and claim tags share the catalogue's editorial rules. */

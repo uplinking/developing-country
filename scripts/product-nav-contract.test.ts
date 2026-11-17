@@ -25,16 +25,14 @@ describe('shared product navigation shell', () => {
   })
 
   test('the landing page keeps only useful country and dataset content', async () => {
-    const [landingPage, countryFeature] = await Promise.all([
-      read('apps/site/src/pages/index.astro'),
-      read('apps/site/src/components/CountryFeature.astro'),
-    ])
+    const landingPage = await read('apps/site/src/pages/index.astro')
 
     expect(landingPage).not.toContain('report-hero__proposition')
     expect(landingPage).not.toContain('Independent · starting with Sri Lanka')
     expect(landingPage).not.toContain('platformStats')
-    expect(countryFeature).not.toContain('Starting in Sri Lanka')
-    expect(countryFeature).not.toContain('More countries can follow')
-    expect(countryFeature).not.toContain('country-feature__stats')
+    expect(landingPage).not.toContain('Starting in Sri Lanka')
+    expect(landingPage).not.toContain('More countries can follow')
+    // The landing page opens straight onto its scene: no navigation bar over the island.
+    expect(landingPage).toContain('header={false}')
   })
 })

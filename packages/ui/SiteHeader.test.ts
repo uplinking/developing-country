@@ -41,6 +41,6 @@ test('a host with in-app MCP and Sign in controls gets a header without those li
   expect(html).not.toContain('?connect=1')
   expect(html).not.toContain('?signin=1')
   const [inline, menu] = html.split(/popovertarget=/i)
-  expect(hrefs(inline).slice(1)).toEqual(['https://developing-country.org/data', 'https://developing-country.org/initiatives', 'https://developing-country.org/analysis'])
+  expect(hrefs(inline).slice(1)).toEqual(['https://developing-country.org/data', 'https://developing-country.org/funding', 'https://developing-country.org/analysis'])
   expect(hrefs(menu)).toEqual(hrefs(inline).slice(1))
 })

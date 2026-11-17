@@ -11,7 +11,8 @@ interface Props {
   title: string
   description?: string | null
   image?: string | null
-  immersiveHeader?: boolean
+  /** The landing page opens straight onto its scene, with no navigation bar over it. */
+  header?: boolean
   type?: 'website' | 'article'
   publishedTime?: string | null
   modifiedTime?: string | null
@@ -22,7 +23,7 @@ const {
   title,
   description = 'Sri Lanka’s public data, brought together and explained.',
   image,
-  immersiveHeader = false,
+  header = true,
   type = 'website',
   publishedTime,
   modifiedTime,
@@ -85,9 +86,9 @@ const page = createPublicPageContext({
     {ogImageIsCard && <meta property="og:image:height" content="630" />}
     <script type="application/ld+json" set:html={JSON.stringify(organization)} />
   </head>
-  <body class:list={['site-body', { 'site-body--immersive': immersiveHeader }]}>
+  <body class="site-body">
     <EmDashBodyStart page={page} />
-    <SiteHeader siteUrl="" explorerUrl={explorerUrl} />
+    {header && <SiteHeader siteUrl="" explorerUrl={explorerUrl} />}
     <main><slot /></main>
     <footer class="site-footer">
       <div class="footer-grid">
@@ -103,10 +104,12 @@ const page = createPublicPageContext({
         <div>
           <p class="footer-label">Read and explore</p>
           <a href="/data">Data notes</a>
+          <a href="/funding">Funding dashboard</a>
           <a href="/analysis">Thoughts</a>
           <a href="/rss.xml">RSS</a>
           <a href={explorerUrl}>Explore the map</a>
           <a href="/connect">Connect an AI assistant</a>
+          <a href={`${explorerUrl}/?signin=1`}>Sign in</a>
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
         </div>

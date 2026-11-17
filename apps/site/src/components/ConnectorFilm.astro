@@ -1,0 +1,58 @@
+---
+import CameraFilm from './CameraFilm.astro'
+import type { FilmKey } from '../lib/cameraFilm'
+
+interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
+
+/**
+ * Headline Colombo CCPI, year-on-year %, February 2023 to August 2026, from the ccpi-monthly table
+ * (Department of Census and Statistics, 2021=100) as the connector returned it. The film is a picture
+ * of one conversation, so the series is fixed to that moment rather than read live.
+ */
+const SERIES = [
+  50.6, 50.3, 35.3, 25.2, 12, 6.3, 4, 1.3, 1.5, 3.4, 4, 6.4, 5.9, 0.9, 1.5, 0.9, 1.7, 2.4, 0.5, -0.5, -0.8, -2.1,
+  -1.7, -4, -4.2, -2.6, -2, -0.7, -0.6, -0.3, 1.2, 1.5, 2.1, 2.1, 2.1, 2.3, 1.6, 2.2, 5.4, 5.5, 6.8, 7.3, 8,
+] as const
+
+const W = 640, H = 220, TOP = 55, BOTTOM = -5
+const px = (i: number) => (i / (SERIES.length - 1)) * W
+const py = (v: number) => ((TOP - v) / (TOP - BOTTOM)) * H
+const line = SERIES.map((v, i) => `${i ? 'L' : 'M'}${px(i).toFixed(1)} ${py(v).toFixed(1)}`).join(' ')
+const area = `${line} L${W} ${py(BOTTOM)} L0 ${py(BOTTOM)} Z`
+
+/** Read the question, watch the tool call, follow the line down and back up, then pull back. */
+const CHAT_FILM: readonly FilmKey[] = [
+  { target: { selector: '.film-chat__ask' }, ax: 0.7, zoom: 2.2, tilt: 40, turn: -18 },
+  { target: { selector: '.film-chat__tool' }, ax: 0.3, after: 4, zoom: 2.4, tilt: 46, turn: 14 },
+  { target: { selector: '.film-chat__chart' }, ax: 0.15, ay: 0.3, after: 4.5, zoom: 2.3, tilt: 48, turn: -22 },
+  { target: { selector: '.film-chat__chart' }, ax: 0.9, ay: 0.6, after: 4.5, zoom: 2.2, tilt: 40, turn: 12 },
+  { target: { selector: '.film-chat' }, ay: 0.5, after: 4.5, zoom: 1.02, tilt: 18, turn: -4, still: true },
+  { target: { selector: '.film-chat' }, ay: 0.5, after: 1.6, zoom: 0.98, tilt: 16, turn: -5 },
+]
+---
+
+<CameraFilm
+  class={className}
+  label="A chat with an AI assistant: asked how inflation in Colombo has moved since 2023, it calls the developing-country.org connector, then answers with a chart of the Colombo Consumer Price Index from 50.6% in February 2023 to 8.0% in August 2026, citing the Department of Census and Statistics."
+  keys={CHAT_FILM}
+  sceneWidth={1200}
+  plate="Claude · ChatGPT"
+>
+  <div class="film-chat">
+    <p class="film-chat__ask">How has inflation in Colombo moved since the 2023 crisis?</p>
+    <p class="film-chat__tool"><span>developing-country.org</span> query_data · ccpi-monthly</p>
+    <div class="film-chat__answer">
+      <p>Prices were up <strong>50.6%</strong> on a year earlier in February 2023. By September 2024 they were falling, and they turned up again in August 2025: <strong>8.0%</strong> in the year to August 2026.</p>
+      <svg class="film-chat__chart" viewBox={`0 0 ${W} ${H}`} role="presentation">
+        <line x1="0" x2={W} y1={py(0)} y2={py(0)} class="film-chat__zero" />
+        <path d={area} class="film-chat__area" />
+        <path d={line} class="film-chat__line" />
+      </svg>
+      <p class="film-chat__source">Source: Department of Census and Statistics, Colombo CCPI (2021=100), headline, year on year.</p>
+    </div>
+  </div>
+</CameraFilm>
