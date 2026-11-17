@@ -166,7 +166,8 @@ function crumb(state: PanelState): string {
     const q = isJsonObject(state.raw.query) ? Object.values(state.raw.query).filter(isJsonString).join(' · ') : ''
     return `Search · ${q}`
   }
-  if (state.kind === 'dataset') return str(state.raw.title) ?? 'Dataset'
+  // The card's heading already names the dataset.
+  if (state.kind === 'dataset') return 'Dataset'
   return str(state.raw.dataset_id) ?? 'Result'
 }
 
@@ -334,11 +335,10 @@ function DatasetCard({ raw, onRun, onOpen, onOpenLink }: {
   const caveats = Array.isArray(raw.caveats) ? raw.caveats.filter(isJsonString) : []
   const webUrl = str(raw.web_url)
   const sourceUrl = source ? str(source.url) : str(raw.source_url)
-  const facts = [time, isJsonNumber(raw.row_count) ? `${raw.row_count.toLocaleString('en-GB')} rows` : undefined].filter(Boolean)
-  // A layer's description is written for the model; its first sentence is the plain one.
-  const subtitle = str(raw.question) ?? (isSpatial ? str(raw.description)?.split(/(?<=\.)\s/)[0] : undefined)
+  const facts = [isSpatial ? 'Map layer' : undefined, time, isJsonNumber(raw.row_count) ? `${raw.row_count.toLocaleString('en-GB')} rows` : undefined].filter(Boolean)
   const about: Array<[string, string]> = []
   const sourceName = source ? str(source.name) : undefined
+  if (publisher) about.push(['Publisher', publisher])
   if (str(raw.grain)) about.push(['Each row', str(raw.grain)!])
   if (vintage && vintage !== time) about.push(['Edition', vintage])
   if (refreshed) about.push(['Updated', refreshed])
@@ -348,8 +348,6 @@ function DatasetCard({ raw, onRun, onOpen, onOpenLink }: {
     <article className="mcp-card">
       <header className="mcp-card-head">
         <h2>{title}</h2>
-        {subtitle ? <p className="mcp-card-q">{subtitle}</p> : null}
-        {publisher ? <p className="mcp-card-publisher">{publisher}</p> : null}
         <p className="mcp-card-facts">
           {facts.map((fact) => <span key={fact}>{fact}</span>)}
           {webUrl ? <button type="button" className="mcp-inline-link" onClick={() => onOpenLink(webUrl)}>Dataset page ↗</button> : null}
@@ -358,18 +356,15 @@ function DatasetCard({ raw, onRun, onOpen, onOpenLink }: {
 
       {presets.length ? (
         <section className="mcp-card-section">
-          <p className="mcp-label">Start with a chart</p>
+          <p className="mcp-label">Charts</p>
           <ul className="mcp-presets">
             {presets.map((p) => {
               const callArgs = isJsonObject(p.call) && isJsonObject(p.call.arguments) ? p.call.arguments : null
               return (
                 <li key={str(p.id)}>
-                  <button type="button" disabled={!callArgs} onClick={() => callArgs && onRun(callArgs, str(p.title) ?? 'Preset')}>
+                  <button type="button" title={str(p.description)} disabled={!callArgs} onClick={() => callArgs && onRun(callArgs, str(p.title) ?? 'Preset')}>
                     <FamilyGlyph family={str(p.family)} />
-                    <span className="mcp-preset-text">
-                      <strong>{str(p.title)}</strong>
-                      {str(p.description) ? <span>{str(p.description)}</span> : null}
-                    </span>
+                    <strong>{str(p.title)}</strong>
                   </button>
                 </li>
               )
@@ -378,13 +373,12 @@ function DatasetCard({ raw, onRun, onOpen, onOpenLink }: {
         </section>
       ) : null}
 
-      {isSpatial ? <p className="mcp-card-note">This is a map layer. Ask in the chat to put it on the map.</p> : null}
 
       {related.length ? (
         <section className="mcp-card-section">
           <p className="mcp-label">Related</p>
           <ul className="mcp-related">
-            {related.slice(0, 6).map((r) => {
+            {related.slice(0, 4).map((r) => {
               const rid = str(r.dataset_id) ?? ''
               return (
                 <li key={rid}>

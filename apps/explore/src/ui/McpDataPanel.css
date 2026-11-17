@@ -203,13 +203,6 @@
   font-size: 22px;
   line-height: 1.2;
 }
-.mcp-card-q {
-  margin: 0 0 10px;
-  color: var(--ink-dim);
-  font-size: 15px;
-  line-height: 1.4;
-}
-.mcp-card-publisher { margin: 0 0 2px; font-size: 13px; }
 .mcp-card-facts {
   display: flex;
   flex-wrap: wrap;
@@ -235,11 +228,10 @@
 }
 .mcp-inline-link:hover { text-decoration: underline; }
 .mcp-card-section { margin-top: 22px; }
-.mcp-card-note { margin: 18px 0 0; color: var(--ink-dim); font-size: 13px; }
 
 .mcp-presets {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 10px;
   margin: 0;
   padding: 0;
@@ -248,8 +240,8 @@
 .mcp-presets li { display: flex; }
 .mcp-presets button {
   display: flex;
-  gap: 12px;
-  align-items: flex-start;
+  gap: 10px;
+  align-items: center;
   width: 100%;
   padding: 12px;
   border: 1px solid var(--panel-line);
@@ -264,18 +256,8 @@
 .mcp-presets button:hover { transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--panel-line); }
 .mcp-presets button:active { transform: translate(3px, 3px); box-shadow: none; }
 .mcp-presets button:focus-visible { outline: 2px solid var(--route-info); outline-offset: 2px; }
-.mcp-glyph { flex: none; margin-top: 1px; color: var(--route-info); }
-.mcp-preset-text { display: grid; gap: 4px; min-width: 0; }
-.mcp-preset-text strong { font-size: 14px; line-height: 1.25; }
-.mcp-preset-text span {
-  display: -webkit-box;
-  overflow: hidden;
-  color: var(--ink-dim);
-  font-size: 12.5px;
-  line-height: 1.4;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
+.mcp-glyph { flex: none; color: var(--route-info); }
+.mcp-presets strong { font-size: 14px; line-height: 1.25; }
 
 .mcp-related {
   display: flex;
