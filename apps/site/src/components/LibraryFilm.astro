@@ -1,0 +1,42 @@
+---
+import type { ComponentProps } from 'astro/types'
+import CameraFilm from './CameraFilm.astro'
+import DatasetCard from './DatasetCard.astro'
+import type { FilmKey } from '../lib/cameraFilm'
+
+interface Props {
+  /** The dataset cards to film, rendered exactly as /data renders them. */
+  cards: ComponentProps<typeof DatasetCard>[]
+  count: number
+  class?: string
+}
+
+const { cards, count, class: className } = Astro.props
+
+const card = (index: number, part = '') => ({ target: { selector: `.dataset-card${part}`, index } })
+
+/** Skim the theme tags along the top row, drop to a title, read who published it, pull back over the grid. */
+const LIBRARY_FILM: readonly FilmKey[] = [
+  { ...card(0, ' .dataset-card__themes'), ax: 0.2, zoom: 2.1, tilt: 42, turn: 20 },
+  { ...card(2, ' .dataset-card__themes'), ax: 0.3, after: 4.5, zoom: 1.9, tilt: 48, turn: -14 },
+  { ...card(4, ' h3'), ax: 0.3, after: 4.5, zoom: 2, tilt: 40, turn: -24 },
+  { ...card(4, ' .dataset-card__provenance'), ax: 0.4, after: 4, zoom: 2.3, tilt: 34, turn: 8 },
+  { target: { selector: '.dataset-card-grid' }, ay: 0.42, after: 4.5, zoom: 0.96, tilt: 20, turn: 3, still: true },
+  { target: { selector: '.dataset-card-grid' }, ay: 0.42, after: 1.6, zoom: 0.93, tilt: 19, turn: 4 },
+]
+---
+
+<CameraFilm
+  class={className}
+  label={`The dataset library: cards for ${cards.map((entry) => entry.title).join(', ')}, each with its themes, publisher and licence.`}
+  keys={LIBRARY_FILM}
+  sceneWidth={1440}
+  plate="developing-country.org/data"
+>
+  <div class="film-library">
+    <p class="report-label film-library__label"><span>Datasets</span><span>{count} indicators</span></p>
+    <div class="dataset-card-grid">
+      {cards.map((entry) => <DatasetCard {...entry} />)}
+    </div>
+  </div>
+</CameraFilm>

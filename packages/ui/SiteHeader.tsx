@@ -19,7 +19,7 @@ export function SiteHeader({ siteUrl, explorerUrl, inAppActions = false }: SiteH
   const explorer = explorerUrl.replace(/\/$/, '')
   const links = [
     { href: `${site}/data`, label: 'Data', note: 'Datasets' },
-    { href: `${site}/initiatives`, label: 'Initiatives', note: 'Projects & funding' },
+    { href: `${site}/funding`, label: 'Funding', note: 'Where the money goes' },
     { href: `${site}/analysis`, label: 'Thoughts', note: 'Essays' },
     ...(inAppActions ? [] : [
       { href: `${explorer}/?connect=1`, label: 'MCP', note: 'Connect an agent' },

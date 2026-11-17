@@ -1,15 +1,19 @@
 ---
 import { getEmDashCollection, getEmDashEntry } from 'emdash'
-import { isCountryCode } from '@developing-country/countries'
+import { COUNTRY_PROFILES, DEFAULT_COUNTRY, isCountryCode } from '@developing-country/countries'
 import ArticleCard from '../components/ArticleCard.astro'
-import CountryFeature from '../components/CountryFeature.astro'
-import DatasetPanel from '../components/DatasetPanel.astro'
+import ConnectorFilm from '../components/ConnectorFilm.astro'
+import CountryScene from '../components/CountryScene.astro'
+import ExplorerFilm from '../components/ExplorerFilm.astro'
+import LibraryFilm from '../components/LibraryFilm.astro'
+import ShowcasePanel from '../components/ShowcasePanel.astro'
 import SiteLayout from '../layouts/SiteLayout.astro'
 import { articleFields, countryFields, pageFields } from '../lib/content'
 import { loadSiteDatasetCatalog } from '../lib/datasetCatalogCloudflare'
-import { datasetExploreUrl, datasetMeta, datasetNotes } from '../lib/datasets'
+import { datasetMeta, datasetNotes } from '../lib/datasets'
 import { CANONICAL_EXPLORER_ORIGIN, resolveExplorerHref } from '../lib/explorer'
-import { CHAPTER_SHOTS } from '../lib/films'
+import { ASSISTANT_LINKS } from '../lib/assistants'
+import { COLOMBO_SHOT, FUNDING_SHOT } from '../lib/films'
 
 const [{ entry: home, cacheHint }, { entries: articles }, { entries: countries }, datasetCatalog] = await Promise.all([
   getEmDashEntry('pages', 'home'),
@@ -29,12 +33,13 @@ const countryCards = countries
   .filter((entry) => isCountryCode(entry.data.code))
 
 const featuredCountry = countryCards[0]
+const heroCountry = featuredCountry && isCountryCode(featuredCountry.data.code) ? featuredCountry.data.code : DEFAULT_COUNTRY
+const heroCountryName = COUNTRY_PROFILES[heroCountry].name
 const localExplorerOrigin = import.meta.env.DEV ? 'http://127.0.0.1:5173' : undefined
 const explore = (url: string) => resolveExplorerHref(url, localExplorerOrigin)
 const explorerHref = explore(`${CANONICAL_EXPLORER_ORIGIN}/`)
-const mapLayerCount = datasetNotes.filter((note) => note.preview?.kind !== 'chart').length
 const indicatorCount = datasetNotes.filter((note) => note.preview?.kind === 'chart').length
-/** The dataset library door films these cards exactly as /data renders them. */
+/** The datasets panel films these cards exactly as /data renders them. */
 const libraryIds = [
   'census-age-sex-dsd',
   'ccpi-monthly',
@@ -60,71 +65,35 @@ const libraryCards = libraryIds.map((id) => {
     sources: dataset.sources,
   }
 })
-const checked = (datasetId: Parameters<typeof datasetMeta>[1]) => {
-  const value = datasetMeta(datasetCatalog, datasetId).version.refreshedAt
-  const parsed = /^\d{4}-\d{2}-\d{2}$/.test(value) ? new Date(`${value}T00:00:00Z`) : null
-  return parsed ? parsed.toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' }) : value
-}
-const records = (datasetId: Parameters<typeof datasetMeta>[1], noun: string) => {
-  const count = datasetMeta(datasetCatalog, datasetId).version.rowCount
-  return count === undefined ? 'See note' : `${count.toLocaleString('en-GB')} ${noun}`
-}
-
-const datasets = [
+/** What the app is made of, one panel each: what we built and why it helps. More will join as they are built. */
+const showcase = [
   {
-    eyebrow: 'Public projects',
-    title: 'What is being built?',
-    summary: 'See what was announced, where it is, who is responsible, what it was expected to cost and when anyone last reported progress.',
-    facts: [{ label: 'Records', value: records('developments', 'projects') }, { label: 'Last checked', value: checked('developments') }],
-    noteUrl: '/data/developments',
-    exploreUrl: explore(datasetExploreUrl('developments')),
-    shot: CHAPTER_SHOTS.developments,
-    shotLabel: 'The explorer map of Sri Lanka with planned developments on, and the Getambe Junction Flyover’s status timeline open.',
-    tone: 'coral' as const,
-  },
-  {
-    eyebrow: 'Population',
-    title: 'Where do people live?',
-    summary: 'Compare population across provinces, districts and smaller administrative areas, while keeping the census year and known gaps in view.',
-    facts: [{ label: 'Census years', value: '2012 + 2024' }, { label: 'Last checked', value: checked('demographics') }],
-    noteUrl: '/data/demographics',
-    exploreUrl: explore(datasetExploreUrl('demographics')),
-    shot: CHAPTER_SHOTS.demographics,
-    shotLabel: 'The explorer map around Colombo shaded by population density per GN division, with Koholvila’s census readout open.',
+    title: 'Datasets',
+    summary: 'We gather the public datasets that show how the country is doing, on urban development, the economy, prices, jobs, public finances and social conditions, so you can keep an eye on what is changing in one place.',
+    actions: [{ href: '/data', label: 'Datasets' }],
     tone: 'lilac' as const,
+    film: 'library' as const,
   },
   {
-    eyebrow: 'Public transport',
-    title: 'How far does the city reach?',
-    summary: 'See Colombo Metro Bus routes and the streets people can reach on foot from each stop—not just the lines on a transport map.',
-    facts: [{ label: 'Walking records', value: records('metro_catchment', 'catchments') }, { label: 'Last checked', value: checked('metro_catchment') }],
-    noteUrl: '/data/metro_catchment',
-    exploreUrl: explore(datasetExploreUrl('metro_catchment')),
-    shot: CHAPTER_SHOTS.metro_catchment,
-    shotLabel: 'The explorer map of south-east Colombo showing streets within a five- and ten-minute walk of Metro Bus stops, with the Pannipitiya stop selected.',
-    tone: 'sage' as const,
+    title: 'Geospatial data',
+    summary: 'We put that data on a map, in layers for people, transport, schools, hospitals, land cover and planned developments, so you can see where things are happening and how they connect.',
+    actions: [{ href: explorerHref, label: 'Geospatial data' }],
+    tone: 'pink' as const,
+    film: 'map' as const,
   },
   {
-    eyebrow: 'Schools',
-    title: 'Is learning within reach?',
-    summary: 'Explore where schools have been mapped, then compare them with population and transport. A point on a map does not always mean practical access.',
-    facts: [{ label: 'Mapped places', value: records('schools', 'places') }, { label: 'Source', value: 'OpenStreetMap' }],
-    noteUrl: '/data/schools',
-    exploreUrl: explore(datasetExploreUrl('schools')),
-    shot: CHAPTER_SHOTS.schools,
-    shotLabel: 'The explorer map around Kandy with mapped schools, and one college’s readout noting it is from OpenStreetMap, not the official register.',
-    tone: 'ochre' as const,
+    title: 'Funding dashboard',
+    summary: 'We track public projects and the money behind them, from announcement to approval, contract and payment, so you can see who is funding what and how far it has got.',
+    actions: [{ href: '/funding', label: 'Funding dashboard' }],
+    tone: 'peach' as const,
+    film: 'funding' as const,
   },
   {
-    eyebrow: 'Hospitals',
-    title: 'Where is care available?',
-    summary: 'Locate mapped hospitals and clinics, while keeping one limitation clear: this is a community map, not the official health-service register.',
-    facts: [{ label: 'Mapped places', value: records('hospitals', 'places') }, { label: 'Coverage', value: 'Community-mapped' }],
-    noteUrl: '/data/hospitals',
-    exploreUrl: explore(datasetExploreUrl('hospitals')),
-    shot: CHAPTER_SHOTS.hospitals,
-    shotLabel: 'The explorer map around Jaffna with mapped hospitals and clinics, and Northern Central Hospital’s readout open.',
-    tone: 'blue' as const,
+    title: 'MCP',
+    summary: 'We publish all of this as an MCP connector, so you can ask Claude or ChatGPT about the country in plain language and get answers that cite their source.',
+    actions: ASSISTANT_LINKS.map((link) => ({ ...link, external: true })),
+    tone: 'sky' as const,
+    film: 'connector' as const,
   },
 ]
 ---
@@ -132,28 +101,18 @@ const datasets = [
 <SiteLayout
   title="developing-country.org"
   description={homeData?.description || 'Sri Lanka’s public data, brought together and explained.'}
-  immersiveHeader
+  header={false}
 >
   {home && homeData ? (
     <div class="report-home" {...home.edit.content}>
       <section class="report-hero" aria-labelledby="report-title">
-        <div class="report-hero__placeholder" aria-hidden="true">
-          <div class="report-hero__grid"></div>
-        </div>
+        <CountryScene code={heroCountry} class="report-hero__scene" />
         <div class="report-hero__content">
           <div class="report-hero__title-wrap">
-            <h1 id="report-title"><span>Developing</span><span>country</span></h1>
+            <h1 id="report-title"><span>Developing</span><span>country<sup class="report-hero__badge">{heroCountryName}</sup></span></h1>
           </div>
-
         </div>
       </section>
-
-      {featuredCountry && (
-        <CountryFeature
-          map={{ count: mapLayerCount, href: explorerHref }}
-          data={{ count: indicatorCount, href: '/data', cards: libraryCards }}
-        />
-      )}
 
       <section class="mission-fold" aria-label="Why I’m building Developing Country">
         <div class="mission-fold__inner">
@@ -163,9 +122,29 @@ const datasets = [
         </div>
       </section>
 
-      <section class="dataset-chapters" aria-label="Explore the data">
-        {datasets.map((dataset, index) => (
-          <DatasetPanel index={index + 1} {...dataset} />
+      <section class="showcase" aria-label="What is here">
+        {showcase.map(({ film, ...panel }, index) => (
+          <ShowcasePanel index={index + 1} {...panel}>
+            {film === 'library' && <LibraryFilm slot="film" class="showcase-panel__film" cards={libraryCards} count={indicatorCount} />}
+            {film === 'map' && (
+              <ExplorerFilm
+                slot="film"
+                class="showcase-panel__film"
+                shot={COLOMBO_SHOT}
+                label="The explorer map of Colombo with Metro Bus lines, walking coverage, schools and hospitals switched on, and a selected street's walking readout open."
+              />
+            )}
+            {film === 'funding' && (
+              <ExplorerFilm
+                slot="film"
+                class="showcase-panel__film"
+                shot={FUNDING_SHOT}
+                plate="developing-country.org/funding"
+                label="The funding dashboard: money by stage from announced to paid, a weekly timeline of events, and the feed of funding decisions with their funders."
+              />
+            )}
+            {film === 'connector' && <ConnectorFilm slot="film" class="showcase-panel__film" />}
+          </ShowcasePanel>
         ))}
       </section>
 

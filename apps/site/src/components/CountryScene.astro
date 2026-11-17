@@ -1,0 +1,62 @@
+---
+import type { CountryCode } from '@developing-country/domain'
+
+interface Props {
+  code: CountryCode
+  class?: string
+}
+
+const { code, class: className } = Astro.props
+
+/** Hero art per country. A new country needs its scene here before it can be featured. */
+const SCENES = {
+  LK: {
+    label:
+      'A voxel landscape of Sri Lanka: misty hill country and a highland reservoir, tea terraces, a waterfall feeding a river where an elephant and a calf drink, a white dagoba, and Colombo’s Lotus Tower and port on the far coast.',
+  },
+} satisfies Record<CountryCode, { label: string }>
+const scene = SCENES[code]
+---
+
+<div class:list={['country-scene', className]} data-country-scene={code} role="img" aria-label={scene.label}>
+  <canvas aria-hidden="true"></canvas>
+</div>
+
+<script>
+  import type { IslandScene } from '../lib/lankaIsland/scene'
+
+  const PAPER = 0xf7f6f4
+
+  function buildIsland(): Promise<IslandScene> {
+    const inline = () => import('../lib/lankaIsland/scene').then((m) => m.buildLankaIsland())
+    if (!('Worker' in window)) return inline()
+    return new Promise((resolve) => {
+      const worker = new Worker(new URL('../lib/lankaIsland/worker.ts', import.meta.url), { type: 'module' })
+      const done = (scene: Promise<IslandScene> | IslandScene) => { worker.terminate(); resolve(scene) }
+      worker.onmessage = (event: MessageEvent<IslandScene>) => done(event.data)
+      worker.onerror = () => done(inline())
+      worker.postMessage(null)
+    })
+  }
+
+  async function mount(root: HTMLElement) {
+    const canvas = root.querySelector('canvas')
+    if (!canvas) return
+    const [{ mountIsland }, island] = await Promise.all([import('../lib/lankaIsland/render'), buildIsland()])
+    try {
+      mountIsland(canvas, root, island, {
+        background: PAPER,
+        reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      })
+    } catch {
+      // No WebGL: the hero keeps its plain paper ground and the title still reads.
+      root.dataset.unavailable = ''
+    }
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-country-scene="LK"]').forEach((root) => {
+    if (root.dataset.sceneMounted !== undefined) return
+    root.dataset.sceneMounted = ''
+    void mount(root)
+  })
+</script>

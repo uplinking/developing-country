@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test'
 import { DIP_SECONDS, cameraAt, resolveKey, stillIndex, timeline, type FilmKey } from './lib/cameraFilm'
-import { CHAPTER_SHOTS, COLOMBO_SHOT, explorerTour, filmSrc } from './lib/films'
+import { COLOMBO_SHOT, FUNDING_SHOT, explorerTour, filmSrc } from './lib/films'
 
 const scene = { width: 1000, height: 500 }
 
@@ -38,7 +38,7 @@ describe('camera film', () => {
   })
 
   test('every explorer tour stays on its still and has one resting frame', async () => {
-    for (const shot of [COLOMBO_SHOT, ...Object.values(CHAPTER_SHOTS)]) {
+    for (const shot of [COLOMBO_SHOT, FUNDING_SHOT]) {
       for (const width of [shot.large, shot.small]) {
         expect(await Bun.file(`${import.meta.dir}/../public${filmSrc(shot, width)}`).exists()).toBe(true)
       }
