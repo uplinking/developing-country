@@ -153,7 +153,9 @@ function locate(scene: HTMLElement, target: FilmTarget): Box | null {
 
 /**
  * Film one `[data-camera-film]` root. It holds still until it scrolls near the viewport, runs only
- * while visible in a visible tab, and shows its still key for reduced motion. Returns a disposer.
+ * while visible in a visible tab, and shows its still key for reduced motion. Inside a stack of sticky
+ * panels (`[data-film-stack]`) it also rests once the next panel has slid over it, so only the panel on
+ * top plays. Returns a disposer.
  */
 export function mountCameraFilm(root: HTMLElement): () => void {
   const lens = root.querySelector<HTMLElement>('[data-film-lens]')
@@ -176,6 +178,7 @@ export function mountCameraFilm(root: HTMLElement): () => void {
   let last = 0
   let frame = 0
   let visible = false
+  let covered = false
 
   const draw = () => {
     const size = { width: lens.clientWidth, height: lens.clientHeight }
@@ -201,7 +204,7 @@ export function mountCameraFilm(root: HTMLElement): () => void {
 
   const sync = () => {
     cancelAnimationFrame(frame)
-    if (visible && !document.hidden && !reduced.matches && plan.loop > 0) {
+    if (visible && !covered && !document.hidden && !reduced.matches && plan.loop > 0) {
       started = true
       last = performance.now()
       frame = requestAnimationFrame(step)
@@ -223,6 +226,16 @@ export function mountCameraFilm(root: HTMLElement): () => void {
     sync()
   }, { rootMargin: '120px 0px' })
   views.observe(root)
+  // The next panel in a sticky stack covers this one once its top reaches the top of the viewport:
+  // watch for it entering a thin strip there. Nothing to watch outside a stack, or on its last panel.
+  const above = root.closest('[data-film-stack]')?.nextElementSibling
+  const covers = above?.matches('[data-film-stack]')
+    ? new IntersectionObserver(([entry]) => {
+      covered = entry?.isIntersecting ?? false
+      sync()
+    }, { rootMargin: '0px 0px -98% 0px' })
+    : null
+  if (above && covers) covers.observe(above)
   document.addEventListener('visibilitychange', sync)
   reduced.addEventListener('change', sync)
   // Images change the boxes the keys aim at; re-aim once each has a size.
@@ -235,6 +248,7 @@ export function mountCameraFilm(root: HTMLElement): () => void {
     cancelAnimationFrame(frame)
     resizes.disconnect()
     views.disconnect()
+    covers?.disconnect()
     document.removeEventListener('visibilitychange', sync)
     reduced.removeEventListener('change', sync)
   }
