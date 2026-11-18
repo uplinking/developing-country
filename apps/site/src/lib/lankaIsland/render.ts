@@ -135,11 +135,11 @@ export function mountIsland(canvas: HTMLCanvasElement, host: HTMLElement, island
   const falls = mesh(island.falls, false)
   const spill = mesh(island.spill, false)
   spill.frustumCulled = false // its bounds change as rows are revealed
-  // The start of the sunset: clouds lit gold from below, brighter than anything else in the sky.
-  const blush = new Color().setHex(0xffdc96, SRGBColorSpace)
+  // Bright, nearly white clouds with only a breath of warmth, the lightest things in the sky.
+  const blush = new Color().setHex(0xfff6e8, SRGBColorSpace)
   const clouds = island.clouds.map((cloud) => {
     const m = mesh(cloud, false)
-    for (let i = 0; i < m.count; i++) { m.getColorAt(i, colour); m.setColorAt(i, colour.lerp(blush, 0.45).multiplyScalar(1.12)) }
+    for (let i = 0; i < m.count; i++) { m.getColorAt(i, colour); m.setColorAt(i, colour.lerp(blush, 0.6).multiplyScalar(1.3)) }
     m.position.set(cloud.x, cloud.y, cloud.z)
     return { mesh: m, speed: cloud.speed }
   })
