@@ -129,24 +129,24 @@ const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v
 
 /* The palette, by role. Water hues live in render.ts, which animates them. */
 const P = {
-  forestDeep: 0x2f5a35, forest: 0x3f6d3b, leaf: 0x4f7f42, leafLight: 0x6f9a4e, leafDark: 0x355f34,
-  grass: 0x7da455, grassLight: 0x93b764, earth: 0x8b6a4b, earthDark: 0x6f5440,
-  tea: 0x8fbd5d, teaDark: 0x5f9440, teaBush: 0x4f8a3a,
-  hill: 0x3d7564, slate: 0x2f6f8f, blue: 0x3b81a8, blueLight: 0x5f9cc0, mist: 0xe9ebe6, stone: 0xd9d3c6,
+  forestDeep: 0x1d6e45, forest: 0x268a4c, leaf: 0x34a352, leafLight: 0x6cc84e, leafDark: 0x1f7a47,
+  grass: 0x97cc48, grassLight: 0xb3dc5a, earth: 0xa86f45, earthDark: 0x84553a,
+  tea: 0xa5d94a, teaDark: 0x67bd3f, teaBush: 0x3a9f48,
+  hill: 0x2e9a5e, slate: 0x2a80bd, blue: 0x2e8fd2, blueLight: 0x5fb5e8, mist: 0xe9ebe6, stone: 0xd9d3c6,
   coral: 0xe07a5f, coralDeep: 0xc9634c, sandstone: 0xdcc6a6, rock: 0xb8ab9b,
-  trunk: 0x7a5a42, palmTrunk: 0x9a7b5a, palm: 0x5d8f3f, palmLight: 0x7fae52, coconut: 0x8a6a3a,
+  trunk: 0x8c5a38, palmTrunk: 0xa97c52, palm: 0x3c9f48, palmLight: 0x84cf4c, coconut: 0x8a6a3a,
   ele: 0x86817d, eleDark: 0x6a6562, eleEar: 0x978884, ivory: 0xf3eee2, eye: 0x2a2522,
   white: 0xf4f1ea, white2: 0xe4dfd5, gold: 0xc9a24d,
   bldg: 0xe7e3db, bldg2: 0xd3cec5, glass: 0x86abc3, roof: 0xbcb6ab, tile: 0xd06a50,
-  lotusShaft: 0x6f8f6b, lotusBud: 0xd9838f, lotusPetal: 0xe9a3a8,
+  lotusShaft: 0x5f9f6a, lotusBud: 0xd9838f, lotusPetal: 0xe9a3a8,
   crane: 0xd9603f, quay: 0xcfc9bd, hull: 0x2c3b4c, hullRed: 0xb44a3a,
   sand: 0xe6d9bd, wood: 0x6b4a33, foam: 0xeef4f3,
-  flame: 0xd9583b, flameLight: 0xec7a4c, golden: 0xe2b33c, goldenLight: 0xf1cf5d, plum: 0x8a4a5e,
-  bo: 0x86b552, boLight: 0xa3c968, boDark: 0x5f8f3d,
-  hibiscus: 0xd8344a, bougain: 0xd2458c, bougainLight: 0xec80b4, frangipani: 0xf8f1e2, frangiHeart: 0xf2c84b, ixora: 0xea6a35,
-  shrub: 0x467f38, shrubLight: 0x66a046, dryGrass: 0xc3c27c,
+  flame: 0xeb4f2c, flameLight: 0xff7a42, golden: 0xf4b928, goldenLight: 0xffd84a, plum: 0xa5406a,
+  bo: 0x8acb46, boLight: 0xb2e264, boDark: 0x56a83c,
+  hibiscus: 0xe8264a, bougain: 0xe63b95, bougainLight: 0xff86c0, frangipani: 0xf8f1e2, frangiHeart: 0xf2c84b, ixora: 0xff6a2a,
+  shrub: 0x2c9446, shrubLight: 0x5cc24c, dryGrass: 0xd6cf7c,
   flagBlue: 0x2f5fa8, flagYellow: 0xf0c53a, flagRed: 0xc8443a, flagOrange: 0xe88a35,
-  water: 0x2f7fae, sea: 0x2a6c97,
+  water: 0x2a92d6, sea: 0x2380c6,
 } as const
 type Colour = keyof typeof P
 // SAFETY: P is a closed literal, so its own keys are exactly the Colour names.

@@ -165,9 +165,10 @@ export function mountIsland(canvas: HTMLCanvasElement, host: HTMLElement, island
     }
   }
 
-  // Golden hour: a bright warm fill and a strong golden sun, so whites glow and colours stay clear.
-  scene.add(new HemisphereLight(0xfff3df, 0xd2c3b4, 1.7))
-  const sun = new DirectionalLight(0xffd8a0, 2.3)
+  // Clear light, barely warm: the gold lives in the sky and clouds, so the land keeps its own colours
+  // instead of going olive under an orange sun. A strong, pale fill keeps shadows coloured, not grey.
+  scene.add(new HemisphereLight(0xfffbf2, 0xeae4d8, 2))
+  const sun = new DirectionalLight(0xfff1dc, 2.1)
   sun.position.set(40, 190, 230)
   sun.target.position.set(100, 0, 70)
   sun.castShadow = true
@@ -181,7 +182,7 @@ export function mountIsland(canvas: HTMLCanvasElement, host: HTMLElement, island
   /* ---------- moving water: the river, the falls and the spill ---------- */
   const { hash2, hash3, vnoise } = createNoise(7)
   const srgb = (hex: number) => new Color().setHex(hex, SRGBColorSpace)
-  const river = srgb(0x2f7fae), sea = srgb(0x2a6c97), light = srgb(0x6fb1d4), foam = srgb(0xeef4f3)
+  const river = srgb(0x2a92d6), sea = srgb(0x2380c6), light = srgb(0x6cc6f2), foam = srgb(0xeef4f3)
   const fallWhite = srgb(0xf6f8f6), fallLight = srgb(0xc4e0ec), fallBlue = srgb(0x7fb8d8), spillLight = srgb(0xa6d8f6)
   const paintWater = (flow: number) => {
     const p = island.water.positions
@@ -262,7 +263,7 @@ export function mountIsland(canvas: HTMLCanvasElement, host: HTMLElement, island
     camera.setViewOffset(w, fh, 0, fh * (aspect < 1 ? 0.06 : -0.03), w, h)
     camera.updateProjectionMatrix()
     // Only the far coast takes on the haze; the rest stays crisp, in focus in the clear evening light.
-    if (scene.fog instanceof Fog) { scene.fog.near = distance + 40; scene.fog.far = distance + 460 }
+    if (scene.fog instanceof Fog) { scene.fog.near = distance + 110; scene.fog.far = distance + 640 }
     renderer.shadowMap.needsUpdate = true
   }
   const pitch = 0.36
