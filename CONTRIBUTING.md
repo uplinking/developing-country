@@ -22,6 +22,9 @@ same command on every pull request.
   not ship.
 - **Respect source licences.** Only add data you are allowed to redistribute. If a publisher
   states no reuse terms, record `permission_unclear` and say so in the licence text.
+  Each Publisher's own reuse terms, with the URL they are stated on and the date checked, live in
+  [`packages/datasets/src/reuseTerms.ts`](packages/datasets/src/reuseTerms.ts); a new Publisher
+  needs an entry there, read from its site. Never record a licence the Publisher has not stated.
 - **Register once.** Datasets are defined in one place and projected everywhere else:
   - indicator tables: [docs/ADDING_AN_INDICATOR_DATASET.md](docs/ADDING_AN_INDICATOR_DATASET.md);
   - map layers: [docs/ADDING_A_LAYER.md](docs/ADDING_A_LAYER.md).

@@ -28,6 +28,8 @@ const QUERY_KEYS = new Set([
 export const SELECT_MAX_ROWS = DATASET_QUERY_LIMITS.maxRows
 /** Rows a select may return when the result is being saved as a Data View (still bounded by the snapshot byte cap). */
 export const PRESENTATION_MAX_ROWS = 5_000
+/** Rows the public CSV export may return: every row of the largest Indicator Table, with headroom. */
+export const EXPORT_MAX_ROWS = 50_000
 const PUBLIC_SITE_ORIGIN = 'https://developing-country.org'
 const tableCache = new Map<string, IndicatorTableV1>()
 
@@ -103,11 +105,12 @@ function selectedFields(fields: IndicatorField[], ids: string[]): IndicatorField
   return ids.map((id) => byId.get(id)).filter((field): field is IndicatorField => field !== undefined)
 }
 
-function queryInput(args: JsonObject): JsonObject {
+function queryInput(args: JsonObject, table: IndicatorTableV1, allFieldsByDefault: boolean): JsonObject {
   const out: JsonObject = {}
   for (const key of ['fields', 'where', 'order_by', 'limit'] as const) {
     if (args[key] !== undefined) out[key] = args[key]
   }
+  if (allFieldsByDefault && out.fields === undefined) out.fields = table.fields.map((field) => field.id)
   return out
 }
 
@@ -129,8 +132,14 @@ async function loadTable(env: Env, storage: TableStorage, datasetId: string): Pr
 }
 
 export interface QueryDataOptions {
-  /** Row ceiling for this call: SELECT_MAX_ROWS, or PRESENTATION_MAX_ROWS when a view is saved. */
+  /** Row ceiling for this call: SELECT_MAX_ROWS, PRESENTATION_MAX_ROWS when a view is saved, EXPORT_MAX_ROWS for CSV export. */
   maxRows?: number
+  /**
+   * Public CSV export: raises the row ceiling to EXPORT_MAX_ROWS and selects
+   * every field, in table order, when `fields` is omitted. Every other caller
+   * stays capped at PRESENTATION_MAX_ROWS and must name its fields.
+   */
+  bulkExport?: boolean
 }
 
 function assertRowLimit(args: JsonObject, maxRows: number): void {
@@ -149,7 +158,8 @@ function assertRowLimit(args: JsonObject, maxRows: number): void {
 }
 
 export async function queryData(env: Env, args: JsonObject, options: QueryDataOptions = {}): Promise<QueryTableResult> {
-  const maxRows = Math.min(options.maxRows ?? SELECT_MAX_ROWS, PRESENTATION_MAX_ROWS)
+  const allFields = options.bulkExport === true
+  const maxRows = Math.min(options.maxRows ?? SELECT_MAX_ROWS, allFields ? EXPORT_MAX_ROWS : PRESENTATION_MAX_ROWS)
   const op = args.op
   if (op !== 'select') typed(400, { error: 'unknown_op', op: typeof op === 'string' ? op : null, known: ['select'] })
   const extra = Object.keys(args).find((key) => !QUERY_KEYS.has(key))
@@ -180,7 +190,7 @@ export async function queryData(env: Env, args: JsonObject, options: QueryDataOp
     const schema = await readTable(env.DATASETS!, version, [version.partitions.at(-1)!.date])
     try {
       if (aggregating) parseAggregateQuery(schema, args, DATASET_QUERY_LIMITS.defaultRows, maxRows)
-      else selectRows(schema, queryInput(args), { maxRows })
+      else selectRows(schema, queryInput(args, schema, allFields), { maxRows })
     } catch (error) {
       typed(400, { error: 'invalid_query', ...(error instanceof DatasetContractError ? { issues: [...error.issues] } : {}) })
     }
@@ -228,8 +238,9 @@ export async function queryData(env: Env, args: JsonObject, options: QueryDataOp
       selected = aggregate
       fieldSchema = aggregate.fields
     } else {
-      selected = selectRows(table, queryInput(args), { maxRows })
-      fieldSchema = selectedFields(table.fields, args.fields as string[])
+      const input = queryInput(args, table, allFields)
+      selected = selectRows(table, input, { maxRows })
+      fieldSchema = selectedFields(table.fields, input.fields as string[])
     }
   } catch (error) {
     if (error instanceof DatasetContractError && error.code === 'invalid_query') {

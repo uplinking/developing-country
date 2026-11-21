@@ -10,6 +10,7 @@
 import {
   DATASET_QUERY_LIMITS,
   PUBLIC_DATA_THEMES,
+  datasetReuseTerms,
   indicatorDataset,
   type IndicatorChartPreset,
 } from '@developing-country/datasets'
@@ -20,6 +21,8 @@ import { isJsonString } from '@developing-country/domain/json'
 import { loadJson } from './assets'
 import type { getLayerCatalog } from './catalog'
 import type { Env } from './types'
+
+const PUBLIC_EXPLORER_ORIGIN = 'https://explore.developing-country.org'
 
 export const DATASET_INDEX_PATH = '/catalog/dataset-index.json'
 
@@ -398,6 +401,7 @@ export function datasetCard(catalog: Catalog, index: DatasetIndex | null, datase
   return {
     view: 'dataset',
     ...spatial,
+    reuse: datasetReuseTerms(spatial.dataset_ids.includes(datasetId) ? datasetId : spatial.dataset_ids[0] ?? datasetId),
     next: spatialNext(spatial),
   }
 }
@@ -458,6 +462,11 @@ function indicatorCard(layer: CatalogLayer, entry: IndexEntry, entries: Map<stri
       freshness: layer.freshness,
       licence: layer.licence,
       licence_status: layer.licence_status,
+    },
+    reuse: datasetReuseTerms(entry.dataset_id),
+    download: {
+      csv_url: `${PUBLIC_EXPLORER_ORIGIN}/api/tables/${entry.dataset_id}.csv`,
+      metadata_url: `${PUBLIC_EXPLORER_ORIGIN}/api/tables/${entry.dataset_id}`,
     },
     completeness: layer.completeness,
     web_url: `https://developing-country.org/data/${entry.dataset_id}`,
