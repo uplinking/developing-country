@@ -110,12 +110,12 @@ const megaprojects = [
   {
     name: 'Bandaranaike Int’l Airport — Phase 2 (Terminal 2)',
     lat: 7.176, lng: 79.884, type: 'airport', status: 'under-construction',
-    stages: { proposed: '2016', approved: '2020', construction: '2024', operational: '2027 (target)' },
+    stages: { proposed: '2016', approved: '2020', construction: '2020', operational: '2029 (target)' },
     cost: 'Rs 170bn (JICA loan)',
-    note: 'New main terminal, two piers and elevated roadway, ~JICA-financed. Restarted 2024 after the debt-restructuring freeze; ~30-month build.',
+    note: 'New main terminal, two piers and elevated roadway, JICA-financed. Halted Dec 2022 at ~6%; Taisei re-confirmed Jul 2026, restart targeted Nov 2026; ~30-month build.',
     src: 'aasl',
-    source: 'AASL / Embassy of Japan — BIA Phase 2',
-    source_url: 'https://www.lk.emb-japan.go.jp/itpr_en/11_000001_00509.html',
+    source: 'AASL / JICA — BIA Phase 2 (via Sunday Times)',
+    source_url: 'https://www.sundaytimes.lk/260726/news/jica-okays-taiseis-selection-for-second-terminal-at-bia-650432.html',
   },
   // Rail / transit — Colombo
   {
@@ -228,12 +228,12 @@ const megaprojects = [
   },
   {
     name: 'Palaly Airport rehabilitation (Jaffna)',
-    lat: 9.792, lng: 80.070, type: 'airport', status: 'approved',
-    stages: { proposed: '2023', approved: '2024', construction: '2025 (target)', operational: '—' },
-    note: 'India-funded rehabilitation of Palaly airport to expand northern air connectivity (alongside KKS harbour).',
+    lat: 9.792, lng: 80.070, type: 'airport', status: 'under-construction',
+    stages: { proposed: '2023', approved: '2025', construction: '2026', operational: '2027 (target)' },
+    note: 'AASL-funded passenger-terminal expansion at Jaffna Int’l (Palaly); Stage 1 under way, completion targeted Jul 2027. Runway extension and land acquisition unresolved.',
     src: 'aasl',
-    source: 'AASL / High Commission of India',
-    source_url: 'https://www.hcicolombo.gov.in/page/ongoing-projects/',
+    source: 'AASL (via Jaffna Monitor)',
+    source_url: 'https://www.jaffnamonitor.com/india-funded-kks-port-deal-nears-signing-as-palaly-airport-expansion-stalls/',
   },
   // Ports — south
   {
