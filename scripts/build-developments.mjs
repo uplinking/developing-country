@@ -130,13 +130,13 @@ const megaprojects = [
   },
   {
     name: 'Colombo Suburban Railway — electrification',
-    lat: 6.929, lng: 79.864, type: 'rail', status: 'proposed',
+    lat: 6.929, lng: 79.864, type: 'rail', status: 'approved',
     stages: { proposed: '2020', approved: '2026', construction: '2027 (target)', operational: '—' },
-    cost: 'India LOC (~US$250M rail modernisation)',
-    note: 'Electrify high-density corridors (Maradana–Makumbura / Kelani Valley line first). Feasibility underway; India-funded track, signalling (IRCON) and rolling stock.',
+    cost: 'Rs 1.2tn programme (Rs 80bn Phase 1 in 2027 Budget)',
+    note: 'Electrify Maradana–Ragama, Maradana–Panadura and Kelani Valley (Maradana–Makumbura/Homagama) first. Cabinet-approved Jun 2026; Phase 1 funded in 2027 Budget; works from 2027.',
     src: 'mot',
-    source: 'Ministry of Transport — CSRP',
-    source_url: 'https://transport.gov.lk/web/index.php?option=com_content&view=article&id=136&Itemid=218&lang=en',
+    source: 'Ministry of Transport — Cabinet decision (via Daily FT)',
+    source_url: 'https://www.ft.lk/business/Cabinet-approves-next-steps-for-railway-electrification-program/34-793734',
   },
   // Energy — south & east
   {
