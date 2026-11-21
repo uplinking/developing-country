@@ -191,7 +191,7 @@ const megaprojects = [
     lat: 7.85, lng: 80.72, type: 'flood-mitigation', status: 'under-construction',
     stages: { proposed: '2013', approved: '2015', construction: '2016', operational: '2030 (target)' },
     cost: 'US$200M (ADB Stage 2)',
-    note: 'Links Moragahakanda to the North Central dry-zone reservoirs (Huruluwewa, Manankattiya…). Mahaweli Water Security Program Stage 2 benefits ~35,600 farming households.',
+    note: 'Links Moragahakanda to the North Central dry-zone reservoirs (Huruluwewa, Manankattiya…). 27.7 km main tunnel dug by Jul 2026; ADB Stage 2 benefits ~35,600 farming households.',
     src: 'irrigation',
     source: 'Mahaweli Authority / ADB',
     source_url: 'https://www.adb.org/news/adb-approves-200-million-improve-water-food-security-north-central-sri-lanka',
@@ -208,12 +208,12 @@ const megaprojects = [
   },
   {
     name: 'Jaffna–Kilinochchi Water Supply & Sanitation',
-    lat: 9.665, lng: 80.015, type: 'flood-mitigation', status: 'under-construction',
-    stages: { proposed: '2010', approved: '2011', construction: '2013', operational: '2025 (target)' },
-    note: 'ADB-funded piped, treated water for ~300,000 people across Jaffna, Poonakari and the islands (except Delft).',
+    lat: 9.665, lng: 80.015, type: 'flood-mitigation', status: 'operational',
+    stages: { proposed: '2010', approved: '2011', construction: '2013', operational: '2024' },
+    note: 'ADB-funded Thalaiyadi desalination plant (24,000 m³/day) running since Oct 2024; ~15,000 of ~60,000 target households connected by Aug 2026.',
     src: 'irrigation',
-    source: 'NWSDB / ADB',
-    source_url: 'https://www.adb.org/projects/37378-013/main',
+    source: 'NWSDB / ADB (via Sunday Times)',
+    source_url: 'https://www.sundaytimes.lk/260830/news/15000-northern-homes-benefit-from-lankas-first-large-scale-desalination-plant-653626.html',
   },
   // Northern reconstruction (India-funded)
   {
