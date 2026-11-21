@@ -40,8 +40,8 @@ const ZONES = [
   ['Polgahawela Industrial Park', 80.300, 7.331, 'Industrial Park', 'operational', '2005', 25, 0.004, 0.004, 'Kurunegala-district park on the rail line; light manufacturing.'],
   ['Pallekele Industrial Park', 80.698, 7.288, 'Industrial Park', 'operational', '2000', 90, 0.006, 0.005, 'Kandy-district park at Pallekele; food, printing & assembly.'],
   ['Mirijjawila EPZ (Hambantota)', 81.116, 6.171, 'Export Processing Zone', 'operational', '2012', 240, 0.009, 0.008, 'Zone within the Hambantota development area, beside the port & airport.'],
-  ['Bingiriya EPZ', 79.906, 7.705, 'Export Processing Zone', 'under-construction', '2019', 900, 0.012, 0.011, 'Large new EPZ near the Norochcholai coast; being developed in phases.'],
-  ['Eravur Industrial Zone', 81.595, 7.776, 'Industrial Park', 'under-construction', '2020', 210, 0.008, 0.007, 'Eastern-province zone near Batticaloa; textiles & manufacturing.'],
+  ['Bingiriya EPZ', 79.906, 7.705, 'Export Processing Zone', 'under-construction', '2019', 64, 0.0036, 0.0036, 'Newly developed EPZ in Kurunegala district (157.83 acres per BOI); Phase I plots open to investors.'],
+  ['Eravur Industrial Zone', 81.595, 7.776, 'Industrial Park', 'under-construction', '2020', 103, 0.0046, 0.0045, 'Eastern-province zone near Batticaloa; textiles & manufacturing.'],
   ['Kuchchaveli Tourism SEZ', 81.100, 8.752, 'Special Economic Zone', 'proposed', '—', 400, 0.010, 0.010, 'Proposed tourism-focused SEZ on the Trincomalee coast.'],
 ]
 

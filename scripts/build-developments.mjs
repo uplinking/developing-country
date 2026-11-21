@@ -248,13 +248,13 @@ const megaprojects = [
   // Industrial
   {
     name: 'Paranthan Chemical Zone',
-    lat: 9.370, lng: 80.402, type: 'industrial-zone', status: 'proposed',
-    stages: { proposed: '2025', approved: '—', construction: '—', operational: '—' },
+    lat: 9.370, lng: 80.402, type: 'industrial-zone', status: 'under-construction',
+    stages: { proposed: '2025', approved: '2025', construction: '2026', operational: '2028 (target)' },
     cost: 'Rs 500M (2025 budget)',
-    note: 'Dedicated chemical manufacturing zone at Paranthan (Kilinochchi), seeded by a 2025 budget allocation.',
+    note: 'Revival of the Paranthan chemical factory (Kilinochchi) as a public–private chemical zone; foundation stone laid Jan 2026, ~30-month build.',
     src: 'boi',
-    source: 'Board of Investment (2025 budget)',
-    source_url: 'https://investsrilanka.com/',
+    source: 'Northern Province Governor’s Office',
+    source_url: 'https://np.gov.lk/paranthan-chemical-factory-revived-after-40-years-diaspora-relations-should-come-forward-to-invest-governors-call-at-the-foundation-stone-laying-ceremony/',
   },
 ]
 
