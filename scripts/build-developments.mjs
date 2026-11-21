@@ -65,7 +65,7 @@ features.push(
       proposed: '2014',
       approved: '2016',
       construction: '2019',
-      operational: '2041 (target)',
+      operational: '2040 (target)',
     },
     cost: 'US$1.4B initial · ~US$20B at build-out',
     note: '269 ha sea-reclamation SEZ beside the Colombo CBD — five precincts, ~273,000 residents at completion. Land reclamation completed Jan 2019; marina open since 2022.',
