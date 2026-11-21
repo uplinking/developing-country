@@ -15,7 +15,7 @@ const EXPECTED_ROWS = {
   'poverty-headcount-district': 182,
   'gdp-by-industry': 180,
   'inpatient-morbidity-mortality': 276,
-  'ccpi-monthly': 56,
+  'ccpi-monthly': 58,
 }
 
 function load(datasetId) {

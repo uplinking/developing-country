@@ -1404,7 +1404,7 @@ export const ONTOLOGY: Ontology = {
       source_ids: ['cea-noise'],
       title: 'Silent zones',
       description:
-        'National Environmental (Noise Control) Regulations No. 1 of 1996, Gazette 924/12: an area within 100 metres of a courthouse, hospital, school, place of worship, public library, zoo, and areas marked for recreation or environment. 50 dB day / 45 dB night. We have the legal class, not the polygons. Do not invent buffers and call them law.',
+        'National Environmental (Noise Control) Regulations No. 1 of 1996, Gazette 924/12: an area within 100 metres of the boundary of a courthouse, hospital, public library, school, zoo, sacred area, or area set apart for recreation or environmental purposes. 50 dB day / 45 dB night. We have the legal class, not the polygons. Do not invent buffers and call them law.',
       geometry: 'polygon',
       id_field: 'id',
       name_field: 'name',
