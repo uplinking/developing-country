@@ -43,6 +43,6 @@ For an unattended production feed, the next step is scheduled ingestion using th
 - Source timestamps lack an explicit timezone offset; retain the clock text.
 - The initial curve has 95 samples, not an assumed complete set of 96 intervals.
 - BESS is signed aggregate power, distinct from rated MW and usable MWh.
-- Daily station-group energy is separate. The initial response has no separately named BESS energy row; do not infer one.
+- Daily station-group energy is separate. The operator's revised 11 September 2026 response (re-read 2026-11-21) includes a signed BESS energy row; on dates without one, do not infer it from power samples.
 - Source renewable coverage includes estimated components described in dashboard notes.
 - The source states no open reuse licence; metadata records `permission_unclear`.
