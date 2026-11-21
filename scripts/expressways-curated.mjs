@@ -10,11 +10,11 @@ export const PROPOSED_EXPRESSWAYS = [
   {
     id: 'ruwanpura-expressway',
     name: 'Ruwanpura Expressway',
-    cost: 'Rs 15bn (Phase 1 contract)',
+    cost: 'Rs 251bn (Phase 1, 11 contracts)',
     stages: { proposed: '2020', approved: '2026', construction: '2026 (target)', operational: '2030 (target)' },
-    note: 'Links the Western & Sabaragamuwa provinces (Kahathuduwa on the E01 → Ratnapura → Pelmadulla). Phase 1 (~24 km) contract awarded; construction to start 2026. Alignment indicative.',
+    note: 'Links the Western & Sabaragamuwa provinces (Kahathuduwa on the E01 → Ratnapura → Pelmadulla). Phase 1 Kahathuduwa–Ingiriya (22 km) contracts awarded Nov 2026; works due Dec 2026. Alignment indicative.',
     source: 'Road Development Authority',
-    source_url: 'https://economynext.com/sri-lanka-to-award-rs15bn-contract-for-ruwanpura-expressway-phase-1-279530/',
+    source_url: 'https://www.ft.lk/top-story/Govt-races-to-new-expressways/26-800201',
     // Kahathuduwa (E01) → Ingiriya → Kuruwita → Ratnapura → Pelmadulla
     coordinates: [
       [79.976, 6.802], [80.045, 6.762], [80.128, 6.735], [80.230, 6.720],
@@ -49,7 +49,7 @@ export function curatedExpresswayFeatures() {
       note: c.note,
       source: c.source,
       source_url: c.source_url,
-      updated: '2026-08',
+      updated: '2026-11',
     },
     geometry: { type: 'LineString', coordinates: c.coordinates },
   }))
