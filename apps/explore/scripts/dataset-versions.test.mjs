@@ -61,8 +61,15 @@ describe('dataset version manifest', () => {
       .toEqual(['metro_line', 'metro_stop'])
     expect(manifest.versions.find((version) => version.datasetId === 'schools')?.entityIds)
       .toEqual(['school'])
+    // A dataset version is as fresh as its stalest source.
+    const catalogue = JSON.parse(readFileSync(new URL('../../../scripts/data-sources.json', import.meta.url), 'utf8'))
+    const oldestExpresswaySource = catalogue.sources
+      .filter((s) => s.layers?.includes('expressways'))
+      .map((s) => s.refreshed)
+      .sort()
+      .at(0)
     expect(manifest.versions.find((version) => version.datasetId === 'expressways')?.refreshedAt)
-      .toBe('2026-08-16')
+      .toBe(oldestExpresswaySource)
   })
 
   test('versionId changes with artifact bytes but not with key order', async () => {
