@@ -666,7 +666,7 @@ export default function LayerPanel({
         )}
 
         {CATEGORIES.map((cat) => {
-          const groups = LAYER_GROUPS.filter((g) => g.category === cat.id && !hiddenGroups?.has(g.id))
+          const groups = LAYER_GROUPS.filter((g) => g.category === cat.id && !g.analysisOnly && !hiddenGroups?.has(g.id))
           const isEnv = cat.id === 'environment'
           const isDemo = cat.id === 'demographics'
           if (groups.length === 0 && !isEnv && !isDemo) return null
