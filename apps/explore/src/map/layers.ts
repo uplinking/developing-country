@@ -81,6 +81,10 @@ export interface LayerGroup {
   attribution?: string
   /** Data provenance shown in the "i" popover. */
   info: SourceInfo
+  /** Built for an analysis article, not for the main map: kept in the registry
+   *  so the MCP catalog and article views can still use it, but left out of the
+   *  layer panel and never drawn by MapView. */
+  analysisOnly?: true
 }
 
 /** An independently toggleable unit — a whole group, or one layer within a
@@ -665,6 +669,7 @@ export const LAYER_GROUPS: LayerGroup[] = [
     label: 'Metro walksheds',
     blurb: 'The area within a 5- and 10-minute walk of a Colombo Metro Bus stop, versus the 800 m circle planners usually draw. Line outlines use each route’s colour. Refresh: bun scripts/build-metro-coverage.mjs',
     category: 'infrastructure',
+    analysisOnly: true,
     defaultVisible: false,
     interactive: false,
     attribution: '© OpenStreetMap contributors · lk_metro · gig-data',
@@ -721,6 +726,7 @@ export const LAYER_GROUPS: LayerGroup[] = [
     label: 'Metro gap clusters',
     blurb: 'Dense neighbourhoods near the Metro Bus lines where almost nobody lives within a 10-minute walk of a stop. Refresh: bun scripts/build-metro-alternatives.mjs',
     category: 'infrastructure',
+    analysisOnly: true,
     defaultVisible: false,
     interactive: false,
     attribution: '© OpenStreetMap contributors · gig-data · DCS Census 2024',
@@ -776,6 +782,7 @@ export const LAYER_GROUPS: LayerGroup[] = [
     label: 'Route candidates (illustrative)',
     blurb: 'Rule-generated links and extensions into the gap clusters, drawn dashed in their own colours, with proposed stops. Illustrations of a coverage rule, not plans. Refresh: bun scripts/build-metro-alternatives.mjs',
     category: 'infrastructure',
+    analysisOnly: true,
     defaultVisible: false,
     interactive: false,
     attribution: '© OpenStreetMap contributors · lk_metro',
@@ -1585,6 +1592,36 @@ export const CATEGORIES: { id: LayerCategory; label: string }[] = [
  * been generated + uploaded (listed in VITE_TILES). Lets us ship roads/water
  * before climate without the climate toggle appearing active-but-empty.
  */
+// Bottom -> top stacking order so relief/fills sit under the road/water lines.
+// Every panel layer must appear here or it is never drawn (test/map-stack-order.test.ts).
+// Analysis-only groups stay out on purpose..
+// Climate fills are inserted just above hillshade (see the load handler).
+export const STACK_ORDER: readonly string[] = [
+  'hillshade',
+  'land-cover-grid',
+  'population-change',
+  'parks',
+  'sea-routes',
+  'water',
+  'roads',
+  'expressways',
+  'metro_catchment',
+  'metro',
+  'boi-zones',
+  'developments',
+  'trails',
+  'cycling',
+  'attractions',
+  'waterfalls',
+  'irrigation-gauges',
+  'schools',
+  'hospitals',
+  'workplaces',
+  'stepper',
+  'analyses',
+  'prospects',
+]
+
 export function isGroupAvailable(g: LayerGroup): boolean {
   if (!g.requiresPipeline) return true
   return g.source.type === 'vector-pmtiles' && AVAILABLE_TILES.has(g.source.file)
