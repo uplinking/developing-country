@@ -24,6 +24,7 @@ const base = `${explorer}/data`
       <input id="fq" name="q" type="search" placeholder="Search companies, groups, products" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" maxlength="200">
       <button type="button" class="find-x" id="fqx" aria-label="Clear search" hidden>×</button>
     </form>
+    <div class="lensbar"><p class="lbl">Ready-made views</p><div class="lenses" id="lenses" role="group" aria-label="Ready-made views"></div></div>
   </header>
 
   <div class="bar" role="toolbar" aria-label="Filters">
@@ -34,28 +35,24 @@ const base = `${explorer}/data`
     <div class="filters" id="filters"></div>
   </div>
   <div class="chips" id="chips" aria-live="polite"></div>
+  <p class="cov" id="coverage" hidden></p>
 
   <section aria-label="Summary">
     <div class="kpis" id="kpis"></div>
   </section>
 
   <section aria-label="Breakdown" class="breaks">
-    <div><p class="lbl">By sector</p><ol class="bars" id="bySector"></ol></div>
-    <div><p class="lbl">By ownership</p><ol class="bars" id="byOwner"></ol></div>
+    <div><div class="lblrow"><p class="lbl">By sector</p><div class="seg mini" id="sectorBy" role="group" aria-label="Measure"><button type="button" data-by="count" aria-pressed="true">Companies</button><button type="button" data-by="revenue" aria-pressed="false">Revenue</button></div></div><ol class="bars" id="bySector"></ol></div>
+    <div><p class="lbl" id="ownLabel">By ownership</p><ol class="bars" id="byOwner"></ol></div>
   </section>
 
   <section aria-label="Companies">
+    <!-- outside .tablewrap: a scrolling box clips focus rings at its edges -->
+    <div class="tabletools"><label class="lbl" for="colset">Columns</label>
+      <select id="colset"><option value="overview">Overview</option><option value="debt">Debt</option><option value="price">Dividends and price</option><option value="longrun">Long run</option><option value="banks">Banks and lenders</option><option value="ownership">Ownership</option></select></div>
     <div class="tablewrap">
       <table class="list" id="list">
-        <thead><tr>
-          <th scope="col"><button type="button" data-sort="name">Company</button></th>
-          <th scope="col" class="hide-s">Sector</th>
-          <th scope="col" class="num"><button type="button" data-sort="revenue">Revenue</button></th>
-          <th scope="col" class="num"><button type="button" data-sort="growth" title="Revenue growth after removing inflation (CCPI); nominal growth below">Real growth</button></th>
-          <th scope="col" class="num hide-s"><button type="button" data-sort="margin" title="Profit after tax ÷ revenue">Net margin</button></th>
-          <th scope="col" class="num hide-s"><button type="button" data-sort="employees">Employees</button></th>
-          <th scope="col" class="hide-s">Exports and overseas</th>
-        </tr></thead>
+        <thead id="thead"></thead>
         <tbody id="rows"><tr><td colspan="7" class="empty">Loading enterprises…</td></tr></tbody>
       </table>
     </div>
@@ -68,6 +65,12 @@ const base = `${explorer}/data`
     <p class="foot">Sources: the latest annual reports (financial years ending December 2025 or March 2026) of all 262 companies listed on the Colombo Stock Exchange, and web research on about 850 large unlisted companies. Figures from the reports were extracted by software and each one checked against the page it cites. Revenue is in Sri Lankan rupees (LKR); US dollar figures are converted at LKR 300 to the dollar. For banks and finance companies revenue means gross income; for insurers, gross written premium. A parent company’s revenue already includes its subsidiaries. Data, free to reuse under CC BY 4.0: <a href="/data/lk-companies">Sri Lankan companies and groups</a>, <a href="/data/lk-company-sectors">Company sectors</a>, <a href="/data/lk-company-relationships">Company ownership</a>, <a href="/data/lk-company-segments">Company operating segments</a>.</p>
     <p class="foot"><button type="button" class="linkbtn" data-method>How this was made: sources, checks, definitions and limits</button></p>
   </section>
+
+  <dialog class="drawer" id="drawer" aria-labelledby="drawer-title">
+    <div class="mhead"><h2 id="drawer-title">Filters</h2><button type="button" class="mclose" data-dclose aria-label="Close">Close</button></div>
+    <div class="dbody" id="dbody"></div>
+    <div class="dfoot"><button type="button" class="clear" id="dclear">Clear these filters</button><button type="button" class="dshow" id="dshow" data-dclose>Show companies</button></div>
+  </dialog>
 
   <dialog class="method" id="method" aria-labelledby="method-title">
     <div class="mhead">
@@ -151,7 +154,7 @@ const base = `${explorer}/data`
 .cmap [hidden]{display:none!important}
 .cmap button{font:inherit;color:inherit}
 .cmap a{color:var(--blue)}
-.cmap :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.cmap :focus-visible{outline:2px solid var(--blue);outline-offset:2px} /* the one focus style for every control on the page */
 .cmap .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .cmap.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
 .cmap h1{font:700 15px/1.3 var(--sans);color:var(--dim);margin:44px 0 10px}
@@ -208,7 +211,7 @@ const base = `${explorer}/data`
 .cmap .bars .b i{display:block;height:100%;background:var(--teal)}
 
 .cmap .bars .c{font:500 12px/1 var(--mono);text-align:right}
-.cmap .tablewrap{overflow-x:auto;padding:4px 0 10px}
+.cmap .tablewrap{overflow-x:auto;padding:4px 4px 10px;margin:0 -4px}
 .cmap .list{width:100%;border-collapse:collapse;min-width:0}
 .cmap .list > thead th{text-align:left;font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);padding:12px 12px 10px 0;border-bottom:1px solid var(--hair);white-space:nowrap}
 .cmap .list > thead th button{background:none;border:0;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit}
@@ -267,6 +270,51 @@ const base = `${explorer}/data`
 .cmap .st .sv{display:block;font:500 20px/1.2 var(--mono);margin-top:8px}
 .cmap .st .ss{display:block;font:500 11px/1.4 var(--mono);color:var(--dim);margin-top:4px}
 .cmap .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 44px}
+/* ready-made views: a scrolling row of sign plates */
+.cmap .lensbar{margin:16px 0 2px}
+.cmap .lensbar .lbl{margin-bottom:8px}
+/* scrolling boxes clip at their edges: 4px of inner room (offset by margin) keeps focus rings and shadows whole */
+.cmap .lenses{display:flex;gap:6px;overflow-x:auto;padding:4px 4px 8px;margin:0 -4px;scrollbar-width:thin}
+.cmap .lenses button{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;font:600 13px/1 var(--sans);background:var(--raised);color:var(--ink);border:1px solid var(--ink);border-radius:2px;box-shadow:2px 2px 0 var(--ink);cursor:pointer;white-space:nowrap}
+.cmap .lenses button .n,.cmap .seg button .n,.cmap .buckets button .n{font:500 11px/1 var(--mono);color:var(--dim)}
+.cmap .lenses button:hover{background:var(--teal-tint)}
+.cmap .lenses button[aria-pressed="true"]{background:var(--ink);color:var(--paper);box-shadow:2px 2px 0 var(--teal)}
+.cmap .lenses button[aria-pressed="true"] .n{color:var(--paper)}
+.cmap .seg button[aria-pressed="true"] .n{color:var(--paper)}
+.cmap .seg button:disabled{opacity:.45;cursor:not-allowed}
+.cmap .fbtn.filt{font-weight:600}
+.cmap .chip.lock{background:var(--ink);color:var(--paper);border-color:var(--ink);padding-right:10px}
+.cmap .cov{margin:-4px 0 12px;font:500 12px/1.5 var(--mono);color:var(--dim);max-width:900px}
+.cmap .tabletools{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin:0 0 6px}
+.cmap .tabletools .lbl{margin:0}
+.cmap .tabletools select{font:500 12px/1 var(--mono);min-height:34px;padding:0 8px;border:1px solid var(--quiet);border-radius:2px;background:var(--raised);color:var(--ink)}
+.cmap .list .sub.warn{color:var(--down)}
+.cmap .kpi .v small{font-size:13px;color:var(--dim)}
+.cmap .lblrow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.cmap .lblrow .lbl{margin:0}
+.cmap .seg.mini button{min-height:26px;padding:0 8px;font-size:11px}
+/* the filters drawer: a slab from the right, full screen on phones */
+.cmap dialog.drawer{position:fixed;inset:0 0 0 auto;margin:0;width:min(520px,100vw);height:100dvh;max-height:100dvh;padding:0;border:0;border-left:1px solid var(--ink);border-top:4px solid var(--teal);border-radius:0;background:var(--raised);color:var(--ink);font:400 15px/1.5 var(--sans);box-shadow:-4px 0 0 var(--ink)}
+.cmap dialog.drawer[open]{display:flex;flex-direction:column}
+.cmap dialog.drawer::backdrop{background:rgba(5,5,5,.35)}
+.cmap .dbody{flex:1;overflow-y:auto;padding:4px 20px 20px;overscroll-behavior:contain}
+.cmap .dsec{padding:14px 0 6px;border-bottom:1px solid var(--hair)}
+.cmap .dsec h3{margin:0 0 4px}
+.cmap .dfilter{padding:10px 0 6px}
+.cmap .dhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.cmap .dhead h4{margin:0;font:600 14px/1.3 var(--sans)}
+.cmap .covtag{font:500 10px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.cmap .dfilter .note{margin:3px 0 0;font-size:12.5px}
+.cmap .dfilter .seg.basis{margin:8px 0 0}
+.cmap .buckets{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.cmap .buckets button{display:inline-flex;align-items:center;gap:8px;min-height:34px;padding:0 10px;font:500 12.5px/1 var(--sans);background:var(--raised);color:var(--ink);border:1px solid var(--quiet);border-radius:2px;cursor:pointer}
+.cmap .buckets button:hover{border-color:var(--ink)}
+.cmap .buckets button[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:var(--on-teal)}
+.cmap .buckets button[aria-pressed="true"] .n{color:var(--on-teal)}
+.cmap .buckets button.zero{opacity:.5}
+.cmap .dfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 20px;border-top:1px solid var(--ink)}
+.cmap .dshow{font:600 14px/1 var(--sans);min-height:42px;padding:0 18px;background:var(--ink);color:var(--paper);border:0;border-radius:2px;cursor:pointer;box-shadow:3px 3px 0 var(--teal)}
+@media (max-width:760px){ .cmap dialog.drawer{width:100vw;border-left:0;box-shadow:none} .cmap .dbody{padding:4px 14px 16px} .cmap .dfoot{padding:10px 14px} .cmap .tabletools{justify-content:flex-start} }
 /* methodology dialog */
 .cmap .lead .incl{color:var(--dim);font-weight:400}
 .cmap .howline{margin:-6px 0 18px;font-size:14px}
@@ -278,7 +326,6 @@ const base = `${explorer}/data`
 .cmap .mhead h2{margin:0;font:700 20px/1.2 var(--sans)}
 .cmap .mclose{font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:none;border:1px solid var(--ink);border-radius:2px;padding:9px 12px 8px;cursor:pointer;color:var(--ink)}
 .cmap .mclose:hover{background:var(--ink);color:var(--raised)}
-.cmap .mclose:focus-visible,.cmap .howline .linkbtn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .cmap .mbody{overflow-y:auto;padding:6px 22px 24px;overscroll-behavior:contain}
 .cmap .mbody .mlead{font-size:16px;margin:12px 0 4px}
 .cmap .mbody h3{margin:22px 0 6px}
@@ -291,7 +338,6 @@ const base = `${explorer}/data`
 .cmap .dtabs button{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid transparent;border-bottom:0;border-radius:2px 2px 0 0;padding:11px 16px 10px;cursor:pointer;color:var(--dim);margin-bottom:-1px}
 .cmap .dtabs button[aria-selected="true"]{color:var(--ink);background:var(--raised);border-color:var(--ink);box-shadow:inset 0 3px 0 var(--teal)}
 .cmap .dtabs button:hover{color:var(--ink)}
-.cmap .dtabs button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .cmap .own{margin:16px 0 0;max-width:860px}
 .cmap .loading{margin:18px 0}
 /* history: small multiples, one measure each */
@@ -346,7 +392,7 @@ const base = `${explorer}/data`
 .cmap .webkey i{display:inline-block;width:22px;height:0;border-top:2px solid var(--ink);vertical-align:middle;margin-right:6px}
 .cmap .webkey i.min{border-top:1.5px dashed var(--dim)}
 /* width:0 + min-width:100% keeps a wide web from stretching the table cell, so it scrolls instead */
-.cmap .webwrap{width:0;min-width:100%;overflow-x:auto;padding:14px 2px 14px}
+.cmap .webwrap{width:0;min-width:100%;overflow-x:auto;padding:14px 4px 14px}
 .cmap .webcan{position:relative;margin:0 auto}
 .cmap .webcan svg{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
 .cmap .webcan path{fill:none;stroke:var(--quiet);stroke-width:1.5;stroke-dasharray:4 3}
@@ -355,7 +401,6 @@ const base = `${explorer}/data`
   background:var(--raised);color:var(--ink);border:1px solid var(--hair);border-radius:2px;text-align:left;font:inherit;cursor:pointer;overflow:hidden}
 .cmap .wn::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--stripe,var(--hair2))}
 .cmap .wn:hover{border-color:var(--ink)}
-.cmap .wn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .cmap .wn.c{border-color:var(--ink);box-shadow:4px 4px 0 var(--ink);cursor:default}
 .cmap .wn.more{border-style:dashed;background:none}
 .cmap .wn.more::before{display:none}
@@ -393,7 +438,7 @@ const base = `${explorer}/data`
 .cmap .htabs button[aria-pressed="true"] span{color:var(--paper)}
 .cmap .hq{display:block;width:100%;height:36px;font:400 14px/1.2 var(--sans);border:1px solid var(--quiet);border-radius:2px;padding:0 10px;background:var(--paper);margin-bottom:6px}
 .cmap .hq:focus{border-color:var(--ink);outline:none}
-.cmap .hlist{list-style:none;margin:0;padding:0;max-height:380px;overflow-y:auto;border-top:1px solid var(--hair2)}
+.cmap .hlist{list-style:none;margin:0 -4px;padding:0 4px;max-height:380px;overflow-y:auto;border-top:1px solid var(--hair2)}
 .cmap .hlist li{display:grid;grid-template-columns:46px minmax(0,1fr) auto 78px;gap:8px;align-items:baseline;padding:7px 2px;border-bottom:1px solid var(--hair2);font-size:13px}
 .cmap .hlist .p{font:500 11px/1.4 var(--mono);color:var(--dim)}
 .cmap .hlist .hm{display:block;font:500 10.5px/1.4 var(--mono);color:var(--dim);margin-top:2px}
@@ -443,7 +488,7 @@ const base = `${explorer}/data`
 // @ts-nocheck -- plain DOM code; the filtering rules it relies on are typed and tested in src/lib/companyFilter.ts.
 import { COMPANY_SECTOR_FAMILIES, COMPANY_SECTOR_TAGS, COMPANY_SECTOR_BY_TAG } from '@developing-country/datasets/company-sectors'
 import * as FIG from '../lib/companyFigures'
-import { ABROAD_KEYS, ABROAD_LABEL, EMPTY_FILTER, countBy, ownershipOf, filterToParams, matches, parseFilter, searchText, sortRows, summarize, tagsOf, toQuery } from '../lib/companyFilter'
+import { ABROAD_KEYS, ABROAD_LABEL, EMPTY_FILTER, LENSES, RANGES, RANGE_BY_KEY, applyLens, countBy, coverage, effectiveFilter, emptyFilter, filterToParams, inBucket, listedOnlyActive, matches, ownershipOf, parseFilter, rangeValue, searchText, sortRows, summarize, tagsOf, toQuery } from '../lib/companyFilter'
 
 const root = document.getElementById('cmap')
 const BASE = root.dataset.base
@@ -490,30 +535,26 @@ let ROWS = [], BYID = new Map(), TEXT = new Map(), RELS = { from: new Map(), to:
 let F = parseFilter(new URLSearchParams(location.search))
 let shown = 50, openId = null, menuOpen = null
 
-/* ---------- filter menus ---------- */
-const GROWTH = [['', 'Any growth', null, null], ['g0', 'Up', 0.0001, null], ['g10', 'Up more than 10%', 10, null], ['g25', 'Up more than 25%', 25, null], ['d0', 'Down', null, -0.0001]]
+/* ---------- filters ---------- */
 const PERF = { profitable_growing: 'Profitable and growing in real terms', profitable_shrinking: 'Profitable but shrinking in real terms', profitable: 'Profitable',
   back_to_profit: 'Back to profit', fell_into_loss: 'Fell into loss', loss_both_years: 'Loss in both years', negative_equity: 'Negative equity (owes more than it owns)' }
 const PERF_SHORT = { profitable_growing: 'Profitable · growing', profitable_shrinking: 'Profitable · shrinking', profitable: 'Profitable', back_to_profit: 'Back to profit', fell_into_loss: 'Fell into loss', loss_both_years: 'Loss both years', negative_equity: 'Negative equity' }
 const PERF_TONE = { profitable_growing: 'good', back_to_profit: 'good', profitable_shrinking: 'warn', profitable: '', fell_into_loss: 'bad', loss_both_years: 'bad', negative_equity: 'bad' }
-const SIZE = [['', 'Any revenue', null], ['1', 'LKR 1bn or more', 1], ['10', 'LKR 10bn or more', 10], ['50', 'LKR 50bn or more', 50], ['100', 'LKR 100bn or more', 100]]
-const STAFF = [['', 'Any number', null], ['100', '100+ employees', 100], ['500', '500+ employees', 500], ['1000', '1,000+ employees', 1000], ['5000', '5,000+ employees', 5000]]
-const LISTED = [['', 'Listed and unlisted'], ['yes', 'Listed on the CSE'], ['no', 'Unlisted']]
-
-function counts(key) {
-  // option counts under every other active filter, so a menu shows what picking it would leave
-  const g = { ...F, [key]: Array.isArray(F[key]) ? [] : EMPTY_FILTER[key] }
-  if (key === 'growth') { g.growthMin = null; g.growthMax = null }
-  if (key === 'performance') g.performance = []
-  return ROWS.filter(r => matches(r, g, FAMILY, TEXT.get(r.company_id)))
-}
+const LISTED = [['', 'All'], ['yes', 'Listed'], ['no', 'Unlisted']]
+const KIND_NAME = { bank: 'Banks', finance_company: 'Finance companies', insurer: 'Insurers', other: 'Other listed companies' }
+const SECTION = [['size', 'Size'], ['growth', 'Growth and profit'], ['debt', 'Debt and resilience'], ['price', 'Dividends and price'], ['international', 'Exports and overseas'], ['control', 'Control'], ['banks', 'Banks and lenders']]
+let EF = effectiveFilter(F)
+const rowsMatching = f => ROWS.filter(r => matches(r, f, FAMILY, TEXT.get(r.company_id)))
+// any hand edit leaves the ready-made view (its columns stay)
+const touched = () => { F.lens = '' }
+const drawerCount = () => Object.keys(F.ranges).length + F.performance.length + F.abroad.length + F.kinds.length
 
 const MENUS = {
   sector: {
     label: () => F.sectors.length + F.families.length ? 'Sector · ' + (F.sectors.length + F.families.length) : 'Sector',
     on: () => F.sectors.length + F.families.length > 0,
     items() {
-      const base = counts('sectors').filter(r => matches(r, { ...EMPTY_FILTER, scope: 'all', families: [] }, FAMILY))
+      const base = rowsMatching(effectiveFilter({ ...F, sectors: [], families: [] }))
       const fam = new Map(countBy(base, r => tagsOf(r).map(t => FAMILY.get(t))))
       const tag = new Map(countBy(base, tagsOf))
       const out = []
@@ -526,60 +567,27 @@ const MENUS = {
     },
     pick(id) {
       const [k, v] = id.split(':'), arr = k === 'f' ? F.families : F.sectors
-      const i = arr.indexOf(v); i >= 0 ? arr.splice(i, 1) : arr.push(v)
+      const i = arr.indexOf(v); i >= 0 ? arr.splice(i, 1) : arr.push(v); touched()
     }, multi: true,
   },
   ownership: {
     label: () => F.ownership.length ? 'Ownership · ' + F.ownership.length : 'Ownership', on: () => F.ownership.length > 0,
-    items: () => countBy(counts('ownership'), r => [ownershipOf(r)]).map(([k, n]) => ({ id: k, text: OWNER[k] ?? k, n, sel: F.ownership.includes(k) })),
-    pick(id) { const i = F.ownership.indexOf(id); i >= 0 ? F.ownership.splice(i, 1) : F.ownership.push(id) }, multi: true,
-  },
-  listed: {
-    label: () => F.listed ? LISTED.find(x => x[0] === F.listed)[1] : 'Listed', on: () => !!F.listed,
-    items: () => LISTED.map(([k, t]) => ({ id: k, text: t, sel: F.listed === k })), pick(id) { F.listed = id },
-  },
-  size: {
-    label: () => F.revenueMinBn !== null ? `Revenue LKR ${F.revenueMinBn}bn+` : 'Revenue', on: () => F.revenueMinBn !== null,
-    items: () => SIZE.map(([k, t, v]) => ({ id: k, text: t, sel: (F.revenueMinBn ?? null) === v })),
-    pick(id) { F.revenueMinBn = SIZE.find(x => x[0] === id)[2] },
-  },
-  growth: {
-    label: () => { const g = GROWTH.find(x => x[2] === F.growthMin && x[3] === F.growthMax), b = F.growthBasis === 'real' ? 'Real growth' : 'Nominal growth'
-      return g && g[0] ? `${b}: ${g[1].toLowerCase()}` : (F.growthMin !== null || F.growthMax !== null ? `${b} (custom)` : 'Revenue growth') },
-    on: () => F.growthMin !== null || F.growthMax !== null,
-    items: () => [{ id: 'b:real', text: 'Real growth (after inflation)', sel: F.growthBasis === 'real', cls: 'fam' }, { id: 'b:nominal', text: 'Nominal growth (in rupees, as reported)', sel: F.growthBasis === 'nominal', cls: 'fam' },
-      ...GROWTH.map(([k, t, lo, hi]) => ({ id: k, text: t, sel: F.growthMin === lo && F.growthMax === hi, cls: 'sub' }))],
-    pick(id) { if (id.startsWith('b:')) { F.growthBasis = id.slice(2); return } const g = GROWTH.find(x => x[0] === id); F.growthMin = g[2]; F.growthMax = g[3] },
-    multi: true,
-    note: 'Revenue growth compares the latest financial year with the one before, from the same annual report (listed companies only). Real growth removes inflation, using the average change in the Colombo Consumer Price Index over each company’s financial year.',
-  },
-  performance: {
-    label: () => F.performance.length ? 'Performance · ' + F.performance.length : 'Performance', on: () => F.performance.length > 0,
-    items: () => { const b = new Map(countBy(counts('performance'), r => [r.performance ?? ''])); return Object.entries(PERF).map(([k, t]) => ({ id: k, text: t, n: b.get(k) ?? 0, sel: F.performance.includes(k) })) },
-    pick(id) { const i = F.performance.indexOf(id); i >= 0 ? F.performance.splice(i, 1) : F.performance.push(id) }, multi: true,
-    note: 'From profit after tax and real revenue growth in the latest two annual reports. Listed companies only.',
-  },
-  staff: {
-    label: () => F.employeesMin !== null ? `${F.employeesMin.toLocaleString('en')}+ employees` : 'Employees', on: () => F.employeesMin !== null,
-    items: () => STAFF.map(([k, t, v]) => ({ id: k, text: t, sel: (F.employeesMin ?? null) === v })),
-    pick(id) { F.employeesMin = STAFF.find(x => x[0] === id)[2] },
-  },
-  abroad: {
-    label: () => F.abroad.length ? 'Exports and overseas · ' + F.abroad.length : 'Exports and overseas', on: () => F.abroad.length > 0,
-    items() { const b = counts('abroad'); return ABROAD_KEYS.map(k => ({ id: k, text: ABROAD_LABEL[k], n: b.filter(r => k === 'foreign_subsidiaries' ? r.foreign_subsidiaries > 0 : r[k] === true).length, sel: F.abroad.includes(k) })) },
-    pick(id) { const i = F.abroad.indexOf(id); i >= 0 ? F.abroad.splice(i, 1) : F.abroad.push(id) }, multi: true,
-  },
-  isic: {
-    label: () => F.isic.length ? 'Industry · ' + F.isic.length : 'Industry (UN classification)', on: () => F.isic.length > 0,
-    items: () => countBy(counts('isic'), r => [r.isic_section ?? '']).filter(([k]) => k).sort((a, b) => a[0].localeCompare(b[0]))
-      .map(([k, n]) => ({ id: k, text: ISIC_LABEL.get(k) ?? k, n, sel: F.isic.includes(k) })),
-    pick(id) { const i = F.isic.indexOf(id); i >= 0 ? F.isic.splice(i, 1) : F.isic.push(id) }, multi: true,
+    items: () => countBy(rowsMatching(effectiveFilter({ ...F, ownership: [] })), r => [ownershipOf(r)]).map(([k, n]) => ({ id: k, text: OWNER[k] ?? k, n, sel: F.ownership.includes(k) })),
+    pick(id) { const i = F.ownership.indexOf(id); i >= 0 ? F.ownership.splice(i, 1) : F.ownership.push(id); touched() }, multi: true,
   },
 }
 
 function drawFilters() {
+  const forced = listedOnlyActive(F).length > 0
+  const lc = k => rowsMatching(effectiveFilter({ ...F, listed: k })).length
+  const n = drawerCount()
   $('filters').innerHTML = Object.entries(MENUS).map(([k, m]) =>
-    `<span class="fbtn-w"><button type="button" class="fbtn${m.on() ? ' on' : ''}" data-menu="${k}" aria-haspopup="listbox" aria-expanded="${menuOpen === k}">${esc(m.label())}<span class="car">▼</span></button></span>`).join('')
+    `<span class="fbtn-w"><button type="button" class="fbtn${m.on() ? ' on' : ''}" data-menu="${k}" aria-haspopup="listbox" aria-expanded="${menuOpen === k}">${esc(m.label())}<span class="car">▼</span></button></span>`).join('') +
+    `<div class="seg" role="group" aria-label="Companies">${LISTED.map(([k, t]) => {
+      const off = forced && k !== 'yes'
+      return `<button type="button" data-listed="${k}" aria-pressed="${EF.listed === k}"${off ? ' disabled title="A filter you chose is published only by listed companies"' : ''}>${t}${off ? '' : ` <span class="n">${lc(k).toLocaleString('en')}</span>`}</button>`
+    }).join('')}</div>` +
+    `<button type="button" class="fbtn filt${n ? ' on' : ''}" id="openFilters" aria-haspopup="dialog">Filters${n ? ' · ' + n : ''}<span class="car">▸</span></button>`
   if (menuOpen) openMenu(menuOpen, false)
 }
 
@@ -590,8 +598,7 @@ function openMenu(key, focus = true) {
   const items = m.items()
   const ul = document.createElement('ul')
   ul.className = 'menu'; ul.setAttribute('role', 'listbox'); ul.setAttribute('aria-multiselectable', m.multi ? 'true' : 'false')
-  ul.innerHTML = (m.note ? `<li class="grp" role="presentation" style="text-transform:none;letter-spacing:0;white-space:normal;max-width:280px">${esc(m.note)}</li>` : '') +
-    items.map(it => `<li role="option" tabindex="-1" data-id="${esc(it.id)}" aria-selected="${it.sel}" class="${it.cls ?? ''}"${it.title ? ` title="${esc(it.title)}"` : ''}><span>${esc(it.text)}</span>${it.n !== undefined ? `<span class="n">${it.n}</span>` : ''}</li>`).join('')
+  ul.innerHTML = items.map(it => `<li role="option" tabindex="-1" data-id="${esc(it.id)}" aria-selected="${it.sel}" class="${it.cls ?? ''}"${it.title ? ` title="${esc(it.title)}"` : ''}><span>${esc(it.text)}</span>${it.n !== undefined ? `<span class="n">${it.n}</span>` : ''}</li>`).join('')
   host.appendChild(ul)
   host.querySelector('.fbtn').setAttribute('aria-expanded', 'true')
   const opts = [...ul.querySelectorAll('[role=option]')]
@@ -613,11 +620,14 @@ function openMenu(key, focus = true) {
 function closeMenu(refocus) {
   const k = menuOpen; menuOpen = null
   document.querySelectorAll('.cmap .menu').forEach(u => u.remove())
-  document.querySelectorAll('.cmap .fbtn').forEach(b => b.setAttribute('aria-expanded', 'false'))
+  document.querySelectorAll('.cmap .fbtn').forEach(b => b.getAttribute('data-menu') && b.setAttribute('aria-expanded', 'false'))
   if (refocus && k) $('filters').querySelector(`[data-menu="${k}"]`)?.focus()
 }
 $('filters').addEventListener('click', e => {
-  const b = e.target.closest('.fbtn'); if (!b) return
+  if (e.target.closest('#openFilters')) { closeMenu(); openDrawer(); return }
+  const ls = e.target.closest('[data-listed]')
+  if (ls) { if (ls.disabled) return; F.listed = ls.dataset.listed; touched(); shown = 50; update(); return }
+  const b = e.target.closest('.fbtn[data-menu]'); if (!b) return
   const k = b.dataset.menu
   if (menuOpen === k) { closeMenu(); return }
   closeMenu(); menuOpen = k; b.setAttribute('aria-expanded', 'true'); openMenu(k)
@@ -625,7 +635,89 @@ $('filters').addEventListener('click', e => {
 document.addEventListener('click', e => { if (menuOpen && !e.target.closest('.fbtn-w')) closeMenu() })
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) closeMenu(true) })
 
+/* ---------- ready-made views ---------- */
+let LENS_COUNT = new Map()
+function drawLenses() {
+  $('lenses').innerHTML = LENSES.map(l => `<button type="button" data-lens="${l.id}" aria-pressed="${F.lens === l.id}">${esc(l.label)}<span class="n">${(LENS_COUNT.get(l.id) ?? 0).toLocaleString('en')}</span></button>`).join('')
+  // keep the active view in sight in the scrolling strip (horizontal only: never scroll the page)
+  const strip = $('lenses'), on = strip.querySelector('[aria-pressed="true"]')
+  if (on && (on.offsetLeft < strip.scrollLeft || on.offsetLeft + on.offsetWidth > strip.scrollLeft + strip.clientWidth))
+    strip.scrollLeft = on.offsetLeft - 8
+}
+$('lenses').addEventListener('click', e => {
+  const b = e.target.closest('[data-lens]'); if (!b) return
+  F = F.lens === b.dataset.lens ? emptyFilter() : applyLens(b.dataset.lens)
+  $('fq').value = ''; openId = null; shown = 50; update()
+})
+
+/* ---------- the filters drawer ---------- */
+const DRAWER = $('drawer')
+function openDrawer() { drawDrawer(); DRAWER.showModal(); DRAWER.querySelector('.dbody').scrollTop = 0 }
+DRAWER.addEventListener('click', e => { if (e.target === DRAWER || e.target.closest('[data-dclose]')) DRAWER.close() })
+DRAWER.addEventListener('close', () => $('openFilters')?.focus())
+$('dclear').addEventListener('click', () => { F.ranges = {}; F.performance = []; F.abroad = []; F.kinds = []; F.growthBasis = 'real'; touched(); shown = 50; update(); drawDrawer() })
+
+function bucketButtons(attrs, items) {
+  return `<div class="buckets">${items.map(it => `<button type="button" ${attrs(it)} aria-pressed="${it.sel}"${it.n === 0 && !it.sel ? ' class="zero"' : ''}>${esc(it.label)}<span class="n">${it.n.toLocaleString('en')}</span></button>`).join('')}</div>`
+}
+function rangeBlock(d) {
+  const rest = { ...F, ranges: { ...F.ranges } }; delete rest.ranges[d.key]
+  const ef = effectiveFilter(rest)
+  // counts as if this filter were picked: a listed-only filter limits to listed companies
+  const base = rowsMatching(d.listedOnly ? { ...ef, listed: 'yes', scope: ef.group ? ef.scope : 'all' } : ef)
+  const vals = base.map(r => rangeValue(r, d.key, F.growthBasis))
+  const reporting = vals.filter(v => v !== null).length
+  const sel = (F.ranges[d.key] ?? '').split(',')
+  const label = d.key === 'growth' ? (F.growthBasis === 'real' ? 'Growth this year, after inflation' : 'Growth this year, in rupees') : d.label
+  return `<div class="dfilter"><div class="dhead"><h4>${esc(label)}</h4><span class="covtag">${d.listedOnly ? 'Listed · ' : ''}${reporting.toLocaleString('en')} of ${base.length.toLocaleString('en')} report this</span></div>
+    ${d.note ? `<p class="note">${esc(d.note)}</p>` : ''}
+    ${d.key === 'growth' ? `<div class="seg basis" role="group" aria-label="Growth basis"><button type="button" data-basis="real" aria-pressed="${F.growthBasis === 'real'}">After inflation</button><button type="button" data-basis="nominal" aria-pressed="${F.growthBasis === 'nominal'}">In rupees</button></div>` : ''}
+    ${bucketButtons(it => `data-range="${d.key}" data-bucket="${it.id}"`, d.buckets.map(bk => ({ id: bk.id, label: bk.label, sel: sel.includes(bk.id), n: vals.filter(v => inBucket(v, bk.min, bk.max)).length })))}</div>`
+}
+function drawDrawer() {
+  const body = $('dbody'), scroll = body.scrollTop
+  const showBanks = F.kinds.length || F.families.includes('finance') || F.ranges.npl || F.ranges.car
+  body.innerHTML = SECTION.filter(([k]) => k !== 'banks' || showBanks).map(([k, title]) => {
+    let inner = RANGES.filter(d => d.section === k).map(rangeBlock).join('')
+    if (k === 'growth') {
+      const base = rowsMatching(effectiveFilter({ ...F, performance: [], listed: 'yes', scope: F.group ? F.scope : 'all' }))
+      const by = new Map(countBy(base, r => [r.performance ?? '']))
+      inner += `<div class="dfilter"><div class="dhead"><h4>Profit in the latest two years</h4><span class="covtag">Listed · ${base.filter(r => r.performance).length.toLocaleString('en')} report this</span></div>
+        ${bucketButtons(it => `data-perf="${it.id}"`, Object.entries(PERF).map(([id, label]) => ({ id, label, sel: F.performance.includes(id), n: by.get(id) ?? 0 })))}</div>`
+    }
+    if (k === 'international') {
+      const base = rowsMatching(effectiveFilter({ ...F, abroad: [] }))
+      inner += `<div class="dfilter"><p class="note">Marked where a source says so; a blank means not known, not that the company does not export.</p>
+        ${bucketButtons(it => `data-abroad="${it.id}"`, ABROAD_KEYS.map(id => ({ id, label: ABROAD_LABEL[id], sel: F.abroad.includes(id), n: base.filter(r => id === 'foreign_subsidiaries' ? r.foreign_subsidiaries > 0 : r[id] === true).length })))}</div>`
+    }
+    if (k === 'banks') {
+      const base = rowsMatching(effectiveFilter({ ...F, kinds: [], listed: 'yes', scope: F.group ? F.scope : 'all' }))
+      const by = new Map(countBy(base, r => [r.industry_kind ?? '']))
+      inner = `<div class="dfilter"><div class="dhead"><h4>Kind of business</h4></div>${bucketButtons(it => `data-kind="${it.id}"`, ['bank', 'finance_company', 'insurer'].map(id => ({ id, label: KIND_NAME[id], sel: F.kinds.includes(id), n: by.get(id) ?? 0 })))}</div>` + inner
+    }
+    return `<section class="dsec"><h3>${title}</h3>${inner}</section>`
+  }).join('')
+  body.scrollTop = scroll
+  $('dshow').textContent = `Show ${plural(current.length, 'company')}`
+}
+$('dbody').addEventListener('click', e => {
+  const t = e.target.closest('button'); if (!t) return
+  const toggle = (arr, v) => { const i = arr.indexOf(v); i >= 0 ? arr.splice(i, 1) : arr.push(v) }
+  if (t.dataset.range) { const k = t.dataset.range, id = t.dataset.bucket; if (F.ranges[k] === id) delete F.ranges[k]; else F.ranges[k] = id }
+  else if (t.dataset.basis) F.growthBasis = t.dataset.basis
+  else if (t.dataset.perf) toggle(F.performance, t.dataset.perf)
+  else if (t.dataset.abroad) toggle(F.abroad, t.dataset.abroad)
+  else if (t.dataset.kind) toggle(F.kinds, t.dataset.kind)
+  else return
+  touched(); shown = 50; update(); drawDrawer()
+  DRAWER.querySelector(`[data-range="${t.dataset.range}"][data-bucket="${t.dataset.bucket}"],[data-perf="${t.dataset.perf}"],[data-abroad="${t.dataset.abroad}"],[data-kind="${t.dataset.kind}"],[data-basis="${t.dataset.basis}"]`)?.focus()
+})
+
 /* ---------- chips ---------- */
+function bucketWords(key, ids) {
+  const d = RANGE_BY_KEY.get(key)
+  return `${key === 'growth' && F.growthBasis === 'nominal' ? 'Growth in rupees' : d.label}: ${ids.split(',').map(id => d.buckets.find(x => x.id === id)?.label ?? id).join(' or ')}`
+}
 function chips() {
   const c = []
   if (F.group) c.push(['group', 'Group: ' + (BYID.get(F.group)?.name ?? F.group)])
@@ -633,21 +725,22 @@ function chips() {
   F.families.forEach(v => c.push(['family:' + v, COMPANY_SECTOR_FAMILIES[v] ?? v]))
   F.sectors.forEach(v => c.push(['sector:' + v, tagLabel(v)]))
   F.ownership.forEach(v => c.push(['ownership:' + v, OWNER[v] ?? v]))
-  if (F.listed) c.push(['listed', LISTED.find(x => x[0] === F.listed)[1]])
+  if (F.listed) c.push(['listed', F.listed === 'yes' ? 'Listed companies' : 'Unlisted companies'])
   F.isic.forEach(v => c.push(['isic:' + v, 'Industry: ' + (ISIC_LABEL.get(v) ?? v)]))
-  if (F.revenueMinBn !== null) c.push(['size', `Revenue LKR ${F.revenueMinBn}bn or more`])
-  if (F.growthMin !== null || F.growthMax !== null) c.push(['growth', MENUS.growth.label()])
+  for (const [k, ids] of Object.entries(F.ranges)) c.push(['range:' + k, bucketWords(k, ids)])
   F.performance.forEach(v => c.push(['performance:' + v, PERF[v] ?? v]))
-  if (F.employeesMin !== null) c.push(['staff', `${F.employeesMin.toLocaleString('en')}+ employees`])
+  F.kinds.forEach(v => c.push(['kind:' + v, KIND_NAME[v] ?? v]))
   F.abroad.forEach(v => c.push(['abroad:' + v, ABROAD_LABEL[v]]))
-  $('chips').innerHTML = c.map(([k, t]) => `<span class="chip">${esc(t)}<button type="button" data-chip="${esc(k)}" aria-label="Remove ${esc(t)}">×</button></span>`).join('') +
+  const forced = listedOnlyActive(F)
+  $('chips').innerHTML = (forced.length && F.listed !== 'yes' ? `<span class="chip lock" title="${esc(forced.join(', '))}: only listed companies publish this">Listed companies only</span>` : '') +
+    c.map(([k, t]) => `<span class="chip">${esc(t)}<button type="button" data-chip="${esc(k)}" aria-label="Remove ${esc(t)}">×</button></span>`).join('') +
     (c.length > 1 ? '<button type="button" class="clear" data-chip="*">Clear all</button>' : '')
 }
 $('chips').addEventListener('click', e => {
   const b = e.target.closest('[data-chip]'); if (!b) return
   const [k, v] = b.dataset.chip.split(/:(.*)/s)
   const drop = (arr, x) => arr.splice(arr.indexOf(x), 1)
-  if (k === '*') { const scope = F.scope; F = { ...EMPTY_FILTER, families: [], sectors: [], ownership: [], isic: [], abroad: [], performance: [], scope: scope === 'all' && !F.group ? 'all' : 'groups' }; $('fq').value = '' }
+  if (k === '*') { const scope = F.scope; F = { ...emptyFilter(), cols: F.cols, scope: scope === 'all' && !F.group ? 'all' : 'groups' }; $('fq').value = '' }
   else if (k === 'group') { F.group = ''; F.scope = 'groups' }
   else if (k === 'q') { F.q = ''; $('fq').value = '' }
   else if (k === 'family') drop(F.families, v)
@@ -656,69 +749,94 @@ $('chips').addEventListener('click', e => {
   else if (k === 'isic') drop(F.isic, v)
   else if (k === 'abroad') drop(F.abroad, v)
   else if (k === 'performance') drop(F.performance, v)
+  else if (k === 'kind') drop(F.kinds, v)
+  else if (k === 'range') delete F.ranges[v]
   else if (k === 'listed') F.listed = ''
-  else if (k === 'size') F.revenueMinBn = null
-  else if (k === 'growth') { F.growthMin = null; F.growthMax = null }
-  else if (k === 'staff') F.employeesMin = null
-  shown = 50; update()
+  touched(); shown = 50; update()
 })
 
-/* ---------- scope, search, sort ---------- */
-root.querySelectorAll('[data-scope]').forEach(b => b.addEventListener('click', () => { F.scope = b.dataset.scope; F.group = ''; shown = 50; update() }))
+/* ---------- scope, search, sort, columns ---------- */
+root.querySelectorAll('[data-scope]').forEach(b => b.addEventListener('click', () => { F.scope = b.dataset.scope; F.group = ''; touched(); shown = 50; update() }))
 let qTimer = 0
 $('fq').addEventListener('input', () => { clearTimeout(qTimer); qTimer = setTimeout(() => { F.q = $('fq').value.trim(); shown = 50; update(true) }, 120) })
 $('find').addEventListener('submit', e => { e.preventDefault(); F.q = $('fq').value.trim(); update() })
 $('fqx').addEventListener('click', () => { $('fq').value = ''; F.q = ''; update(); $('fq').focus() })
-root.querySelectorAll('[data-sort]').forEach(b => b.addEventListener('click', () => {
+$('thead').addEventListener('click', e => {
+  const b = e.target.closest('[data-sort]'); if (!b) return
   const k = b.dataset.sort
   if (F.sort === k) F.desc = !F.desc; else { F.sort = k; F.desc = k !== 'name' }
   update()
-}))
+})
+$('colset').addEventListener('change', () => { F.cols = $('colset').value; update() })
 $('more').addEventListener('click', () => { shown += 100; drawRows(current) })
 
 /* ---------- drawing ---------- */
 let current = []
 function update(replace = false) {
-  current = sortRows(ROWS.filter(r => matches(r, F, FAMILY, TEXT.get(r.company_id))), F.sort, F.desc)
+  EF = effectiveFilter(F)
+  current = sortRows(rowsMatching(EF), F.sort, F.desc)
   const qs = filterToParams(F).toString()
   history[replace ? 'replaceState' : 'pushState'](null, '', (qs ? '?' + qs : location.pathname) + (location.hash === '#method' ? location.hash : ''))
-  root.querySelectorAll('[data-scope]').forEach(b => b.setAttribute('aria-pressed', String(!F.group && b.dataset.scope === F.scope)))
-  root.querySelectorAll('[data-sort]').forEach(b => b.dataset.sort === F.sort ? b.setAttribute('aria-sort', F.desc ? 'descending' : 'ascending') : b.removeAttribute('aria-sort'))
+  root.querySelectorAll('[data-scope]').forEach(b => b.setAttribute('aria-pressed', String(!EF.group && b.dataset.scope === EF.scope)))
   $('fqx').hidden = !F.q
-  drawFilters(); chips(); drawSummary(); drawBreaks(); drawRows(current)
+  $('colset').value = F.cols
+  drawLenses(); drawFilters(); chips(); drawCoverage(); drawSummary(); drawBreaks(); drawHead(); drawRows(current)
+  if (DRAWER.open) drawDrawer()
   $('copyta').hidden = true
+}
+
+function drawCoverage() {
+  const parts = coverage(ROWS, EF, FAMILY).filter(c => c.reporting < c.base)
+    .map(c => `${c.reporting.toLocaleString('en')} of ${c.base.toLocaleString('en')} ${EF.listed === 'yes' ? 'listed ' : ''}companies report ${c.label.toLowerCase()}`)
+  const forced = listedOnlyActive(F)
+  const lines = []
+  if (forced.length && F.listed !== 'yes') lines.push(`Showing listed companies, including those inside groups: only listed companies publish ${forced.map(x => x.toLowerCase()).join(', ')}.`)
+  if (parts.length) lines.push(`${parts.join('; ')}. Companies without the figure are not counted, not ruled out.`)
+  $('coverage').hidden = !lines.length
+  $('coverage').textContent = lines.join(' ')
 }
 
 function drawSummary() {
   const s = summarize(current)
   // groups among the rows shown: a group counts once, whether the list shows its parent or its companies
   const groupsShown = new Set(current.filter(r => (BYID.get(r.group_id)?.group_companies ?? 0) > 1).map(r => r.group_id)).size
-  const head = F.group ? `<b>${s.companies.toLocaleString('en')}</b> ${s.companies === 1 ? 'company' : 'companies'} in ${esc(BYID.get(F.group)?.name ?? 'this group')}`
+  const head = EF.group ? `<b>${s.companies.toLocaleString('en')}</b> ${s.companies === 1 ? 'company' : 'companies'} in ${esc(BYID.get(EF.group)?.name ?? 'this group')}`
     : `<b>${s.companies.toLocaleString('en')}</b> ${s.companies === 1 ? 'company' : 'companies'}${groupsShown ? ` <span class="incl">(including ${groupsShown.toLocaleString('en')} ${groupsShown === 1 ? 'group' : 'groups'})</span>` : ''}`
   $('lead').innerHTML = head
   const k = (l, v, sub) => `<div class="kpi"><p class="lbl">${l}</p><span class="v">${v}</span><span class="s">${sub}</span></div>`
-  const top = F.scope === 'groups' && !F.group
+  const top = EF.scope === 'groups' && !EF.group
   $('kpis').innerHTML =
     (top ? k('Groups', s.groups_with_members.toLocaleString('en'), `plus ${plural(s.companies - s.groups_with_members, 'company')} outside any group`)
       : k('Companies', s.companies.toLocaleString('en'), `in ${plural(s.groups, 'group')}`)) +
     k('Combined revenue', s.revenueCount ? fmtLkr(s.revenueLkr) : '–', `${s.revenueCount.toLocaleString('en')} report it; subsidiaries counted once, inside their group`) +
-    k('Median real growth', s.medianRealGrowth === null ? '–' : fmtPct(s.medianRealGrowth), s.growthCount ? `after inflation; ${fmtPctPlain(s.medianNominalGrowth)} nominal. ${s.growthCount} listed companies` : 'listed companies only') +
+    k('Grew after inflation', s.growthCount ? `${s.grewReal.toLocaleString('en')} <small>of ${s.growthCount.toLocaleString('en')}</small>` : '–',
+      s.growthCount ? `median ${fmtPctPlain(s.medianRealGrowth)} this year${s.growth5Count >= 20 ? `; ${s.grew5} of ${s.growth5Count} over five years` : ''}` : 'listed companies only') +
+    k('Profit or loss', s.performanceCount ? `${s.profitable.toLocaleString('en')} <small>· ${s.loss.toLocaleString('en')} loss</small>` : '–',
+      s.performanceCount ? `made a profit · made a loss, of ${s.performanceCount.toLocaleString('en')} that report` : 'listed companies only') +
     k('Employees', s.employeesCount ? fmtInt(s.employees) : '–', `${s.employeesCount.toLocaleString('en')} report a headcount`) +
-    k('Loss-making', s.loss.toLocaleString('en'), 'loss or negative equity in the latest report') +
-    k('Exporters', s.exporters.toLocaleString('en'), `plus ${s.overseas.toLocaleString('en')} with overseas subsidiaries or operations`)
+    (EF.listed === 'yes' && s.marketCapCount ? k('Market value', fmtLkr(s.marketCapLkr), `${s.marketCapCount.toLocaleString('en')} listed companies, CSE, November 2026`)
+      : k('Known exporters', s.exporters.toLocaleString('en'), `plus ${s.overseas.toLocaleString('en')} with overseas subsidiaries or operations`))
 }
 
+let SECTOR_BY = 'count'
 function drawBreaks() {
-  const fam = countBy(current, r => r.primary_sector ? [FAMILY.get(r.primary_sector)] : []).slice(0, 12)
+  const rows = current.filter(r => r.primary_sector)
+  const fam = SECTOR_BY === 'count' ? countBy(rows, r => [FAMILY.get(r.primary_sector)]).slice(0, 12)
+    : [...rows.reduce((m, r) => m.set(FAMILY.get(r.primary_sector), (m.get(FAMILY.get(r.primary_sector)) ?? 0) + (r.revenue_additive_lkr ?? 0)), new Map())].filter(x => x[1] > 0).sort((a, b) => b[1] - a[1]).slice(0, 12)
   const max = Math.max(1, ...fam.map(x => x[1]))
-  $('bySector').innerHTML = fam.length ? fam.map(([k, n]) => `<li><button type="button" data-fam="${esc(k)}" aria-pressed="${F.families.includes(k)}"><span class="t">${esc(COMPANY_SECTOR_FAMILIES[k] ?? k)}</span><span class="b"><i style="width:${(n / max * 100).toFixed(1)}%;background:var(--sec-${esc(k)}, var(--teal))"></i></span><span class="c">${n}</span></button></li>`).join('')
+  $('bySector').innerHTML = fam.length ? fam.map(([k, n]) => `<li><button type="button" data-fam="${esc(k)}" aria-pressed="${F.families.includes(k)}"><span class="t">${esc(COMPANY_SECTOR_FAMILIES[k] ?? k)}</span><span class="b"><i style="width:${(n / max * 100).toFixed(1)}%;background:var(--sec-${esc(k)}, var(--teal))"></i></span><span class="c">${SECTOR_BY === 'count' ? n : fmtLkr(n).replace('LKR ', '')}</span></button></li>`).join('')
     : '<li class="empty">No companies with a sector match.</li>'
-  const own = countBy(current, r => [ownershipOf(r)]).slice(0, 8)
+  // every listed company's ownership reads "listed": with listed companies, show who their largest shareholder is
+  const byHolder = EF.listed === 'yes'
+  $('ownLabel').textContent = byHolder ? 'By largest shareholder' : 'By ownership'
+  const own = byHolder ? countBy(current, r => [r.controller_type ?? 'unknown']).slice(0, 8) : countBy(current, r => [ownershipOf(r)]).slice(0, 8)
   const m2 = Math.max(1, ...own.map(x => x[1]))
-  $('byOwner').innerHTML = own.map(([k, n]) => `<li><button type="button" data-own="${esc(k)}" aria-pressed="${F.ownership.includes(k)}"><span class="t">${esc(OWNER[k] ?? k)}</span><span class="b"><i style="width:${(n / m2 * 100).toFixed(1)}%"></i></span><span class="c">${n}</span></button></li>`).join('')
+  $('byOwner').innerHTML = own.map(([k, n]) => `<li><button type="button" ${byHolder ? 'disabled' : `data-own="${esc(k)}"`} aria-pressed="${!byHolder && F.ownership.includes(k)}"><span class="t">${esc(byHolder ? (HOLDER_KIND[k] ?? k) : (OWNER[k] ?? k))}</span><span class="b"><i style="width:${(n / m2 * 100).toFixed(1)}%"></i></span><span class="c">${n}</span></button></li>`).join('')
 }
+const HOLDER_KIND = { company: 'A company', person: 'A person or family', state: 'The state', state_enterprise: 'A state enterprise', pension_fund: 'A pension fund', fund: 'An investment fund', nominee_or_custodian: 'A custodian', group: 'Its group', unknown: 'Not known', other: 'Other' }
 $('bySector').addEventListener('click', e => { const b = e.target.closest('[data-fam]'); if (!b) return; MENUS.sector.pick('f:' + b.dataset.fam); shown = 50; update() })
 $('byOwner').addEventListener('click', e => { const b = e.target.closest('[data-own]'); if (!b) return; MENUS.ownership.pick(b.dataset.own); shown = 50; update() })
+$('sectorBy').addEventListener('click', e => { const b = e.target.closest('[data-by]'); if (!b) return; SECTOR_BY = b.dataset.by; $('sectorBy').querySelectorAll('[data-by]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.by === SECTOR_BY))); drawBreaks() })
 
 function abroadFlags(r) {
   const f = []
@@ -729,21 +847,65 @@ function abroadFlags(r) {
   return f.join(' · ')
 }
 
+/* ---------- table columns: a set per view ---------- */
+const nr = r => `<span class="dash" title="${r.listed ? 'Not reported' : 'Not published: an unlisted company'}">–</span>`
+const pctC = (v, d = 1, r) => v === null || v === undefined ? nr(r) : `${v.toFixed(d)}%`
+const xC = (v, d = 1, r) => v === null || v === undefined ? nr(r) : `${v.toFixed(d)}×`
+const lkrC = (v, r) => v === null || v === undefined ? nr(r) : fmtLkr(v)
+const COL = {
+  sector: { head: 'Sector', cls: 'hide-s', cell: r => tagsOf(r).slice(0, 2).map(badge).join('') || '<span class="dash">–</span>' },
+  revenue: { head: 'Revenue', sort: 'revenue', cls: 'num', cell: r => `${lkrC(r.revenue_lkr, r)}${revenueNote(r) ? `<span class="sub">${revenueNote(r)}</span>` : ''}` },
+  growth: { head: 'Growth after inflation', sort: 'growth', cls: 'num', title: 'Revenue growth after removing inflation; in rupees below', cell: r => r.revenue_growth_real_pct === null ? nr(r) : `${fmtPct(r.revenue_growth_real_pct)}${r.revenue_growth_nominal_pct !== null ? `<span class="sub">${fmtPctPlain(r.revenue_growth_nominal_pct)} in rupees</span>` : ''}` },
+  profit: { head: 'Profit after tax', sort: 'profit', cls: 'num hide-s', cell: r => r.profit_after_tax_lkr === null ? nr(r) : `<span class="${r.profit_after_tax_lkr < 0 ? 'down' : ''}">${fmtLkr(r.profit_after_tax_lkr)}</span>${r.return_on_equity_pct !== null ? `<span class="sub">${r.return_on_equity_pct.toFixed(1)}% on equity</span>` : ''}` },
+  employees: { head: 'Employees', sort: 'employees', cls: 'num hide-s', cell: r => r.employees === null ? nr(r) : fmtInt(r.employees) },
+  abroad: { head: 'Exports and overseas', cls: 'hide-s flags', cell: r => abroadFlags(r) },
+  debt: { head: 'Debt ÷ equity', sort: 'debt', cls: 'num', cell: r => pctC(r.debt_to_equity_pct, 0, r) },
+  cover: { head: 'Interest cover', sort: 'cover', cls: 'num', cell: r => xC(r.interest_cover, 1, r) },
+  netdebt: { head: 'Net debt', sort: 'netdebt', cls: 'num hide-s', cell: r => r.net_debt_lkr === null ? nr(r) : r.net_debt_lkr < 0 ? `${fmtLkr(-r.net_debt_lkr)}<span class="sub">net cash</span>` : fmtLkr(r.net_debt_lkr) },
+  eqa: { head: 'Owners’ share of assets', sort: 'eqa', cls: 'num hide-s', cell: r => pctC(r.equity_to_assets_pct, 0, r) },
+  mcap: { head: 'Market value', sort: 'mcap', cls: 'num', cell: r => lkrC(r.market_cap_lkr, r) },
+  yield: { head: 'Dividend yield', sort: 'yield', cls: 'num', cell: r => r.dividend_yield_pct === null ? nr(r) : `${r.dividend_yield_pct.toFixed(1)}%${r.dividend_payout_pct !== null ? `<span class="sub${r.dividend_payout_pct > 100 ? ' warn' : ''}">pays out ${r.dividend_payout_pct.toFixed(0)}% of earnings</span>` : ''}` },
+  pe: { head: 'Price to earnings', sort: 'pe', cls: 'num hide-s', cell: r => xC(r.pe_ratio, 1, r) },
+  pb: { head: 'Price to book', sort: 'pb', cls: 'num', cell: r => xC(r.pb_ratio, 2, r) },
+  cagr5: { head: 'Five-year growth after inflation', sort: 'cagr5', cls: 'num', cell: r => r.revenue_cagr_5y_real_pct === null ? nr(r) : `${fmtPct(r.revenue_cagr_5y_real_pct)}<span class="sub">a year${r.revenue_cagr_5y_pct !== null ? `; ${fmtPctPlain(r.revenue_cagr_5y_pct)} in rupees` : ''}</span>` },
+  lossyears: { head: 'Loss years', sort: 'lossyears', cls: 'num hide-s', cell: r => r.loss_years_in_history === null ? nr(r) : `${r.loss_years_in_history}<span class="sub">of ${r.history_years} years</span>` },
+  roe: { head: 'Return on equity', sort: 'roe', cls: 'num hide-s', cell: r => pctC(r.return_on_equity_pct, 1, r) },
+  npl: { head: 'Bad loans', sort: 'npl', cls: 'num', title: 'Stage 3 or non-performing loans, as reported', cell: r => pctC(r.npl_ratio_pct, 2, r) },
+  car: { head: 'Capital ratio', sort: 'car', cls: 'num', title: 'Total capital ratio, as reported', cell: r => pctC(r.total_capital_ratio_pct, 1, r) },
+  cti: { head: 'Cost to income', sort: 'cti', cls: 'num hide-s', cell: r => pctC(r.cost_to_income_pct, 1, r) },
+  holder: { head: 'Largest shareholder', cls: '', cell: r => r.controller_name ? `${esc(r.controller_name)}<span class="sub">${esc(HOLDER_TYPE[r.controller_type] ?? r.controller_type ?? '')}${r.controller_country && r.controller_country !== 'Sri Lanka' ? ' · ' + esc(r.controller_country) : ''}</span>` : nr(r) },
+  stake: { head: 'Stake', sort: 'stake', cls: 'num', cell: r => pctC(r.controller_pct, 1, r) },
+  state: { head: 'State stake', sort: 'state', cls: 'num hide-s', cell: r => r.state_holding_pct ? `${r.state_holding_pct}%` : '<span class="dash">–</span>' },
+  groupsize: { head: 'Companies in its group', sort: 'groupsize', cls: 'num hide-s', cell: r => r.is_group_head && r.group_companies > 1 ? fmtInt(r.group_companies) : '<span class="dash">–</span>' },
+}
+const COLSET = {
+  overview: ['sector', 'revenue', 'growth', 'profit', 'employees', 'abroad'],
+  debt: ['debt', 'cover', 'netdebt', 'eqa', 'revenue'],
+  price: ['mcap', 'yield', 'pe', 'pb', 'revenue'],
+  longrun: ['growth', 'cagr5', 'lossyears', 'roe', 'revenue'],
+  banks: ['revenue', 'npl', 'car', 'cti', 'roe'],
+  ownership: ['holder', 'stake', 'state', 'groupsize', 'revenue'],
+}
+const cols = () => (COLSET[F.cols] ?? COLSET.overview).map(k => COL[k])
+
+function drawHead() {
+  const th = (label, sort, cls = '', title = '') => `<th scope="col" class="${cls}">${sort ? `<button type="button" data-sort="${sort}"${F.sort === sort ? ` aria-sort="${F.desc ? 'descending' : 'ascending'}"` : ''}${title ? ` title="${esc(title)}"` : ''}>${label}</button>` : label}</th>`
+  $('thead').innerHTML = `<tr>${th('Company', 'name')}${cols().map(c => th(c.head, c.sort, c.cls, c.title)).join('')}</tr>`
+}
+
 function drawRows(list) {
-  const body = $('rows')
-  if (!list.length) { body.innerHTML = '<tr><td colspan="7" class="empty">No companies match these filters.</td></tr>'; $('more').hidden = true; return }
+  const body = $('rows'), cs = cols(), span = cs.length + 1
+  if (!list.length) {
+    const ranged = Object.keys(F.ranges).length
+    body.innerHTML = `<tr><td colspan="${span}" class="empty">No companies match these filters.${ranged ? ' Some figures are published by only a few companies: try removing one.' : ''}</td></tr>`
+    $('more').hidden = true; return
+  }
   body.innerHTML = list.slice(0, shown).map(r => {
     const grp = r.is_group_head ? (r.group_companies > 1 ? `Parent of a group of ${r.group_companies} companies` : (r.ownership && r.ownership !== 'unknown' ? OWNER[r.ownership] ?? '' : '')) : relPhrase(r, esc(r.group_name))
-    const tags = tagsOf(r).slice(0, 2).map(badge).join('')
     const row = `<tr class="r${openId === r.company_id ? ' open' : ''}" data-id="${esc(r.company_id)}" tabindex="0" aria-expanded="${openId === r.company_id}">
       <td><span class="nm">${esc(r.name)}</span>${r.cse_symbol ? `<span class="sym">${esc(r.cse_symbol.split('.')[0])}</span>` : ''}<span class="grp-n">${grp}</span>${r.performance ? `<span class="perf ${PERF_TONE[r.performance]}" title="${esc(PERF[r.performance])}">${esc(PERF_SHORT[r.performance])}</span>` : ''}</td>
-      <td class="hide-s">${tags || '<span class="dash">–</span>'}</td>
-      <td class="num">${fmtLkr(r.revenue_lkr)}${revenueNote(r) ? `<span class="sub">${revenueNote(r)}</span>` : ''}</td>
-      <td class="num">${fmtPct(r.revenue_growth_real_pct)}${r.revenue_growth_nominal_pct !== null ? `<span class="sub">${fmtPctPlain(r.revenue_growth_nominal_pct)} nominal</span>` : ''}</td>
-      <td class="num hide-s">${r.net_profit_margin_pct !== null ? r.net_profit_margin_pct.toFixed(1) + '%' : '<span class="dash">–</span>'}</td>
-      <td class="num hide-s">${fmtInt(r.employees)}</td>
-      <td class="hide-s flags">${abroadFlags(r)}</td></tr>`
-    return row + (openId === r.company_id ? `<tr class="d"><td colspan="7">${detail(r)}</td></tr>` : '')
+      ${cs.map(c => `<td class="${c.cls}">${c.cell(r)}</td>`).join('')}</tr>`
+    return row + (openId === r.company_id ? `<tr class="d"><td colspan="${span}">${detail(r)}</td></tr>` : '')
   }).join('')
   fitWeb()
   $('more').hidden = list.length <= shown
@@ -1208,7 +1370,7 @@ $('rows').addEventListener('click', e => {
   if (hb) { const list = HOLDINGS_OF.get(hb.dataset.holder) ?? []; const box = hb.closest('li'); if (box.querySelector('.also')) { box.querySelector('.also').remove(); return }
     box.insertAdjacentHTML('beforeend', `<div class="also">${list.sort((a, b) => (b.pct ?? 0) - (a.pct ?? 0)).map(x => `<span><button type="button" class="linkbtn" data-goto="${esc(x.company_id)}">${esc(x.company_name)}</button> ${x.pct !== null ? x.pct + '%' : ''}</span>`).join('')}</div>`); return }
   const go = e.target.closest('[data-goto]')
-  if (go) { const r = BYID.get(go.dataset.goto); F = { ...EMPTY_FILTER, families: [], sectors: [], ownership: [], isic: [], abroad: [], performance: [], group: r.group_id, scope: 'all' }; openId = r.company_id; shown = 2000; $('fq').value = ''; update(); document.querySelector(`tr.r[data-id="${CSS.escape(r.company_id)}"]`)?.scrollIntoView({ block: 'center' }); return }
+  if (go) { const r = BYID.get(go.dataset.goto); F = { ...emptyFilter(), cols: F.cols, group: r.group_id, scope: 'all' }; openId = r.company_id; shown = 2000; $('fq').value = ''; update(); document.querySelector(`tr.r[data-id="${CSS.escape(r.company_id)}"]`)?.scrollIntoView({ block: 'center' }); return }
   if (e.target.closest('a')) return
   const tr = e.target.closest('tr.r'); if (!tr) return
   toggle(tr.dataset.id)
@@ -1323,6 +1485,8 @@ async function start() {
       if (!RELS.to.has(x.to_id)) RELS.to.set(x.to_id, []); RELS.to.get(x.to_id).push(x)
     }
     for (const xs of RELS.from.values()) xs.sort((a, b) => (b.direct_pct ?? -1) - (a.direct_pct ?? -1))
+    // how many companies each ready-made view finds (fixed for the page's lifetime)
+    LENS_COUNT = new Map(LENSES.map(l => [l.id, rowsMatching(effectiveFilter(applyLens(l.id))).length]))
     $('fq').value = F.q
     update(true)
   } catch (e) {
