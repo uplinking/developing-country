@@ -15914,13 +15914,13 @@
           ]
         },
         "data": {
-          "title": "Companies",
+          "title": "Sri Lankan companies and groups",
           "dek": "See who owns what in Sri Lankan business, what each company does and how fast it is growing.",
           "format": "dataset_note",
           "dataset_id": "lk-companies",
           "dataset_preview_url": "https://explore.developing-country.org/datasets/lk-companies/largest-groups?embed=dataset",
           "country_code": "LK",
-          "research_question": "Which companies work in a sector, how big are they, are they growing, and which group owns them?",
+          "research_question": "Which companies are in a sector, how big are they, are they growing, and which group owns them?",
           "methodology": "This note uses the platform’s immutable Dataset Version and cited Source records. Its source, vintage, normalization method and caveats come from the registered artifact without adding unverified claims.",
           "evidence_bundle": {
             "version": 1,
@@ -15929,9 +15929,9 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-companies",
-                "versionId": "dsv_bdfa69fdf083067a42722987ac41e7ab",
+                "versionId": "dsv_4bbc7aa6618db112142291d7bc768772",
                 "country": "LK",
-                "checksum": "sha256:45fe593ba02d9666de3eeb9b39a31670026b8d5e8a43905eece18ac5b286d3fe",
+                "checksum": "sha256:adc000461d80904b445139e97fb0d782ad883e183ea676444aa011b4b091b55e",
                 "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
                 "refreshedAt": "2026-11-24",
                 "sourceIds": [
@@ -15972,7 +15972,7 @@
                 {
                   "_type": "span",
                   "_key": "lk-companies-contains-body-span",
-                  "text": "Every company with ordinary shares on the Colombo Stock Exchange and the subsidiaries, associates and joint ventures its 2025/26 annual report names, plus about 850 large unlisted companies (state enterprises, banks, exporters, family groups, multinationals) found by web research. Two years of revenue, profit and employees for listed companies."
+                  "text": "Every company with ordinary shares on the Colombo Stock Exchange and the subsidiaries, associates and joint ventures its latest annual report names, plus about 850 large unlisted companies (state enterprises, banks, exporters, family groups, multinationals) found by web research. Two years of revenue and profit, and the latest employee count, for listed companies."
                 }
               ]
             },
@@ -15996,7 +15996,7 @@
                 {
                   "_type": "span",
                   "_key": "lk-companies-use-body-span",
-                  "text": "Filter groups with is_group_head = true, or a group's companies by group_id. Filter by revenue_growth_pct, employees, operates_abroad, exports, foreign_owned or ownership. For sectors (solar, tea, gloves, fintech, …) use lk-company-sectors."
+                  "text": "Filter parent companies and companies outside any group with is_group_head = true, or a group's companies by group_id. Filter by revenue_growth_pct, employees, exports, operates_abroad, foreign_owned or ownership. For sectors (solar power, tea, gloves, fintech, …) use lk-company-sectors."
                 }
               ]
             },
@@ -16020,7 +16020,7 @@
                 {
                   "_type": "span",
                   "_key": "lk-companies-limit-body-span",
-                  "text": "Not a census: small and medium private companies are missing, and unlisted companies rarely publish revenue. Growth is available for listed companies only. A group head's revenue already includes its subsidiaries."
+                  "text": "Not a census: small and medium private companies are missing, and unlisted companies rarely publish revenue. Growth is available for listed companies only. A parent company's revenue is consolidated: it already includes its subsidiaries."
                 }
               ]
             }
@@ -16048,7 +16048,7 @@
           "dataset_id": "lk-company-sectors",
           "dataset_preview_url": "https://explore.developing-country.org/datasets/lk-company-sectors/companies-by-sector-family?embed=dataset",
           "country_code": "LK",
-          "research_question": "Which companies work in a sector, and which of them are large, growing or exporting?",
+          "research_question": "Which companies are in a sector, and which of them are large, growing or exporting?",
           "methodology": "This note uses the platform’s immutable Dataset Version and cited Source records. Its source, vintage, normalization method and caveats come from the registered artifact without adding unverified claims.",
           "evidence_bundle": {
             "version": 1,
@@ -16057,9 +16057,9 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-company-sectors",
-                "versionId": "dsv_1f4e9c99f9ea1b2276fd4e04a9b5b864",
+                "versionId": "dsv_024028ef75d5acf6f13cc00049e6abf5",
                 "country": "LK",
-                "checksum": "sha256:220229e7714f8568a18c10621ce694440ca795e827391df912009d2c6e230cbf",
+                "checksum": "sha256:6221b392ff51d02f6e868052fff633881392ecdca1967529fb9c8b0fca958450",
                 "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
                 "refreshedAt": "2026-11-24",
                 "sourceIds": [
@@ -16100,7 +16100,7 @@
                 {
                   "_type": "span",
                   "_key": "lk-company-sectors-contains-body-span",
-                  "text": "One to four sector tags per company from a fixed list of 81, grouped into 16 families. Each tag cites the words in the company's own description that justify it."
+                  "text": "One to four sector tags per company from a fixed list of 81, in 14 broad sectors. Each tag cites the words in the company's own description that justify it."
                 }
               ]
             },
@@ -16148,7 +16148,7 @@
                 {
                   "_type": "span",
                   "_key": "lk-company-sectors-limit-body-span",
-                  "text": "Companies with no description (about one in six) carry no tag. Tags describe what a company does, not its revenue split."
+                  "text": "Companies with no description (about one in eight) have no sector. Tags describe what a company does, not its revenue split."
                 }
               ]
             }
@@ -16170,8 +16170,8 @@
           ]
         },
         "data": {
-          "title": "Company ownership and links",
-          "dek": "Trace each group's ownership tree, stake by stake.",
+          "title": "Company ownership",
+          "dek": "Trace each group's ownership structure, stake by stake.",
           "format": "dataset_note",
           "dataset_id": "lk-company-relationships",
           "dataset_preview_url": "https://explore.developing-country.org/datasets/lk-company-relationships/largest-holdings?embed=dataset",
@@ -16185,9 +16185,9 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-company-relationships",
-                "versionId": "dsv_3401602cca641f17aadd82222ba41fe4",
+                "versionId": "dsv_b172563eacc78e26fe136889dde0f0c3",
                 "country": "LK",
-                "checksum": "sha256:19183414c4507c46c62d854f6eca2cc23ede134cefa6b860f0d21e46559bdcfd",
+                "checksum": "sha256:58daa2e505e371754e09159f7abb3e965a45ddc5104b5f5702fc55f4d1a9ccee",
                 "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
                 "refreshedAt": "2026-11-24",
                 "sourceIds": [
@@ -16252,7 +16252,7 @@
                 {
                   "_type": "span",
                   "_key": "lk-company-relationships-use-body-span",
-                  "text": "Filter by from_id to list what a company holds, or by to_id to see who holds it. type = holding is the link that defines the group tree."
+                  "text": "Filter by from_id to list what a company holds, or by to_id to see who holds it. type = holding links a company to its largest shareholder; these links give each group's structure."
                 }
               ]
             },
@@ -16299,7 +16299,7 @@
         },
         "data": {
           "title": "Company operating segments",
-          "dek": "See what each listed group actually earns its money from.",
+          "dek": "See where each listed group's revenue and profit come from.",
           "format": "dataset_note",
           "dataset_id": "lk-company-segments",
           "dataset_preview_url": "https://explore.developing-country.org/datasets/lk-company-segments/largest-segments?embed=dataset",
@@ -16313,9 +16313,9 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-company-segments",
-                "versionId": "dsv_3f6b7fae20e56e1bf251d85abc8c62b6",
+                "versionId": "dsv_b1a21cb22747754a3fee2302e98610cd",
                 "country": "LK",
-                "checksum": "sha256:367ddffd2f754088f69600070ab0ebee819c4e4fa0a032923f83399a48eea89a",
+                "checksum": "sha256:91744ec61c0bb863f58be2f302c79de1686fb4e7e68116702d64f57be28aa0e5",
                 "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
                 "refreshedAt": "2026-11-24",
                 "sourceIds": [
@@ -16356,7 +16356,7 @@
                 {
                   "_type": "span",
                   "_key": "lk-company-segments-contains-body-span",
-                  "text": "Operating segments from the segment note of each listed company's 2025/26 annual report, with a short description from the segment review."
+                  "text": "Operating segments from the segment note of each listed company's latest annual report, with a short description from the segment review."
                 }
               ]
             },

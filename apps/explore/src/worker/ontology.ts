@@ -460,7 +460,7 @@ export const ONTOLOGY: Ontology = {
     })),
     ...LK_COMPANY_DATASETS.map(d => indicatorEntity({
       id: d.id.replaceAll('-', '_'), datasetId: d.id, title: d.title, description: d.description, sourceIds: d.sourceIds,
-      source: 'developing-country.org company map (CSE-listed annual reports, web research on unlisted companies)',
+      source: 'developing-country.org company map (annual reports of CSE-listed companies, web research on unlisted companies)',
       vintage: d.vintage,
       licence: 'CC BY 4.0 (compilation by developing-country.org); annual reports and linked web sources keep their publishers’ rights',
       licenceStatus: 'open', url: 'https://www.cse.lk/', path: `/data/${d.id}.json`,

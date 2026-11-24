@@ -11,7 +11,7 @@ const base = `${explorer}/data`
 
 <SiteLayout
   title="Company map"
-  description="Sri Lanka's companies and the groups that own them: what each does, its sector, revenue and growth, employees, and whether it works abroad."
+  description="Sri Lanka's companies and the groups that own them: what each does, its sector, revenue and growth, employees, and whether it exports or operates overseas."
 >
 <div class="cmap wrap" id="cmap" data-base={base}>
   <header>
@@ -27,8 +27,8 @@ const base = `${explorer}/data`
 
   <div class="bar" role="toolbar" aria-label="Filters">
     <div class="seg" role="group" aria-label="Show">
-      <button type="button" data-scope="groups" aria-pressed="true">Groups</button>
-      <button type="button" data-scope="all" aria-pressed="false">All companies</button>
+      <button type="button" data-scope="groups" aria-pressed="true">By group</button>
+      <button type="button" data-scope="all" aria-pressed="false">Every company</button>
     </div>
     <div class="filters" id="filters"></div>
   </div>
@@ -50,20 +50,20 @@ const base = `${explorer}/data`
           <th scope="col"><button type="button" data-sort="name">Company</button></th>
           <th scope="col" class="hide-s">Sector</th>
           <th scope="col" class="num"><button type="button" data-sort="revenue">Revenue</button></th>
-          <th scope="col" class="num"><button type="button" data-sort="growth">Growth</button></th>
+          <th scope="col" class="num"><button type="button" data-sort="growth">Revenue growth</button></th>
           <th scope="col" class="num hide-s"><button type="button" data-sort="employees">Employees</button></th>
-          <th scope="col" class="hide-s">Abroad</th>
+          <th scope="col" class="hide-s">Exports and overseas</th>
         </tr></thead>
         <tbody id="rows"><tr><td colspan="6" class="empty">Loading the company map…</td></tr></tbody>
       </table>
     </div>
     <button type="button" class="showmore" id="more" hidden>Show more</button>
     <div class="ai">
-      <p>Need a different cut? Ask your AI: the same tables are open through the developing-country.org MCP.</p>
-      <button type="button" class="copy" id="copy">Copy question</button>
+      <p>Want a different view? Ask an AI assistant. It can query the same tables through the developing-country.org connector.</p>
+      <button type="button" class="copy" id="copy">Copy as a question</button>
     </div>
     <textarea class="copyta" id="copyta" readonly hidden aria-label="Question to paste into your AI"></textarea>
-    <p class="foot">Sources: 2025/26 annual reports of every company listed on the Colombo Stock Exchange, and web research on about 850 large unlisted companies. Figures from reports were machine-read and checked against the page they cite. Revenue is in LKR (US dollars at LKR 300); banks report gross income. A group’s revenue already includes its subsidiaries. Data: <a href="/data/lk-companies">lk-companies</a>, <a href="/data/lk-company-sectors">lk-company-sectors</a>, <a href="/data/lk-company-relationships">lk-company-relationships</a>, <a href="/data/lk-company-segments">lk-company-segments</a> (CC BY 4.0).</p>
+    <p class="foot">Sources: the latest annual reports (financial years ending December 2025 or March 2026) of all 262 companies listed on the Colombo Stock Exchange, and web research on about 850 large unlisted companies. Figures from the reports were extracted by software and each one checked against the page it cites. Revenue is in Sri Lankan rupees (LKR); US dollar figures are converted at LKR 300 to the dollar. For banks and finance companies revenue means gross income; for insurers, gross written premium. A parent company’s revenue already includes its subsidiaries. Data, free to reuse under CC BY 4.0: <a href="/data/lk-companies">Sri Lankan companies and groups</a>, <a href="/data/lk-company-sectors">Company sectors</a>, <a href="/data/lk-company-relationships">Company ownership</a>, <a href="/data/lk-company-segments">Company operating segments</a>.</p>
   </section>
 </div>
 </SiteLayout>
@@ -234,7 +234,7 @@ const base = `${explorer}/data`
 <script>
 // @ts-nocheck -- plain DOM code; the filtering rules it relies on are typed and tested in src/lib/companyFilter.ts.
 import { COMPANY_SECTOR_FAMILIES, COMPANY_SECTOR_TAGS, COMPANY_SECTOR_BY_TAG } from '@developing-country/datasets/company-sectors'
-import { ABROAD_KEYS, ABROAD_LABEL, EMPTY_FILTER, countBy, filterToParams, matches, parseFilter, searchText, sortRows, summarize, tagsOf, toQuery } from '../lib/companyFilter'
+import { ABROAD_KEYS, ABROAD_LABEL, EMPTY_FILTER, countBy, ownershipOf, filterToParams, matches, parseFilter, searchText, sortRows, summarize, tagsOf, toQuery } from '../lib/companyFilter'
 
 const root = document.getElementById('cmap')
 const BASE = root.dataset.base
@@ -246,14 +246,15 @@ const THEME = { agriculture: 'AGRI', 'food-and-drink': 'REGI', manufacturing: 'E
   'construction-and-property': 'GOVE', trade: 'SOCI', 'tourism-and-leisure': 'INTR', 'transport-and-logistics': 'TRAN', finance: 'EDUC',
   technology: 'TECH', health: 'HEAL', services: 'ENVI' }
 const tagLabel = t => COMPANY_SECTOR_BY_TAG.get(t)?.label ?? t
-const OWNER = { listed: 'Listed', state_owned: 'State-owned', family_group: 'Family group', foreign_multinational: 'Foreign multinational',
-  private_local: 'Private (local)', private: 'Private', joint_venture: 'Joint venture', listed_elsewhere: 'Listed abroad', unknown: 'Not known', '': 'Not known' }
-const ISIC = { A: 'Agriculture, forestry, fishing', B: 'Mining', C: 'Manufacturing', D: 'Electricity and gas', E: 'Water and waste', F: 'Construction',
-  G: 'Wholesale and retail', H: 'Transport and storage', I: 'Hotels and food', J: 'Information and communication', K: 'Finance and insurance',
-  L: 'Real estate', M: 'Professional services', N: 'Administrative services', O: 'Public administration', P: 'Education', Q: 'Health',
-  R: 'Arts and recreation', S: 'Other services' }
-const REL = { ultimate_parent: 'Group head', subsidiary: 'Subsidiary', associate: 'Associate', joint_venture: 'Joint venture',
-  member_per_web_sources: 'Member (per web sources)', named_in_report_only: 'Named in report', former_holding: 'Former holding', investment_not_consolidated: 'Investment' }
+const OWNER = { listed: 'Listed on the CSE', state_owned: 'State-owned', family_group: 'Family-owned', foreign_multinational: 'Foreign-owned',
+  private_local: 'Privately owned (Sri Lankan)', private: 'Privately owned (Sri Lankan)', joint_venture: 'Joint venture', listed_elsewhere: 'Part of a listed group',
+  in_group: 'Owned by a group', unknown: 'Not classified', '': 'Not classified' }
+const REL = { ultimate_parent: 'Parent company', subsidiary: 'Subsidiary', associate: 'Associate', joint_venture: 'Joint venture',
+  member_per_web_sources: 'Part', named_in_report_only: 'Named in the annual report', former_holding: 'Formerly held', investment_not_consolidated: 'Minority investment' }
+// How a company relates to its group, as a phrase: “Subsidiary of X”, “Part of X”, “Named in X’s annual report”.
+const relPhrase = (r, name) => r.relation_to_group === 'named_in_report_only' ? `Named in ${name}’s annual report`
+  : r.relation_to_group === 'former_holding' ? `Formerly held by ${name}` : `${REL[r.relation_to_group] ?? 'Part'} of ${name}`
+const ISIC_LABEL = new Map()
 
 function fmtLkr(v) {
   if (v === null || v === undefined) return '<span class="dash">–</span>'
@@ -263,7 +264,18 @@ function fmtLkr(v) {
   if (a >= 1e6) return 'LKR ' + +(v / 1e6).toPrecision(3) + 'm'
   return 'LKR ' + Math.round(v).toLocaleString('en')
 }
-const plural = (n, w) => `${n.toLocaleString('en')} ${w}${n === 1 ? '' : 's'}`
+const plural = (n, w) => `${n.toLocaleString('en')} ${n === 1 ? w : w === 'company' ? 'companies' : w + 's'}`
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const fmtDate = d => /^\d{4}-\d{2}-\d{2}$/.test(d) ? `${+d.slice(8)} ${MONTHS[+d.slice(5, 7) - 1]} ${d.slice(0, 4)}` : d
+// revenue_basis for web-researched companies is stored as “press_report (2009)”: say it in words
+const BASIS = { reported_by_company: 'Company’s own figure', regulator_filing: 'Regulator filing', rating_agency: 'Rating agency report', press_report: 'Press report', ranking: 'Published ranking', estimate_range: 'Estimate' }
+function basisText(b) {
+  if (!b) return 'Source linked below'
+  const m = b.match(/^([a-z_]+)(?: \((.*)\))?$/)
+  if (!m || !BASIS[m[1]]) return b
+  const yr = m[2] && m[2] !== 'None' ? (m[2].match(/\d{4}/) ?? [''])[0] : ''
+  return BASIS[m[1]] + (yr ? `, ${yr}` : '')
+}
 const fmtInt = v => v === null || v === undefined ? '<span class="dash">–</span>' : Math.round(v).toLocaleString('en')
 const fmtPct = v => v === null || v === undefined ? '<span class="dash">–</span>'
   : `<span class="${v > 0 ? 'up' : v < 0 ? 'down' : ''}">${v > 0 ? '+' : ''}${v.toFixed(1)}%</span>`
@@ -273,10 +285,10 @@ let F = parseFilter(new URLSearchParams(location.search))
 let shown = 50, openId = null, menuOpen = null
 
 /* ---------- filter menus ---------- */
-const GROWTH = [['', 'Any growth', null, null], ['g0', 'Growing', 0.0001, null], ['g10', 'Growth over 10%', 10, null], ['g25', 'Growth over 25%', 25, null], ['d0', 'Shrinking', null, -0.0001]]
-const SIZE = [['', 'Any size', null], ['1', 'Revenue LKR 1bn+', 1], ['10', 'Revenue LKR 10bn+', 10], ['50', 'Revenue LKR 50bn+', 50], ['100', 'Revenue LKR 100bn+', 100]]
-const STAFF = [['', 'Any', null], ['100', '100+ employees', 100], ['500', '500+ employees', 500], ['1000', '1,000+ employees', 1000], ['5000', '5,000+ employees', 5000]]
-const LISTED = [['', 'Listed or not'], ['yes', 'Listed on the CSE'], ['no', 'Not listed']]
+const GROWTH = [['', 'Any revenue growth', null, null], ['g0', 'Revenue up', 0.0001, null], ['g10', 'Up more than 10%', 10, null], ['g25', 'Up more than 25%', 25, null], ['d0', 'Revenue down', null, -0.0001]]
+const SIZE = [['', 'Any revenue', null], ['1', 'LKR 1bn or more', 1], ['10', 'LKR 10bn or more', 10], ['50', 'LKR 50bn or more', 50], ['100', 'LKR 100bn or more', 100]]
+const STAFF = [['', 'Any number', null], ['100', '100+ employees', 100], ['500', '500+ employees', 500], ['1000', '1,000+ employees', 1000], ['5000', '5,000+ employees', 5000]]
+const LISTED = [['', 'Listed and unlisted'], ['yes', 'Listed on the CSE'], ['no', 'Unlisted']]
 
 function counts(key) {
   // option counts under every other active filter, so a menu shows what picking it would leave
@@ -308,7 +320,7 @@ const MENUS = {
   },
   ownership: {
     label: () => F.ownership.length ? 'Ownership · ' + F.ownership.length : 'Ownership', on: () => F.ownership.length > 0,
-    items: () => countBy(counts('ownership'), r => [r.ownership ?? '']).map(([k, n]) => ({ id: k, text: OWNER[k] ?? k, n, sel: F.ownership.includes(k) })),
+    items: () => countBy(counts('ownership'), r => [ownershipOf(r)]).map(([k, n]) => ({ id: k, text: OWNER[k] ?? k, n, sel: F.ownership.includes(k) })),
     pick(id) { const i = F.ownership.indexOf(id); i >= 0 ? F.ownership.splice(i, 1) : F.ownership.push(id) }, multi: true,
   },
   listed: {
@@ -316,31 +328,31 @@ const MENUS = {
     items: () => LISTED.map(([k, t]) => ({ id: k, text: t, sel: F.listed === k })), pick(id) { F.listed = id },
   },
   size: {
-    label: () => F.revenueMinBn !== null ? `LKR ${F.revenueMinBn}bn+` : 'Revenue', on: () => F.revenueMinBn !== null,
+    label: () => F.revenueMinBn !== null ? `Revenue LKR ${F.revenueMinBn}bn+` : 'Revenue', on: () => F.revenueMinBn !== null,
     items: () => SIZE.map(([k, t, v]) => ({ id: k, text: t, sel: (F.revenueMinBn ?? null) === v })),
     pick(id) { F.revenueMinBn = SIZE.find(x => x[0] === id)[2] },
   },
   growth: {
-    label: () => { const g = GROWTH.find(x => x[2] === F.growthMin && x[3] === F.growthMax); return g && g[0] ? g[1] : (F.growthMin !== null || F.growthMax !== null ? 'Growth (custom)' : 'Growth') },
+    label: () => { const g = GROWTH.find(x => x[2] === F.growthMin && x[3] === F.growthMax); return g && g[0] ? g[1] : (F.growthMin !== null || F.growthMax !== null ? 'Revenue growth (custom)' : 'Revenue growth') },
     on: () => F.growthMin !== null || F.growthMax !== null,
     items: () => GROWTH.map(([k, t, lo, hi]) => ({ id: k, text: t, sel: F.growthMin === lo && F.growthMax === hi })),
     pick(id) { const g = GROWTH.find(x => x[0] === id); F.growthMin = g[2]; F.growthMax = g[3] },
-    note: 'Growth is revenue this year against last year, from the same annual report: listed companies only.',
+    note: 'Revenue growth compares the latest financial year with the one before, as printed in the same annual report. Listed companies only.',
   },
   staff: {
-    label: () => F.employeesMin !== null ? `${F.employeesMin.toLocaleString('en')}+ staff` : 'Employees', on: () => F.employeesMin !== null,
+    label: () => F.employeesMin !== null ? `${F.employeesMin.toLocaleString('en')}+ employees` : 'Employees', on: () => F.employeesMin !== null,
     items: () => STAFF.map(([k, t, v]) => ({ id: k, text: t, sel: (F.employeesMin ?? null) === v })),
     pick(id) { F.employeesMin = STAFF.find(x => x[0] === id)[2] },
   },
   abroad: {
-    label: () => F.abroad.length ? 'Abroad · ' + F.abroad.length : 'Abroad', on: () => F.abroad.length > 0,
+    label: () => F.abroad.length ? 'Exports and overseas · ' + F.abroad.length : 'Exports and overseas', on: () => F.abroad.length > 0,
     items() { const b = counts('abroad'); return ABROAD_KEYS.map(k => ({ id: k, text: ABROAD_LABEL[k], n: b.filter(r => k === 'foreign_subsidiaries' ? r.foreign_subsidiaries > 0 : r[k] === true).length, sel: F.abroad.includes(k) })) },
     pick(id) { const i = F.abroad.indexOf(id); i >= 0 ? F.abroad.splice(i, 1) : F.abroad.push(id) }, multi: true,
   },
   isic: {
-    label: () => F.isic.length ? 'Industry · ' + F.isic.length : 'Industry (ISIC)', on: () => F.isic.length > 0,
+    label: () => F.isic.length ? 'Industry · ' + F.isic.length : 'Industry (UN classification)', on: () => F.isic.length > 0,
     items: () => countBy(counts('isic'), r => [r.isic_section ?? '']).filter(([k]) => k).sort((a, b) => a[0].localeCompare(b[0]))
-      .map(([k, n]) => ({ id: k, text: `${k} · ${ISIC[k] ?? k}`, n, sel: F.isic.includes(k) })),
+      .map(([k, n]) => ({ id: k, text: ISIC_LABEL.get(k) ?? k, n, sel: F.isic.includes(k) })),
     pick(id) { const i = F.isic.indexOf(id); i >= 0 ? F.isic.splice(i, 1) : F.isic.push(id) }, multi: true,
   },
 }
@@ -402,8 +414,8 @@ function chips() {
   F.sectors.forEach(v => c.push(['sector:' + v, tagLabel(v)]))
   F.ownership.forEach(v => c.push(['ownership:' + v, OWNER[v] ?? v]))
   if (F.listed) c.push(['listed', LISTED.find(x => x[0] === F.listed)[1]])
-  F.isic.forEach(v => c.push(['isic:' + v, 'ISIC ' + v]))
-  if (F.revenueMinBn !== null) c.push(['size', `Revenue LKR ${F.revenueMinBn}bn+`])
+  F.isic.forEach(v => c.push(['isic:' + v, 'Industry: ' + (ISIC_LABEL.get(v) ?? v)]))
+  if (F.revenueMinBn !== null) c.push(['size', `Revenue LKR ${F.revenueMinBn}bn or more`])
   if (F.growthMin !== null || F.growthMax !== null) c.push(['growth', MENUS.growth.label()])
   if (F.employeesMin !== null) c.push(['staff', `${F.employeesMin.toLocaleString('en')}+ employees`])
   F.abroad.forEach(v => c.push(['abroad:' + v, ABROAD_LABEL[v]]))
@@ -458,23 +470,25 @@ function update(replace = false) {
 function drawSummary() {
   const s = summarize(current)
   const head = F.group ? `<b>${s.companies.toLocaleString('en')}</b> ${s.companies === 1 ? 'company' : 'companies'} in ${esc(BYID.get(F.group)?.name ?? 'this group')}`
-    : F.scope === 'groups' ? `<b>${s.companies.toLocaleString('en')}</b> groups and standalone companies` : `<b>${s.companies.toLocaleString('en')}</b> ${s.companies === 1 ? 'company' : 'companies'} in <b>${s.groups.toLocaleString('en')}</b> ${s.groups === 1 ? 'group' : 'groups'}`
+    : F.scope === 'groups' ? `<b>${s.groups_with_members.toLocaleString('en')}</b> ${s.groups_with_members === 1 ? 'group' : 'groups'} and <b>${(s.companies - s.groups_with_members).toLocaleString('en')}</b> ${s.companies - s.groups_with_members === 1 ? 'company' : 'companies'} outside any group` : `<b>${s.companies.toLocaleString('en')}</b> ${s.companies === 1 ? 'company' : 'companies'} in <b>${s.groups.toLocaleString('en')}</b> ${s.groups === 1 ? 'group' : 'groups'}`
   $('lead').innerHTML = head
   const k = (l, v, sub) => `<div class="kpi"><p class="lbl">${l}</p><span class="v">${v}</span><span class="s">${sub}</span></div>`
+  const top = F.scope === 'groups' && !F.group
   $('kpis').innerHTML =
-    k(F.scope === 'groups' && !F.group ? 'Groups' : 'Companies', s.companies.toLocaleString('en'), F.scope === 'groups' && !F.group ? 'group heads and standalone firms' : `in ${plural(s.groups, 'group')}`) +
-    k('Revenue', s.revenueCount ? fmtLkr(s.revenueLkr) : '–', `${s.revenueCount.toLocaleString('en')} with a figure; groups not double-counted`) +
-    k('Median growth', s.medianGrowth === null ? '–' : fmtPct(s.medianGrowth), `${s.growthCount} with two years`) +
-    k('Employees', s.employeesCount ? fmtInt(s.employees) : '–', `${s.employeesCount.toLocaleString('en')} with a count`) +
-    k('Work abroad', s.abroad.toLocaleString('en'), 'export, foreign subsidiaries or operations')
+    (top ? k('Groups', s.groups_with_members.toLocaleString('en'), `plus ${plural(s.companies - s.groups_with_members, 'company')} outside any group`)
+      : k('Companies', s.companies.toLocaleString('en'), `in ${plural(s.groups, 'group')}`)) +
+    k('Combined revenue', s.revenueCount ? fmtLkr(s.revenueLkr) : '–', `${s.revenueCount.toLocaleString('en')} report it; subsidiaries counted once, inside their group`) +
+    k('Median revenue growth', s.medianGrowth === null ? '–' : fmtPct(s.medianGrowth), `${s.growthCount} listed companies, latest year on the year before`) +
+    k('Employees', s.employeesCount ? fmtInt(s.employees) : '–', `${s.employeesCount.toLocaleString('en')} report a headcount`) +
+    k('Exporters', s.exporters.toLocaleString('en'), `plus ${s.overseas.toLocaleString('en')} with overseas subsidiaries or operations`)
 }
 
 function drawBreaks() {
   const fam = countBy(current, r => r.primary_sector ? [FAMILY.get(r.primary_sector)] : []).slice(0, 12)
   const max = Math.max(1, ...fam.map(x => x[1]))
   $('bySector').innerHTML = fam.length ? fam.map(([k, n]) => `<li><button type="button" data-fam="${esc(k)}" aria-pressed="${F.families.includes(k)}"><span class="t">${esc(COMPANY_SECTOR_FAMILIES[k] ?? k)}</span><span class="b"><i style="width:${(n / max * 100).toFixed(1)}%"></i></span><span class="c">${n}</span></button></li>`).join('')
-    : '<li class="empty">No tagged companies match.</li>'
-  const own = countBy(current, r => [r.ownership ?? '']).slice(0, 8)
+    : '<li class="empty">No companies with a sector match.</li>'
+  const own = countBy(current, r => [ownershipOf(r)]).slice(0, 8)
   const m2 = Math.max(1, ...own.map(x => x[1]))
   $('byOwner').innerHTML = own.map(([k, n]) => `<li><button type="button" data-own="${esc(k)}" aria-pressed="${F.ownership.includes(k)}"><span class="t">${esc(OWNER[k] ?? k)}</span><span class="b"><i style="width:${(n / m2 * 100).toFixed(1)}%"></i></span><span class="c">${n}</span></button></li>`).join('')
 }
@@ -483,10 +497,10 @@ $('byOwner').addEventListener('click', e => { const b = e.target.closest('[data-
 
 function abroadFlags(r) {
   const f = []
-  if (r.exports) f.push('exports')
-  if (r.foreign_subsidiaries > 0) f.push(`${r.foreign_subsidiaries} foreign sub${r.foreign_subsidiaries === 1 ? '' : 's'}`)
-  if (r.foreign_owned) f.push('foreign-owned')
-  if (!f.length && r.operates_abroad) f.push(r.country && r.country !== 'Sri Lanka' ? esc(r.country) : 'abroad')
+  if (r.exports) f.push('exporter')
+  if (r.foreign_subsidiaries > 0) f.push(`${r.foreign_subsidiaries} overseas subsidiar${r.foreign_subsidiaries === 1 ? 'y' : 'ies'}`)
+  if (r.foreign_owned) f.push('foreign parent')
+  if (!f.length && r.operates_abroad) f.push(r.country && r.country !== 'Sri Lanka' ? 'registered in ' + esc(r.country) : 'operates overseas')
   return f.join(' · ')
 }
 
@@ -494,7 +508,7 @@ function drawRows(list) {
   const body = $('rows')
   if (!list.length) { body.innerHTML = '<tr><td colspan="6" class="empty">No companies match these filters.</td></tr>'; $('more').hidden = true; return }
   body.innerHTML = list.slice(0, shown).map(r => {
-    const grp = r.is_group_head ? (r.group_companies > 1 ? `Group of ${r.group_companies} companies` : (OWNER[r.ownership] ?? '')) : `${REL[r.relation_to_group] ?? 'Member'} of ${esc(r.group_name)}`
+    const grp = r.is_group_head ? (r.group_companies > 1 ? `Parent of a group of ${r.group_companies} companies` : (r.ownership && r.ownership !== 'unknown' ? OWNER[r.ownership] ?? '' : '')) : relPhrase(r, esc(r.group_name))
     const tags = tagsOf(r).slice(0, 2).map(badge).join('')
     const row = `<tr class="r${openId === r.company_id ? ' open' : ''}" data-id="${esc(r.company_id)}" tabindex="0" aria-expanded="${openId === r.company_id}">
       <td><span class="nm">${esc(r.name)}</span>${r.cse_symbol ? `<span class="sym">${esc(r.cse_symbol.split('.')[0])}</span>` : ''}<span class="grp-n">${grp}</span></td>
@@ -506,13 +520,16 @@ function drawRows(list) {
     return row + (openId === r.company_id ? `<tr class="d"><td colspan="6">${detail(r)}</td></tr>` : '')
   }).join('')
   $('more').hidden = list.length <= shown
-  $('more').textContent = `Show more (${(list.length - shown).toLocaleString('en')} left)`
+  $('more').textContent = `Show more (${(list.length - shown).toLocaleString('en')} more)`
 }
 
 /* ---------- detail ---------- */
 // Holdings: what this company holds directly, and (for a group head) every company in its group.
-const KIND = { holding: 'Subsidiary', other_group_holding: 'Stake', member_of_group: 'Member', member_per_web_sources: 'Member',
-  associate: 'Associate', joint_venture: 'Joint venture', investment_not_consolidated: 'Investment', former_holding: 'Former', major_shareholder: 'Shareholding' }
+const KIND = { holding: 'Subsidiary', other_group_holding: 'Stake', member_of_group: 'Group company', member_per_web_sources: 'Group company',
+  associate: 'Associate', joint_venture: 'Joint venture', investment_not_consolidated: 'Minority investment', former_holding: 'Formerly held', major_shareholder: 'Stake',
+  subsidiary: 'Subsidiary', named_in_report_only: 'Named in the annual report' }
+// a “holding” link is the largest stated shareholder; below 50% that is not a subsidiary
+const kindLabel = h => h.kind === 'holding' && h.pct !== null && h.pct < 50 ? 'Largest shareholder' : KIND[h.kind] ?? h.kind
 const KIND_GROUP = k => k === 'associate' || k === 'joint_venture' ? 'aj' : k === 'former_holding' ? 'former' : k === 'major_shareholder' || k === 'investment_not_consolidated' || k === 'other_group_holding' ? 'stake' : 'sub'
 let hold = { id: null, q: '', kind: 'all' }
 
@@ -551,20 +568,20 @@ function holdingsList(r) {
   for (const h of all) counts[KIND_GROUP(h.kind)]++
   const shownH = all.filter(h => (kind === 'all' || KIND_GROUP(h.kind) === kind) &&
     (!q || (h.name + ' ' + (h.row?.sector_tags ?? '') + ' ' + (h.row?.country ?? '')).toLowerCase().includes(q)))
-  const tabs = [['all', 'All'], ['sub', 'Subsidiaries'], ['aj', 'Associates & JVs'], ['stake', 'Other stakes'], ['former', 'Former']]
+  const tabs = [['all', 'All'], ['sub', 'Subsidiaries'], ['aj', 'Associates and joint ventures'], ['stake', 'Other stakes'], ['former', 'Formerly held']]
     .filter(([k]) => k === 'all' || counts[k]).map(([k, l]) => `<button type="button" data-hkind="${k}" aria-pressed="${kind === k}">${l} <span>${counts[k]}</span></button>`).join('')
   const items = shownH.map(h => {
     const m = h.row, abroad = m?.country && m.country !== 'Sri Lanka'
     return `<li><span class="p">${h.pct !== null ? h.pct + '%' : ''}</span>
       <span class="hn">${BYID.has(h.id) ? `<button type="button" class="linkbtn" data-goto="${esc(h.id)}">${esc(h.name)}</button>` : esc(h.name)}
-        <span class="hm">${esc(KIND[h.kind] ?? h.kind)}${h.direct ? '' : ' · via group'}${abroad ? ' · ' + esc(m.country) : ''}</span></span>
+        <span class="hm">${esc(kindLabel(h))}${h.direct ? '' : ' · held through the group'}${abroad ? ' · ' + esc(m.country) : ''}</span></span>
       <span class="hs">${m ? tagsOf(m).slice(0, 1).map(badge).join('') : ''}</span>
       <span class="hr">${m?.revenue_lkr != null ? fmtLkr(m.revenue_lkr) : ''}</span></li>`
   }).join('')
   return `<div class="holds" data-holds="${esc(r.company_id)}">
     <div class="htabs" role="group" aria-label="Kind of holding">${tabs}</div>
     <input type="search" class="hq" placeholder="Search ${all.length} companies" value="${esc(q)}" aria-label="Search holdings">
-    <ul class="hlist">${items || '<li class="note">No holdings match.</li>'}</ul></div>`
+    <ul class="hlist">${items || '<li class="note">No companies match.</li>'}</ul></div>`
 }
 
 function detail(r) {
@@ -573,48 +590,48 @@ function detail(r) {
   const sectors = tags.length ? `<ul class="secs">${tags.map(t => {
     const e = ev?.find(x => x.sector === t)
     return `<li>${badge(t)}${e ? `<span class="ev">“${esc(e.evidence)}”</span>` : ''}</li>`
-  }).join('')}</ul>` : '<p class="note">No sector tag: the sources give no description of what it does.</p>'
+  }).join('')}</ul>` : '<p class="note">No sector yet. The sources do not say what this company does.</p>'
   const margin = r.revenue_lkr && r.profit_after_tax_lkr !== null ? r.profit_after_tax_lkr / r.revenue_lkr * 100 : null
   const perHead = r.revenue_lkr && r.employees ? r.revenue_lkr / r.employees : null
   const stat = (l, v, s = '') => `<div class="st"><span class="sl">${l}</span><span class="sv">${v}</span>${s ? `<span class="ss">${s}</span>` : ''}</div>`
   const stats = `<div class="stats">
-    ${stat('Revenue', fmtLkr(r.revenue_lkr), r.revenue_growth_pct !== null ? fmtPct(r.revenue_growth_pct) + ' on last year' : '')}
-    ${stat('Profit after tax', fmtLkr(r.profit_after_tax_lkr), margin !== null ? `${margin.toFixed(1)}% margin` : '')}
-    ${stat('Employees', fmtInt(r.employees), perHead ? fmtLkr(perHead) + ' revenue each' : '')}
+    ${stat('Revenue', fmtLkr(r.revenue_lkr), r.revenue_growth_pct !== null ? fmtPct(r.revenue_growth_pct) + ' on the year before' : '')}
+    ${stat('Profit after tax', fmtLkr(r.profit_after_tax_lkr), margin !== null ? `${margin.toFixed(1)}% net margin` : '')}
+    ${stat('Employees', fmtInt(r.employees), perHead ? fmtLkr(perHead) + ' revenue per employee' : '')}
     ${stat('Total assets', fmtLkr(r.total_assets_lkr))}
   </div>`
   const fin = r.revenue_prior_lkr !== null || r.profit_after_tax_prior_lkr !== null
-    ? `<table class="fin"><thead><tr><th></th><th>Latest</th><th>Prior</th><th>Change</th></tr></thead><tbody>
+    ? `<table class="fin"><thead><tr><th></th><th>Latest year</th><th>Year before</th><th>Change</th></tr></thead><tbody>
        <tr><th>Revenue</th><td>${fmtLkr(r.revenue_lkr)}</td><td>${fmtLkr(r.revenue_prior_lkr)}</td><td>${fmtPct(r.revenue_growth_pct)}</td></tr>
        <tr><th>Profit after tax</th><td>${fmtLkr(r.profit_after_tax_lkr)}</td><td>${fmtLkr(r.profit_after_tax_prior_lkr)}</td><td>${fmtPct(r.profit_growth_pct)}</td></tr></tbody></table>
-       <p class="note">${esc([r.revenue_scope === 'group' ? 'Consolidated group figures' : r.revenue_scope === 'company' ? 'This company alone' : '', r.revenue_label ? `revenue line “${r.revenue_label}”` : '', r.period_end ? `year to ${r.period_end}` : ''].filter(Boolean).join(', '))}</p>`
-    : r.revenue_lkr !== null ? `<p class="note">${esc(r.revenue_basis ?? 'Source linked below')}</p>` : '<p class="note">No financial figures in the sources.</p>'
+       <p class="note">${esc([r.revenue_scope === 'group' ? 'Whole group (consolidated)' : r.revenue_scope === 'company' ? 'This company only' : '', r.revenue_label ? `revenue shown in the report as “${r.revenue_label}”` : '', r.period_end ? `year to ${fmtDate(r.period_end)}` : ''].filter(Boolean).join(', '))}</p>`
+    : r.revenue_lkr !== null ? `<p class="note">${esc(basisText(r.revenue_basis))}</p>` : '<p class="note">No financial figures in the sources.</p>'
   const chain = chainOf(r)
   const link = (id, name) => BYID.has(id) ? `<button type="button" class="linkbtn" data-goto="${esc(id)}">${esc(name)}</button>` : esc(name)
-  const path = chain.length ? `<ol class="chain">${[...chain].reverse().map(x => `<li>${link(x.from_id, x.from_name)}<span class="p">${x.direct_pct !== null ? 'holds ' + x.direct_pct + '%' : ''}</span></li>`).join('')}<li class="me">${esc(r.name)}</li></ol>` : ''
+  const path = chain.length ? `<ol class="chain">${[...chain].reverse().map(x => `<li>${link(x.from_id, x.from_name)}<span class="p">${x.direct_pct !== null ? 'owns ' + x.direct_pct + '%' : ''}</span></li>`).join('')}<li class="me">${esc(r.name)}</li></ol>` : ''
   const others = (RELS.to.get(r.company_id) ?? []).filter(x => !['holding', 'member_of_group', 'member_per_web_sources', 'named_in_report'].includes(x.type))
   const holdsCount = holdingsOf(r).length
   const abroad = [r.countries_of_operation && ['Operates in', esc(r.countries_of_operation)], r.export_markets && ['Export markets', esc(r.export_markets)],
-    r.revenue_outside_sri_lanka_lkr !== null && ['Revenue from abroad', fmtLkr(r.revenue_outside_sri_lanka_lkr)], r.foreign_parent && ['Foreign holder', esc(r.foreign_parent)],
-    r.foreign_subsidiaries > 0 && ['Foreign subsidiaries', String(r.foreign_subsidiaries)]].filter(Boolean)
+    r.revenue_outside_sri_lanka_lkr !== null && ['Revenue from outside Sri Lanka', fmtLkr(r.revenue_outside_sri_lanka_lkr)], r.foreign_parent && ['Foreign parent or shareholder', esc(r.foreign_parent)],
+    r.foreign_subsidiaries > 0 && ['Overseas subsidiaries', String(r.foreign_subsidiaries)]].filter(Boolean)
   return `<div class="detail">
     ${stats}
     <div class="cols">
     <div>
       ${r.what_it_does ? `<h3>What it does</h3><p class="what">${esc(r.what_it_does)}</p>` : ''}
       <h3>Sectors</h3>${sectors}
-      <h3>Two years</h3>${fin}
-      ${abroad.length ? `<h3>Abroad</h3><dl class="kv">${abroad.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>` : ''}
-      ${r.financial_notes ? `<p class="note">${esc(r.financial_notes)}</p>` : ''}
-      <h3>Source</h3><p>${r.source_url ? `<a href="${esc(r.source_url)}" rel="noopener nofollow" target="_blank">${esc(r.source_name || 'Source')}</a>` : '<span class="note">Named as a holder in another company’s report.</span>'}${r.registration_no ? ` <span class="note">· Reg. ${esc(r.registration_no)}</span>` : ''}</p>
+      <h3>Revenue and profit</h3>${fin}
+      ${abroad.length ? `<h3>Exports and overseas operations</h3><dl class="kv">${abroad.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>` : ''}
+      ${r.financial_notes ? `<h3>Notes on the figures</h3><p class="note">${esc(r.financial_notes)}</p>` : ''}
+      <h3>Source</h3><p>${r.source_url ? `<a href="${esc(r.source_url)}" rel="noopener nofollow" target="_blank">${esc(r.source_name || 'Source')}</a>` : '<span class="note">Named as a shareholder in another company’s annual report.</span>'}${r.registration_no ? ` <span class="note">· Reg. no. ${esc(r.registration_no)}</span>` : ''}</p>
     </div>
     <div>
       <h3>Ownership</h3>
-      ${path || `<p>${r.is_group_head ? (r.group_companies > 1 ? 'Heads its group: no company holds a majority of it.' : 'Standalone in this map.') : `${esc(REL[r.relation_to_group] ?? 'Member')} of ${link(r.group_id, r.group_name)}.`}</p>`}
-      ${others.length ? `<p class="note">Also held by: ${others.map(x => `${link(x.from_id, x.from_name)}${x.direct_pct !== null ? ` (${x.direct_pct}%)` : ''}`).join(', ')}</p>` : ''}
-      ${r.major_shareholders ? `<p class="note">Major shareholders: ${esc(r.major_shareholders)}</p>` : ''}
-      ${(r.is_group_head ? r.group_companies : 2) > 1 ? `<p><button type="button" class="linkbtn" data-group="${esc(r.group_id)}">Open the whole ${esc(r.is_group_head ? r.name : r.group_name)} group in the table</button></p>` : ''}
-      ${holdsCount ? `<h3>${r.is_group_head ? 'Companies in the group' : 'Holds'} <span class="cnt">${holdsCount}</span></h3>${holdingsList(r)}` : ''}
+      ${path || `<p>${r.is_group_head ? (r.group_companies > 1 ? 'Parent company of this group. The sources name no company that owns a majority of it.' : 'Not part of any group in this map.') : `${relPhrase(r, link(r.group_id, r.group_name))}.`}</p>`}
+      ${others.length ? `<p class="note">Other shareholders: ${others.map(x => `${link(x.from_id, x.from_name)}${x.direct_pct !== null ? ` (${x.direct_pct}%)` : ''}`).join(', ')}</p>` : ''}
+      ${r.major_shareholders ? `<p class="note">Largest shareholders: ${esc(r.major_shareholders)}</p>` : ''}
+      ${(r.is_group_head ? r.group_companies : 2) > 1 ? `<p><button type="button" class="linkbtn" data-group="${esc(r.group_id)}">Show every company in the ${esc(r.is_group_head ? r.name : r.group_name)} group</button></p>` : ''}
+      ${holdsCount ? `<h3>${r.is_group_head ? 'Companies in the group' : 'Companies it owns shares in'} <span class="cnt">${holdsCount}</span></h3>${holdingsList(r)}` : ''}
     </div></div></div>`
 }
 
@@ -661,11 +678,11 @@ $('copy').addEventListener('click', async () => {
   const call = { op: 'select', dataset_id: q.dataset_id, fields: q.dataset_id === 'lk-companies'
     ? ['name', 'group_name', 'primary_sector', 'revenue_lkr', 'revenue_growth_pct', 'employees', 'operates_abroad', 'source_url']
     : ['name', 'group_name', 'sector', 'revenue_lkr', 'revenue_growth_pct', 'employees', 'operates_abroad', 'source_url'], where: q.where, order_by: q.order_by, limit: 200 }
-  const text = `Using the developing-country.org data (MCP query_data), list Sri Lankan companies matching: ${[...$('chips').querySelectorAll('.chip')].map(c => c.firstChild.textContent).join('; ') || 'all groups'}. ${words}.\n` +
-    (q.unsupported.length ? `Also apply by hand: ${q.unsupported.join('; ')}.\n` : '') +
+  const text = `Using the developing-country.org data (MCP query_data), list Sri Lankan companies matching: ${[...$('chips').querySelectorAll('.chip')].map(c => c.firstChild.textContent).join('; ') || 'all groups and companies outside any group'}. ${words}.\n` +
+    (q.unsupported.length ? `The query cannot apply these, so check them yourself: ${q.unsupported.join('; ')}.\n` : '') +
     `query_data ${JSON.stringify(call)}\nCite the source_url of each company.`
   const ta = $('copyta'); ta.value = text
-  try { await navigator.clipboard.writeText(text); $('copy').textContent = 'Copied' ; setTimeout(() => { $('copy').textContent = 'Copy question' }, 1600) }
+  try { await navigator.clipboard.writeText(text); $('copy').textContent = 'Copied' ; setTimeout(() => { $('copy').textContent = 'Copy as a question' }, 1600) }
   catch { ta.hidden = false; ta.select() }
 })
 
@@ -685,6 +702,7 @@ async function start() {
   try {
     const [c, rel] = await Promise.all([`${BASE}/lk-companies.json`, `${BASE}/lk-company-relationships.json`].map(u => fetch(u).then(r => { if (!r.ok) throw new Error(u); return r.json() })))
     ROWS = c.rows
+    for (const r of ROWS) if (r.isic_section && r.isic_section_label) ISIC_LABEL.set(r.isic_section, r.isic_section_label)
     BYID = new Map(ROWS.map(r => [r.company_id, r]))
     for (const r of ROWS) TEXT.set(r.company_id, searchText(r))
     for (const x of rel.rows) {

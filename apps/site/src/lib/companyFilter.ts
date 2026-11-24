@@ -34,13 +34,13 @@ export interface CompanyRow {
   [key: string]: unknown
 }
 
-export const ABROAD_KEYS = ['operates_abroad', 'exports', 'foreign_subsidiaries', 'foreign_owned'] as const
+export const ABROAD_KEYS = ['exports', 'foreign_subsidiaries', 'operates_abroad', 'foreign_owned'] as const
 export type AbroadKey = typeof ABROAD_KEYS[number]
 export const ABROAD_LABEL: Record<AbroadKey, string> = {
-  operates_abroad: 'Operates abroad',
-  exports: 'Exports',
-  foreign_subsidiaries: 'Has foreign subsidiaries',
-  foreign_owned: 'Foreign-owned',
+  exports: 'Exporters',
+  foreign_subsidiaries: 'Has overseas subsidiaries',
+  operates_abroad: 'Exports or operates overseas',
+  foreign_owned: 'Has a foreign parent',
 }
 
 export type SortKey = 'revenue' | 'growth' | 'employees' | 'name' | 'profit_growth'
@@ -118,6 +118,10 @@ export function filterToParams(f: CompanyFilter): URLSearchParams {
   return p
 }
 
+/** Ownership as shown: a company inside a group with no ownership of its own is owned by that group. */
+export const ownershipOf = (r: CompanyRow): string =>
+  r.ownership === 'private' ? 'private_local' : r.ownership ?? (r.is_group_head ? 'unknown' : 'in_group')
+
 export const tagsOf = (r: CompanyRow): string[] => (r.sector_tags ? r.sector_tags.split(';').map(s => s.trim()).filter(Boolean) : [])
 
 /** Lower-cased text a search matches against: names, group, activity and sector tags. */
@@ -139,7 +143,7 @@ export function matches(r: CompanyRow, f: CompanyFilter, families: Map<string, s
   const tags = tagsOf(r)
   if (f.sectors.length && !tags.some(t => f.sectors.includes(t))) return false
   if (f.families.length && !tags.some(t => f.families.includes(families.get(t) ?? ''))) return false
-  if (f.ownership.length && !f.ownership.includes(r.ownership ?? '')) return false
+  if (f.ownership.length && !f.ownership.includes(ownershipOf(r))) return false
   if (f.listed === 'yes' && r.listed !== true) return false
   if (f.listed === 'no' && r.listed === true) return false
   if (f.isic.length && !f.isic.includes(r.isic_section ?? '')) return false
@@ -188,7 +192,9 @@ export interface Summary {
   growthCount: number
   employees: number
   employeesCount: number
-  abroad: number
+  exporters: number
+  overseas: number
+  groups_with_members: number
 }
 
 /**
@@ -211,7 +217,9 @@ export function summarize(rows: CompanyRow[]): Summary {
     growthCount: growth.length,
     employees: withEmp.reduce((s, r) => s + (r.employees ?? 0), 0),
     employeesCount: withEmp.length,
-    abroad: rows.filter(r => r.operates_abroad).length,
+    exporters: rows.filter(r => r.exports === true).length,
+    overseas: rows.filter(r => r.exports !== true && ((r.foreign_subsidiaries ?? 0) > 0 || r.operates_abroad === true)).length,
+    groups_with_members: rows.filter(r => r.is_group_head && (r.group_companies ?? 0) > 1).length,
   }
 }
 
@@ -241,7 +249,11 @@ export function toQuery(f: CompanyFilter): { dataset_id: string; where: Where[];
     if (sectorTable) unsupported.push(`group ${f.group}`)
     else where.push({ field: 'group_id', op: 'eq', value: f.group })
   } else if (f.scope === 'groups') where.push({ field: 'is_group_head', op: 'eq', value: true })
-  if (f.ownership.length) where.push({ field: 'ownership', op: 'in', value: f.ownership })
+  if (f.ownership.length) {
+    if (f.ownership.includes('in_group')) unsupported.push('owned by a group (ownership is empty for group companies)')
+    const own = f.ownership.filter(o => o !== 'in_group').flatMap(o => o === 'private_local' ? ['private_local', 'private'] : [o])
+    if (own.length) where.push({ field: 'ownership', op: 'in', value: own })
+  }
   if (f.listed) where.push({ field: 'listed', op: 'eq', value: f.listed === 'yes' })
   if (f.isic.length) {
     if (sectorTable) unsupported.push(`ISIC section ${f.isic.join(', ')}`)
@@ -253,12 +265,12 @@ export function toQuery(f: CompanyFilter): { dataset_id: string; where: Where[];
   if (f.employeesMin !== null) where.push({ field: 'employees', op: 'gte', value: f.employeesMin })
   for (const k of f.abroad) {
     if (k === 'foreign_subsidiaries') {
-      if (sectorTable) unsupported.push('has foreign subsidiaries')
+      if (sectorTable) unsupported.push('has overseas subsidiaries')
       else where.push({ field: 'foreign_subsidiaries', op: 'gte', value: 1 })
-    } else if (k === 'foreign_owned' && sectorTable) unsupported.push('foreign-owned')
+    } else if (k === 'foreign_owned' && sectorTable) unsupported.push('has a foreign parent')
     else where.push({ field: k, op: 'eq', value: true })
   }
-  if (f.q) unsupported.push(`text search "${f.q}"`)
+  if (f.q) unsupported.push(`name or description contains "${f.q}"`)
   const sortField = { revenue: 'revenue_lkr', growth: 'revenue_growth_pct', employees: 'employees', name: 'name', profit_growth: 'profit_growth_pct' }[f.sort]
   const order = sectorTable && f.sort === 'profit_growth' ? 'revenue_growth_pct' : sortField
   return { dataset_id: sectorTable ? 'lk-company-sectors' : 'lk-companies', where: where.slice(0, 8), order_by: [{ field: order, direction: f.desc ? 'desc' : 'asc' }], unsupported }
