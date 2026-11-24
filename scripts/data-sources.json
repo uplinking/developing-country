@@ -586,7 +586,8 @@
       "refresh": "bun scripts/build-official-indicators.mjs",
       "freshness_days": 45,
       "layers": [
-        "ccpi-monthly"
+        "ccpi-monthly",
+        "lk-companies"
       ]
     },
     {
@@ -2036,6 +2037,26 @@
         "lk-initiative-funding"
       ],
       "freshness_days": 7,
+      "licence_status": "open"
+    },
+    {
+      "id": "lk-company-map",
+      "name": "Sri Lanka company map",
+      "publisher": "developing-country.org compilation from company annual reports (via the Colombo Stock Exchange) and web sources",
+      "url": "https://www.cse.lk/",
+      "licence": "CC BY 4.0 (compilation by developing-country.org); annual reports and linked web sources keep their publishers’ rights",
+      "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
+      "refreshed": "2026-11-24",
+      "refresh": "bun scripts/companies/build.ts (from scripts/companies/source/, exported by the company-map pipeline)",
+      "refresh_mode": "curated",
+      "layers": [
+        "lk-companies",
+        "lk-company-sectors",
+        "lk-company-relationships",
+        "lk-company-segments",
+        "lk-company-shareholders"
+      ],
+      "freshness_days": 365,
       "licence_status": "open"
     }
   ]

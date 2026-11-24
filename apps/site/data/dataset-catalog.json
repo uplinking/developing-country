@@ -1445,6 +1445,67 @@
       "vintage": "News read 2024-01-01 to 2026-11-06 (English, Sinhala, Tamil); IMF and World Bank since 2023"
     },
     {
+      "checksum": "sha256:4ce90f607b24581bec758fbb5679d13ee133bbffa3e228c095b614bad0eaadb1",
+      "country": "LK",
+      "datasetId": "lk-companies",
+      "refreshedAt": "2026-09-11",
+      "rowCount": 2786,
+      "sourceIds": [
+        "dcs-ccpi-2021",
+        "lk-company-map"
+      ],
+      "versionId": "dsv_41dfa03f7660f5fc73801feb198d4de4",
+      "vintage": "2022-01–2026-08 · Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
+    },
+    {
+      "checksum": "sha256:45ee094a2c802f601b6700ae0d81aa3899e59cba604576da058181f679d79126",
+      "country": "LK",
+      "datasetId": "lk-company-sectors",
+      "refreshedAt": "2026-11-24",
+      "rowCount": 3081,
+      "sourceIds": [
+        "lk-company-map"
+      ],
+      "versionId": "dsv_ef3473a80a5dc5654c0060bb65c492cd",
+      "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
+    },
+    {
+      "checksum": "sha256:ae78fef803b6ebea11332ba2a42eeba62ac846309576d3f96ed6eb821605d8bf",
+      "country": "LK",
+      "datasetId": "lk-company-relationships",
+      "refreshedAt": "2026-11-24",
+      "rowCount": 2753,
+      "sourceIds": [
+        "lk-company-map"
+      ],
+      "versionId": "dsv_5ed58573f50d38728bdde4f046d7ee5b",
+      "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
+    },
+    {
+      "checksum": "sha256:eb5a82fd8469c4c7d884f4a4212764f462a8ed5f5752ac4514a28b3266dba89c",
+      "country": "LK",
+      "datasetId": "lk-company-segments",
+      "refreshedAt": "2026-11-24",
+      "rowCount": 749,
+      "sourceIds": [
+        "lk-company-map"
+      ],
+      "versionId": "dsv_158a2ef1753e77f6ce21cfa49e5be696",
+      "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
+    },
+    {
+      "checksum": "sha256:b761cd9fd19828c83f5dc5327da14a66bde86aa2ba6377f115bb2fd634a3e968",
+      "country": "LK",
+      "datasetId": "lk-company-shareholders",
+      "refreshedAt": "2026-11-24",
+      "rowCount": 1755,
+      "sourceIds": [
+        "lk-company-map"
+      ],
+      "versionId": "dsv_01eaa51c12302024b79d25d73c89a726",
+      "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
+    },
+    {
       "checksum": "sha256:5ac3fa6259ebd497fc10f94d3af8cd469809c818b4a2db3eb3da0f3f1baa3c04",
       "country": "LK",
       "datasetId": "electricity-generation-quarter-hourly",
@@ -2560,6 +2621,16 @@
       "licence_status": "open",
       "vintage": "2024",
       "refreshed": "2026-08-20"
+    },
+    {
+      "id": "lk-company-map",
+      "name": "Sri Lanka company map",
+      "publisher": "developing-country.org compilation from company annual reports (via the Colombo Stock Exchange) and web sources",
+      "url": "https://www.cse.lk/",
+      "licence": "CC BY 4.0 (compilation by developing-country.org); annual reports and linked web sources keep their publishers’ rights",
+      "licence_status": "open",
+      "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
+      "refreshed": "2026-11-24"
     },
     {
       "id": "lk-initiatives-ledger",
@@ -3706,6 +3777,31 @@
         "fields": "Year · Livestock or production measure · Unit · Observation status · Reported value",
         "values": "Buffaloes · Cattle · Egg production · Goats and sheep · Milk production · Pigs · Poultry · million eggs · thousand animals · thousand litres",
         "description": "National livestock populations and milk and egg production."
+      },
+      "lk-companies": {
+        "fields": "Company id · Company · Registration number · Country of incorporation · Legal form · Ownership (listed, state_owned, family_group, foreign_multinational, private_local, …) · Listed on the CSE · CSE symbol · Group id (company id of the parent company) · Group · Position in the group (ultimate_parent, subsidiary, associate, joint_venture, …) · Top-level company (parent of a group, or not in any group) · Companies in the group, including the parent · What it does · Main sector · Broad sector of the main sector · All sectors (filter them in lk-company-sectors) · ISIC Rev. 4 class · ISIC section · ISIC section (label) · Financial year end (listed companies) · Year the revenue figure is for · Revenue, latest year · Revenue, the year before · What the revenue figure is (sales, sales_incl_excise, gross_income, insurance_premium, interest_income, as_reported) · Revenue can be compared and ranked: a full year from 2024 on, from an annual report or a web figure in rupees · Revenue may include business outside Sri Lanka (group with overseas operations, or a figure in US dollars) · Revenue that can be added up: top-level companies with comparable revenue only · Revenue growth, nominal: latest year on the year before, in rupees as reported · Inflation over the financial year (average CCPI, latest year on the year before) · Revenue growth, real: nominal growth after removing CCPI inflation · Caution on the growth figure · Revenue covers (group = whole group, consolidated; company = this company only) · Name of the revenue line in the report · Where the revenue figure comes from · Profit before tax, latest year · Profit before tax, the year before · Profit after tax (net profit), latest year · Profit after tax (net profit), the year before · Growth in profit after tax, nominal (only when both years are profits) · Pre-tax margin: profit before tax ÷ revenue · Net profit margin: profit after tax ÷ revenue · Return on equity: profit after tax ÷ total equity at year end · Return on assets: profit after tax ÷ total assets at year end · Equity ÷ total assets (lower means more borrowing) · Total assets, latest year end · Total equity, latest year end · Total equity, the year before · Performance: profitable_growing, profitable_shrinking, profitable, back_to_profit, fell_into_loss, loss_both_years, negative_equity · Notes on the financial figures (restatements, units, comparability) · Employees, latest year · Employees, the year before · Employees that can be added up: top-level companies only · Employees (band) · Revenue per employee (group revenue ÷ group employees, listed groups) · Revenue (band) · Revenue from outside Sri Lanka · Exporter (names export markets or earns revenue outside Sri Lanka); empty means not known · Exports or operates overseas (exports, overseas subsidiaries or operations, or registered abroad); empty means not known · Export markets named · Countries of operation · Overseas subsidiaries (whole group, for a parent company) · Links to foreign companies (shareholders, partners, companies it has invested in) · Foreign-owned or has a foreign parent (false: shareholders known, no foreign majority; empty: not known) · Foreign parent or majority shareholder · Largest shareholder (listed companies), or the group a company belongs to · Type of the largest shareholder (person, company, state, state_enterprise, pension_fund, fund, nominee_or_custodian, group) · Stake of the largest shareholder · Country of the largest shareholder · Stake held by the state and state enterprises among the largest shareholders · Head office city · Largest shareholders as printed (listed companies only; see lk-company-shareholders) · Where the row comes from (annual_report, web_research, named_as_holder, …) · Status",
+        "values": "guarantee · other · listed · private · unknown · associate · subsidiary · agriculture · construction-and-property · energy · finance · food-and-drink · health · holding · Manufacturing · mining-and-minerals · services · technology · tourism-and-leisure · trade · transport-and-logistics · A · B · C · D · E · F · G · H · I · J · K · L · M · N · P · Q · R · Accommodation and food service · Administrative and support services · Agriculture, forestry and fishing · Arts, entertainment and recreation · Construction · Education · Electricity, gas, steam · Financial and insurance · Human health and social work · Information and communication · Mining and quarrying · Professional, scientific and technical · Real estate · Transportation and storage · Water, sewerage, waste · Wholesale and retail trade · Sales · Financing Income · Gross income · Gross Written Contribution (Premium) · Gross written premium · Gross income (not printed in statements; see notes) · Gross revenue · Gross written premiums · Income · Income from power generation · Interest Income (no revenue or total income line printed) · Interest income · Interest income (no gross income or total income line printed) · Net Income · Revenue · Revenue (turnover net of government levies) · Revenue from contract with customers · Revenue from contracts with customers · Revenue from contracts with customer · Total Income · Total revenue · Total revenue from contracts with customers · Total net revenue · Total operating income · profitable · under 100 · LKR 100bn+ · LKR 10–50bn · LKR 1–10bn · LKR 50–100bn · under LKR 1bn · Axiata Group Berhad (Malaysia) · Bansei Holdings Co Limited (Japan) · Blackstone Inc. (United States of America) · CAL Investment Consultancy FZ-LLC · CG Corp Panama (Panama) · Chevron Corporation Inc. (United States) · Clovis Company Limited · Dipped Products (Thailand) Ltd. · Indian Oil Corporation Limited (India) · Lanka Swisstek (Private) Limited · Lotus Renewable Energy (Singapore) Pte Ltd (Singapore) · Lotus Renewables (Singapore) Pte Limited (Singapore) · Muthoot Finance Limited (India) · Prima Limited (Singapore) · Rush Japan Corporation (Japan) · SiS International Holdings Limited (Hong Kong) · Universal Enterprises Pvt. Ltd · hSenid Business Solutions (Bangladesh) Pvt Ltd · company · fund · group · person · state · Bermuda · Japan · Maldives · Outside Sri Lanka · Sri Lanka",
+        "description": "Sri Lankan companies and the groups they belong to: what each does, its sector, revenue, nominal and real (inflation-adjusted) growth, profit and margins, return on equity, employees, who controls it, and whether it exports or operates overseas."
+      },
+      "lk-company-relationships": {
+        "fields": "Row id · Shareholder company id · Shareholder · Shareholder country · Shareholder's group id · Company held (id) · Company held · Country of the company held · Group id of the company held · Link between two different groups · Link (holding, other_group_holding, associate, joint_venture, major_shareholder, member_per_web_sources, …) · Direct stake · Annual report that states it (CSE symbol)",
+        "values": "Australia · Bangladesh · Bermuda · British Virgin Islands · Cambodia · Fiji · India · Indonesia · Italy · Kenya · Maldives · Mauritius · Myanmar · Singapore · Sri Lanka · Thailand · United Arab Emirates · associate · holding",
+        "description": "Who owns which Sri Lankan company: one row per holding, associate, joint venture or major shareholding, with the percentage and the annual report page that states it."
+      },
+      "lk-company-sectors": {
+        "fields": "Row id · Company id · Company · Group · Sector · Broad sector · Is the company's main sector · Words in the company description that justify the sector · Revenue, latest year (the whole company, repeated under each of its sectors) · Revenue that can be added up: under the main sector only, top-level companies with comparable revenue · Revenue growth, nominal · Revenue growth, real (deflated by the Colombo Consumer Price Index) · Net profit margin · Performance · Employees · Employees that can be added up: main sector only, top-level companies · Exporter; empty means not known · Exports or operates overseas; empty means not known · Ownership · Type of the largest shareholder · Listed on the CSE · Top-level company (parent of a group, or not in any group)",
+        "values": "agriculture · construction-and-property · energy · finance · food-and-drink · health · holding · manufacturing · mining-and-minerals · services · technology · tourism-and-leisure · trade · transport-and-logistics · profitable · listed · unknown · company · fund · group · person · state",
+        "description": "Each company's sectors, one row per company and sector tag (solar power, hydro power, tea, apparel, gloves, banking, fintech, hotels and more than 70 others), with its revenue, growth, employees and whether it exports."
+      },
+      "lk-company-segments": {
+        "fields": "Row id · Company id · Company · CSE symbol · Operating segment · Segment revenue · Segment profit · ISIC Rev. 4 class · What the segment does · Products and services · Countries",
+        "values": "",
+        "description": "The operating segments of listed Sri Lankan groups, with each segment's revenue, profit, products and countries, as reported in the segment note of the annual report."
+      },
+      "lk-company-shareholders": {
+        "fields": "Row id · Company id · Company · Rank among the company's largest shareholders · Shareholder id (a company id when the shareholder is in the map; the same id across companies) · Shareholder · Shareholder as printed in the report · Share class (voting or non_voting) where the company prints them separately; the stake is a percentage of that class · Shareholder type (person, company, state, state_enterprise, pension_fund, fund, nominee_or_custodian, other) · Shareholder country (where known) · Shareholder is itself a company in lk-companies · Stake",
+        "values": "voting · company · fund · person · state · Bermuda · Japan · Maldives · Outside Sri Lanka · Sri Lanka",
+        "description": "The largest shareholders of every company listed on the Colombo Stock Exchange, as printed in its annual report: people, families, companies, the state, pension funds and foreign parents, with each stake."
       },
       "lk-initiative-events": {
         "fields": "Event id · Date · Year · Stage · Stage (label) · Money stage (announced/approved/contracted/paid, or none) · Initiative id · Initiative · Sector · Place · Funding line id · Funder id · Funder · Origin · Instrument · Purpose · Amount (original currency; never sum across rows) · Currency · Amount basis · Evidence · News reports of this event · Summary · Events",

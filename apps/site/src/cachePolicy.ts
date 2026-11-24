@@ -1,4 +1,4 @@
-const PUBLIC_PAGE = /^(?:\/|\/about\/?|\/funding\/?|\/data(?:\/[^/]+)?\/?|\/analysis(?:\/[^/]+)?\/?|\/countries\/[^/]+\/?|\/rss\.xml)$/
+const PUBLIC_PAGE = /^(?:\/|\/about\/?|\/funding\/?|\/companies\/?|\/data(?:\/[^/]+)?\/?|\/analysis(?:\/[^/]+)?\/?|\/countries\/[^/]+\/?|\/rss\.xml)$/
 const IMMUTABLE_PUBLIC_ASSET = /^\/(?:_astro\/|_emdash\/api\/media\/file\/)/
 
 /** True only for anonymous, host-independent public documents. */

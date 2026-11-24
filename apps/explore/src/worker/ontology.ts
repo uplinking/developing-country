@@ -3,6 +3,7 @@ import { RECOVERY_DATASETS } from '../../../../packages/datasets/src/recovery'
 import { TREASURY_TABLES } from '../../../../packages/datasets/src/treasury'
 import { METRO_COVERAGE_DATASETS } from '../../../../packages/datasets/src/metroCoverage'
 import { METRO_ALTERNATIVES_DATASETS } from '../../../../packages/datasets/src/metroAlternatives'
+import { LK_COMPANY_DATASETS } from '../../../../packages/datasets/src/lkCompanies'
 // LLM-facing SSOT: entity types, operators, completeness, relatedness.
 // Paint lives in src/map/layers.ts; this file must not import MapLibre.
 
@@ -456,6 +457,18 @@ export const ONTOLOGY: Ontology = {
         'Never sum amounts across stages, currencies or overlapping total rows.',
       ],
       tags: ['money', 'funding', 'projects', 'public-finance', 'ADB', 'IMF', 'World Bank', 'government'],
+    })),
+    ...LK_COMPANY_DATASETS.map(d => indicatorEntity({
+      id: d.id.replaceAll('-', '_'), datasetId: d.id, title: d.title, description: d.description, sourceIds: d.sourceIds,
+      source: 'developing-country.org company map (annual reports of CSE-listed companies, web research on unlisted companies)',
+      vintage: d.vintage,
+      licence: 'CC BY 4.0 (compilation by developing-country.org); annual reports and linked web sources keep their publishers’ rights',
+      licenceStatus: 'open', url: 'https://www.cse.lk/', path: `/data/${d.id}.json`,
+      refresh: 'bun scripts/companies/build.ts (curated: rebuilt when the company map is re-extracted)',
+      idField: d.id === 'lk-companies' ? 'company_id' : 'id',
+      nameField: d.id === 'lk-company-relationships' ? 'to_name' : d.id === 'lk-company-segments' ? 'segment' : d.id === 'lk-company-shareholders' ? 'holder_name' : 'name',
+      partial: true, coverageNote: d.note.contains, knownGaps: [d.note.limit],
+      tags: ['companies', 'business', 'firms', 'corporate', 'groups', 'ownership', 'shareholders', 'sectors', 'revenue', 'growth', 'profit', 'margins', 'inflation-adjusted', 'employees', 'exports', 'CSE', 'listed companies'],
     })),
     ...URBAN_DATASETS.map(d => indicatorEntity({
       id: d.id.replaceAll('-', '_'), datasetId: d.id, title: d.title,

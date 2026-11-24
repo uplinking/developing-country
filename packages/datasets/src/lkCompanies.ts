@@ -1,0 +1,132 @@
+import type { IndicatorDatasetDefinition } from './presets'
+
+const VINTAGE = 'Annual reports for years ending Mar 2025 to Mar 2026; web research Nov 2026'
+const SOURCE_IDS = ['lk-company-map']
+
+export const LK_COMPANY_DATASETS: IndicatorDatasetDefinition[] = [
+  {
+    id: 'lk-companies',
+    title: 'Sri Lankan companies and groups',
+    label: 'Companies',
+    themeIds: ['ECON', 'INTR'],
+    sourceIds: [...SOURCE_IDS, 'dcs-ccpi-2021'], // CCPI deflates revenue growth to real terms
+    vintage: VINTAGE,
+    description: 'Sri Lankan companies and the groups they belong to: what each does, its sector, revenue, nominal and real (inflation-adjusted) growth, profit and margins, return on equity, employees, who controls it, and whether it exports or operates overseas.',
+    note: {
+      dek: 'See who owns what in Sri Lankan business, what each company does and how fast it is growing.',
+      question: 'Which companies are in a sector, how big are they, are they growing, and which group owns them?',
+      contains: 'Every company with ordinary shares on the Colombo Stock Exchange and the subsidiaries, associates and joint ventures its latest annual report names, plus about 850 large unlisted companies (state enterprises, banks, exporters, family groups, multinationals) found by web research. For listed companies: two years of revenue, profit before and after tax, equity and employees, with margins, returns, real growth after CCPI inflation, a performance label and the largest shareholder.',
+      use: 'Filter parent companies and companies outside any group with is_group_head = true, or a group\'s companies by group_id. Filter by revenue_growth_real_pct, net_profit_margin_pct, performance, employees, exports, foreign_owned or controller_type. Rank only rows with revenue_comparable = true; add up revenue_additive_lkr. For sectors (solar power, tea, gloves, fintech, …) use lk-company-sectors; for owners, lk-company-shareholders.',
+      limit: 'Not a census: small and medium private companies are missing, and unlisted companies rarely publish revenue. Growth, margins and returns are for listed companies only. A parent company\'s revenue is consolidated: it already includes its subsidiaries. Revenue means gross income for banks and premium for insurers (see revenue_kind).',
+    },
+    presets: [{
+      id: 'largest-groups',
+      title: 'Largest groups and companies by revenue',
+      description: 'Revenue of each group\'s parent company (consolidated) and of companies outside any group, latest full financial year, in LKR. Banks report gross income and insurers premium.',
+      query: {
+        fields: ['name', 'revenue_lkr'],
+        where: [{ field: 'is_group_head', op: 'eq', value: true }, { field: 'revenue_comparable', op: 'eq', value: true }],
+        order_by: [{ field: 'revenue_lkr', direction: 'desc' }],
+        limit: 25,
+      },
+      chart: { family: 'ranking', dimension: { field: 'name', label: 'Group' }, measure: { field: 'revenue_lkr', label: 'Revenue', unit: 'LKR' }, orientation: 'horizontal' },
+    }],
+  },
+  {
+    id: 'lk-company-sectors',
+    title: 'Company sectors',
+    label: 'Company sectors',
+    themeIds: ['ECON', 'INTR'],
+    sourceIds: SOURCE_IDS,
+    vintage: VINTAGE,
+    description: 'Each company\'s sectors, one row per company and sector tag (solar power, hydro power, tea, apparel, gloves, banking, fintech, hotels and more than 70 others), with its revenue, growth, employees and whether it exports.',
+    note: {
+      dek: 'Find every company in a sector, from solar to gloves.',
+      question: 'Which companies are in a sector, and which of them are large, growing or exporting?',
+      contains: 'One to four sector tags per company from a fixed list of 81, in 14 broad sectors. Each tag cites the words in the company\'s own description that justify it.',
+      use: 'Filter by sector or sector_family, then by revenue_growth_pct, employees, exports or operates_abroad. Use primary = true to count each company once.',
+      limit: 'Companies with no description (about one in eight) have no sector. Tags describe what a company does, not its revenue split.',
+    },
+    presets: [{
+      id: 'companies-by-sector-family',
+      title: 'Companies by sector',
+      description: 'Companies counted once, by the broad sector of their main activity.',
+      query: { fields: ['sector_family', 'company_id'], where: [{ field: 'primary', op: 'eq', value: true }], limit: 200 },
+      chart: { family: 'ranking', dimension: { field: 'sector_family', label: 'Sector' }, measure: { field: 'company_id', label: 'Companies', unit: 'companies' }, orientation: 'horizontal' },
+    }],
+  },
+  {
+    id: 'lk-company-relationships',
+    title: 'Company ownership',
+    label: 'Company ownership',
+    themeIds: ['ECON', 'INTR'],
+    sourceIds: SOURCE_IDS,
+    vintage: VINTAGE,
+    description: 'Who owns which Sri Lankan company: one row per holding, associate, joint venture or major shareholding, with the percentage and the annual report page that states it.',
+    note: {
+      dek: 'Trace each group\'s ownership structure, stake by stake.',
+      question: 'Who owns a company, what does a group hold, and which companies are linked to foreign partners?',
+      contains: 'Holdings, associates, joint ventures and major shareholdings stated in the annual reports of listed companies, and parent links named by web sources for unlisted companies.',
+      use: 'Filter by from_id to list what a company holds, or by to_id to see who holds it. type = holding links a company to its largest shareholder; these links give each group\'s structure.',
+      limit: 'Stakes are as printed in the latest annual report. Links for unlisted companies (member_per_web_sources) rarely carry a percentage.',
+    },
+    presets: [{
+      id: 'largest-holdings',
+      title: 'Majority stakes',
+      description: 'Direct stakes of 50% or more in a company, as stated in annual reports.',
+      query: {
+        fields: ['to_name', 'direct_pct'],
+        where: [{ field: 'type', op: 'eq', value: 'holding' }, { field: 'direct_pct', op: 'gte', value: 50 }],
+        order_by: [{ field: 'direct_pct', direction: 'desc' }],
+        limit: 50,
+      },
+      chart: { family: 'ranking', dimension: { field: 'to_name', label: 'Company held' }, measure: { field: 'direct_pct', label: 'Direct stake', unit: '%' }, orientation: 'horizontal' },
+    }],
+  },
+  {
+    id: 'lk-company-segments',
+    title: 'Company operating segments',
+    label: 'Company segments',
+    themeIds: ['ECON', 'INTR'],
+    sourceIds: SOURCE_IDS,
+    vintage: VINTAGE,
+    description: 'The operating segments of listed Sri Lankan groups, with each segment\'s revenue, profit, products and countries, as reported in the segment note of the annual report.',
+    note: {
+      dek: 'See where each listed group\'s revenue and profit come from.',
+      question: 'Which businesses inside a group bring in its revenue and profit?',
+      contains: 'Operating segments from the segment note of each listed company\'s latest annual report, with a short description from the segment review.',
+      use: 'Filter by company_id or cse_symbol to read one group\'s segments; sort by revenue_lkr.',
+      limit: 'Segments are defined by each company and are not comparable across groups. Some reports give no segment revenue.',
+    },
+    presets: [{
+      id: 'largest-segments',
+      title: 'Largest operating segments',
+      description: 'Segment revenue in LKR, latest financial year.',
+      query: { fields: ['segment', 'revenue_lkr'], where: [{ field: 'revenue_lkr', op: 'gte', value: 1 }], order_by: [{ field: 'revenue_lkr', direction: 'desc' }], limit: 25 },
+      chart: { family: 'ranking', dimension: { field: 'segment', label: 'Segment' }, measure: { field: 'revenue_lkr', label: 'Revenue', unit: 'LKR' }, orientation: 'horizontal' },
+    }],
+  },
+  {
+    id: 'lk-company-shareholders',
+    title: 'Company shareholders',
+    label: 'Company shareholders',
+    themeIds: ['ECON', 'INTR'],
+    sourceIds: SOURCE_IDS,
+    vintage: VINTAGE,
+    description: 'The largest shareholders of every company listed on the Colombo Stock Exchange, as printed in its annual report: people, families, companies, the state, pension funds and foreign parents, with each stake.',
+    note: {
+      dek: 'See who owns Sri Lanka\'s listed companies, from families and groups to the state and pension funds.',
+      question: 'Who controls a company, and what does one shareholder (a family, the Treasury, the Employees\' Provident Fund) hold across the market?',
+      contains: 'Up to about ten of the largest shareholders of each listed company from its latest annual report, with the stake, a shareholder type and, where the shareholder is itself in the company map, its company id.',
+      use: 'Filter by company_id to see a company\'s owners, or by holder_id or holder_type (state, pension_fund, person, company) to see everything one owner or kind of owner holds.',
+      limit: 'Only the largest shareholders printed in each report, not the full register. Shareholder types are read from names. People with the same name are not told apart. A holder\'s numbered accounts in one company are added together; its voting and non-voting shares are not.',
+    },
+    presets: [{
+      id: 'largest-state-stakes',
+      title: 'Largest state stakes in listed companies',
+      description: 'Stakes held directly by the Secretary to the Treasury or the Government of Sri Lanka, as printed in each annual report.',
+      query: { fields: ['company_name', 'pct'], where: [{ field: 'holder_type', op: 'eq', value: 'state' }], order_by: [{ field: 'pct', direction: 'desc' }], limit: 25 },
+      chart: { family: 'ranking', dimension: { field: 'company_name', label: 'Company' }, measure: { field: 'pct', label: 'State stake', unit: '%' }, orientation: 'horizontal' },
+    }],
+  },
+]
