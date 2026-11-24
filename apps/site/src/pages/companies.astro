@@ -193,6 +193,34 @@ const base = `${explorer}/data`
 .cmap .st .sv{display:block;font:500 20px/1.2 var(--mono);margin-top:8px}
 .cmap .st .ss{display:block;font:500 11px/1.4 var(--mono);color:var(--dim);margin-top:4px}
 .cmap .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 44px}
+/* ownership web: owners left, the centre company, what it holds right */
+.cmap .web{margin:22px 0 4px;padding-top:2px;border-top:1px solid var(--hair)}
+.cmap .webhd{display:flex;justify-content:space-between;align-items:baseline;gap:6px 16px;flex-wrap:wrap}
+.cmap .webhd .note{margin:0}
+.cmap .webkey{display:flex;gap:14px;flex-wrap:wrap;font:500 11px/1.4 var(--mono);color:var(--dim);margin:8px 0 0}
+.cmap .webkey i{display:inline-block;width:22px;height:0;border-top:2px solid var(--ink);vertical-align:middle;margin-right:6px}
+.cmap .webkey i.min{border-top:1.5px dashed var(--dim)}
+/* width:0 + min-width:100% keeps a wide web from stretching the table cell, so it scrolls instead */
+.cmap .webwrap{width:0;min-width:100%;overflow-x:auto;padding:14px 2px 14px}
+.cmap .webcan{position:relative;margin:0 auto}
+.cmap .webcan svg{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
+.cmap .webcan path{fill:none;stroke:var(--quiet);stroke-width:1.5;stroke-dasharray:4 3}
+.cmap .webcan path.maj{stroke:var(--ink);stroke-width:1.75;stroke-dasharray:none}
+.cmap .wn{position:absolute;width:184px;height:48px;padding:5px 8px 4px 14px;display:flex;flex-direction:column;justify-content:center;gap:1px;
+  background:var(--raised);color:var(--ink);border:1px solid var(--hair);border-radius:2px;text-align:left;font:inherit;cursor:pointer;overflow:hidden}
+.cmap .wn::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--stripe,var(--hair2))}
+.cmap .wn:hover{border-color:var(--ink)}
+.cmap .wn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.cmap .wn.c{border-color:var(--ink);box-shadow:4px 4px 0 var(--ink);cursor:default}
+.cmap .wn.more{border-style:dashed;background:none}
+.cmap .wn.more::before{display:none}
+.cmap .wn.plain{cursor:default}
+.cmap .wn .n{font-size:12.5px;font-weight:700;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cmap .wn .m{font:500 10.5px/1.3 var(--mono);color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cmap .wp{position:absolute;width:46px;font:600 10.5px/14px var(--mono);color:var(--ink);text-align:right;pointer-events:none}
+.cmap .wp b{font-weight:600;background:var(--raised);padding:0 2px}
+.cmap .wp.l{text-align:left}
+.cmap .webcol{position:absolute;top:0;font:500 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
 .cmap .secs{list-style:none;margin:0;padding:0}
 .cmap .secs li{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;padding:3px 0}
 .cmap .secs .theme-tag{margin:0}
@@ -566,6 +594,7 @@ function drawRows(list) {
       <td class="hide-s flags">${abroadFlags(r)}</td></tr>`
     return row + (openId === r.company_id ? `<tr class="d"><td colspan="7">${detail(r)}</td></tr>` : '')
   }).join('')
+  fitWeb()
   $('more').hidden = list.length <= shown
   $('more').textContent = `Show more (${(list.length - shown).toLocaleString('en')} more)`
 }
@@ -651,6 +680,135 @@ function holdingsList(r) {
     <ul class="hlist">${items || '<li class="note">No companies match.</li>'}</ul></div>`
 }
 
+/* ---------- ownership web ---------- */
+// A walkable diagram: who owns the centre company (left; the chain of parents further left) and what it holds (right).
+// Clicking a box re-centres the web on it, so a reader can follow the connections across groups.
+const WEB = { w: 184, h: 48, gx: 88, gy: 10, top: 26, maxOwners: 8, maxHeld: 12 }
+let web = { root: null, centre: null, all: false }
+const SKIP_LINK = new Set(['named_in_report', 'former_holding'])
+const isControl = (type, pct) => type === 'member_of_group' || type === 'member_per_web_sources' || ((type === 'holding' || type === 'shareholder') && (pct ?? 0) >= 50)
+
+function ownersOf(id) {
+  const m = new Map()
+  const links = (RELS.to.get(id) ?? []).filter(x => !SKIP_LINK.has(x.type) && x.from_id !== id)
+  // “member of group” is a roll-up to the group head; when a direct parent is known the head sits further up the chain instead
+  const direct = links.some(x => x.type === 'holding')
+  for (const x of links) {
+    if (direct && (x.type === 'member_of_group' || x.type === 'member_per_web_sources')) continue
+    m.set(x.from_id, { id: x.from_id, name: x.from_name, pct: x.direct_pct, ctl: isControl(x.type, x.direct_pct) })
+  }
+  for (const h of HOLD?.get(id) ?? []) {
+    if (h.holder_id === id) continue
+    const o = m.get(h.holder_id)
+    if (o) { if (o.pct === null) o.pct = h.pct } else m.set(h.holder_id, { id: h.holder_id, name: h.holder_name, pct: h.pct, ctl: isControl('shareholder', h.pct), holder: h })
+  }
+  return [...m.values()].sort((a, b) => b.ctl - a.ctl || (b.pct ?? -1) - (a.pct ?? -1))
+}
+function heldBy(id) {
+  const m = new Map()
+  for (const x of RELS.from.get(id) ?? []) {
+    if (SKIP_LINK.has(x.type) || x.to_id === id) continue
+    // a group roll-up to a company that another company holds directly: shown one step down, not here
+    if ((x.type === 'member_of_group' || x.type === 'member_per_web_sources') && (RELS.to.get(x.to_id) ?? []).some(y => y.type === 'holding' && y.from_id !== id)) continue
+    m.set(x.to_id, { id: x.to_id, name: x.to_name, pct: x.direct_pct, ctl: isControl(x.type, x.direct_pct) })
+  }
+  for (const h of HOLDINGS_OF.get(id) ?? []) if (!m.has(h.company_id) && h.company_id !== id)
+    m.set(h.company_id, { id: h.company_id, name: h.company_name, pct: h.pct, ctl: isControl('shareholder', h.pct) })
+  return [...m.values()].sort((a, b) => b.ctl - a.ctl || (BYID.get(b.id)?.revenue_lkr ?? -1) - (BYID.get(a.id)?.revenue_lkr ?? -1) || (b.pct ?? -1) - (a.pct ?? -1))
+}
+/** What a box says: name, then a measured line (CSE symbol, revenue, country, how many it holds). */
+function webNode(id, name, holder) {
+  const r = BYID.get(id), n = heldBy(id).length
+  if (r) {
+    const meta = [r.cse_symbol?.split('.')[0], r.revenue_lkr !== null ? fmtLkr(r.revenue_lkr) : null, r.country && r.country !== 'Sri Lanka' ? r.country : null, n ? `holds ${n}` : null].filter(Boolean)
+    return { id, name: r.name, meta: meta.join(' · ') || OWNER[ownershipOf(r)] || '', fam: r.sector_family ?? '', walk: true }
+  }
+  const h = holder ?? HOLDINGS_OF.get(id)?.[0]
+  const type = h ? HOLDER_TYPE[h.holder_type] ?? '' : ''
+  return { id, name: name ?? h?.holder_name ?? id, meta: [type && type[0].toUpperCase() + type.slice(1), h?.holder_country && h.holder_country !== 'Sri Lanka' ? h.holder_country : null, n > 1 ? `holds ${n}` : null].filter(Boolean).join(' · '), fam: '', walk: n > 0 }
+}
+
+function webBox(r) {
+  if (web.root !== r.company_id) web = { root: r.company_id, centre: r.company_id, all: false }
+  const maxO = web.all ? Infinity : WEB.maxOwners, maxH = web.all ? Infinity : WEB.maxHeld
+  const cid = web.centre
+  const owners = ownersOf(cid), held = heldBy(cid)
+  // the chain of parents beyond the first owner, one column each, aligned with that owner
+  const chain = BYID.has(cid) ? chainOf(BYID.get(cid)).slice(1, 3) : []
+  const placed = new Set([cid, ...owners.slice(0, maxO).map(o => o.id), ...held.slice(0, maxH).map(h => h.id)])
+  const up = []
+  for (const x of chain) { if (placed.has(x.from_id)) break; placed.add(x.from_id); up.push(x) }
+
+  const cols = [] // left to right: each { label, nodes: [{node, y?}] }
+  for (const x of [...up].reverse()) cols.push({ label: '', nodes: [{ ...webNode(x.from_id, x.from_name), chainTo: x.to_id, pct: x.direct_pct, ctl: isControl(x.type, x.direct_pct) }] })
+  const oShown = owners.slice(0, maxO)
+  if (owners.length) cols.push({ label: 'Owned by', nodes: [...oShown.map(o => ({ ...webNode(o.id, o.name, o.holder), pct: o.pct, ctl: o.ctl, edge: 'out' })),
+    ...(owners.length > oShown.length ? [{ more: owners.length - oShown.length, kind: 'owners' }] : [])] })
+  const ci = cols.length
+  cols.push({ label: '', nodes: [{ ...webNode(cid), centre: true }] })
+  const hShown = held.slice(0, maxH)
+  if (held.length) cols.push({ label: 'Holds', nodes: [...hShown.map(h => ({ ...webNode(h.id, h.name), pct: h.pct, ctl: h.ctl, edge: 'in' })),
+    ...(held.length > hShown.length ? [{ more: held.length - hShown.length, kind: 'held' }] : [])] })
+
+  // layout: every column centred on the tallest; chain columns sit level with the parent they lead to
+  const rowsMax = Math.max(...cols.map(c => c.nodes.length))
+  const H = rowsMax * (WEB.h + WEB.gy) - WEB.gy
+  const pos = new Map()
+  cols.forEach((c, i) => {
+    const x = i * (WEB.w + WEB.gx), y0 = WEB.top + (H - c.nodes.length * (WEB.h + WEB.gy) + WEB.gy) / 2
+    c.x = x
+    c.nodes.forEach((n, j) => { n.x = x; n.y = y0 + j * (WEB.h + WEB.gy) })
+  })
+  for (const c of cols) for (const n of c.nodes) if (n.id) pos.set(n.id, n)
+  // pull chain boxes level with the box they lead to (right to left so a chain stays straight)
+  for (let i = ci - 2; i >= 0; i--) for (const n of cols[i].nodes) { const t = pos.get(n.chainTo); if (t) n.y = t.y }
+  const W = cols.length * (WEB.w + WEB.gx) - WEB.gx, Ht = WEB.top + H
+
+  const centre = pos.get(cid)
+  const edges = [], labels = []
+  const curve = (a, b) => { const x1 = a.x + WEB.w, y1 = a.y + WEB.h / 2, x2 = b.x, y2 = b.y + WEB.h / 2, mx = (x1 + x2) / 2; return `M${x1} ${y1}C${mx} ${y1} ${mx} ${y2} ${x2} ${y2}` }
+  const pctTxt = p => p === null || p === undefined ? '' : `<b>${+p.toFixed(p < 1 ? 2 : 1)}%</b>`
+  for (const c of cols) for (const n of c.nodes) {
+    if (!n.id || n.centre) continue
+    if (n.edge === 'out') { edges.push([curve(n, centre), n.ctl]); labels.push(`<span class="wp l" style="left:${n.x + WEB.w + 1}px;top:${n.y + WEB.h / 2 - 7}px">${pctTxt(n.pct)}</span>`) }
+    else if (n.edge === 'in') { edges.push([curve(centre, n), n.ctl]); labels.push(`<span class="wp" style="left:${n.x - 47}px;top:${n.y + WEB.h / 2 - 7}px">${pctTxt(n.pct)}</span>`) }
+    else if (n.chainTo && pos.get(n.chainTo)) { const t = pos.get(n.chainTo); edges.push([curve(n, t), n.ctl]); labels.push(`<span class="wp l" style="left:${n.x + WEB.w + 1}px;top:${n.y + WEB.h / 2 - 7}px">${pctTxt(n.pct)}</span>`) }
+  }
+  const box = n => {
+    if (n.more) return `<button type="button" class="wn more" data-webmore="${n.kind}" style="left:${n.x}px;top:${n.y}px"><span class="n">and ${n.more} more</span><span class="m">show them all</span></button>`
+    const style = `left:${n.x}px;top:${n.y}px${n.fam ? `;--stripe:var(--sec-${n.fam})` : ''}`
+    const inner = `<span class="n">${esc(n.name)}</span><span class="m">${esc(n.meta)}</span>`
+    if (n.centre) return `<div class="wn c" style="${style}" title="${esc(n.name)}" tabindex="-1" data-webc>${inner}</div>`
+    return n.walk ? `<button type="button" class="wn" data-web="${esc(n.id)}" style="${style}" title="${esc(n.name)}: centre the web here">${inner}</button>`
+      : `<div class="wn plain" style="${style}" title="${esc(n.name)}">${inner}</div>`
+  }
+  const heads = cols.map(c => c.label ? `<span class="webcol" style="left:${c.x}px">${c.label}</span>` : '').join('')
+  const cname = pos.get(cid).name
+  const moved = cid !== r.company_id
+  return `<div class="web" data-webroot="${esc(r.company_id)}">
+    <div class="webhd"><h3>Ownership web</h3>
+      <p class="note">${moved ? `Centred on <b>${esc(cname)}</b>. <button type="button" class="linkbtn" data-webreset>Back to ${esc(r.name)}</button>${BYID.has(cid) ? ` · <button type="button" class="linkbtn" data-goto="${esc(cid)}">Open ${esc(cname)} in the table</button>` : ''}`
+        : 'Click a company to put it at the centre and follow the connections.'}</p></div>
+    ${owners.length || held.length ? `<div class="webkey"><span><i></i>Majority stake or group company</span><span><i class="min"></i>Smaller stake, associate or joint venture</span><span>Box edge colour: broad sector</span></div>
+    <div class="webwrap"><div class="webcan" style="width:${W}px;height:${Ht}px">
+      <svg width="${W}" height="${Ht}" aria-hidden="true">${edges.map(([d, maj]) => `<path d="${d}"${maj ? ' class="maj"' : ''}/>`).join('')}</svg>
+      ${heads}${labels.join('')}${cols.flatMap(c => c.nodes).map(box).join('')}
+    </div></div>` : '<p class="note">The sources name no owners or holdings for this company.</p>'}
+  </div>`
+}
+/** Keep the centre box in view when the web is wider than the panel. */
+function fitWeb() {
+  const wrap = document.querySelector('.web .webwrap'), c = wrap?.querySelector('[data-webc]')
+  if (wrap && c && wrap.scrollWidth > wrap.clientWidth) wrap.scrollLeft = c.offsetLeft + WEB.w / 2 - wrap.clientWidth / 2
+}
+function redrawWeb(focusCentre) {
+  const el = document.querySelector('.web[data-webroot]')
+  if (!el) return
+  el.outerHTML = webBox(BYID.get(el.dataset.webroot))
+  fitWeb()
+  if (focusCentre) document.querySelector('.web [data-webc]')?.focus({ preventScroll: true })
+}
+
 function detail(r) {
   const tags = tagsOf(r)
   const ev = SECT ? (SECT.get(r.company_id) ?? []) : null
@@ -689,6 +847,7 @@ function detail(r) {
     r.foreign_subsidiaries > 0 && ['Overseas subsidiaries', String(r.foreign_subsidiaries)]].filter(Boolean)
   return `<div class="detail">
     ${stats}
+    ${webBox(r)}
     <div class="cols">
     <div>
       ${r.what_it_does ? `<h3>What it does</h3><p class="what">${esc(r.what_it_does)}</p>` : ''}
@@ -726,6 +885,10 @@ $('rows').addEventListener('input', e => {
 })
 
 $('rows').addEventListener('click', e => {
+  const wb = e.target.closest('[data-web]')
+  if (wb) { web = { ...web, centre: wb.dataset.web, all: false }; redrawWeb(true); return }
+  if (e.target.closest('[data-webreset]')) { web = { ...web, centre: web.root, all: false }; redrawWeb(true); return }
+  if (e.target.closest('[data-webmore]')) { web = { ...web, all: true }; redrawWeb(false); return }
   const hk = e.target.closest('[data-hkind]')
   if (hk) { const id = hk.closest('.holds').dataset.holds; hold = { id, q: hold.id === id ? hold.q : '', kind: hk.dataset.hkind }; const box = hk.closest('.holds'); box.outerHTML = holdingsList(BYID.get(id)); return }
   if (e.target.closest('.holds .hq, .detail')) { if (!e.target.closest('button, a')) return }
