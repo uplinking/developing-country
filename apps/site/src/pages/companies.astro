@@ -268,6 +268,7 @@ const base = `${explorer}/data`
 .cmap .st .ss{display:block;font:500 11px/1.4 var(--mono);color:var(--dim);margin-top:4px}
 .cmap .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 44px}
 /* methodology dialog */
+.cmap .lead .incl{color:var(--dim);font-weight:400}
 .cmap .howline{margin:-6px 0 18px;font-size:14px}
 .cmap dialog.method{width:min(760px,calc(100vw - 32px));max-height:min(86vh,900px);padding:0;border:1px solid var(--ink);border-top:4px solid var(--teal);border-radius:2px;
   background:var(--raised);color:var(--ink);box-shadow:4px 4px 0 var(--ink);font:400 15px/1.55 var(--sans);overflow:hidden}
@@ -690,8 +691,10 @@ function update(replace = false) {
 
 function drawSummary() {
   const s = summarize(current)
+  // groups among the rows shown: a group counts once, whether the list shows its parent or its companies
+  const groupsShown = new Set(current.filter(r => (BYID.get(r.group_id)?.group_companies ?? 0) > 1).map(r => r.group_id)).size
   const head = F.group ? `<b>${s.companies.toLocaleString('en')}</b> ${s.companies === 1 ? 'company' : 'companies'} in ${esc(BYID.get(F.group)?.name ?? 'this group')}`
-    : F.scope === 'groups' ? `<b>${s.groups_with_members.toLocaleString('en')}</b> ${s.groups_with_members === 1 ? 'group' : 'groups'} and <b>${(s.companies - s.groups_with_members).toLocaleString('en')}</b> ${s.companies - s.groups_with_members === 1 ? 'company' : 'companies'} outside any group` : `<b>${s.companies.toLocaleString('en')}</b> ${s.companies === 1 ? 'company' : 'companies'} in <b>${s.groups.toLocaleString('en')}</b> ${s.groups === 1 ? 'group' : 'groups'}`
+    : `<b>${s.companies.toLocaleString('en')}</b> ${s.companies === 1 ? 'company' : 'companies'}${groupsShown ? ` <span class="incl">(including ${groupsShown.toLocaleString('en')} ${groupsShown === 1 ? 'group' : 'groups'})</span>` : ''}`
   $('lead').innerHTML = head
   const k = (l, v, sub) => `<div class="kpi"><p class="lbl">${l}</p><span class="v">${v}</span><span class="s">${sub}</span></div>`
   const top = F.scope === 'groups' && !F.group
