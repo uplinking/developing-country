@@ -135,7 +135,7 @@ const base = `${explorer}/data`
 .cmap .bars .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cmap .bars .b{height:8px;background:var(--hair2)}
 .cmap .bars .b i{display:block;height:100%;background:var(--teal)}
-.cmap .bars li button[aria-pressed="true"] .b i{background:var(--on-teal)}
+
 .cmap .bars .c{font:500 12px/1 var(--mono);text-align:right}
 .cmap .tablewrap{overflow-x:auto;padding:4px 0 10px}
 .cmap .list{width:100%;border-collapse:collapse;min-width:0}
@@ -157,8 +157,29 @@ const base = `${explorer}/data`
 .cmap .up{color:var(--up)} .cmap .down{color:var(--down)}
 .cmap .dash{color:var(--dim)}
 .cmap .flags{font:500 11px/1.5 var(--mono);color:var(--dim)}
+/* One colour per broad sector, chosen so every pair is clearly apart (OKLab distance ≥ 11 for
+   normal vision); the badge text always names the sector, so colour is never the only cue. */
+.cmap{--sec-agriculture:#8cc63f;--sec-food-and-drink:#ff9f43;--sec-manufacturing:#5d9cec;--sec-mining-and-minerals:#b08860;--sec-energy:#ffe14d;
+  --sec-construction-and-property:#f3c6a5;--sec-trade:#ff8fd6;--sec-tourism-and-leisure:#2ec4a6;--sec-transport-and-logistics:#c4c8ff;
+  --sec-finance:#2f4b8a;--sec-technology:#9ff0e8;--sec-health:#ff6b81;--sec-services:#c47ad6;--sec-holding:#3a3a3a}
+.cmap [data-fam="agriculture"]{background:var(--sec-agriculture)}
+.cmap [data-fam="food-and-drink"]{background:var(--sec-food-and-drink)}
+.cmap [data-fam="manufacturing"]{background:var(--sec-manufacturing)}
+.cmap [data-fam="mining-and-minerals"]{background:var(--sec-mining-and-minerals)}
+.cmap [data-fam="energy"]{background:var(--sec-energy)}
+.cmap [data-fam="construction-and-property"]{background:var(--sec-construction-and-property)}
+.cmap [data-fam="trade"]{background:var(--sec-trade)}
+.cmap [data-fam="tourism-and-leisure"]{background:var(--sec-tourism-and-leisure)}
+.cmap [data-fam="transport-and-logistics"]{background:var(--sec-transport-and-logistics)}
+.cmap [data-fam="finance"]{background:var(--sec-finance)}
+.cmap [data-fam="technology"]{background:var(--sec-technology)}
+.cmap [data-fam="health"]{background:var(--sec-health)}
+.cmap [data-fam="services"]{background:var(--sec-services)}
+.cmap [data-fam="holding"]{background:var(--sec-holding)}
+.cmap .theme-tag[data-fam="finance"],.cmap .theme-tag[data-fam="holding"]{color:#fff}
+.cmap .bars li button[aria-pressed="true"] .b i{box-shadow:inset 0 0 0 2px var(--on-teal)}
 .cmap .theme-tag{display:inline-block;padding:3px 6px 2px;margin:0 4px 4px 0;font:600 9.5px/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
-.cmap .theme-tag:not([data-theme]){background:var(--hair2)}
+.cmap .theme-tag[data-fam=""]{background:var(--hair2)}
 .cmap tr.d > td{background:var(--raised);padding:0 0 22px;border-bottom:1px solid var(--ink)}
 .cmap .detail{padding:4px 20px 0}
 .cmap .detail h3{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:22px 0 10px}
@@ -252,10 +273,6 @@ const BASE = root.dataset.base
 const $ = id => document.getElementById(id)
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
 const FAMILY = new Map(COMPANY_SECTOR_TAGS.map(t => [t.tag, t.family]))
-// Sector badges reuse the dataset theme colours (global.css .theme-tag), as the funding dashboard does.
-const THEME = { agriculture: 'AGRI', 'food-and-drink': 'REGI', manufacturing: 'ECON', 'mining-and-minerals': 'JUST', energy: 'ENER',
-  'construction-and-property': 'GOVE', trade: 'SOCI', 'tourism-and-leisure': 'INTR', 'transport-and-logistics': 'TRAN', finance: 'EDUC',
-  technology: 'TECH', health: 'HEAL', services: 'ENVI' }
 const tagLabel = t => COMPANY_SECTOR_BY_TAG.get(t)?.label ?? t
 const OWNER = { listed: 'Listed on the CSE', state_owned: 'State-owned', family_group: 'Family-owned', foreign_multinational: 'Foreign-owned',
   private_local: 'Privately owned (Sri Lankan)', private: 'Privately owned (Sri Lankan)', joint_venture: 'Joint venture', listed_elsewhere: 'Part of a listed group',
@@ -515,7 +532,7 @@ function drawSummary() {
 function drawBreaks() {
   const fam = countBy(current, r => r.primary_sector ? [FAMILY.get(r.primary_sector)] : []).slice(0, 12)
   const max = Math.max(1, ...fam.map(x => x[1]))
-  $('bySector').innerHTML = fam.length ? fam.map(([k, n]) => `<li><button type="button" data-fam="${esc(k)}" aria-pressed="${F.families.includes(k)}"><span class="t">${esc(COMPANY_SECTOR_FAMILIES[k] ?? k)}</span><span class="b"><i style="width:${(n / max * 100).toFixed(1)}%"></i></span><span class="c">${n}</span></button></li>`).join('')
+  $('bySector').innerHTML = fam.length ? fam.map(([k, n]) => `<li><button type="button" data-fam="${esc(k)}" aria-pressed="${F.families.includes(k)}"><span class="t">${esc(COMPANY_SECTOR_FAMILIES[k] ?? k)}</span><span class="b"><i style="width:${(n / max * 100).toFixed(1)}%;background:var(--sec-${esc(k)}, var(--teal))"></i></span><span class="c">${n}</span></button></li>`).join('')
     : '<li class="empty">No companies with a sector match.</li>'
   const own = countBy(current, r => [ownershipOf(r)]).slice(0, 8)
   const m2 = Math.max(1, ...own.map(x => x[1]))
@@ -585,7 +602,7 @@ let hold = { id: null, q: '', kind: 'all' }
 
 function badge(t) {
   const fam = FAMILY.get(t)
-  return `<span class="theme-tag" ${THEME[fam] ? `data-theme="${THEME[fam]}"` : ''} title="${esc(COMPANY_SECTOR_FAMILIES[fam] ?? '')}">${esc(tagLabel(t))}</span>`
+  return `<span class="theme-tag" data-fam="${esc(fam ?? '')}" title="${esc(COMPANY_SECTOR_FAMILIES[fam] ?? '')}">${esc(tagLabel(t))}</span>`
 }
 
 /** Path up the ownership tree: this company, its largest holder, that holder's, … to the group head. */
