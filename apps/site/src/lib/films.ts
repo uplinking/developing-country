@@ -51,3 +51,9 @@ export const FUNDING_SHOT: ExplorerShot = {
   name: 'funding-dashboard', width: 1200, height: 750, large: 1800, small: 1200,
   legend: [190, 420], feature: [600, 650], sheet: [960, 432],
 }
+
+/** The company map's top: the headline counts and the sector and ownership bars, captured at 1200 × 750, 2×. */
+export const COMPANIES_SHOT: ExplorerShot = {
+  name: 'company-map', width: 1200, height: 750, large: 1800, small: 1200,
+  legend: [260, 360], feature: [360, 540], sheet: [930, 540],
+}
