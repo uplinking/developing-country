@@ -15900,6 +15900,518 @@
         }
       },
       {
+        "id": "lk-companies",
+        "slug": "lk-companies",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "developing-country-editorial"
+          }
+        ],
+        "taxonomies": {
+          "topic": [
+            "data-quality"
+          ]
+        },
+        "data": {
+          "title": "Companies",
+          "dek": "See who owns what in Sri Lankan business, what each company does and how fast it is growing.",
+          "format": "dataset_note",
+          "dataset_id": "lk-companies",
+          "dataset_preview_url": "https://explore.developing-country.org/datasets/lk-companies/largest-groups?embed=dataset",
+          "country_code": "LK",
+          "research_question": "Which companies work in a sector, how big are they, are they growing, and which group owns them?",
+          "methodology": "This note uses the platform’s immutable Dataset Version and cited Source records. Its source, vintage, normalization method and caveats come from the registered artifact without adding unverified claims.",
+          "evidence_bundle": {
+            "version": 1,
+            "kind": "platform-query",
+            "country": "LK",
+            "datasetVersions": [
+              {
+                "datasetId": "lk-companies",
+                "versionId": "dsv_bdfa69fdf083067a42722987ac41e7ab",
+                "country": "LK",
+                "checksum": "sha256:45fe593ba02d9666de3eeb9b39a31670026b8d5e8a43905eece18ac5b286d3fe",
+                "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
+                "refreshedAt": "2026-11-24",
+                "sourceIds": [
+                  "lk-company-map"
+                ]
+              }
+            ],
+            "dataViews": [],
+            "generatedAt": "2026-08-31T00:00:00.000Z"
+          },
+          "source_manifest": [
+            {
+              "sourceId": "lk-company-map",
+              "title": "Sri Lanka company map",
+              "url": "https://www.cse.lk/",
+              "licence": "CC BY 4.0 (compilation by developing-country.org); annual reports and linked web sources keep their publishers’ rights",
+              "licenceStatus": "open"
+            }
+          ],
+          "content": [
+            {
+              "_type": "block",
+              "_key": "lk-companies-contains-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-companies-contains-heading-span",
+                  "text": "What this dataset contains"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-companies-contains-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-companies-contains-body-span",
+                  "text": "Every company with ordinary shares on the Colombo Stock Exchange and the subsidiaries, associates and joint ventures its 2025/26 annual report names, plus about 850 large unlisted companies (state enterprises, banks, exporters, family groups, multinationals) found by web research. Two years of revenue, profit and employees for listed companies."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-companies-use-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-companies-use-heading-span",
+                  "text": "How it is used here"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-companies-use-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-companies-use-body-span",
+                  "text": "Filter groups with is_group_head = true, or a group's companies by group_id. Filter by revenue_growth_pct, employees, operates_abroad, exports, foreign_owned or ownership. For sectors (solar, tea, gloves, fintech, …) use lk-company-sectors."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-companies-limit-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-companies-limit-heading-span",
+                  "text": "What it cannot tell you"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-companies-limit-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-companies-limit-body-span",
+                  "text": "Not a census: small and medium private companies are missing, and unlisted companies rarely publish revenue. Growth is available for listed companies only. A group head's revenue already includes its subsidiaries."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "lk-company-sectors",
+        "slug": "lk-company-sectors",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "developing-country-editorial"
+          }
+        ],
+        "taxonomies": {
+          "topic": [
+            "data-quality"
+          ]
+        },
+        "data": {
+          "title": "Company sectors",
+          "dek": "Find every company in a sector, from solar to gloves.",
+          "format": "dataset_note",
+          "dataset_id": "lk-company-sectors",
+          "dataset_preview_url": "https://explore.developing-country.org/datasets/lk-company-sectors/companies-by-sector-family?embed=dataset",
+          "country_code": "LK",
+          "research_question": "Which companies work in a sector, and which of them are large, growing or exporting?",
+          "methodology": "This note uses the platform’s immutable Dataset Version and cited Source records. Its source, vintage, normalization method and caveats come from the registered artifact without adding unverified claims.",
+          "evidence_bundle": {
+            "version": 1,
+            "kind": "platform-query",
+            "country": "LK",
+            "datasetVersions": [
+              {
+                "datasetId": "lk-company-sectors",
+                "versionId": "dsv_1f4e9c99f9ea1b2276fd4e04a9b5b864",
+                "country": "LK",
+                "checksum": "sha256:220229e7714f8568a18c10621ce694440ca795e827391df912009d2c6e230cbf",
+                "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
+                "refreshedAt": "2026-11-24",
+                "sourceIds": [
+                  "lk-company-map"
+                ]
+              }
+            ],
+            "dataViews": [],
+            "generatedAt": "2026-08-31T00:00:00.000Z"
+          },
+          "source_manifest": [
+            {
+              "sourceId": "lk-company-map",
+              "title": "Sri Lanka company map",
+              "url": "https://www.cse.lk/",
+              "licence": "CC BY 4.0 (compilation by developing-country.org); annual reports and linked web sources keep their publishers’ rights",
+              "licenceStatus": "open"
+            }
+          ],
+          "content": [
+            {
+              "_type": "block",
+              "_key": "lk-company-sectors-contains-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-sectors-contains-heading-span",
+                  "text": "What this dataset contains"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-sectors-contains-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-sectors-contains-body-span",
+                  "text": "One to four sector tags per company from a fixed list of 81, grouped into 16 families. Each tag cites the words in the company's own description that justify it."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-sectors-use-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-sectors-use-heading-span",
+                  "text": "How it is used here"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-sectors-use-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-sectors-use-body-span",
+                  "text": "Filter by sector or sector_family, then by revenue_growth_pct, employees, exports or operates_abroad. Use primary = true to count each company once."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-sectors-limit-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-sectors-limit-heading-span",
+                  "text": "What it cannot tell you"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-sectors-limit-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-sectors-limit-body-span",
+                  "text": "Companies with no description (about one in six) carry no tag. Tags describe what a company does, not its revenue split."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "lk-company-relationships",
+        "slug": "lk-company-relationships",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "developing-country-editorial"
+          }
+        ],
+        "taxonomies": {
+          "topic": [
+            "data-quality"
+          ]
+        },
+        "data": {
+          "title": "Company ownership and links",
+          "dek": "Trace each group's ownership tree, stake by stake.",
+          "format": "dataset_note",
+          "dataset_id": "lk-company-relationships",
+          "dataset_preview_url": "https://explore.developing-country.org/datasets/lk-company-relationships/largest-holdings?embed=dataset",
+          "country_code": "LK",
+          "research_question": "Who owns a company, what does a group hold, and which companies are linked to foreign partners?",
+          "methodology": "This note uses the platform’s immutable Dataset Version and cited Source records. Its source, vintage, normalization method and caveats come from the registered artifact without adding unverified claims.",
+          "evidence_bundle": {
+            "version": 1,
+            "kind": "platform-query",
+            "country": "LK",
+            "datasetVersions": [
+              {
+                "datasetId": "lk-company-relationships",
+                "versionId": "dsv_3401602cca641f17aadd82222ba41fe4",
+                "country": "LK",
+                "checksum": "sha256:19183414c4507c46c62d854f6eca2cc23ede134cefa6b860f0d21e46559bdcfd",
+                "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
+                "refreshedAt": "2026-11-24",
+                "sourceIds": [
+                  "lk-company-map"
+                ]
+              }
+            ],
+            "dataViews": [],
+            "generatedAt": "2026-08-31T00:00:00.000Z"
+          },
+          "source_manifest": [
+            {
+              "sourceId": "lk-company-map",
+              "title": "Sri Lanka company map",
+              "url": "https://www.cse.lk/",
+              "licence": "CC BY 4.0 (compilation by developing-country.org); annual reports and linked web sources keep their publishers’ rights",
+              "licenceStatus": "open"
+            }
+          ],
+          "content": [
+            {
+              "_type": "block",
+              "_key": "lk-company-relationships-contains-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-relationships-contains-heading-span",
+                  "text": "What this dataset contains"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-relationships-contains-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-relationships-contains-body-span",
+                  "text": "Holdings, associates, joint ventures and major shareholdings stated in the annual reports of listed companies, and parent links named by web sources for unlisted companies."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-relationships-use-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-relationships-use-heading-span",
+                  "text": "How it is used here"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-relationships-use-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-relationships-use-body-span",
+                  "text": "Filter by from_id to list what a company holds, or by to_id to see who holds it. type = holding is the link that defines the group tree."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-relationships-limit-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-relationships-limit-heading-span",
+                  "text": "What it cannot tell you"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-relationships-limit-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-relationships-limit-body-span",
+                  "text": "Stakes are as printed in the latest annual report. Links for unlisted companies (member_per_web_sources) rarely carry a percentage."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "lk-company-segments",
+        "slug": "lk-company-segments",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "developing-country-editorial"
+          }
+        ],
+        "taxonomies": {
+          "topic": [
+            "data-quality"
+          ]
+        },
+        "data": {
+          "title": "Company operating segments",
+          "dek": "See what each listed group actually earns its money from.",
+          "format": "dataset_note",
+          "dataset_id": "lk-company-segments",
+          "dataset_preview_url": "https://explore.developing-country.org/datasets/lk-company-segments/largest-segments?embed=dataset",
+          "country_code": "LK",
+          "research_question": "Which businesses inside a group bring in its revenue and profit?",
+          "methodology": "This note uses the platform’s immutable Dataset Version and cited Source records. Its source, vintage, normalization method and caveats come from the registered artifact without adding unverified claims.",
+          "evidence_bundle": {
+            "version": 1,
+            "kind": "platform-query",
+            "country": "LK",
+            "datasetVersions": [
+              {
+                "datasetId": "lk-company-segments",
+                "versionId": "dsv_3f6b7fae20e56e1bf251d85abc8c62b6",
+                "country": "LK",
+                "checksum": "sha256:367ddffd2f754088f69600070ab0ebee819c4e4fa0a032923f83399a48eea89a",
+                "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
+                "refreshedAt": "2026-11-24",
+                "sourceIds": [
+                  "lk-company-map"
+                ]
+              }
+            ],
+            "dataViews": [],
+            "generatedAt": "2026-08-31T00:00:00.000Z"
+          },
+          "source_manifest": [
+            {
+              "sourceId": "lk-company-map",
+              "title": "Sri Lanka company map",
+              "url": "https://www.cse.lk/",
+              "licence": "CC BY 4.0 (compilation by developing-country.org); annual reports and linked web sources keep their publishers’ rights",
+              "licenceStatus": "open"
+            }
+          ],
+          "content": [
+            {
+              "_type": "block",
+              "_key": "lk-company-segments-contains-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-segments-contains-heading-span",
+                  "text": "What this dataset contains"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-segments-contains-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-segments-contains-body-span",
+                  "text": "Operating segments from the segment note of each listed company's 2025/26 annual report, with a short description from the segment review."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-segments-use-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-segments-use-heading-span",
+                  "text": "How it is used here"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-segments-use-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-segments-use-body-span",
+                  "text": "Filter by company_id or cse_symbol to read one group's segments; sort by revenue_lkr."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-segments-limit-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-segments-limit-heading-span",
+                  "text": "What it cannot tell you"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-segments-limit-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-segments-limit-body-span",
+                  "text": "Segments are defined by each company and are not comparable across groups. Some reports give no segment revenue."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
         "id": "electricity-generation-quarter-hourly",
         "slug": "electricity-generation-quarter-hourly",
         "status": "published",

@@ -4,6 +4,7 @@ import { TREASURY_DATASETS } from './treasury'
 import { METRO_COVERAGE_DATASETS } from './metroCoverage'
 import { METRO_ALTERNATIVES_DATASETS } from './metroAlternatives'
 import { LK_INITIATIVE_DATASETS } from './lkInitiatives'
+import { LK_COMPANY_DATASETS } from './lkCompanies'
 import type { SelectRowsInput } from './table'
 import {
   indicatorDatasetPath,
@@ -56,6 +57,7 @@ export const INDICATOR_DATASETS: readonly IndicatorDatasetDefinition[] = [
   ...METRO_COVERAGE_DATASETS,
   ...METRO_ALTERNATIVES_DATASETS,
   ...LK_INITIATIVE_DATASETS,
+  ...LK_COMPANY_DATASETS,
   {
     id: 'electricity-generation-quarter-hourly', title: 'Electricity generation and battery power', label: 'Generation and battery power', themeIds: ['ENER'],
     description: 'Quarter-hourly national electricity generation and battery power in megawatts, reported by the National System Operator.',
