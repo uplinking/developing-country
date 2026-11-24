@@ -119,7 +119,7 @@ export const LK_COMPANY_DATASETS: IndicatorDatasetDefinition[] = [
       question: 'Who controls a company, and what does one shareholder (a family, the Treasury, the Employees\' Provident Fund) hold across the market?',
       contains: 'Up to about ten of the largest shareholders of each listed company from its latest annual report, with the stake, a shareholder type and, where the shareholder is itself in the company map, its company id.',
       use: 'Filter by company_id to see a company\'s owners, or by holder_id or holder_type (state, pension_fund, person, company) to see everything one owner or kind of owner holds.',
-      limit: 'Only the largest shareholders printed in each report, not the full register. Shareholder types are read from names. People with the same name are not told apart, and one person\'s holdings through different accounts are not added together.',
+      limit: 'Only the largest shareholders printed in each report, not the full register. Shareholder types are read from names. People with the same name are not told apart. A holder\'s numbered accounts in one company are added together; its voting and non-voting shares are not.',
     },
     presets: [{
       id: 'largest-state-stakes',
