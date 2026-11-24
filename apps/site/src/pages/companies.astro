@@ -17,6 +17,7 @@ const base = `${explorer}/data`
   <header>
     <h1>Company map</h1>
     <p class="lead" id="lead">Sri Lanka’s companies and the groups that own them.</p>
+    <p class="howline"><button type="button" class="linkbtn" data-method>How this was made</button> <span class="note">· sources, checks and assumptions</span></p>
     <form class="find" id="find" role="search" action="/companies" method="get">
       <label class="sr" for="fq">Search companies</label>
       <svg class="find-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="10.3" y1="10.3" x2="15" y2="15" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -65,7 +66,77 @@ const base = `${explorer}/data`
     </div>
     <textarea class="copyta" id="copyta" readonly hidden aria-label="Question to paste into your AI"></textarea>
     <p class="foot">Sources: the latest annual reports (financial years ending December 2025 or March 2026) of all 262 companies listed on the Colombo Stock Exchange, and web research on about 850 large unlisted companies. Figures from the reports were extracted by software and each one checked against the page it cites. Revenue is in Sri Lankan rupees (LKR); US dollar figures are converted at LKR 300 to the dollar. For banks and finance companies revenue means gross income; for insurers, gross written premium. A parent company’s revenue already includes its subsidiaries. Data, free to reuse under CC BY 4.0: <a href="/data/lk-companies">Sri Lankan companies and groups</a>, <a href="/data/lk-company-sectors">Company sectors</a>, <a href="/data/lk-company-relationships">Company ownership</a>, <a href="/data/lk-company-segments">Company operating segments</a>.</p>
+    <p class="foot"><button type="button" class="linkbtn" data-method>How this was made: sources, checks, definitions and limits</button></p>
   </section>
+
+  <dialog class="method" id="method" aria-labelledby="method-title">
+    <div class="mhead">
+      <h2 id="method-title">How this was made</h2>
+      <button type="button" class="mclose" data-close aria-label="Close">Close</button>
+    </div>
+    <div class="mbody">
+      <p class="mlead">Every figure on this page comes from a company’s own annual report or from a web source linked on its row. This is how we read those sources, how we checked them, and the choices we made along the way.</p>
+
+      <h3>Where the data comes from</h3>
+      <ul>
+        <li><b>Listed companies.</b> All 262 companies with ordinary shares on the Colombo Stock Exchange (CSE). For each we downloaded the latest annual report from the CSE: financial years ending December 2025 or March 2026. The list of companies, share prices and market values come from the CSE in November 2026.</li>
+        <li><b>Companies inside groups.</b> The subsidiaries, associates and joint ventures that each annual report names, with the stake it states.</li>
+        <li><b>Large unlisted companies.</b> About 850 more, found by web research: state enterprises, banks, exporters, family groups and multinationals. Each row links the web source it came from. These facts were not checked against a filing.</li>
+        <li><b>Prices.</b> The Colombo Consumer Price Index (Department of Census and Statistics), the inflation reported in the World Bank’s Sri Lanka Development Updates, and the World Bank consumer price index for years before 2018.</li>
+      </ul>
+
+      <h3>How the figures were read</h3>
+      <ul>
+        <li>Each report was turned into text page by page, keeping the page number.</li>
+        <li>A large language model (OpenAI’s GPT through Codex; Anthropic’s Claude for some earlier passes) read each report and copied figures into a fixed form: the income statement, balance sheet and cash flow for the latest and prior year, per-share figures, bank and insurer ratios, the five or ten-year summary, operating segments, revenue by region, the largest shareholders and the companies it holds.</li>
+        <li>The instruction was to copy figures exactly as printed and never to calculate or guess one. A line the report does not print is left empty, not set to zero.</li>
+      </ul>
+
+      <h3>How the figures were checked</h3>
+      <ul>
+        <li><b>Against the page.</b> Every figure cites the page it was read from. It is published only if that number is printed on the page (or the page either side), or is the sum of lines printed there. About 99 in 100 figures pass; the rest are left out. Each figure in the accounts table links to its page.</li>
+        <li><b>Against the accounts.</b> We test each company’s figures against accounting identities: assets equal liabilities plus equity, gross profit equals revenue less cost of sales, profit after tax equals profit before tax less tax, earnings per share times shares in issue equals profit to shareholders, and the summary’s latest year equals the statements.</li>
+        <li><b>By a second model.</b> A different model (GPT-6.2 Astra) audited each listed company: the extracted accounts, the headline figures, the segments, the shareholders and the holdings, against the report, and explained or corrected every failed identity. A correction is applied only when the corrected number, or every word of a corrected name, is printed on the page it cites.</li>
+      </ul>
+
+      <h3>Definitions and assumptions</h3>
+      <ul>
+        <li><b>Revenue</b> is the company’s own revenue line. For banks and finance companies it is gross income; for insurers, gross written premium. A parent company’s revenue is consolidated, so it already includes its subsidiaries: totals add up only top-level companies. Figures in US dollars are converted at LKR 300 to the dollar.</li>
+        <li><b>Growth</b> is shown two ways. <i>Nominal</i> is the change in rupees, as reported. <i>Real</i> removes inflation: the latest year deflates by the average Colombo Consumer Price Index over the company’s own financial year, against the year before.</li>
+        <li><b>History</b> is shown in rupees of the company’s latest year. The price index for each financial year averages the consumer price index over its twelve months (a year to March takes nine months of one calendar year and three of the next). It chains the Colombo index from 2023, the World Bank’s reported Colombo inflation for 2018 to 2022, and the World Bank consumer price index before that. It is the national index, not each company’s own prices.</li>
+        <li><b>Margins</b> divide by revenue: net margin is profit after tax, operating margin is operating profit, gross margin is gross profit. They are left out for banks, finance companies and insurers, whose revenue is not sales, and where they exceed ±100%.</li>
+        <li><b>Returns and balance sheet.</b> Return on equity is profit after tax over equity at the year end. Debt includes lease liabilities; net debt is debt less cash. Interest cover is operating profit over finance costs. Cash conversion is cash from operations over profit after tax. Free cash flow is cash from operations less capital spending.</li>
+        <li><b>Value and dividends.</b> Price to earnings, price to book and dividend yield use the CSE share price in November 2026, not the price at the financial year end. Dividend payout is dividend per share over earnings per share.</li>
+        <li><b>Comparisons with a sector</b> use listed companies in the same broad sector, and banks and finance companies only with each other. A comparison needs at least five companies with the figure. Rank 1 is the best on that measure.</li>
+        <li><b>Performance labels</b> (profitable and growing, fell into loss and so on) combine profit after tax in both years with real revenue growth; a company whose equity is negative is labelled so first.</li>
+      </ul>
+
+      <h3>Ownership</h3>
+      <ul>
+        <li>A group is built from each company’s largest stated shareholder: one parent per company, followed upward to the top. A company only mentioned in another’s report, without a stake, does not shape the tree.</li>
+        <li>The largest shareholder comes from each report’s table of the twenty largest shareholders. Margin and custodian accounts (“Bank PLC / Mr X”) are shown under the person or fund they are held for; a holder’s numbered accounts are added together; the same holder spelled different ways is one holder.</li>
+        <li>Seven companies have voting and non-voting shares. Their stakes are kept apart and a stake is a percentage of its class; the largest shareholder counts voting shares only.</li>
+        <li>Whether a shareholder is a person, a company, the state or a pension fund is read from the name and is not checked against a registry. People with the same name are not told apart.</li>
+      </ul>
+
+      <h3>Sectors</h3>
+      <ul>
+        <li>Each company has up to four of 81 sector tags in 14 broad sectors, assigned by a language model from the company’s own description. Every tag carries the words that justify it, and a tag whose words are not in the description is rejected. A company with no description has no sector.</li>
+        <li>Industry codes follow the UN classification (ISIC Rev. 4).</li>
+      </ul>
+
+      <h3>Limits</h3>
+      <ul>
+        <li>This is not a census: small and medium companies are missing, and unlisted companies rarely publish figures.</li>
+        <li>Seven listed companies have no usable report text (six files were errata notices and one a scanned image), so their figures are empty.</li>
+        <li>Employee numbers and some lines are printed by only some reports. Empty means not known, not zero or false.</li>
+        <li>Figures are as the companies published them. A multi-year summary may restate earlier years or round them differently from the statements of each year.</li>
+      </ul>
+
+      <h3>Use the data</h3>
+      <p>The tables behind this page are free to reuse under CC BY 4.0, with the original publishers keeping their rights: <a href="/data/lk-companies">companies and groups</a>, <a href="/data/lk-company-financials">financial statements</a>, <a href="/data/lk-company-history">financial history</a>, <a href="/data/lk-company-sectors">sectors</a>, <a href="/data/lk-company-relationships">ownership</a>, <a href="/data/lk-company-segments">operating segments</a> and <a href="/data/lk-company-shareholders">shareholders</a>. An AI assistant can query all of them through the <a href="/connect">developing-country.org connector</a>.</p>
+    </div>
+  </dialog>
 </div>
 </SiteLayout>
 
@@ -196,6 +267,24 @@ const base = `${explorer}/data`
 .cmap .st .sv{display:block;font:500 20px/1.2 var(--mono);margin-top:8px}
 .cmap .st .ss{display:block;font:500 11px/1.4 var(--mono);color:var(--dim);margin-top:4px}
 .cmap .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 44px}
+/* methodology dialog */
+.cmap .howline{margin:-6px 0 18px;font-size:14px}
+.cmap dialog.method{width:min(760px,calc(100vw - 32px));max-height:min(86vh,900px);padding:0;border:1px solid var(--ink);border-top:4px solid var(--teal);border-radius:2px;
+  background:var(--raised);color:var(--ink);box-shadow:4px 4px 0 var(--ink);font:400 15px/1.55 var(--sans);overflow:hidden}
+.cmap dialog.method[open]{display:flex;flex-direction:column}
+.cmap dialog.method::backdrop{background:rgba(5,5,5,.35)}
+.cmap .mhead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px 14px;border-bottom:1px solid var(--hair)}
+.cmap .mhead h2{margin:0;font:700 20px/1.2 var(--sans)}
+.cmap .mclose{font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:none;border:1px solid var(--ink);border-radius:2px;padding:9px 12px 8px;cursor:pointer;color:var(--ink)}
+.cmap .mclose:hover{background:var(--ink);color:var(--raised)}
+.cmap .mclose:focus-visible,.cmap .howline .linkbtn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.cmap .mbody{overflow-y:auto;padding:6px 22px 24px;overscroll-behavior:contain}
+.cmap .mbody .mlead{font-size:16px;margin:12px 0 4px}
+.cmap .mbody h3{margin:22px 0 6px}
+.cmap .mbody ul{margin:0;padding-left:18px}
+.cmap .mbody li{margin:0 0 8px}
+.cmap .mbody a{color:var(--blue)}
+@media (max-width:760px){ .cmap dialog.method{width:calc(100vw - 16px);max-height:92vh} .cmap .mhead,.cmap .mbody{padding-left:14px;padding-right:14px} }
 /* detail tabs: Figures (default) and Ownership */
 .cmap .dtabs{display:flex;gap:0;margin:14px 0 4px;border-bottom:1px solid var(--ink)}
 .cmap .dtabs button{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid transparent;border-bottom:0;border-radius:2px 2px 0 0;padding:11px 16px 10px;cursor:pointer;color:var(--dim);margin-bottom:-1px}
@@ -591,7 +680,7 @@ let current = []
 function update(replace = false) {
   current = sortRows(ROWS.filter(r => matches(r, F, FAMILY, TEXT.get(r.company_id))), F.sort, F.desc)
   const qs = filterToParams(F).toString()
-  history[replace ? 'replaceState' : 'pushState'](null, '', qs ? '?' + qs : location.pathname)
+  history[replace ? 'replaceState' : 'pushState'](null, '', (qs ? '?' + qs : location.pathname) + (location.hash === '#method' ? location.hash : ''))
   root.querySelectorAll('[data-scope]').forEach(b => b.setAttribute('aria-pressed', String(!F.group && b.dataset.scope === F.scope)))
   root.querySelectorAll('[data-sort]').forEach(b => b.dataset.sort === F.sort ? b.setAttribute('aria-sort', F.desc ? 'descending' : 'ascending') : b.removeAttribute('aria-sort'))
   $('fqx').hidden = !F.q
@@ -1132,6 +1221,19 @@ function toggle(id) {
   if (openId && !SEGS) loadSegments()
   if (openId && BYID.get(openId)?.listed && !FINS.has(openId)) loadFin(openId)
 }
+
+/* ---------- methodology dialog: native modal, so Escape closes it and focus stays inside ---------- */
+const METHOD = $('method')
+function openMethod(fromHash = false) {
+  if (!METHOD.open) METHOD.showModal()
+  METHOD.querySelector('.mbody').scrollTop = 0
+  if (!fromHash && location.hash !== '#method') history.replaceState(null, '', location.pathname + location.search + '#method')
+}
+METHOD.addEventListener('close', () => { if (location.hash === '#method') history.replaceState(null, '', location.pathname + location.search) })
+METHOD.addEventListener('click', e => { if (e.target === METHOD || e.target.closest('[data-close]')) METHOD.close() })
+document.addEventListener('click', e => { if (e.target.closest('[data-method]')) openMethod() })
+if (location.hash === '#method') openMethod(true)
+addEventListener('hashchange', () => { if (location.hash === '#method') openMethod(true) })
 
 /* ---------- AI hand-off ---------- */
 $('copy').addEventListener('click', async () => {
