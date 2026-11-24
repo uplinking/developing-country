@@ -143,6 +143,7 @@ const holderFields: IndicatorField[] = [
   int('rank', 'Rank among the company\'s largest shareholders'),
   f('holder_id', 'Shareholder id (a company id when the shareholder is in the map; the same id across companies)', 'string'),
   f('holder_name', 'Shareholder', 'string'), f('holder_name_as_printed', 'Shareholder as printed in the report', 'string'),
+  f('share_class', 'Share class (voting or non_voting) where the company prints them separately; the stake is a percentage of that class', 'string'),
   f('holder_type', 'Shareholder type (person, company, state, state_enterprise, pension_fund, fund, nominee_or_custodian, other)', 'string'),
   f('holder_country', 'Shareholder country (where known)', 'string'), f('holder_in_map', 'Shareholder is itself a company in lk-companies', 'boolean'),
   pctM('pct', 'Stake'), f('source_url', 'Source', 'string'),
@@ -178,7 +179,8 @@ const tables = [
     primary_key: ['id'], fields: holderFields, rows: typed(holders, holderFields),
     notes: [
       'Filter by holder_id to see everything one shareholder holds across listed companies (for example the Employees\' Provident Fund or the Secretary to the Treasury).',
-      'Margin and joint accounts ("Bank PLC/Mr X") are shown under the person they are held for; account numbers are removed from names.',
+      'Margin and joint accounts ("Bank PLC/Mr X") are shown under the person they are held for; account numbers are removed from names, and a holder\'s numbered accounts in one company are added together.',
+      'Seven companies have voting and non-voting shares and print a shareholder list for each: share_class says which, and a stake is a percentage of that class, so a company\'s stakes can add up to more than 100%. The largest shareholder in lk-companies counts voting shares only.',
       'holder_type is assigned from the name and is not checked against company registries.',
     ] }),
 ]

@@ -219,7 +219,7 @@ const base = `${explorer}/data`
 .cmap .wn .m{font:500 10.5px/1.3 var(--mono);color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cmap .wp{position:absolute;width:46px;font:600 10.5px/14px var(--mono);color:var(--ink);text-align:right;pointer-events:none}
 .cmap .wp b{font-weight:600;background:var(--raised);padding:0 2px}
-.cmap .wp.l{text-align:left}
+.cmap .wp.l{text-align:left;width:80px}
 .cmap .webcol{position:absolute;top:0;font:500 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
 .cmap .secs{list-style:none;margin:0;padding:0}
 .cmap .secs li{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;padding:3px 0}
@@ -617,7 +617,7 @@ function holderList(r) {
   if (!hs || !hs.length) return ''
   return `<h3>Largest shareholders <span class="cnt">${hs.length}</span></h3><ul class="hlist hlist-s">${hs.map(h => `<li><span class="p">${h.pct !== null ? h.pct + '%' : ''}</span>
     <span class="hn">${h.holder_in_map && BYID.has(h.holder_id) ? `<button type="button" class="linkbtn" data-goto="${esc(h.holder_id)}">${esc(h.holder_name)}</button>` : esc(h.holder_name)}
-    <span class="hm">${esc(HOLDER_TYPE[h.holder_type] ?? h.holder_type)}${h.holder_country && h.holder_country !== 'Sri Lanka' ? ' · ' + esc(h.holder_country) : ''}${HOLDINGS_OF.get(h.holder_id)?.length > 1 ? ` · <button type="button" class="linkbtn" data-holder="${esc(h.holder_id)}">holds ${HOLDINGS_OF.get(h.holder_id).length} listed companies</button>` : ''}</span></span>
+    <span class="hm">${esc(HOLDER_TYPE[h.holder_type] ?? h.holder_type)}${h.share_class ? ` · ${h.share_class === 'non_voting' ? 'non-voting' : 'voting'} shares` : ''}${h.holder_country && h.holder_country !== 'Sri Lanka' ? ' · ' + esc(h.holder_country) : ''}${HOLDINGS_OF.get(h.holder_id)?.length > 1 ? ` · <button type="button" class="linkbtn" data-holder="${esc(h.holder_id)}">holds ${HOLDINGS_OF.get(h.holder_id).length} listed companies</button>` : ''}</span></span>
     <span class="hs"></span><span class="hr"></span></li>`).join('')}</ul>`
 }
 // Holdings: what this company holds directly, and (for a group head) every company in its group.
@@ -697,10 +697,12 @@ function ownersOf(id) {
     if (direct && (x.type === 'member_of_group' || x.type === 'member_per_web_sources')) continue
     m.set(x.from_id, { id: x.from_id, name: x.from_name, pct: x.direct_pct, ctl: isControl(x.type, x.direct_pct) })
   }
-  for (const h of HOLD?.get(id) ?? []) {
+  // voting stakes first: a holder with only non-voting shares is shown, but never as control
+  for (const h of [...(HOLD?.get(id) ?? [])].sort((a, b) => (a.share_class === 'non_voting') - (b.share_class === 'non_voting'))) {
     if (h.holder_id === id) continue
+    const nv = h.share_class === 'non_voting'
     const o = m.get(h.holder_id)
-    if (o) { if (o.pct === null) o.pct = h.pct } else m.set(h.holder_id, { id: h.holder_id, name: h.holder_name, pct: h.pct, ctl: isControl('shareholder', h.pct), holder: h })
+    if (o) { if (o.pct === null && !nv) o.pct = h.pct } else m.set(h.holder_id, { id: h.holder_id, name: h.holder_name, pct: h.pct, ctl: !nv && isControl('shareholder', h.pct), nv, holder: h })
   }
   return [...m.values()].sort((a, b) => b.ctl - a.ctl || (b.pct ?? -1) - (a.pct ?? -1))
 }
@@ -742,7 +744,7 @@ function webBox(r) {
   const cols = [] // left to right: each { label, nodes: [{node, y?}] }
   for (const x of [...up].reverse()) cols.push({ label: '', nodes: [{ ...webNode(x.from_id, x.from_name), chainTo: x.to_id, pct: x.direct_pct, ctl: isControl(x.type, x.direct_pct) }] })
   const oShown = owners.slice(0, maxO)
-  if (owners.length) cols.push({ label: 'Owned by', nodes: [...oShown.map(o => ({ ...webNode(o.id, o.name, o.holder), pct: o.pct, ctl: o.ctl, edge: 'out' })),
+  if (owners.length) cols.push({ label: 'Owned by', nodes: [...oShown.map(o => ({ ...webNode(o.id, o.name, o.holder), pct: o.pct, ctl: o.ctl, nv: o.nv, edge: 'out' })),
     ...(owners.length > oShown.length ? [{ more: owners.length - oShown.length, kind: 'owners' }] : [])] })
   const ci = cols.length
   cols.push({ label: '', nodes: [{ ...webNode(cid), centre: true }] })
@@ -770,7 +772,7 @@ function webBox(r) {
   const pctTxt = p => p === null || p === undefined ? '' : `<b>${+p.toFixed(p < 1 ? 2 : 1)}%</b>`
   for (const c of cols) for (const n of c.nodes) {
     if (!n.id || n.centre) continue
-    if (n.edge === 'out') { edges.push([curve(n, centre), n.ctl]); labels.push(`<span class="wp l" style="left:${n.x + WEB.w + 1}px;top:${n.y + WEB.h / 2 - 7}px">${pctTxt(n.pct)}</span>`) }
+    if (n.edge === 'out') { edges.push([curve(n, centre), n.ctl]); labels.push(`<span class="wp l" style="left:${n.x + WEB.w + 1}px;top:${n.y + WEB.h / 2 - 7}px"${n.nv ? ' title="Non-voting shares"' : ''}>${pctTxt(n.pct)}${n.nv ? '<b>NV</b>' : ''}</span>`) }
     else if (n.edge === 'in') { edges.push([curve(centre, n), n.ctl]); labels.push(`<span class="wp" style="left:${n.x - 47}px;top:${n.y + WEB.h / 2 - 7}px">${pctTxt(n.pct)}</span>`) }
     else if (n.chainTo && pos.get(n.chainTo)) { const t = pos.get(n.chainTo); edges.push([curve(n, t), n.ctl]); labels.push(`<span class="wp l" style="left:${n.x + WEB.w + 1}px;top:${n.y + WEB.h / 2 - 7}px">${pctTxt(n.pct)}</span>`) }
   }
@@ -789,7 +791,7 @@ function webBox(r) {
     <div class="webhd"><h3>Ownership web</h3>
       <p class="note">${moved ? `Centred on <b>${esc(cname)}</b>. <button type="button" class="linkbtn" data-webreset>Back to ${esc(r.name)}</button>${BYID.has(cid) ? ` · <button type="button" class="linkbtn" data-goto="${esc(cid)}">Open ${esc(cname)} in the table</button>` : ''}`
         : 'Click a company to put it at the centre and follow the connections.'}</p></div>
-    ${owners.length || held.length ? `<div class="webkey"><span><i></i>Majority stake or group company</span><span><i class="min"></i>Smaller stake, associate or joint venture</span><span>Box edge colour: broad sector</span></div>
+    ${owners.length || held.length ? `<div class="webkey"><span><i></i>Majority stake or group company</span><span><i class="min"></i>Smaller stake, associate or joint venture</span><span>Box edge colour: broad sector</span>${owners.some(o => o.nv) ? '<span>NV: non-voting shares</span>' : ''}</div>
     <div class="webwrap"><div class="webcan" style="width:${W}px;height:${Ht}px">
       <svg width="${W}" height="${Ht}" aria-hidden="true">${edges.map(([d, maj]) => `<path d="${d}"${maj ? ' class="maj"' : ''}/>`).join('')}</svg>
       ${heads}${labels.join('')}${cols.flatMap(c => c.nodes).map(box).join('')}
@@ -938,7 +940,10 @@ async function loadHolders() {
     HOLD = new Map()
     for (const r of t.rows) {
       if (!HOLD.has(r.company_id)) HOLD.set(r.company_id, []); HOLD.get(r.company_id).push(r)
-      if (!HOLDINGS_OF.has(r.holder_id)) HOLDINGS_OF.set(r.holder_id, []); HOLDINGS_OF.get(r.holder_id).push(r)
+      // one entry per company: a holder with voting and non-voting rows still holds one company
+      if (!HOLDINGS_OF.has(r.holder_id)) HOLDINGS_OF.set(r.holder_id, [])
+      const list = HOLDINGS_OF.get(r.holder_id), same = list.findIndex(x => x.company_id === r.company_id)
+      if (same < 0) list.push(r); else if (list[same].share_class === 'non_voting' && r.share_class !== 'non_voting') list[same] = r
     }
     drawRows(current)
   } catch { HOLD = new Map() }
