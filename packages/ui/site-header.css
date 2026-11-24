@@ -26,10 +26,10 @@
 .dc-site-header__group .dc-site-header__chevron { width: 7px; height: 7px; }
 .dc-site-header:has(.dc-site-header__dropdown:popover-open) .dc-site-header__group .dc-site-header__chevron { transform: translateY(2px) rotate(225deg); }
 .dc-site-header__group:focus-visible { outline: 2px solid var(--header-focus); outline-offset: -4px; }
-.dc-site-header__dropdown { position: fixed; position-anchor: --dc-dashboards; inset: auto; top: anchor(bottom); left: anchor(left); min-width: 260px; margin: 0; padding: 0; overflow: visible; border: 1px solid var(--header-line); border-top: 4px solid var(--brand-coral); border-radius: var(--dc-radius); background: var(--header-bg); color: var(--header-ink); box-shadow: 4px 4px 0 var(--header-shadow); font-family: var(--dc-font-sans); }
+.dc-site-header__dropdown { position: fixed; position-anchor: --dc-dashboards; inset: auto; top: anchor(bottom); left: anchor(left); min-width: 200px; margin: 0; padding: 0; overflow: visible; border: 1px solid var(--header-line); border-top: 4px solid var(--brand-coral); border-radius: var(--dc-radius); background: var(--header-bg); color: var(--header-ink); box-shadow: 4px 4px 0 var(--header-shadow); font-family: var(--dc-font-sans); }
 @supports not (top: anchor(bottom)) { .dc-site-header__dropdown { top: var(--dc-header-height); right: 8px; left: auto; } }
 .dc-site-header__dropdown::backdrop { background: transparent; }
-.dc-site-header__links .dc-site-header__dropdown a { display: grid; gap: 4px; align-content: center; min-height: 58px; padding: 10px 18px; border: 0; border-bottom: 1px solid var(--header-line-soft); color: var(--header-ink); font-size: 15px; }
+.dc-site-header__links .dc-site-header__dropdown a { display: flex; align-items: center; min-height: 52px; padding: 0 18px; border: 0; border-bottom: 1px solid var(--header-line-soft); color: var(--header-ink); font-size: 15px; }
 .dc-site-header__links .dc-site-header__dropdown a:last-child { border-bottom: 0; }
 .dc-site-header__links .dc-site-header__dropdown a:hover { background: var(--header-line-soft); box-shadow: none; }
 .dc-site-header__dropdown a:focus-visible { outline: 2px solid var(--header-focus); outline-offset: -4px; }
