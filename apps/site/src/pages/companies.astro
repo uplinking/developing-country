@@ -138,35 +138,73 @@ const base = `${explorer}/data`
 .cmap .bars .c{font:500 12px/1 var(--mono);text-align:right}
 .cmap .tablewrap{overflow-x:auto;padding:4px 0 10px}
 .cmap .list{width:100%;border-collapse:collapse;min-width:0}
-.cmap .list th{text-align:left;font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);padding:12px 12px 10px 0;border-bottom:1px solid var(--hair);white-space:nowrap}
-.cmap .list th button{background:none;border:0;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit}
-.cmap .list th button:hover{color:var(--ink)}
-.cmap .list th button[aria-sort]{color:var(--ink)}
-.cmap .list th button[aria-sort="descending"]::after{content:' ↓'}
-.cmap .list th button[aria-sort="ascending"]::after{content:' ↑'}
-.cmap .list th.num,.cmap .list td.num{text-align:right}
-.cmap .list td{padding:10px 12px 10px 0;border-bottom:1px solid var(--hair2);vertical-align:top}
+.cmap .list > thead th{text-align:left;font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);padding:12px 12px 10px 0;border-bottom:1px solid var(--hair);white-space:nowrap}
+.cmap .list > thead th button{background:none;border:0;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit}
+.cmap .list > thead th button:hover{color:var(--ink)}
+.cmap .list > thead th button[aria-sort]{color:var(--ink)}
+.cmap .list > thead th button[aria-sort="descending"]::after{content:' ↓'}
+.cmap .list > thead th button[aria-sort="ascending"]::after{content:' ↑'}
+.cmap .list > thead th.num,.cmap .list > tbody > tr > td.num{text-align:right}
+.cmap .list > tbody > tr > td{padding:10px 12px 10px 0;border-bottom:1px solid var(--hair2);vertical-align:top}
 .cmap .list tr.r{cursor:pointer}
 .cmap .list tr.r:hover td{background:var(--raised)}
 .cmap .list tr.r.open td{background:var(--raised);border-bottom-color:transparent}
 .cmap .nm{font-weight:600}
 .cmap .grp-n{display:block;font:400 12px/1.4 var(--sans);color:var(--dim);margin-top:2px}
 .cmap .sym{font:500 10px/1 var(--mono);border:1px solid var(--hair);border-radius:2px;padding:2px 4px 1px;margin-left:6px;color:var(--dim);vertical-align:2px}
-.cmap td.num{font:500 13px/1.4 var(--mono);white-space:nowrap}
+.cmap .list > tbody > tr > td.num{font:500 13px/1.4 var(--mono);white-space:nowrap}
 .cmap .up{color:var(--up)} .cmap .down{color:var(--down)}
 .cmap .dash{color:var(--dim)}
-.cmap .tag{display:inline-block;font:500 10.5px/1.2 var(--mono);background:var(--hair2);border-radius:2px;padding:3px 5px 2px;margin:0 4px 4px 0}
 .cmap .flags{font:500 11px/1.5 var(--mono);color:var(--dim)}
-.cmap tr.d td{background:var(--raised);padding:0 12px 18px 0;border-bottom:1px solid var(--ink)}
-.cmap .detail{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:12px 36px;padding:2px 4px 0}
-.cmap .detail h3{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:16px 0 8px}
-.cmap .detail p{margin:0 0 6px}
-.cmap .fin{border-collapse:collapse;font:500 12px/1.4 var(--mono)}
-.cmap .fin th{font-weight:500;color:var(--dim);text-align:left;padding:3px 14px 3px 0}
-.cmap .fin td{text-align:right;padding:3px 14px 3px 0}
-.cmap .links{list-style:none;margin:0;padding:0;font-size:13px}
-.cmap .links li{padding:3px 0;display:flex;gap:8px;align-items:baseline}
-.cmap .links .p{font:500 11px/1 var(--mono);color:var(--dim);min-width:46px}
+.cmap .theme-tag{display:inline-block;padding:3px 6px 2px;margin:0 4px 4px 0;font:600 9.5px/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.cmap .theme-tag:not([data-theme]){background:var(--hair2)}
+.cmap tr.d > td{background:var(--raised);padding:0 0 22px;border-bottom:1px solid var(--ink)}
+.cmap .detail{padding:4px 20px 0}
+.cmap .detail h3{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:22px 0 10px}
+.cmap .detail h3 .cnt{letter-spacing:0;color:var(--ink);margin-left:6px}
+.cmap .detail p{margin:0 0 8px}
+.cmap .detail .what{font-size:16px;line-height:1.5;max-width:60ch}
+.cmap .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin:8px 0 4px}
+.cmap .st{padding:12px 16px 12px 0}
+.cmap .st+.st{padding-left:16px;border-left:1px solid var(--hair2)}
+.cmap .st .sl{display:block;font:500 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.cmap .st .sv{display:block;font:500 20px/1.2 var(--mono);margin-top:8px}
+.cmap .st .ss{display:block;font:500 11px/1.4 var(--mono);color:var(--dim);margin-top:4px}
+.cmap .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 44px}
+.cmap .secs{list-style:none;margin:0;padding:0}
+.cmap .secs li{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;padding:3px 0}
+.cmap .secs .theme-tag{margin:0}
+.cmap .fin{border-collapse:collapse;font:500 12px/1.4 var(--mono);margin-bottom:6px}
+.cmap .fin th{font-weight:500;color:var(--dim);text-align:left;padding:6px 18px 6px 0;border-bottom:1px solid var(--hair2)}
+.cmap .fin thead th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-align:right}
+.cmap .fin thead th:first-child{text-align:left}
+.cmap .fin th,.cmap .fin td{vertical-align:baseline;line-height:1.4}
+.cmap .fin tbody th{text-transform:uppercase;font-size:10px;letter-spacing:.1em}
+.cmap .fin td{text-align:right;padding:6px 18px 6px 0;border-bottom:1px solid var(--hair2);white-space:nowrap}
+.cmap .kv{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;margin:0;font-size:14px}
+.cmap .kv dt{font:500 11px/1.7 var(--mono);color:var(--dim)}
+.cmap .kv dd{margin:0}
+.cmap .chain{list-style:none;margin:0 0 10px;padding:0;font-size:14px}
+.cmap .chain li{position:relative;padding:3px 0 3px 18px}
+.cmap .chain li::before{content:'';position:absolute;left:4px;top:11px;width:7px;height:7px;border:1.5px solid var(--dim);border-radius:50%;background:var(--raised)}
+.cmap .chain li:not(:last-child)::after{content:'';position:absolute;left:8px;top:20px;bottom:-6px;border-left:1px solid var(--hair)}
+.cmap .chain li.me{font-weight:600}
+.cmap .chain li.me::before{background:var(--teal);border-color:var(--teal)}
+.cmap .chain .p{font:500 11px/1 var(--mono);color:var(--dim);margin-left:8px}
+.cmap .htabs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.cmap .htabs button{font:500 11px/1 var(--mono);background:none;border:1px solid var(--hair);border-radius:2px;padding:7px 8px 6px;cursor:pointer;color:var(--dim)}
+.cmap .htabs button span{color:var(--ink);margin-left:3px}
+.cmap .htabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.cmap .htabs button[aria-pressed="true"] span{color:var(--paper)}
+.cmap .hq{display:block;width:100%;height:36px;font:400 14px/1.2 var(--sans);border:1px solid var(--quiet);border-radius:2px;padding:0 10px;background:var(--paper);margin-bottom:6px}
+.cmap .hq:focus{border-color:var(--ink);outline:none}
+.cmap .hlist{list-style:none;margin:0;padding:0;max-height:380px;overflow-y:auto;border-top:1px solid var(--hair2)}
+.cmap .hlist li{display:grid;grid-template-columns:46px minmax(0,1fr) auto 78px;gap:8px;align-items:baseline;padding:7px 2px;border-bottom:1px solid var(--hair2);font-size:13px}
+.cmap .hlist .p{font:500 11px/1.4 var(--mono);color:var(--dim)}
+.cmap .hlist .hm{display:block;font:500 10.5px/1.4 var(--mono);color:var(--dim);margin-top:2px}
+.cmap .hlist .hr{font:500 11px/1.4 var(--mono);text-align:right;white-space:nowrap}
+.cmap .hlist .theme-tag{margin:0}
+.cmap .hlist li.note{display:block}
 .cmap .linkbtn{background:none;border:0;padding:0;color:var(--blue);cursor:pointer;text-decoration:underline;text-underline-offset:3px;font:inherit;text-align:left}
 .cmap .ev{font-size:12px;color:var(--dim)}
 .cmap .note{font-size:12px;color:var(--dim)}
@@ -182,7 +220,12 @@ const base = `${explorer}/data`
 @media (max-width:760px){
   .cmap .kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 18px}
   .cmap .breaks{grid-template-columns:minmax(0,1fr);gap:22px}
-  .cmap .detail{grid-template-columns:minmax(0,1fr)}
+  .cmap .cols{grid-template-columns:minmax(0,1fr)}
+  .cmap .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cmap .st:nth-child(3){padding-left:0;border-left:0}
+  .cmap .detail{padding:4px 12px 0}
+  .cmap .hlist li{grid-template-columns:40px minmax(0,1fr) 70px}
+  .cmap .hlist .hs{display:none}
   .cmap .hide-s{display:none}
   .cmap .fbtn,.cmap .seg button{min-height:44px}
 }
@@ -198,6 +241,10 @@ const BASE = root.dataset.base
 const $ = id => document.getElementById(id)
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
 const FAMILY = new Map(COMPANY_SECTOR_TAGS.map(t => [t.tag, t.family]))
+// Sector badges reuse the dataset theme colours (global.css .theme-tag), as the funding dashboard does.
+const THEME = { agriculture: 'AGRI', 'food-and-drink': 'REGI', manufacturing: 'ECON', 'mining-and-minerals': 'JUST', energy: 'ENER',
+  'construction-and-property': 'GOVE', trade: 'SOCI', 'tourism-and-leisure': 'INTR', 'transport-and-logistics': 'TRAN', finance: 'EDUC',
+  technology: 'TECH', health: 'HEAL', services: 'ENVI' }
 const tagLabel = t => COMPANY_SECTOR_BY_TAG.get(t)?.label ?? t
 const OWNER = { listed: 'Listed', state_owned: 'State-owned', family_group: 'Family group', foreign_multinational: 'Foreign multinational',
   private_local: 'Private (local)', private: 'Private', joint_venture: 'Joint venture', listed_elsewhere: 'Listed abroad', unknown: 'Not known', '': 'Not known' }
@@ -448,7 +495,7 @@ function drawRows(list) {
   if (!list.length) { body.innerHTML = '<tr><td colspan="6" class="empty">No companies match these filters.</td></tr>'; $('more').hidden = true; return }
   body.innerHTML = list.slice(0, shown).map(r => {
     const grp = r.is_group_head ? (r.group_companies > 1 ? `Group of ${r.group_companies} companies` : (OWNER[r.ownership] ?? '')) : `${REL[r.relation_to_group] ?? 'Member'} of ${esc(r.group_name)}`
-    const tags = tagsOf(r).slice(0, 2).map(t => `<span class="tag">${esc(tagLabel(t))}</span>`).join('')
+    const tags = tagsOf(r).slice(0, 2).map(badge).join('')
     const row = `<tr class="r${openId === r.company_id ? ' open' : ''}" data-id="${esc(r.company_id)}" tabindex="0" aria-expanded="${openId === r.company_id}">
       <td><span class="nm">${esc(r.name)}</span>${r.cse_symbol ? `<span class="sym">${esc(r.cse_symbol.split('.')[0])}</span>` : ''}<span class="grp-n">${grp}</span></td>
       <td class="hide-s">${tags || '<span class="dash">–</span>'}</td>
@@ -462,48 +509,134 @@ function drawRows(list) {
   $('more').textContent = `Show more (${(list.length - shown).toLocaleString('en')} left)`
 }
 
+/* ---------- detail ---------- */
+// Holdings: what this company holds directly, and (for a group head) every company in its group.
+const KIND = { holding: 'Subsidiary', other_group_holding: 'Stake', member_of_group: 'Member', member_per_web_sources: 'Member',
+  associate: 'Associate', joint_venture: 'Joint venture', investment_not_consolidated: 'Investment', former_holding: 'Former', major_shareholder: 'Shareholding' }
+const KIND_GROUP = k => k === 'associate' || k === 'joint_venture' ? 'aj' : k === 'former_holding' ? 'former' : k === 'major_shareholder' || k === 'investment_not_consolidated' || k === 'other_group_holding' ? 'stake' : 'sub'
+let hold = { id: null, q: '', kind: 'all' }
+
+function badge(t) {
+  const fam = FAMILY.get(t)
+  return `<span class="theme-tag" ${THEME[fam] ? `data-theme="${THEME[fam]}"` : ''} title="${esc(COMPANY_SECTOR_FAMILIES[fam] ?? '')}">${esc(tagLabel(t))}</span>`
+}
+
+/** Path up the ownership tree: this company, its largest holder, that holder's, … to the group head. */
+function chainOf(r) {
+  const path = [], seen = new Set([r.company_id])
+  let cur = r.company_id
+  for (let i = 0; i < 8; i++) {
+    const up = (RELS.to.get(cur) ?? []).filter(x => x.type === 'holding' || x.type === 'member_of_group' || x.type === 'member_per_web_sources')
+      .sort((a, b) => (b.direct_pct ?? -1) - (a.direct_pct ?? -1))[0]
+    if (!up || seen.has(up.from_id)) break
+    path.push(up); seen.add(up.from_id); cur = up.from_id
+  }
+  return path
+}
+
+function holdingsOf(r) {
+  const direct = (RELS.from.get(r.company_id) ?? []).filter(x => x.type !== 'named_in_report')
+  const map = new Map(direct.map(x => [x.to_id, { id: x.to_id, name: x.to_name, pct: x.direct_pct, kind: x.type, direct: true }]))
+  if (r.is_group_head) for (const m of ROWS) if (m.group_id === r.company_id && m.company_id !== r.company_id && !map.has(m.company_id))
+    map.set(m.company_id, { id: m.company_id, name: m.name, pct: null, kind: m.relation_to_group === 'subsidiary' ? 'holding' : m.relation_to_group, direct: false })
+  return [...map.values()].map(h => ({ ...h, row: BYID.get(h.id) }))
+    .sort((a, b) => (b.row?.revenue_lkr ?? -1) - (a.row?.revenue_lkr ?? -1) || (b.pct ?? -1) - (a.pct ?? -1) || a.name.localeCompare(b.name))
+}
+
+function holdingsList(r) {
+  const all = holdingsOf(r)
+  const q = hold.id === r.company_id ? hold.q.toLowerCase() : ''
+  const kind = hold.id === r.company_id ? hold.kind : 'all'
+  const counts = { all: all.length, sub: 0, aj: 0, stake: 0, former: 0 }
+  for (const h of all) counts[KIND_GROUP(h.kind)]++
+  const shownH = all.filter(h => (kind === 'all' || KIND_GROUP(h.kind) === kind) &&
+    (!q || (h.name + ' ' + (h.row?.sector_tags ?? '') + ' ' + (h.row?.country ?? '')).toLowerCase().includes(q)))
+  const tabs = [['all', 'All'], ['sub', 'Subsidiaries'], ['aj', 'Associates & JVs'], ['stake', 'Other stakes'], ['former', 'Former']]
+    .filter(([k]) => k === 'all' || counts[k]).map(([k, l]) => `<button type="button" data-hkind="${k}" aria-pressed="${kind === k}">${l} <span>${counts[k]}</span></button>`).join('')
+  const items = shownH.map(h => {
+    const m = h.row, abroad = m?.country && m.country !== 'Sri Lanka'
+    return `<li><span class="p">${h.pct !== null ? h.pct + '%' : ''}</span>
+      <span class="hn">${BYID.has(h.id) ? `<button type="button" class="linkbtn" data-goto="${esc(h.id)}">${esc(h.name)}</button>` : esc(h.name)}
+        <span class="hm">${esc(KIND[h.kind] ?? h.kind)}${h.direct ? '' : ' · via group'}${abroad ? ' · ' + esc(m.country) : ''}</span></span>
+      <span class="hs">${m ? tagsOf(m).slice(0, 1).map(badge).join('') : ''}</span>
+      <span class="hr">${m?.revenue_lkr != null ? fmtLkr(m.revenue_lkr) : ''}</span></li>`
+  }).join('')
+  return `<div class="holds" data-holds="${esc(r.company_id)}">
+    <div class="htabs" role="group" aria-label="Kind of holding">${tabs}</div>
+    <input type="search" class="hq" placeholder="Search ${all.length} companies" value="${esc(q)}" aria-label="Search holdings">
+    <ul class="hlist">${items || '<li class="note">No holdings match.</li>'}</ul></div>`
+}
+
 function detail(r) {
   const tags = tagsOf(r)
   const ev = SECT ? (SECT.get(r.company_id) ?? []) : null
-  const sectors = tags.length ? tags.map(t => {
+  const sectors = tags.length ? `<ul class="secs">${tags.map(t => {
     const e = ev?.find(x => x.sector === t)
-    return `<p><span class="tag">${esc(tagLabel(t))}</span>${e ? ` <span class="ev">“${esc(e.evidence)}”</span>` : ''}</p>`
-  }).join('') : '<p class="note">No sector tag: the sources give no description of what it does.</p>'
-  const fin = r.revenue_prior_lkr !== null || r.profit_after_tax_lkr !== null
-    ? `<table class="fin"><tr><th></th><th>Latest</th><th>Prior</th><th>Change</th></tr>
+    return `<li>${badge(t)}${e ? `<span class="ev">“${esc(e.evidence)}”</span>` : ''}</li>`
+  }).join('')}</ul>` : '<p class="note">No sector tag: the sources give no description of what it does.</p>'
+  const margin = r.revenue_lkr && r.profit_after_tax_lkr !== null ? r.profit_after_tax_lkr / r.revenue_lkr * 100 : null
+  const perHead = r.revenue_lkr && r.employees ? r.revenue_lkr / r.employees : null
+  const stat = (l, v, s = '') => `<div class="st"><span class="sl">${l}</span><span class="sv">${v}</span>${s ? `<span class="ss">${s}</span>` : ''}</div>`
+  const stats = `<div class="stats">
+    ${stat('Revenue', fmtLkr(r.revenue_lkr), r.revenue_growth_pct !== null ? fmtPct(r.revenue_growth_pct) + ' on last year' : '')}
+    ${stat('Profit after tax', fmtLkr(r.profit_after_tax_lkr), margin !== null ? `${margin.toFixed(1)}% margin` : '')}
+    ${stat('Employees', fmtInt(r.employees), perHead ? fmtLkr(perHead) + ' revenue each' : '')}
+    ${stat('Total assets', fmtLkr(r.total_assets_lkr))}
+  </div>`
+  const fin = r.revenue_prior_lkr !== null || r.profit_after_tax_prior_lkr !== null
+    ? `<table class="fin"><thead><tr><th></th><th>Latest</th><th>Prior</th><th>Change</th></tr></thead><tbody>
        <tr><th>Revenue</th><td>${fmtLkr(r.revenue_lkr)}</td><td>${fmtLkr(r.revenue_prior_lkr)}</td><td>${fmtPct(r.revenue_growth_pct)}</td></tr>
-       <tr><th>Profit after tax</th><td>${fmtLkr(r.profit_after_tax_lkr)}</td><td>${fmtLkr(r.profit_after_tax_prior_lkr)}</td><td>${fmtPct(r.profit_growth_pct)}</td></tr>
-       ${r.total_assets_lkr !== null ? `<tr><th>Total assets</th><td>${fmtLkr(r.total_assets_lkr)}</td><td></td><td></td></tr>` : ''}</table>
+       <tr><th>Profit after tax</th><td>${fmtLkr(r.profit_after_tax_lkr)}</td><td>${fmtLkr(r.profit_after_tax_prior_lkr)}</td><td>${fmtPct(r.profit_growth_pct)}</td></tr></tbody></table>
        <p class="note">${esc([r.revenue_scope === 'group' ? 'Consolidated group figures' : r.revenue_scope === 'company' ? 'This company alone' : '', r.revenue_label ? `revenue line “${r.revenue_label}”` : '', r.period_end ? `year to ${r.period_end}` : ''].filter(Boolean).join(', '))}</p>`
-    : r.revenue_lkr !== null ? `<p>Revenue ${fmtLkr(r.revenue_lkr)} <span class="note">(${esc(r.revenue_basis ?? 'source linked below')})</span></p>` : '<p class="note">No revenue figure in the sources.</p>'
-  const holders = (RELS.to.get(r.company_id) ?? []).filter(x => x.type !== 'named_in_report')
-  const holds = (RELS.from.get(r.company_id) ?? []).filter(x => x.type !== 'named_in_report')
+    : r.revenue_lkr !== null ? `<p class="note">${esc(r.revenue_basis ?? 'Source linked below')}</p>` : '<p class="note">No financial figures in the sources.</p>'
+  const chain = chainOf(r)
   const link = (id, name) => BYID.has(id) ? `<button type="button" class="linkbtn" data-goto="${esc(id)}">${esc(name)}</button>` : esc(name)
-  const relList = (xs, other) => `<ul class="links">${xs.slice(0, 12).map(x => `<li><span class="p">${x.direct_pct !== null ? x.direct_pct + '%' : esc(x.type === 'associate' ? 'assoc.' : x.type === 'joint_venture' ? 'JV' : '')}</span>${link(other(x)[0], other(x)[1])}</li>`).join('')}${xs.length > 12 ? `<li class="note">and ${xs.length - 12} more</li>` : ''}</ul>`
-  const groupBtn = `<button type="button" class="linkbtn" data-group="${esc(r.group_id)}">See all ${r.is_group_head ? r.group_companies : BYID.get(r.group_id)?.group_companies ?? ''} companies in ${esc(r.is_group_head ? r.name : r.group_name)}</button>`
-  const abroad = [r.countries_of_operation && `Operates in: ${esc(r.countries_of_operation)}`, r.export_markets && `Export markets: ${esc(r.export_markets)}`,
-    r.revenue_outside_sri_lanka_lkr !== null && `Revenue from outside Sri Lanka: ${fmtLkr(r.revenue_outside_sri_lanka_lkr)}`, r.foreign_parent && `Foreign holder: ${esc(r.foreign_parent)}`].filter(Boolean)
+  const path = chain.length ? `<ol class="chain">${[...chain].reverse().map(x => `<li>${link(x.from_id, x.from_name)}<span class="p">${x.direct_pct !== null ? 'holds ' + x.direct_pct + '%' : ''}</span></li>`).join('')}<li class="me">${esc(r.name)}</li></ol>` : ''
+  const others = (RELS.to.get(r.company_id) ?? []).filter(x => !['holding', 'member_of_group', 'member_per_web_sources', 'named_in_report'].includes(x.type))
+  const holdsCount = holdingsOf(r).length
+  const abroad = [r.countries_of_operation && ['Operates in', esc(r.countries_of_operation)], r.export_markets && ['Export markets', esc(r.export_markets)],
+    r.revenue_outside_sri_lanka_lkr !== null && ['Revenue from abroad', fmtLkr(r.revenue_outside_sri_lanka_lkr)], r.foreign_parent && ['Foreign holder', esc(r.foreign_parent)],
+    r.foreign_subsidiaries > 0 && ['Foreign subsidiaries', String(r.foreign_subsidiaries)]].filter(Boolean)
   return `<div class="detail">
+    ${stats}
+    <div class="cols">
     <div>
-      ${r.what_it_does ? `<h3>What it does</h3><p>${esc(r.what_it_does)}</p>` : ''}
+      ${r.what_it_does ? `<h3>What it does</h3><p class="what">${esc(r.what_it_does)}</p>` : ''}
       <h3>Sectors</h3>${sectors}
-      <h3>Financials</h3>${fin}
-      ${abroad.length ? `<h3>Abroad</h3>${abroad.map(a => `<p>${a}</p>`).join('')}` : ''}
+      <h3>Two years</h3>${fin}
+      ${abroad.length ? `<h3>Abroad</h3><dl class="kv">${abroad.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>` : ''}
       ${r.financial_notes ? `<p class="note">${esc(r.financial_notes)}</p>` : ''}
+      <h3>Source</h3><p>${r.source_url ? `<a href="${esc(r.source_url)}" rel="noopener nofollow" target="_blank">${esc(r.source_name || 'Source')}</a>` : '<span class="note">Named as a holder in another company’s report.</span>'}${r.registration_no ? ` <span class="note">· Reg. ${esc(r.registration_no)}</span>` : ''}</p>
     </div>
     <div>
-      <h3>Group</h3>
-      <p>${r.is_group_head ? (r.group_companies > 1 ? 'Heads its group.' : 'Standalone in this map.') : `${esc(REL[r.relation_to_group] ?? 'Member')} of ${link(r.group_id, r.group_name)}.`}</p>
-      ${(r.is_group_head ? r.group_companies : 2) > 1 ? `<p>${groupBtn}</p>` : ''}
-      ${holders.length ? `<h3>Held by</h3>${relList(holders, x => [x.from_id, x.from_name])}` : ''}
-      ${holds.length ? `<h3>Holds</h3>${relList(holds, x => [x.to_id, x.to_name])}` : ''}
-      ${r.major_shareholders ? `<h3>Major shareholders</h3><p class="note">${esc(r.major_shareholders)}</p>` : ''}
-      <h3>Source</h3><p>${r.source_url ? `<a href="${esc(r.source_url)}" rel="noopener nofollow" target="_blank">${esc(r.source_name || 'Source')}</a>` : '<span class="note">Named as a holder in another company’s report.</span>'}
-      ${r.registration_no ? ` <span class="note">· Reg. ${esc(r.registration_no)}</span>` : ''}</p>
-    </div></div>`
+      <h3>Ownership</h3>
+      ${path || `<p>${r.is_group_head ? (r.group_companies > 1 ? 'Heads its group: no company holds a majority of it.' : 'Standalone in this map.') : `${esc(REL[r.relation_to_group] ?? 'Member')} of ${link(r.group_id, r.group_name)}.`}</p>`}
+      ${others.length ? `<p class="note">Also held by: ${others.map(x => `${link(x.from_id, x.from_name)}${x.direct_pct !== null ? ` (${x.direct_pct}%)` : ''}`).join(', ')}</p>` : ''}
+      ${r.major_shareholders ? `<p class="note">Major shareholders: ${esc(r.major_shareholders)}</p>` : ''}
+      ${(r.is_group_head ? r.group_companies : 2) > 1 ? `<p><button type="button" class="linkbtn" data-group="${esc(r.group_id)}">Open the whole ${esc(r.is_group_head ? r.name : r.group_name)} group in the table</button></p>` : ''}
+      ${holdsCount ? `<h3>${r.is_group_head ? 'Companies in the group' : 'Holds'} <span class="cnt">${holdsCount}</span></h3>${holdingsList(r)}` : ''}
+    </div></div></div>`
 }
 
+function redrawHoldings(id) {
+  const box = document.querySelector(`.holds[data-holds="${CSS.escape(id)}"]`)
+  if (!box) return
+  const pos = box.querySelector('.hq').selectionStart
+  box.outerHTML = holdingsList(BYID.get(id))
+  const q = document.querySelector(`.holds[data-holds="${CSS.escape(id)}"] .hq`)
+  if (document.activeElement === document.body || pos !== null) { q.focus(); q.setSelectionRange(pos, pos) }
+}
+$('rows').addEventListener('input', e => {
+  if (!e.target.matches('.hq')) return
+  const id = e.target.closest('.holds').dataset.holds
+  hold = { id, q: e.target.value, kind: hold.id === id ? hold.kind : 'all' }
+  redrawHoldings(id)
+})
+
 $('rows').addEventListener('click', e => {
+  const hk = e.target.closest('[data-hkind]')
+  if (hk) { const id = hk.closest('.holds').dataset.holds; hold = { id, q: hold.id === id ? hold.q : '', kind: hk.dataset.hkind }; const box = hk.closest('.holds'); box.outerHTML = holdingsList(BYID.get(id)); return }
+  if (e.target.closest('.holds .hq, .detail')) { if (!e.target.closest('button, a')) return }
   const g = e.target.closest('[data-group]')
   if (g) { F = { ...F, group: g.dataset.group, scope: 'all' }; openId = null; shown = 50; update(); root.scrollIntoView({ behavior: 'smooth' }); return }
   const go = e.target.closest('[data-goto]')
@@ -515,6 +648,7 @@ $('rows').addEventListener('click', e => {
 $('rows').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('tr.r')) { e.preventDefault(); toggle(e.target.dataset.id) } })
 function toggle(id) {
   openId = openId === id ? null : id
+  hold = { id: null, q: '', kind: 'all' }
   drawRows(current)
   document.querySelector(`tr.r[data-id="${CSS.escape(id)}"]`)?.focus()
   if (openId && !SECT) loadSectors()
