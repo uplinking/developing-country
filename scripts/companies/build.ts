@@ -1,4 +1,4 @@
-// Sri Lanka company map → four queryable indicator tables in apps/explore/public/data/.
+// Sri Lanka company map → seven queryable indicator tables in apps/explore/public/data/.
 //   bun scripts/companies/build.ts          write the tables
 //   bun scripts/companies/build.ts --check  fail if they are stale
 //
@@ -18,6 +18,8 @@ const check = process.argv.includes('--check')
 const SRC = new URL('./source/', import.meta.url)
 const OUT = 'apps/explore/public/data'
 const SOURCE_IDS = ['lk-company-map']
+// the price index that puts histories in real terms (research/company-map/pipeline/cpi.py): WDI to 2017, SLDU 2018-22, CCPI from 2023
+const CPI_SOURCES = ['worldbank-wdi-cpi', 'worldbank-sldu-2021-04', 'worldbank-sldu-2023-04', 'worldbank-sldu-2024-04', 'worldbank-sldu-2024-10', 'worldbank-sldu-2026-10', 'dcs-ccpi-2021']
 const VINTAGE = 'Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026'
 const CAVEATS = [
   'Coverage: all 262 companies with ordinary shares on the Colombo Stock Exchange and the companies their annual reports name, plus about 850 large unlisted companies found by web research. Not a census of Sri Lankan companies.',
@@ -108,7 +110,57 @@ const companyFields: IndicatorField[] = [
   f('hq_city', 'Head office city', 'string'), f('major_shareholders', 'Largest shareholders as printed (listed companies only; see lk-company-shareholders)', 'string'),
   f('data_origin', 'Where the row comes from (annual_report, web_research, named_as_holder, …)', 'string'),
   f('status', 'Status', 'string'), f('source_url', 'Source', 'string'), f('source_name', 'Source name', 'string'),
+  // Derived from the full statements (lk-company-financials), latest year, group figures where the report has them.
+  f('industry_kind', 'Kind of business for the ratios (bank, finance_company, insurer, other)', 'string'),
+  pctM('gross_margin_pct', 'Gross margin: gross profit ÷ revenue'), pctM('operating_margin_pct', 'Operating margin: operating profit ÷ revenue'),
+  lkr('ebitda_lkr', 'EBITDA: operating profit plus depreciation and amortisation'),
+  pctM('effective_tax_rate_pct', 'Effective tax rate: income tax ÷ profit before tax'),
+  lkr('staff_costs_lkr', 'Staff costs'), pctM('staff_cost_share_pct', 'Staff costs ÷ revenue'),
+  lkr('borrowings_lkr', 'Borrowings including lease liabilities (not for banks and finance companies)'), lkr('cash_lkr', 'Cash and cash equivalents'),
+  lkr('net_debt_lkr', 'Net debt: borrowings and leases less cash'), pctM('debt_to_equity_pct', 'Debt to equity: borrowings and leases ÷ total equity'),
+  f('interest_cover', 'Interest cover: operating profit ÷ finance costs (times)', 'number', 'measure', { aggregation: 'none' }),
+  f('current_ratio', 'Current ratio: current assets ÷ current liabilities', 'number', 'measure', { aggregation: 'none' }),
+  lkr('operating_cash_flow_lkr', 'Cash from operations'), lkr('capex_lkr', 'Capital spending: purchase of property, plant, equipment and intangibles'),
+  lkr('free_cash_flow_lkr', 'Free cash flow: cash from operations less capital spending'),
+  pctM('cash_conversion_pct', 'Cash conversion: cash from operations ÷ profit after tax'), pctM('capex_to_revenue_pct', 'Capital spending ÷ revenue'),
+  lkr('dividends_paid_lkr', 'Dividends paid in the year'),
+  f('eps_lkr', 'Earnings per share (LKR)', 'number', 'measure', { aggregation: 'none' }),
+  f('dividend_per_share_lkr', 'Dividend per share for the year (LKR)', 'number', 'measure', { aggregation: 'none' }),
+  f('net_assets_per_share_lkr', 'Net assets per share (LKR)', 'number', 'measure', { aggregation: 'none' }),
+  pctM('dividend_payout_pct', 'Dividend payout: dividend per share ÷ earnings per share'),
+  lkrSum('market_cap_lkr', 'Market value on the Colombo Stock Exchange (at the time the company list was taken, November 2026)'),
+  f('share_price_lkr', 'Share price on the CSE (November 2026)', 'number', 'measure', { aggregation: 'none' }),
+  f('pe_ratio', 'Price to earnings: share price ÷ earnings per share', 'number', 'measure', { aggregation: 'none' }),
+  f('pb_ratio', 'Price to book: share price ÷ net assets per share', 'number', 'measure', { aggregation: 'none' }),
+  pctM('dividend_yield_pct', 'Dividend yield: dividend per share ÷ share price'),
+  lkr('loans_lkr', 'Loans and advances (banks and finance companies)'), lkr('deposits_lkr', 'Customer deposits (banks and finance companies)'),
+  pctM('loans_to_deposits_pct', 'Loans ÷ deposits'), pctM('loan_growth_pct', 'Growth in loans, nominal'), pctM('deposit_growth_pct', 'Growth in deposits, nominal'),
+  pctM('npl_ratio_pct', 'Stage 3 or non-performing loan ratio, as reported'), pctM('tier_1_capital_ratio_pct', 'Tier 1 capital ratio, as reported'),
+  pctM('total_capital_ratio_pct', 'Total capital ratio, as reported'), pctM('cost_to_income_pct', 'Cost to income ratio, as reported'),
+  pctM('net_interest_margin_pct', 'Net interest margin, as reported'), pctM('insurance_capital_adequacy_pct', 'Capital adequacy ratio of an insurer, as reported'),
+  pctM('revenue_cagr_5y_pct', 'Revenue growth a year over five years, nominal (from the multi-year summary)'),
+  pctM('revenue_cagr_5y_real_pct', 'Revenue growth a year over five years, real: after consumer price inflation'),
+  int('history_years', 'Years in the multi-year summary'), int('loss_years_in_history', 'Years with a loss in the multi-year summary'),
 ]
+// Two long tables: the year's statements, and the multi-year summary. Rows stay lean (no repeated names or
+// labels) so each file stays well under the 25 MiB static-asset limit; lk-companies has the names.
+const METRICS = 'revenue, cost_of_sales, gross_profit, operating_profit, finance_income, finance_costs, profit_before_tax, income_tax_expense, profit_after_tax, profit_attributable_to_owners, depreciation_and_amortisation, staff_costs, total_assets, current_assets, inventories, trade_and_other_receivables, cash_and_cash_equivalents, total_liabilities, current_liabilities, borrowings_current, borrowings_non_current, lease_liabilities, total_equity, equity_attributable_to_owners, cash_from_operating_activities, cash_from_investing_activities, cash_from_financing_activities, purchase_of_ppe_and_intangibles, dividends_paid, interest_paid, tax_paid, interest_income, net_interest_income, loans_and_advances, customer_deposits, gross_written_premium, basic_eps, dividend_per_share, net_assets_per_share, market_price_year_end, shares_in_issue, market_capitalisation, stage_3_or_npl_ratio_pct, tier_1_capital_ratio_pct, total_capital_ratio_pct, cost_to_income_ratio_pct, net_interest_margin_pct, capital_adequacy_margin_pct, employees, revenue_outside_sri_lanka, revenue_by_region, and more'
+const finCommon = (extra: IndicatorField[]): IndicatorField[] => [
+  f('id', 'Row id', 'string'), f('company_id', 'Company id (name and more in lk-companies)', 'string'), f('cse_symbol', 'CSE symbol', 'string'),
+  f('basis', 'Statements (group = consolidated, company = the company alone)', 'string'),
+  f('year_end', 'Financial year end', 'string'), int('fiscal_year', 'Calendar year of the year end'),
+  ...extra,
+  f('value', 'Value', 'number', 'measure', { aggregation: 'none' }),
+  f('unit', 'Unit (LKR, LKR per share, %, people, shares)', 'string'),
+  f('check', 'Check: on_page (printed on the cited page) or sum_on_page (the sum of lines printed there)', 'string'),
+  int('page', 'Page in the annual report (PDF page)'), f('source_url', 'Source', 'string'),
+]
+const finFields = finCommon([f('metric', 'Line (revenue, operating_profit, borrowings_current, basic_eps, …; the full list is in the notes)', 'string'), f('region', 'Region (revenue_by_region only)', 'string')])
+const histFields = finCommon([f('metric', 'Line: revenue, profit_before_tax, profit_after_tax, total_assets, total_equity, borrowings, basic_eps, dividend_per_share, employees', 'string')])
+  .flatMap(fd => fd.id === 'value' ? [fd,
+    f('value_real', 'Value in rupees of the company\'s latest financial year (deflated by the consumer price index)', 'number', 'measure', { aggregation: 'none' }),
+    f('price_index', 'Consumer price index, average over this financial year (2021 = 100)', 'number', 'measure', { aggregation: 'none' })] : [fd])
+const finId = (r: Json) => [r.cse_symbol, r.basis[0], r.year_end, r.metric, r.region].filter(Boolean).join('|')
 const sectorFields: IndicatorField[] = [
   f('id', 'Row id', 'string'), f('company_id', 'Company id', 'string'), f('name', 'Company', 'string'), f('group_name', 'Group', 'string'),
   f('sector', 'Sector', 'string'), f('sector_family', 'Broad sector', 'string'), f('primary', 'Is the company\'s main sector', 'boolean'),
@@ -149,11 +201,11 @@ const holderFields: IndicatorField[] = [
   pctM('pct', 'Stake'), f('source_url', 'Source', 'string'),
 ]
 
-const [companies, sectors, rels, segs, holders] = await Promise.all(['companies.json', 'company_sectors.json', 'relationships.json', 'segments.json', 'shareholders.json'].map(load))
+const [companies, sectors, rels, segs, holders, fins] = await Promise.all(['companies.json', 'company_sectors.json', 'relationships.json', 'segments.json', 'shareholders.json', 'company_financials.json'].map(load))
 const withId = (rows: Json[], key: (r: Json, i: number) => string) => rows.map((r, i) => ({ id: key(r, i), ...r }))
 
 const tables = [
-  parseIndicatorTable({ ...common, source_ids: [...SOURCE_IDS, 'dcs-ccpi-2021'], dataset_id: 'lk-companies', title: 'Sri Lankan companies and groups',
+  parseIndicatorTable({ ...common, source_ids: [...SOURCE_IDS, ...CPI_SOURCES], dataset_id: 'lk-companies', title: 'Sri Lankan companies and groups',
     grain: 'One row per company: listed companies, the companies their annual reports name, and large unlisted companies.',
     primary_key: ['company_id'], fields: companyFields, rows: typed(companies, companyFields),
     notes: [
@@ -183,6 +235,23 @@ const tables = [
       'Seven companies have voting and non-voting shares and print a shareholder list for each: share_class says which, and a stake is a percentage of that class, so a company\'s stakes can add up to more than 100%. The largest shareholder in lk-companies counts voting shares only.',
       'holder_type is assigned from the name and is not checked against company registries.',
     ] }),
+  parseIndicatorTable({ ...common, dataset_id: 'lk-company-financials', title: 'Company financial statements',
+    grain: 'One row per listed company, statements (group or company), year end and line, for the latest and prior year: income statement, balance sheet, cash flow, per-share figures, reported ratios and revenue by region.',
+    primary_key: ['id'], fields: finFields, rows: typed(fins.filter(r => r.source === 'statements').map(r => ({ ...r, id: finId(r) })), finFields),
+    notes: [
+      'Amounts are in LKR (converted from the report\'s thousands or millions; US dollar reports at LKR 300). Expenses, outflows and losses are negative, as printed in brackets.',
+      'Every value was checked against the report: it is printed on the cited page or is the sum of lines printed there (check). Values that failed the check are left out.',
+      `Lines (metric): ${METRICS}.`,
+      'Bank and insurer lines (net interest income, loans and advances, deposits, premiums) are empty for other companies, and the reverse. Ratios built from these lines (margins, net debt, interest cover, cash conversion, payout, P/E) are columns in lk-companies.',
+    ] }),
+  parseIndicatorTable({ ...common, source_ids: [...SOURCE_IDS, ...CPI_SOURCES], dataset_id: 'lk-company-history', title: 'Company financial history',
+    grain: 'One row per listed company, year end and line from the five or ten-year summary in its latest annual report.',
+    primary_key: ['id'], fields: histFields, rows: typed(fins.filter(r => r.source === 'multi_year_summary').map(r => ({ ...r, id: finId(r) })), histFields),
+    notes: [
+      'Amounts are in LKR, converted from the summary\'s own unit. Values are as printed in the summary, which may be restated or rounded differently from the statements of each year.',
+      'value is in rupees of that year (nominal). value_real is in rupees of the company\'s latest financial year: value × price index of the latest year ÷ price index of that year. The index averages the consumer price index over each financial year (a year to March takes nine months of one calendar year and three of the next). It chains the World Bank WDI index (to 2017), the inflation reported in the World Bank Sri Lanka Development Update (2018 to 2022, the official Colombo CPI) and the Colombo Consumer Price Index annual averages (from 2023).',
+      'Every value was checked against the summary page in the report; values that failed the check are left out.',
+    ] }),
 ]
 
 for (const s of sectors) if (!COMPANY_SECTOR_BY_TAG.has(s.sector)) throw new Error(`unknown sector tag: ${s.sector}`)
@@ -205,4 +274,4 @@ for (const t of tables) {
   await rename(`${path}.tmp`, path)
 }
 if (check && stale) process.exit(1)
-console.log(`companies: ${companies.length} companies (${heads.size} groups), ${sectors.length} sector tags, ${rels.length} links, ${segs.length} segments, ${holders.length} shareholdings${check ? '' : `; wrote ${stale} file(s)`}`)
+console.log(`companies: ${companies.length} companies (${heads.size} groups), ${sectors.length} sector tags, ${rels.length} links, ${segs.length} segments, ${holders.length} shareholdings, ${fins.length} financial figures${check ? '' : `; wrote ${stale} file(s)`}`)

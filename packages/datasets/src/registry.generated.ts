@@ -95,6 +95,8 @@ export const GENERATED_INDICATOR_DATASET_REGISTRY = [
   { id: "lk-company-relationships", title: "Company ownership", label: "Company ownership", themeIds: ["ECON","INTR"], defaultPresetId: "largest-holdings" },
   { id: "lk-company-segments", title: "Company operating segments", label: "Company segments", themeIds: ["ECON","INTR"], defaultPresetId: "largest-segments" },
   { id: "lk-company-shareholders", title: "Company shareholders", label: "Company shareholders", themeIds: ["ECON","INTR"], defaultPresetId: "largest-state-stakes" },
+  { id: "lk-company-financials", title: "Company financial statements", label: "Company financials", themeIds: ["ECON","INTR"], defaultPresetId: "largest-borrowers" },
+  { id: "lk-company-history", title: "Company financial history", label: "Company history", themeIds: ["ECON","INTR"], defaultPresetId: "ten-year-revenue" },
   { id: "electricity-generation-quarter-hourly", title: "Electricity generation and battery power", label: "Generation and battery power", themeIds: ["ENER"], defaultPresetId: "battery-power" },
   { id: "electricity-generation-daily", title: "Daily electricity generation", label: "Daily generation", themeIds: ["ENER"], defaultPresetId: "generation-by-group" },
   { id: "census-age-sex-dsd", title: "Population by age and sex", label: "Population by DSD", themeIds: ["SOCI","REGI"], defaultPresetId: "largest-divisions" },

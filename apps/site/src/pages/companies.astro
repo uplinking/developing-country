@@ -196,6 +196,58 @@ const base = `${explorer}/data`
 .cmap .st .sv{display:block;font:500 20px/1.2 var(--mono);margin-top:8px}
 .cmap .st .ss{display:block;font:500 11px/1.4 var(--mono);color:var(--dim);margin-top:4px}
 .cmap .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 44px}
+/* detail tabs: Figures (default) and Ownership */
+.cmap .dtabs{display:flex;gap:0;margin:14px 0 4px;border-bottom:1px solid var(--ink)}
+.cmap .dtabs button{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid transparent;border-bottom:0;border-radius:2px 2px 0 0;padding:11px 16px 10px;cursor:pointer;color:var(--dim);margin-bottom:-1px}
+.cmap .dtabs button[aria-selected="true"]{color:var(--ink);background:var(--raised);border-color:var(--ink);box-shadow:inset 0 3px 0 var(--teal)}
+.cmap .dtabs button:hover{color:var(--ink)}
+.cmap .dtabs button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.cmap .own{margin:16px 0 0;max-width:860px}
+.cmap .loading{margin:18px 0}
+/* history: small multiples, one measure each */
+.cmap .hgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 28px;margin:6px 0 4px}
+.cmap .hpanel{min-width:0}
+.cmap .hl{margin:0;font:500 10.5px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.cmap .hv{margin:4px 0 8px;font:500 17px/1.2 var(--mono)}
+.cmap .hv .hs{display:block;font-size:10.5px;color:var(--dim);margin-top:3px}
+.cmap svg.mini{display:block;width:100%;height:78px;overflow:visible}
+.cmap svg.mini rect{fill:var(--quiet)}
+.cmap svg.mini rect.last{fill:var(--teal)}
+.cmap svg.mini rect.neg{fill:var(--down)}
+.cmap svg.mini .base{stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke}
+.cmap .miniax{display:flex;justify-content:space-between;font:500 10px/1 var(--mono);color:var(--dim);margin-top:4px}
+/* ratios against the sector */
+.cmap .ratios{border-collapse:collapse;width:100%;font:500 12.5px/1.4 var(--mono)}
+.cmap .ratios th,.cmap .ratios td{padding:7px 14px 7px 0;border-bottom:1px solid var(--hair2);text-align:right;white-space:nowrap}
+.cmap .ratios tbody th{text-align:left;font:400 14px/1.35 var(--sans);white-space:normal}
+.cmap .ratios thead th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-weight:500}
+.cmap .ratios .v{font-weight:700}
+.cmap .ratios .m,.cmap .ratios .k{color:var(--dim)}
+.cmap .ratios .s{width:140px;padding-right:0}
+.cmap svg.strip{display:block;width:120px;height:14px}
+.cmap svg.strip line{stroke:var(--hair);stroke-width:1}
+.cmap svg.strip .med{stroke:var(--ink);stroke-width:1.5}
+.cmap svg.strip .peer{fill:var(--quiet)}
+.cmap svg.strip .me{fill:var(--teal);stroke:var(--raised);stroke-width:1.5}
+.cmap .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+/* shares of revenue: segments and regions */
+.cmap .shares{list-style:none;margin:0;padding:0}
+.cmap .shares li{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(60px,1fr) 40px;gap:2px 10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--hair2)}
+.cmap .shares .sn{font-size:14px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cmap .shares .sb{height:8px;background:var(--hair2);border-radius:1px}
+.cmap .shares .sb i{display:block;height:100%;background:var(--teal);border-radius:1px}
+.cmap .shares .sp{font:600 12px/1 var(--mono);text-align:right}
+.cmap .shares .sx{grid-column:1 / -1;font:500 10.5px/1.3 var(--mono);color:var(--dim)}
+/* the accounts: collapsed by default */
+.cmap .accts{margin-top:8px}
+.cmap .accts summary{cursor:pointer;list-style:none}
+.cmap .accts summary::-webkit-details-marker{display:none}
+.cmap .accts summary h3::after{content:' ▸';color:var(--dim)}
+.cmap .accts[open] summary h3::after{content:' ▾'}
+.cmap .accts .fin{width:100%}
+.cmap .accts .fin tr.sec th{padding-top:16px;color:var(--ink);border-bottom:1px solid var(--hair)}
+.cmap .accts .fin tbody th{text-transform:none;font:400 13px/1.35 var(--sans);letter-spacing:0;color:var(--ink)}
+.cmap .accts .fin a{color:var(--dim)}
 /* ownership web: owners left, the centre company, what it holds right */
 .cmap .web{margin:22px 0 4px;padding-top:2px;border-top:1px solid var(--hair)}
 .cmap .webhd{display:flex;justify-content:space-between;align-items:baseline;gap:6px 16px;flex-wrap:wrap}
@@ -285,6 +337,9 @@ const base = `${explorer}/data`
   .cmap .breaks{grid-template-columns:minmax(0,1fr);gap:22px}
   .cmap .cols{grid-template-columns:minmax(0,1fr)}
   .cmap .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cmap .hgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cmap .ratios .s,.cmap .ratios .k{display:none}
+  .cmap .accts .fin td:nth-child(4),.cmap .accts .fin th:nth-child(4){display:none}
   .cmap .st:nth-child(3){padding-left:0;border-left:0}
   .cmap .detail{padding:4px 12px 0}
   .cmap .hlist li{grid-template-columns:40px minmax(0,1fr) 70px}
@@ -297,6 +352,7 @@ const base = `${explorer}/data`
 <script>
 // @ts-nocheck -- plain DOM code; the filtering rules it relies on are typed and tested in src/lib/companyFilter.ts.
 import { COMPANY_SECTOR_FAMILIES, COMPANY_SECTOR_TAGS, COMPANY_SECTOR_BY_TAG } from '@developing-country/datasets/company-sectors'
+import * as FIG from '../lib/companyFigures'
 import { ABROAD_KEYS, ABROAD_LABEL, EMPTY_FILTER, countBy, ownershipOf, filterToParams, matches, parseFilter, searchText, sortRows, summarize, tagsOf, toQuery } from '../lib/companyFilter'
 
 const root = document.getElementById('cmap')
@@ -814,64 +870,219 @@ function redrawWeb(focusCentre) {
   if (focusCentre) document.querySelector('.web [data-webc]')?.focus({ preventScroll: true })
 }
 
-function detail(r) {
+/* ---------- detail: Figures and Ownership tabs ---------- */
+let dtab = { id: null, tab: 'figures' }
+const stat = (l, v, sub = '') => `<div class="st"><span class="sl">${l}</span><span class="sv">${v}</span>${sub ? `<span class="ss">${sub}</span>` : ''}</div>`
+const linkTo = (id, name) => BYID.has(id) ? `<button type="button" class="linkbtn" data-goto="${esc(id)}">${esc(name)}</button>` : esc(name)
+
+function headline(r) {
+  return `<div class="stats">
+    ${stat(KIND_LABEL[r.revenue_kind] ?? 'Revenue', fmtLkr(r.revenue_lkr), r.revenue_growth_nominal_pct !== null ? `${fmtPct(r.revenue_growth_real_pct)} real · ${fmtPctPlain(r.revenue_growth_nominal_pct)} nominal` : (revenueNote(r) || ''))}
+    ${stat('Net profit (after tax)', fmtLkr(r.profit_after_tax_lkr), r.net_profit_margin_pct !== null ? `${r.net_profit_margin_pct.toFixed(1)}% net profit margin` : (r.pretax_margin_pct !== null ? `${r.pretax_margin_pct.toFixed(1)}% pre-tax margin` : ''))}
+    ${stat('Return on equity', r.return_on_equity_pct !== null ? r.return_on_equity_pct.toFixed(1) + '%' : '–', r.equity_to_assets_pct !== null ? `equity is ${r.equity_to_assets_pct.toFixed(0)}% of assets` : (r.total_equity_lkr !== null && r.total_equity_lkr < 0 ? 'equity is negative' : ''))}
+    ${r.market_cap_lkr !== null ? stat('Market value', fmtLkr(r.market_cap_lkr), r.pe_ratio !== null ? `${r.pe_ratio.toFixed(1)} times earnings` : '') : stat('Employees', fmtInt(r.employees), r.revenue_per_employee_lkr ? fmtLkr(r.revenue_per_employee_lkr) + ' revenue per employee' : '')}
+  </div>`
+}
+
+function aboutBlock(r) {
   const tags = tagsOf(r)
   const ev = SECT ? (SECT.get(r.company_id) ?? []) : null
   const sectors = tags.length ? `<ul class="secs">${tags.map(t => {
     const e = ev?.find(x => x.sector === t)
     return `<li>${badge(t)}${e ? `<span class="ev">“${esc(e.evidence)}”</span>` : ''}</li>`
   }).join('')}</ul>` : '<p class="note">No sector yet. The sources do not say what this company does.</p>'
-
-  const stat = (l, v, s = '') => `<div class="st"><span class="sl">${l}</span><span class="sv">${v}</span>${s ? `<span class="ss">${s}</span>` : ''}</div>`
-  const stats = `<div class="stats">
-    ${stat(KIND_LABEL[r.revenue_kind] ?? 'Revenue', fmtLkr(r.revenue_lkr), r.revenue_growth_nominal_pct !== null ? `${fmtPct(r.revenue_growth_real_pct)} real · ${fmtPctPlain(r.revenue_growth_nominal_pct)} nominal` : (revenueNote(r) || ''))}
-    ${stat('Net profit (after tax)', fmtLkr(r.profit_after_tax_lkr), r.net_profit_margin_pct !== null ? `${r.net_profit_margin_pct.toFixed(1)}% net profit margin` : (r.pretax_margin_pct !== null ? `${r.pretax_margin_pct.toFixed(1)}% pre-tax margin` : ''))}
-    ${stat('Return on equity', r.return_on_equity_pct !== null ? r.return_on_equity_pct.toFixed(1) + '%' : '–', r.equity_to_assets_pct !== null ? `equity is ${r.equity_to_assets_pct.toFixed(0)}% of assets` : (r.total_equity_lkr !== null && r.total_equity_lkr < 0 ? 'equity is negative' : ''))}
-    ${stat('Employees', fmtInt(r.employees), r.revenue_per_employee_lkr ? fmtLkr(r.revenue_per_employee_lkr) + ' revenue per employee' : '')}
-  </div>`
-  const fin = r.revenue_prior_lkr !== null || r.profit_after_tax_prior_lkr !== null
-    ? `<table class="fin"><thead><tr><th></th><th>Latest year</th><th>Year before</th><th>Change</th></tr></thead><tbody>
-       <tr><th>${esc(KIND_LABEL[r.revenue_kind] ?? 'Revenue')}</th><td>${fmtLkr(r.revenue_lkr)}</td><td>${fmtLkr(r.revenue_prior_lkr)}</td><td>${fmtPct(r.revenue_growth_nominal_pct)}</td></tr>
-       ${r.revenue_growth_real_pct !== null ? `<tr><th>…after inflation</th><td></td><td></td><td>${fmtPct(r.revenue_growth_real_pct)}</td></tr>` : ''}
-       <tr><th>Profit before tax</th><td>${fmtLkr(r.profit_before_tax_lkr)}</td><td>${fmtLkr(r.profit_before_tax_prior_lkr)}</td><td></td></tr>
-       <tr><th>Profit after tax</th><td>${fmtLkr(r.profit_after_tax_lkr)}</td><td>${fmtLkr(r.profit_after_tax_prior_lkr)}</td><td>${fmtPct(r.profit_after_tax_growth_pct)}</td></tr>
-       <tr><th>Total equity</th><td>${fmtLkr(r.total_equity_lkr)}</td><td>${fmtLkr(r.total_equity_prior_lkr)}</td><td></td></tr>
-       ${r.total_assets_lkr !== null ? `<tr><th>Total assets</th><td>${fmtLkr(r.total_assets_lkr)}</td><td></td><td></td></tr>` : ''}
-       ${r.employees_prior !== null ? `<tr><th>Employees</th><td>${fmtInt(r.employees)}</td><td>${fmtInt(r.employees_prior)}</td><td></td></tr>` : ''}</tbody></table>
-       ${r.inflation_pct !== null ? `<p class="note">Change columns are nominal (in rupees, as reported). Inflation over this financial year was ${fmtPctPlain(r.inflation_pct)} (average Colombo Consumer Price Index), so real revenue growth was ${fmtPctPlain(r.revenue_growth_real_pct)}.</p>` : ''}
-       ${r.revenue_growth_note ? `<p class="note warn">Revenue ${esc(r.revenue_growth_note)}.</p>` : ''}
-       <p class="note">${esc([r.revenue_scope === 'group' ? 'Whole group (consolidated)' : r.revenue_scope === 'company' ? 'This company only' : '', r.revenue_label ? `revenue shown in the report as “${r.revenue_label}”` : '', r.period_end ? `year to ${fmtDate(r.period_end)}` : ''].filter(Boolean).join(', '))}</p>`
-    : r.revenue_lkr !== null ? `<p class="note">${esc(basisText(r.revenue_basis))}</p>` : '<p class="note">No financial figures in the sources.</p>'
-  const chain = chainOf(r)
-  const link = (id, name) => BYID.has(id) ? `<button type="button" class="linkbtn" data-goto="${esc(id)}">${esc(name)}</button>` : esc(name)
-  const path = chain.length ? `<ol class="chain">${[...chain].reverse().map(x => `<li>${link(x.from_id, x.from_name)}<span class="p">${x.direct_pct !== null ? 'owns ' + x.direct_pct + '%' : ''}</span></li>`).join('')}<li class="me">${esc(r.name)}</li></ol>` : ''
-  const others = (RELS.to.get(r.company_id) ?? []).filter(x => !['holding', 'member_of_group', 'member_per_web_sources', 'named_in_report'].includes(x.type))
-  const holdsCount = holdingsOf(r).length
   const abroad = [r.countries_of_operation && ['Operates in', esc(r.countries_of_operation)], r.export_markets && ['Export markets', esc(r.export_markets)],
     r.revenue_outside_sri_lanka_lkr !== null && ['Revenue from outside Sri Lanka', fmtLkr(r.revenue_outside_sri_lanka_lkr)], r.foreign_parent && ['Foreign parent or shareholder', esc(r.foreign_parent)],
     r.foreign_subsidiaries > 0 && ['Overseas subsidiaries', String(r.foreign_subsidiaries)]].filter(Boolean)
-  return `<div class="detail">
-    ${stats}
-    ${webBox(r)}
-    <div class="cols">
-    <div>
-      ${r.what_it_does ? `<h3>What it does</h3><p class="what">${esc(r.what_it_does)}</p>` : ''}
-      <h3>Sectors</h3>${sectors}
-      <h3>Revenue and profit</h3>${fin}
-      ${abroad.length ? `<h3>Exports and overseas operations</h3><dl class="kv">${abroad.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>` : ''}
+  return `<div class="cols">
+    <div>${r.what_it_does ? `<h3>What it does</h3><p class="what">${esc(r.what_it_does)}</p>` : ''}<h3>Sectors</h3>${sectors}</div>
+    <div>${abroad.length ? `<h3>Exports and overseas operations</h3><dl class="kv">${abroad.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>` : ''}
       ${r.financial_notes ? `<h3>Notes on the figures</h3><p class="note">${esc(r.financial_notes)}</p>` : ''}
-      <h3>Source</h3><p>${r.source_url ? `<a href="${esc(r.source_url)}" rel="noopener nofollow" target="_blank">${esc(r.source_name || 'Source')}</a>` : '<span class="note">Named as a shareholder in another company’s annual report.</span>'}${r.registration_no ? ` <span class="note">· Reg. no. ${esc(r.registration_no)}</span>` : ''}</p>
+      <h3>Source</h3><p>${r.source_url ? `<a href="${esc(r.source_url)}" rel="noopener nofollow" target="_blank">${esc(r.source_name || 'Source')}</a>` : '<span class="note">Named as a shareholder in another company’s annual report.</span>'}${r.registration_no ? ` <span class="note">· Reg. no. ${esc(r.registration_no)}</span>` : ''}</p></div>
+  </div>`
+}
+
+/* charts: small multiples of one measure each, never two scales on one chart */
+function miniBars(points, { per = false } = {}) {
+  if (points.length < 2) return '<p class="note">Fewer than two years printed.</p>'
+  const W = 240, H = 78, gap = 3, n = points.length, bw = (W - gap * (n - 1)) / n
+  const max = Math.max(0, ...points.map(p => p.value)), min = Math.min(0, ...points.map(p => p.value))
+  const span = max - min || 1, zero = H * max / span
+  const bars = points.map((p, i) => {
+    const h = Math.max(1, Math.abs(p.value) / span * H), y = p.value >= 0 ? zero - h : zero
+    const label = `${p.year}: ${per ? 'LKR ' + p.value.toFixed(2) : fmtLkr(p.value).replace(/<[^>]+>/g, '')}`
+    return `<rect x="${(i * (bw + gap)).toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="1.5" class="${p.value < 0 ? 'neg' : ''}${i === n - 1 ? ' last' : ''}"><title>${esc(label)}</title></rect>`
+  }).join('')
+  return `<svg class="mini" viewBox="0 0 ${W} ${H + 1}" preserveAspectRatio="none" role="img" aria-label="${esc(points.map(p => `${p.year} ${per ? p.value.toFixed(2) : Math.round(p.value)}`).join(', '))}">
+    <line x1="0" x2="${W}" y1="${zero.toFixed(1)}" y2="${zero.toFixed(1)}" class="base"/>${bars}</svg>
+    <div class="miniax"><span>${points[0].year}</span><span>${points[n - 1].year}</span></div>`
+}
+
+function historyGrid(r, rows, basis) {
+  const lender = r.industry_kind === 'bank' || r.industry_kind === 'finance_company'
+  const panels = [
+    ['revenue', KIND_LABEL[r.revenue_kind] ?? 'Revenue'], ['profit_after_tax', 'Profit after tax'],
+    [lender ? 'total_assets' : 'total_equity', lender ? 'Total assets' : 'Total equity'], ['dividend_per_share', 'Dividend per share'],
+  ].map(([m, label]) => {
+    const pts = FIG.series(rows, m, basis, { real: true })
+    if (!pts.length) return ''
+    const last = pts[pts.length - 1], per = m === 'dividend_per_share'
+    const growth = m === 'revenue' || m === 'total_equity' || m === 'total_assets'
+    const g = growth ? FIG.cagr(pts) : null
+    const nom = growth ? FIG.cagr(FIG.series(rows, m, basis)) : null
+    return `<div class="hpanel"><p class="hl">${esc(label)}</p>
+      <p class="hv">${per ? 'LKR ' + last.value.toFixed(2) : fmtLkr(last.value)}<span class="hs">${last.year}${g !== null ? ` · ${fmtPct(g)} a year since ${pts[0].year} after inflation${nom !== null ? ` (${fmtPctPlain(nom)} in rupees)` : ''}` : ''}</span></p>
+      ${miniBars(pts, { per })}</div>`
+  }).filter(Boolean)
+  if (!panels.length) return ''
+  return `<h3>Over the years</h3><div class="hgrid">${panels.join('')}</div>
+    <p class="note">In rupees of ${esc(String(FIG.series(rows, 'revenue', basis, { real: true }).at(-1)?.year ?? 'the latest year'))}: each year is adjusted for consumer price inflation, so the bars compare like with like (Sri Lanka’s prices rose about 2.4 times between 2016 and 2026). From the annual report’s multi-year summary and its latest statements.</p>`
+}
+
+const ORD = n => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] ?? 'th')
+function strip(st, v) {
+  const lo = st.values[Math.floor(st.values.length * 0.05)], hi = st.values[Math.ceil(st.values.length * 0.95) - 1]
+  const x = val => 4 + Math.max(0, Math.min(1, (val - lo) / ((hi - lo) || 1))) * 112
+  return `<svg class="strip" viewBox="0 0 120 14" aria-hidden="true"><line x1="4" x2="116" y1="7" y2="7"/>
+    ${st.values.map(val => `<circle cx="${x(val).toFixed(1)}" cy="7" r="1.8" class="peer"/>`).join('')}
+    <line x1="${x(st.median).toFixed(1)}" x2="${x(st.median).toFixed(1)}" y1="2" y2="12" class="med"/>
+    <circle cx="${x(v).toFixed(1)}" cy="7" r="4" class="me"/></svg>`
+}
+
+function ratioTable(r) {
+  const lender = r.industry_kind === 'bank' || r.industry_kind === 'finance_company', insurer = r.industry_kind === 'insurer'
+  const P = (v, d = 1) => v === null || v === undefined ? '–' : `${v.toFixed(d)}%`, X = v => v === null || v === undefined ? '–' : `${v.toFixed(1)}×`
+  const all = lender ? [
+    ['revenue_growth_real_pct', 'Growth in gross income, after inflation', P, 'higher'], ['return_on_equity_pct', 'Return on equity', P, 'higher'],
+    ['npl_ratio_pct', 'Stage 3 (bad) loans', P, 'lower'], ['total_capital_ratio_pct', 'Total capital ratio', P, 'higher'],
+    ['cost_to_income_pct', 'Cost to income', P, 'lower'], ['net_interest_margin_pct', 'Net interest margin', P, 'higher'],
+    ['loans_to_deposits_pct', 'Loans to deposits', P, null], ['loan_growth_pct', 'Loan growth (nominal)', P, 'higher'],
+    ['dividend_yield_pct', 'Dividend yield', P, 'higher'], ['pb_ratio', 'Price to book', v => v === null ? '–' : `${v.toFixed(2)}×`, null],
+  ] : [
+    ['revenue_growth_real_pct', `Growth in ${insurer ? 'premium' : 'revenue'}, after inflation`, P, 'higher'],
+    ['revenue_cagr_5y_real_pct', 'Growth a year over five years, after inflation', P, 'higher'],
+    ...(insurer ? [] : [['gross_margin_pct', 'Gross margin', P, 'higher'], ['operating_margin_pct', 'Operating margin', P, 'higher'], ['net_profit_margin_pct', 'Net profit margin', P, 'higher']]),
+    ['return_on_equity_pct', 'Return on equity', P, 'higher'],
+    ...(insurer ? [['insurance_capital_adequacy_pct', 'Capital adequacy ratio', v => v === null ? '–' : `${v.toFixed(0)}%`, 'higher']] :
+      [['debt_to_equity_pct', 'Debt to equity', P, 'lower'], ['interest_cover', 'Interest cover', X, 'higher'], ['cash_conversion_pct', 'Cash from operations ÷ profit', v => v === null ? '–' : `${v.toFixed(0)}%`, 'higher']]),
+    ['dividend_yield_pct', 'Dividend yield', P, 'higher'], ['pe_ratio', 'Price to earnings', X, null],
+  ]
+  const peers = FIG.peersOf(ROWS, r)
+  const fam = COMPANY_SECTOR_FAMILIES[r.sector_family] ?? 'its sector'
+  const rows = all.map(([field, label, fmt, better]) => {
+    const v = r[field]
+    if (v === null || v === undefined) return ''
+    const st = FIG.peerStats(peers, r, field, better ?? 'higher')
+    return `<tr><th>${esc(label)}</th><td class="v">${fmt(v)}</td>
+      <td class="m">${st ? fmt(st.median) : ''}</td>
+      <td class="k">${st ? (better ? `${ORD(st.rank)} of ${st.n}` : `${st.n} companies`) : ''}</td>
+      <td class="s">${st ? strip(st, v) : ''}</td></tr>`
+  }).join('')
+  if (!rows) return ''
+  return `<h3>Against other listed companies in ${esc(lender ? 'banking and finance' : fam.toLowerCase())}</h3>
+    <table class="ratios"><thead><tr><th></th><th>This company</th><th class="m">Median</th><th class="k">Rank</th><th class="s"><span class="sr">Spread</span></th></tr></thead><tbody>${rows}</tbody></table>
+    <p class="note">Rank 1 is the best on that measure. Dots are the other listed companies; the line is the median.${r.market_cap_lkr !== null ? ' Prices are from the Colombo Stock Exchange in November 2026.' : ''}</p>`
+}
+
+function moneyBlock(r) {
+  const lender = r.industry_kind === 'bank' || r.industry_kind === 'finance_company'
+  const L = v => v === null || v === undefined ? null : fmtLkr(v)
+  const kv = items => { const xs = items.filter(([, v]) => v !== null && v !== undefined && v !== '–'); return xs.length ? `<dl class="kv">${xs.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>` : '' }
+  const value = kv([['Market value', L(r.market_cap_lkr)], ['Share price', r.share_price_lkr !== null ? `LKR ${r.share_price_lkr.toFixed(2)}` : null],
+    ['Earnings per share', r.eps_lkr !== null ? `LKR ${r.eps_lkr.toFixed(2)}` : null], ['Dividend per share', r.dividend_per_share_lkr !== null ? `LKR ${r.dividend_per_share_lkr.toFixed(2)}` : null],
+    ['Dividend payout', r.dividend_payout_pct !== null ? `${r.dividend_payout_pct.toFixed(0)}% of earnings` : null], ['Net assets per share', r.net_assets_per_share_lkr !== null ? `LKR ${r.net_assets_per_share_lkr.toFixed(2)}` : null],
+    ['Price to book', r.pb_ratio !== null ? `${r.pb_ratio.toFixed(2)}×` : null]])
+  const cash = lender ? kv([['Loans and advances', L(r.loans_lkr)], ['Customer deposits', L(r.deposits_lkr)], ['Deposit growth (nominal)', r.deposit_growth_pct !== null ? fmtPctPlain(r.deposit_growth_pct) : null],
+      ['Tier 1 capital ratio', r.tier_1_capital_ratio_pct !== null ? `${r.tier_1_capital_ratio_pct.toFixed(1)}%` : null], ['Cash from operations', L(r.operating_cash_flow_lkr)], ['Effective tax rate', r.effective_tax_rate_pct !== null ? `${r.effective_tax_rate_pct.toFixed(0)}%` : null]])
+    : kv([['Borrowings and leases', L(r.borrowings_lkr)], ['Cash', L(r.cash_lkr)], ['Net debt', r.net_debt_lkr !== null ? (r.net_debt_lkr < 0 ? `${fmtLkr(-r.net_debt_lkr)} net cash` : fmtLkr(r.net_debt_lkr)) : null],
+      ['Current ratio', r.current_ratio !== null ? `${r.current_ratio.toFixed(2)}` : null], ['Cash from operations', L(r.operating_cash_flow_lkr)], ['Capital spending', L(r.capex_lkr)],
+      ['Free cash flow', L(r.free_cash_flow_lkr)], ['EBITDA', L(r.ebitda_lkr)], ['Staff costs', r.staff_costs_lkr !== null ? `${fmtLkr(r.staff_costs_lkr)}${r.staff_cost_share_pct !== null ? ` · ${r.staff_cost_share_pct.toFixed(0)}% of revenue` : ''}` : null],
+      ['Effective tax rate', r.effective_tax_rate_pct !== null ? `${r.effective_tax_rate_pct.toFixed(0)}%` : null]])
+  if (!value && !cash) return ''
+  return `<div class="cols">${value ? `<div><h3>Value and dividends</h3>${value}</div>` : '<div></div>'}${cash ? `<div><h3>${lender ? 'Lending and capital' : 'Borrowing and cash'}</h3>${cash}</div>` : ''}</div>`
+}
+
+function shareBars(items, total, fmtV) {
+  return `<ul class="shares">${items.map(x => {
+    const share = total > 0 ? Math.max(0, x.value / total * 100) : 0
+    return `<li><span class="sn">${esc(x.name)}</span><span class="sb"><i style="width:${share.toFixed(1)}%"></i></span><span class="sp">${share.toFixed(0)}%</span><span class="sx">${fmtV(x)}</span></li>`
+  }).join('')}</ul>`
+}
+
+function mixBlock(r, rows, basis) {
+  const segs = (SEGS?.get(r.company_id) ?? []).filter(s => s.revenue_lkr > 0)
+  const segTotal = segs.reduce((a, s) => a + s.revenue_lkr, 0), profitTotal = segs.reduce((a, s) => a + Math.max(0, s.profit_lkr ?? 0), 0)
+  const seg = segs.length >= 2 ? `<div><h3>Where the money comes from</h3>${shareBars(segs.sort((a, b) => b.revenue_lkr - a.revenue_lkr).map(s => ({ name: s.segment, value: s.revenue_lkr, s })), segTotal,
+    x => `${fmtLkr(x.value)}${x.s.profit_lkr !== null && x.s.profit_lkr !== undefined ? ` · profit ${fmtLkr(x.s.profit_lkr)}${profitTotal > 0 && x.s.profit_lkr > 0 ? ` (${(x.s.profit_lkr / profitTotal * 100).toFixed(0)}% of profit)` : ''}` : ''}`)}
+    <p class="note">Share of revenue by operating segment, from the segment note.</p></div>` : ''
+  const reg = rows ? FIG.regions(rows, basis) : []
+  const regTotal = reg.reduce((a, x) => a + x.value, 0)
+  const where = reg.length >= 2 ? `<div><h3>Where it sells</h3>${shareBars(reg.map(x => ({ name: x.region, value: x.value })), regTotal, x => fmtLkr(x.value))}
+    <p class="note">Revenue by region, from the geographical information in the report.</p></div>` : ''
+  return seg || where ? `<div class="cols">${seg || '<div></div>'}${where}</div>` : ''
+}
+
+const LINES = [
+  ['Income statement', ['revenue', 'cost_of_sales', 'gross_profit', 'interest_income', 'interest_expense', 'net_interest_income', 'net_fee_and_commission_income', 'gross_written_premium', 'net_earned_premium', 'net_benefits_and_claims', 'impairment_charges', 'other_operating_income', 'distribution_and_selling_expenses', 'administrative_expenses', 'staff_costs', 'depreciation_and_amortisation', 'operating_profit', 'finance_income', 'finance_costs', 'share_of_associates_and_jvs', 'profit_before_tax', 'income_tax_expense', 'profit_after_tax', 'profit_attributable_to_owners', 'profit_attributable_to_non_controlling_interests']],
+  ['Balance sheet', ['total_assets', 'non_current_assets', 'property_plant_and_equipment', 'investment_property', 'intangible_assets', 'current_assets', 'inventories', 'trade_and_other_receivables', 'loans_and_advances', 'cash_and_cash_equivalents', 'short_term_investments', 'total_liabilities', 'current_liabilities', 'trade_and_other_payables', 'customer_deposits', 'borrowings_current', 'borrowings_non_current', 'lease_liabilities', 'total_equity', 'equity_attributable_to_owners', 'non_controlling_interests', 'stated_capital', 'retained_earnings']],
+  ['Cash flow', ['cash_from_operating_activities', 'cash_from_investing_activities', 'cash_from_financing_activities', 'purchase_of_ppe_and_intangibles', 'dividends_paid', 'interest_paid', 'tax_paid']],
+  ['Per share and people', ['basic_eps', 'dividend_per_share', 'net_assets_per_share', 'market_price_year_end', 'shares_in_issue', 'employees']],
+  ['Ratios as reported', ['stage_3_or_npl_ratio_pct', 'tier_1_capital_ratio_pct', 'total_capital_ratio_pct', 'cost_to_income_ratio_pct', 'net_interest_margin_pct', 'capital_adequacy_margin_pct']],
+]
+function accounts(rows, basis) {
+  const pairs = FIG.statementPairs(rows, basis)
+  const unit = new Map(rows.map(x => [x.metric, x.unit]))
+  const fmt = (m, v) => v === null ? '<span class="dash">–</span>' : unit.get(m) === 'LKR per share' ? `LKR ${v.toFixed(2)}` : unit.get(m) === '%' ? `${v}%` : unit.get(m) === 'people' || unit.get(m) === 'shares' ? fmtInt(v) : fmtLkr(v)
+  let n = 0, cur = null, prev = null
+  const body = LINES.map(([sec, ms]) => {
+    const trs = ms.filter(m => pairs.has(m)).map(m => {
+      const p = pairs.get(m); n++; cur ??= p.currentEnd; prev ??= p.priorEnd
+      const ch = p.current !== null && p.prior !== null && p.prior > 0 && p.current >= 0 && unit.get(m) !== '%' ? fmtPct((p.current - p.prior) / p.prior * 100) : ''
+      return `<tr><th>${esc(FIG.METRIC_LABEL[m] ?? m)}</th><td>${fmt(m, p.current)}</td><td>${fmt(m, p.prior)}</td><td>${ch}</td><td>${p.source ? `<a href="${esc(p.source)}" target="_blank" rel="noopener nofollow" title="The page in the annual report">p.</a>` : ''}</td></tr>`
+    }).join('')
+    return trs ? `<tr class="sec"><th colspan="5">${sec}</th></tr>${trs}` : ''
+  }).join('')
+  if (!n) return ''
+  return `<details class="accts"><summary><h3>The accounts <span class="cnt">${n} lines</span></h3></summary>
+    <table class="fin"><thead><tr><th>${basis === 'group' ? 'Group (consolidated)' : 'Company'}</th><th>${cur ? 'Year to ' + esc(fmtDate(cur)) : 'Latest year'}</th><th>${prev ? 'Year to ' + esc(fmtDate(prev)) : 'Year before'}</th><th>Change</th><th></th></tr></thead><tbody>${body}</tbody></table>
+    <p class="note">Every figure is printed on the page it links to, or is the sum of lines printed there. Expenses and outflows are negative. Changes are nominal.</p></details>`
+}
+
+function figuresPane(r) {
+  const f = FINS.get(r.company_id)
+  if (!r.listed) return `${headline(r)}<p class="note">${r.revenue_lkr !== null ? `Revenue: ${esc(basisText(r.revenue_basis))}. ` : ''}This company is not listed and does not publish financial statements, so the sources give no more figures.</p>${aboutBlock(r)}`
+  if (!f || f.status === 'loading') return `${headline(r)}<p class="note loading">Loading the accounts…</p>${aboutBlock(r)}`
+  const rows = f.status === 'ok' ? f.rows : null
+  const basis = rows ? FIG.basisOf(rows) : null
+  return `${headline(r)}
+    ${rows && basis ? historyGrid(r, rows, basis) : ''}
+    ${ratioTable(r)}
+    ${moneyBlock(r)}
+    ${mixBlock(r, rows, basis)}
+    ${rows && basis ? accounts(rows, basis) : f.status === 'error' ? '<p class="note">The accounts could not be loaded. The figures above come from the company table.</p>' : ''}
+    ${aboutBlock(r)}`
+}
+
+function ownershipPane(r) {
+  const holdsCount = holdingsOf(r).length
+  const where = r.is_group_head ? (r.group_companies > 1 ? `Parent company of a group of ${r.group_companies} companies.` : 'Not part of any group in this map.') : `${relPhrase(r, linkTo(r.group_id, r.group_name))}.`
+  return `<p class="own">${where}
+      ${r.controller_name && r.controller_type !== 'group' ? ` Largest shareholder: <b>${esc(r.controller_name)}</b>${r.controller_pct !== null ? ` (${r.controller_pct}%)` : ''} <span class="note">· ${esc(HOLDER_TYPE[r.controller_type] ?? r.controller_type)}${r.controller_country && r.controller_country !== 'Sri Lanka' ? ', ' + esc(r.controller_country) : ''}</span>.` : ''}
+      ${r.state_holding_pct ? ` <span class="note">The state and state enterprises hold ${r.state_holding_pct}% among the largest shareholders.</span>` : ''}</p>
+    ${webBox(r)}
+    <div class="cols"><div>${holderList(r) || '<p class="note">The sources list no shareholders for this company.</p>'}
+      ${(r.is_group_head ? r.group_companies : 2) > 1 ? `<p><button type="button" class="linkbtn" data-group="${esc(r.group_id)}">Show every company in the ${esc(r.is_group_head ? r.name : r.group_name)} group in the table</button></p>` : ''}</div>
+    <div>${holdsCount ? `<h3>${r.is_group_head ? 'Companies in the group' : 'Companies it owns shares in'} <span class="cnt">${holdsCount}</span></h3>${holdingsList(r)}` : ''}</div></div>`
+}
+
+function detail(r) {
+  const tab = dtab.id === r.company_id ? dtab.tab : 'figures'
+  return `<div class="detail">
+    <div class="dtabs" role="tablist" aria-label="${esc(r.name)}">
+      <button type="button" role="tab" data-dtab="figures" aria-selected="${tab === 'figures'}">Figures</button>
+      <button type="button" role="tab" data-dtab="ownership" aria-selected="${tab === 'ownership'}">Ownership</button>
     </div>
-    <div>
-      <h3>Ownership</h3>
-      ${path || `<p>${r.is_group_head ? (r.group_companies > 1 ? 'Parent company of this group. The sources name no company that owns a majority of it.' : 'Not part of any group in this map.') : `${relPhrase(r, link(r.group_id, r.group_name))}.`}</p>`}
-      ${others.length ? `<p class="note">Other shareholders: ${others.map(x => `${link(x.from_id, x.from_name)}${x.direct_pct !== null ? ` (${x.direct_pct}%)` : ''}`).join(', ')}</p>` : ''}
-      ${r.controller_name && r.controller_type !== 'group' ? `<p>Largest shareholder: <b>${esc(r.controller_name)}</b>${r.controller_pct !== null ? ` (${r.controller_pct}%)` : ''} <span class="note">· ${esc(HOLDER_TYPE[r.controller_type] ?? r.controller_type)}${r.controller_country && r.controller_country !== 'Sri Lanka' ? ', ' + esc(r.controller_country) : ''}</span></p>` : ''}
-      ${r.state_holding_pct ? `<p class="note">The state and state enterprises hold ${r.state_holding_pct}% among the largest shareholders.</p>` : ''}
-      ${holderList(r)}
-      ${(r.is_group_head ? r.group_companies : 2) > 1 ? `<p><button type="button" class="linkbtn" data-group="${esc(r.group_id)}">Show every company in the ${esc(r.is_group_head ? r.name : r.group_name)} group</button></p>` : ''}
-      ${holdsCount ? `<h3>${r.is_group_head ? 'Companies in the group' : 'Companies it owns shares in'} <span class="cnt">${holdsCount}</span></h3>${holdingsList(r)}` : ''}
-    </div></div></div>`
+    <div role="tabpanel">${tab === 'figures' ? figuresPane(r) : ownershipPane(r)}</div></div>`
 }
 
 function redrawHoldings(id) {
@@ -894,6 +1105,8 @@ $('rows').addEventListener('click', e => {
   if (wb) { web = { ...web, centre: wb.dataset.web, all: false }; redrawWeb(true); return }
   if (e.target.closest('[data-webreset]')) { web = { ...web, centre: web.root, all: false }; redrawWeb(true); return }
   if (e.target.closest('[data-webmore]')) { web = { ...web, all: true }; redrawWeb(false); return }
+  const dt = e.target.closest('[data-dtab]')
+  if (dt) { dtab = { id: openId, tab: dt.dataset.dtab }; drawRows(current); document.querySelector(`.dtabs [data-dtab="${dt.dataset.dtab}"]`)?.focus(); return }
   const hk = e.target.closest('[data-hkind]')
   if (hk) { const id = hk.closest('.holds').dataset.holds; hold = { id, q: hold.id === id ? hold.q : '', kind: hk.dataset.hkind }; const box = hk.closest('.holds'); box.outerHTML = holdingsList(BYID.get(id)); return }
   if (e.target.closest('.holds .hq, .detail')) { if (!e.target.closest('button, a')) return }
@@ -916,6 +1129,8 @@ function toggle(id) {
   document.querySelector(`tr.r[data-id="${CSS.escape(id)}"]`)?.focus()
   if (openId && !SECT) loadSectors()
   if (openId && !HOLD) loadHolders()
+  if (openId && !SEGS) loadSegments()
+  if (openId && BYID.get(openId)?.listed && !FINS.has(openId)) loadFin(openId)
 }
 
 /* ---------- AI hand-off ---------- */
@@ -950,6 +1165,37 @@ async function loadHolders() {
     }
     drawRows(current)
   } catch { HOLD = new Map() }
+}
+// The accounts come from the platform's query API, one company at a time: the full table is too large to download.
+const EXPLORE = BASE.replace(/\/data\/?$/, '')
+const FINS = new Map()
+const FIN_FIELDS = ['company_id', 'basis', 'year_end', 'fiscal_year', 'metric', 'region', 'value', 'unit', 'page', 'source_url']
+async function finQuery(dataset, where) {
+  const fields = dataset === 'lk-company-history' ? [...FIN_FIELDS.filter(f => f !== 'region'), 'value_real', 'price_index'] : FIN_FIELDS
+  const res = await fetch(`${EXPLORE}/api/query`, { method: 'POST', headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ op: 'select', dataset_id: dataset, fields, where, limit: 200 }) })
+  if (!res.ok) throw new Error(String(res.status))
+  return (await res.json()).rows ?? []
+}
+async function loadFin(id) {
+  FINS.set(id, { status: 'loading' })
+  try {
+    const own = { field: 'company_id', op: 'eq', value: id }
+    const [g, hist] = await Promise.all([finQuery('lk-company-financials', [own, { field: 'basis', op: 'eq', value: 'group' }]), finQuery('lk-company-history', [own])])
+    const st = g.length ? g : await finQuery('lk-company-financials', [own, { field: 'basis', op: 'eq', value: 'company' }])
+    const tag = (rows, source) => rows.map(x => ({ ...x, source, region: x.region ?? null }))
+    FINS.set(id, { status: 'ok', rows: [...tag(st, 'statements'), ...tag(hist, 'multi_year_summary')] })
+  } catch { FINS.set(id, { status: 'error' }) }
+  if (openId === id) drawRows(current)
+}
+let SEGS = null
+async function loadSegments() {
+  try {
+    const t = await (await fetch(`${BASE}/lk-company-segments.json`)).json()
+    SEGS = new Map()
+    for (const r of t.rows) { if (!SEGS.has(r.company_id)) SEGS.set(r.company_id, []); SEGS.get(r.company_id).push(r) }
+    if (openId) drawRows(current)
+  } catch { SEGS = new Map() }
 }
 async function loadSectors() {
   try {
