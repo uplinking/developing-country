@@ -22,10 +22,17 @@ export interface CompanyRow {
   isic_section_label: string | null
   revenue_lkr: number | null
   revenue_prior_lkr: number | null
-  revenue_growth_pct: number | null
+  revenue_growth_nominal_pct: number | null
+  revenue_growth_real_pct: number | null
+  revenue_comparable: boolean | null
+  revenue_additive_lkr: number | null
+  net_profit_margin_pct: number | null
+  performance: string | null
+  controller_type: string | null
+  employees_additive: number | null
   revenue_scope: string | null
   profit_after_tax_lkr: number | null
-  profit_growth_pct: number | null
+  profit_after_tax_growth_pct: number | null
   employees: number | null
   operates_abroad: boolean | null
   exports: boolean | null
@@ -43,7 +50,7 @@ export const ABROAD_LABEL: Record<AbroadKey, string> = {
   foreign_owned: 'Has a foreign parent',
 }
 
-export type SortKey = 'revenue' | 'growth' | 'employees' | 'name' | 'profit_growth'
+export type SortKey = 'revenue' | 'growth' | 'nominal' | 'margin' | 'employees' | 'name'
 export interface CompanyFilter {
   q: string
   scope: 'groups' | 'all'
@@ -53,8 +60,10 @@ export interface CompanyFilter {
   ownership: string[]
   listed: '' | 'yes' | 'no'
   isic: string[]
+  growthBasis: 'real' | 'nominal'
   growthMin: number | null
   growthMax: number | null
+  performance: string[]
   revenueMinBn: number | null
   employeesMin: number | null
   abroad: AbroadKey[]
@@ -64,7 +73,7 @@ export interface CompanyFilter {
 
 export const EMPTY_FILTER: CompanyFilter = {
   q: '', scope: 'groups', group: '', families: [], sectors: [], ownership: [], listed: '', isic: [],
-  growthMin: null, growthMax: null, revenueMinBn: null, employeesMin: null, abroad: [], sort: 'revenue', desc: true,
+  growthBasis: 'real', growthMin: null, growthMax: null, performance: [], revenueMinBn: null, employeesMin: null, abroad: [], sort: 'revenue', desc: true,
 }
 
 const list = (v: string | null) => (v ? v.split(',').map(s => s.trim()).filter(Boolean) : [])
@@ -73,7 +82,7 @@ const numOrNull = (v: string | null) => {
   const n = Number(v)
   return Number.isFinite(n) ? n : null
 }
-const SORTS: SortKey[] = ['revenue', 'growth', 'employees', 'name', 'profit_growth']
+const SORTS: SortKey[] = ['revenue', 'growth', 'nominal', 'margin', 'employees', 'name']
 
 export function parseFilter(params: URLSearchParams): CompanyFilter {
   const sort = params.get('sort') as SortKey | null
@@ -88,8 +97,10 @@ export function parseFilter(params: URLSearchParams): CompanyFilter {
     ownership: list(params.get('ownership')),
     listed: params.get('listed') === 'yes' ? 'yes' : params.get('listed') === 'no' ? 'no' : '',
     isic: list(params.get('isic')),
+    growthBasis: params.get('growth') === 'nominal' ? 'nominal' : 'real',
     growthMin: numOrNull(params.get('growth_min')),
     growthMax: numOrNull(params.get('growth_max')),
+    performance: list(params.get('performance')),
     revenueMinBn: numOrNull(params.get('revenue_min_bn')),
     employeesMin: numOrNull(params.get('employees_min')),
     abroad: list(params.get('abroad')).filter((k): k is AbroadKey => (ABROAD_KEYS as readonly string[]).includes(k)),
@@ -108,8 +119,10 @@ export function filterToParams(f: CompanyFilter): URLSearchParams {
   if (f.ownership.length) p.set('ownership', f.ownership.join(','))
   if (f.listed) p.set('listed', f.listed)
   if (f.isic.length) p.set('isic', f.isic.join(','))
+  if (f.growthBasis === 'nominal') p.set('growth', 'nominal')
   if (f.growthMin !== null) p.set('growth_min', String(f.growthMin))
   if (f.growthMax !== null) p.set('growth_max', String(f.growthMax))
+  if (f.performance.length) p.set('performance', f.performance.join(','))
   if (f.revenueMinBn !== null) p.set('revenue_min_bn', String(f.revenueMinBn))
   if (f.employeesMin !== null) p.set('employees_min', String(f.employeesMin))
   if (f.abroad.length) p.set('abroad', f.abroad.join(','))
@@ -121,6 +134,8 @@ export function filterToParams(f: CompanyFilter): URLSearchParams {
 /** Ownership as shown: a company inside a group with no ownership of its own is owned by that group. */
 export const ownershipOf = (r: CompanyRow): string =>
   r.ownership === 'private' ? 'private_local' : r.ownership ?? (r.is_group_head ? 'unknown' : 'in_group')
+
+export const growthOf = (r: CompanyRow, basis: 'real' | 'nominal'): number | null => basis === 'real' ? r.revenue_growth_real_pct : r.revenue_growth_nominal_pct
 
 export const tagsOf = (r: CompanyRow): string[] => (r.sector_tags ? r.sector_tags.split(';').map(s => s.trim()).filter(Boolean) : [])
 
@@ -147,8 +162,10 @@ export function matches(r: CompanyRow, f: CompanyFilter, families: Map<string, s
   if (f.listed === 'yes' && r.listed !== true) return false
   if (f.listed === 'no' && r.listed === true) return false
   if (f.isic.length && !f.isic.includes(r.isic_section ?? '')) return false
-  if (f.growthMin !== null && (r.revenue_growth_pct === null || r.revenue_growth_pct < f.growthMin)) return false
-  if (f.growthMax !== null && (r.revenue_growth_pct === null || r.revenue_growth_pct > f.growthMax)) return false
+  const g = growthOf(r, f.growthBasis)
+  if (f.growthMin !== null && (g === null || g < f.growthMin)) return false
+  if (f.growthMax !== null && (g === null || g > f.growthMax)) return false
+  if (f.performance.length && !f.performance.includes(r.performance ?? '')) return false
   if (f.revenueMinBn !== null && (r.revenue_lkr === null || r.revenue_lkr < f.revenueMinBn * 1e9)) return false
   if (f.employeesMin !== null && (r.employees === null || r.employees < f.employeesMin)) return false
   if (f.abroad.some(k => !isAbroad(r, k))) return false
@@ -156,9 +173,10 @@ export function matches(r: CompanyRow, f: CompanyFilter, families: Map<string, s
 }
 
 const SORT_VALUE: Record<SortKey, (r: CompanyRow) => number | string | null> = {
-  revenue: r => r.revenue_lkr,
-  growth: r => r.revenue_growth_pct,
-  profit_growth: r => r.profit_growth_pct,
+  revenue: r => r.revenue_comparable === false ? null : r.revenue_lkr,
+  growth: r => r.revenue_growth_real_pct,
+  nominal: r => r.revenue_growth_nominal_pct,
+  margin: r => r.net_profit_margin_pct,
   employees: r => r.employees,
   name: r => r.name.toLowerCase(),
 }
@@ -188,8 +206,10 @@ export interface Summary {
   groups: number
   revenueLkr: number
   revenueCount: number
-  medianGrowth: number | null
+  medianRealGrowth: number | null
+  medianNominalGrowth: number | null
   growthCount: number
+  loss: number
   employees: number
   employeesCount: number
   exporters: number
@@ -205,16 +225,19 @@ export interface Summary {
 export function summarize(rows: CompanyRow[]): Summary {
   const heads = new Set(rows.filter(r => r.is_group_head).map(r => r.company_id))
   const additive = rows.filter(r => r.is_group_head || !heads.has(r.group_id))
-  const withRev = additive.filter(r => r.revenue_lkr !== null)
+  const withRev = additive.filter(r => r.revenue_lkr !== null && r.revenue_comparable !== false)
   const withEmp = additive.filter(r => r.employees !== null)
-  const growth = rows.map(r => r.revenue_growth_pct).filter((g): g is number => g !== null)
+  const real = rows.map(r => r.revenue_growth_real_pct).filter((g): g is number => g !== null)
+  const nominal = rows.map(r => r.revenue_growth_nominal_pct).filter((g): g is number => g !== null)
   return {
     companies: rows.length,
     groups: new Set(rows.map(r => r.group_id)).size,
     revenueLkr: withRev.reduce((s, r) => s + (r.revenue_lkr ?? 0), 0),
     revenueCount: withRev.length,
-    medianGrowth: median(growth),
-    growthCount: growth.length,
+    medianRealGrowth: median(real),
+    medianNominalGrowth: median(nominal),
+    growthCount: real.length,
+    loss: rows.filter(r => r.performance === 'loss_both_years' || r.performance === 'fell_into_loss' || r.performance === 'negative_equity').length,
     employees: withEmp.reduce((s, r) => s + (r.employees ?? 0), 0),
     employeesCount: withEmp.length,
     exporters: rows.filter(r => r.exports === true).length,
@@ -259,8 +282,10 @@ export function toQuery(f: CompanyFilter): { dataset_id: string; where: Where[];
     if (sectorTable) unsupported.push(`ISIC section ${f.isic.join(', ')}`)
     else where.push({ field: 'isic_section', op: 'in', value: f.isic })
   }
-  if (f.growthMin !== null) where.push({ field: 'revenue_growth_pct', op: 'gte', value: f.growthMin })
-  if (f.growthMax !== null) where.push({ field: 'revenue_growth_pct', op: 'lte', value: f.growthMax })
+  const gField = f.growthBasis === 'real' ? 'revenue_growth_real_pct' : 'revenue_growth_nominal_pct'
+  if (f.growthMin !== null) where.push({ field: gField, op: 'gte', value: f.growthMin })
+  if (f.growthMax !== null) where.push({ field: gField, op: 'lte', value: f.growthMax })
+  if (f.performance.length) where.push({ field: 'performance', op: 'in', value: f.performance })
   if (f.revenueMinBn !== null) where.push({ field: 'revenue_lkr', op: 'gte', value: f.revenueMinBn * 1e9 })
   if (f.employeesMin !== null) where.push({ field: 'employees', op: 'gte', value: f.employeesMin })
   for (const k of f.abroad) {
@@ -271,7 +296,6 @@ export function toQuery(f: CompanyFilter): { dataset_id: string; where: Where[];
     else where.push({ field: k, op: 'eq', value: true })
   }
   if (f.q) unsupported.push(`name or description contains "${f.q}"`)
-  const sortField = { revenue: 'revenue_lkr', growth: 'revenue_growth_pct', employees: 'employees', name: 'name', profit_growth: 'profit_growth_pct' }[f.sort]
-  const order = sectorTable && f.sort === 'profit_growth' ? 'revenue_growth_pct' : sortField
+  const order = { revenue: 'revenue_lkr', growth: 'revenue_growth_real_pct', nominal: 'revenue_growth_nominal_pct', margin: 'net_profit_margin_pct', employees: 'employees', name: 'name' }[f.sort]
   return { dataset_id: sectorTable ? 'lk-company-sectors' : 'lk-companies', where: where.slice(0, 8), order_by: [{ field: order, direction: f.desc ? 'desc' : 'asc' }], unsupported }
 }

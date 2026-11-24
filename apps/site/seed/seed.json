@@ -15929,9 +15929,9 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-companies",
-                "versionId": "dsv_4bbc7aa6618db112142291d7bc768772",
+                "versionId": "dsv_32365c3e0a30efea05fc7634f77a6569",
                 "country": "LK",
-                "checksum": "sha256:adc000461d80904b445139e97fb0d782ad883e183ea676444aa011b4b091b55e",
+                "checksum": "sha256:795a68efa65ab18b8f55b8384bd7cfdc9a44f338c5bdb85313f479000b84c936",
                 "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
                 "refreshedAt": "2026-11-24",
                 "sourceIds": [
@@ -15972,7 +15972,7 @@
                 {
                   "_type": "span",
                   "_key": "lk-companies-contains-body-span",
-                  "text": "Every company with ordinary shares on the Colombo Stock Exchange and the subsidiaries, associates and joint ventures its latest annual report names, plus about 850 large unlisted companies (state enterprises, banks, exporters, family groups, multinationals) found by web research. Two years of revenue and profit, and the latest employee count, for listed companies."
+                  "text": "Every company with ordinary shares on the Colombo Stock Exchange and the subsidiaries, associates and joint ventures its latest annual report names, plus about 850 large unlisted companies (state enterprises, banks, exporters, family groups, multinationals) found by web research. For listed companies: two years of revenue, profit before and after tax, equity and employees, with margins, returns, real growth after CCPI inflation, a performance label and the largest shareholder."
                 }
               ]
             },
@@ -15996,7 +15996,7 @@
                 {
                   "_type": "span",
                   "_key": "lk-companies-use-body-span",
-                  "text": "Filter parent companies and companies outside any group with is_group_head = true, or a group's companies by group_id. Filter by revenue_growth_pct, employees, exports, operates_abroad, foreign_owned or ownership. For sectors (solar power, tea, gloves, fintech, …) use lk-company-sectors."
+                  "text": "Filter parent companies and companies outside any group with is_group_head = true, or a group's companies by group_id. Filter by revenue_growth_real_pct, net_profit_margin_pct, performance, employees, exports, foreign_owned or controller_type. Rank only rows with revenue_comparable = true; add up revenue_additive_lkr. For sectors (solar power, tea, gloves, fintech, …) use lk-company-sectors; for owners, lk-company-shareholders."
                 }
               ]
             },
@@ -16020,7 +16020,7 @@
                 {
                   "_type": "span",
                   "_key": "lk-companies-limit-body-span",
-                  "text": "Not a census: small and medium private companies are missing, and unlisted companies rarely publish revenue. Growth is available for listed companies only. A parent company's revenue is consolidated: it already includes its subsidiaries."
+                  "text": "Not a census: small and medium private companies are missing, and unlisted companies rarely publish revenue. Growth, margins and returns are for listed companies only. A parent company's revenue is consolidated: it already includes its subsidiaries. Revenue means gross income for banks and premium for insurers (see revenue_kind)."
                 }
               ]
             }
@@ -16057,9 +16057,9 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-company-sectors",
-                "versionId": "dsv_024028ef75d5acf6f13cc00049e6abf5",
+                "versionId": "dsv_e7cf8d9d17ffc4f3c7295e696d5ac4c8",
                 "country": "LK",
-                "checksum": "sha256:6221b392ff51d02f6e868052fff633881392ecdca1967529fb9c8b0fca958450",
+                "checksum": "sha256:044a4c7b12a8269b057311c3135e71f3859df969bb7810c85a24f9a6db149218",
                 "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
                 "refreshedAt": "2026-11-24",
                 "sourceIds": [
@@ -16185,9 +16185,9 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-company-relationships",
-                "versionId": "dsv_b172563eacc78e26fe136889dde0f0c3",
+                "versionId": "dsv_fd3edb823a49f683f897dbd1f57db03a",
                 "country": "LK",
-                "checksum": "sha256:58daa2e505e371754e09159f7abb3e965a45ddc5104b5f5702fc55f4d1a9ccee",
+                "checksum": "sha256:d2dd97ab33211dcbc96a9317cee4cf5488aefad469a4b7f5cf187a7e17f68350",
                 "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
                 "refreshedAt": "2026-11-24",
                 "sourceIds": [
@@ -16313,9 +16313,9 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-company-segments",
-                "versionId": "dsv_b1a21cb22747754a3fee2302e98610cd",
+                "versionId": "dsv_158a2ef1753e77f6ce21cfa49e5be696",
                 "country": "LK",
-                "checksum": "sha256:91744ec61c0bb863f58be2f302c79de1686fb4e7e68116702d64f57be28aa0e5",
+                "checksum": "sha256:eb5a82fd8469c4c7d884f4a4212764f462a8ed5f5752ac4514a28b3266dba89c",
                 "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
                 "refreshedAt": "2026-11-24",
                 "sourceIds": [
@@ -16405,6 +16405,134 @@
                   "_type": "span",
                   "_key": "lk-company-segments-limit-body-span",
                   "text": "Segments are defined by each company and are not comparable across groups. Some reports give no segment revenue."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "lk-company-shareholders",
+        "slug": "lk-company-shareholders",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "developing-country-editorial"
+          }
+        ],
+        "taxonomies": {
+          "topic": [
+            "data-quality"
+          ]
+        },
+        "data": {
+          "title": "Company shareholders",
+          "dek": "See who owns Sri Lanka's listed companies, from families and groups to the state and pension funds.",
+          "format": "dataset_note",
+          "dataset_id": "lk-company-shareholders",
+          "dataset_preview_url": "https://explore.developing-country.org/datasets/lk-company-shareholders/largest-state-stakes?embed=dataset",
+          "country_code": "LK",
+          "research_question": "Who controls a company, and what does one shareholder (a family, the Treasury, the Employees' Provident Fund) hold across the market?",
+          "methodology": "This note uses the platform’s immutable Dataset Version and cited Source records. Its source, vintage, normalization method and caveats come from the registered artifact without adding unverified claims.",
+          "evidence_bundle": {
+            "version": 1,
+            "kind": "platform-query",
+            "country": "LK",
+            "datasetVersions": [
+              {
+                "datasetId": "lk-company-shareholders",
+                "versionId": "dsv_9d3b1d9de4473790f80b51b3cbefb07a",
+                "country": "LK",
+                "checksum": "sha256:57d8e1cc23c9c846a2c19044999eb93aa7223b4efeaafc88c4d69099c8c272d3",
+                "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
+                "refreshedAt": "2026-11-24",
+                "sourceIds": [
+                  "lk-company-map"
+                ]
+              }
+            ],
+            "dataViews": [],
+            "generatedAt": "2026-08-31T00:00:00.000Z"
+          },
+          "source_manifest": [
+            {
+              "sourceId": "lk-company-map",
+              "title": "Sri Lanka company map",
+              "url": "https://www.cse.lk/",
+              "licence": "CC BY 4.0 (compilation by developing-country.org); annual reports and linked web sources keep their publishers’ rights",
+              "licenceStatus": "open"
+            }
+          ],
+          "content": [
+            {
+              "_type": "block",
+              "_key": "lk-company-shareholders-contains-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-shareholders-contains-heading-span",
+                  "text": "What this dataset contains"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-shareholders-contains-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-shareholders-contains-body-span",
+                  "text": "Up to about ten of the largest shareholders of each listed company from its latest annual report, with the stake, a shareholder type and, where the shareholder is itself in the company map, its company id."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-shareholders-use-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-shareholders-use-heading-span",
+                  "text": "How it is used here"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-shareholders-use-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-shareholders-use-body-span",
+                  "text": "Filter by company_id to see a company's owners, or by holder_id or holder_type (state, pension_fund, person, company) to see everything one owner or kind of owner holds."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-shareholders-limit-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-shareholders-limit-heading-span",
+                  "text": "What it cannot tell you"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-shareholders-limit-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-shareholders-limit-body-span",
+                  "text": "Only the largest shareholders printed in each report, not the full register. Shareholder types are read from names. People with the same name are not told apart, and one person's holdings through different accounts are not added together."
                 }
               ]
             }

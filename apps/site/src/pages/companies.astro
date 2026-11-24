@@ -50,11 +50,12 @@ const base = `${explorer}/data`
           <th scope="col"><button type="button" data-sort="name">Company</button></th>
           <th scope="col" class="hide-s">Sector</th>
           <th scope="col" class="num"><button type="button" data-sort="revenue">Revenue</button></th>
-          <th scope="col" class="num"><button type="button" data-sort="growth">Revenue growth</button></th>
+          <th scope="col" class="num"><button type="button" data-sort="growth" title="Revenue growth after removing inflation (CCPI); nominal growth below">Real growth</button></th>
+          <th scope="col" class="num hide-s"><button type="button" data-sort="margin" title="Profit after tax ÷ revenue">Net margin</button></th>
           <th scope="col" class="num hide-s"><button type="button" data-sort="employees">Employees</button></th>
           <th scope="col" class="hide-s">Exports and overseas</th>
         </tr></thead>
-        <tbody id="rows"><tr><td colspan="6" class="empty">Loading the company map…</td></tr></tbody>
+        <tbody id="rows"><tr><td colspan="7" class="empty">Loading the company map…</td></tr></tbody>
       </table>
     </div>
     <button type="button" class="showmore" id="more" hidden>Show more</button>
@@ -122,7 +123,7 @@ const base = `${explorer}/data`
 .cmap .clear{font:500 12px/1 var(--mono);background:none;border:0;color:var(--blue);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:30px}
 .cmap section{border-top:1px solid var(--hair)}
 .cmap .lbl{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0 0 10px}
-.cmap .kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0 24px;padding:16px 0 22px}
+.cmap .kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0 24px;padding:16px 0 22px}
 .cmap .kpi .v{display:block;font:500 24px/1.2 var(--mono);margin-top:8px}
 .cmap .kpi .s{display:block;font:500 11px/1.5 var(--mono);color:var(--dim);margin-top:4px}
 .cmap .breaks{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:0 40px;padding:18px 0 22px}
@@ -205,6 +206,15 @@ const base = `${explorer}/data`
 .cmap .hlist .hr{font:500 11px/1.4 var(--mono);text-align:right;white-space:nowrap}
 .cmap .hlist .theme-tag{margin:0}
 .cmap .hlist li.note{display:block}
+.cmap .list .sub{display:block;font:500 10.5px/1.4 var(--mono);color:var(--dim);margin-top:2px}
+.cmap .perf{display:inline-block;margin-top:5px;font:500 10px/1.2 var(--mono);padding:2px 5px 1px;border:1px solid var(--hair);border-radius:2px;color:var(--dim)}
+.cmap .perf.good{border-color:var(--up);color:var(--up)}
+.cmap .perf.warn{border-color:var(--amber);color:#8a5600}
+.cmap .perf.bad{border-color:var(--down);color:var(--down)}
+.cmap .note.warn{color:#8a5600}
+.cmap .hlist-s{max-height:none;margin-bottom:6px}
+.cmap .hlist-s li{grid-template-columns:52px minmax(0,1fr)}
+.cmap .also{grid-column:2;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;padding:4px 0 2px}
 .cmap .linkbtn{background:none;border:0;padding:0;color:var(--blue);cursor:pointer;text-decoration:underline;text-underline-offset:3px;font:inherit;text-align:left}
 .cmap .ev{font-size:12px;color:var(--dim)}
 .cmap .note{font-size:12px;color:var(--dim)}
@@ -219,6 +229,7 @@ const base = `${explorer}/data`
 .cmap .foot{font-size:12px;color:var(--dim);margin:8px 0 56px;max-width:860px}
 @media (max-width:760px){
   .cmap .kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 18px}
+  .cmap .list .sub{display:none}
   .cmap .breaks{grid-template-columns:minmax(0,1fr);gap:22px}
   .cmap .cols{grid-template-columns:minmax(0,1fr)}
   .cmap .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -276,6 +287,7 @@ function basisText(b) {
   const yr = m[2] && m[2] !== 'None' ? (m[2].match(/\d{4}/) ?? [''])[0] : ''
   return BASIS[m[1]] + (yr ? `, ${yr}` : '')
 }
+const fmtPctPlain = v => v === null || v === undefined ? '–' : `${v > 0 ? '+' : ''}${v.toFixed(1)}%`
 const fmtInt = v => v === null || v === undefined ? '<span class="dash">–</span>' : Math.round(v).toLocaleString('en')
 const fmtPct = v => v === null || v === undefined ? '<span class="dash">–</span>'
   : `<span class="${v > 0 ? 'up' : v < 0 ? 'down' : ''}">${v > 0 ? '+' : ''}${v.toFixed(1)}%</span>`
@@ -285,7 +297,11 @@ let F = parseFilter(new URLSearchParams(location.search))
 let shown = 50, openId = null, menuOpen = null
 
 /* ---------- filter menus ---------- */
-const GROWTH = [['', 'Any revenue growth', null, null], ['g0', 'Revenue up', 0.0001, null], ['g10', 'Up more than 10%', 10, null], ['g25', 'Up more than 25%', 25, null], ['d0', 'Revenue down', null, -0.0001]]
+const GROWTH = [['', 'Any growth', null, null], ['g0', 'Up', 0.0001, null], ['g10', 'Up more than 10%', 10, null], ['g25', 'Up more than 25%', 25, null], ['d0', 'Down', null, -0.0001]]
+const PERF = { profitable_growing: 'Profitable and growing in real terms', profitable_shrinking: 'Profitable but shrinking in real terms', profitable: 'Profitable',
+  back_to_profit: 'Back to profit', fell_into_loss: 'Fell into loss', loss_both_years: 'Loss in both years', negative_equity: 'Negative equity (owes more than it owns)' }
+const PERF_SHORT = { profitable_growing: 'Profitable · growing', profitable_shrinking: 'Profitable · shrinking', profitable: 'Profitable', back_to_profit: 'Back to profit', fell_into_loss: 'Fell into loss', loss_both_years: 'Loss both years', negative_equity: 'Negative equity' }
+const PERF_TONE = { profitable_growing: 'good', back_to_profit: 'good', profitable_shrinking: 'warn', profitable: '', fell_into_loss: 'bad', loss_both_years: 'bad', negative_equity: 'bad' }
 const SIZE = [['', 'Any revenue', null], ['1', 'LKR 1bn or more', 1], ['10', 'LKR 10bn or more', 10], ['50', 'LKR 50bn or more', 50], ['100', 'LKR 100bn or more', 100]]
 const STAFF = [['', 'Any number', null], ['100', '100+ employees', 100], ['500', '500+ employees', 500], ['1000', '1,000+ employees', 1000], ['5000', '5,000+ employees', 5000]]
 const LISTED = [['', 'Listed and unlisted'], ['yes', 'Listed on the CSE'], ['no', 'Unlisted']]
@@ -294,6 +310,7 @@ function counts(key) {
   // option counts under every other active filter, so a menu shows what picking it would leave
   const g = { ...F, [key]: Array.isArray(F[key]) ? [] : EMPTY_FILTER[key] }
   if (key === 'growth') { g.growthMin = null; g.growthMax = null }
+  if (key === 'performance') g.performance = []
   return ROWS.filter(r => matches(r, g, FAMILY, TEXT.get(r.company_id)))
 }
 
@@ -333,11 +350,20 @@ const MENUS = {
     pick(id) { F.revenueMinBn = SIZE.find(x => x[0] === id)[2] },
   },
   growth: {
-    label: () => { const g = GROWTH.find(x => x[2] === F.growthMin && x[3] === F.growthMax); return g && g[0] ? g[1] : (F.growthMin !== null || F.growthMax !== null ? 'Revenue growth (custom)' : 'Revenue growth') },
+    label: () => { const g = GROWTH.find(x => x[2] === F.growthMin && x[3] === F.growthMax), b = F.growthBasis === 'real' ? 'Real growth' : 'Nominal growth'
+      return g && g[0] ? `${b}: ${g[1].toLowerCase()}` : (F.growthMin !== null || F.growthMax !== null ? `${b} (custom)` : 'Revenue growth') },
     on: () => F.growthMin !== null || F.growthMax !== null,
-    items: () => GROWTH.map(([k, t, lo, hi]) => ({ id: k, text: t, sel: F.growthMin === lo && F.growthMax === hi })),
-    pick(id) { const g = GROWTH.find(x => x[0] === id); F.growthMin = g[2]; F.growthMax = g[3] },
-    note: 'Revenue growth compares the latest financial year with the one before, as printed in the same annual report. Listed companies only.',
+    items: () => [{ id: 'b:real', text: 'Real growth (after inflation)', sel: F.growthBasis === 'real', cls: 'fam' }, { id: 'b:nominal', text: 'Nominal growth (in rupees, as reported)', sel: F.growthBasis === 'nominal', cls: 'fam' },
+      ...GROWTH.map(([k, t, lo, hi]) => ({ id: k, text: t, sel: F.growthMin === lo && F.growthMax === hi, cls: 'sub' }))],
+    pick(id) { if (id.startsWith('b:')) { F.growthBasis = id.slice(2); return } const g = GROWTH.find(x => x[0] === id); F.growthMin = g[2]; F.growthMax = g[3] },
+    multi: true,
+    note: 'Revenue growth compares the latest financial year with the one before, from the same annual report (listed companies only). Real growth removes inflation, using the average change in the Colombo Consumer Price Index over each company’s financial year.',
+  },
+  performance: {
+    label: () => F.performance.length ? 'Performance · ' + F.performance.length : 'Performance', on: () => F.performance.length > 0,
+    items: () => { const b = new Map(countBy(counts('performance'), r => [r.performance ?? ''])); return Object.entries(PERF).map(([k, t]) => ({ id: k, text: t, n: b.get(k) ?? 0, sel: F.performance.includes(k) })) },
+    pick(id) { const i = F.performance.indexOf(id); i >= 0 ? F.performance.splice(i, 1) : F.performance.push(id) }, multi: true,
+    note: 'From profit after tax and real revenue growth in the latest two annual reports. Listed companies only.',
   },
   staff: {
     label: () => F.employeesMin !== null ? `${F.employeesMin.toLocaleString('en')}+ employees` : 'Employees', on: () => F.employeesMin !== null,
@@ -417,6 +443,7 @@ function chips() {
   F.isic.forEach(v => c.push(['isic:' + v, 'Industry: ' + (ISIC_LABEL.get(v) ?? v)]))
   if (F.revenueMinBn !== null) c.push(['size', `Revenue LKR ${F.revenueMinBn}bn or more`])
   if (F.growthMin !== null || F.growthMax !== null) c.push(['growth', MENUS.growth.label()])
+  F.performance.forEach(v => c.push(['performance:' + v, PERF[v] ?? v]))
   if (F.employeesMin !== null) c.push(['staff', `${F.employeesMin.toLocaleString('en')}+ employees`])
   F.abroad.forEach(v => c.push(['abroad:' + v, ABROAD_LABEL[v]]))
   $('chips').innerHTML = c.map(([k, t]) => `<span class="chip">${esc(t)}<button type="button" data-chip="${esc(k)}" aria-label="Remove ${esc(t)}">×</button></span>`).join('') +
@@ -426,7 +453,7 @@ $('chips').addEventListener('click', e => {
   const b = e.target.closest('[data-chip]'); if (!b) return
   const [k, v] = b.dataset.chip.split(/:(.*)/s)
   const drop = (arr, x) => arr.splice(arr.indexOf(x), 1)
-  if (k === '*') { const scope = F.scope; F = { ...EMPTY_FILTER, families: [], sectors: [], ownership: [], isic: [], abroad: [], scope: scope === 'all' && !F.group ? 'all' : 'groups' }; $('fq').value = '' }
+  if (k === '*') { const scope = F.scope; F = { ...EMPTY_FILTER, families: [], sectors: [], ownership: [], isic: [], abroad: [], performance: [], scope: scope === 'all' && !F.group ? 'all' : 'groups' }; $('fq').value = '' }
   else if (k === 'group') { F.group = ''; F.scope = 'groups' }
   else if (k === 'q') { F.q = ''; $('fq').value = '' }
   else if (k === 'family') drop(F.families, v)
@@ -434,6 +461,7 @@ $('chips').addEventListener('click', e => {
   else if (k === 'ownership') drop(F.ownership, v)
   else if (k === 'isic') drop(F.isic, v)
   else if (k === 'abroad') drop(F.abroad, v)
+  else if (k === 'performance') drop(F.performance, v)
   else if (k === 'listed') F.listed = ''
   else if (k === 'size') F.revenueMinBn = null
   else if (k === 'growth') { F.growthMin = null; F.growthMax = null }
@@ -478,8 +506,9 @@ function drawSummary() {
     (top ? k('Groups', s.groups_with_members.toLocaleString('en'), `plus ${plural(s.companies - s.groups_with_members, 'company')} outside any group`)
       : k('Companies', s.companies.toLocaleString('en'), `in ${plural(s.groups, 'group')}`)) +
     k('Combined revenue', s.revenueCount ? fmtLkr(s.revenueLkr) : '–', `${s.revenueCount.toLocaleString('en')} report it; subsidiaries counted once, inside their group`) +
-    k('Median revenue growth', s.medianGrowth === null ? '–' : fmtPct(s.medianGrowth), `${s.growthCount} listed companies, latest year on the year before`) +
+    k('Median real growth', s.medianRealGrowth === null ? '–' : fmtPct(s.medianRealGrowth), s.growthCount ? `after inflation; ${fmtPctPlain(s.medianNominalGrowth)} nominal. ${s.growthCount} listed companies` : 'listed companies only') +
     k('Employees', s.employeesCount ? fmtInt(s.employees) : '–', `${s.employeesCount.toLocaleString('en')} report a headcount`) +
+    k('Loss-making', s.loss.toLocaleString('en'), 'loss or negative equity in the latest report') +
     k('Exporters', s.exporters.toLocaleString('en'), `plus ${s.overseas.toLocaleString('en')} with overseas subsidiaries or operations`)
 }
 
@@ -506,24 +535,45 @@ function abroadFlags(r) {
 
 function drawRows(list) {
   const body = $('rows')
-  if (!list.length) { body.innerHTML = '<tr><td colspan="6" class="empty">No companies match these filters.</td></tr>'; $('more').hidden = true; return }
+  if (!list.length) { body.innerHTML = '<tr><td colspan="7" class="empty">No companies match these filters.</td></tr>'; $('more').hidden = true; return }
   body.innerHTML = list.slice(0, shown).map(r => {
     const grp = r.is_group_head ? (r.group_companies > 1 ? `Parent of a group of ${r.group_companies} companies` : (r.ownership && r.ownership !== 'unknown' ? OWNER[r.ownership] ?? '' : '')) : relPhrase(r, esc(r.group_name))
     const tags = tagsOf(r).slice(0, 2).map(badge).join('')
     const row = `<tr class="r${openId === r.company_id ? ' open' : ''}" data-id="${esc(r.company_id)}" tabindex="0" aria-expanded="${openId === r.company_id}">
-      <td><span class="nm">${esc(r.name)}</span>${r.cse_symbol ? `<span class="sym">${esc(r.cse_symbol.split('.')[0])}</span>` : ''}<span class="grp-n">${grp}</span></td>
+      <td><span class="nm">${esc(r.name)}</span>${r.cse_symbol ? `<span class="sym">${esc(r.cse_symbol.split('.')[0])}</span>` : ''}<span class="grp-n">${grp}</span>${r.performance ? `<span class="perf ${PERF_TONE[r.performance]}" title="${esc(PERF[r.performance])}">${esc(PERF_SHORT[r.performance])}</span>` : ''}</td>
       <td class="hide-s">${tags || '<span class="dash">–</span>'}</td>
-      <td class="num">${fmtLkr(r.revenue_lkr)}</td>
-      <td class="num">${fmtPct(r.revenue_growth_pct)}</td>
+      <td class="num">${fmtLkr(r.revenue_lkr)}${revenueNote(r) ? `<span class="sub">${revenueNote(r)}</span>` : ''}</td>
+      <td class="num">${fmtPct(r.revenue_growth_real_pct)}${r.revenue_growth_nominal_pct !== null ? `<span class="sub">${fmtPctPlain(r.revenue_growth_nominal_pct)} nominal</span>` : ''}</td>
+      <td class="num hide-s">${r.net_profit_margin_pct !== null ? r.net_profit_margin_pct.toFixed(1) + '%' : '<span class="dash">–</span>'}</td>
       <td class="num hide-s">${fmtInt(r.employees)}</td>
       <td class="hide-s flags">${abroadFlags(r)}</td></tr>`
-    return row + (openId === r.company_id ? `<tr class="d"><td colspan="6">${detail(r)}</td></tr>` : '')
+    return row + (openId === r.company_id ? `<tr class="d"><td colspan="7">${detail(r)}</td></tr>` : '')
   }).join('')
   $('more').hidden = list.length <= shown
   $('more').textContent = `Show more (${(list.length - shown).toLocaleString('en')} more)`
 }
 
 /* ---------- detail ---------- */
+const KIND_LABEL = { sales: 'Revenue', sales_incl_excise: 'Revenue (including excise duty)', gross_income: 'Gross income', insurance_premium: 'Gross written premium', interest_income: 'Interest income', as_reported: 'Revenue' }
+const HOLDER_TYPE = { person: 'person', company: 'company', state: 'the state', state_enterprise: 'state enterprise', pension_fund: 'pension fund', fund: 'investment fund', nominee_or_custodian: 'custodian for investors', other: 'other', group: 'group' }
+/** Why a revenue figure should not be compared directly, in a few words; '' when it can be. */
+function revenueNote(r) {
+  if (r.revenue_lkr === null) return ''
+  if (r.revenue_comparable === false) return r.revenue_year ? `${r.revenue_year} figure` : 'older or part-year figure'
+  if (r.revenue_kind === 'gross_income') return 'gross income'
+  if (r.revenue_kind === 'insurance_premium') return 'premium'
+  if (r.revenue_kind === 'interest_income') return 'interest income'
+  if (r.revenue_kind === 'sales_incl_excise') return 'incl. excise'
+  return ''
+}
+function holderList(r) {
+  const hs = HOLD ? (HOLD.get(r.company_id) ?? []) : null
+  if (!hs || !hs.length) return ''
+  return `<h3>Largest shareholders <span class="cnt">${hs.length}</span></h3><ul class="hlist hlist-s">${hs.map(h => `<li><span class="p">${h.pct !== null ? h.pct + '%' : ''}</span>
+    <span class="hn">${h.holder_in_map && BYID.has(h.holder_id) ? `<button type="button" class="linkbtn" data-goto="${esc(h.holder_id)}">${esc(h.holder_name)}</button>` : esc(h.holder_name)}
+    <span class="hm">${esc(HOLDER_TYPE[h.holder_type] ?? h.holder_type)}${h.holder_country && h.holder_country !== 'Sri Lanka' ? ' · ' + esc(h.holder_country) : ''}${HOLDINGS_OF.get(h.holder_id)?.length > 1 ? ` · <button type="button" class="linkbtn" data-holder="${esc(h.holder_id)}">holds ${HOLDINGS_OF.get(h.holder_id).length} listed companies</button>` : ''}</span></span>
+    <span class="hs"></span><span class="hr"></span></li>`).join('')}</ul>`
+}
 // Holdings: what this company holds directly, and (for a group head) every company in its group.
 const KIND = { holding: 'Subsidiary', other_group_holding: 'Stake', member_of_group: 'Group company', member_per_web_sources: 'Group company',
   associate: 'Associate', joint_venture: 'Joint venture', investment_not_consolidated: 'Minority investment', former_holding: 'Formerly held', major_shareholder: 'Stake',
@@ -591,19 +641,25 @@ function detail(r) {
     const e = ev?.find(x => x.sector === t)
     return `<li>${badge(t)}${e ? `<span class="ev">“${esc(e.evidence)}”</span>` : ''}</li>`
   }).join('')}</ul>` : '<p class="note">No sector yet. The sources do not say what this company does.</p>'
-  const margin = r.revenue_lkr && r.profit_after_tax_lkr !== null ? r.profit_after_tax_lkr / r.revenue_lkr * 100 : null
-  const perHead = r.revenue_lkr && r.employees ? r.revenue_lkr / r.employees : null
+
   const stat = (l, v, s = '') => `<div class="st"><span class="sl">${l}</span><span class="sv">${v}</span>${s ? `<span class="ss">${s}</span>` : ''}</div>`
   const stats = `<div class="stats">
-    ${stat('Revenue', fmtLkr(r.revenue_lkr), r.revenue_growth_pct !== null ? fmtPct(r.revenue_growth_pct) + ' on the year before' : '')}
-    ${stat('Profit after tax', fmtLkr(r.profit_after_tax_lkr), margin !== null ? `${margin.toFixed(1)}% net margin` : '')}
-    ${stat('Employees', fmtInt(r.employees), perHead ? fmtLkr(perHead) + ' revenue per employee' : '')}
-    ${stat('Total assets', fmtLkr(r.total_assets_lkr))}
+    ${stat(KIND_LABEL[r.revenue_kind] ?? 'Revenue', fmtLkr(r.revenue_lkr), r.revenue_growth_nominal_pct !== null ? `${fmtPct(r.revenue_growth_real_pct)} real · ${fmtPctPlain(r.revenue_growth_nominal_pct)} nominal` : (revenueNote(r) || ''))}
+    ${stat('Net profit (after tax)', fmtLkr(r.profit_after_tax_lkr), r.net_profit_margin_pct !== null ? `${r.net_profit_margin_pct.toFixed(1)}% net profit margin` : (r.pretax_margin_pct !== null ? `${r.pretax_margin_pct.toFixed(1)}% pre-tax margin` : ''))}
+    ${stat('Return on equity', r.return_on_equity_pct !== null ? r.return_on_equity_pct.toFixed(1) + '%' : '–', r.equity_to_assets_pct !== null ? `equity is ${r.equity_to_assets_pct.toFixed(0)}% of assets` : (r.total_equity_lkr !== null && r.total_equity_lkr < 0 ? 'equity is negative' : ''))}
+    ${stat('Employees', fmtInt(r.employees), r.revenue_per_employee_lkr ? fmtLkr(r.revenue_per_employee_lkr) + ' revenue per employee' : '')}
   </div>`
   const fin = r.revenue_prior_lkr !== null || r.profit_after_tax_prior_lkr !== null
     ? `<table class="fin"><thead><tr><th></th><th>Latest year</th><th>Year before</th><th>Change</th></tr></thead><tbody>
-       <tr><th>Revenue</th><td>${fmtLkr(r.revenue_lkr)}</td><td>${fmtLkr(r.revenue_prior_lkr)}</td><td>${fmtPct(r.revenue_growth_pct)}</td></tr>
-       <tr><th>Profit after tax</th><td>${fmtLkr(r.profit_after_tax_lkr)}</td><td>${fmtLkr(r.profit_after_tax_prior_lkr)}</td><td>${fmtPct(r.profit_growth_pct)}</td></tr></tbody></table>
+       <tr><th>${esc(KIND_LABEL[r.revenue_kind] ?? 'Revenue')}</th><td>${fmtLkr(r.revenue_lkr)}</td><td>${fmtLkr(r.revenue_prior_lkr)}</td><td>${fmtPct(r.revenue_growth_nominal_pct)}</td></tr>
+       ${r.revenue_growth_real_pct !== null ? `<tr><th>…after inflation</th><td></td><td></td><td>${fmtPct(r.revenue_growth_real_pct)}</td></tr>` : ''}
+       <tr><th>Profit before tax</th><td>${fmtLkr(r.profit_before_tax_lkr)}</td><td>${fmtLkr(r.profit_before_tax_prior_lkr)}</td><td></td></tr>
+       <tr><th>Profit after tax</th><td>${fmtLkr(r.profit_after_tax_lkr)}</td><td>${fmtLkr(r.profit_after_tax_prior_lkr)}</td><td>${fmtPct(r.profit_after_tax_growth_pct)}</td></tr>
+       <tr><th>Total equity</th><td>${fmtLkr(r.total_equity_lkr)}</td><td>${fmtLkr(r.total_equity_prior_lkr)}</td><td></td></tr>
+       ${r.total_assets_lkr !== null ? `<tr><th>Total assets</th><td>${fmtLkr(r.total_assets_lkr)}</td><td></td><td></td></tr>` : ''}
+       ${r.employees_prior !== null ? `<tr><th>Employees</th><td>${fmtInt(r.employees)}</td><td>${fmtInt(r.employees_prior)}</td><td></td></tr>` : ''}</tbody></table>
+       ${r.inflation_pct !== null ? `<p class="note">Change columns are nominal (in rupees, as reported). Inflation over this financial year was ${fmtPctPlain(r.inflation_pct)} (average Colombo Consumer Price Index), so real revenue growth was ${fmtPctPlain(r.revenue_growth_real_pct)}.</p>` : ''}
+       ${r.revenue_growth_note ? `<p class="note warn">Revenue ${esc(r.revenue_growth_note)}.</p>` : ''}
        <p class="note">${esc([r.revenue_scope === 'group' ? 'Whole group (consolidated)' : r.revenue_scope === 'company' ? 'This company only' : '', r.revenue_label ? `revenue shown in the report as “${r.revenue_label}”` : '', r.period_end ? `year to ${fmtDate(r.period_end)}` : ''].filter(Boolean).join(', '))}</p>`
     : r.revenue_lkr !== null ? `<p class="note">${esc(basisText(r.revenue_basis))}</p>` : '<p class="note">No financial figures in the sources.</p>'
   const chain = chainOf(r)
@@ -629,7 +685,9 @@ function detail(r) {
       <h3>Ownership</h3>
       ${path || `<p>${r.is_group_head ? (r.group_companies > 1 ? 'Parent company of this group. The sources name no company that owns a majority of it.' : 'Not part of any group in this map.') : `${relPhrase(r, link(r.group_id, r.group_name))}.`}</p>`}
       ${others.length ? `<p class="note">Other shareholders: ${others.map(x => `${link(x.from_id, x.from_name)}${x.direct_pct !== null ? ` (${x.direct_pct}%)` : ''}`).join(', ')}</p>` : ''}
-      ${r.major_shareholders ? `<p class="note">Largest shareholders: ${esc(r.major_shareholders)}</p>` : ''}
+      ${r.controller_name && r.controller_type !== 'group' ? `<p>Largest shareholder: <b>${esc(r.controller_name)}</b>${r.controller_pct !== null ? ` (${r.controller_pct}%)` : ''} <span class="note">· ${esc(HOLDER_TYPE[r.controller_type] ?? r.controller_type)}${r.controller_country && r.controller_country !== 'Sri Lanka' ? ', ' + esc(r.controller_country) : ''}</span></p>` : ''}
+      ${r.state_holding_pct ? `<p class="note">The state and state enterprises hold ${r.state_holding_pct}% among the largest shareholders.</p>` : ''}
+      ${holderList(r)}
       ${(r.is_group_head ? r.group_companies : 2) > 1 ? `<p><button type="button" class="linkbtn" data-group="${esc(r.group_id)}">Show every company in the ${esc(r.is_group_head ? r.name : r.group_name)} group</button></p>` : ''}
       ${holdsCount ? `<h3>${r.is_group_head ? 'Companies in the group' : 'Companies it owns shares in'} <span class="cnt">${holdsCount}</span></h3>${holdingsList(r)}` : ''}
     </div></div></div>`
@@ -656,8 +714,11 @@ $('rows').addEventListener('click', e => {
   if (e.target.closest('.holds .hq, .detail')) { if (!e.target.closest('button, a')) return }
   const g = e.target.closest('[data-group]')
   if (g) { F = { ...F, group: g.dataset.group, scope: 'all' }; openId = null; shown = 50; update(); root.scrollIntoView({ behavior: 'smooth' }); return }
+  const hb = e.target.closest('[data-holder]')
+  if (hb) { const list = HOLDINGS_OF.get(hb.dataset.holder) ?? []; const box = hb.closest('li'); if (box.querySelector('.also')) { box.querySelector('.also').remove(); return }
+    box.insertAdjacentHTML('beforeend', `<div class="also">${list.sort((a, b) => (b.pct ?? 0) - (a.pct ?? 0)).map(x => `<span><button type="button" class="linkbtn" data-goto="${esc(x.company_id)}">${esc(x.company_name)}</button> ${x.pct !== null ? x.pct + '%' : ''}</span>`).join('')}</div>`); return }
   const go = e.target.closest('[data-goto]')
-  if (go) { const r = BYID.get(go.dataset.goto); F = { ...EMPTY_FILTER, families: [], sectors: [], ownership: [], isic: [], abroad: [], group: r.group_id, scope: 'all' }; openId = r.company_id; shown = 2000; $('fq').value = ''; update(); document.querySelector(`tr.r[data-id="${CSS.escape(r.company_id)}"]`)?.scrollIntoView({ block: 'center' }); return }
+  if (go) { const r = BYID.get(go.dataset.goto); F = { ...EMPTY_FILTER, families: [], sectors: [], ownership: [], isic: [], abroad: [], performance: [], group: r.group_id, scope: 'all' }; openId = r.company_id; shown = 2000; $('fq').value = ''; update(); document.querySelector(`tr.r[data-id="${CSS.escape(r.company_id)}"]`)?.scrollIntoView({ block: 'center' }); return }
   if (e.target.closest('a')) return
   const tr = e.target.closest('tr.r'); if (!tr) return
   toggle(tr.dataset.id)
@@ -669,6 +730,7 @@ function toggle(id) {
   drawRows(current)
   document.querySelector(`tr.r[data-id="${CSS.escape(id)}"]`)?.focus()
   if (openId && !SECT) loadSectors()
+  if (openId && !HOLD) loadHolders()
 }
 
 /* ---------- AI hand-off ---------- */
@@ -676,8 +738,8 @@ $('copy').addEventListener('click', async () => {
   const q = toQuery(F)
   const words = $('lead').textContent + (current.length ? '' : ' (none match)')
   const call = { op: 'select', dataset_id: q.dataset_id, fields: q.dataset_id === 'lk-companies'
-    ? ['name', 'group_name', 'primary_sector', 'revenue_lkr', 'revenue_growth_pct', 'employees', 'operates_abroad', 'source_url']
-    : ['name', 'group_name', 'sector', 'revenue_lkr', 'revenue_growth_pct', 'employees', 'operates_abroad', 'source_url'], where: q.where, order_by: q.order_by, limit: 200 }
+    ? ['name', 'group_name', 'primary_sector', 'revenue_lkr', 'revenue_kind', 'revenue_growth_real_pct', 'revenue_growth_nominal_pct', 'net_profit_margin_pct', 'performance', 'employees', 'source_url']
+    : ['name', 'group_name', 'sector', 'revenue_lkr', 'revenue_growth_real_pct', 'revenue_growth_nominal_pct', 'net_profit_margin_pct', 'performance', 'employees', 'source_url'], where: q.where, order_by: q.order_by, limit: 200 }
   const text = `Using the developing-country.org data (MCP query_data), list Sri Lankan companies matching: ${[...$('chips').querySelectorAll('.chip')].map(c => c.firstChild.textContent).join('; ') || 'all groups and companies outside any group'}. ${words}.\n` +
     (q.unsupported.length ? `The query cannot apply these, so check them yourself: ${q.unsupported.join('; ')}.\n` : '') +
     `query_data ${JSON.stringify(call)}\nCite the source_url of each company.`
@@ -689,6 +751,18 @@ $('copy').addEventListener('click', async () => {
 addEventListener('popstate', () => { F = parseFilter(new URLSearchParams(location.search)); $('fq').value = F.q; shown = 50; update(true) })
 
 /* ---------- data ---------- */
+let HOLD = null, HOLDINGS_OF = new Map()
+async function loadHolders() {
+  try {
+    const t = await (await fetch(`${BASE}/lk-company-shareholders.json`)).json()
+    HOLD = new Map()
+    for (const r of t.rows) {
+      if (!HOLD.has(r.company_id)) HOLD.set(r.company_id, []); HOLD.get(r.company_id).push(r)
+      if (!HOLDINGS_OF.has(r.holder_id)) HOLDINGS_OF.set(r.holder_id, []); HOLDINGS_OF.get(r.holder_id).push(r)
+    }
+    drawRows(current)
+  } catch { HOLD = new Map() }
+}
 async function loadSectors() {
   try {
     const t = await (await fetch(`${BASE}/lk-company-sectors.json`)).json()
@@ -713,7 +787,7 @@ async function start() {
     $('fq').value = F.q
     update(true)
   } catch (e) {
-    $('rows').innerHTML = '<tr><td colspan="6" class="empty">The company map could not be loaded. Please try again.</td></tr>'
+    $('rows').innerHTML = '<tr><td colspan="7" class="empty">The company map could not be loaded. Please try again.</td></tr>'
   }
 }
 start()

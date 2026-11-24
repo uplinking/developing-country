@@ -466,9 +466,9 @@ export const ONTOLOGY: Ontology = {
       licenceStatus: 'open', url: 'https://www.cse.lk/', path: `/data/${d.id}.json`,
       refresh: 'bun scripts/companies/build.ts (curated: rebuilt when the company map is re-extracted)',
       idField: d.id === 'lk-companies' ? 'company_id' : 'id',
-      nameField: d.id === 'lk-company-relationships' ? 'to_name' : d.id === 'lk-company-segments' ? 'segment' : 'name',
+      nameField: d.id === 'lk-company-relationships' ? 'to_name' : d.id === 'lk-company-segments' ? 'segment' : d.id === 'lk-company-shareholders' ? 'holder_name' : 'name',
       partial: true, coverageNote: d.note.contains, knownGaps: [d.note.limit],
-      tags: ['companies', 'business', 'firms', 'corporate', 'groups', 'ownership', 'sectors', 'revenue', 'employees', 'exports', 'CSE', 'listed companies'],
+      tags: ['companies', 'business', 'firms', 'corporate', 'groups', 'ownership', 'shareholders', 'sectors', 'revenue', 'growth', 'profit', 'margins', 'inflation-adjusted', 'employees', 'exports', 'CSE', 'listed companies'],
     })),
     ...URBAN_DATASETS.map(d => indicatorEntity({
       id: d.id.replaceAll('-', '_'), datasetId: d.id, title: d.title,
