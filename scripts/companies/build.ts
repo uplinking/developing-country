@@ -115,7 +115,7 @@ const sectorFields: IndicatorField[] = [
   f('evidence', 'Words in the company description that justify the sector', 'string'),
   lkr('revenue_lkr', 'Revenue, latest year (the whole company, repeated under each of its sectors)'),
   lkrSum('revenue_additive_lkr', 'Revenue that can be added up: under the main sector only, top-level companies with comparable revenue'),
-  pctM('revenue_growth_nominal_pct', 'Revenue growth, nominal'), pctM('revenue_growth_real_pct', 'Revenue growth, real (after CCPI inflation)'),
+  pctM('revenue_growth_nominal_pct', 'Revenue growth, nominal'), pctM('revenue_growth_real_pct', 'Revenue growth, real (deflated by the Colombo Consumer Price Index)'),
   pctM('net_profit_margin_pct', 'Net profit margin'), f('performance', 'Performance', 'string'),
   int('employees', 'Employees'), int('employees_additive', 'Employees that can be added up: main sector only, top-level companies', 'sum'),
   f('exports', 'Exporter; empty means not known', 'boolean'), f('operates_abroad', 'Exports or operates overseas; empty means not known', 'boolean'),

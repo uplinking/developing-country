@@ -9,7 +9,7 @@ export const LK_COMPANY_DATASETS: IndicatorDatasetDefinition[] = [
     title: 'Sri Lankan companies and groups',
     label: 'Companies',
     themeIds: ['ECON', 'INTR'],
-    sourceIds: SOURCE_IDS,
+    sourceIds: [...SOURCE_IDS, 'dcs-ccpi-2021'], // CCPI deflates revenue growth to real terms
     vintage: VINTAGE,
     description: 'Sri Lankan companies and the groups they belong to: what each does, its sector, revenue, nominal and real (inflation-adjusted) growth, profit and margins, return on equity, employees, who controls it, and whether it exports or operates overseas.',
     note: {
