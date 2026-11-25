@@ -176,7 +176,7 @@ const base = `${explorer}/data`
 .cmap a{color:var(--blue)}
 .cmap :focus-visible{outline:2px solid var(--blue);outline-offset:2px} /* the one focus style for every control on the page */
 .cmap .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.cmap.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.cmap.wrap{max-width:1440px;margin:0 auto;padding:0 clamp(16px,3vw,40px)}
 .cmap h1{font:700 15px/1.3 var(--sans);color:var(--dim);margin:44px 0 10px}
 .cmap .lead{font:600 clamp(22px,5vw,32px)/1.35 var(--sans);letter-spacing:-.01em;margin:0 0 20px;max-width:900px}
 .cmap .lead b{font-family:var(--mono);font-weight:500}
@@ -368,6 +368,8 @@ const base = `${explorer}/data`
 .cmap .list > thead th button[aria-sort="ascending"]::after{content:' ↑'}
 .cmap .list > thead th.num,.cmap .list > tbody > tr > td.num{text-align:right}
 .cmap .list > tbody > tr > td{padding:12px 12px 12px 0;border-bottom:1px solid var(--hair2);vertical-align:top}
+/* an opened company must not resize the columns: its detail takes the table's width, never sets it */
+.cmap .list tr.d > td > .detail{contain:inline-size}
 /* inset the outer columns so a highlighted or open row's panel never touches its text */
 .cmap .list > thead th:first-child,.cmap .list > tbody > tr.r > td:first-child{padding-left:16px}
 .cmap .list > thead th:last-child,.cmap .list > tbody > tr.r > td:last-child{padding-right:16px}
