@@ -368,6 +368,8 @@ const base = `${explorer}/data`
 .cmap .list > thead th button[aria-sort="ascending"]::after{content:' ↑'}
 .cmap .list > thead th.num,.cmap .list > tbody > tr > td.num{text-align:right}
 .cmap .list > tbody > tr > td{padding:12px 12px 12px 0;border-bottom:1px solid var(--hair2);vertical-align:top}
+/* an opened company must not resize the columns: its detail takes the table's width, never sets it */
+.cmap .list tr.d > td > .detail{contain:inline-size}
 /* inset the outer columns so a highlighted or open row's panel never touches its text */
 .cmap .list > thead th:first-child,.cmap .list > tbody > tr.r > td:first-child{padding-left:16px}
 .cmap .list > thead th:last-child,.cmap .list > tbody > tr.r > td:last-child{padding-right:16px}
