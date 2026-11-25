@@ -91,14 +91,14 @@ const showcase = [
   {
     title: 'Funding dashboard',
     summary: 'We track public projects and the money behind them, from announcement to approval, contract and payment, so you can see who is funding what and how far it has got.',
-    actions: [{ href: '/funding', label: 'Funding dashboard' }],
+    actions: [{ href: '/dashboard/funding', label: 'Funding dashboard' }],
     tone: 'peach' as const,
     film: 'funding' as const,
   },
   {
     title: 'Enterprise analysis',
     summary: 'We map Sri Lanka’s companies and the groups that own them, with their sectors, revenue, real growth and largest shareholders, so you can see who owns what, who is growing and how the economy is connected.',
-    actions: [{ href: '/enterprises', label: 'Enterprise analysis' }],
+    actions: [{ href: '/dashboard/enterprise', label: 'Enterprise analysis' }],
     tone: 'lilac' as const,
     film: 'companies' as const,
   },
@@ -146,7 +146,7 @@ const showcase = [
                 slot="film"
                 class="showcase-panel__film"
                 shot={FUNDING_SHOT}
-                plate="developing-country.org/funding"
+                plate="developing-country.org/dashboard/funding"
                 label="The funding dashboard: money by stage from announced to paid, a weekly timeline of events, and the feed of funding decisions with their funders."
               />
             )}
@@ -155,7 +155,7 @@ const showcase = [
                 slot="film"
                 class="showcase-panel__film"
                 shot={COMPANIES_SHOT}
-                plate="developing-country.org/enterprises"
+                plate="developing-country.org/dashboard/enterprise"
                 label="Enterprise analysis: groups and companies counted, combined revenue and real growth, and the number of companies in each sector and kind of ownership."
               />
             )}

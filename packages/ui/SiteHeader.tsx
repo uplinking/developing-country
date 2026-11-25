@@ -23,8 +23,8 @@ export function SiteHeader({ siteUrl, explorerUrl, inAppActions = false }: SiteH
   const explorer = explorerUrl.replace(/\/$/, '')
   const datasets: NavLink = { href: `${site}/data`, label: 'Datasets', note: 'Every table' }
   const dashboards: NavLink[] = [
-    { href: `${site}/funding`, label: 'Funding', note: 'Where the money goes' },
-    { href: `${site}/enterprises`, label: 'Enterprises', note: 'Who owns what' },
+    { href: `${site}/dashboard/funding`, label: 'Funding', note: 'Where the money goes' },
+    { href: `${site}/dashboard/enterprise`, label: 'Enterprises', note: 'Who owns what' },
   ]
   const after: NavLink[] = [
     { href: `${site}/analysis`, label: 'Thoughts', note: 'Essays' },

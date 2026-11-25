@@ -1,6 +1,6 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro'
-import { CANONICAL_EXPLORER_ORIGIN } from '../lib/explorer'
+import SiteLayout from '../../layouts/SiteLayout.astro'
+import { CANONICAL_EXPLORER_ORIGIN } from '../../lib/explorer'
 
 // The ledger is one JSON published beside the queryable lk-initiative-* tables on the explorer
 // (built by scripts/initiatives/build.ts). Fetched in the browser so the page stays light.
@@ -17,7 +17,7 @@ const dataUrl = `${explorer}/data/lk-initiatives.json`
     <h1>Funding dashboard</h1>
     <div class="q" id="q" role="group" aria-label="Question"><span class="sw" data-slot="what"></span> from <span class="sw" data-slot="src"></span> in <span class="sw" data-slot="sector"></span> · <span class="sw" data-slot="when"></span></div>
     <!-- Works without JavaScript as a plain GET; the script below takes over and keeps ?q= in sync. -->
-    <form class="find" id="find" role="search" action="/funding" method="get">
+    <form class="find" id="find" role="search" action="/dashboard/funding" method="get">
       <label class="sr" for="fq">Search funding</label>
       <svg class="find-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="10.3" y1="10.3" x2="15" y2="15" stroke="currentColor" stroke-width="1.6"/></svg>
       <input id="fq" name="q" type="search" placeholder="Search projects, funders, places" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" maxlength="200" aria-describedby="findnote">
@@ -235,7 +235,7 @@ const dataUrl = `${explorer}/data/lk-initiatives.json`
 <script>
 // @ts-nocheck -- plain DOM code; the counting rules it relies on are typed and tested in packages/datasets.
 import { AGGREGATE_PURPOSES, moneyTotals, STAGE_BUCKET } from '@developing-country/datasets/money'
-import { buildSearchIndex, initiativeSearchText } from '../lib/initiativeSearch'
+import { buildSearchIndex, initiativeSearchText } from '../../lib/initiativeSearch'
 
 
 function start(DATA){

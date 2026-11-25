@@ -1,4 +1,4 @@
-// Filtering for the /enterprises dashboard: one state object, its URL form, the row
+// Filtering for the /dashboard/enterprise page: one state object, its URL form, the row
 // predicate, the summary figures and the equivalent query_data call. The page keeps rows in memory,
 // so everything here is pure and synchronous.
 //
