@@ -1,0 +1,1500 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro'
+import { CANONICAL_EXPLORER_ORIGIN } from '../lib/explorer'
+
+// The tables are the queryable lk-company* datasets on the explorer (built by
+// scripts/companies/build.ts). Fetched in the browser so the page stays light.
+// PUBLIC_EXPLORER_DEV_ORIGIN points a local preview at an explorer dev server on another port.
+const explorer = import.meta.env.DEV ? (import.meta.env.PUBLIC_EXPLORER_DEV_ORIGIN || 'http://127.0.0.1:5173') : CANONICAL_EXPLORER_ORIGIN
+const base = `${explorer}/data`
+---
+
+<SiteLayout
+  title="Enterprises"
+  description="Sri Lanka's companies and the groups that own them: what each does, its sector, revenue and growth, employees, and whether it exports or operates overseas."
+>
+<div class="cmap wrap" id="cmap" data-base={base}>
+  <header>
+    <h1>Enterprises</h1>
+    <p class="lead" id="lead">Sri Lanka’s companies and the groups that own them.</p>
+    <p class="howline"><button type="button" class="linkbtn" data-method>How this was made</button> <span class="note">· sources, checks and assumptions</span></p>
+    <form class="find" id="find" role="search" action="/enterprises" method="get">
+      <label class="sr" for="fq">Search companies</label>
+      <svg class="find-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="10.3" y1="10.3" x2="15" y2="15" stroke="currentColor" stroke-width="1.6"/></svg>
+      <input id="fq" name="q" type="search" placeholder="Search companies, groups, products" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" maxlength="200">
+      <button type="button" class="find-x" id="fqx" aria-label="Clear search" hidden>×</button>
+    </form>
+    <div class="lensbar"><p class="lbl">Ready-made views</p><div class="lenses" id="lenses" role="group" aria-label="Ready-made views"></div></div>
+  </header>
+
+  <div class="bar" role="toolbar" aria-label="Filters">
+    <div class="seg" role="group" aria-label="Show">
+      <button type="button" data-scope="groups" aria-pressed="true">By group</button>
+      <button type="button" data-scope="all" aria-pressed="false">Every company</button>
+    </div>
+    <div class="filters" id="filters"></div>
+  </div>
+  <div class="chips" id="chips" aria-live="polite"></div>
+  <p class="cov" id="coverage" hidden></p>
+
+  <section aria-label="Summary">
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <section aria-label="Breakdown" class="breaks">
+    <div><div class="lblrow"><p class="lbl">By sector</p><div class="seg mini" id="sectorBy" role="group" aria-label="Measure"><button type="button" data-by="count" aria-pressed="true">Companies</button><button type="button" data-by="revenue" aria-pressed="false">Revenue</button></div></div><ol class="bars" id="bySector"></ol></div>
+    <div><p class="lbl" id="ownLabel">By ownership</p><ol class="bars" id="byOwner"></ol></div>
+  </section>
+
+  <section aria-label="Companies">
+    <!-- outside .tablewrap: a scrolling box clips focus rings at its edges -->
+    <div class="tabletools"><label class="lbl" for="colset">Columns</label>
+      <select id="colset"><option value="overview">Overview</option><option value="debt">Debt</option><option value="price">Dividends and price</option><option value="longrun">Long run</option><option value="banks">Banks and lenders</option><option value="ownership">Ownership</option></select></div>
+    <div class="tablewrap">
+      <table class="list" id="list">
+        <thead id="thead"></thead>
+        <tbody id="rows"><tr><td colspan="7" class="empty">Loading enterprises…</td></tr></tbody>
+      </table>
+    </div>
+    <button type="button" class="showmore" id="more" hidden>Show more</button>
+    <div class="ai">
+      <p>Want a different view? Ask an AI assistant. It can query the same tables through the developing-country.org connector.</p>
+      <button type="button" class="copy" id="copy">Copy as a question</button>
+    </div>
+    <textarea class="copyta" id="copyta" readonly hidden aria-label="Question to paste into your AI"></textarea>
+    <p class="foot">Sources: the latest annual reports (financial years ending December 2025 or March 2026) of all 262 companies listed on the Colombo Stock Exchange, and web research on about 850 large unlisted companies. Figures from the reports were extracted by software and each one checked against the page it cites. Revenue is in Sri Lankan rupees (LKR); US dollar figures are converted at LKR 300 to the dollar. For banks and finance companies revenue means gross income; for insurers, gross written premium. A parent company’s revenue already includes its subsidiaries. Data, free to reuse under CC BY 4.0: <a href="/data/lk-companies">Sri Lankan companies and groups</a>, <a href="/data/lk-company-sectors">Company sectors</a>, <a href="/data/lk-company-relationships">Company ownership</a>, <a href="/data/lk-company-segments">Company operating segments</a>.</p>
+    <p class="foot"><button type="button" class="linkbtn" data-method>How this was made: sources, checks, definitions and limits</button></p>
+  </section>
+
+  <dialog class="drawer" id="drawer" aria-labelledby="drawer-title">
+    <div class="mhead"><h2 id="drawer-title">Filters</h2><button type="button" class="mclose" data-dclose aria-label="Close">Close</button></div>
+    <div class="dbody" id="dbody"></div>
+    <div class="dfoot"><button type="button" class="clear" id="dclear">Clear these filters</button><button type="button" class="dshow" id="dshow" data-dclose>Show companies</button></div>
+  </dialog>
+
+  <dialog class="method" id="method" aria-labelledby="method-title">
+    <div class="mhead">
+      <h2 id="method-title">How this was made</h2>
+      <button type="button" class="mclose" data-close aria-label="Close">Close</button>
+    </div>
+    <div class="mbody">
+      <p class="mlead">Every figure on this page comes from a company’s own annual report or from a web source linked on its row. This is how we read those sources, how we checked them, and the choices we made along the way.</p>
+
+      <h3>Where the data comes from</h3>
+      <ul>
+        <li><b>Listed companies.</b> All 262 companies with ordinary shares on the Colombo Stock Exchange (CSE). For each we downloaded the latest annual report from the CSE: financial years ending December 2025 or March 2026. The list of companies, share prices and market values come from the CSE in November 2026.</li>
+        <li><b>Companies inside groups.</b> The subsidiaries, associates and joint ventures that each annual report names, with the stake it states.</li>
+        <li><b>Large unlisted companies.</b> About 850 more, found by web research: state enterprises, banks, exporters, family groups and multinationals. Each row links the web source it came from. These facts were not checked against a filing.</li>
+        <li><b>Prices.</b> The Colombo Consumer Price Index (Department of Census and Statistics), the inflation reported in the World Bank’s Sri Lanka Development Updates, and the World Bank consumer price index for years before 2018.</li>
+      </ul>
+
+      <h3>How the figures were read</h3>
+      <ul>
+        <li>Each report was turned into text page by page, keeping the page number.</li>
+        <li>A large language model (OpenAI’s GPT through Codex; Anthropic’s Claude for some earlier passes) read each report and copied figures into a fixed form: the income statement, balance sheet and cash flow for the latest and prior year, per-share figures, bank and insurer ratios, the five or ten-year summary, operating segments, revenue by region, the largest shareholders and the companies it holds.</li>
+        <li>The instruction was to copy figures exactly as printed and never to calculate or guess one. A line the report does not print is left empty, not set to zero.</li>
+      </ul>
+
+      <h3>How the figures were checked</h3>
+      <ul>
+        <li><b>Against the page.</b> Every figure cites the page it was read from. It is published only if that number is printed on the page (or the page either side), or is the sum of lines printed there. Of 52,593 figures read from the 262 reports, 98.5% pass; the other 1.5% are left out. Each figure in the accounts table links to its page.</li>
+        <li><b>Against the accounts.</b> We test each company’s figures against accounting identities: assets equal liabilities plus equity, gross profit equals revenue less cost of sales, profit after tax equals profit before tax less tax, earnings per share times shares in issue equals profit to shareholders, and the summary’s latest year equals the statements.</li>
+        <li><b>By a second model.</b> A different model (GPT-6.2 Astra) audited each listed company: the extracted accounts, the headline figures, the segments, the shareholders and the holdings, against the report, and explained or corrected every failed identity. A correction is applied only when the corrected number, or every word of a corrected name, is printed on the page it cites. The review raised 12,860 findings, most of them gaps (shareholders, subsidiaries and lines the first pass had missed); 10,960 corrections and additions passed that check and were applied (among them headcounts, holding and shareholder types, and export markets that were really tourists' home countries), and 1,134 did not and were set aside. 329 were not applied by design: where shares sit in a margin or nominee account we name the owner they are held for, and the controller field is the largest shareholder, which is not always a controlling one. The remaining 437, mostly holdings and group names the report does not settle, are left for a later pass.</li>
+      </ul>
+
+      <h3>Definitions and assumptions</h3>
+      <ul>
+        <li><b>Revenue</b> is the company’s own revenue line. For banks and finance companies it is gross income; for insurers, gross written premium. A parent company’s revenue is consolidated, so it already includes its subsidiaries: totals add up only top-level companies. Figures in US dollars are converted at LKR 300 to the dollar.</li>
+        <li><b>Growth</b> is shown two ways. <i>Nominal</i> is the change in rupees, as reported. <i>Real</i> removes inflation: the latest year deflates by the average Colombo Consumer Price Index over the company’s own financial year, against the year before.</li>
+        <li><b>History</b> is shown in rupees of the company’s latest year. The price index for each financial year averages the consumer price index over its twelve months (a year to March takes nine months of one calendar year and three of the next). It chains the Colombo index from 2023, the World Bank’s reported Colombo inflation for 2018 to 2022, and the World Bank consumer price index before that. It is the national index, not each company’s own prices.</li>
+        <li><b>Signs.</b> Costs and cash outflows are shown as negative numbers however a report printed them; income tax and impairment keep their printed sign, because a tax credit or a reversal is a real positive. Cash is the “cash and cash equivalents” line the balance sheet prints.</li>
+        <li><b>Margins</b> divide by revenue: net margin is profit after tax, operating margin is operating profit, gross margin is gross profit. They are left out for banks, finance companies and insurers, whose revenue is not sales, and where they exceed ±100%.</li>
+        <li><b>Returns and balance sheet.</b> Return on equity is profit after tax over equity at the year end. Debt includes lease liabilities; net debt is debt less cash. Interest cover is operating profit over finance costs. Cash conversion is cash from operations over profit after tax. Free cash flow is cash from operations less capital spending.</li>
+        <li><b>Value and dividends.</b> Price to earnings, price to book and dividend yield use the CSE share price in November 2026, not the price at the financial year end. Dividend payout is dividend per share over earnings per share.</li>
+        <li><b>Comparisons with a sector</b> use listed companies in the same broad sector, and banks and finance companies only with each other. A comparison needs at least five companies with the figure. Rank 1 is the best on that measure.</li>
+        <li><b>Performance labels</b> (profitable and growing, fell into loss and so on) combine profit after tax in both years with real revenue growth; a company whose equity is negative is labelled so first.</li>
+      </ul>
+
+      <h3>Ownership</h3>
+      <ul>
+        <li>A group is built from each company’s largest stated shareholder: one parent per company, followed upward to the top. A company only mentioned in another’s report, without a stake, does not shape the tree.</li>
+        <li>The largest shareholder comes from each report’s table of the twenty largest shareholders. Margin and custodian accounts (“Bank PLC / Mr X”) are shown under the person or fund they are held for; a holder’s numbered accounts are added together; the same holder spelled different ways is one holder.</li>
+        <li>Seven companies have voting and non-voting shares. Their stakes are kept apart and a stake is a percentage of its class; the largest shareholder counts voting shares only.</li>
+        <li>Whether a shareholder is a person, a company, the state or a pension fund is read from the name and is not checked against a registry. People with the same name are not told apart.</li>
+      </ul>
+
+      <h3>Sectors</h3>
+      <ul>
+        <li>Each company has up to four of 81 sector tags in 14 broad sectors, assigned by a language model from the company’s own description. Every tag carries the words that justify it, and a tag whose words are not in the description is rejected. A company with no description has no sector.</li>
+        <li>Industry codes follow the UN classification (ISIC Rev. 4).</li>
+      </ul>
+
+      <h3>Limits</h3>
+      <ul>
+        <li>This is not a census: small and medium companies are missing, and unlisted companies rarely publish figures.</li>
+        <li>Seven listed companies have no usable report text (six files were errata notices and one a scanned image), so their figures are empty.</li>
+        <li>Employee numbers and some lines are printed by only some reports. Empty means not known, not zero or false.</li>
+        <li>Figures are as the companies published them. A multi-year summary may restate earlier years or round them differently from the statements of each year.</li>
+      </ul>
+
+      <h3>Use the data</h3>
+      <p>The tables behind this page are free to reuse under CC BY 4.0, with the original publishers keeping their rights: <a href="/data/lk-companies">companies and groups</a>, <a href="/data/lk-company-financials">financial statements</a>, <a href="/data/lk-company-history">financial history</a>, <a href="/data/lk-company-sectors">sectors</a>, <a href="/data/lk-company-relationships">ownership</a>, <a href="/data/lk-company-segments">operating segments</a> and <a href="/data/lk-company-shareholders">shareholders</a>. An AI assistant can query all of them through the <a href="/connect">developing-country.org connector</a>.</p>
+    </div>
+  </dialog>
+</div>
+</SiteLayout>
+
+<style is:global>
+.cmap{--paper:#f7f6f4; --raised:#ffffff; --ink:#050505; --dim:#5f5d56;
+  --hair:rgba(5,5,5,.16); --hair2:rgba(5,5,5,.07); --quiet:rgba(5,5,5,.22);
+  --teal:#00a191; --teal-tint:rgba(0,161,145,.13); --on-teal:#ffffff;
+  --blue:#2456c4; --amber:#e8930c; --verm:#d14321; --up:#0b7a4b; --down:#b3361b;
+  --mono:'M PLUS 1 Code',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Overpass',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);font:400 15px/1.45 var(--sans);overflow-x:clip}
+.cmap *{box-sizing:border-box}
+.cmap [hidden]{display:none!important}
+.cmap button{font:inherit;color:inherit}
+.cmap a{color:var(--blue)}
+.cmap :focus-visible{outline:2px solid var(--blue);outline-offset:2px} /* the one focus style for every control on the page */
+.cmap .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cmap.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.cmap h1{font:700 15px/1.3 var(--sans);color:var(--dim);margin:44px 0 10px}
+.cmap .lead{font:600 clamp(22px,5vw,32px)/1.35 var(--sans);letter-spacing:-.01em;margin:0 0 20px;max-width:900px}
+.cmap .lead b{font-family:var(--mono);font-weight:500}
+.cmap .find{position:relative;max-width:560px;margin-bottom:22px}
+.cmap .find input{display:block;width:100%;height:44px;margin:0;font:400 16px/1.2 var(--sans);color:var(--ink);background:var(--raised);
+  border:1px solid var(--quiet);border-radius:2px;padding:0 44px 0 38px;-webkit-appearance:none;appearance:none}
+.cmap .find input:hover{border-color:var(--dim)}
+.cmap .find input:focus{border-color:var(--ink)}
+.cmap .find input::placeholder{color:var(--dim);opacity:1}
+.cmap .find input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.cmap .find-ico{position:absolute;left:13px;top:14px;width:16px;height:16px;color:var(--dim);pointer-events:none}
+.cmap .find-x{position:absolute;right:0;top:0;width:44px;height:44px;border:0;background:none;padding:0;cursor:pointer;font:400 24px/1 var(--sans);color:var(--dim)}
+.cmap .bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;padding:12px 0;border-top:1px solid var(--hair)}
+.cmap .seg{display:flex;gap:4px}
+.cmap .seg button{min-height:36px;font:500 12px/1 var(--mono);background:none;border:1px solid var(--hair);border-radius:2px;padding:0 12px;cursor:pointer;color:var(--dim)}
+.cmap .seg button[aria-pressed="true"]{color:var(--paper);background:var(--ink);border-color:var(--ink)}
+.cmap .filters{display:flex;flex-wrap:wrap;gap:6px}
+.cmap .fbtn-w{position:relative}
+.cmap .fbtn{min-height:36px;font:500 12px/1 var(--mono);background:var(--raised);border:1px solid var(--quiet);border-radius:2px;padding:0 10px;cursor:pointer}
+.cmap .fbtn:hover{border-color:var(--ink)}
+.cmap .fbtn[aria-expanded="true"]{border-color:var(--blue)}
+.cmap .fbtn.on{border-color:var(--teal);box-shadow:inset 0 -2px 0 var(--teal)}
+.cmap .fbtn .car{font-size:9px;margin-left:6px;color:var(--dim)}
+.cmap .menu{position:absolute;top:calc(100% + 6px);left:0;z-index:30;list-style:none;margin:0;padding:6px 0;min-width:230px;max-width:calc(100vw - 32px);
+  max-height:min(70vh,460px);overflow-y:auto;background:var(--raised);border:1px solid var(--ink);border-radius:2px;box-shadow:2px 2px 0 var(--ink);font:400 14px/1.3 var(--sans)}
+.cmap .menu [role=option]{padding:7px 16px 7px 30px;cursor:pointer;position:relative;white-space:nowrap;display:flex;justify-content:space-between;gap:14px}
+.cmap .menu [role=option] .n{font:500 11px/1.3 var(--mono);color:var(--dim)}
+.cmap .menu [role=option][aria-selected="true"]::before{content:'✓';position:absolute;left:11px;color:var(--teal)}
+.cmap .menu [role=option]:hover,.cmap .menu [role=option]:focus{outline:none;background:var(--teal-tint)}
+.cmap .menu [role=option].fam{font-weight:600}
+.cmap .menu [role=option].sub{padding-left:44px}
+.cmap .menu [role=option].sub[aria-selected="true"]::before{left:25px}
+.cmap .menu .grp{font:500 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding:12px 16px 5px 30px}
+.cmap .chips{display:flex;flex-wrap:wrap;gap:6px;min-height:8px;padding:0 0 12px}
+.cmap .chip{display:inline-flex;align-items:center;gap:6px;font:500 12px/1 var(--mono);background:var(--teal-tint);border:1px solid var(--teal);border-radius:2px;padding:0 0 0 8px;min-height:30px}
+.cmap .chip button{border:0;background:none;cursor:pointer;padding:0 9px;min-height:30px;font-size:15px;color:var(--dim)}
+.cmap .chip button:hover{color:var(--ink)}
+.cmap .clear{font:500 12px/1 var(--mono);background:none;border:0;color:var(--blue);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:30px}
+.cmap section{border-top:1px solid var(--hair)}
+.cmap .lbl{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0 0 10px}
+.cmap .kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0 24px;padding:16px 0 22px}
+.cmap .kpi .v{display:block;font:500 24px/1.2 var(--mono);margin-top:8px}
+.cmap .kpi .s{display:block;font:500 11px/1.5 var(--mono);color:var(--dim);margin-top:4px}
+.cmap .breaks{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:0 40px;padding:18px 0 22px}
+.cmap .bars{list-style:none;margin:0;padding:0}
+.cmap .bars li button{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr) 44px;gap:10px;align-items:center;width:100%;background:none;border:0;border-radius:2px;
+  padding:4px 5px;margin-left:-5px;cursor:pointer;text-align:left;font-size:13px}
+.cmap .bars li button:hover{background:var(--teal-tint)}
+.cmap .bars li button[aria-pressed="true"]{background:var(--teal);color:var(--on-teal)}
+.cmap .bars .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cmap .bars .b{height:8px;background:var(--hair2)}
+.cmap .bars .b i{display:block;height:100%;background:var(--teal)}
+
+.cmap .bars .c{font:500 12px/1 var(--mono);text-align:right}
+.cmap .tablewrap{overflow-x:auto;padding:4px 4px 10px;margin:0 -4px}
+.cmap .list{width:100%;border-collapse:collapse;min-width:0}
+.cmap .list > thead th{text-align:left;font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim);padding:12px 12px 10px 0;border-bottom:1px solid var(--hair);white-space:nowrap}
+.cmap .list > thead th button{background:none;border:0;padding:0;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit}
+.cmap .list > thead th button:hover{color:var(--ink)}
+.cmap .list > thead th button[aria-sort]{color:var(--ink)}
+.cmap .list > thead th button[aria-sort="descending"]::after{content:' ↓'}
+.cmap .list > thead th button[aria-sort="ascending"]::after{content:' ↑'}
+.cmap .list > thead th.num,.cmap .list > tbody > tr > td.num{text-align:right}
+.cmap .list > tbody > tr > td{padding:12px 12px 12px 0;border-bottom:1px solid var(--hair2);vertical-align:top}
+/* inset the outer columns so a highlighted or open row's panel never touches its text */
+.cmap .list > thead th:first-child,.cmap .list > tbody > tr.r > td:first-child{padding-left:16px}
+.cmap .list > thead th:last-child,.cmap .list > tbody > tr.r > td:last-child{padding-right:16px}
+.cmap .list tr.r{cursor:pointer}
+.cmap .list tr.r:hover td{background:var(--raised)}
+.cmap .list tr.r.open td{background:var(--raised);border-bottom-color:transparent}
+.cmap .nm{font-weight:600}
+.cmap .grp-n{display:block;font:400 12px/1.4 var(--sans);color:var(--dim);margin-top:2px}
+.cmap .sym{font:500 10px/1 var(--mono);border:1px solid var(--hair);border-radius:2px;padding:2px 4px 1px;margin-left:6px;color:var(--dim);vertical-align:2px}
+.cmap .list > tbody > tr > td.num{font:500 13px/1.4 var(--mono);white-space:nowrap}
+.cmap .up{color:var(--up)} .cmap .down{color:var(--down)}
+.cmap .dash{color:var(--dim)}
+.cmap .flags{font:500 11px/1.5 var(--mono);color:var(--dim)}
+/* One colour per broad sector, chosen so every pair is clearly apart (OKLab distance ≥ 11 for
+   normal vision); the badge text always names the sector, so colour is never the only cue. */
+.cmap{--sec-agriculture:#8cc63f;--sec-food-and-drink:#ff9f43;--sec-manufacturing:#5d9cec;--sec-mining-and-minerals:#b08860;--sec-energy:#ffe14d;
+  --sec-construction-and-property:#f3c6a5;--sec-trade:#ff8fd6;--sec-tourism-and-leisure:#2ec4a6;--sec-transport-and-logistics:#c4c8ff;
+  --sec-finance:#2f4b8a;--sec-technology:#9ff0e8;--sec-health:#ff6b81;--sec-services:#c47ad6;--sec-holding:#3a3a3a}
+.cmap [data-fam="agriculture"]{background:var(--sec-agriculture)}
+.cmap [data-fam="food-and-drink"]{background:var(--sec-food-and-drink)}
+.cmap [data-fam="manufacturing"]{background:var(--sec-manufacturing)}
+.cmap [data-fam="mining-and-minerals"]{background:var(--sec-mining-and-minerals)}
+.cmap [data-fam="energy"]{background:var(--sec-energy)}
+.cmap [data-fam="construction-and-property"]{background:var(--sec-construction-and-property)}
+.cmap [data-fam="trade"]{background:var(--sec-trade)}
+.cmap [data-fam="tourism-and-leisure"]{background:var(--sec-tourism-and-leisure)}
+.cmap [data-fam="transport-and-logistics"]{background:var(--sec-transport-and-logistics)}
+.cmap [data-fam="finance"]{background:var(--sec-finance)}
+.cmap [data-fam="technology"]{background:var(--sec-technology)}
+.cmap [data-fam="health"]{background:var(--sec-health)}
+.cmap [data-fam="services"]{background:var(--sec-services)}
+.cmap [data-fam="holding"]{background:var(--sec-holding)}
+.cmap .theme-tag[data-fam="finance"],.cmap .theme-tag[data-fam="holding"]{color:#fff}
+.cmap .bars li button[aria-pressed="true"] .b i{box-shadow:inset 0 0 0 2px var(--on-teal)}
+.cmap .theme-tag{display:inline-block;padding:3px 6px 2px;margin:0 4px 4px 0;font:600 9.5px/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.cmap .theme-tag[data-fam=""]{background:var(--hair2)}
+.cmap tr.d > td{background:var(--raised);padding:0 0 22px;border-bottom:1px solid var(--ink)}
+.cmap .detail{padding:4px 16px 0}
+.cmap .detail h3{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:22px 0 10px}
+.cmap .detail h3 .cnt{letter-spacing:0;color:var(--ink);margin-left:6px}
+.cmap .detail p{margin:0 0 8px}
+.cmap .detail .what{font-size:16px;line-height:1.5;max-width:60ch}
+.cmap .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin:8px 0 4px}
+.cmap .st{padding:12px 16px 12px 0}
+.cmap .st+.st{padding-left:16px;border-left:1px solid var(--hair2)}
+.cmap .st .sl{display:block;font:500 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.cmap .st .sv{display:block;font:500 20px/1.2 var(--mono);margin-top:8px}
+.cmap .st .ss{display:block;font:500 11px/1.4 var(--mono);color:var(--dim);margin-top:4px}
+.cmap .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 44px}
+/* ready-made views: a scrolling row of sign plates */
+.cmap .lensbar{margin:16px 0 2px}
+.cmap .lensbar .lbl{margin-bottom:8px}
+/* scrolling boxes clip at their edges: 4px of inner room (offset by margin) keeps focus rings and shadows whole */
+.cmap .lenses{display:flex;gap:6px;overflow-x:auto;padding:4px 4px 8px;margin:0 -4px;scrollbar-width:thin}
+.cmap .lenses button{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;font:600 13px/1 var(--sans);background:var(--raised);color:var(--ink);border:1px solid var(--ink);border-radius:2px;box-shadow:2px 2px 0 var(--ink);cursor:pointer;white-space:nowrap}
+.cmap .lenses button .n,.cmap .seg button .n,.cmap .buckets button .n{font:500 11px/1 var(--mono);color:var(--dim)}
+.cmap .lenses button:hover{background:var(--teal-tint)}
+.cmap .lenses button[aria-pressed="true"]{background:var(--ink);color:var(--paper);box-shadow:2px 2px 0 var(--teal)}
+.cmap .lenses button[aria-pressed="true"] .n{color:var(--paper)}
+.cmap .seg button[aria-pressed="true"] .n{color:var(--paper)}
+.cmap .seg button:disabled{opacity:.45;cursor:not-allowed}
+.cmap .fbtn.filt{font-weight:600}
+.cmap .chip.lock{background:var(--ink);color:var(--paper);border-color:var(--ink);padding-right:10px}
+.cmap .cov{margin:-4px 0 12px;font:500 12px/1.5 var(--mono);color:var(--dim);max-width:900px}
+.cmap .tabletools{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin:0 0 6px}
+.cmap .tabletools .lbl{margin:0}
+.cmap .tabletools select{font:500 12px/1 var(--mono);min-height:34px;padding:0 8px;border:1px solid var(--quiet);border-radius:2px;background:var(--raised);color:var(--ink)}
+.cmap .list .sub.warn{color:var(--down)}
+.cmap .kpi .v small{font-size:13px;color:var(--dim)}
+.cmap .lblrow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.cmap .lblrow .lbl{margin:0}
+.cmap .seg.mini button{min-height:26px;padding:0 8px;font-size:11px}
+/* the filters drawer: a slab from the right, full screen on phones */
+.cmap dialog.drawer{position:fixed;inset:0 0 0 auto;margin:0;width:min(520px,100vw);height:100dvh;max-height:100dvh;padding:0;border:0;border-left:1px solid var(--ink);border-top:4px solid var(--teal);border-radius:0;background:var(--raised);color:var(--ink);font:400 15px/1.5 var(--sans);box-shadow:-4px 0 0 var(--ink)}
+.cmap dialog.drawer[open]{display:flex;flex-direction:column}
+.cmap dialog.drawer::backdrop{background:rgba(5,5,5,.35)}
+.cmap .dbody{flex:1;overflow-y:auto;padding:4px 20px 20px;overscroll-behavior:contain}
+.cmap .dsec{padding:14px 0 6px;border-bottom:1px solid var(--hair)}
+.cmap .dsec h3{margin:0 0 4px}
+.cmap .dfilter{padding:10px 0 6px}
+.cmap .dhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.cmap .dhead h4{margin:0;font:600 14px/1.3 var(--sans)}
+.cmap .covtag{font:500 10px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.cmap .dfilter .note{margin:3px 0 0;font-size:12.5px}
+.cmap .dfilter .seg.basis{margin:8px 0 0}
+.cmap .buckets{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.cmap .buckets button{display:inline-flex;align-items:center;gap:8px;min-height:34px;padding:0 10px;font:500 12.5px/1 var(--sans);background:var(--raised);color:var(--ink);border:1px solid var(--quiet);border-radius:2px;cursor:pointer}
+.cmap .buckets button:hover{border-color:var(--ink)}
+.cmap .buckets button[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:var(--on-teal)}
+.cmap .buckets button[aria-pressed="true"] .n{color:var(--on-teal)}
+.cmap .buckets button.zero{opacity:.5}
+.cmap .dfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 20px;border-top:1px solid var(--ink)}
+.cmap .dshow{font:600 14px/1 var(--sans);min-height:42px;padding:0 18px;background:var(--ink);color:var(--paper);border:0;border-radius:2px;cursor:pointer;box-shadow:3px 3px 0 var(--teal)}
+@media (max-width:760px){ .cmap dialog.drawer{width:100vw;border-left:0;box-shadow:none} .cmap .dbody{padding:4px 14px 16px} .cmap .dfoot{padding:10px 14px} .cmap .tabletools{justify-content:flex-start} }
+/* methodology dialog */
+.cmap .lead .incl{color:var(--dim);font-weight:400}
+.cmap .howline{margin:-6px 0 18px;font-size:14px}
+.cmap dialog.method{width:min(760px,calc(100vw - 32px));max-height:min(86vh,900px);padding:0;border:1px solid var(--ink);border-top:4px solid var(--teal);border-radius:2px;
+  background:var(--raised);color:var(--ink);box-shadow:4px 4px 0 var(--ink);font:400 15px/1.55 var(--sans);overflow:hidden}
+.cmap dialog.method[open]{display:flex;flex-direction:column}
+.cmap dialog.method::backdrop{background:rgba(5,5,5,.35)}
+.cmap .mhead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px 14px;border-bottom:1px solid var(--hair)}
+.cmap .mhead h2{margin:0;font:700 20px/1.2 var(--sans)}
+.cmap .mclose{font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:none;border:1px solid var(--ink);border-radius:2px;padding:9px 12px 8px;cursor:pointer;color:var(--ink)}
+.cmap .mclose:hover{background:var(--ink);color:var(--raised)}
+.cmap .mbody{overflow-y:auto;padding:6px 22px 24px;overscroll-behavior:contain}
+.cmap .mbody .mlead{font-size:16px;margin:12px 0 4px}
+.cmap .mbody h3{margin:22px 0 6px}
+.cmap .mbody ul{margin:0;padding-left:18px}
+.cmap .mbody li{margin:0 0 8px}
+.cmap .mbody a{color:var(--blue)}
+@media (max-width:760px){ .cmap dialog.method{width:calc(100vw - 16px);max-height:92vh} .cmap .mhead,.cmap .mbody{padding-left:14px;padding-right:14px} }
+/* detail tabs: Figures (default) and Ownership */
+.cmap .dtabs{display:flex;gap:0;margin:14px 0 4px;border-bottom:1px solid var(--ink)}
+.cmap .dtabs button{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid transparent;border-bottom:0;border-radius:2px 2px 0 0;padding:11px 16px 10px;cursor:pointer;color:var(--dim);margin-bottom:-1px}
+.cmap .dtabs button[aria-selected="true"]{color:var(--ink);background:var(--raised);border-color:var(--ink);box-shadow:inset 0 3px 0 var(--teal)}
+.cmap .dtabs button:hover{color:var(--ink)}
+.cmap .own{margin:16px 0 0;max-width:860px}
+.cmap .loading{margin:18px 0}
+/* history: small multiples, one measure each */
+.cmap .hgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 28px;margin:6px 0 4px}
+/* the figure line can wrap; every chart sits on the same baseline across a row */
+.cmap .hpanel{min-width:0;display:flex;flex-direction:column}
+.cmap .hpanel svg.mini{margin-top:auto}
+.cmap .hl{margin:0;font:500 10.5px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.cmap .hv{margin:4px 0 8px;font:500 17px/1.2 var(--mono)}
+.cmap .hv .hs{display:block;font-size:10.5px;color:var(--dim);margin-top:3px}
+.cmap svg.mini{display:block;width:100%;height:78px;overflow:visible}
+.cmap svg.mini rect{fill:var(--quiet)}
+.cmap svg.mini rect.last{fill:var(--teal)}
+.cmap svg.mini rect.neg{fill:var(--down)}
+.cmap svg.mini .base{stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke}
+.cmap .miniax{display:flex;justify-content:space-between;font:500 10px/1 var(--mono);color:var(--dim);margin-top:4px}
+/* ratios against the sector */
+.cmap .ratios{border-collapse:collapse;width:100%;font:500 12.5px/1.4 var(--mono)}
+.cmap .ratios th,.cmap .ratios td{padding:7px 14px 7px 0;border-bottom:1px solid var(--hair2);text-align:right;white-space:nowrap}
+.cmap .ratios tbody th{text-align:left;font:400 14px/1.35 var(--sans);white-space:normal}
+.cmap .ratios thead th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);font-weight:500}
+.cmap .ratios .v{font-weight:700}
+.cmap .ratios .m,.cmap .ratios .k{color:var(--dim)}
+.cmap .ratios .s{width:140px;padding-right:0}
+.cmap svg.strip{display:block;width:120px;height:14px}
+.cmap svg.strip line{stroke:var(--hair);stroke-width:1}
+.cmap svg.strip .med{stroke:var(--ink);stroke-width:1.5}
+.cmap svg.strip .peer{fill:var(--quiet)}
+.cmap svg.strip .me{fill:var(--teal);stroke:var(--raised);stroke-width:1.5}
+.cmap .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+/* shares of revenue: segments and regions */
+.cmap .shares{list-style:none;margin:0;padding:0}
+.cmap .shares li{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(60px,1fr) 40px;gap:2px 10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--hair2)}
+.cmap .shares .sn{font-size:14px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cmap .shares .sb{height:8px;background:var(--hair2);border-radius:1px}
+.cmap .shares .sb i{display:block;height:100%;background:var(--teal);border-radius:1px}
+.cmap .shares .sp{font:600 12px/1 var(--mono);text-align:right}
+.cmap .shares .sx{grid-column:1 / -1;font:500 10.5px/1.3 var(--mono);color:var(--dim)}
+/* the accounts: collapsed by default */
+.cmap .accts{margin-top:8px}
+.cmap .accts summary{cursor:pointer;list-style:none}
+.cmap .accts summary::-webkit-details-marker{display:none}
+.cmap .accts summary h3::after{content:' ▸';color:var(--dim)}
+.cmap .accts[open] summary h3::after{content:' ▾'}
+.cmap .accts .fin{width:100%}
+.cmap .accts .fin tr.sec th{padding-top:16px;color:var(--ink);border-bottom:1px solid var(--hair)}
+.cmap .accts .fin tbody th{text-transform:none;font:400 13px/1.35 var(--sans);letter-spacing:0;color:var(--ink)}
+.cmap .accts .fin a{color:var(--dim)}
+/* ownership web: owners left, the centre company, what it holds right */
+.cmap .web{margin:22px 0 4px;padding-top:2px;border-top:1px solid var(--hair)}
+.cmap .webhd{display:flex;justify-content:space-between;align-items:baseline;gap:6px 16px;flex-wrap:wrap}
+.cmap .webhd .note{margin:0}
+.cmap .webkey{display:flex;gap:14px;flex-wrap:wrap;font:500 11px/1.4 var(--mono);color:var(--dim);margin:8px 0 0}
+.cmap .webkey i{display:inline-block;width:22px;height:0;border-top:2px solid var(--ink);vertical-align:middle;margin-right:6px}
+.cmap .webkey i.min{border-top:1.5px dashed var(--dim)}
+/* width:0 + min-width:100% keeps a wide web from stretching the table cell, so it scrolls instead */
+.cmap .webwrap{width:0;min-width:100%;overflow-x:auto;padding:14px 4px 14px}
+.cmap .webcan{position:relative;margin:0 auto}
+.cmap .webcan svg{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
+.cmap .webcan path{fill:none;stroke:var(--quiet);stroke-width:1.5;stroke-dasharray:4 3}
+.cmap .webcan path.maj{stroke:var(--ink);stroke-width:1.75;stroke-dasharray:none}
+.cmap .wn{position:absolute;width:184px;height:48px;padding:5px 8px 4px 14px;display:flex;flex-direction:column;justify-content:center;gap:1px;
+  background:var(--raised);color:var(--ink);border:1px solid var(--hair);border-radius:2px;text-align:left;font:inherit;cursor:pointer;overflow:hidden}
+.cmap .wn::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--stripe,var(--hair2))}
+.cmap .wn:hover{border-color:var(--ink)}
+.cmap .wn.c{border-color:var(--ink);box-shadow:4px 4px 0 var(--ink);cursor:default}
+.cmap .wn.more{border-style:dashed;background:none}
+.cmap .wn.more::before{display:none}
+.cmap .wn.plain{cursor:default}
+.cmap .wn .n{font-size:12.5px;font-weight:700;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cmap .wn .m{font:500 10.5px/1.3 var(--mono);color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cmap .wp{position:absolute;width:46px;font:600 10.5px/14px var(--mono);color:var(--ink);text-align:right;pointer-events:none}
+.cmap .wp b{font-weight:600;background:var(--raised);padding:0 2px}
+.cmap .wp.l{text-align:left;width:80px}
+.cmap .webcol{position:absolute;top:0;font:500 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+.cmap .secs{list-style:none;margin:0;padding:0}
+.cmap .secs li{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;padding:3px 0}
+.cmap .secs .theme-tag{margin:0}
+.cmap .fin{border-collapse:collapse;font:500 12px/1.4 var(--mono);margin-bottom:6px}
+.cmap .fin th{font-weight:500;color:var(--dim);text-align:left;padding:6px 18px 6px 0;border-bottom:1px solid var(--hair2)}
+.cmap .fin thead th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-align:right}
+.cmap .fin thead th:first-child{text-align:left}
+.cmap .fin th,.cmap .fin td{vertical-align:baseline;line-height:1.4}
+.cmap .fin tbody th{text-transform:uppercase;font-size:10px;letter-spacing:.1em}
+.cmap .fin td{text-align:right;padding:6px 18px 6px 0;border-bottom:1px solid var(--hair2);white-space:nowrap}
+.cmap .kv{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;margin:0;font-size:14px}
+.cmap .kv dt{font:500 11px/1.7 var(--mono);color:var(--dim)}
+.cmap .kv dd{margin:0}
+.cmap .chain{list-style:none;margin:0 0 10px;padding:0;font-size:14px}
+.cmap .chain li{position:relative;padding:3px 0 3px 18px}
+.cmap .chain li::before{content:'';position:absolute;left:4px;top:11px;width:7px;height:7px;border:1.5px solid var(--dim);border-radius:50%;background:var(--raised)}
+.cmap .chain li:not(:last-child)::after{content:'';position:absolute;left:8px;top:20px;bottom:-6px;border-left:1px solid var(--hair)}
+.cmap .chain li.me{font-weight:600}
+.cmap .chain li.me::before{background:var(--teal);border-color:var(--teal)}
+.cmap .chain .p{font:500 11px/1 var(--mono);color:var(--dim);margin-left:8px}
+.cmap .htabs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.cmap .htabs button{font:500 11px/1 var(--mono);background:none;border:1px solid var(--hair);border-radius:2px;padding:7px 8px 6px;cursor:pointer;color:var(--dim)}
+.cmap .htabs button span{color:var(--ink);margin-left:3px}
+.cmap .htabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.cmap .htabs button[aria-pressed="true"] span{color:var(--paper)}
+.cmap .hq{display:block;width:100%;height:36px;font:400 14px/1.2 var(--sans);border:1px solid var(--quiet);border-radius:2px;padding:0 10px;background:var(--paper);margin-bottom:6px}
+.cmap .hq:focus{border-color:var(--ink);outline:none}
+.cmap .hlist{list-style:none;margin:0 -4px;padding:0 4px;max-height:380px;overflow-y:auto;border-top:1px solid var(--hair2)}
+.cmap .hlist li{display:grid;grid-template-columns:46px minmax(0,1fr) auto 78px;gap:8px;align-items:baseline;padding:7px 2px;border-bottom:1px solid var(--hair2);font-size:13px}
+.cmap .hlist .p{font:500 11px/1.4 var(--mono);color:var(--dim)}
+.cmap .hlist .hm{display:block;font:500 10.5px/1.4 var(--mono);color:var(--dim);margin-top:2px}
+.cmap .hlist .hr{font:500 11px/1.4 var(--mono);text-align:right;white-space:nowrap}
+.cmap .hlist .theme-tag{margin:0}
+.cmap .hlist li.note{display:block}
+.cmap .list .sub{display:block;font:500 10.5px/1.4 var(--mono);color:var(--dim);margin-top:2px}
+.cmap .perf{display:inline-block;margin-top:5px;font:500 10px/1.2 var(--mono);padding:2px 5px 1px;border:1px solid var(--hair);border-radius:2px;color:var(--dim)}
+.cmap .perf.good{border-color:var(--up);color:var(--up)}
+.cmap .perf.warn{border-color:var(--amber);color:#8a5600}
+.cmap .perf.bad{border-color:var(--down);color:var(--down)}
+.cmap .note.warn{color:#8a5600}
+.cmap .hlist-s{max-height:none;margin-bottom:6px}
+.cmap .hlist-s li{grid-template-columns:52px minmax(0,1fr)}
+.cmap .also{grid-column:2;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;padding:4px 0 2px}
+.cmap .linkbtn{background:none;border:0;padding:0;color:var(--blue);cursor:pointer;text-decoration:underline;text-underline-offset:3px;font:inherit;text-align:left}
+.cmap .ev{font-size:12px;color:var(--dim)}
+.cmap .note{font-size:12px;color:var(--dim)}
+.cmap .empty{padding:22px 0;color:var(--dim)}
+.cmap .showmore{display:block;margin:18px auto 0;font:500 12px/1 var(--mono);background:none;border:1px solid var(--hair);border-radius:2px;padding:9px 14px 8px;cursor:pointer}
+.cmap .showmore:hover{border-color:var(--ink)}
+.cmap .ai{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:30px;padding:18px 0;border-top:1px solid var(--hair);color:var(--dim)}
+.cmap .ai p{margin:0;max-width:640px}
+.cmap .copy{font:500 12px/1 var(--mono);background:none;border:1px solid var(--ink);border-radius:2px;padding:9px 14px 8px;cursor:pointer;min-width:132px}
+.cmap .copy:hover{background:var(--ink);color:var(--paper)}
+.cmap .copyta{display:block;width:100%;height:150px;margin:0 0 12px;font:500 12px/1.4 var(--mono);background:var(--raised);color:var(--ink);border:1px solid var(--hair);border-radius:2px;padding:10px}
+.cmap .foot{font-size:12px;color:var(--dim);margin:8px 0 56px;max-width:860px}
+@media (max-width:760px){
+  .cmap .kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 18px}
+  .cmap .list .sub{display:none}
+  .cmap .breaks{grid-template-columns:minmax(0,1fr);gap:22px}
+  .cmap .cols{grid-template-columns:minmax(0,1fr)}
+  .cmap .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cmap .hgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cmap .ratios .s,.cmap .ratios .k{display:none}
+  .cmap .accts .fin td:nth-child(4),.cmap .accts .fin th:nth-child(4){display:none}
+  .cmap .st:nth-child(3){padding-left:0;border-left:0}
+  .cmap .detail{padding:4px 12px 0}
+  .cmap .hlist li{grid-template-columns:40px minmax(0,1fr) 70px}
+  .cmap .hlist .hs{display:none}
+  .cmap .hide-s{display:none}
+  .cmap .fbtn,.cmap .seg button{min-height:44px}
+}
+</style>
+
+<script>
+// @ts-nocheck -- plain DOM code; the filtering rules it relies on are typed and tested in src/lib/companyFilter.ts.
+import { COMPANY_SECTOR_FAMILIES, COMPANY_SECTOR_TAGS, COMPANY_SECTOR_BY_TAG } from '@developing-country/datasets/company-sectors'
+import * as FIG from '../lib/companyFigures'
+import { ABROAD_KEYS, ABROAD_LABEL, EMPTY_FILTER, LENSES, RANGES, RANGE_BY_KEY, applyLens, countBy, coverage, effectiveFilter, emptyFilter, filterToParams, inBucket, listedOnlyActive, matches, ownershipOf, parseFilter, rangeValue, searchText, sortRows, summarize, tagsOf, toQuery } from '../lib/companyFilter'
+
+const root = document.getElementById('cmap')
+const BASE = root.dataset.base
+const $ = id => document.getElementById(id)
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
+const FAMILY = new Map(COMPANY_SECTOR_TAGS.map(t => [t.tag, t.family]))
+const tagLabel = t => COMPANY_SECTOR_BY_TAG.get(t)?.label ?? t
+const OWNER = { listed: 'Listed on the CSE', state_owned: 'State-owned', family_group: 'Family-owned', foreign_multinational: 'Foreign-owned',
+  private_local: 'Privately owned (Sri Lankan)', private: 'Privately owned (Sri Lankan)', joint_venture: 'Joint venture', listed_elsewhere: 'Part of a listed group',
+  in_group: 'Owned by a group', unknown: 'Not classified', '': 'Not classified' }
+const REL = { ultimate_parent: 'Parent company', subsidiary: 'Subsidiary', associate: 'Associate', joint_venture: 'Joint venture',
+  member_per_web_sources: 'Part', named_in_report_only: 'Named in the annual report', former_holding: 'Formerly held', investment_not_consolidated: 'Minority investment' }
+// How a company relates to its group, as a phrase: “Subsidiary of X”, “Part of X”, “Named in X’s annual report”.
+const relPhrase = (r, name) => r.relation_to_group === 'named_in_report_only' ? `Named in ${name}’s annual report`
+  : r.relation_to_group === 'former_holding' ? `Formerly held by ${name}` : `${REL[r.relation_to_group] ?? 'Part'} of ${name}`
+const ISIC_LABEL = new Map()
+
+function fmtLkr(v) {
+  if (v === null || v === undefined) return '<span class="dash">–</span>'
+  const a = Math.abs(v)
+  if (a >= 1e12) return 'LKR ' + (v / 1e12).toPrecision(3) + 'tn'
+  if (a >= 1e9) return 'LKR ' + +(v / 1e9).toPrecision(3) + 'bn'
+  if (a >= 1e6) return 'LKR ' + +(v / 1e6).toPrecision(3) + 'm'
+  return 'LKR ' + Math.round(v).toLocaleString('en')
+}
+const plural = (n, w) => `${n.toLocaleString('en')} ${n === 1 ? w : w === 'company' ? 'companies' : w + 's'}`
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const fmtDate = d => /^\d{4}-\d{2}-\d{2}$/.test(d) ? `${+d.slice(8)} ${MONTHS[+d.slice(5, 7) - 1]} ${d.slice(0, 4)}` : d
+// revenue_basis for web-researched companies is stored as “press_report (2009)”: say it in words
+const BASIS = { reported_by_company: 'Company’s own figure', regulator_filing: 'Regulator filing', rating_agency: 'Rating agency report', press_report: 'Press report', ranking: 'Published ranking', estimate_range: 'Estimate' }
+function basisText(b) {
+  if (!b) return 'Source linked below'
+  const m = b.match(/^([a-z_]+)(?: \((.*)\))?$/)
+  if (!m || !BASIS[m[1]]) return b
+  const yr = m[2] && m[2] !== 'None' ? (m[2].match(/\d{4}/) ?? [''])[0] : ''
+  return BASIS[m[1]] + (yr ? `, ${yr}` : '')
+}
+const fmtPctPlain = v => v === null || v === undefined ? '–' : `${v > 0 ? '+' : ''}${v.toFixed(1)}%`
+const fmtInt = v => v === null || v === undefined ? '<span class="dash">–</span>' : Math.round(v).toLocaleString('en')
+const fmtPct = v => v === null || v === undefined ? '<span class="dash">–</span>'
+  : `<span class="${v > 0 ? 'up' : v < 0 ? 'down' : ''}">${v > 0 ? '+' : ''}${v.toFixed(1)}%</span>`
+
+let ROWS = [], BYID = new Map(), TEXT = new Map(), RELS = { from: new Map(), to: new Map() }, SECT = null
+let F = parseFilter(new URLSearchParams(location.search))
+let shown = 50, openId = null, menuOpen = null
+
+/* ---------- filters ---------- */
+const PERF = { profitable_growing: 'Profitable and growing in real terms', profitable_shrinking: 'Profitable but shrinking in real terms', profitable: 'Profitable',
+  back_to_profit: 'Back to profit', fell_into_loss: 'Fell into loss', loss_both_years: 'Loss in both years', negative_equity: 'Negative equity (owes more than it owns)' }
+const PERF_SHORT = { profitable_growing: 'Profitable · growing', profitable_shrinking: 'Profitable · shrinking', profitable: 'Profitable', back_to_profit: 'Back to profit', fell_into_loss: 'Fell into loss', loss_both_years: 'Loss both years', negative_equity: 'Negative equity' }
+const PERF_TONE = { profitable_growing: 'good', back_to_profit: 'good', profitable_shrinking: 'warn', profitable: '', fell_into_loss: 'bad', loss_both_years: 'bad', negative_equity: 'bad' }
+const LISTED = [['', 'All'], ['yes', 'Listed'], ['no', 'Unlisted']]
+const KIND_NAME = { bank: 'Banks', finance_company: 'Finance companies', insurer: 'Insurers', other: 'Other listed companies' }
+const SECTION = [['size', 'Size'], ['growth', 'Growth and profit'], ['debt', 'Debt and resilience'], ['price', 'Dividends and price'], ['international', 'Exports and overseas'], ['control', 'Control'], ['banks', 'Banks and lenders']]
+let EF = effectiveFilter(F)
+const rowsMatching = f => ROWS.filter(r => matches(r, f, FAMILY, TEXT.get(r.company_id)))
+// any hand edit leaves the ready-made view (its columns stay)
+const touched = () => { F.lens = '' }
+const drawerCount = () => Object.keys(F.ranges).length + F.performance.length + F.abroad.length + F.kinds.length
+
+const MENUS = {
+  sector: {
+    label: () => F.sectors.length + F.families.length ? 'Sector · ' + (F.sectors.length + F.families.length) : 'Sector',
+    on: () => F.sectors.length + F.families.length > 0,
+    items() {
+      const base = rowsMatching(effectiveFilter({ ...F, sectors: [], families: [] }))
+      const fam = new Map(countBy(base, r => tagsOf(r).map(t => FAMILY.get(t))))
+      const tag = new Map(countBy(base, tagsOf))
+      const out = []
+      for (const [fk, fl] of Object.entries(COMPANY_SECTOR_FAMILIES)) {
+        out.push({ id: 'f:' + fk, text: fl, n: fam.get(fk) ?? 0, sel: F.families.includes(fk), cls: 'fam' })
+        for (const t of COMPANY_SECTOR_TAGS.filter(t => t.family === fk && (tag.get(t.tag) ?? 0) > 0))
+          out.push({ id: 't:' + t.tag, text: t.label, n: tag.get(t.tag), sel: F.sectors.includes(t.tag), cls: 'sub', title: t.meaning })
+      }
+      return out
+    },
+    pick(id) {
+      const [k, v] = id.split(':'), arr = k === 'f' ? F.families : F.sectors
+      const i = arr.indexOf(v); i >= 0 ? arr.splice(i, 1) : arr.push(v); touched()
+    }, multi: true,
+  },
+  ownership: {
+    label: () => F.ownership.length ? 'Ownership · ' + F.ownership.length : 'Ownership', on: () => F.ownership.length > 0,
+    items: () => countBy(rowsMatching(effectiveFilter({ ...F, ownership: [] })), r => [ownershipOf(r)]).map(([k, n]) => ({ id: k, text: OWNER[k] ?? k, n, sel: F.ownership.includes(k) })),
+    pick(id) { const i = F.ownership.indexOf(id); i >= 0 ? F.ownership.splice(i, 1) : F.ownership.push(id); touched() }, multi: true,
+  },
+}
+
+function drawFilters() {
+  const forced = listedOnlyActive(F).length > 0
+  const lc = k => rowsMatching(effectiveFilter({ ...F, listed: k })).length
+  const n = drawerCount()
+  $('filters').innerHTML = Object.entries(MENUS).map(([k, m]) =>
+    `<span class="fbtn-w"><button type="button" class="fbtn${m.on() ? ' on' : ''}" data-menu="${k}" aria-haspopup="listbox" aria-expanded="${menuOpen === k}">${esc(m.label())}<span class="car">▼</span></button></span>`).join('') +
+    `<div class="seg" role="group" aria-label="Companies">${LISTED.map(([k, t]) => {
+      const off = forced && k !== 'yes'
+      return `<button type="button" data-listed="${k}" aria-pressed="${EF.listed === k}"${off ? ' disabled title="A filter you chose is published only by listed companies"' : ''}>${t}${off ? '' : ` <span class="n">${lc(k).toLocaleString('en')}</span>`}</button>`
+    }).join('')}</div>` +
+    `<button type="button" class="fbtn filt${n ? ' on' : ''}" id="openFilters" aria-haspopup="dialog">Filters${n ? ' · ' + n : ''}<span class="car">▸</span></button>`
+  if (menuOpen) openMenu(menuOpen, false)
+}
+
+function openMenu(key, focus = true) {
+  const host = $('filters').querySelector(`[data-menu="${key}"]`)?.parentElement
+  if (!host) return
+  const m = MENUS[key]
+  const items = m.items()
+  const ul = document.createElement('ul')
+  ul.className = 'menu'; ul.setAttribute('role', 'listbox'); ul.setAttribute('aria-multiselectable', m.multi ? 'true' : 'false')
+  ul.innerHTML = items.map(it => `<li role="option" tabindex="-1" data-id="${esc(it.id)}" aria-selected="${it.sel}" class="${it.cls ?? ''}"${it.title ? ` title="${esc(it.title)}"` : ''}><span>${esc(it.text)}</span>${it.n !== undefined ? `<span class="n">${it.n}</span>` : ''}</li>`).join('')
+  host.appendChild(ul)
+  host.querySelector('.fbtn').setAttribute('aria-expanded', 'true')
+  const opts = [...ul.querySelectorAll('[role=option]')]
+  ul.addEventListener('click', e => {
+    const li = e.target.closest('[role=option]'); if (!li) return
+    m.pick(li.dataset.id); shown = 50
+    if (!m.multi) menuOpen = null
+    update(); if (m.multi) ul.ownerDocument.querySelector(`[data-menu="${key}"]`)?.parentElement.querySelector(`[data-id="${CSS.escape(li.dataset.id)}"]`)?.focus()
+  })
+  ul.addEventListener('keydown', e => {
+    const i = opts.indexOf(document.activeElement)
+    if (e.key === 'ArrowDown') { e.preventDefault(); opts[Math.min(i + 1, opts.length - 1)]?.focus() }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); opts[Math.max(i - 1, 0)]?.focus() }
+    else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); document.activeElement.click() }
+    else if (e.key === 'Escape') { closeMenu(true) }
+  })
+  if (focus) (opts.find(o => o.getAttribute('aria-selected') === 'true') ?? opts[0])?.focus()
+}
+function closeMenu(refocus) {
+  const k = menuOpen; menuOpen = null
+  document.querySelectorAll('.cmap .menu').forEach(u => u.remove())
+  document.querySelectorAll('.cmap .fbtn').forEach(b => b.getAttribute('data-menu') && b.setAttribute('aria-expanded', 'false'))
+  if (refocus && k) $('filters').querySelector(`[data-menu="${k}"]`)?.focus()
+}
+$('filters').addEventListener('click', e => {
+  if (e.target.closest('#openFilters')) { closeMenu(); openDrawer(); return }
+  const ls = e.target.closest('[data-listed]')
+  if (ls) { if (ls.disabled) return; F.listed = ls.dataset.listed; touched(); shown = 50; update(); return }
+  const b = e.target.closest('.fbtn[data-menu]'); if (!b) return
+  const k = b.dataset.menu
+  if (menuOpen === k) { closeMenu(); return }
+  closeMenu(); menuOpen = k; b.setAttribute('aria-expanded', 'true'); openMenu(k)
+})
+document.addEventListener('click', e => { if (menuOpen && !e.target.closest('.fbtn-w')) closeMenu() })
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) closeMenu(true) })
+
+/* ---------- ready-made views ---------- */
+let LENS_COUNT = new Map()
+function drawLenses() {
+  $('lenses').innerHTML = LENSES.map(l => `<button type="button" data-lens="${l.id}" aria-pressed="${F.lens === l.id}">${esc(l.label)}<span class="n">${(LENS_COUNT.get(l.id) ?? 0).toLocaleString('en')}</span></button>`).join('')
+  // keep the active view in sight in the scrolling strip (horizontal only: never scroll the page)
+  const strip = $('lenses'), on = strip.querySelector('[aria-pressed="true"]')
+  if (on && (on.offsetLeft < strip.scrollLeft || on.offsetLeft + on.offsetWidth > strip.scrollLeft + strip.clientWidth))
+    strip.scrollLeft = on.offsetLeft - 8
+}
+$('lenses').addEventListener('click', e => {
+  const b = e.target.closest('[data-lens]'); if (!b) return
+  F = F.lens === b.dataset.lens ? emptyFilter() : applyLens(b.dataset.lens)
+  $('fq').value = ''; openId = null; shown = 50; update()
+})
+
+/* ---------- the filters drawer ---------- */
+const DRAWER = $('drawer')
+function openDrawer() { drawDrawer(); DRAWER.showModal(); DRAWER.querySelector('.dbody').scrollTop = 0 }
+DRAWER.addEventListener('click', e => { if (e.target === DRAWER || e.target.closest('[data-dclose]')) DRAWER.close() })
+DRAWER.addEventListener('close', () => $('openFilters')?.focus())
+$('dclear').addEventListener('click', () => { F.ranges = {}; F.performance = []; F.abroad = []; F.kinds = []; F.growthBasis = 'real'; touched(); shown = 50; update(); drawDrawer() })
+
+function bucketButtons(attrs, items) {
+  return `<div class="buckets">${items.map(it => `<button type="button" ${attrs(it)} aria-pressed="${it.sel}"${it.n === 0 && !it.sel ? ' class="zero"' : ''}>${esc(it.label)}<span class="n">${it.n.toLocaleString('en')}</span></button>`).join('')}</div>`
+}
+function rangeBlock(d) {
+  const rest = { ...F, ranges: { ...F.ranges } }; delete rest.ranges[d.key]
+  const ef = effectiveFilter(rest)
+  // counts as if this filter were picked: a listed-only filter limits to listed companies
+  const base = rowsMatching(d.listedOnly ? { ...ef, listed: 'yes', scope: ef.group ? ef.scope : 'all' } : ef)
+  const vals = base.map(r => rangeValue(r, d.key, F.growthBasis))
+  const reporting = vals.filter(v => v !== null).length
+  const sel = (F.ranges[d.key] ?? '').split(',')
+  const label = d.key === 'growth' ? (F.growthBasis === 'real' ? 'Growth this year, after inflation' : 'Growth this year, in rupees') : d.label
+  return `<div class="dfilter"><div class="dhead"><h4>${esc(label)}</h4><span class="covtag">${d.listedOnly ? 'Listed · ' : ''}${reporting.toLocaleString('en')} of ${base.length.toLocaleString('en')} report this</span></div>
+    ${d.note ? `<p class="note">${esc(d.note)}</p>` : ''}
+    ${d.key === 'growth' ? `<div class="seg basis" role="group" aria-label="Growth basis"><button type="button" data-basis="real" aria-pressed="${F.growthBasis === 'real'}">After inflation</button><button type="button" data-basis="nominal" aria-pressed="${F.growthBasis === 'nominal'}">In rupees</button></div>` : ''}
+    ${bucketButtons(it => `data-range="${d.key}" data-bucket="${it.id}"`, d.buckets.map(bk => ({ id: bk.id, label: bk.label, sel: sel.includes(bk.id), n: vals.filter(v => inBucket(v, bk.min, bk.max)).length })))}</div>`
+}
+function drawDrawer() {
+  const body = $('dbody'), scroll = body.scrollTop
+  const showBanks = F.kinds.length || F.families.includes('finance') || F.ranges.npl || F.ranges.car
+  body.innerHTML = SECTION.filter(([k]) => k !== 'banks' || showBanks).map(([k, title]) => {
+    let inner = RANGES.filter(d => d.section === k).map(rangeBlock).join('')
+    if (k === 'growth') {
+      const base = rowsMatching(effectiveFilter({ ...F, performance: [], listed: 'yes', scope: F.group ? F.scope : 'all' }))
+      const by = new Map(countBy(base, r => [r.performance ?? '']))
+      inner += `<div class="dfilter"><div class="dhead"><h4>Profit in the latest two years</h4><span class="covtag">Listed · ${base.filter(r => r.performance).length.toLocaleString('en')} report this</span></div>
+        ${bucketButtons(it => `data-perf="${it.id}"`, Object.entries(PERF).map(([id, label]) => ({ id, label, sel: F.performance.includes(id), n: by.get(id) ?? 0 })))}</div>`
+    }
+    if (k === 'international') {
+      const base = rowsMatching(effectiveFilter({ ...F, abroad: [] }))
+      inner += `<div class="dfilter"><p class="note">Marked where a source says so; a blank means not known, not that the company does not export.</p>
+        ${bucketButtons(it => `data-abroad="${it.id}"`, ABROAD_KEYS.map(id => ({ id, label: ABROAD_LABEL[id], sel: F.abroad.includes(id), n: base.filter(r => id === 'foreign_subsidiaries' ? r.foreign_subsidiaries > 0 : r[id] === true).length })))}</div>`
+    }
+    if (k === 'banks') {
+      const base = rowsMatching(effectiveFilter({ ...F, kinds: [], listed: 'yes', scope: F.group ? F.scope : 'all' }))
+      const by = new Map(countBy(base, r => [r.industry_kind ?? '']))
+      inner = `<div class="dfilter"><div class="dhead"><h4>Kind of business</h4></div>${bucketButtons(it => `data-kind="${it.id}"`, ['bank', 'finance_company', 'insurer'].map(id => ({ id, label: KIND_NAME[id], sel: F.kinds.includes(id), n: by.get(id) ?? 0 })))}</div>` + inner
+    }
+    return `<section class="dsec"><h3>${title}</h3>${inner}</section>`
+  }).join('')
+  body.scrollTop = scroll
+  $('dshow').textContent = `Show ${plural(current.length, 'company')}`
+}
+$('dbody').addEventListener('click', e => {
+  const t = e.target.closest('button'); if (!t) return
+  const toggle = (arr, v) => { const i = arr.indexOf(v); i >= 0 ? arr.splice(i, 1) : arr.push(v) }
+  if (t.dataset.range) { const k = t.dataset.range, id = t.dataset.bucket; if (F.ranges[k] === id) delete F.ranges[k]; else F.ranges[k] = id }
+  else if (t.dataset.basis) F.growthBasis = t.dataset.basis
+  else if (t.dataset.perf) toggle(F.performance, t.dataset.perf)
+  else if (t.dataset.abroad) toggle(F.abroad, t.dataset.abroad)
+  else if (t.dataset.kind) toggle(F.kinds, t.dataset.kind)
+  else return
+  touched(); shown = 50; update(); drawDrawer()
+  DRAWER.querySelector(`[data-range="${t.dataset.range}"][data-bucket="${t.dataset.bucket}"],[data-perf="${t.dataset.perf}"],[data-abroad="${t.dataset.abroad}"],[data-kind="${t.dataset.kind}"],[data-basis="${t.dataset.basis}"]`)?.focus()
+})
+
+/* ---------- chips ---------- */
+function bucketWords(key, ids) {
+  const d = RANGE_BY_KEY.get(key)
+  return `${key === 'growth' && F.growthBasis === 'nominal' ? 'Growth in rupees' : d.label}: ${ids.split(',').map(id => d.buckets.find(x => x.id === id)?.label ?? id).join(' or ')}`
+}
+function chips() {
+  const c = []
+  if (F.group) c.push(['group', 'Group: ' + (BYID.get(F.group)?.name ?? F.group)])
+  if (F.q) c.push(['q', `“${F.q}”`])
+  F.families.forEach(v => c.push(['family:' + v, COMPANY_SECTOR_FAMILIES[v] ?? v]))
+  F.sectors.forEach(v => c.push(['sector:' + v, tagLabel(v)]))
+  F.ownership.forEach(v => c.push(['ownership:' + v, OWNER[v] ?? v]))
+  if (F.listed) c.push(['listed', F.listed === 'yes' ? 'Listed companies' : 'Unlisted companies'])
+  F.isic.forEach(v => c.push(['isic:' + v, 'Industry: ' + (ISIC_LABEL.get(v) ?? v)]))
+  for (const [k, ids] of Object.entries(F.ranges)) c.push(['range:' + k, bucketWords(k, ids)])
+  F.performance.forEach(v => c.push(['performance:' + v, PERF[v] ?? v]))
+  F.kinds.forEach(v => c.push(['kind:' + v, KIND_NAME[v] ?? v]))
+  F.abroad.forEach(v => c.push(['abroad:' + v, ABROAD_LABEL[v]]))
+  const forced = listedOnlyActive(F)
+  $('chips').innerHTML = (forced.length && F.listed !== 'yes' ? `<span class="chip lock" title="${esc(forced.join(', '))}: only listed companies publish this">Listed companies only</span>` : '') +
+    c.map(([k, t]) => `<span class="chip">${esc(t)}<button type="button" data-chip="${esc(k)}" aria-label="Remove ${esc(t)}">×</button></span>`).join('') +
+    (c.length > 1 ? '<button type="button" class="clear" data-chip="*">Clear all</button>' : '')
+}
+$('chips').addEventListener('click', e => {
+  const b = e.target.closest('[data-chip]'); if (!b) return
+  const [k, v] = b.dataset.chip.split(/:(.*)/s)
+  const drop = (arr, x) => arr.splice(arr.indexOf(x), 1)
+  if (k === '*') { const scope = F.scope; F = { ...emptyFilter(), cols: F.cols, scope: scope === 'all' && !F.group ? 'all' : 'groups' }; $('fq').value = '' }
+  else if (k === 'group') { F.group = ''; F.scope = 'groups' }
+  else if (k === 'q') { F.q = ''; $('fq').value = '' }
+  else if (k === 'family') drop(F.families, v)
+  else if (k === 'sector') drop(F.sectors, v)
+  else if (k === 'ownership') drop(F.ownership, v)
+  else if (k === 'isic') drop(F.isic, v)
+  else if (k === 'abroad') drop(F.abroad, v)
+  else if (k === 'performance') drop(F.performance, v)
+  else if (k === 'kind') drop(F.kinds, v)
+  else if (k === 'range') delete F.ranges[v]
+  else if (k === 'listed') F.listed = ''
+  touched(); shown = 50; update()
+})
+
+/* ---------- scope, search, sort, columns ---------- */
+root.querySelectorAll('[data-scope]').forEach(b => b.addEventListener('click', () => { F.scope = b.dataset.scope; F.group = ''; touched(); shown = 50; update() }))
+let qTimer = 0
+$('fq').addEventListener('input', () => { clearTimeout(qTimer); qTimer = setTimeout(() => { F.q = $('fq').value.trim(); shown = 50; update(true) }, 120) })
+$('find').addEventListener('submit', e => { e.preventDefault(); F.q = $('fq').value.trim(); update() })
+$('fqx').addEventListener('click', () => { $('fq').value = ''; F.q = ''; update(); $('fq').focus() })
+$('thead').addEventListener('click', e => {
+  const b = e.target.closest('[data-sort]'); if (!b) return
+  const k = b.dataset.sort
+  if (F.sort === k) F.desc = !F.desc; else { F.sort = k; F.desc = k !== 'name' }
+  update()
+})
+$('colset').addEventListener('change', () => { F.cols = $('colset').value; update() })
+$('more').addEventListener('click', () => { shown += 100; drawRows(current) })
+
+/* ---------- drawing ---------- */
+let current = []
+function update(replace = false) {
+  EF = effectiveFilter(F)
+  current = sortRows(rowsMatching(EF), F.sort, F.desc)
+  const qs = filterToParams(F).toString()
+  history[replace ? 'replaceState' : 'pushState'](null, '', (qs ? '?' + qs : location.pathname) + (location.hash === '#method' ? location.hash : ''))
+  root.querySelectorAll('[data-scope]').forEach(b => b.setAttribute('aria-pressed', String(!EF.group && b.dataset.scope === EF.scope)))
+  $('fqx').hidden = !F.q
+  $('colset').value = F.cols
+  drawLenses(); drawFilters(); chips(); drawCoverage(); drawSummary(); drawBreaks(); drawHead(); drawRows(current)
+  if (DRAWER.open) drawDrawer()
+  $('copyta').hidden = true
+}
+
+function drawCoverage() {
+  const parts = coverage(ROWS, EF, FAMILY).filter(c => c.reporting < c.base)
+    .map(c => `${c.reporting.toLocaleString('en')} of ${c.base.toLocaleString('en')} ${EF.listed === 'yes' ? 'listed ' : ''}companies report ${c.label.toLowerCase()}`)
+  const forced = listedOnlyActive(F)
+  const lines = []
+  if (forced.length && F.listed !== 'yes') lines.push(`Showing listed companies, including those inside groups: only listed companies publish ${forced.map(x => x.toLowerCase()).join(', ')}.`)
+  if (parts.length) lines.push(`${parts.join('; ')}. Companies without the figure are not counted, not ruled out.`)
+  $('coverage').hidden = !lines.length
+  $('coverage').textContent = lines.join(' ')
+}
+
+function drawSummary() {
+  const s = summarize(current)
+  // groups among the rows shown: a group counts once, whether the list shows its parent or its companies
+  const groupsShown = new Set(current.filter(r => (BYID.get(r.group_id)?.group_companies ?? 0) > 1).map(r => r.group_id)).size
+  const head = EF.group ? `<b>${s.companies.toLocaleString('en')}</b> ${s.companies === 1 ? 'company' : 'companies'} in ${esc(BYID.get(EF.group)?.name ?? 'this group')}`
+    : `<b>${s.companies.toLocaleString('en')}</b> ${s.companies === 1 ? 'company' : 'companies'}${groupsShown ? ` <span class="incl">(including ${groupsShown.toLocaleString('en')} ${groupsShown === 1 ? 'group' : 'groups'})</span>` : ''}`
+  $('lead').innerHTML = head
+  const k = (l, v, sub) => `<div class="kpi"><p class="lbl">${l}</p><span class="v">${v}</span><span class="s">${sub}</span></div>`
+  const top = EF.scope === 'groups' && !EF.group
+  $('kpis').innerHTML =
+    (top ? k('Groups', s.groups_with_members.toLocaleString('en'), `plus ${plural(s.companies - s.groups_with_members, 'company')} outside any group`)
+      : k('Companies', s.companies.toLocaleString('en'), `in ${plural(s.groups, 'group')}`)) +
+    k('Combined revenue', s.revenueCount ? fmtLkr(s.revenueLkr) : '–', `${s.revenueCount.toLocaleString('en')} report it; subsidiaries counted once, inside their group`) +
+    k('Grew after inflation', s.growthCount ? `${s.grewReal.toLocaleString('en')} <small>of ${s.growthCount.toLocaleString('en')}</small>` : '–',
+      s.growthCount ? `median ${fmtPctPlain(s.medianRealGrowth)} this year${s.growth5Count >= 20 ? `; ${s.grew5} of ${s.growth5Count} over five years` : ''}` : 'listed companies only') +
+    k('Profit or loss', s.performanceCount ? `${s.profitable.toLocaleString('en')} <small>· ${s.loss.toLocaleString('en')} loss</small>` : '–',
+      s.performanceCount ? `made a profit · made a loss, of ${s.performanceCount.toLocaleString('en')} that report` : 'listed companies only') +
+    k('Employees', s.employeesCount ? fmtInt(s.employees) : '–', `${s.employeesCount.toLocaleString('en')} report a headcount`) +
+    (EF.listed === 'yes' && s.marketCapCount ? k('Market value', fmtLkr(s.marketCapLkr), `${s.marketCapCount.toLocaleString('en')} listed companies, CSE, November 2026`)
+      : k('Known exporters', s.exporters.toLocaleString('en'), `plus ${s.overseas.toLocaleString('en')} with overseas subsidiaries or operations`))
+}
+
+let SECTOR_BY = 'count'
+function drawBreaks() {
+  const rows = current.filter(r => r.primary_sector)
+  const fam = SECTOR_BY === 'count' ? countBy(rows, r => [FAMILY.get(r.primary_sector)]).slice(0, 12)
+    : [...rows.reduce((m, r) => m.set(FAMILY.get(r.primary_sector), (m.get(FAMILY.get(r.primary_sector)) ?? 0) + (r.revenue_additive_lkr ?? 0)), new Map())].filter(x => x[1] > 0).sort((a, b) => b[1] - a[1]).slice(0, 12)
+  const max = Math.max(1, ...fam.map(x => x[1]))
+  $('bySector').innerHTML = fam.length ? fam.map(([k, n]) => `<li><button type="button" data-fam="${esc(k)}" aria-pressed="${F.families.includes(k)}"><span class="t">${esc(COMPANY_SECTOR_FAMILIES[k] ?? k)}</span><span class="b"><i style="width:${(n / max * 100).toFixed(1)}%;background:var(--sec-${esc(k)}, var(--teal))"></i></span><span class="c">${SECTOR_BY === 'count' ? n : fmtLkr(n).replace('LKR ', '')}</span></button></li>`).join('')
+    : '<li class="empty">No companies with a sector match.</li>'
+  // every listed company's ownership reads "listed": with listed companies, show who their largest shareholder is
+  const byHolder = EF.listed === 'yes'
+  $('ownLabel').textContent = byHolder ? 'By largest shareholder' : 'By ownership'
+  const own = byHolder ? countBy(current, r => [r.controller_type ?? 'unknown']).slice(0, 8) : countBy(current, r => [ownershipOf(r)]).slice(0, 8)
+  const m2 = Math.max(1, ...own.map(x => x[1]))
+  $('byOwner').innerHTML = own.map(([k, n]) => `<li><button type="button" ${byHolder ? 'disabled' : `data-own="${esc(k)}"`} aria-pressed="${!byHolder && F.ownership.includes(k)}"><span class="t">${esc(byHolder ? (HOLDER_KIND[k] ?? k) : (OWNER[k] ?? k))}</span><span class="b"><i style="width:${(n / m2 * 100).toFixed(1)}%"></i></span><span class="c">${n}</span></button></li>`).join('')
+}
+const HOLDER_KIND = { company: 'A company', person: 'A person or family', state: 'The state', state_enterprise: 'A state enterprise', pension_fund: 'A pension fund', fund: 'An investment fund', nominee_or_custodian: 'A custodian', group: 'Its group', unknown: 'Not known', other: 'Other' }
+$('bySector').addEventListener('click', e => { const b = e.target.closest('[data-fam]'); if (!b) return; MENUS.sector.pick('f:' + b.dataset.fam); shown = 50; update() })
+$('byOwner').addEventListener('click', e => { const b = e.target.closest('[data-own]'); if (!b) return; MENUS.ownership.pick(b.dataset.own); shown = 50; update() })
+$('sectorBy').addEventListener('click', e => { const b = e.target.closest('[data-by]'); if (!b) return; SECTOR_BY = b.dataset.by; $('sectorBy').querySelectorAll('[data-by]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.by === SECTOR_BY))); drawBreaks() })
+
+function abroadFlags(r) {
+  const f = []
+  if (r.exports) f.push('exporter')
+  if (r.foreign_subsidiaries > 0) f.push(`${r.foreign_subsidiaries} overseas subsidiar${r.foreign_subsidiaries === 1 ? 'y' : 'ies'}`)
+  if (r.foreign_owned) f.push('foreign parent')
+  if (!f.length && r.operates_abroad) f.push(r.country && r.country !== 'Sri Lanka' ? 'registered in ' + esc(r.country) : 'operates overseas')
+  return f.join(' · ')
+}
+
+/* ---------- table columns: a set per view ---------- */
+const nr = r => `<span class="dash" title="${r.listed ? 'Not reported' : 'Not published: an unlisted company'}">–</span>`
+const pctC = (v, d = 1, r) => v === null || v === undefined ? nr(r) : `${v.toFixed(d)}%`
+const xC = (v, d = 1, r) => v === null || v === undefined ? nr(r) : `${v.toFixed(d)}×`
+const lkrC = (v, r) => v === null || v === undefined ? nr(r) : fmtLkr(v)
+const COL = {
+  sector: { head: 'Sector', cls: 'hide-s', cell: r => tagsOf(r).slice(0, 2).map(badge).join('') || '<span class="dash">–</span>' },
+  revenue: { head: 'Revenue', sort: 'revenue', cls: 'num', cell: r => `${lkrC(r.revenue_lkr, r)}${revenueNote(r) ? `<span class="sub">${revenueNote(r)}</span>` : ''}` },
+  growth: { head: 'Growth after inflation', sort: 'growth', cls: 'num', title: 'Revenue growth after removing inflation; in rupees below', cell: r => r.revenue_growth_real_pct === null ? nr(r) : `${fmtPct(r.revenue_growth_real_pct)}${r.revenue_growth_nominal_pct !== null ? `<span class="sub">${fmtPctPlain(r.revenue_growth_nominal_pct)} in rupees</span>` : ''}` },
+  profit: { head: 'Profit after tax', sort: 'profit', cls: 'num hide-s', cell: r => r.profit_after_tax_lkr === null ? nr(r) : `<span class="${r.profit_after_tax_lkr < 0 ? 'down' : ''}">${fmtLkr(r.profit_after_tax_lkr)}</span>${r.return_on_equity_pct !== null ? `<span class="sub">${r.return_on_equity_pct.toFixed(1)}% on equity</span>` : ''}` },
+  employees: { head: 'Employees', sort: 'employees', cls: 'num hide-s', cell: r => r.employees === null ? nr(r) : fmtInt(r.employees) },
+  abroad: { head: 'Exports and overseas', cls: 'hide-s flags', cell: r => abroadFlags(r) },
+  debt: { head: 'Debt ÷ equity', sort: 'debt', cls: 'num', cell: r => pctC(r.debt_to_equity_pct, 0, r) },
+  cover: { head: 'Interest cover', sort: 'cover', cls: 'num', cell: r => xC(r.interest_cover, 1, r) },
+  netdebt: { head: 'Net debt', sort: 'netdebt', cls: 'num hide-s', cell: r => r.net_debt_lkr === null ? nr(r) : r.net_debt_lkr < 0 ? `${fmtLkr(-r.net_debt_lkr)}<span class="sub">net cash</span>` : fmtLkr(r.net_debt_lkr) },
+  eqa: { head: 'Owners’ share of assets', sort: 'eqa', cls: 'num hide-s', cell: r => pctC(r.equity_to_assets_pct, 0, r) },
+  mcap: { head: 'Market value', sort: 'mcap', cls: 'num', cell: r => lkrC(r.market_cap_lkr, r) },
+  yield: { head: 'Dividend yield', sort: 'yield', cls: 'num', cell: r => r.dividend_yield_pct === null ? nr(r) : `${r.dividend_yield_pct.toFixed(1)}%${r.dividend_payout_pct !== null ? `<span class="sub${r.dividend_payout_pct > 100 ? ' warn' : ''}">pays out ${r.dividend_payout_pct.toFixed(0)}% of earnings</span>` : ''}` },
+  pe: { head: 'Price to earnings', sort: 'pe', cls: 'num hide-s', cell: r => xC(r.pe_ratio, 1, r) },
+  pb: { head: 'Price to book', sort: 'pb', cls: 'num', cell: r => xC(r.pb_ratio, 2, r) },
+  cagr5: { head: 'Five-year growth after inflation', sort: 'cagr5', cls: 'num', cell: r => r.revenue_cagr_5y_real_pct === null ? nr(r) : `${fmtPct(r.revenue_cagr_5y_real_pct)}<span class="sub">a year${r.revenue_cagr_5y_pct !== null ? `; ${fmtPctPlain(r.revenue_cagr_5y_pct)} in rupees` : ''}</span>` },
+  lossyears: { head: 'Loss years', sort: 'lossyears', cls: 'num hide-s', cell: r => r.loss_years_in_history === null ? nr(r) : `${r.loss_years_in_history}<span class="sub">of ${r.history_years} years</span>` },
+  roe: { head: 'Return on equity', sort: 'roe', cls: 'num hide-s', cell: r => pctC(r.return_on_equity_pct, 1, r) },
+  npl: { head: 'Bad loans', sort: 'npl', cls: 'num', title: 'Stage 3 or non-performing loans, as reported', cell: r => pctC(r.npl_ratio_pct, 2, r) },
+  car: { head: 'Capital ratio', sort: 'car', cls: 'num', title: 'Total capital ratio, as reported', cell: r => pctC(r.total_capital_ratio_pct, 1, r) },
+  cti: { head: 'Cost to income', sort: 'cti', cls: 'num hide-s', cell: r => pctC(r.cost_to_income_pct, 1, r) },
+  holder: { head: 'Largest shareholder', cls: '', cell: r => r.controller_name ? `${esc(r.controller_name)}<span class="sub">${esc(HOLDER_TYPE[r.controller_type] ?? r.controller_type ?? '')}${r.controller_country && r.controller_country !== 'Sri Lanka' ? ' · ' + esc(r.controller_country) : ''}</span>` : nr(r) },
+  stake: { head: 'Stake', sort: 'stake', cls: 'num', cell: r => pctC(r.controller_pct, 1, r) },
+  state: { head: 'State stake', sort: 'state', cls: 'num hide-s', cell: r => r.state_holding_pct ? `${r.state_holding_pct}%` : '<span class="dash">–</span>' },
+  groupsize: { head: 'Companies in its group', sort: 'groupsize', cls: 'num hide-s', cell: r => r.is_group_head && r.group_companies > 1 ? fmtInt(r.group_companies) : '<span class="dash">–</span>' },
+}
+const COLSET = {
+  overview: ['sector', 'revenue', 'growth', 'profit', 'employees', 'abroad'],
+  debt: ['debt', 'cover', 'netdebt', 'eqa', 'revenue'],
+  price: ['mcap', 'yield', 'pe', 'pb', 'revenue'],
+  longrun: ['growth', 'cagr5', 'lossyears', 'roe', 'revenue'],
+  banks: ['revenue', 'npl', 'car', 'cti', 'roe'],
+  ownership: ['holder', 'stake', 'state', 'groupsize', 'revenue'],
+}
+const cols = () => (COLSET[F.cols] ?? COLSET.overview).map(k => COL[k])
+
+function drawHead() {
+  const th = (label, sort, cls = '', title = '') => `<th scope="col" class="${cls}">${sort ? `<button type="button" data-sort="${sort}"${F.sort === sort ? ` aria-sort="${F.desc ? 'descending' : 'ascending'}"` : ''}${title ? ` title="${esc(title)}"` : ''}>${label}</button>` : label}</th>`
+  $('thead').innerHTML = `<tr>${th('Company', 'name')}${cols().map(c => th(c.head, c.sort, c.cls, c.title)).join('')}</tr>`
+}
+
+function drawRows(list) {
+  const body = $('rows'), cs = cols(), span = cs.length + 1
+  if (!list.length) {
+    const ranged = Object.keys(F.ranges).length
+    body.innerHTML = `<tr><td colspan="${span}" class="empty">No companies match these filters.${ranged ? ' Some figures are published by only a few companies: try removing one.' : ''}</td></tr>`
+    $('more').hidden = true; return
+  }
+  body.innerHTML = list.slice(0, shown).map(r => {
+    const grp = r.is_group_head ? (r.group_companies > 1 ? `Parent of a group of ${r.group_companies} companies` : (r.ownership && r.ownership !== 'unknown' ? OWNER[r.ownership] ?? '' : '')) : relPhrase(r, esc(r.group_name))
+    const row = `<tr class="r${openId === r.company_id ? ' open' : ''}" data-id="${esc(r.company_id)}" tabindex="0" aria-expanded="${openId === r.company_id}">
+      <td><span class="nm">${esc(r.name)}</span>${r.cse_symbol ? `<span class="sym">${esc(r.cse_symbol.split('.')[0])}</span>` : ''}<span class="grp-n">${grp}</span>${r.performance ? `<span class="perf ${PERF_TONE[r.performance]}" title="${esc(PERF[r.performance])}">${esc(PERF_SHORT[r.performance])}</span>` : ''}</td>
+      ${cs.map(c => `<td class="${c.cls}">${c.cell(r)}</td>`).join('')}</tr>`
+    return row + (openId === r.company_id ? `<tr class="d"><td colspan="${span}">${detail(r)}</td></tr>` : '')
+  }).join('')
+  fitWeb()
+  $('more').hidden = list.length <= shown
+  $('more').textContent = `Show more (${(list.length - shown).toLocaleString('en')} more)`
+}
+
+/* ---------- detail ---------- */
+const KIND_LABEL = { sales: 'Revenue', sales_incl_excise: 'Revenue (including excise duty)', gross_income: 'Gross income', insurance_premium: 'Gross written premium', interest_income: 'Interest income', as_reported: 'Revenue' }
+const HOLDER_TYPE = { person: 'person', company: 'company', state: 'the state', state_enterprise: 'state enterprise', pension_fund: 'pension fund', fund: 'investment fund', nominee_or_custodian: 'custodian for investors', other: 'other', group: 'group' }
+/** Why a revenue figure should not be compared directly, in a few words; '' when it can be. */
+function revenueNote(r) {
+  if (r.revenue_lkr === null) return ''
+  if (r.revenue_comparable === false) return r.revenue_year ? `${r.revenue_year} figure` : 'older or part-year figure'
+  if (r.revenue_kind === 'gross_income') return 'gross income'
+  if (r.revenue_kind === 'insurance_premium') return 'premium'
+  if (r.revenue_kind === 'interest_income') return 'interest income'
+  if (r.revenue_kind === 'sales_incl_excise') return 'incl. excise'
+  return ''
+}
+function holderList(r) {
+  const hs = HOLD ? (HOLD.get(r.company_id) ?? []) : null
+  if (!hs || !hs.length) return ''
+  return `<h3>Largest shareholders <span class="cnt">${hs.length}</span></h3><ul class="hlist hlist-s">${hs.map(h => `<li><span class="p">${h.pct !== null ? h.pct + '%' : ''}</span>
+    <span class="hn">${h.holder_in_map && BYID.has(h.holder_id) ? `<button type="button" class="linkbtn" data-goto="${esc(h.holder_id)}">${esc(h.holder_name)}</button>` : esc(h.holder_name)}
+    <span class="hm">${esc(HOLDER_TYPE[h.holder_type] ?? h.holder_type)}${h.share_class ? ` · ${h.share_class === 'non_voting' ? 'non-voting' : 'voting'} shares` : ''}${h.holder_country && h.holder_country !== 'Sri Lanka' ? ' · ' + esc(h.holder_country) : ''}${HOLDINGS_OF.get(h.holder_id)?.length > 1 ? ` · <button type="button" class="linkbtn" data-holder="${esc(h.holder_id)}">holds ${HOLDINGS_OF.get(h.holder_id).length} listed companies</button>` : ''}</span></span>
+    <span class="hs"></span><span class="hr"></span></li>`).join('')}</ul>`
+}
+// Holdings: what this company holds directly, and (for a group head) every company in its group.
+const KIND = { holding: 'Subsidiary', other_group_holding: 'Stake', member_of_group: 'Group company', member_per_web_sources: 'Group company',
+  associate: 'Associate', joint_venture: 'Joint venture', investment_not_consolidated: 'Minority investment', former_holding: 'Formerly held', major_shareholder: 'Stake',
+  subsidiary: 'Subsidiary', named_in_report_only: 'Named in the annual report' }
+// a “holding” link is the largest stated shareholder; below 50% that is not a subsidiary
+const kindLabel = h => h.kind === 'holding' && h.pct !== null && h.pct < 50 ? 'Largest shareholder' : KIND[h.kind] ?? h.kind
+const KIND_GROUP = k => k === 'associate' || k === 'joint_venture' ? 'aj' : k === 'former_holding' ? 'former' : k === 'major_shareholder' || k === 'investment_not_consolidated' || k === 'other_group_holding' ? 'stake' : 'sub'
+let hold = { id: null, q: '', kind: 'all' }
+
+function badge(t) {
+  const fam = FAMILY.get(t)
+  return `<span class="theme-tag" data-fam="${esc(fam ?? '')}" title="${esc(COMPANY_SECTOR_FAMILIES[fam] ?? '')}">${esc(tagLabel(t))}</span>`
+}
+
+/** Path up the ownership tree: this company, its largest holder, that holder's, … to the group head. */
+function chainOf(r) {
+  const path = [], seen = new Set([r.company_id])
+  let cur = r.company_id
+  for (let i = 0; i < 8; i++) {
+    const up = (RELS.to.get(cur) ?? []).filter(x => x.type === 'holding' || x.type === 'member_of_group' || x.type === 'member_per_web_sources')
+      .sort((a, b) => (b.direct_pct ?? -1) - (a.direct_pct ?? -1))[0]
+    if (!up || seen.has(up.from_id)) break
+    path.push(up); seen.add(up.from_id); cur = up.from_id
+  }
+  return path
+}
+
+function holdingsOf(r) {
+  const direct = (RELS.from.get(r.company_id) ?? []).filter(x => x.type !== 'named_in_report')
+  const map = new Map(direct.map(x => [x.to_id, { id: x.to_id, name: x.to_name, pct: x.direct_pct, kind: x.type, direct: true }]))
+  if (r.is_group_head) for (const m of ROWS) if (m.group_id === r.company_id && m.company_id !== r.company_id && !map.has(m.company_id))
+    map.set(m.company_id, { id: m.company_id, name: m.name, pct: null, kind: m.relation_to_group === 'subsidiary' ? 'holding' : m.relation_to_group, direct: false })
+  return [...map.values()].map(h => ({ ...h, row: BYID.get(h.id) }))
+    .sort((a, b) => (b.row?.revenue_lkr ?? -1) - (a.row?.revenue_lkr ?? -1) || (b.pct ?? -1) - (a.pct ?? -1) || a.name.localeCompare(b.name))
+}
+
+function holdingsList(r) {
+  const all = holdingsOf(r)
+  const q = hold.id === r.company_id ? hold.q.toLowerCase() : ''
+  const kind = hold.id === r.company_id ? hold.kind : 'all'
+  const counts = { all: all.length, sub: 0, aj: 0, stake: 0, former: 0 }
+  for (const h of all) counts[KIND_GROUP(h.kind)]++
+  const shownH = all.filter(h => (kind === 'all' || KIND_GROUP(h.kind) === kind) &&
+    (!q || (h.name + ' ' + (h.row?.sector_tags ?? '') + ' ' + (h.row?.country ?? '')).toLowerCase().includes(q)))
+  const tabs = [['all', 'All'], ['sub', 'Subsidiaries'], ['aj', 'Associates and joint ventures'], ['stake', 'Other stakes'], ['former', 'Formerly held']]
+    .filter(([k]) => k === 'all' || counts[k]).map(([k, l]) => `<button type="button" data-hkind="${k}" aria-pressed="${kind === k}">${l} <span>${counts[k]}</span></button>`).join('')
+  const items = shownH.map(h => {
+    const m = h.row, abroad = m?.country && m.country !== 'Sri Lanka'
+    return `<li><span class="p">${h.pct !== null ? h.pct + '%' : ''}</span>
+      <span class="hn">${BYID.has(h.id) ? `<button type="button" class="linkbtn" data-goto="${esc(h.id)}">${esc(h.name)}</button>` : esc(h.name)}
+        <span class="hm">${esc(kindLabel(h))}${h.direct ? '' : ' · held through the group'}${abroad ? ' · ' + esc(m.country) : ''}</span></span>
+      <span class="hs">${m ? tagsOf(m).slice(0, 1).map(badge).join('') : ''}</span>
+      <span class="hr">${m?.revenue_lkr != null ? fmtLkr(m.revenue_lkr) : ''}</span></li>`
+  }).join('')
+  return `<div class="holds" data-holds="${esc(r.company_id)}">
+    <div class="htabs" role="group" aria-label="Kind of holding">${tabs}</div>
+    <input type="search" class="hq" placeholder="Search ${all.length} companies" value="${esc(q)}" aria-label="Search holdings">
+    <ul class="hlist">${items || '<li class="note">No companies match.</li>'}</ul></div>`
+}
+
+/* ---------- ownership web ---------- */
+// A walkable diagram: who owns the centre company (left; the chain of parents further left) and what it holds (right).
+// Clicking a box re-centres the web on it, so a reader can follow the connections across groups.
+const WEB = { w: 184, h: 48, gx: 88, gy: 10, top: 26, maxOwners: 8, maxHeld: 12 }
+let web = { root: null, centre: null, all: false }
+const SKIP_LINK = new Set(['named_in_report', 'former_holding'])
+const isControl = (type, pct) => type === 'member_of_group' || type === 'member_per_web_sources' || ((type === 'holding' || type === 'shareholder') && (pct ?? 0) >= 50)
+
+function ownersOf(id) {
+  const m = new Map()
+  const links = (RELS.to.get(id) ?? []).filter(x => !SKIP_LINK.has(x.type) && x.from_id !== id)
+  // “member of group” is a roll-up to the group head; when a direct parent is known the head sits further up the chain instead
+  const direct = links.some(x => x.type === 'holding')
+  for (const x of links) {
+    if (direct && (x.type === 'member_of_group' || x.type === 'member_per_web_sources')) continue
+    m.set(x.from_id, { id: x.from_id, name: x.from_name, pct: x.direct_pct, ctl: isControl(x.type, x.direct_pct) })
+  }
+  // voting stakes first: a holder with only non-voting shares is shown, but never as control
+  for (const h of [...(HOLD?.get(id) ?? [])].sort((a, b) => (a.share_class === 'non_voting') - (b.share_class === 'non_voting'))) {
+    if (h.holder_id === id) continue
+    const nv = h.share_class === 'non_voting'
+    const o = m.get(h.holder_id)
+    if (o) { if (o.pct === null && !nv) o.pct = h.pct } else m.set(h.holder_id, { id: h.holder_id, name: h.holder_name, pct: h.pct, ctl: !nv && isControl('shareholder', h.pct), nv, holder: h })
+  }
+  return [...m.values()].sort((a, b) => b.ctl - a.ctl || (b.pct ?? -1) - (a.pct ?? -1))
+}
+function heldBy(id) {
+  const m = new Map()
+  for (const x of RELS.from.get(id) ?? []) {
+    if (SKIP_LINK.has(x.type) || x.to_id === id) continue
+    // a group roll-up to a company that another company holds directly: shown one step down, not here
+    if ((x.type === 'member_of_group' || x.type === 'member_per_web_sources') && (RELS.to.get(x.to_id) ?? []).some(y => y.type === 'holding' && y.from_id !== id)) continue
+    m.set(x.to_id, { id: x.to_id, name: x.to_name, pct: x.direct_pct, ctl: isControl(x.type, x.direct_pct) })
+  }
+  for (const h of HOLDINGS_OF.get(id) ?? []) if (!m.has(h.company_id) && h.company_id !== id)
+    m.set(h.company_id, { id: h.company_id, name: h.company_name, pct: h.pct, ctl: isControl('shareholder', h.pct) })
+  return [...m.values()].sort((a, b) => b.ctl - a.ctl || (BYID.get(b.id)?.revenue_lkr ?? -1) - (BYID.get(a.id)?.revenue_lkr ?? -1) || (b.pct ?? -1) - (a.pct ?? -1))
+}
+/** What a box says: name, then a measured line (CSE symbol, revenue, country, how many it holds). */
+function webNode(id, name, holder) {
+  const r = BYID.get(id), n = heldBy(id).length
+  if (r) {
+    const meta = [r.cse_symbol?.split('.')[0], r.revenue_lkr !== null ? fmtLkr(r.revenue_lkr) : null, r.country && r.country !== 'Sri Lanka' ? r.country : null, n ? `holds ${n}` : null].filter(Boolean)
+    return { id, name: r.name, meta: meta.join(' · ') || OWNER[ownershipOf(r)] || '', fam: r.sector_family ?? '', walk: true }
+  }
+  const h = holder ?? HOLDINGS_OF.get(id)?.[0]
+  const type = h ? HOLDER_TYPE[h.holder_type] ?? '' : ''
+  return { id, name: name ?? h?.holder_name ?? id, meta: [type && type[0].toUpperCase() + type.slice(1), h?.holder_country && h.holder_country !== 'Sri Lanka' ? h.holder_country : null, n > 1 ? `holds ${n}` : null].filter(Boolean).join(' · '), fam: '', walk: n > 0 }
+}
+
+function webBox(r) {
+  if (web.root !== r.company_id) web = { root: r.company_id, centre: r.company_id, all: false }
+  const maxO = web.all ? Infinity : WEB.maxOwners, maxH = web.all ? Infinity : WEB.maxHeld
+  const cid = web.centre
+  const owners = ownersOf(cid), held = heldBy(cid)
+  // the chain of parents beyond the first owner, one column each, aligned with that owner
+  const chain = BYID.has(cid) ? chainOf(BYID.get(cid)).slice(1, 3) : []
+  const placed = new Set([cid, ...owners.slice(0, maxO).map(o => o.id), ...held.slice(0, maxH).map(h => h.id)])
+  const up = []
+  for (const x of chain) { if (placed.has(x.from_id)) break; placed.add(x.from_id); up.push(x) }
+
+  const cols = [] // left to right: each { label, nodes: [{node, y?}] }
+  for (const x of [...up].reverse()) cols.push({ label: '', nodes: [{ ...webNode(x.from_id, x.from_name), chainTo: x.to_id, pct: x.direct_pct, ctl: isControl(x.type, x.direct_pct) }] })
+  const oShown = owners.slice(0, maxO)
+  if (owners.length) cols.push({ label: 'Owned by', nodes: [...oShown.map(o => ({ ...webNode(o.id, o.name, o.holder), pct: o.pct, ctl: o.ctl, nv: o.nv, edge: 'out' })),
+    ...(owners.length > oShown.length ? [{ more: owners.length - oShown.length, kind: 'owners' }] : [])] })
+  const ci = cols.length
+  cols.push({ label: '', nodes: [{ ...webNode(cid), centre: true }] })
+  const hShown = held.slice(0, maxH)
+  if (held.length) cols.push({ label: 'Holds', nodes: [...hShown.map(h => ({ ...webNode(h.id, h.name), pct: h.pct, ctl: h.ctl, edge: 'in' })),
+    ...(held.length > hShown.length ? [{ more: held.length - hShown.length, kind: 'held' }] : [])] })
+
+  // layout: every column centred on the tallest; chain columns sit level with the parent they lead to
+  const rowsMax = Math.max(...cols.map(c => c.nodes.length))
+  const H = rowsMax * (WEB.h + WEB.gy) - WEB.gy
+  const pos = new Map()
+  cols.forEach((c, i) => {
+    const x = i * (WEB.w + WEB.gx), y0 = WEB.top + (H - c.nodes.length * (WEB.h + WEB.gy) + WEB.gy) / 2
+    c.x = x
+    c.nodes.forEach((n, j) => { n.x = x; n.y = y0 + j * (WEB.h + WEB.gy) })
+  })
+  for (const c of cols) for (const n of c.nodes) if (n.id) pos.set(n.id, n)
+  // pull chain boxes level with the box they lead to (right to left so a chain stays straight)
+  for (let i = ci - 2; i >= 0; i--) for (const n of cols[i].nodes) { const t = pos.get(n.chainTo); if (t) n.y = t.y }
+  const W = cols.length * (WEB.w + WEB.gx) - WEB.gx, Ht = WEB.top + H
+
+  const centre = pos.get(cid)
+  const edges = [], labels = []
+  const curve = (a, b) => { const x1 = a.x + WEB.w, y1 = a.y + WEB.h / 2, x2 = b.x, y2 = b.y + WEB.h / 2, mx = (x1 + x2) / 2; return `M${x1} ${y1}C${mx} ${y1} ${mx} ${y2} ${x2} ${y2}` }
+  const pctTxt = p => p === null || p === undefined ? '' : `<b>${+p.toFixed(p < 1 ? 2 : 1)}%</b>`
+  for (const c of cols) for (const n of c.nodes) {
+    if (!n.id || n.centre) continue
+    if (n.edge === 'out') { edges.push([curve(n, centre), n.ctl]); labels.push(`<span class="wp l" style="left:${n.x + WEB.w + 1}px;top:${n.y + WEB.h / 2 - 7}px"${n.nv ? ' title="Non-voting shares"' : ''}>${pctTxt(n.pct)}${n.nv ? '<b>NV</b>' : ''}</span>`) }
+    else if (n.edge === 'in') { edges.push([curve(centre, n), n.ctl]); labels.push(`<span class="wp" style="left:${n.x - 47}px;top:${n.y + WEB.h / 2 - 7}px">${pctTxt(n.pct)}</span>`) }
+    else if (n.chainTo && pos.get(n.chainTo)) { const t = pos.get(n.chainTo); edges.push([curve(n, t), n.ctl]); labels.push(`<span class="wp l" style="left:${n.x + WEB.w + 1}px;top:${n.y + WEB.h / 2 - 7}px">${pctTxt(n.pct)}</span>`) }
+  }
+  const box = n => {
+    if (n.more) return `<button type="button" class="wn more" data-webmore="${n.kind}" style="left:${n.x}px;top:${n.y}px"><span class="n">and ${n.more} more</span><span class="m">show them all</span></button>`
+    const style = `left:${n.x}px;top:${n.y}px${n.fam ? `;--stripe:var(--sec-${n.fam})` : ''}`
+    const inner = `<span class="n">${esc(n.name)}</span><span class="m">${esc(n.meta)}</span>`
+    if (n.centre) return `<div class="wn c" style="${style}" title="${esc(n.name)}" tabindex="-1" data-webc>${inner}</div>`
+    return n.walk ? `<button type="button" class="wn" data-web="${esc(n.id)}" style="${style}" title="${esc(n.name)}: centre the web here">${inner}</button>`
+      : `<div class="wn plain" style="${style}" title="${esc(n.name)}">${inner}</div>`
+  }
+  const heads = cols.map(c => c.label ? `<span class="webcol" style="left:${c.x}px">${c.label}</span>` : '').join('')
+  const cname = pos.get(cid).name
+  const moved = cid !== r.company_id
+  return `<div class="web" data-webroot="${esc(r.company_id)}">
+    <div class="webhd"><h3>Ownership web</h3>
+      <p class="note">${moved ? `Centred on <b>${esc(cname)}</b>. <button type="button" class="linkbtn" data-webreset>Back to ${esc(r.name)}</button>${BYID.has(cid) ? ` · <button type="button" class="linkbtn" data-goto="${esc(cid)}">Open ${esc(cname)} in the table</button>` : ''}`
+        : 'Click a company to put it at the centre and follow the connections.'}</p></div>
+    ${owners.length || held.length ? `<div class="webkey"><span><i></i>Majority stake or group company</span><span><i class="min"></i>Smaller stake, associate or joint venture</span><span>Box edge colour: broad sector</span>${owners.some(o => o.nv) ? '<span>NV: non-voting shares</span>' : ''}</div>
+    <div class="webwrap"><div class="webcan" style="width:${W}px;height:${Ht}px">
+      <svg width="${W}" height="${Ht}" aria-hidden="true">${edges.map(([d, maj]) => `<path d="${d}"${maj ? ' class="maj"' : ''}/>`).join('')}</svg>
+      ${heads}${labels.join('')}${cols.flatMap(c => c.nodes).map(box).join('')}
+    </div></div>` : '<p class="note">The sources name no owners or holdings for this company.</p>'}
+  </div>`
+}
+/** Keep the centre box in view when the web is wider than the panel. */
+function fitWeb() {
+  const wrap = document.querySelector('.web .webwrap'), c = wrap?.querySelector('[data-webc]')
+  if (wrap && c && wrap.scrollWidth > wrap.clientWidth) wrap.scrollLeft = c.offsetLeft + WEB.w / 2 - wrap.clientWidth / 2
+}
+function redrawWeb(focusCentre) {
+  const el = document.querySelector('.web[data-webroot]')
+  if (!el) return
+  el.outerHTML = webBox(BYID.get(el.dataset.webroot))
+  fitWeb()
+  if (focusCentre) document.querySelector('.web [data-webc]')?.focus({ preventScroll: true })
+}
+
+/* ---------- detail: Figures and Ownership tabs ---------- */
+let dtab = { id: null, tab: 'figures' }
+const stat = (l, v, sub = '') => `<div class="st"><span class="sl">${l}</span><span class="sv">${v}</span>${sub ? `<span class="ss">${sub}</span>` : ''}</div>`
+const linkTo = (id, name) => BYID.has(id) ? `<button type="button" class="linkbtn" data-goto="${esc(id)}">${esc(name)}</button>` : esc(name)
+
+function headline(r) {
+  return `<div class="stats">
+    ${stat(KIND_LABEL[r.revenue_kind] ?? 'Revenue', fmtLkr(r.revenue_lkr), r.revenue_growth_nominal_pct !== null ? `${fmtPct(r.revenue_growth_real_pct)} real · ${fmtPctPlain(r.revenue_growth_nominal_pct)} nominal` : (revenueNote(r) || ''))}
+    ${stat('Net profit (after tax)', fmtLkr(r.profit_after_tax_lkr), r.net_profit_margin_pct !== null ? `${r.net_profit_margin_pct.toFixed(1)}% net profit margin` : (r.pretax_margin_pct !== null ? `${r.pretax_margin_pct.toFixed(1)}% pre-tax margin` : ''))}
+    ${stat('Return on equity', r.return_on_equity_pct !== null ? r.return_on_equity_pct.toFixed(1) + '%' : '–', r.equity_to_assets_pct !== null ? `equity is ${r.equity_to_assets_pct.toFixed(0)}% of assets` : (r.total_equity_lkr !== null && r.total_equity_lkr < 0 ? 'equity is negative' : ''))}
+    ${r.market_cap_lkr !== null ? stat('Market value', fmtLkr(r.market_cap_lkr), r.pe_ratio !== null ? `${r.pe_ratio.toFixed(1)} times earnings` : '') : stat('Employees', fmtInt(r.employees), r.revenue_per_employee_lkr ? fmtLkr(r.revenue_per_employee_lkr) + ' revenue per employee' : '')}
+  </div>`
+}
+
+function aboutBlock(r) {
+  const tags = tagsOf(r)
+  const ev = SECT ? (SECT.get(r.company_id) ?? []) : null
+  const sectors = tags.length ? `<ul class="secs">${tags.map(t => {
+    const e = ev?.find(x => x.sector === t)
+    return `<li>${badge(t)}${e ? `<span class="ev">“${esc(e.evidence)}”</span>` : ''}</li>`
+  }).join('')}</ul>` : '<p class="note">No sector yet. The sources do not say what this company does.</p>'
+  const abroad = [r.countries_of_operation && ['Operates in', esc(r.countries_of_operation)], r.export_markets && ['Export markets', esc(r.export_markets)],
+    r.revenue_outside_sri_lanka_lkr !== null && ['Revenue from outside Sri Lanka', fmtLkr(r.revenue_outside_sri_lanka_lkr)], r.foreign_parent && ['Foreign parent or shareholder', esc(r.foreign_parent)],
+    r.foreign_subsidiaries > 0 && ['Overseas subsidiaries', String(r.foreign_subsidiaries)]].filter(Boolean)
+  return `<div class="cols">
+    <div>${r.what_it_does ? `<h3>What it does</h3><p class="what">${esc(r.what_it_does)}</p>` : ''}<h3>Sectors</h3>${sectors}</div>
+    <div>${abroad.length ? `<h3>Exports and overseas operations</h3><dl class="kv">${abroad.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>` : ''}
+      ${r.financial_notes ? `<h3>Notes on the figures</h3><p class="note">${esc(r.financial_notes)}</p>` : ''}
+      <h3>Source</h3><p>${r.source_url ? `<a href="${esc(r.source_url)}" rel="noopener nofollow" target="_blank">${esc(r.source_name || 'Source')}</a>` : '<span class="note">Named as a shareholder in another company’s annual report.</span>'}${r.registration_no ? ` <span class="note">· Reg. no. ${esc(r.registration_no)}</span>` : ''}</p></div>
+  </div>`
+}
+
+/* charts: small multiples of one measure each, never two scales on one chart */
+function miniBars(points, { per = false } = {}) {
+  if (points.length < 2) return '<p class="note">Fewer than two years printed.</p>'
+  const W = 240, H = 78, gap = 3, n = points.length, bw = (W - gap * (n - 1)) / n
+  const max = Math.max(0, ...points.map(p => p.value)), min = Math.min(0, ...points.map(p => p.value))
+  const span = max - min || 1, zero = H * max / span
+  const bars = points.map((p, i) => {
+    const h = Math.max(1, Math.abs(p.value) / span * H), y = p.value >= 0 ? zero - h : zero
+    const label = `${p.year}: ${per ? 'LKR ' + p.value.toFixed(2) : fmtLkr(p.value).replace(/<[^>]+>/g, '')}`
+    return `<rect x="${(i * (bw + gap)).toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="1.5" class="${p.value < 0 ? 'neg' : ''}${i === n - 1 ? ' last' : ''}"><title>${esc(label)}</title></rect>`
+  }).join('')
+  return `<svg class="mini" viewBox="0 0 ${W} ${H + 1}" preserveAspectRatio="none" role="img" aria-label="${esc(points.map(p => `${p.year} ${per ? p.value.toFixed(2) : Math.round(p.value)}`).join(', '))}">
+    <line x1="0" x2="${W}" y1="${zero.toFixed(1)}" y2="${zero.toFixed(1)}" class="base"/>${bars}</svg>
+    <div class="miniax"><span>${points[0].year}</span><span>${points[n - 1].year}</span></div>`
+}
+
+function historyGrid(r, rows, basis) {
+  const lender = r.industry_kind === 'bank' || r.industry_kind === 'finance_company'
+  const panels = [
+    ['revenue', KIND_LABEL[r.revenue_kind] ?? 'Revenue'], ['profit_after_tax', 'Profit after tax'],
+    [lender ? 'total_assets' : 'total_equity', lender ? 'Total assets' : 'Total equity'], ['dividend_per_share', 'Dividend per share'],
+  ].map(([m, label]) => {
+    const pts = FIG.series(rows, m, basis, { real: true })
+    if (!pts.length) return ''
+    const last = pts[pts.length - 1], per = m === 'dividend_per_share'
+    const growth = m === 'revenue' || m === 'total_equity' || m === 'total_assets'
+    const g = growth ? FIG.cagr(pts) : null
+    const nom = growth ? FIG.cagr(FIG.series(rows, m, basis)) : null
+    return `<div class="hpanel"><p class="hl">${esc(label)}</p>
+      <p class="hv">${per ? 'LKR ' + last.value.toFixed(2) : fmtLkr(last.value)}<span class="hs">${last.year}${g !== null ? ` · ${fmtPct(g)} a year since ${pts[0].year} after inflation${nom !== null ? ` (${fmtPctPlain(nom)} in rupees)` : ''}` : ''}</span></p>
+      ${miniBars(pts, { per })}</div>`
+  }).filter(Boolean)
+  if (!panels.length) return ''
+  return `<h3>Over the years</h3><div class="hgrid">${panels.join('')}</div>
+    <p class="note">In rupees of ${esc(String(FIG.series(rows, 'revenue', basis, { real: true }).at(-1)?.year ?? 'the latest year'))}: each year is adjusted for consumer price inflation, so the bars compare like with like (Sri Lanka’s prices rose about 2.4 times between 2016 and 2026). From the annual report’s multi-year summary and its latest statements.</p>`
+}
+
+const ORD = n => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] ?? 'th')
+function strip(st, v) {
+  const lo = st.values[Math.floor(st.values.length * 0.05)], hi = st.values[Math.ceil(st.values.length * 0.95) - 1]
+  const x = val => 4 + Math.max(0, Math.min(1, (val - lo) / ((hi - lo) || 1))) * 112
+  return `<svg class="strip" viewBox="0 0 120 14" aria-hidden="true"><line x1="4" x2="116" y1="7" y2="7"/>
+    ${st.values.map(val => `<circle cx="${x(val).toFixed(1)}" cy="7" r="1.8" class="peer"/>`).join('')}
+    <line x1="${x(st.median).toFixed(1)}" x2="${x(st.median).toFixed(1)}" y1="2" y2="12" class="med"/>
+    <circle cx="${x(v).toFixed(1)}" cy="7" r="4" class="me"/></svg>`
+}
+
+function ratioTable(r) {
+  const lender = r.industry_kind === 'bank' || r.industry_kind === 'finance_company', insurer = r.industry_kind === 'insurer'
+  const P = (v, d = 1) => v === null || v === undefined ? '–' : `${v.toFixed(d)}%`, X = v => v === null || v === undefined ? '–' : `${v.toFixed(1)}×`
+  const all = lender ? [
+    ['revenue_growth_real_pct', 'Growth in gross income, after inflation', P, 'higher'], ['return_on_equity_pct', 'Return on equity', P, 'higher'],
+    ['npl_ratio_pct', 'Stage 3 (bad) loans', P, 'lower'], ['total_capital_ratio_pct', 'Total capital ratio', P, 'higher'],
+    ['cost_to_income_pct', 'Cost to income', P, 'lower'], ['net_interest_margin_pct', 'Net interest margin', P, 'higher'],
+    ['loans_to_deposits_pct', 'Loans to deposits', P, null], ['loan_growth_pct', 'Loan growth (nominal)', P, 'higher'],
+    ['dividend_yield_pct', 'Dividend yield', P, 'higher'], ['pb_ratio', 'Price to book', v => v === null ? '–' : `${v.toFixed(2)}×`, null],
+  ] : [
+    ['revenue_growth_real_pct', `Growth in ${insurer ? 'premium' : 'revenue'}, after inflation`, P, 'higher'],
+    ['revenue_cagr_5y_real_pct', 'Growth a year over five years, after inflation', P, 'higher'],
+    ...(insurer ? [] : [['gross_margin_pct', 'Gross margin', P, 'higher'], ['operating_margin_pct', 'Operating margin', P, 'higher'], ['net_profit_margin_pct', 'Net profit margin', P, 'higher']]),
+    ['return_on_equity_pct', 'Return on equity', P, 'higher'],
+    ...(insurer ? [['insurance_capital_adequacy_pct', 'Capital adequacy ratio', v => v === null ? '–' : `${v.toFixed(0)}%`, 'higher']] :
+      [['debt_to_equity_pct', 'Debt to equity', P, 'lower'], ['interest_cover', 'Interest cover', X, 'higher'], ['cash_conversion_pct', 'Cash from operations ÷ profit', v => v === null ? '–' : `${v.toFixed(0)}%`, 'higher']]),
+    ['dividend_yield_pct', 'Dividend yield', P, 'higher'], ['pe_ratio', 'Price to earnings', X, null],
+  ]
+  const peers = FIG.peersOf(ROWS, r)
+  const fam = COMPANY_SECTOR_FAMILIES[r.sector_family] ?? 'its sector'
+  const rows = all.map(([field, label, fmt, better]) => {
+    const v = r[field]
+    if (v === null || v === undefined) return ''
+    const st = FIG.peerStats(peers, r, field, better ?? 'higher')
+    return `<tr><th>${esc(label)}</th><td class="v">${fmt(v)}</td>
+      <td class="m">${st ? fmt(st.median) : ''}</td>
+      <td class="k">${st ? (better ? `${ORD(st.rank)} of ${st.n}` : `${st.n} companies`) : ''}</td>
+      <td class="s">${st ? strip(st, v) : ''}</td></tr>`
+  }).join('')
+  if (!rows) return ''
+  return `<h3>Against other listed companies in ${esc(lender ? 'banking and finance' : fam.toLowerCase())}</h3>
+    <table class="ratios"><thead><tr><th></th><th>This company</th><th class="m">Median</th><th class="k">Rank</th><th class="s"><span class="sr">Spread</span></th></tr></thead><tbody>${rows}</tbody></table>
+    <p class="note">Rank 1 is the best on that measure. Dots are the other listed companies; the line is the median.${r.market_cap_lkr !== null ? ' Prices are from the Colombo Stock Exchange in November 2026.' : ''}</p>`
+}
+
+function moneyBlock(r) {
+  const lender = r.industry_kind === 'bank' || r.industry_kind === 'finance_company'
+  const L = v => v === null || v === undefined ? null : fmtLkr(v)
+  const kv = items => { const xs = items.filter(([, v]) => v !== null && v !== undefined && v !== '–'); return xs.length ? `<dl class="kv">${xs.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>` : '' }
+  const value = kv([['Market value', L(r.market_cap_lkr)], ['Share price', r.share_price_lkr !== null ? `LKR ${r.share_price_lkr.toFixed(2)}` : null],
+    ['Earnings per share', r.eps_lkr !== null ? `LKR ${r.eps_lkr.toFixed(2)}` : null], ['Dividend per share', r.dividend_per_share_lkr !== null ? `LKR ${r.dividend_per_share_lkr.toFixed(2)}` : null],
+    ['Dividend payout', r.dividend_payout_pct !== null ? `${r.dividend_payout_pct.toFixed(0)}% of earnings` : null], ['Net assets per share', r.net_assets_per_share_lkr !== null ? `LKR ${r.net_assets_per_share_lkr.toFixed(2)}` : null],
+    ['Price to book', r.pb_ratio !== null ? `${r.pb_ratio.toFixed(2)}×` : null]])
+  const cash = lender ? kv([['Loans and advances', L(r.loans_lkr)], ['Customer deposits', L(r.deposits_lkr)], ['Deposit growth (nominal)', r.deposit_growth_pct !== null ? fmtPctPlain(r.deposit_growth_pct) : null],
+      ['Tier 1 capital ratio', r.tier_1_capital_ratio_pct !== null ? `${r.tier_1_capital_ratio_pct.toFixed(1)}%` : null], ['Cash from operations', L(r.operating_cash_flow_lkr)], ['Effective tax rate', r.effective_tax_rate_pct !== null ? `${r.effective_tax_rate_pct.toFixed(0)}%` : null]])
+    : kv([['Borrowings and leases', L(r.borrowings_lkr)], ['Cash', L(r.cash_lkr)], ['Net debt', r.net_debt_lkr !== null ? (r.net_debt_lkr < 0 ? `${fmtLkr(-r.net_debt_lkr)} net cash` : fmtLkr(r.net_debt_lkr)) : null],
+      ['Current ratio', r.current_ratio !== null ? `${r.current_ratio.toFixed(2)}` : null], ['Cash from operations', L(r.operating_cash_flow_lkr)], ['Capital spending', L(r.capex_lkr)],
+      ['Free cash flow', L(r.free_cash_flow_lkr)], ['EBITDA', L(r.ebitda_lkr)], ['Staff costs', r.staff_costs_lkr !== null ? `${fmtLkr(r.staff_costs_lkr)}${r.staff_cost_share_pct !== null ? ` · ${r.staff_cost_share_pct.toFixed(0)}% of revenue` : ''}` : null],
+      ['Effective tax rate', r.effective_tax_rate_pct !== null ? `${r.effective_tax_rate_pct.toFixed(0)}%` : null]])
+  if (!value && !cash) return ''
+  return `<div class="cols">${value ? `<div><h3>Value and dividends</h3>${value}</div>` : '<div></div>'}${cash ? `<div><h3>${lender ? 'Lending and capital' : 'Borrowing and cash'}</h3>${cash}</div>` : ''}</div>`
+}
+
+function shareBars(items, total, fmtV) {
+  return `<ul class="shares">${items.map(x => {
+    const share = total > 0 ? Math.max(0, x.value / total * 100) : 0
+    return `<li><span class="sn">${esc(x.name)}</span><span class="sb"><i style="width:${share.toFixed(1)}%"></i></span><span class="sp">${share.toFixed(0)}%</span><span class="sx">${fmtV(x)}</span></li>`
+  }).join('')}</ul>`
+}
+
+function mixBlock(r, rows, basis) {
+  const segs = (SEGS?.get(r.company_id) ?? []).filter(s => s.revenue_lkr > 0)
+  const segTotal = segs.reduce((a, s) => a + s.revenue_lkr, 0), profitTotal = segs.reduce((a, s) => a + Math.max(0, s.profit_lkr ?? 0), 0)
+  const seg = segs.length >= 2 ? `<div><h3>Where the money comes from</h3>${shareBars(segs.sort((a, b) => b.revenue_lkr - a.revenue_lkr).map(s => ({ name: s.segment, value: s.revenue_lkr, s })), segTotal,
+    x => `${fmtLkr(x.value)}${x.s.profit_lkr !== null && x.s.profit_lkr !== undefined ? ` · profit ${fmtLkr(x.s.profit_lkr)}${profitTotal > 0 && x.s.profit_lkr > 0 ? ` (${(x.s.profit_lkr / profitTotal * 100).toFixed(0)}% of profit)` : ''}` : ''}`)}
+    <p class="note">Share of revenue by operating segment, from the segment note.</p></div>` : ''
+  const reg = rows ? FIG.regions(rows, basis) : []
+  const regTotal = reg.reduce((a, x) => a + x.value, 0)
+  const where = reg.length >= 2 ? `<div><h3>Where it sells</h3>${shareBars(reg.map(x => ({ name: x.region, value: x.value })), regTotal, x => fmtLkr(x.value))}
+    <p class="note">Revenue by region, from the geographical information in the report.</p></div>` : ''
+  return seg || where ? `<div class="cols">${seg || '<div></div>'}${where}</div>` : ''
+}
+
+const LINES = [
+  ['Income statement', ['revenue', 'cost_of_sales', 'gross_profit', 'interest_income', 'interest_expense', 'net_interest_income', 'net_fee_and_commission_income', 'gross_written_premium', 'net_earned_premium', 'net_benefits_and_claims', 'impairment_charges', 'other_operating_income', 'distribution_and_selling_expenses', 'administrative_expenses', 'staff_costs', 'depreciation_and_amortisation', 'operating_profit', 'finance_income', 'finance_costs', 'share_of_associates_and_jvs', 'profit_before_tax', 'income_tax_expense', 'profit_after_tax', 'profit_attributable_to_owners', 'profit_attributable_to_non_controlling_interests']],
+  ['Balance sheet', ['total_assets', 'non_current_assets', 'property_plant_and_equipment', 'investment_property', 'intangible_assets', 'current_assets', 'inventories', 'trade_and_other_receivables', 'loans_and_advances', 'cash_and_cash_equivalents', 'short_term_investments', 'total_liabilities', 'current_liabilities', 'trade_and_other_payables', 'customer_deposits', 'borrowings_current', 'borrowings_non_current', 'lease_liabilities', 'total_equity', 'equity_attributable_to_owners', 'non_controlling_interests', 'stated_capital', 'retained_earnings']],
+  ['Cash flow', ['cash_from_operating_activities', 'cash_from_investing_activities', 'cash_from_financing_activities', 'purchase_of_ppe_and_intangibles', 'dividends_paid', 'interest_paid', 'tax_paid']],
+  ['Per share and people', ['basic_eps', 'dividend_per_share', 'net_assets_per_share', 'market_price_year_end', 'shares_in_issue', 'employees']],
+  ['Ratios as reported', ['stage_3_or_npl_ratio_pct', 'tier_1_capital_ratio_pct', 'total_capital_ratio_pct', 'cost_to_income_ratio_pct', 'net_interest_margin_pct', 'capital_adequacy_margin_pct']],
+]
+function accounts(rows, basis) {
+  const pairs = FIG.statementPairs(rows, basis)
+  const unit = new Map(rows.map(x => [x.metric, x.unit]))
+  const fmt = (m, v) => v === null ? '<span class="dash">–</span>' : unit.get(m) === 'LKR per share' ? `LKR ${v.toFixed(2)}` : unit.get(m) === '%' ? `${v}%` : unit.get(m) === 'people' || unit.get(m) === 'shares' ? fmtInt(v) : fmtLkr(v)
+  let n = 0, cur = null, prev = null
+  const body = LINES.map(([sec, ms]) => {
+    const trs = ms.filter(m => pairs.has(m)).map(m => {
+      const p = pairs.get(m); n++; cur ??= p.currentEnd; prev ??= p.priorEnd
+      const ch = p.current !== null && p.prior !== null && p.prior > 0 && p.current >= 0 && unit.get(m) !== '%' ? fmtPct((p.current - p.prior) / p.prior * 100) : ''
+      return `<tr><th>${esc(FIG.METRIC_LABEL[m] ?? m)}</th><td>${fmt(m, p.current)}</td><td>${fmt(m, p.prior)}</td><td>${ch}</td><td>${p.source ? `<a href="${esc(p.source)}" target="_blank" rel="noopener nofollow" title="The page in the annual report">p.</a>` : ''}</td></tr>`
+    }).join('')
+    return trs ? `<tr class="sec"><th colspan="5">${sec}</th></tr>${trs}` : ''
+  }).join('')
+  if (!n) return ''
+  return `<details class="accts"><summary><h3>The accounts <span class="cnt">${n} lines</span></h3></summary>
+    <table class="fin"><thead><tr><th>${basis === 'group' ? 'Group (consolidated)' : 'Company'}</th><th>${cur ? 'Year to ' + esc(fmtDate(cur)) : 'Latest year'}</th><th>${prev ? 'Year to ' + esc(fmtDate(prev)) : 'Year before'}</th><th>Change</th><th></th></tr></thead><tbody>${body}</tbody></table>
+    <p class="note">Every figure is printed on the page it links to, or is the sum of lines printed there. Expenses and outflows are negative. Changes are nominal.</p></details>`
+}
+
+function figuresPane(r) {
+  const f = FINS.get(r.company_id)
+  if (!r.listed) return `${headline(r)}<p class="note">${r.revenue_lkr !== null ? `Revenue: ${esc(basisText(r.revenue_basis))}. ` : ''}This company is not listed and does not publish financial statements, so the sources give no more figures.</p>${aboutBlock(r)}`
+  if (!f || f.status === 'loading') return `${headline(r)}<p class="note loading">Loading the accounts…</p>${aboutBlock(r)}`
+  const rows = f.status === 'ok' ? f.rows : null
+  const basis = rows ? FIG.basisOf(rows) : null
+  return `${headline(r)}
+    ${rows && basis ? historyGrid(r, rows, basis) : ''}
+    ${ratioTable(r)}
+    ${moneyBlock(r)}
+    ${mixBlock(r, rows, basis)}
+    ${rows && basis ? accounts(rows, basis) : f.status === 'error' ? '<p class="note">The accounts could not be loaded. The figures above come from the company table.</p>' : ''}
+    ${aboutBlock(r)}`
+}
+
+function ownershipPane(r) {
+  const holdsCount = holdingsOf(r).length
+  const where = r.is_group_head ? (r.group_companies > 1 ? `Parent company of a group of ${r.group_companies} companies.` : 'Not part of any group in this map.') : `${relPhrase(r, linkTo(r.group_id, r.group_name))}.`
+  return `<p class="own">${where}
+      ${r.controller_name && r.controller_type !== 'group' ? ` Largest shareholder: <b>${esc(r.controller_name)}</b>${r.controller_pct !== null ? ` (${r.controller_pct}%)` : ''} <span class="note">· ${esc(HOLDER_TYPE[r.controller_type] ?? r.controller_type)}${r.controller_country && r.controller_country !== 'Sri Lanka' ? ', ' + esc(r.controller_country) : ''}</span>.` : ''}
+      ${r.state_holding_pct ? ` <span class="note">The state and state enterprises hold ${r.state_holding_pct}% among the largest shareholders.</span>` : ''}</p>
+    ${webBox(r)}
+    <div class="cols"><div>${holderList(r) || '<p class="note">The sources list no shareholders for this company.</p>'}
+      ${(r.is_group_head ? r.group_companies : 2) > 1 ? `<p><button type="button" class="linkbtn" data-group="${esc(r.group_id)}">Show every company in the ${esc(r.is_group_head ? r.name : r.group_name)} group in the table</button></p>` : ''}</div>
+    <div>${holdsCount ? `<h3>${r.is_group_head ? 'Companies in the group' : 'Companies it owns shares in'} <span class="cnt">${holdsCount}</span></h3>${holdingsList(r)}` : ''}</div></div>`
+}
+
+function detail(r) {
+  const tab = dtab.id === r.company_id ? dtab.tab : 'figures'
+  return `<div class="detail">
+    <div class="dtabs" role="tablist" aria-label="${esc(r.name)}">
+      <button type="button" role="tab" data-dtab="figures" aria-selected="${tab === 'figures'}">Figures</button>
+      <button type="button" role="tab" data-dtab="ownership" aria-selected="${tab === 'ownership'}">Ownership</button>
+    </div>
+    <div role="tabpanel">${tab === 'figures' ? figuresPane(r) : ownershipPane(r)}</div></div>`
+}
+
+function redrawHoldings(id) {
+  const box = document.querySelector(`.holds[data-holds="${CSS.escape(id)}"]`)
+  if (!box) return
+  const pos = box.querySelector('.hq').selectionStart
+  box.outerHTML = holdingsList(BYID.get(id))
+  const q = document.querySelector(`.holds[data-holds="${CSS.escape(id)}"] .hq`)
+  if (document.activeElement === document.body || pos !== null) { q.focus(); q.setSelectionRange(pos, pos) }
+}
+$('rows').addEventListener('input', e => {
+  if (!e.target.matches('.hq')) return
+  const id = e.target.closest('.holds').dataset.holds
+  hold = { id, q: e.target.value, kind: hold.id === id ? hold.kind : 'all' }
+  redrawHoldings(id)
+})
+
+$('rows').addEventListener('click', e => {
+  const wb = e.target.closest('[data-web]')
+  if (wb) { web = { ...web, centre: wb.dataset.web, all: false }; redrawWeb(true); return }
+  if (e.target.closest('[data-webreset]')) { web = { ...web, centre: web.root, all: false }; redrawWeb(true); return }
+  if (e.target.closest('[data-webmore]')) { web = { ...web, all: true }; redrawWeb(false); return }
+  const dt = e.target.closest('[data-dtab]')
+  if (dt) { dtab = { id: openId, tab: dt.dataset.dtab }; drawRows(current); document.querySelector(`.dtabs [data-dtab="${dt.dataset.dtab}"]`)?.focus(); return }
+  const hk = e.target.closest('[data-hkind]')
+  if (hk) { const id = hk.closest('.holds').dataset.holds; hold = { id, q: hold.id === id ? hold.q : '', kind: hk.dataset.hkind }; const box = hk.closest('.holds'); box.outerHTML = holdingsList(BYID.get(id)); return }
+  if (e.target.closest('.holds .hq, .detail')) { if (!e.target.closest('button, a')) return }
+  const g = e.target.closest('[data-group]')
+  if (g) { F = { ...F, group: g.dataset.group, scope: 'all' }; openId = null; shown = 50; update(); root.scrollIntoView({ behavior: 'smooth' }); return }
+  const hb = e.target.closest('[data-holder]')
+  if (hb) { const list = HOLDINGS_OF.get(hb.dataset.holder) ?? []; const box = hb.closest('li'); if (box.querySelector('.also')) { box.querySelector('.also').remove(); return }
+    box.insertAdjacentHTML('beforeend', `<div class="also">${list.sort((a, b) => (b.pct ?? 0) - (a.pct ?? 0)).map(x => `<span><button type="button" class="linkbtn" data-goto="${esc(x.company_id)}">${esc(x.company_name)}</button> ${x.pct !== null ? x.pct + '%' : ''}</span>`).join('')}</div>`); return }
+  const go = e.target.closest('[data-goto]')
+  if (go) { const r = BYID.get(go.dataset.goto); F = { ...emptyFilter(), cols: F.cols, group: r.group_id, scope: 'all' }; openId = r.company_id; shown = 2000; $('fq').value = ''; update(); document.querySelector(`tr.r[data-id="${CSS.escape(r.company_id)}"]`)?.scrollIntoView({ block: 'center' }); return }
+  if (e.target.closest('a')) return
+  const tr = e.target.closest('tr.r'); if (!tr) return
+  toggle(tr.dataset.id)
+})
+$('rows').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('tr.r')) { e.preventDefault(); toggle(e.target.dataset.id) } })
+function toggle(id) {
+  openId = openId === id ? null : id
+  hold = { id: null, q: '', kind: 'all' }
+  drawRows(current)
+  document.querySelector(`tr.r[data-id="${CSS.escape(id)}"]`)?.focus()
+  if (openId && !SECT) loadSectors()
+  if (openId && !HOLD) loadHolders()
+  if (openId && !SEGS) loadSegments()
+  if (openId && BYID.get(openId)?.listed && !FINS.has(openId)) loadFin(openId)
+}
+
+/* ---------- methodology dialog: native modal, so Escape closes it and focus stays inside ---------- */
+const METHOD = $('method')
+function openMethod(fromHash = false) {
+  if (!METHOD.open) METHOD.showModal()
+  METHOD.querySelector('.mbody').scrollTop = 0
+  if (!fromHash && location.hash !== '#method') history.replaceState(null, '', location.pathname + location.search + '#method')
+}
+METHOD.addEventListener('close', () => { if (location.hash === '#method') history.replaceState(null, '', location.pathname + location.search) })
+METHOD.addEventListener('click', e => { if (e.target === METHOD || e.target.closest('[data-close]')) METHOD.close() })
+document.addEventListener('click', e => { if (e.target.closest('[data-method]')) openMethod() })
+if (location.hash === '#method') openMethod(true)
+addEventListener('hashchange', () => { if (location.hash === '#method') openMethod(true) })
+
+/* ---------- AI hand-off ---------- */
+$('copy').addEventListener('click', async () => {
+  const q = toQuery(F)
+  const words = $('lead').textContent + (current.length ? '' : ' (none match)')
+  const call = { op: 'select', dataset_id: q.dataset_id, fields: q.dataset_id === 'lk-companies'
+    ? ['name', 'group_name', 'primary_sector', 'revenue_lkr', 'revenue_kind', 'revenue_growth_real_pct', 'revenue_growth_nominal_pct', 'net_profit_margin_pct', 'performance', 'employees', 'source_url']
+    : ['name', 'group_name', 'sector', 'revenue_lkr', 'revenue_growth_real_pct', 'revenue_growth_nominal_pct', 'net_profit_margin_pct', 'performance', 'employees', 'source_url'], where: q.where, order_by: q.order_by, limit: 200 }
+  const text = `Using the developing-country.org data (MCP query_data), list Sri Lankan companies matching: ${[...$('chips').querySelectorAll('.chip')].map(c => c.firstChild.textContent).join('; ') || 'all groups and companies outside any group'}. ${words}.\n` +
+    (q.unsupported.length ? `The query cannot apply these, so check them yourself: ${q.unsupported.join('; ')}.\n` : '') +
+    `query_data ${JSON.stringify(call)}\nCite the source_url of each company.`
+  const ta = $('copyta'); ta.value = text
+  try { await navigator.clipboard.writeText(text); $('copy').textContent = 'Copied' ; setTimeout(() => { $('copy').textContent = 'Copy as a question' }, 1600) }
+  catch { ta.hidden = false; ta.select() }
+})
+
+addEventListener('popstate', () => { F = parseFilter(new URLSearchParams(location.search)); $('fq').value = F.q; shown = 50; update(true) })
+
+/* ---------- data ---------- */
+let HOLD = null, HOLDINGS_OF = new Map()
+async function loadHolders() {
+  try {
+    const t = await (await fetch(`${BASE}/lk-company-shareholders.json`)).json()
+    HOLD = new Map()
+    for (const r of t.rows) {
+      if (!HOLD.has(r.company_id)) HOLD.set(r.company_id, []); HOLD.get(r.company_id).push(r)
+      // one entry per company: a holder with voting and non-voting rows still holds one company
+      if (!HOLDINGS_OF.has(r.holder_id)) HOLDINGS_OF.set(r.holder_id, [])
+      const list = HOLDINGS_OF.get(r.holder_id), same = list.findIndex(x => x.company_id === r.company_id)
+      if (same < 0) list.push(r); else if (list[same].share_class === 'non_voting' && r.share_class !== 'non_voting') list[same] = r
+    }
+    drawRows(current)
+  } catch { HOLD = new Map() }
+}
+// The accounts come from the platform's query API, one company at a time: the full table is too large to download.
+const EXPLORE = BASE.replace(/\/data\/?$/, '')
+const FINS = new Map()
+const FIN_FIELDS = ['company_id', 'basis', 'year_end', 'fiscal_year', 'metric', 'region', 'value', 'unit', 'page', 'source_url']
+async function finQuery(dataset, where) {
+  const fields = dataset === 'lk-company-history' ? [...FIN_FIELDS.filter(f => f !== 'region'), 'value_real', 'price_index'] : FIN_FIELDS
+  const res = await fetch(`${EXPLORE}/api/query`, { method: 'POST', headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ op: 'select', dataset_id: dataset, fields, where, limit: 200 }) })
+  if (!res.ok) throw new Error(String(res.status))
+  return (await res.json()).rows ?? []
+}
+async function loadFin(id) {
+  FINS.set(id, { status: 'loading' })
+  try {
+    const own = { field: 'company_id', op: 'eq', value: id }
+    const [g, hist] = await Promise.all([finQuery('lk-company-financials', [own, { field: 'basis', op: 'eq', value: 'group' }]), finQuery('lk-company-history', [own])])
+    const st = g.length ? g : await finQuery('lk-company-financials', [own, { field: 'basis', op: 'eq', value: 'company' }])
+    const tag = (rows, source) => rows.map(x => ({ ...x, source, region: x.region ?? null }))
+    FINS.set(id, { status: 'ok', rows: [...tag(st, 'statements'), ...tag(hist, 'multi_year_summary')] })
+  } catch { FINS.set(id, { status: 'error' }) }
+  if (openId === id) drawRows(current)
+}
+let SEGS = null
+async function loadSegments() {
+  try {
+    const t = await (await fetch(`${BASE}/lk-company-segments.json`)).json()
+    SEGS = new Map()
+    for (const r of t.rows) { if (!SEGS.has(r.company_id)) SEGS.set(r.company_id, []); SEGS.get(r.company_id).push(r) }
+    if (openId) drawRows(current)
+  } catch { SEGS = new Map() }
+}
+async function loadSectors() {
+  try {
+    const t = await (await fetch(`${BASE}/lk-company-sectors.json`)).json()
+    SECT = new Map()
+    for (const r of t.rows) { if (!SECT.has(r.company_id)) SECT.set(r.company_id, []); SECT.get(r.company_id).push(r) }
+    drawRows(current)
+  } catch { SECT = new Map() }
+}
+
+async function start() {
+  try {
+    const [c, rel] = await Promise.all([`${BASE}/lk-companies.json`, `${BASE}/lk-company-relationships.json`].map(u => fetch(u).then(r => { if (!r.ok) throw new Error(u); return r.json() })))
+    ROWS = c.rows
+    for (const r of ROWS) if (r.isic_section && r.isic_section_label) ISIC_LABEL.set(r.isic_section, r.isic_section_label)
+    BYID = new Map(ROWS.map(r => [r.company_id, r]))
+    for (const r of ROWS) TEXT.set(r.company_id, searchText(r))
+    for (const x of rel.rows) {
+      if (!RELS.from.has(x.from_id)) RELS.from.set(x.from_id, []); RELS.from.get(x.from_id).push(x)
+      if (!RELS.to.has(x.to_id)) RELS.to.set(x.to_id, []); RELS.to.get(x.to_id).push(x)
+    }
+    for (const xs of RELS.from.values()) xs.sort((a, b) => (b.direct_pct ?? -1) - (a.direct_pct ?? -1))
+    // how many companies each ready-made view finds (fixed for the page's lifetime)
+    LENS_COUNT = new Map(LENSES.map(l => [l.id, rowsMatching(effectiveFilter(applyLens(l.id))).length]))
+    $('fq').value = F.q
+    update(true)
+  } catch (e) {
+    $('rows').innerHTML = '<tr><td colspan="7" class="empty">The enterprise data could not be loaded. Please try again.</td></tr>'
+  }
+}
+start()
+</script>
