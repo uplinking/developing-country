@@ -1758,7 +1758,7 @@ $('rows').addEventListener('click', e => {
   if (e.target.closest('[data-webreset]')) { web = { ...web, centre: web.root, all: false }; redrawWeb(true); return }
   if (e.target.closest('[data-webmore]')) { web = { ...web, all: true }; redrawWeb(false); return }
   const dt = e.target.closest('[data-dtab]')
-  if (dt) { dtab = { id: openId, tab: dt.dataset.dtab }; drawRows(current); document.querySelector(`.dtabs [data-dtab="${dt.dataset.dtab}"]`)?.focus(); return }
+  if (dt) { dtab = { id: openId, tab: dt.dataset.dtab }; keepInPlace(openId, () => drawRows(current)); document.querySelector(`.dtabs [data-dtab="${dt.dataset.dtab}"]`)?.focus({ preventScroll: true }); return }
   const hk = e.target.closest('[data-hkind]')
   if (hk) { const id = hk.closest('.holds').dataset.holds; hold = { id, q: hold.id === id ? hold.q : '', kind: hk.dataset.hkind }; const box = hk.closest('.holds'); box.outerHTML = holdingsList(BYID.get(id)); return }
   if (e.target.closest('.holds .hq, .detail')) { if (!e.target.closest('button, a')) return }
@@ -1774,11 +1774,25 @@ $('rows').addEventListener('click', e => {
   toggle(tr.dataset.id)
 })
 $('rows').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('tr.r')) { e.preventDefault(); toggle(e.target.dataset.id) } })
+/**
+ * Run a redraw without the page jumping: the row the reader pressed stays where it was on screen, even
+ * when a detail above it closes or the table is rebuilt.
+ */
+function keepInPlace(id, redraw, focus = true) {
+  const sel = `tr.r[data-id="${CSS.escape(id)}"]`
+  const before = document.querySelector(sel)?.getBoundingClientRect().top
+  redraw()
+  const row = document.querySelector(sel)
+  if (!row) return
+  if (before !== undefined) { const moved = row.getBoundingClientRect().top - before; if (Math.abs(moved) > 1) window.scrollBy({ top: moved, behavior: 'instant' }) }
+  if (focus) row.focus({ preventScroll: true })
+}
+/** A redraw when data arrives late (accounts, shareholders): keep the open company where it is, and leave focus alone. */
+const redrawOpen = () => openId ? keepInPlace(openId, () => drawRows(current), false) : drawRows(current)
 function toggle(id) {
   openId = openId === id ? null : id
   hold = { id: null, q: '', kind: 'all' }
-  drawRows(current)
-  document.querySelector(`tr.r[data-id="${CSS.escape(id)}"]`)?.focus()
+  keepInPlace(id, () => drawRows(current))
   if (openId && !SECT) loadSectors()
   if (openId && !HOLD) loadHolders()
   if (openId && !SEGS) loadSegments()
@@ -1828,7 +1842,7 @@ async function loadHolders() {
       const list = HOLDINGS_OF.get(r.holder_id), same = list.findIndex(x => x.company_id === r.company_id)
       if (same < 0) list.push(r); else if (list[same].share_class === 'non_voting' && r.share_class !== 'non_voting') list[same] = r
     }
-    drawRows(current)
+    redrawOpen()
   } catch { HOLD = new Map() }
 }
 // The accounts come from the platform's query API, one company at a time: the full table is too large to download.
@@ -1851,7 +1865,7 @@ async function loadFin(id) {
     const tag = (rows, source) => rows.map(x => ({ ...x, source, region: x.region ?? null }))
     FINS.set(id, { status: 'ok', rows: [...tag(st, 'statements'), ...tag(hist, 'multi_year_summary')] })
   } catch { FINS.set(id, { status: 'error' }) }
-  if (openId === id) drawRows(current)
+  if (openId === id) redrawOpen()
 }
 let SEGS = null
 async function loadSegments() {
@@ -1859,7 +1873,7 @@ async function loadSegments() {
     const t = await (await fetch(`${BASE}/lk-company-segments.json`)).json()
     SEGS = new Map()
     for (const r of t.rows) { if (!SEGS.has(r.company_id)) SEGS.set(r.company_id, []); SEGS.get(r.company_id).push(r) }
-    if (openId) drawRows(current)
+    if (openId) redrawOpen()
   } catch { SEGS = new Map() }
 }
 async function loadSectors() {
@@ -1867,7 +1881,7 @@ async function loadSectors() {
     const t = await (await fetch(`${BASE}/lk-company-sectors.json`)).json()
     SECT = new Map()
     for (const r of t.rows) { if (!SECT.has(r.company_id)) SECT.set(r.company_id, []); SECT.get(r.company_id).push(r) }
-    drawRows(current)
+    redrawOpen()
   } catch { SECT = new Map() }
 }
 
