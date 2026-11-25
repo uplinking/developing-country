@@ -854,7 +854,12 @@ function rowEl(e,pinIds){
         title:rev?'Reviewed record':'Machine-read, not yet reviewed'})));
   btn.addEventListener('click',()=>{
     if(state.open.has(e.id)) state.open.delete(e.id); else state.open.add(e.id);
-    const nl=rowEl(e,state.pin?new Set(state.pin.ids):null); li.replaceWith(nl); nl.querySelector('.row').focus();
+    // keep the pressed row where it was on screen: opening adds a frame and margin around it
+    const before=btn.getBoundingClientRect().top;
+    const nl=rowEl(e,state.pin?new Set(state.pin.ids):null); li.replaceWith(nl);
+    const row=nl.querySelector('.row'), moved=row.getBoundingClientRect().top-before;
+    if(Math.abs(moved)>1) window.scrollBy({top:moved,behavior:'instant'});
+    row.focus({preventScroll:true});
   });
   li.append(btn);
   if(open){ const d=detailEl(e); li.append(d); requestAnimationFrame(()=>centerTrack(d)); }
