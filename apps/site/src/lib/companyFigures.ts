@@ -1,7 +1,7 @@
 /**
  * The arithmetic behind a company's Figures tab: its statements for two years, its multi-year history,
- * and where it sits among listed companies in the same broad sector. Pure functions over the published
- * rows of lk-companies and lk-company-financials, so the dashboard only draws.
+ * and its growth. Pure functions over the published rows of lk-companies and lk-company-financials, so the
+ * dashboard only draws. Comparisons with peers are in companyLights.
  */
 
 /** One row of lk-company-financials. */
@@ -75,33 +75,6 @@ export function regions(rows: FinRow[], basis: string): Array<{ region: string; 
   const latest = [...new Set(rs.map(r => r.year_end))].sort().reverse()[0]
   return rs.filter(r => r.year_end === latest).map(r => ({ region: r.region as string, value: r.value as number }))
     .filter(r => r.value > 0 && !/^total\b/i.test(r.region)).sort((a, b) => b.value - a.value)
-}
-
-export interface PeerStats { n: number; median: number; rank: number; values: number[]; better: 'higher' | 'lower' }
-
-type Row = Record<string, unknown>
-const LENDERS = new Set(['bank', 'finance_company'])
-
-/** The listed companies a company is compared with: same broad sector, and lenders only with lenders. */
-export function peersOf(all: Row[], r: Row): Row[] {
-  const lender = LENDERS.has(String(r.industry_kind ?? ''))
-  return all.filter(x => x.listed === true && x.sector_family === r.sector_family && LENDERS.has(String(x.industry_kind ?? '')) === lender)
-}
-
-/**
- * Where a company's value sits among its peers' values: rank 1 is the best (highest, or lowest when
- * lower is better). Null when the company has no value or fewer than five peers report one.
- */
-export function peerStats(peers: Row[], r: Row, field: string, better: 'higher' | 'lower' = 'higher'): PeerStats | null {
-  const v = r[field]
-  if (typeof v !== 'number') return null
-  const values = peers.map(x => x[field]).filter((x): x is number => typeof x === 'number')
-  if (values.length < 5) return null
-  const sorted = [...values].sort((a, b) => a - b)
-  const mid = sorted.length >> 1
-  const median = sorted.length % 2 ? sorted[mid]! : (sorted[mid - 1]! + sorted[mid]!) / 2
-  const rank = 1 + values.filter(x => (better === 'higher' ? x > v : x < v)).length
-  return { n: values.length, median, rank, values: sorted, better }
 }
 
 /** Growth a year between the first and last point, or null when either is not positive. */

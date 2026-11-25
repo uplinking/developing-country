@@ -40,6 +40,7 @@ const base = `${explorer}/data`
   <section aria-label="Summary">
     <div class="kpis" id="kpis"></div>
   </section>
+  <section aria-label="How the figures are spread" class="dists" id="dists"></section>
 
   <section aria-label="Breakdown" class="breaks">
     <div><div class="lblrow"><p class="lbl">By sector</p><div class="seg mini" id="sectorBy" role="group" aria-label="Measure"><button type="button" data-by="count" aria-pressed="true">Companies</button><button type="button" data-by="revenue" aria-pressed="false">Revenue</button></div></div><ol class="bars" id="bySector"></ol></div>
@@ -111,8 +112,19 @@ const base = `${explorer}/data`
         <li><b>Margins</b> divide by revenue: net margin is profit after tax, operating margin is operating profit, gross margin is gross profit. They are left out for banks, finance companies and insurers, whose revenue is not sales, and where they exceed ±100%.</li>
         <li><b>Returns and balance sheet.</b> Return on equity is profit after tax over equity at the year end. Debt includes lease liabilities; net debt is debt less cash. Interest cover is operating profit over finance costs. Cash conversion is cash from operations over profit after tax. Free cash flow is cash from operations less capital spending.</li>
         <li><b>Value and dividends.</b> Price to earnings, price to book and dividend yield use the CSE share price in November 2026, not the price at the financial year end. Dividend payout is dividend per share over earnings per share.</li>
-        <li><b>Comparisons with a sector</b> use listed companies in the same broad sector, and banks and finance companies only with each other. A comparison needs at least five companies with the figure. Rank 1 is the best on that measure.</li>
+        <li><b>Comparisons</b> use listed companies of the same kind: banks with banks, finance companies with finance companies, insurers with insurers, and everyone else with its broad sector. Where fewer than ten in that sector report a figure, a company outside finance is compared with all listed companies outside finance, and a lender or insurer is not compared.</li>
+        <li><b>The spreads under the headline figures</b> describe whatever companies the filters leave. Sums count a subsidiary once, inside its group when the group is in view; counts, medians and spreads use every company. With thirty or more values they show columns, with eight to twenty-nine a dot per company, and with three to seven a list. Only listed companies publish accounts, so profit, return, growth and debt describe listed companies only.</li>
         <li><b>Performance labels</b> (profitable and growing, fell into loss and so on) combine profit after tax in both years with real revenue growth; a company whose equity is negative is labelled so first.</li>
+      </ul>
+
+      <h3>Good, watch and weak marks</h3>
+      <ul>
+        <li>Each figure in a company’s detail carries a mark from a fixed rule, with the reason beside it. They are not a view on the company or its shares, and there is no overall score.</li>
+        <li><b>Weak</b> is kept for a line that means the same for every company, or a regulator’s minimum: a loss; negative margins or returns; debt larger than equity; operating profit covering interest less than 1.5 times; revenue shrinking 5% or more after inflation; capital below the minimum. <b>Good</b> and <b>watch</b> mark the other side of the same lines (debt at 40% of equity or less is good, 40–100% is watch; cover of 3.5 times or more is good, 1.5–3.5 is watch).</li>
+        <li>Capital minimums: banks need Tier 1 capital of 8.5% and total capital of 12.5% (CBSL Banking Act Directions No. 11 of 2019), plus a surcharge for a systemically important bank under Directions No. 2 of 2025 (Commercial Bank 1.5 points, Hatton National Bank and Sampath Bank 1.0, as each states in its 2025 annual report). Finance companies need 8.5% and 12.5%, or 10% and 14% with assets of LKR 100bn or more (Finance Business Act Directions No. 3 of 2018). Insurers need a capital adequacy ratio of 120% (IRCSL). Within 2 points of a bank’s or finance company’s minimum, or under 160% for an insurer, is watch.</li>
+        <li>Where no line applies, a figure is compared with at least ten similar listed companies: the best quarter is good, the middle half is typical, the weakest quarter is watch. A comparison alone never marks a figure weak.</li>
+        <li>Share valuation (price to earnings, price to book, dividend yield), dividend payout (unless more than the profit, or paid in a loss year), net interest margin, loan growth and gross margin are not marked.</li>
+        <li>“Better” or “worse than last year” compares the same figure worked out from the prior year’s statements, ignoring small moves (1 point for margins and returns, half a point for capital ratios).</li>
       </ul>
 
       <h3>Ownership</h3>
@@ -201,6 +213,45 @@ const base = `${explorer}/data`
 .cmap .kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0 24px;padding:16px 0 22px}
 .cmap .kpi .v{display:block;font:500 24px/1.2 var(--mono);margin-top:8px}
 .cmap .kpi .s{display:block;font:500 11px/1.5 var(--mono);color:var(--dim);margin-top:4px}
+.cmap .dists{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px 24px;padding:4px 0 24px;border-bottom:1px solid var(--hair)}
+.cmap .dcard{min-width:0;display:flex;flex-direction:column}
+.cmap .dcard .lbl{margin:0 0 8px;line-height:1.3}
+.cmap .dcard .seg{align-self:flex-start;margin:2px 0 0}
+.cmap .dh{font:500 16px/1.3 var(--mono);margin:0 0 4px}
+.cmap .dh small{font-size:12px;color:var(--dim)}
+.cmap .ds{font:400 12.5px/1.4 var(--sans);color:var(--dim);margin:0 0 8px}
+.cmap .df{font:500 10.5px/1.45 var(--mono);color:var(--dim);margin:auto 0 0;padding-top:8px}
+.cmap .dbins{display:flex;align-items:flex-end;gap:3px;height:74px;margin:6px 0 4px}
+.cmap .dbins .col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;min-width:0}
+.cmap .dbins .col .c{font:500 10px/1 var(--mono);color:var(--dim);text-align:center;margin-bottom:3px}
+.cmap .dbins .col i{display:block;background:var(--quiet);border-radius:2px 2px 0 0}
+.cmap .dbins i.neg,.cmap .dstrip circle.neg{background:var(--down);fill:var(--down)}
+.cmap .dbins i.amb,.cmap .dstrip circle.amb{background:var(--amber);fill:var(--amber)}
+.cmap .dax{display:flex;justify-content:space-between;gap:8px;font:500 10px/1.3 var(--mono);color:var(--dim);margin-bottom:6px;border-top:1px solid var(--ink);padding-top:4px}
+.cmap .dstrip{display:block;width:100%;height:auto;margin:4px 0 6px;overflow:visible}
+.cmap .dstrip .ax{stroke:var(--hair);stroke-width:1}
+.cmap .dstrip .med{stroke:var(--ink);stroke-width:1.5}
+.cmap .dstrip circle{fill:var(--quiet);stroke:var(--paper);stroke-width:1.5}
+.cmap .dstrip .tk{font:500 9px var(--mono);fill:var(--dim)}
+.cmap .dlist{list-style:none;margin:4px 0 6px;padding:0;font-size:12.5px}
+.cmap .dlist li{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-bottom:1px solid var(--hair2)}
+.cmap .dlist li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cmap .dlist b{font:500 12px/1.3 var(--mono);flex:none}
+.cmap .dbands{list-style:none;margin:6px 0 2px;padding:0}
+.cmap .dbands li{display:grid;grid-template-columns:62px minmax(0,1fr) 32px;gap:6px;align-items:center;font:500 10.5px/1.2 var(--mono);color:var(--dim);margin:0 0 5px}
+.cmap .dbands .b{display:flex;flex-direction:column;gap:2px}
+.cmap .dbands .b i{display:block;height:5px;border-radius:0 2px 2px 0}
+.cmap .dbands .c{text-align:right;color:var(--ink)}
+.cmap i.co{background:var(--quiet)} .cmap i.va{background:var(--teal)}
+.cmap .dstack{display:flex;gap:2px;height:16px;margin:8px 0 6px}
+.cmap .dstack i{display:block;min-width:3px}
+.cmap i.top{background:#05776c} .cmap i.rest{background:var(--teal)} .cmap i.loss,.cmap i.weak{background:var(--down)} .cmap i.watch{background:var(--amber)} .cmap i.good{background:var(--up)}
+.cmap .dkey{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font:500 10.5px/1.3 var(--mono);color:var(--dim);margin:0 0 8px}
+.cmap .dkey i{display:inline-block;width:9px;height:9px;margin-left:4px}
+.cmap .dkey i:first-child{margin-left:0}
+@media (max-width:1080px){ .cmap .dists{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:760px){ .cmap .dists{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px 18px} }
+@media (max-width:520px){ .cmap .dists{grid-template-columns:minmax(0,1fr)} }
 .cmap .breaks{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:0 40px;padding:18px 0 22px}
 .cmap .bars{list-style:none;margin:0;padding:0}
 .cmap .bars li button{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr) 44px;gap:10px;align-items:center;width:100%;background:none;border:0;border-radius:2px;
@@ -356,6 +407,17 @@ const base = `${explorer}/data`
 .cmap svg.mini .base{stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke}
 .cmap .miniax{display:flex;justify-content:space-between;font:500 10px/1 var(--mono);color:var(--dim);margin-top:4px}
 /* ratios against the sector */
+.cmap .ratios.lights .l{width:22px;padding-right:8px;text-align:left;vertical-align:top;padding-top:10px}
+.cmap .ratios.lights tbody th{vertical-align:top}
+.cmap .ratios.lights td{vertical-align:top}
+.cmap .ratios .why{display:block;font:400 12px/1.35 var(--sans);color:var(--dim);margin-top:2px}
+.cmap .ratios .tr{display:block;font:500 10.5px/1.3 var(--mono);color:var(--dim);font-weight:500}
+.cmap .ratios .tr.improved{color:var(--up)} .cmap .ratios .tr.worsened{color:var(--down)}
+.cmap i.lamp{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:-1px;flex:none}
+.cmap i.lamp.good{background:var(--up)} .cmap i.lamp.watch{background:var(--amber)} .cmap i.lamp.weak{background:var(--down)}
+.cmap i.lamp.typical{border:1.5px solid var(--dim)} .cmap i.lamp.none{border:1.5px dashed var(--quiet)}
+.cmap .lampkey{display:flex;flex-wrap:wrap;gap:6px 16px;font:500 11px/1.3 var(--mono);color:var(--dim);margin:0 0 8px}
+.cmap .lampkey span{display:inline-flex;align-items:center;gap:6px}
 .cmap .ratios{border-collapse:collapse;width:100%;font:500 12.5px/1.4 var(--mono)}
 .cmap .ratios th,.cmap .ratios td{padding:7px 14px 7px 0;border-bottom:1px solid var(--hair2);text-align:right;white-space:nowrap}
 .cmap .ratios tbody th{text-align:left;font:400 14px/1.35 var(--sans);white-space:normal}
@@ -477,6 +539,8 @@ const base = `${explorer}/data`
   .cmap .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cmap .hgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cmap .ratios .s,.cmap .ratios .k{display:none}
+  .cmap .ratios.lights .m{display:none}
+  .cmap .ratios.lights td.v{white-space:normal;width:34%}
   .cmap .accts .fin td:nth-child(4),.cmap .accts .fin th:nth-child(4){display:none}
   .cmap .st:nth-child(3){padding-left:0;border-left:0}
   .cmap .detail{padding:4px 12px 0}
@@ -491,6 +555,8 @@ const base = `${explorer}/data`
 // @ts-nocheck -- plain DOM code; the filtering rules it relies on are typed and tested in src/lib/companyFilter.ts.
 import { COMPANY_SECTOR_FAMILIES, COMPANY_SECTOR_TAGS, COMPANY_SECTOR_BY_TAG } from '@developing-country/datasets/company-sectors'
 import * as FIG from '../../lib/companyFigures'
+import * as DIST from '../../lib/companyDistributions'
+import * as LIGHTS from '../../lib/companyLights'
 import { ABROAD_KEYS, ABROAD_LABEL, EMPTY_FILTER, LENSES, RANGES, RANGE_BY_KEY, applyLens, countBy, coverage, effectiveFilter, emptyFilter, filterToParams, inBucket, listedOnlyActive, matches, ownershipOf, parseFilter, rangeValue, searchText, sortRows, summarize, tagsOf, toQuery } from '../../lib/companyFilter'
 
 const root = document.getElementById('cmap')
@@ -783,7 +849,7 @@ function update(replace = false) {
   root.querySelectorAll('[data-scope]').forEach(b => b.setAttribute('aria-pressed', String(!EF.group && b.dataset.scope === EF.scope)))
   $('fqx').hidden = !F.q
   $('colset').value = F.cols
-  drawLenses(); drawFilters(); chips(); drawCoverage(); drawSummary(); drawBreaks(); drawHead(); drawRows(current)
+  drawLenses(); drawFilters(); chips(); drawCoverage(); drawSummary(); drawDists(); drawBreaks(); drawHead(); drawRows(current)
   if (DRAWER.open) drawDrawer()
   $('copyta').hidden = true
 }
@@ -820,6 +886,114 @@ function drawSummary() {
     (EF.listed === 'yes' && s.marketCapCount ? k('Market value', fmtLkr(s.marketCapLkr), `${s.marketCapCount.toLocaleString('en')} listed companies, CSE, November 2026`)
       : k('Known exporters', s.exporters.toLocaleString('en'), `plus ${s.overseas.toLocaleString('en')} with overseas subsidiaries or operations`))
 }
+
+/* ---------- second row: how the figures are spread ---------- */
+const DIST_STATE = { size: 'bands', growth: 'year' }
+const lkrShort = v => fmtLkr(v).replace('LKR ', '')
+const shortName = n => String(n).replace(/\s*\(.*\)\s*$/, '').replace(/ PLC$/, '')
+const of = (n, base, what) => `${n.toLocaleString('en')} of ${base.toLocaleString('en')} ${what}`
+function distCard(label, head, sub, body, foot, tools = '') {
+  return `<div class="dcard"><p class="lbl">${label}</p><p class="dh">${head}</p>${sub ? `<p class="ds">${sub}</p>` : ''}${body}${tools}<p class="df">${foot}</p></div>`
+}
+const segBtns = (key, opts) => `<div class="seg mini" role="group" aria-label="Show">${opts.map(([id, t]) => `<button type="button" data-dist="${key}" data-v="${id}" aria-pressed="${DIST_STATE[key] === id}">${t}</button>`).join('')}</div>`
+/** A spread drawn by how many report it: columns, a dot per company, a list, or a note. */
+function spreadBody(sp, fmt, { tone = () => '' } = {}) {
+  if (sp.form === 'none') return '<p class="ds">Too few companies report this to show a spread.</p>'
+  if (sp.form === 'list') return `<ol class="dlist">${sp.points.map(p => `<li><span>${esc(p.name)}</span><b>${fmt(p.value)}</b></li>`).join('')}</ol>`
+  if (sp.form === 'dots') {
+    const vals = sp.points.map(p => p.value), lo = Math.min(...vals), hi = Math.max(...vals)
+    const x = v => 6 + (hi === lo ? 0.5 : (v - lo) / (hi - lo)) * 228
+    return `<svg class="dstrip" viewBox="0 0 240 34" role="img" aria-label="${esc(sp.points.map(p => `${p.name} ${fmt(p.value)}`).join(', '))}">
+      <line x1="6" x2="234" y1="16" y2="16" class="ax"/>
+      ${sp.median !== null ? `<line x1="${x(sp.median).toFixed(1)}" x2="${x(sp.median).toFixed(1)}" y1="6" y2="26" class="med"/>` : ''}
+      ${sp.points.map(p => `<circle cx="${x(p.value).toFixed(1)}" cy="16" r="4.5" class="${tone(p.value)}"><title>${esc(p.name)}: ${fmt(p.value)}</title></circle>`).join('')}
+      <text x="6" y="33" class="tk">${fmt(lo)}</text><text x="234" y="33" class="tk" text-anchor="end">${fmt(hi)}</text></svg>`
+  }
+  const max = Math.max(1, ...sp.bins.map(b => b.n))
+  return `<div class="dbins" role="img" aria-label="${esc(sp.bins.map(b => `${b.label}: ${b.n}`).join(', '))}">${sp.bins.map(b =>
+    `<div class="col" title="${esc(b.label)}: ${b.n}"><span class="c">${b.n}</span><i class="${tone(b.max !== null ? b.max - 1e-9 : b.min + 1)}" style="height:${Math.max(b.n ? 4 : 0, b.n / max * 100).toFixed(0)}%"></i></div>`).join('')}</div>
+    <div class="dax"><span>${esc(sp.bins[0].label)}</span><span>${esc(sp.bins[sp.bins.length - 1].label)}</span></div>`
+}
+function sizeCard(rows) {
+  const sv = DIST.sizeView(rows), what = sv.measure === 'assets' ? 'assets' : 'revenue'
+  const head = sv.top ? `The ${sv.top.k} largest ${sv.measure === 'assets' ? 'hold' : 'earn'} ${sv.top.pct.toFixed(0)}%` : sv.n ? fmtLkr(sv.total) : '–'
+  let body
+  if (sv.n < 6) body = sv.n ? `<ol class="dlist">${sv.largest.map(p => `<li><span>${esc(p.name)}</span><b>${lkrShort(p.value)}</b></li>`).join('')}</ol>` : '<p class="ds">No company here reports it.</p>'
+  else if (DIST_STATE.size === 'dist') {
+    const max = Math.max(1, ...sv.hist.map(h => h.n))
+    const t = v => v >= 1e12 ? (v / 1e12).toFixed(0) + 'tn' : v >= 1e9 ? (v / 1e9).toFixed(0) + 'bn' : (v / 1e6).toFixed(0) + 'm'
+    body = `<div class="dbins" role="img" aria-label="Companies by ${what}, each column five times the one before">${sv.hist.map(h => `<div class="col" title="LKR ${t(h.lo)}–${t(h.hi)}: ${h.n}"><span class="c">${h.n || ''}</span><i style="height:${Math.max(h.n ? 4 : 0, h.n / max * 100).toFixed(0)}%"></i></div>`).join('')}</div>
+      <div class="dax"><span>LKR ${t(sv.hist[0].lo)}</span><span>LKR ${t(sv.hist[sv.hist.length - 1].hi)}</span></div>
+      <p class="ds">Companies by ${what}; each column covers about three times the one before.</p>`
+  } else {
+    body = `<ul class="dbands">${sv.bands.filter(b => b.n || sv.measure === 'revenue').map(b => `<li title="${esc(b.label)}: ${b.n} companies, ${b.valuePct.toFixed(1)}% of ${what}">
+      <span class="t">${esc(b.label.replace('LKR ', '').replace(' or more', '+'))}</span><span class="b"><i class="co" style="width:${b.companiesPct.toFixed(1)}%"></i><i class="va" style="width:${b.valuePct.toFixed(1)}%"></i></span><span class="c">${b.valuePct.toFixed(0)}%</span></li>`).join('')}</ul>
+      <p class="dkey"><i class="co"></i>share of companies <i class="va"></i>share of ${what}</p>`
+  }
+  return distCard(sv.measure === 'assets' ? 'Where the assets sit' : 'Where the revenue sits', head,
+    sv.n >= 6 ? `${fmtLkr(sv.total)} across ${plural(sv.n, 'company')}` : '', body,
+    `${of(sv.n, sv.base, 'report it')}; subsidiaries counted once, inside their group`, sv.n >= 6 ? segBtns('size', [['bands', 'Bands'], ['dist', 'Spread']]) : '')
+}
+function poolCard(rows) {
+  const pp = DIST.profitPool(rows)
+  if (!pp.n) return distCard('Profit pool', '–', '', '<p class="ds">Only listed companies publish profits.</p>', of(0, pp.base, 'publish accounts'))
+  const top = pp.top5Pct !== null ? pp.profitsLkr * pp.top5Pct / 100 : 0, whole = pp.profitsLkr + Math.abs(pp.lossesLkr) || 1
+  const bar = `<div class="dstack" role="img" aria-label="Profits ${fmtLkr(pp.profitsLkr)}, losses ${fmtLkr(-pp.lossesLkr)}">
+    ${top ? `<i class="top" style="flex:${top / whole}"></i>` : ''}<i class="rest" style="flex:${(pp.profitsLkr - top) / whole}"></i>${pp.lossesLkr ? `<i class="loss" style="flex:${Math.max(0.006, -pp.lossesLkr / whole)}"></i>` : ''}</div>`
+  const losses = pp.biggestLosses.length ? `<p class="ds">Largest ${pp.biggestLosses.length === 1 ? 'loss' : 'losses'}: ${pp.biggestLosses.map(p => `${esc(shortName(p.name))} ${lkrShort(-p.value)}`).join(', ')}</p>` : ''
+  return distCard('Profit pool', `${fmtLkr(pp.profitsLkr)} <small>made · ${pp.lossesLkr ? lkrShort(-pp.lossesLkr) + ' lost' : 'no losses'}</small>`,
+    `${pp.profitable.toLocaleString('en')} made a profit, ${pp.lossMaking.toLocaleString('en')} a loss${pp.top5Pct !== null ? `; the 5 largest earn ${pp.top5Pct.toFixed(0)}% of the profit` : ''}`,
+    `${bar}<p class="dkey">${top ? '<i class="top"></i>5 largest ' : ''}<i class="rest"></i>${top ? 'the rest' : 'profits'}${pp.lossesLkr ? ' <i class="loss"></i>losses' : ''}</p>${losses}`,
+    `${of(pp.n, pp.base, 'publish accounts')}; sums count subsidiaries once`)
+}
+function roeCard(rows) {
+  const sp = DIST.roeSpread(rows), P = v => `${v.toFixed(1)}%`
+  return distCard('Return on equity', sp.median !== null ? `Median ${P(sp.median)}` : '–',
+    sp.n >= 8 ? `Middle half ${P(sp.p25)} to ${P(sp.p75)}` : '', spreadBody(sp, P, { tone: v => v <= 0 ? 'neg' : '' }), `${of(sp.n, sp.base, 'report it')}; profit after tax ÷ equity`)
+}
+function growthCard(rows) {
+  const five = DIST_STATE.growth === 'five'
+  const sp = DIST.growthSpread(rows, five), grew = sp.points.filter(p => p.value > 0).length
+  const P = v => `${v > 0 ? '+' : ''}${v.toFixed(1)}%`
+  return distCard('Growth after inflation', sp.median !== null ? `Median ${P(sp.median)}${five ? ' <small>a year</small>' : ''}` : '–',
+    sp.n >= 8 ? `Middle half ${P(sp.p25)} to ${P(sp.p75)}${five ? ' a year over five years' : ' this year'}; ${grew.toLocaleString('en')} of ${sp.n.toLocaleString('en')} grew` : '', spreadBody(sp, P, { tone: v => v <= 0 ? 'neg' : '' }),
+    `${of(sp.n, sp.base, 'report it')}; lenders left out, as their income moves with interest rates`, segBtns('growth', [['year', 'This year'], ['five', 'Five years']]))
+}
+function debtCard(rows) {
+  const d = DIST.debtAtRisk(rows)
+  if (!d.n) return distCard('Debt at risk', '–', '', '<p class="ds">No company here reports how well it covers its interest.</p>', of(0, d.base, 'companies outside finance report it'))
+  if (d.n < 8 || !d.borrowingsLkr) {
+    const list = rows.filter(r => typeof r.interest_cover === 'number' && !['bank', 'finance_company', 'insurer'].includes(r.industry_kind)).sort((a, b) => a.interest_cover - b.interest_cover)
+    return distCard('Debt at risk', d.median !== null ? `Median cover ${d.median.toFixed(1)}×` : '–', 'How many times operating profit covers interest; under 1.5 times is weak',
+      list.length ? `<ol class="dlist">${list.map(r => `<li><span>${esc(shortName(r.name))}</span><b>${r.interest_cover >= 100 ? 'over 100' : r.interest_cover.toFixed(1)}×</b></li>`).join('')}</ol>` : '',
+      of(d.n, d.base, 'companies outside finance report it'))
+  }
+  const weak = d.bands[0].borrowingsPct + d.bands[1].borrowingsPct, weakN = d.bands[0].n + d.bands[1].n
+  const seg = [[weak, 'weak', 'covers interest less than 1.5×'], [d.bands[2].borrowingsPct, 'watch', '1.5–3.5×'], [d.bands[3].borrowingsPct, 'good', '3.5× or more']]
+  const bar = `<div class="dstack" role="img" aria-label="${esc(seg.map(s => `${s[2]}: ${s[0].toFixed(0)}% of borrowing`).join(', '))}">${seg.filter(s => s[0] > 0).map(s => `<i class="${s[1]}" style="flex:${Math.max(0.6, s[0])}" title="${esc(s[2])}: ${s[0].toFixed(0)}%"></i>`).join('')}</div>`
+  const who = d.atRisk.slice(0, 3).map(p => esc(shortName(p.name))).join(', ')
+  return distCard('Debt at risk', `${weak.toFixed(0)}% <small>of borrowing</small>`,
+    `sits with ${plural(weakN, 'company')} whose operating profit covers interest less than 1.5 times`,
+    `${bar}<p class="dkey"><i class="weak"></i>under 1.5× <i class="watch"></i>1.5–3.5× <i class="good"></i>3.5× or more</p>${who ? `<p class="ds">Largest borrowers below 1.5×: ${who}</p>` : ''}`,
+    `${fmtLkr(d.borrowingsLkr)} borrowed by ${of(d.n, d.base, 'companies outside finance')} that report it`)
+}
+function capitalCard(rows) {
+  const sp = DIST.capitalHeadroom(rows), close = sp.points.filter(p => p.value < 2).length, below = sp.points.filter(p => p.value < 0).length
+  const P = v => `${v > 0 ? '+' : ''}${v.toFixed(1)}`
+  return distCard('Capital above the minimum', sp.n ? `${close} <small>within 2 points</small>` : '–',
+    sp.n ? `${below ? `${below} below the minimum; ` : ''}median ${P(sp.median)} points above it` : '',
+    spreadBody(sp, P, { tone: v => v < 0 ? 'neg' : v < 2 ? 'amb' : '' }), `${of(sp.n, sp.base, 'report it')}; total capital ratio less the CBSL minimum, in points`)
+}
+function stage3Card(rows) {
+  const sp = DIST.stage3Spread(rows), P = v => `${v.toFixed(1)}%`
+  return distCard('Bad loans', sp.median !== null ? `Median ${P(sp.median)}` : '–', 'Stage 3 loans as a share of all loans, as each reports it',
+    spreadBody(sp, P, { tone: v => v >= 10 ? 'neg' : '' }), `${of(sp.n, sp.base, 'report it')}; bases differ between lenders`)
+}
+function drawDists() {
+  const lenders = DIST.lendersOnly(current)
+  $('dists').innerHTML = sizeCard(current) + poolCard(current) + roeCard(current) + (lenders ? capitalCard(current) + stage3Card(current) : growthCard(current) + debtCard(current))
+}
+$('dists').addEventListener('click', e => { const b = e.target.closest('[data-dist]'); if (!b) return; DIST_STATE[b.dataset.dist] = b.dataset.v; drawDists() })
 
 let SECTOR_BY = 'count'
 function drawBreaks() {
@@ -1196,7 +1370,6 @@ function historyGrid(r, rows, basis) {
     <p class="note">In rupees of ${esc(String(FIG.series(rows, 'revenue', basis, { real: true }).at(-1)?.year ?? 'the latest year'))}: each year is adjusted for consumer price inflation, so the bars compare like with like (Sri Lanka’s prices rose about 2.4 times between 2016 and 2026). From the annual report’s multi-year summary and its latest statements.</p>`
 }
 
-const ORD = n => n + (n % 100 >= 11 && n % 100 <= 13 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] ?? 'th')
 function strip(st, v) {
   const lo = st.values[Math.floor(st.values.length * 0.05)], hi = st.values[Math.ceil(st.values.length * 0.95) - 1]
   const x = val => 4 + Math.max(0, Math.min(1, (val - lo) / ((hi - lo) || 1))) * 112
@@ -1206,39 +1379,25 @@ function strip(st, v) {
     <circle cx="${x(v).toFixed(1)}" cy="7" r="4" class="me"/></svg>`
 }
 
-function ratioTable(r) {
-  const lender = r.industry_kind === 'bank' || r.industry_kind === 'finance_company', insurer = r.industry_kind === 'insurer'
-  const P = (v, d = 1) => v === null || v === undefined ? '–' : `${v.toFixed(d)}%`, X = v => v === null || v === undefined ? '–' : `${v.toFixed(1)}×`
-  const all = lender ? [
-    ['revenue_growth_real_pct', 'Growth in gross income, after inflation', P, 'higher'], ['return_on_equity_pct', 'Return on equity', P, 'higher'],
-    ['npl_ratio_pct', 'Stage 3 (bad) loans', P, 'lower'], ['total_capital_ratio_pct', 'Total capital ratio', P, 'higher'],
-    ['cost_to_income_pct', 'Cost to income', P, 'lower'], ['net_interest_margin_pct', 'Net interest margin', P, 'higher'],
-    ['loans_to_deposits_pct', 'Loans to deposits', P, null], ['loan_growth_pct', 'Loan growth (nominal)', P, 'higher'],
-    ['dividend_yield_pct', 'Dividend yield', P, 'higher'], ['pb_ratio', 'Price to book', v => v === null ? '–' : `${v.toFixed(2)}×`, null],
-  ] : [
-    ['revenue_growth_real_pct', `Growth in ${insurer ? 'premium' : 'revenue'}, after inflation`, P, 'higher'],
-    ['revenue_cagr_5y_real_pct', 'Growth a year over five years, after inflation', P, 'higher'],
-    ...(insurer ? [] : [['gross_margin_pct', 'Gross margin', P, 'higher'], ['operating_margin_pct', 'Operating margin', P, 'higher'], ['net_profit_margin_pct', 'Net profit margin', P, 'higher']]),
-    ['return_on_equity_pct', 'Return on equity', P, 'higher'],
-    ...(insurer ? [['insurance_capital_adequacy_pct', 'Capital adequacy ratio', v => v === null ? '–' : `${v.toFixed(0)}%`, 'higher']] :
-      [['debt_to_equity_pct', 'Debt to equity', P, 'lower'], ['interest_cover', 'Interest cover', X, 'higher'], ['cash_conversion_pct', 'Cash from operations ÷ profit', v => v === null ? '–' : `${v.toFixed(0)}%`, 'higher']]),
-    ['dividend_yield_pct', 'Dividend yield', P, 'higher'], ['pe_ratio', 'Price to earnings', X, null],
-  ]
-  const peers = FIG.peersOf(ROWS, r)
-  const fam = COMPANY_SECTOR_FAMILIES[r.sector_family] ?? 'its sector'
-  const rows = all.map(([field, label, fmt, better]) => {
-    const v = r[field]
-    if (v === null || v === undefined) return ''
-    const st = FIG.peerStats(peers, r, field, better ?? 'higher')
-    return `<tr><th>${esc(label)}</th><td class="v">${fmt(v)}</td>
-      <td class="m">${st ? fmt(st.median) : ''}</td>
-      <td class="k">${st ? (better ? `${ORD(st.rank)} of ${st.n}` : `${st.n} companies`) : ''}</td>
-      <td class="s">${st ? strip(st, v) : ''}</td></tr>`
-  }).join('')
-  if (!rows) return ''
-  return `<h3>Against other listed companies in ${esc(lender ? 'banking and finance' : fam.toLowerCase())}</h3>
-    <table class="ratios"><thead><tr><th></th><th>This company</th><th class="m">Median</th><th class="k">Rank</th><th class="s"><span class="sr">Spread</span></th></tr></thead><tbody>${rows}</tbody></table>
-    <p class="note">Rank 1 is the best on that measure. Dots are the other listed companies; the line is the median.${r.market_cap_lkr !== null ? ' Prices are from the Colombo Stock Exchange in November 2026.' : ''}</p>`
+const LAMP_WORD = { good: 'Good', watch: 'Watch', weak: 'Weak', typical: 'Typical', none: 'Not judged' }
+const TREND_WORD = { improved: 'better', worsened: 'worse', flat: 'about the same' }
+const lamp = l => `<i class="lamp ${l}" role="img" aria-label="${LAMP_WORD[l]}" title="${LAMP_WORD[l]}"></i>`
+/** Each figure with its mark (good, watch, weak, or unmarked), the reason, last year's direction, and the peer spread. */
+function ratioTable(r, pairs) {
+  const js = LIGHTS.judge(ROWS, r, pairs, COMPANY_SECTOR_FAMILIES)
+  if (!js.length) return ''
+  const val = j => j.field === 'profit_after_tax_lkr' ? fmtLkr(j.value)
+    : j.field === 'loss_years_in_history' ? `${j.value} of ${r.history_years}` : j.fmt(j.value)
+  const rows = js.map(j => `<tr class="lt ${j.light}">
+      <td class="l">${lamp(j.light)}</td>
+      <th>${esc(j.label)}<span class="why">${esc(j.why.charAt(0).toUpperCase() + j.why.slice(1))}</span></th>
+      <td class="v">${val(j)}${j.trend ? `<span class="tr ${j.trend}">${TREND_WORD[j.trend]} than last year</span>` : ''}</td>
+      <td class="m">${j.peers ? j.fmt(j.peers.median) : ''}</td>
+      <td class="s">${j.peers ? strip(j.peers, j.value) : ''}</td></tr>`).join('')
+  return `<h3>How each figure compares</h3>
+    <p class="lampkey">${['good', 'watch', 'weak', 'typical', 'none'].map(l => `<span>${lamp(l)}${LAMP_WORD[l]}</span>`).join('')}</p>
+    <table class="ratios lights"><thead><tr><th><span class="sr">Mark</span></th><th></th><th>This company</th><th class="m">Peer median</th><th class="s"><span class="sr">Spread</span></th></tr></thead><tbody>${rows}</tbody></table>
+    <p class="note">Marks come from fixed rules applied to the company’s own annual report, not from a view of the company or its shares. Weak is kept for a line that means the same everywhere (a loss, debt larger than equity, interest covered less than 1.5 times) or a regulator’s minimum. Against similar listed companies, the best quarter is good and the weakest quarter is watch, never weak. Share prices are not marked. Dots are the peers; the line is their median.${r.market_cap_lkr !== null ? ' Prices are from the Colombo Stock Exchange in November 2026.' : ''}</p>`
 }
 
 function moneyBlock(r) {
@@ -1313,7 +1472,7 @@ function figuresPane(r) {
   const basis = rows ? FIG.basisOf(rows) : null
   return `${headline(r)}
     ${rows && basis ? historyGrid(r, rows, basis) : ''}
-    ${ratioTable(r)}
+    ${ratioTable(r, rows && basis ? FIG.statementPairs(rows, basis) : null)}
     ${moneyBlock(r)}
     ${mixBlock(r, rows, basis)}
     ${rows && basis ? accounts(rows, basis) : f.status === 'error' ? '<p class="note">The accounts could not be loaded. The figures above come from the company table.</p>' : ''}

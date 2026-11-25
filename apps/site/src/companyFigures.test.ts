@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test'
-import { basisOf, cagr, peerStats, peersOf, regions, series, statementPairs, type FinRow } from './lib/companyFigures'
+import { basisOf, cagr, regions, series, statementPairs, type FinRow } from './lib/companyFigures'
 
 const fin = (o: Partial<FinRow>): FinRow => ({
   company_id: 'c', basis: 'group', year_end: '2026-03-31', fiscal_year: 2026, source: 'statements', metric: 'revenue',
@@ -49,23 +49,5 @@ describe('company figures', () => {
       fin({ metric: 'revenue_by_region', region: 'Total', value: 40 }), fin({ metric: 'revenue_by_region', region: 'Asia', year_end: '2025-03-31', value: 99 }),
     ], 'group')
     expect(r).toEqual([{ region: 'Europe', value: 30 }, { region: 'Asia', value: 10 }])
-  })
-
-  test('peers share the broad sector, and lenders are compared only with lenders', () => {
-    const all = [
-      { company_id: 'a', listed: true, sector_family: 'finance', industry_kind: 'bank', m: 10 },
-      { company_id: 'b', listed: true, sector_family: 'finance', industry_kind: 'insurer', m: 1 },
-      { company_id: 'c', listed: false, sector_family: 'finance', industry_kind: 'bank', m: 3 },
-      { company_id: 'd', listed: true, sector_family: 'finance', industry_kind: 'finance_company', m: 5 },
-    ]
-    expect(peersOf(all, all[0]!).map(x => x.company_id)).toEqual(['a', 'd'])
-  })
-
-  test('peer rank counts better values; fewer than five values gives no comparison', () => {
-    const peers = [1, 2, 3, 4, 5, 6].map(m => ({ m }))
-    expect(peerStats(peers, { m: 5 }, 'm')).toMatchObject({ n: 6, median: 3.5, rank: 2 })
-    expect(peerStats(peers, { m: 5 }, 'm', 'lower')).toMatchObject({ rank: 5 })
-    expect(peerStats(peers.slice(0, 4), { m: 5 }, 'm')).toBeNull()
-    expect(peerStats(peers, { m: null }, 'm')).toBeNull()
   })
 })
