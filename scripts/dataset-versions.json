@@ -2246,23 +2246,29 @@
     {
       "artifacts": [
         {
-          "bytes": 6173214,
+          "bytes": 9196567,
           "path": "public/data/lk-companies.json",
-          "rows": 2786,
-          "sha256": "9d9c2af751dfc80f7cd7c8b3c8007c94a0f27eedf58bb6d19fc11be7a593d03c"
+          "rows": 2800,
+          "sha256": "040e2bd4e39487ff0a703633d1a333abc902a1ce14cc5b83d68e71777839f804"
         }
       ],
-      "checksum": "sha256:4ce90f607b24581bec758fbb5679d13ee133bbffa3e228c095b614bad0eaadb1",
+      "checksum": "sha256:6c28502952c035b1a9932eb94c1e4c60d7594fd0cbc2d7a11a2d540368b1e506",
       "country": "LK",
       "datasetId": "lk-companies",
       "entityIds": [
         "lk_companies"
       ],
       "refreshedAt": "2026-09-11",
-      "rowCount": 2786,
+      "rowCount": 2800,
       "sourceIds": [
         "dcs-ccpi-2021",
-        "lk-company-map"
+        "lk-company-map",
+        "worldbank-sldu-2021-04",
+        "worldbank-sldu-2023-04",
+        "worldbank-sldu-2024-04",
+        "worldbank-sldu-2024-10",
+        "worldbank-sldu-2026-10",
+        "worldbank-wdi-cpi"
       ],
       "sources": [
         {
@@ -2274,28 +2280,160 @@
           "id": "lk-company-map",
           "refreshed": "2026-11-24",
           "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
+        },
+        {
+          "id": "worldbank-sldu-2021-04",
+          "refreshed": "2026-10-13",
+          "vintage": "2021-04"
+        },
+        {
+          "id": "worldbank-sldu-2023-04",
+          "refreshed": "2026-10-13",
+          "vintage": "2023-04"
+        },
+        {
+          "id": "worldbank-sldu-2024-04",
+          "refreshed": "2026-10-13",
+          "vintage": "2024-04"
+        },
+        {
+          "id": "worldbank-sldu-2024-10",
+          "refreshed": "2026-10-13",
+          "vintage": "2024-10"
+        },
+        {
+          "id": "worldbank-sldu-2026-10",
+          "refreshed": "2026-10-13",
+          "vintage": "2026-10"
+        },
+        {
+          "id": "worldbank-wdi-cpi",
+          "refreshed": "2026-11-24",
+          "vintage": "2005–2025 (API last updated 2026-11-11)"
         }
       ],
-      "versionId": "dsv_41dfa03f7660f5fc73801feb198d4de4",
-      "vintage": "2022-01–2026-08 · Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
+      "versionId": "dsv_f66a19d0a29b4c86f568b6486f78718c",
+      "vintage": "2022-01–2026-08 · Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026 · 2021-04 · 2023-04 · 2024-04 · 2024-10 · 2026-10 · 2005–2025 (API last updated 2026-11-11)"
     },
     {
       "artifacts": [
         {
-          "bytes": 1310010,
-          "path": "public/data/lk-company-relationships.json",
-          "rows": 2753,
-          "sha256": "54757f1b27144fd04da809414d966128815ed56cc781b81e3df705c943f8f172"
+          "bytes": 12502535,
+          "path": "public/data/lk-company-financials.json",
+          "rows": 35301,
+          "sha256": "75635fe308ef1e24900867c31034e2a4477baab58b208a5945d355a90959718d"
         }
       ],
-      "checksum": "sha256:ae78fef803b6ebea11332ba2a42eeba62ac846309576d3f96ed6eb821605d8bf",
+      "checksum": "sha256:7731523bad1d5a44bf269e8f7ac970d49a510f48971f79c89aa92ae5d2c5bf0e",
+      "country": "LK",
+      "datasetId": "lk-company-financials",
+      "entityIds": [
+        "lk_company_financials"
+      ],
+      "refreshedAt": "2026-11-24",
+      "rowCount": 35301,
+      "sourceIds": [
+        "lk-company-map"
+      ],
+      "sources": [
+        {
+          "id": "lk-company-map",
+          "refreshed": "2026-11-24",
+          "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
+        }
+      ],
+      "versionId": "dsv_c42471353bd1f289a8de227a7009486e",
+      "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 4578927,
+          "path": "public/data/lk-company-history.json",
+          "rows": 12360,
+          "sha256": "7b1f3f73b29124d09bdf81467875efbf9bca9a9e3daf011a5f750f02c35d387a"
+        }
+      ],
+      "checksum": "sha256:1bd4ef50718ad470a3aad4e9cf6059fd405e8d220fe9cfa88f6e0ffc3de42549",
+      "country": "LK",
+      "datasetId": "lk-company-history",
+      "entityIds": [
+        "lk_company_history"
+      ],
+      "refreshedAt": "2026-09-11",
+      "rowCount": 12360,
+      "sourceIds": [
+        "dcs-ccpi-2021",
+        "lk-company-map",
+        "worldbank-sldu-2021-04",
+        "worldbank-sldu-2023-04",
+        "worldbank-sldu-2024-04",
+        "worldbank-sldu-2024-10",
+        "worldbank-sldu-2026-10",
+        "worldbank-wdi-cpi"
+      ],
+      "sources": [
+        {
+          "id": "dcs-ccpi-2021",
+          "refreshed": "2026-09-11",
+          "vintage": "2022-01–2026-08"
+        },
+        {
+          "id": "lk-company-map",
+          "refreshed": "2026-11-24",
+          "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
+        },
+        {
+          "id": "worldbank-sldu-2021-04",
+          "refreshed": "2026-10-13",
+          "vintage": "2021-04"
+        },
+        {
+          "id": "worldbank-sldu-2023-04",
+          "refreshed": "2026-10-13",
+          "vintage": "2023-04"
+        },
+        {
+          "id": "worldbank-sldu-2024-04",
+          "refreshed": "2026-10-13",
+          "vintage": "2024-04"
+        },
+        {
+          "id": "worldbank-sldu-2024-10",
+          "refreshed": "2026-10-13",
+          "vintage": "2024-10"
+        },
+        {
+          "id": "worldbank-sldu-2026-10",
+          "refreshed": "2026-10-13",
+          "vintage": "2026-10"
+        },
+        {
+          "id": "worldbank-wdi-cpi",
+          "refreshed": "2026-11-24",
+          "vintage": "2005–2025 (API last updated 2026-11-11)"
+        }
+      ],
+      "versionId": "dsv_6f8bb36e081236f84f50c00058b51748",
+      "vintage": "2022-01–2026-08 · Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026 · 2021-04 · 2023-04 · 2024-04 · 2024-10 · 2026-10 · 2005–2025 (API last updated 2026-11-11)"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 1481074,
+          "path": "public/data/lk-company-relationships.json",
+          "rows": 3108,
+          "sha256": "012456c35c593b93e76b8208cc35e3103fe8fa723b3607a052482b2a1a97dd37"
+        }
+      ],
+      "checksum": "sha256:1393989ed5eb6c6192d3e411a2dd512bbda1baf2b242ead59184e92a99cacd8b",
       "country": "LK",
       "datasetId": "lk-company-relationships",
       "entityIds": [
         "lk_company_relationships"
       ],
       "refreshedAt": "2026-11-24",
-      "rowCount": 2753,
+      "rowCount": 3108,
       "sourceIds": [
         "lk-company-map"
       ],
@@ -2306,26 +2444,26 @@
           "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
         }
       ],
-      "versionId": "dsv_5ed58573f50d38728bdde4f046d7ee5b",
+      "versionId": "dsv_b397aef70498302eb2fd28671a375e6a",
       "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
     },
     {
       "artifacts": [
         {
-          "bytes": 2174777,
+          "bytes": 2172397,
           "path": "public/data/lk-company-sectors.json",
-          "rows": 3081,
-          "sha256": "c4eda0251362686fdd00ec7cf554f81b6265094f5f3c7e32236195765aec1dc0"
+          "rows": 3077,
+          "sha256": "bd5fd983990ddb583f1dd2b49034bce326b470ddb07c64f2ac18da23b61aeb85"
         }
       ],
-      "checksum": "sha256:45ee094a2c802f601b6700ae0d81aa3899e59cba604576da058181f679d79126",
+      "checksum": "sha256:0ec25970747548c9419b4b17cc028e8ae419656ac81a75763f8f0a174812157d",
       "country": "LK",
       "datasetId": "lk-company-sectors",
       "entityIds": [
         "lk_company_sectors"
       ],
       "refreshedAt": "2026-11-24",
-      "rowCount": 3081,
+      "rowCount": 3077,
       "sourceIds": [
         "lk-company-map"
       ],
@@ -2336,26 +2474,26 @@
           "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
         }
       ],
-      "versionId": "dsv_ef3473a80a5dc5654c0060bb65c492cd",
+      "versionId": "dsv_710fecdcdc4001b61a53340950126674",
       "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
     },
     {
       "artifacts": [
         {
-          "bytes": 417821,
+          "bytes": 416060,
           "path": "public/data/lk-company-segments.json",
-          "rows": 749,
-          "sha256": "3179ee38b4c13a8c36894b9d03f6691281600ae7349b1ed935293feeaad7ba74"
+          "rows": 751,
+          "sha256": "95e6b684bf368063d92f4cbced6827492b49735518163b0d6c216ca4be4b05ce"
         }
       ],
-      "checksum": "sha256:eb5a82fd8469c4c7d884f4a4212764f462a8ed5f5752ac4514a28b3266dba89c",
+      "checksum": "sha256:43d49ce6b1299f64baf3d9b1f2905cb3e085695cba7ac57d83b0431a43551f2f",
       "country": "LK",
       "datasetId": "lk-company-segments",
       "entityIds": [
         "lk_company_segments"
       ],
       "refreshedAt": "2026-11-24",
-      "rowCount": 749,
+      "rowCount": 751,
       "sourceIds": [
         "lk-company-map"
       ],
@@ -2366,26 +2504,26 @@
           "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
         }
       ],
-      "versionId": "dsv_158a2ef1753e77f6ce21cfa49e5be696",
+      "versionId": "dsv_308ef62ab349e878ec32f231d685ebbf",
       "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
     },
     {
       "artifacts": [
         {
-          "bytes": 853354,
+          "bytes": 2608591,
           "path": "public/data/lk-company-shareholders.json",
-          "rows": 1755,
-          "sha256": "cb55c649f70ad5092b37153773752e4ae0b932e181352024aa3742531aa06f6a"
+          "rows": 5382,
+          "sha256": "b8dbf38e765135545cc0bd8de050184dcf06d312d8fe5739e6ba112be952b263"
         }
       ],
-      "checksum": "sha256:b761cd9fd19828c83f5dc5327da14a66bde86aa2ba6377f115bb2fd634a3e968",
+      "checksum": "sha256:395ccd00ad2659b40ec671e5ad36b3ef35e2a5ebeb71a0d558886e361925d694",
       "country": "LK",
       "datasetId": "lk-company-shareholders",
       "entityIds": [
         "lk_company_shareholders"
       ],
       "refreshedAt": "2026-11-24",
-      "rowCount": 1755,
+      "rowCount": 5382,
       "sourceIds": [
         "lk-company-map"
       ],
@@ -2396,7 +2534,7 @@
           "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
         }
       ],
-      "versionId": "dsv_01eaa51c12302024b79d25d73c89a726",
+      "versionId": "dsv_dcc8c6e60ae938dfe43bf4711a7f1d9f",
       "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026"
     },
     {

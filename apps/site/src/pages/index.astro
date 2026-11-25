@@ -96,9 +96,9 @@ const showcase = [
     film: 'funding' as const,
   },
   {
-    title: 'Company map',
+    title: 'Enterprise analysis',
     summary: 'We map Sri Lanka’s companies and the groups that own them, with their sectors, revenue, real growth and largest shareholders, so you can see who owns what, who is growing and how the economy is connected.',
-    actions: [{ href: '/companies', label: 'Company map' }],
+    actions: [{ href: '/companies', label: 'Enterprise analysis' }],
     tone: 'lilac' as const,
     film: 'companies' as const,
   },
@@ -156,7 +156,7 @@ const showcase = [
                 class="showcase-panel__film"
                 shot={COMPANIES_SHOT}
                 plate="developing-country.org/companies"
-                label="The company map: groups and companies counted, combined revenue and real growth, and the number of companies in each sector and kind of ownership."
+                label="Enterprise analysis: groups and companies counted, combined revenue and real growth, and the number of companies in each sector and kind of ownership."
               />
             )}
             {film === 'connector' && <ConnectorFilm slot="film" class="showcase-panel__film" />}

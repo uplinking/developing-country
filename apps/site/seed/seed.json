@@ -15929,14 +15929,20 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-companies",
-                "versionId": "dsv_41dfa03f7660f5fc73801feb198d4de4",
+                "versionId": "dsv_f66a19d0a29b4c86f568b6486f78718c",
                 "country": "LK",
-                "checksum": "sha256:4ce90f607b24581bec758fbb5679d13ee133bbffa3e228c095b614bad0eaadb1",
-                "vintage": "2022-01–2026-08 · Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
+                "checksum": "sha256:6c28502952c035b1a9932eb94c1e4c60d7594fd0cbc2d7a11a2d540368b1e506",
+                "vintage": "2022-01–2026-08 · Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026 · 2021-04 · 2023-04 · 2024-04 · 2024-10 · 2026-10 · 2005–2025 (API last updated 2026-11-11)",
                 "refreshedAt": "2026-09-11",
                 "sourceIds": [
                   "dcs-ccpi-2021",
-                  "lk-company-map"
+                  "lk-company-map",
+                  "worldbank-sldu-2021-04",
+                  "worldbank-sldu-2023-04",
+                  "worldbank-sldu-2024-04",
+                  "worldbank-sldu-2024-10",
+                  "worldbank-sldu-2026-10",
+                  "worldbank-wdi-cpi"
                 ]
               }
             ],
@@ -15956,6 +15962,48 @@
               "title": "Sri Lanka company map",
               "url": "https://www.cse.lk/",
               "licence": "CC BY 4.0 (compilation by developing-country.org); annual reports and linked web sources keep their publishers’ rights",
+              "licenceStatus": "open"
+            },
+            {
+              "sourceId": "worldbank-sldu-2021-04",
+              "title": "Sri Lanka Development Update, 2021-04",
+              "url": "https://documents1.worldbank.org/curated/en/284901624350168752/pdf/Sri-Lanka-Development-Update-2021.pdf",
+              "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+              "licenceStatus": "permission_unclear"
+            },
+            {
+              "sourceId": "worldbank-sldu-2023-04",
+              "title": "Sri Lanka Development Update, 2023-04",
+              "url": "https://documents1.worldbank.org/curated/en/099052823154030000/pdf/P1795590b753e0063080da06d77c1b4cbe5.pdffinal.pdf",
+              "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+              "licenceStatus": "permission_unclear"
+            },
+            {
+              "sourceId": "worldbank-sldu-2024-04",
+              "title": "Sri Lanka Development Update, 2024-04",
+              "url": "https://documents1.worldbank.org/curated/en/099053124041518773/pdf/P1813191ff4c370ca1922d13a3701ee8f4f.pdf",
+              "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+              "licenceStatus": "permission_unclear"
+            },
+            {
+              "sourceId": "worldbank-sldu-2024-10",
+              "title": "Sri Lanka Development Update, 2024-10",
+              "url": "https://documents1.worldbank.org/curated/en/099654510092428580/pdf/IDU-d5aa8c92-ec43-44c8-b75b-7ddf3456747e.pdf",
+              "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+              "licenceStatus": "permission_unclear"
+            },
+            {
+              "sourceId": "worldbank-sldu-2026-10",
+              "title": "Sri Lanka Development Update, 2026-10",
+              "url": "https://documents1.worldbank.org/curated/en/099854410052618368/pdf/IDU-b519d848-09f1-47d1-b782-3378e00f3019.pdf",
+              "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+              "licenceStatus": "permission_unclear"
+            },
+            {
+              "sourceId": "worldbank-wdi-cpi",
+              "title": "World Development Indicators: consumer price index, Sri Lanka (FP.CPI.TOTL)",
+              "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL?locations=LK",
+              "licence": "CC BY 4.0",
               "licenceStatus": "open"
             }
           ],
@@ -15980,7 +16028,7 @@
                 {
                   "_type": "span",
                   "_key": "lk-companies-contains-body-span",
-                  "text": "Every company with ordinary shares on the Colombo Stock Exchange and the subsidiaries, associates and joint ventures its latest annual report names, plus about 850 large unlisted companies (state enterprises, banks, exporters, family groups, multinationals) found by web research. For listed companies: two years of revenue, profit before and after tax, equity and employees, with margins, returns, real growth after CCPI inflation, a performance label and the largest shareholder."
+                  "text": "Every company with ordinary shares on the Colombo Stock Exchange and the subsidiaries, associates and joint ventures its latest annual report names, plus about 850 large unlisted companies (state enterprises, banks, exporters, family groups, multinationals) found by web research. For listed companies: two years of revenue, profit before and after tax, equity and employees, with margins, returns, real growth after CCPI inflation, a performance label and the largest shareholder; ratios from the full accounts (gross and operating margin, net debt, debt to equity, interest cover, cash conversion, free cash flow, dividend payout and yield, P/E and P/B, tax rate, five-year growth) and, for banks, bad-loan and capital ratios."
                 }
               ]
             },
@@ -16004,7 +16052,7 @@
                 {
                   "_type": "span",
                   "_key": "lk-companies-use-body-span",
-                  "text": "Filter parent companies and companies outside any group with is_group_head = true, or a group's companies by group_id. Filter by revenue_growth_real_pct, net_profit_margin_pct, performance, employees, exports, foreign_owned or controller_type. Rank only rows with revenue_comparable = true; add up revenue_additive_lkr. For sectors (solar power, tea, gloves, fintech, …) use lk-company-sectors; for owners, lk-company-shareholders."
+                  "text": "Filter parent companies and companies outside any group with is_group_head = true, or a group's companies by group_id. Filter by revenue_growth_real_pct, net_profit_margin_pct, debt_to_equity_pct, interest_cover, dividend_yield_pct, pe_ratio, npl_ratio_pct, performance, employees, exports, foreign_owned or controller_type. Rank only rows with revenue_comparable = true; add up revenue_additive_lkr. For sectors (solar power, tea, gloves, fintech, …) use lk-company-sectors; for owners, lk-company-shareholders."
                 }
               ]
             },
@@ -16065,9 +16113,9 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-company-sectors",
-                "versionId": "dsv_ef3473a80a5dc5654c0060bb65c492cd",
+                "versionId": "dsv_710fecdcdc4001b61a53340950126674",
                 "country": "LK",
-                "checksum": "sha256:45ee094a2c802f601b6700ae0d81aa3899e59cba604576da058181f679d79126",
+                "checksum": "sha256:0ec25970747548c9419b4b17cc028e8ae419656ac81a75763f8f0a174812157d",
                 "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
                 "refreshedAt": "2026-11-24",
                 "sourceIds": [
@@ -16193,9 +16241,9 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-company-relationships",
-                "versionId": "dsv_5ed58573f50d38728bdde4f046d7ee5b",
+                "versionId": "dsv_b397aef70498302eb2fd28671a375e6a",
                 "country": "LK",
-                "checksum": "sha256:ae78fef803b6ebea11332ba2a42eeba62ac846309576d3f96ed6eb821605d8bf",
+                "checksum": "sha256:1393989ed5eb6c6192d3e411a2dd512bbda1baf2b242ead59184e92a99cacd8b",
                 "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
                 "refreshedAt": "2026-11-24",
                 "sourceIds": [
@@ -16321,9 +16369,9 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-company-segments",
-                "versionId": "dsv_158a2ef1753e77f6ce21cfa49e5be696",
+                "versionId": "dsv_308ef62ab349e878ec32f231d685ebbf",
                 "country": "LK",
-                "checksum": "sha256:eb5a82fd8469c4c7d884f4a4212764f462a8ed5f5752ac4514a28b3266dba89c",
+                "checksum": "sha256:43d49ce6b1299f64baf3d9b1f2905cb3e085695cba7ac57d83b0431a43551f2f",
                 "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
                 "refreshedAt": "2026-11-24",
                 "sourceIds": [
@@ -16449,9 +16497,9 @@
             "datasetVersions": [
               {
                 "datasetId": "lk-company-shareholders",
-                "versionId": "dsv_01eaa51c12302024b79d25d73c89a726",
+                "versionId": "dsv_dcc8c6e60ae938dfe43bf4711a7f1d9f",
                 "country": "LK",
-                "checksum": "sha256:b761cd9fd19828c83f5dc5327da14a66bde86aa2ba6377f115bb2fd634a3e968",
+                "checksum": "sha256:395ccd00ad2659b40ec671e5ad36b3ef35e2a5ebeb71a0d558886e361925d694",
                 "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
                 "refreshedAt": "2026-11-24",
                 "sourceIds": [
@@ -16541,6 +16589,318 @@
                   "_type": "span",
                   "_key": "lk-company-shareholders-limit-body-span",
                   "text": "Only the largest shareholders printed in each report, not the full register. Shareholder types are read from names. People with the same name are not told apart. A holder's numbered accounts in one company are added together; its voting and non-voting shares are not."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "lk-company-financials",
+        "slug": "lk-company-financials",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "developing-country-editorial"
+          }
+        ],
+        "taxonomies": {
+          "topic": [
+            "data-quality"
+          ]
+        },
+        "data": {
+          "title": "Company financial statements",
+          "dek": "Every line of every listed company's accounts: what it earns, owes, spends and pays out.",
+          "format": "dataset_note",
+          "dataset_id": "lk-company-financials",
+          "dataset_preview_url": "https://explore.developing-country.org/datasets/lk-company-financials/largest-borrowers?embed=dataset",
+          "country_code": "LK",
+          "research_question": "How much does a listed company earn, owe, hold in cash, spend on investment and pay out in dividends?",
+          "methodology": "This note uses the platform’s immutable Dataset Version and cited Source records. Its source, vintage, normalization method and caveats come from the registered artifact without adding unverified claims.",
+          "evidence_bundle": {
+            "version": 1,
+            "kind": "platform-query",
+            "country": "LK",
+            "datasetVersions": [
+              {
+                "datasetId": "lk-company-financials",
+                "versionId": "dsv_c42471353bd1f289a8de227a7009486e",
+                "country": "LK",
+                "checksum": "sha256:7731523bad1d5a44bf269e8f7ac970d49a510f48971f79c89aa92ae5d2c5bf0e",
+                "vintage": "Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026",
+                "refreshedAt": "2026-11-24",
+                "sourceIds": [
+                  "lk-company-map"
+                ]
+              }
+            ],
+            "dataViews": [],
+            "generatedAt": "2026-08-31T00:00:00.000Z"
+          },
+          "source_manifest": [
+            {
+              "sourceId": "lk-company-map",
+              "title": "Sri Lanka company map",
+              "url": "https://www.cse.lk/",
+              "licence": "CC BY 4.0 (compilation by developing-country.org); annual reports and linked web sources keep their publishers’ rights",
+              "licenceStatus": "open"
+            }
+          ],
+          "content": [
+            {
+              "_type": "block",
+              "_key": "lk-company-financials-contains-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-financials-contains-heading-span",
+                  "text": "What this dataset contains"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-financials-contains-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-financials-contains-body-span",
+                  "text": "For each listed company, group and company statements for the latest and prior year: revenue, costs, operating profit, finance costs, tax, profit, assets, cash, borrowings, equity, cash from operations, capital spending, dividends and staff costs; earnings and dividend per share; bank and insurer ratios; and revenue by region. Every value cites its page and passed a check against it."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-financials-use-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-financials-use-heading-span",
+                  "text": "How it is used here"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-financials-use-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-financials-use-body-span",
+                  "text": "Filter by company_id or cse_symbol, then by metric (revenue, operating_profit, borrowings_current, cash_from_operating_activities, basic_eps, …) and basis = group. Ratios built from these lines (margins, net debt, interest cover, cash conversion, payout, P/E) are columns in lk-companies; ten years of history are in lk-company-history."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-financials-limit-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-financials-limit-heading-span",
+                  "text": "What it cannot tell you"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-financials-limit-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-financials-limit-body-span",
+                  "text": "Listed companies only. Lines a report does not print are missing rather than zero. Seven companies have no usable report text."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "lk-company-history",
+        "slug": "lk-company-history",
+        "status": "published",
+        "bylines": [
+          {
+            "byline": "developing-country-editorial"
+          }
+        ],
+        "taxonomies": {
+          "topic": [
+            "data-quality"
+          ]
+        },
+        "data": {
+          "title": "Company financial history",
+          "dek": "Ten years of each listed company's revenue, profit and dividends.",
+          "format": "dataset_note",
+          "dataset_id": "lk-company-history",
+          "dataset_preview_url": "https://explore.developing-country.org/datasets/lk-company-history/ten-year-revenue?embed=dataset",
+          "country_code": "LK",
+          "research_question": "How has a listed company's revenue, profit and dividend changed over the past decade?",
+          "methodology": "This note uses the platform’s immutable Dataset Version and cited Source records. Its source, vintage, normalization method and caveats come from the registered artifact without adding unverified claims.",
+          "evidence_bundle": {
+            "version": 1,
+            "kind": "platform-query",
+            "country": "LK",
+            "datasetVersions": [
+              {
+                "datasetId": "lk-company-history",
+                "versionId": "dsv_6f8bb36e081236f84f50c00058b51748",
+                "country": "LK",
+                "checksum": "sha256:1bd4ef50718ad470a3aad4e9cf6059fd405e8d220fe9cfa88f6e0ffc3de42549",
+                "vintage": "2022-01–2026-08 · Annual reports for financial years ending Mar 2025 to Mar 2026; web research Nov 2026 · 2021-04 · 2023-04 · 2024-04 · 2024-10 · 2026-10 · 2005–2025 (API last updated 2026-11-11)",
+                "refreshedAt": "2026-09-11",
+                "sourceIds": [
+                  "dcs-ccpi-2021",
+                  "lk-company-map",
+                  "worldbank-sldu-2021-04",
+                  "worldbank-sldu-2023-04",
+                  "worldbank-sldu-2024-04",
+                  "worldbank-sldu-2024-10",
+                  "worldbank-sldu-2026-10",
+                  "worldbank-wdi-cpi"
+                ]
+              }
+            ],
+            "dataViews": [],
+            "generatedAt": "2026-08-31T00:00:00.000Z"
+          },
+          "source_manifest": [
+            {
+              "sourceId": "dcs-ccpi-2021",
+              "title": "Movements of the CCPI and CCPI Core (2021=100)",
+              "url": "https://www.statistics.gov.lk/Resource/en/InflationAndPrices/CCPI/Movements_of_CCPI-CCPI_Core_2021.pdf",
+              "licence": "Sri Lanka government aggregate publication; reuse permission is not explicitly stated",
+              "licenceStatus": "permission_unclear"
+            },
+            {
+              "sourceId": "lk-company-map",
+              "title": "Sri Lanka company map",
+              "url": "https://www.cse.lk/",
+              "licence": "CC BY 4.0 (compilation by developing-country.org); annual reports and linked web sources keep their publishers’ rights",
+              "licenceStatus": "open"
+            },
+            {
+              "sourceId": "worldbank-sldu-2021-04",
+              "title": "Sri Lanka Development Update, 2021-04",
+              "url": "https://documents1.worldbank.org/curated/en/284901624350168752/pdf/Sri-Lanka-Development-Update-2021.pdf",
+              "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+              "licenceStatus": "permission_unclear"
+            },
+            {
+              "sourceId": "worldbank-sldu-2023-04",
+              "title": "Sri Lanka Development Update, 2023-04",
+              "url": "https://documents1.worldbank.org/curated/en/099052823154030000/pdf/P1795590b753e0063080da06d77c1b4cbe5.pdffinal.pdf",
+              "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+              "licenceStatus": "permission_unclear"
+            },
+            {
+              "sourceId": "worldbank-sldu-2024-04",
+              "title": "Sri Lanka Development Update, 2024-04",
+              "url": "https://documents1.worldbank.org/curated/en/099053124041518773/pdf/P1813191ff4c370ca1922d13a3701ee8f4f.pdf",
+              "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+              "licenceStatus": "permission_unclear"
+            },
+            {
+              "sourceId": "worldbank-sldu-2024-10",
+              "title": "Sri Lanka Development Update, 2024-10",
+              "url": "https://documents1.worldbank.org/curated/en/099654510092428580/pdf/IDU-d5aa8c92-ec43-44c8-b75b-7ddf3456747e.pdf",
+              "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+              "licenceStatus": "permission_unclear"
+            },
+            {
+              "sourceId": "worldbank-sldu-2026-10",
+              "title": "Sri Lanka Development Update, 2026-10",
+              "url": "https://documents1.worldbank.org/curated/en/099854410052618368/pdf/IDU-b519d848-09f1-47d1-b782-3378e00f3019.pdf",
+              "licence": "Publicly accessible publication; reproduction terms vary by report edition",
+              "licenceStatus": "permission_unclear"
+            },
+            {
+              "sourceId": "worldbank-wdi-cpi",
+              "title": "World Development Indicators: consumer price index, Sri Lanka (FP.CPI.TOTL)",
+              "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL?locations=LK",
+              "licence": "CC BY 4.0",
+              "licenceStatus": "open"
+            }
+          ],
+          "content": [
+            {
+              "_type": "block",
+              "_key": "lk-company-history-contains-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-history-contains-heading-span",
+                  "text": "What this dataset contains"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-history-contains-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-history-contains-body-span",
+                  "text": "The five or ten-year summary table from each listed company's latest annual report: revenue, profit before and after tax, total assets, equity, borrowings, earnings per share, dividend per share and employees, by financial year, each also in rupees of the latest year (value_real) after consumer price inflation."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-history-use-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-history-use-heading-span",
+                  "text": "How it is used here"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-history-use-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-history-use-body-span",
+                  "text": "Filter by cse_symbol and metric and order by year_end for a time series; use value_real to compare years after inflation (Sri Lanka's prices rose 46% in 2022 alone)."
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-history-limit-heading",
+              "style": "h2",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-history-limit-heading-span",
+                  "text": "What it cannot tell you"
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "lk-company-history-limit-body",
+              "style": "normal",
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "lk-company-history-limit-body-span",
+                  "text": "Values are as printed in each summary; summaries may restate earlier years and do not all cover the same lines or years. Real values deflate by the national consumer price index, not by each company's own prices."
                 }
               ]
             }

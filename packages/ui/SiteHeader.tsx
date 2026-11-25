@@ -24,7 +24,7 @@ export function SiteHeader({ siteUrl, explorerUrl, inAppActions = false }: SiteH
   const datasets: NavLink = { href: `${site}/data`, label: 'Datasets', note: 'Every table' }
   const dashboards: NavLink[] = [
     { href: `${site}/funding`, label: 'Funding', note: 'Where the money goes' },
-    { href: `${site}/companies`, label: 'Companies', note: 'Who owns what' },
+    { href: `${site}/companies`, label: 'Enterprises', note: 'Who owns what' },
   ]
   const after: NavLink[] = [
     { href: `${site}/analysis`, label: 'Thoughts', note: 'Essays' },
@@ -53,10 +53,7 @@ export function SiteHeader({ siteUrl, explorerUrl, inAppActions = false }: SiteH
           Dashboards<span className="dc-site-header__chevron" aria-hidden="true" />
         </button>
         <div className="dc-site-header__dropdown" id={DASHBOARDS_ID} popover="auto">
-          {dashboards.map((link) => <a key={link.label} href={link.href}>
-            <span className="dc-site-header__menu-label">{link.label}</span>
-            <span className="dc-site-header__menu-note">{link.note}</span>
-          </a>)}
+          {dashboards.map((link) => <a key={link.label} href={link.href}>{link.label}</a>)}
         </div>
         {after.map(inline)}
       </div>

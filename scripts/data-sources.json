@@ -587,7 +587,8 @@
       "freshness_days": 45,
       "layers": [
         "ccpi-monthly",
-        "lk-companies"
+        "lk-companies",
+        "lk-company-history"
       ]
     },
     {
@@ -1070,7 +1071,9 @@
       "layers": [
         "worldbank-economic-outlook",
         "worldbank-poverty-estimates",
-        "worldbank-poverty-province"
+        "worldbank-poverty-province",
+        "lk-company-history",
+        "lk-companies"
       ]
     },
     {
@@ -1138,7 +1141,9 @@
       "scheduled": false,
       "layers": [
         "worldbank-economic-outlook",
-        "worldbank-poverty-estimates"
+        "worldbank-poverty-estimates",
+        "lk-company-history",
+        "lk-companies"
       ]
     },
     {
@@ -1154,7 +1159,9 @@
       "refresh_mode": "curated",
       "scheduled": false,
       "layers": [
-        "worldbank-economic-outlook"
+        "worldbank-economic-outlook",
+        "lk-company-history",
+        "lk-companies"
       ]
     },
     {
@@ -1187,7 +1194,9 @@
       "refresh_mode": "curated",
       "scheduled": false,
       "layers": [
-        "worldbank-economic-outlook"
+        "worldbank-economic-outlook",
+        "lk-company-history",
+        "lk-companies"
       ]
     },
     {
@@ -1221,7 +1230,9 @@
       "scheduled": false,
       "layers": [
         "worldbank-economic-outlook",
-        "worldbank-poverty-estimates"
+        "worldbank-poverty-estimates",
+        "lk-company-history",
+        "lk-companies"
       ]
     },
     {
@@ -2054,10 +2065,29 @@
         "lk-company-sectors",
         "lk-company-relationships",
         "lk-company-segments",
-        "lk-company-shareholders"
+        "lk-company-shareholders",
+        "lk-company-financials",
+        "lk-company-history"
       ],
       "freshness_days": 365,
       "licence_status": "open"
+    },
+    {
+      "id": "worldbank-wdi-cpi",
+      "name": "World Development Indicators: consumer price index, Sri Lanka (FP.CPI.TOTL)",
+      "publisher": "World Bank",
+      "url": "https://data.worldbank.org/indicator/FP.CPI.TOTL?locations=LK",
+      "licence": "CC BY 4.0",
+      "licence_status": "open",
+      "vintage": "2005–2025 (API last updated 2026-11-11)",
+      "refreshed": "2026-11-24",
+      "refresh": "python3 research/company-map/pipeline/cpi.py --refresh (private repo), then bun scripts/companies/build.ts",
+      "refresh_mode": "curated",
+      "scheduled": false,
+      "layers": [
+        "lk-company-history",
+        "lk-companies"
+      ]
     }
   ]
 }

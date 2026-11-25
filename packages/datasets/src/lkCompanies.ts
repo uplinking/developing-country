@@ -2,6 +2,7 @@ import type { IndicatorDatasetDefinition } from './presets'
 
 const VINTAGE = 'Annual reports for years ending Mar 2025 to Mar 2026; web research Nov 2026'
 const SOURCE_IDS = ['lk-company-map']
+const CPI_SOURCES = ['worldbank-wdi-cpi', 'worldbank-sldu-2021-04', 'worldbank-sldu-2023-04', 'worldbank-sldu-2024-04', 'worldbank-sldu-2024-10', 'worldbank-sldu-2026-10', 'dcs-ccpi-2021']
 
 export const LK_COMPANY_DATASETS: IndicatorDatasetDefinition[] = [
   {
@@ -9,14 +10,14 @@ export const LK_COMPANY_DATASETS: IndicatorDatasetDefinition[] = [
     title: 'Sri Lankan companies and groups',
     label: 'Companies',
     themeIds: ['ECON', 'INTR'],
-    sourceIds: [...SOURCE_IDS, 'dcs-ccpi-2021'], // CCPI deflates revenue growth to real terms
+    sourceIds: [...SOURCE_IDS, ...CPI_SOURCES], // the consumer price index puts growth in real terms
     vintage: VINTAGE,
-    description: 'Sri Lankan companies and the groups they belong to: what each does, its sector, revenue, nominal and real (inflation-adjusted) growth, profit and margins, return on equity, employees, who controls it, and whether it exports or operates overseas.',
+    description: 'Sri Lankan companies and the groups they belong to: what each does, its sector, revenue, nominal and real (inflation-adjusted) growth, profit and margins, debt, cash flow, dividends and valuation, bank and insurer ratios, employees, who controls it, and whether it exports or operates overseas.',
     note: {
       dek: 'See who owns what in Sri Lankan business, what each company does and how fast it is growing.',
       question: 'Which companies are in a sector, how big are they, are they growing, and which group owns them?',
-      contains: 'Every company with ordinary shares on the Colombo Stock Exchange and the subsidiaries, associates and joint ventures its latest annual report names, plus about 850 large unlisted companies (state enterprises, banks, exporters, family groups, multinationals) found by web research. For listed companies: two years of revenue, profit before and after tax, equity and employees, with margins, returns, real growth after CCPI inflation, a performance label and the largest shareholder.',
-      use: 'Filter parent companies and companies outside any group with is_group_head = true, or a group\'s companies by group_id. Filter by revenue_growth_real_pct, net_profit_margin_pct, performance, employees, exports, foreign_owned or controller_type. Rank only rows with revenue_comparable = true; add up revenue_additive_lkr. For sectors (solar power, tea, gloves, fintech, …) use lk-company-sectors; for owners, lk-company-shareholders.',
+      contains: 'Every company with ordinary shares on the Colombo Stock Exchange and the subsidiaries, associates and joint ventures its latest annual report names, plus about 850 large unlisted companies (state enterprises, banks, exporters, family groups, multinationals) found by web research. For listed companies: two years of revenue, profit before and after tax, equity and employees, with margins, returns, real growth after CCPI inflation, a performance label and the largest shareholder; ratios from the full accounts (gross and operating margin, net debt, debt to equity, interest cover, cash conversion, free cash flow, dividend payout and yield, P/E and P/B, tax rate, five-year growth) and, for banks, bad-loan and capital ratios.',
+      use: 'Filter parent companies and companies outside any group with is_group_head = true, or a group\'s companies by group_id. Filter by revenue_growth_real_pct, net_profit_margin_pct, debt_to_equity_pct, interest_cover, dividend_yield_pct, pe_ratio, npl_ratio_pct, performance, employees, exports, foreign_owned or controller_type. Rank only rows with revenue_comparable = true; add up revenue_additive_lkr. For sectors (solar power, tea, gloves, fintech, …) use lk-company-sectors; for owners, lk-company-shareholders.',
       limit: 'Not a census: small and medium private companies are missing, and unlisted companies rarely publish revenue. Growth, margins and returns are for listed companies only. A parent company\'s revenue is consolidated: it already includes its subsidiaries. Revenue means gross income for banks and premium for insurers (see revenue_kind).',
     },
     presets: [{
@@ -127,6 +128,62 @@ export const LK_COMPANY_DATASETS: IndicatorDatasetDefinition[] = [
       description: 'Stakes held directly by the Secretary to the Treasury or the Government of Sri Lanka, as printed in each annual report.',
       query: { fields: ['company_name', 'pct'], where: [{ field: 'holder_type', op: 'eq', value: 'state' }], order_by: [{ field: 'pct', direction: 'desc' }], limit: 25 },
       chart: { family: 'ranking', dimension: { field: 'company_name', label: 'Company' }, measure: { field: 'pct', label: 'State stake', unit: '%' }, orientation: 'horizontal' },
+    }],
+  },
+  {
+    id: 'lk-company-financials',
+    title: 'Company financial statements',
+    label: 'Company financials',
+    themeIds: ['ECON', 'INTR'],
+    sourceIds: SOURCE_IDS,
+    vintage: VINTAGE,
+    description: 'The financial statements of every company listed on the Colombo Stock Exchange, line by line, for the latest and prior year: income statement, balance sheet, cash flow, per-share figures, bank and insurer ratios and revenue by region.',
+    note: {
+      dek: 'Every line of every listed company\'s accounts: what it earns, owes, spends and pays out.',
+      question: 'How much does a listed company earn, owe, hold in cash, spend on investment and pay out in dividends?',
+      contains: 'For each listed company, group and company statements for the latest and prior year: revenue, costs, operating profit, finance costs, tax, profit, assets, cash, borrowings, equity, cash from operations, capital spending, dividends and staff costs; earnings and dividend per share; bank and insurer ratios; and revenue by region. Every value cites its page and passed a check against it.',
+      use: 'Filter by company_id or cse_symbol, then by metric (revenue, operating_profit, borrowings_current, cash_from_operating_activities, basic_eps, …) and basis = group. Ratios built from these lines (margins, net debt, interest cover, cash conversion, payout, P/E) are columns in lk-companies; ten years of history are in lk-company-history.',
+      limit: 'Listed companies only. Lines a report does not print are missing rather than zero. Seven companies have no usable report text.',
+    },
+    presets: [{
+      id: 'largest-borrowers',
+      title: 'Listed companies with the most long-term borrowing',
+      description: 'Group borrowings due after more than a year, latest year end, in LKR (not banks or finance companies, which report deposits instead).',
+      query: {
+        fields: ['cse_symbol', 'value'],
+        where: [{ field: 'metric', op: 'eq', value: 'borrowings_non_current' }, { field: 'basis', op: 'eq', value: 'group' }, { field: 'fiscal_year', op: 'gte', value: 2025 }],
+        order_by: [{ field: 'value', direction: 'desc' }],
+        limit: 25,
+      },
+      chart: { family: 'ranking', dimension: { field: 'cse_symbol', label: 'Company (CSE symbol)' }, measure: { field: 'value', label: 'Long-term borrowings', unit: 'LKR' }, orientation: 'horizontal' },
+    }],
+  },
+  {
+    id: 'lk-company-history',
+    title: 'Company financial history',
+    label: 'Company history',
+    themeIds: ['ECON', 'INTR'],
+    sourceIds: [...SOURCE_IDS, ...CPI_SOURCES],
+    vintage: VINTAGE,
+    description: 'Up to ten years of revenue, profit, assets, equity, borrowings, earnings and dividends per share and employees for every company listed on the Colombo Stock Exchange, from the multi-year summary in its latest annual report.',
+    note: {
+      dek: 'Ten years of each listed company\'s revenue, profit and dividends.',
+      question: 'How has a listed company\'s revenue, profit and dividend changed over the past decade?',
+      contains: 'The five or ten-year summary table from each listed company\'s latest annual report: revenue, profit before and after tax, total assets, equity, borrowings, earnings per share, dividend per share and employees, by financial year, each also in rupees of the latest year (value_real) after consumer price inflation.',
+      use: 'Filter by cse_symbol and metric and order by year_end for a time series; use value_real to compare years after inflation (Sri Lanka\'s prices rose 46% in 2022 alone).',
+      limit: 'Values are as printed in each summary; summaries may restate earlier years and do not all cover the same lines or years. Real values deflate by the national consumer price index, not by each company\'s own prices.',
+    },
+    presets: [{
+      id: 'ten-year-revenue',
+      title: 'Ten years of revenue: John Keells Holdings',
+      description: 'Group revenue by financial year from the multi-year summary of the 2025/26 annual report, in LKR.',
+      query: {
+        fields: ['year_end', 'value'],
+        where: [{ field: 'cse_symbol', op: 'eq', value: 'JKH' }, { field: 'metric', op: 'eq', value: 'revenue' }],
+        order_by: [{ field: 'year_end', direction: 'asc' }],
+        limit: 12,
+      },
+      chart: { family: 'trend', dimension: { field: 'year_end', label: 'Year end' }, measure: { field: 'value', label: 'Revenue', unit: 'LKR' } },
     }],
   },
 ]
