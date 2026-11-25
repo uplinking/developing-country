@@ -11,13 +11,11 @@ export default defineConfig({
   output: 'server',
   adapter: cloudflare(),
   cache: { provider: cacheCloudflare() },
-  // The funding dashboard was first published as /initiatives.
-  redirects: { '/initiatives': '/funding' },
   routeRules: {
     '/': { maxAge: 300, swr: 86400 },
     '/about': { maxAge: 300, swr: 86400 },
     '/connect': { maxAge: 300, swr: 86400 },
-    '/funding': { maxAge: 300, swr: 86400 },
+    '/dashboard/**': { maxAge: 300, swr: 86400 },
     '/data': { maxAge: 300, swr: 86400 },
     '/data/**': { maxAge: 300, swr: 86400 },
     '/analysis': { maxAge: 300, swr: 86400 },

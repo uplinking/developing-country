@@ -1,6 +1,6 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro'
-import { CANONICAL_EXPLORER_ORIGIN } from '../lib/explorer'
+import SiteLayout from '../../layouts/SiteLayout.astro'
+import { CANONICAL_EXPLORER_ORIGIN } from '../../lib/explorer'
 
 // The tables are the queryable lk-company* datasets on the explorer (built by
 // scripts/companies/build.ts). Fetched in the browser so the page stays light.
@@ -18,7 +18,7 @@ const base = `${explorer}/data`
     <h1>Enterprises</h1>
     <p class="lead" id="lead">Sri Lanka’s companies and the groups that own them.</p>
     <p class="howline"><button type="button" class="linkbtn" data-method>How this was made</button> <span class="note">· sources, checks and assumptions</span></p>
-    <form class="find" id="find" role="search" action="/companies" method="get">
+    <form class="find" id="find" role="search" action="/dashboard/enterprise" method="get">
       <label class="sr" for="fq">Search companies</label>
       <svg class="find-ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="10.3" y1="10.3" x2="15" y2="15" stroke="currentColor" stroke-width="1.6"/></svg>
       <input id="fq" name="q" type="search" placeholder="Search companies, groups, products" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" maxlength="200">
@@ -343,7 +343,9 @@ const base = `${explorer}/data`
 .cmap .loading{margin:18px 0}
 /* history: small multiples, one measure each */
 .cmap .hgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 28px;margin:6px 0 4px}
-.cmap .hpanel{min-width:0}
+/* the figure line can wrap; every chart sits on the same baseline across a row */
+.cmap .hpanel{min-width:0;display:flex;flex-direction:column}
+.cmap .hpanel svg.mini{margin-top:auto}
 .cmap .hl{margin:0;font:500 10.5px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
 .cmap .hv{margin:4px 0 8px;font:500 17px/1.2 var(--mono)}
 .cmap .hv .hs{display:block;font-size:10.5px;color:var(--dim);margin-top:3px}
@@ -488,8 +490,8 @@ const base = `${explorer}/data`
 <script>
 // @ts-nocheck -- plain DOM code; the filtering rules it relies on are typed and tested in src/lib/companyFilter.ts.
 import { COMPANY_SECTOR_FAMILIES, COMPANY_SECTOR_TAGS, COMPANY_SECTOR_BY_TAG } from '@developing-country/datasets/company-sectors'
-import * as FIG from '../lib/companyFigures'
-import { ABROAD_KEYS, ABROAD_LABEL, EMPTY_FILTER, LENSES, RANGES, RANGE_BY_KEY, applyLens, countBy, coverage, effectiveFilter, emptyFilter, filterToParams, inBucket, listedOnlyActive, matches, ownershipOf, parseFilter, rangeValue, searchText, sortRows, summarize, tagsOf, toQuery } from '../lib/companyFilter'
+import * as FIG from '../../lib/companyFigures'
+import { ABROAD_KEYS, ABROAD_LABEL, EMPTY_FILTER, LENSES, RANGES, RANGE_BY_KEY, applyLens, countBy, coverage, effectiveFilter, emptyFilter, filterToParams, inBucket, listedOnlyActive, matches, ownershipOf, parseFilter, rangeValue, searchText, sortRows, summarize, tagsOf, toQuery } from '../../lib/companyFilter'
 
 const root = document.getElementById('cmap')
 const BASE = root.dataset.base
