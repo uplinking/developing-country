@@ -73,6 +73,11 @@ const base = `${explorer}/data`
     <div class="dfoot"><button type="button" class="clear" id="dclear">Clear these filters</button><button type="button" class="dshow" id="dshow" data-dclose>Show companies</button></div>
   </dialog>
 
+  <dialog class="method ddlg" id="spread" aria-labelledby="spread-title">
+    <div class="mhead"><h2 id="spread-title">How the figures are spread</h2><button type="button" class="mclose" data-close aria-label="Close">Close</button></div>
+    <div class="dtabs" role="tablist" aria-label="Figure"></div>
+    <div class="mbody" role="tabpanel" id="spread-panel"></div>
+  </dialog>
   <dialog class="method" id="method" aria-labelledby="method-title">
     <div class="mhead">
       <h2 id="method-title">How this was made</h2>
@@ -213,45 +218,133 @@ const base = `${explorer}/data`
 .cmap .kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0 24px;padding:16px 0 22px}
 .cmap .kpi .v{display:block;font:500 24px/1.2 var(--mono);margin-top:8px}
 .cmap .kpi .s{display:block;font:500 11px/1.5 var(--mono);color:var(--dim);margin-top:4px}
-.cmap .dists{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px 24px;padding:4px 0 24px;border-bottom:1px solid var(--hair)}
-.cmap .dcard{min-width:0;display:flex;flex-direction:column}
-.cmap .dcard .lbl{margin:0 0 8px;line-height:1.3}
-.cmap .dcard .seg{align-self:flex-start;margin:2px 0 0}
-.cmap .dh{font:500 16px/1.3 var(--mono);margin:0 0 4px}
-.cmap .dh small{font-size:12px;color:var(--dim)}
-.cmap .ds{font:400 12.5px/1.4 var(--sans);color:var(--dim);margin:0 0 8px}
-.cmap .df{font:500 10.5px/1.45 var(--mono);color:var(--dim);margin:auto 0 0;padding-top:8px}
-.cmap .dbins{display:flex;align-items:flex-end;gap:3px;height:74px;margin:6px 0 4px}
-.cmap .dbins .col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;min-width:0}
-.cmap .dbins .col .c{font:500 10px/1 var(--mono);color:var(--dim);text-align:center;margin-bottom:3px}
-.cmap .dbins .col i{display:block;background:var(--quiet);border-radius:2px 2px 0 0}
-.cmap .dbins i.neg,.cmap .dstrip circle.neg{background:var(--down);fill:var(--down)}
-.cmap .dbins i.amb,.cmap .dstrip circle.amb{background:var(--amber);fill:var(--amber)}
-.cmap .dax{display:flex;justify-content:space-between;gap:8px;font:500 10px/1.3 var(--mono);color:var(--dim);margin-bottom:6px;border-top:1px solid var(--ink);padding-top:4px}
-.cmap .dstrip{display:block;width:100%;height:auto;margin:4px 0 6px;overflow:visible}
-.cmap .dstrip .ax{stroke:var(--hair);stroke-width:1}
+/* the second row: four tiles, each opening a note and a dialog */
+.cmap .dists{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 24px;padding:18px 0 14px;border-bottom:1px solid var(--hair)}
+.cmap .dtile{position:relative;min-width:0;display:flex;flex-direction:column}
+.cmap .dtile .lbl{margin:0;line-height:1.3}
+.cmap .dnum{font:500 24px/1.2 var(--mono);margin:8px 0 0;white-space:nowrap}
+.cmap .dnum small{font-size:13px;color:var(--dim)}
+.cmap .dsay{font:400 12.5px/1.4 var(--sans);color:var(--dim);margin:4px 0 0;max-width:30ch}
+.cmap .dsay b{font:500 12px/1 var(--mono);color:var(--ink)}
+/* one small chart per tile, bottom-aligned so the four baselines agree */
+.cmap .dviz{margin-top:auto;padding-top:12px}
+.cmap .dbar{display:flex;gap:2px;height:14px}
+.cmap .dbar i{display:block;min-width:3px;background:var(--quiet)}
+.cmap .dcols{display:flex;align-items:flex-end;gap:3px;height:40px}
+.cmap .dcols i{flex:1;display:block;min-height:2px;background:var(--quiet)}
+.cmap .dviz i.hi{background:var(--teal)}   /* the share the headline names */
+.cmap .dviz i.lo{background:var(--down)}   /* below a hard line: a loss, cover under 1.5 times, capital under the minimum */
+.cmap .dviz i.mk{background:var(--dim)}    /* counted in the headline, but not below a line */
+.cmap .dax{display:flex;justify-content:space-between;gap:8px;font:500 10px/1.3 var(--mono);color:var(--dim);margin-top:4px;white-space:nowrap}
+.cmap .dcols + .dax{border-top:1px solid var(--ink);padding-top:4px;margin-top:0}
+.cmap .dstrip{display:block;width:100%;height:40px}
+.cmap .dstrip .ax{stroke:var(--quiet);stroke-width:1}
 .cmap .dstrip .med{stroke:var(--ink);stroke-width:1.5}
-.cmap .dstrip circle{fill:var(--quiet);stroke:var(--paper);stroke-width:1.5}
-.cmap .dstrip .tk{font:500 9px var(--mono);fill:var(--dim)}
-.cmap .dlist{list-style:none;margin:4px 0 6px;padding:0;font-size:12.5px}
-.cmap .dlist li{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-bottom:1px solid var(--hair2)}
-.cmap .dlist li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.cmap .dlist b{font:500 12px/1.3 var(--mono);flex:none}
-.cmap .dbands{list-style:none;margin:6px 0 2px;padding:0}
-.cmap .dbands li{display:grid;grid-template-columns:62px minmax(0,1fr) 32px;gap:6px;align-items:center;font:500 10.5px/1.2 var(--mono);color:var(--dim);margin:0 0 5px}
-.cmap .dbands .b{display:flex;flex-direction:column;gap:2px}
-.cmap .dbands .b i{display:block;height:5px;border-radius:0 2px 2px 0}
-.cmap .dbands .c{text-align:right;color:var(--ink)}
-.cmap i.co{background:var(--quiet)} .cmap i.va{background:var(--teal)}
-.cmap .dstack{display:flex;gap:2px;height:16px;margin:8px 0 6px}
-.cmap .dstack i{display:block;min-width:3px}
-.cmap i.top{background:#05776c} .cmap i.rest{background:var(--teal)} .cmap i.loss,.cmap i.weak{background:var(--down)} .cmap i.watch{background:var(--amber)} .cmap i.good{background:var(--up)}
-.cmap .dkey{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font:500 10.5px/1.3 var(--mono);color:var(--dim);margin:0 0 8px}
-.cmap .dkey i{display:inline-block;width:9px;height:9px;margin-left:4px}
-.cmap .dkey i:first-child{margin-left:0}
-@media (max-width:1080px){ .cmap .dists{grid-template-columns:repeat(3,minmax(0,1fr))} }
-@media (max-width:760px){ .cmap .dists{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px 18px} }
-@media (max-width:520px){ .cmap .dists{grid-template-columns:minmax(0,1fr)} }
+.cmap .dstrip circle{fill:var(--dim);stroke:var(--paper);stroke-width:1.5}
+.cmap .dstrip circle.lo{fill:var(--down)}
+.cmap .dmini{list-style:none;margin:0;padding:0;font:400 12px/1.3 var(--sans)}
+.cmap .dmini li{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-bottom:1px solid var(--hair2)}
+.cmap .dmini li span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cmap .dmini b{font:500 11.5px/1.3 var(--mono);white-space:nowrap}
+/* the foot of a tile: who reports it (opens the note) and the way into the detail */
+.cmap .dbase{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:6px 0 0;min-height:32px}
+.cmap .dinfo{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0;border:0;background:none;cursor:pointer;
+  font:500 10.5px/1.2 var(--mono);color:var(--dim);text-align:left}
+.cmap .dinfo .i{flex:none;display:inline-grid;place-items:center;width:14px;height:14px;border:1px solid var(--dim);border-radius:2px;font:500 9.5px/1 var(--mono);font-style:normal}
+.cmap .dinfo:hover,.cmap .dinfo[aria-expanded="true"]{color:var(--ink)}
+.cmap .dinfo[aria-expanded="true"] .i{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.cmap .dmore{flex:none;min-height:32px;padding:0;border:0;background:none;cursor:pointer;font:500 11px/1 var(--mono);color:var(--blue);white-space:nowrap}
+.cmap .dmore::after{content:'';position:absolute;inset:0 0 38px 0}   /* the whole tile above the foot opens the detail */
+.cmap .dtile:hover .dmore,.cmap .dmore:focus-visible{text-decoration:underline;text-underline-offset:3px}
+/* the note: a paper slab with the blue information stripe; never traps focus */
+.cmap .dpop{position:absolute;z-index:20;left:0;top:calc(100% + 2px);width:300px;max-width:calc(100vw - 32px);background:var(--raised);border:1px solid var(--ink);border-top:3px solid var(--blue);
+  border-radius:2px;box-shadow:3px 3px 0 var(--ink);padding:12px 14px 12px;font:400 13px/1.45 var(--sans);color:var(--ink)}
+.cmap .dtile:last-child .dpop{left:auto;right:0}
+.cmap .dpop p{margin:0 0 8px}
+.cmap .dpop p:last-child{margin:0}
+.cmap .dpop b{font:500 12px/1 var(--mono)}
+.cmap .dpop .linkbtn{font-size:12.5px}
+
+/* tablet: two by two */
+@media (max-width:899px){
+  .cmap .dists{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;padding:0 0 4px}
+  .cmap .dtile{padding:16px 0 8px;border-top:1px solid var(--hair2)}
+  .cmap .dtile:nth-child(-n+2){border-top:0}
+  .cmap .dtile:nth-child(even) .dpop{left:auto;right:0}
+}
+/* phone: a ledger, one row per finding, chart beside the figure */
+@media (max-width:559px){
+  .cmap .dists{grid-template-columns:minmax(0,1fr)}
+  .cmap .dtile{display:grid;grid-template-columns:minmax(0,1fr) 132px;column-gap:14px;padding:14px 0 4px;
+    grid-template-areas:"lbl lbl" "num viz" "say viz" "base base"}
+  .cmap .dtile:nth-child(2){border-top:1px solid var(--hair2)}
+  .cmap .dtile .lbl{grid-area:lbl}
+  .cmap .dnum{grid-area:num;font-size:22px}
+  .cmap .dsay{grid-area:say}
+  .cmap .dviz{grid-area:viz;align-self:end;margin:0;padding:0}
+  .cmap .dbase{grid-area:base;min-height:40px}
+  .cmap .dinfo,.cmap .dmore{min-height:40px}
+  .cmap .dmore::after{inset:0 0 44px 0}
+  .cmap .dax .mid{display:none}
+  .cmap .dpop,.cmap .dtile:last-child .dpop,.cmap .dtile:nth-child(even) .dpop{left:0;right:0;width:auto}
+}
+
+/* ---------- the detail dialog (reuses dialog.method, .mhead, .mclose, .mbody, .dtabs, .seg) ---------- */
+.cmap dialog.method.ddlg{width:min(720px,calc(100vw - 32px))}
+.cmap .ddlg .dtabs{margin:0;padding:10px 22px 0;overflow-x:auto;scrollbar-width:none;flex:none}
+.cmap .ddlg .dtabs button{white-space:nowrap;padding:11px 13px 10px}
+.cmap .ddlg .mbody{padding:18px 22px 22px}
+.cmap .ddsay{font:600 20px/1.3 var(--sans);letter-spacing:-.005em;margin:0 0 6px;max-width:32ch}
+.cmap .ddsub{margin:0 0 14px;color:var(--dim);font-size:14px;max-width:62ch}
+.cmap .ddsub b,.cmap .ddnotes b,.cmap .ddsay .m{font-family:var(--mono);font-weight:500;color:var(--ink)}
+.cmap .ddsay .m{font-size:.92em}
+.cmap .ddlg .seg{margin:0 0 14px}
+.cmap .ddlg .mbody h3{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:22px 0 8px}
+.cmap .ddcols{display:flex;align-items:flex-end;gap:6px;height:132px;border-bottom:1px solid var(--ink)}
+.cmap .ddcols .col{flex:1;min-width:0;height:100%;display:flex;flex-direction:column;justify-content:flex-end}
+.cmap .ddcols .c{font:500 12px/1 var(--mono);text-align:center;margin-bottom:4px}
+.cmap .ddcols i{display:block;min-height:2px;background:var(--quiet)}
+.cmap .ddcols i.lo{background:var(--down)} .cmap .ddcols i.mk{background:var(--dim)}
+.cmap .ddcolax{display:flex;gap:6px;margin-top:5px}
+.cmap .ddcolax span{flex:1;min-width:0;font:500 10.5px/1.25 var(--mono);color:var(--dim);text-align:center}
+.cmap .ddbar{display:flex;gap:2px;height:26px}
+.cmap .ddbar i{display:block;min-width:3px;background:var(--quiet)}
+.cmap .ddbar i.hi{background:var(--teal)} .cmap .ddbar i.lo{background:var(--down)}
+.cmap .ddt{width:100%;border-collapse:collapse;font:400 13.5px/1.3 var(--sans);margin-top:10px}
+.cmap .ddt th,.cmap .ddt td{padding:7px 12px 7px 0;border-bottom:1px solid var(--hair2);text-align:right;vertical-align:middle}
+.cmap .ddt th:first-child,.cmap .ddt td:first-child{text-align:left}
+.cmap .ddt th:last-child,.cmap .ddt td:last-child{padding-right:0}
+.cmap .ddt thead th{font:500 10px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--hair)}
+.cmap .ddt td.n{font:500 12.5px/1.3 var(--mono)}
+.cmap .ddt td.b{width:34%}
+.cmap .ddt .tk{display:inline-block;width:9px;height:9px;margin-right:7px;background:var(--quiet)}
+.cmap .ddt .tk.hi{background:var(--teal)} .cmap .ddt .tk.lo{background:var(--down)}
+.cmap .ddt .pr{display:flex;flex-direction:column;gap:2px}
+.cmap .ddt .pr i{display:block;height:6px;min-width:1px;background:var(--quiet)}
+.cmap .ddt .pr i.hi{background:var(--teal)}
+.cmap .ddkey{display:flex;flex-wrap:wrap;gap:4px 16px;font:500 10.5px/1.3 var(--mono);color:var(--dim);margin:8px 0 0}
+.cmap .ddkey i{display:inline-block;width:9px;height:9px;margin-right:6px;background:var(--quiet)}
+.cmap .ddkey i.hi{background:var(--teal)}
+.cmap .mbody .ddnotes{margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:var(--dim);max-width:66ch}
+.cmap .ddnotes li{margin:0 0 5px}
+.cmap .ddfoot{margin:16px 0 0;font-size:13.5px}
+/* phone */
+@media (max-width:760px){
+  .cmap .ddlg .mhead{padding:14px 14px 12px}
+  .cmap .ddlg .dtabs{padding:8px 14px 0}
+  .cmap .ddlg .dtabs button{padding:11px 10px 10px;letter-spacing:.04em}
+  .cmap .ddlg .mbody{padding:16px 14px 20px}
+  .cmap .ddsay{font-size:18px}
+  .cmap .ddt td.b{width:26%}
+  .cmap .ddt .opt{display:none}
+}
+@media (max-width:560px){ .cmap dialog.ddlg{width:calc(100vw - 16px);max-height:92vh} }
+
+.cmap .ddcap{font:400 12.5px/1.4 var(--sans);color:var(--dim);margin:8px 0 0}
+.cmap .mbody .ddnames{list-style:none;margin:0;padding:0;font-size:13.5px}
+.cmap .mbody .ddnames li{margin:0;display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px solid var(--hair2)}
+.cmap .ddnames b{font:500 12.5px/1.3 var(--mono);white-space:nowrap}
+
 .cmap .breaks{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:0 40px;padding:18px 0 22px}
 .cmap .bars{list-style:none;margin:0;padding:0}
 .cmap .bars li button{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr) 44px;gap:10px;align-items:center;width:100%;background:none;border:0;border-radius:2px;
@@ -887,113 +980,254 @@ function drawSummary() {
       : k('Known exporters', s.exporters.toLocaleString('en'), `plus ${s.overseas.toLocaleString('en')} with overseas subsidiaries or operations`))
 }
 
-/* ---------- second row: how the figures are spread ---------- */
-const DIST_STATE = { size: 'bands', growth: 'year' }
+/* ---------- second row: how the figures are spread ----------
+   Four tiles, each one number, one line, one small chart and who reports it. The "i" on the base line opens
+   a short note; the tile opens a dialog with the full spread, the tables, the names and the caveats. */
+const DIST_STATE = { size: 'bands', growth: 'year', tab: 'size' }
 const lkrShort = v => fmtLkr(v).replace('LKR ', '')
 const shortName = n => String(n).replace(/\s*\(.*\)\s*$/, '').replace(/ PLC$/, '')
-const of = (n, base, what) => `${n.toLocaleString('en')} of ${base.toLocaleString('en')} ${what}`
-function distCard(label, head, sub, body, foot, tools = '') {
-  return `<div class="dcard"><p class="lbl">${label}</p><p class="dh">${head}</p>${sub ? `<p class="ds">${sub}</p>` : ''}${body}${tools}<p class="df">${foot}</p></div>`
+const B = v => `<b>${v}</b>`
+const pctS = (v, d = 1) => `${v.toFixed(d)}%`
+const signed = v => `${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v).toFixed(1)}%`
+const reportIt = (n, base, verb = 'report it') => `${n.toLocaleString('en')} of ${base.toLocaleString('en')} ${verb}`
+const METHOD_LINK = '<button type="button" class="linkbtn" data-method>How this was made</button>'
+/** marks: hi the share the headline names (teal), lo below a hard line (red), mk counted but not below a line */
+const bar = (parts, label) => `<div class="dbar" role="img" aria-label="${esc(label)}">${parts.filter(p => p.v > 0).map(p => `<i class="${p.c ?? ''}" style="flex:${p.v}"></i>`).join('')}</div>`
+const ends = (...xs) => `<div class="dax">${xs.map((x, i) => `<span${xs.length === 3 && i === 1 ? ' class="mid"' : ''}>${esc(x)}</span>`).join('')}</div>`
+function tileCols(bins, tone, label) {
+  const max = Math.max(1, ...bins.map(b => b.n))
+  return `<div class="dcols" role="img" aria-label="${esc(label)}">${bins.map(b => `<i class="${tone(b)}" style="height:${Math.max(b.n ? 5 : 0, b.n / max * 100).toFixed(0)}%"></i>`).join('')}</div>`
 }
-const segBtns = (key, opts) => `<div class="seg mini" role="group" aria-label="Show">${opts.map(([id, t]) => `<button type="button" data-dist="${key}" data-v="${id}" aria-pressed="${DIST_STATE[key] === id}">${t}</button>`).join('')}</div>`
-/** A spread drawn by how many report it: columns, a dot per company, a list, or a note. */
-function spreadBody(sp, fmt, { tone = () => '' } = {}) {
-  if (sp.form === 'none') return '<p class="ds">Too few companies report this to show a spread.</p>'
-  if (sp.form === 'list') return `<ol class="dlist">${sp.points.map(p => `<li><span>${esc(p.name)}</span><b>${fmt(p.value)}</b></li>`).join('')}</ol>`
+/** The small chart on a tile: columns from 30 values, a dot per company from 8, the top three from 3, else nothing. */
+function tileSpread(sp, fmt, tone, what) {
+  const label = sp.points.map(p => `${p.name} ${fmt(p.value)}`).join(', ')
+  if (sp.form === 'bins') return tileCols(sp.bins, b => tone(b.max !== null ? b.max - 1e-9 : b.min + 1), `${what}: ${sp.bins.map(b => `${b.label} ${b.n}`).join(', ')}`) + ends(sp.bins[0].label, sp.bins[sp.bins.length - 1].label)
   if (sp.form === 'dots') {
-    const vals = sp.points.map(p => p.value), lo = Math.min(...vals), hi = Math.max(...vals)
-    const x = v => 6 + (hi === lo ? 0.5 : (v - lo) / (hi - lo)) * 228
-    return `<svg class="dstrip" viewBox="0 0 240 34" role="img" aria-label="${esc(sp.points.map(p => `${p.name} ${fmt(p.value)}`).join(', '))}">
-      <line x1="6" x2="234" y1="16" y2="16" class="ax"/>
-      ${sp.median !== null ? `<line x1="${x(sp.median).toFixed(1)}" x2="${x(sp.median).toFixed(1)}" y1="6" y2="26" class="med"/>` : ''}
-      ${sp.points.map(p => `<circle cx="${x(p.value).toFixed(1)}" cy="16" r="4.5" class="${tone(p.value)}"><title>${esc(p.name)}: ${fmt(p.value)}</title></circle>`).join('')}
-      <text x="6" y="33" class="tk">${fmt(lo)}</text><text x="234" y="33" class="tk" text-anchor="end">${fmt(hi)}</text></svg>`
+    const vals = sp.points.map(p => p.value), lo = Math.min(...vals), hi = Math.max(...vals), x = v => 4 + (hi === lo ? 0.5 : (v - lo) / (hi - lo)) * 232
+    return `<svg class="dstrip" viewBox="0 0 240 40" preserveAspectRatio="none" role="img" aria-label="${esc(label)}"><line class="ax" x1="4" x2="236" y1="20" y2="20"/>
+      ${sp.median !== null ? `<line class="med" x1="${x(sp.median).toFixed(1)}" x2="${x(sp.median).toFixed(1)}" y1="6" y2="34"/>` : ''}
+      ${sp.points.map(p => `<circle cx="${x(p.value).toFixed(1)}" cy="20" r="4.5" class="${tone(p.value)}"/>`).join('')}</svg>${ends(fmt(lo), fmt(hi))}`
   }
-  const max = Math.max(1, ...sp.bins.map(b => b.n))
-  return `<div class="dbins" role="img" aria-label="${esc(sp.bins.map(b => `${b.label}: ${b.n}`).join(', '))}">${sp.bins.map(b =>
-    `<div class="col" title="${esc(b.label)}: ${b.n}"><span class="c">${b.n}</span><i class="${tone(b.max !== null ? b.max - 1e-9 : b.min + 1)}" style="height:${Math.max(b.n ? 4 : 0, b.n / max * 100).toFixed(0)}%"></i></div>`).join('')}</div>
-    <div class="dax"><span>${esc(sp.bins[0].label)}</span><span>${esc(sp.bins[sp.bins.length - 1].label)}</span></div>`
+  if (sp.form === 'list') return `<ol class="dmini" aria-label="${esc(label)}">${sp.points.slice(0, 3).map(p => `<li><span>${esc(shortName(p.name))}</span><b>${fmt(p.value)}</b></li>`).join('')}</ol>${sp.points.length > 3 ? ends(`and ${sp.points.length - 3} more in Details`) : ''}`
+  return ''
 }
-function sizeCard(rows) {
-  const sv = DIST.sizeView(rows), what = sv.measure === 'assets' ? 'assets' : 'revenue'
-  const head = sv.top ? `The ${sv.top.k} largest ${sv.measure === 'assets' ? 'hold' : 'earn'} ${sv.top.pct.toFixed(0)}%` : sv.n ? fmtLkr(sv.total) : '–'
-  let body
-  if (sv.n < 6) body = sv.n ? `<ol class="dlist">${sv.largest.map(p => `<li><span>${esc(p.name)}</span><b>${lkrShort(p.value)}</b></li>`).join('')}</ol>` : '<p class="ds">No company here reports it.</p>'
-  else if (DIST_STATE.size === 'dist') {
-    const max = Math.max(1, ...sv.hist.map(h => h.n))
-    const t = v => v >= 1e12 ? (v / 1e12).toFixed(0) + 'tn' : v >= 1e9 ? (v / 1e9).toFixed(0) + 'bn' : (v / 1e6).toFixed(0) + 'm'
-    body = `<div class="dbins" role="img" aria-label="Companies by ${what}, each column five times the one before">${sv.hist.map(h => `<div class="col" title="LKR ${t(h.lo)}–${t(h.hi)}: ${h.n}"><span class="c">${h.n || ''}</span><i style="height:${Math.max(h.n ? 4 : 0, h.n / max * 100).toFixed(0)}%"></i></div>`).join('')}</div>
-      <div class="dax"><span>LKR ${t(sv.hist[0].lo)}</span><span>LKR ${t(sv.hist[sv.hist.length - 1].hi)}</span></div>
-      <p class="ds">Companies by ${what}; each column covers about three times the one before.</p>`
-  } else {
-    body = `<ul class="dbands">${sv.bands.filter(b => b.n || sv.measure === 'revenue').map(b => `<li title="${esc(b.label)}: ${b.n} companies, ${b.valuePct.toFixed(1)}% of ${what}">
-      <span class="t">${esc(b.label.replace('LKR ', '').replace(' or more', '+'))}</span><span class="b"><i class="co" style="width:${b.companiesPct.toFixed(1)}%"></i><i class="va" style="width:${b.valuePct.toFixed(1)}%"></i></span><span class="c">${b.valuePct.toFixed(0)}%</span></li>`).join('')}</ul>
-      <p class="dkey"><i class="co"></i>share of companies <i class="va"></i>share of ${what}</p>`
+function tile(key, label, num, say, viz, base, note, more = true) {
+  return `<div class="dtile" data-tile="${key}"><p class="lbl">${label}</p><p class="dnum">${num}</p><p class="dsay">${say}</p>
+    <div class="dviz">${viz}</div>
+    <p class="dbase"><button type="button" class="dinfo" aria-expanded="false" aria-controls="dpop-${key}"><span>${base}</span><i class="i" aria-hidden="true">i</i></button>
+      ${more ? `<button type="button" class="dmore" data-spread="${key}">Details<span class="sr">: ${esc(label.toLowerCase())}</span> ›</button>` : ''}</p>
+    <div class="dpop" id="dpop-${key}" hidden>${note.map(x => `<p>${x}</p>`).join('')}<p>${METHOD_LINK}</p></div></div>`
+}
+
+/* the figures for the current view, worked out once per draw */
+let SPREAD = null
+function spreadData() {
+  const lenders = DIST.lendersOnly(current)
+  return { lenders, size: DIST.sizeView(current), pool: DIST.profitPool(current), roe: DIST.roeSpread(current),
+    growth: DIST.growthSpread(current, DIST_STATE.growth === 'five'), debt: DIST.debtAtRisk(current),
+    capital: lenders ? DIST.capitalHeadroom(current) : null, stage3: lenders ? DIST.stage3Spread(current) : null }
+}
+const company = (lenders, n = 2) => lenders ? (n === 1 ? 'lender' : 'lenders') : (n === 1 ? 'company' : 'companies')
+
+function sizeTile(d) {
+  const sv = d.size, assets = sv.measure === 'assets', what = assets ? 'assets' : 'revenue', who = company(d.lenders)
+  const note = [`The share of combined ${what} ${assets ? 'held' : 'earned'} by the largest ${who} in view. ${B(reportIt(sv.n, sv.base))} report ${assets ? 'total assets' : 'a revenue figure'}. A subsidiary is counted once, inside its group.${assets ? ' Assets are used because a lender’s income moves with interest rates.' : ' For banks, revenue means gross income.'}`]
+  const label = assets ? 'Largest lenders' : 'Largest companies'
+  if (!sv.top) return tile('size', label, sv.n ? fmtLkr(sv.total) : '–', sv.n ? `combined ${what} of ${plural(sv.n, company(d.lenders, sv.n) === 'lender' ? 'lender' : 'company')}` : 'No company here reports it.',
+    sv.n ? `<ol class="dmini">${sv.largest.slice(0, 3).map(p => `<li><span>${esc(shortName(p.name))}</span><b>${lkrShort(p.value)}</b></li>`).join('')}</ol>` : '', reportIt(sv.n, sv.base), note, sv.n >= 2)
+  const rest = sv.n - sv.top.k
+  return tile('size', label, pctS(sv.top.pct, 0), `of ${what} ${assets ? 'are held' : 'is earned'} by the ${sv.top.k} largest ${who}`,
+    bar([{ v: sv.top.pct, c: 'hi' }, { v: 100 - sv.top.pct }], `The ${sv.top.k} largest hold ${sv.top.pct.toFixed(0)}% of the ${what}; the other ${rest} hold ${(100 - sv.top.pct).toFixed(0)}%`) + ends(`${sv.top.k} largest`, `${rest} others`),
+    reportIt(sv.n, sv.base), note)
+}
+function profitTile(d) {
+  const pp = d.pool
+  const note = [`Profit after tax, added up; losses are added up separately. ${B(reportIt(pp.n, pp.base))} publish accounts: only listed companies do. A subsidiary is counted once, inside its group.`]
+  if (!pp.n) return tile('profit', 'Profit and loss', '–', 'No company here publishes accounts. Only listed companies do.', '', reportIt(0, pp.base, 'publish accounts'), note, false)
+  const top = pp.top5Pct !== null ? pp.profitsLkr * pp.top5Pct / 100 : 0
+  return tile('profit', 'Profit and loss', fmtLkr(pp.profitsLkr), pp.lossesLkr ? `in profit, against ${B(fmtLkr(-pp.lossesLkr))} in losses` : 'in profit; no company made a loss',
+    bar([{ v: top, c: 'hi' }, { v: pp.profitsLkr - top }, { v: -pp.lossesLkr, c: 'lo' }], `Profits ${fmtLkr(pp.profitsLkr)}, losses ${fmtLkr(-pp.lossesLkr)}`) + ends(top ? '5 largest' : 'profits', pp.lossesLkr ? 'losses' : ''),
+    reportIt(pp.n, pp.base, 'publish accounts'), note)
+}
+function roeTile(d) {
+  const sp = d.roe, who = d.lenders ? 'lender' : 'company'
+  const note = [`Profit after tax as a share of the owners’ money in the company. The figure is the middle ${who}, not an average. ${B(reportIt(sp.n, sp.base))} report it. Companies with negative equity are left out.`]
+  if (sp.form === 'none') return tile('roe', 'Return on equity', '–', 'Too few companies here report it to show a spread.', '', reportIt(sp.n, sp.base), note, false)
+  return tile('roe', 'Return on equity', pctS(sp.median), sp.n >= 8 ? `at the middle ${who}; half earn ${B(pctS(sp.p25))} to ${B(pctS(sp.p75))}` : `at the middle ${who}`,
+    tileSpread(sp, v => pctS(v), v => v <= 0 ? 'lo' : '', 'Companies by return on equity'), reportIt(sp.n, sp.base), note)
+}
+function debtTile(d) {
+  const dr = d.debt
+  const note = [`Borrowing held by companies whose operating profit is less than 1.5 times their interest bill. ${B(reportIt(dr.n, dr.base))} companies outside finance report it. Between them they borrowed ${B(fmtLkr(dr.borrowingsLkr))}.`]
+  if (dr.n < 8 || !dr.borrowingsLkr) {
+    const list = current.filter(r => typeof r.interest_cover === 'number' && !['bank', 'finance_company', 'insurer'].includes(r.industry_kind)).sort((a, b) => a.interest_cover - b.interest_cover)
+    return tile('debt', 'Debt at risk', dr.median !== null ? `${dr.median.toFixed(1)}×` : '–', dr.median !== null ? 'interest cover at the middle company' : 'No company here reports its interest cover.',
+      list.length ? `<ol class="dmini">${list.slice(0, 3).map(r => `<li><span>${esc(shortName(r.name))}</span><b>${r.interest_cover >= 100 ? 'over 100' : r.interest_cover.toFixed(1)}×</b></li>`).join('')}</ol>` : '',
+      reportIt(dr.n, dr.base), note, dr.n >= 3)
   }
-  return distCard(sv.measure === 'assets' ? 'Where the assets sit' : 'Where the revenue sits', head,
-    sv.n >= 6 ? `${fmtLkr(sv.total)} across ${plural(sv.n, 'company')}` : '', body,
-    `${of(sv.n, sv.base, 'report it')}; subsidiaries counted once, inside their group`, sv.n >= 6 ? segBtns('size', [['bands', 'Bands'], ['dist', 'Spread']]) : '')
+  const weak = dr.bands[0].borrowingsPct + dr.bands[1].borrowingsPct, weakN = dr.bands[0].n + dr.bands[1].n
+  return tile('debt', 'Debt at risk', pctS(weak, 0), weakN === 1 ? 'of borrowing sits with 1 company that barely covers its interest' : `of borrowing sits with ${B(weakN)} companies that barely cover their interest`,
+    bar([{ v: weak, c: 'lo' }, { v: dr.bands[2].borrowingsPct }, { v: dr.bands[3].borrowingsPct }], `Share of borrowing by interest cover: under 1.5 times ${weak.toFixed(0)}%, 1.5 to 3.5 times ${dr.bands[2].borrowingsPct.toFixed(0)}%, 3.5 times or more ${dr.bands[3].borrowingsPct.toFixed(0)}%`)
+      + ends('under 1.5×', '1.5–3.5×', '3.5×+'), reportIt(dr.n, dr.base), note)
 }
-function poolCard(rows) {
-  const pp = DIST.profitPool(rows)
-  if (!pp.n) return distCard('Profit pool', '–', '', '<p class="ds">Only listed companies publish profits.</p>', of(0, pp.base, 'publish accounts'))
-  const top = pp.top5Pct !== null ? pp.profitsLkr * pp.top5Pct / 100 : 0, whole = pp.profitsLkr + Math.abs(pp.lossesLkr) || 1
-  const bar = `<div class="dstack" role="img" aria-label="Profits ${fmtLkr(pp.profitsLkr)}, losses ${fmtLkr(-pp.lossesLkr)}">
-    ${top ? `<i class="top" style="flex:${top / whole}"></i>` : ''}<i class="rest" style="flex:${(pp.profitsLkr - top) / whole}"></i>${pp.lossesLkr ? `<i class="loss" style="flex:${Math.max(0.006, -pp.lossesLkr / whole)}"></i>` : ''}</div>`
-  const losses = pp.biggestLosses.length ? `<p class="ds">Largest ${pp.biggestLosses.length === 1 ? 'loss' : 'losses'}: ${pp.biggestLosses.map(p => `${esc(shortName(p.name))} ${lkrShort(-p.value)}`).join(', ')}</p>` : ''
-  return distCard('Profit pool', `${fmtLkr(pp.profitsLkr)} <small>made · ${pp.lossesLkr ? lkrShort(-pp.lossesLkr) + ' lost' : 'no losses'}</small>`,
-    `${pp.profitable.toLocaleString('en')} made a profit, ${pp.lossMaking.toLocaleString('en')} a loss${pp.top5Pct !== null ? `; the 5 largest earn ${pp.top5Pct.toFixed(0)}% of the profit` : ''}`,
-    `${bar}<p class="dkey">${top ? '<i class="top"></i>5 largest ' : ''}<i class="rest"></i>${top ? 'the rest' : 'profits'}${pp.lossesLkr ? ' <i class="loss"></i>losses' : ''}</p>${losses}`,
-    `${of(pp.n, pp.base, 'publish accounts')}; sums count subsidiaries once`)
+function capitalTile(d) {
+  const sp = d.capital, close = sp.points.filter(p => p.value < 2).length, below = sp.points.filter(p => p.value < 0).length
+  const note = [`Each lender’s total capital ratio less the minimum the Central Bank sets for it, in percentage points. ${B(reportIt(sp.n, sp.base))} report it.`]
+  if (sp.form === 'none') return tile('capital', 'Capital cushion', '–', 'Too few lenders here report it.', '', reportIt(sp.n, sp.base), note, false)
+  return tile('capital', 'Capital cushion', `${close} <small>of ${sp.n}</small>`, `hold less than 2 points of capital above the minimum${below ? `; ${B(below)} ${below === 1 ? 'is' : 'are'} below it` : ''}`,
+    tileSpread(sp, v => `${v.toFixed(1)}`, v => v < 0 ? 'lo' : v < 2 ? 'mk' : '', 'Lenders by points of capital above the minimum'), reportIt(sp.n, sp.base), note)
 }
-function roeCard(rows) {
-  const sp = DIST.roeSpread(rows), P = v => `${v.toFixed(1)}%`
-  return distCard('Return on equity', sp.median !== null ? `Median ${P(sp.median)}` : '–',
-    sp.n >= 8 ? `Middle half ${P(sp.p25)} to ${P(sp.p75)}` : '', spreadBody(sp, P, { tone: v => v <= 0 ? 'neg' : '' }), `${of(sp.n, sp.base, 'report it')}; profit after tax ÷ equity`)
-}
-function growthCard(rows) {
-  const five = DIST_STATE.growth === 'five'
-  const sp = DIST.growthSpread(rows, five), grew = sp.points.filter(p => p.value > 0).length
-  const P = v => `${v > 0 ? '+' : ''}${v.toFixed(1)}%`
-  return distCard('Growth after inflation', sp.median !== null ? `Median ${P(sp.median)}${five ? ' <small>a year</small>' : ''}` : '–',
-    sp.n >= 8 ? `Middle half ${P(sp.p25)} to ${P(sp.p75)}${five ? ' a year over five years' : ' this year'}; ${grew.toLocaleString('en')} of ${sp.n.toLocaleString('en')} grew` : '', spreadBody(sp, P, { tone: v => v <= 0 ? 'neg' : '' }),
-    `${of(sp.n, sp.base, 'report it')}; lenders left out, as their income moves with interest rates`, segBtns('growth', [['year', 'This year'], ['five', 'Five years']]))
-}
-function debtCard(rows) {
-  const d = DIST.debtAtRisk(rows)
-  if (!d.n) return distCard('Debt at risk', '–', '', '<p class="ds">No company here reports how well it covers its interest.</p>', of(0, d.base, 'companies outside finance report it'))
-  if (d.n < 8 || !d.borrowingsLkr) {
-    const list = rows.filter(r => typeof r.interest_cover === 'number' && !['bank', 'finance_company', 'insurer'].includes(r.industry_kind)).sort((a, b) => a.interest_cover - b.interest_cover)
-    return distCard('Debt at risk', d.median !== null ? `Median cover ${d.median.toFixed(1)}×` : '–', 'How many times operating profit covers interest; under 1.5 times is weak',
-      list.length ? `<ol class="dlist">${list.map(r => `<li><span>${esc(shortName(r.name))}</span><b>${r.interest_cover >= 100 ? 'over 100' : r.interest_cover.toFixed(1)}×</b></li>`).join('')}</ol>` : '',
-      of(d.n, d.base, 'companies outside finance report it'))
-  }
-  const weak = d.bands[0].borrowingsPct + d.bands[1].borrowingsPct, weakN = d.bands[0].n + d.bands[1].n
-  const seg = [[weak, 'weak', 'covers interest less than 1.5×'], [d.bands[2].borrowingsPct, 'watch', '1.5–3.5×'], [d.bands[3].borrowingsPct, 'good', '3.5× or more']]
-  const bar = `<div class="dstack" role="img" aria-label="${esc(seg.map(s => `${s[2]}: ${s[0].toFixed(0)}% of borrowing`).join(', '))}">${seg.filter(s => s[0] > 0).map(s => `<i class="${s[1]}" style="flex:${Math.max(0.6, s[0])}" title="${esc(s[2])}: ${s[0].toFixed(0)}%"></i>`).join('')}</div>`
-  const who = d.atRisk.slice(0, 3).map(p => esc(shortName(p.name))).join(', ')
-  return distCard('Debt at risk', `${weak.toFixed(0)}% <small>of borrowing</small>`,
-    `sits with ${plural(weakN, 'company')} whose operating profit covers interest less than 1.5 times`,
-    `${bar}<p class="dkey"><i class="weak"></i>under 1.5× <i class="watch"></i>1.5–3.5× <i class="good"></i>3.5× or more</p>${who ? `<p class="ds">Largest borrowers below 1.5×: ${who}</p>` : ''}`,
-    `${fmtLkr(d.borrowingsLkr)} borrowed by ${of(d.n, d.base, 'companies outside finance')} that report it`)
-}
-function capitalCard(rows) {
-  const sp = DIST.capitalHeadroom(rows), close = sp.points.filter(p => p.value < 2).length, below = sp.points.filter(p => p.value < 0).length
-  const P = v => `${v > 0 ? '+' : ''}${v.toFixed(1)}`
-  return distCard('Capital above the minimum', sp.n ? `${close} <small>within 2 points</small>` : '–',
-    sp.n ? `${below ? `${below} below the minimum; ` : ''}median ${P(sp.median)} points above it` : '',
-    spreadBody(sp, P, { tone: v => v < 0 ? 'neg' : v < 2 ? 'amb' : '' }), `${of(sp.n, sp.base, 'report it')}; total capital ratio less the CBSL minimum, in points`)
-}
-function stage3Card(rows) {
-  const sp = DIST.stage3Spread(rows), P = v => `${v.toFixed(1)}%`
-  return distCard('Bad loans', sp.median !== null ? `Median ${P(sp.median)}` : '–', 'Stage 3 loans as a share of all loans, as each reports it',
-    spreadBody(sp, P, { tone: v => v >= 10 ? 'neg' : '' }), `${of(sp.n, sp.base, 'report it')}; bases differ between lenders`)
+function stage3Tile(d) {
+  const sp = d.stage3
+  const note = [`Loans in default or close to it (Stage 3) as a share of all loans, as each lender reports it. Lenders do not all count this the same way. ${B(reportIt(sp.n, sp.base))} report it.`]
+  if (sp.form === 'none') return tile('stage3', 'Bad loans', '–', 'Too few lenders here report it.', '', reportIt(sp.n, sp.base), note, false)
+  return tile('stage3', 'Bad loans', pctS(sp.median), sp.n >= 8 ? `of loans have gone bad at the middle lender; half sit at ${B(pctS(sp.p25))} to ${B(pctS(sp.p75))}` : 'of loans have gone bad at the middle lender',
+    tileSpread(sp, v => pctS(v), v => v >= 10 ? 'lo' : '', 'Lenders by share of bad loans'), reportIt(sp.n, sp.base), note)
 }
 function drawDists() {
-  const lenders = DIST.lendersOnly(current)
-  $('dists').innerHTML = sizeCard(current) + poolCard(current) + roeCard(current) + (lenders ? capitalCard(current) + stage3Card(current) : growthCard(current) + debtCard(current))
+  closeNote()
+  SPREAD = spreadData()
+  const d = SPREAD
+  $('dists').innerHTML = d.lenders ? sizeTile(d) + roeTile(d) + capitalTile(d) + stage3Tile(d) : sizeTile(d) + profitTile(d) + roeTile(d) + debtTile(d)
+  if (SPREAD_DLG.open) drawSpreadDialog()
 }
-$('dists').addEventListener('click', e => { const b = e.target.closest('[data-dist]'); if (!b) return; DIST_STATE[b.dataset.dist] = b.dataset.v; drawDists() })
+
+/* the note: opens on press, one at a time, never traps focus */
+let openNote = null
+function closeNote(refocus = false) {
+  if (!openNote) return
+  const btn = openNote
+  openNote = null
+  btn.setAttribute('aria-expanded', 'false')
+  $(btn.getAttribute('aria-controls'))?.setAttribute('hidden', '')
+  if (refocus) btn.focus()
+}
+$('dists').addEventListener('click', e => {
+  const info = e.target.closest('.dinfo')
+  if (info) { const was = openNote === info; closeNote(); if (!was) { openNote = info; info.setAttribute('aria-expanded', 'true'); $(info.getAttribute('aria-controls')).removeAttribute('hidden') } return }
+  if (e.target.closest('.dpop')) return
+  const more = e.target.closest('[data-spread]')
+  if (more) { closeNote(); openSpread(more.dataset.spread, more) }
+})
+document.addEventListener('click', e => { if (openNote && !e.target.closest('.dtile')) closeNote() })
+$('dists').addEventListener('keydown', e => { if (e.key === 'Escape' && openNote) { e.stopPropagation(); closeNote(true) } })
+$('dists').addEventListener('focusout', e => { if (openNote && !openNote.closest('.dtile').contains(e.relatedTarget)) closeNote() })
+
+/* the dialog: one tab per figure, the full spread, the tables and what each counts */
+const SPREAD_DLG = $('spread')
+const TABS = lenders => lenders ? [['size', 'Largest'], ['roe', 'Returns'], ['capital', 'Capital'], ['stage3', 'Bad loans'], ['profit', 'Profit']]
+  : [['size', 'Largest'], ['profit', 'Profit'], ['roe', 'Returns'], ['growth', 'Growth'], ['debt', 'Debt']]
+function openSpread(tab) {
+  DIST_STATE.tab = tab
+  drawSpreadDialog()
+  if (!SPREAD_DLG.open) SPREAD_DLG.showModal()
+  SPREAD_DLG.querySelector('[role="tab"][aria-selected="true"]')?.focus()
+}
+const segP = (key, opts) => `<div class="seg mini" role="group" aria-label="Show">${opts.map(([id, t]) => `<button type="button" data-dstate="${key}" data-v="${id}" aria-pressed="${DIST_STATE[key] === id}">${t}</button>`).join('')}</div>`
+function bigCols(bins, tone, caption) {
+  const max = Math.max(1, ...bins.map(b => b.n))
+  return `<div class="ddcols" role="img" aria-label="${esc(caption + ': ' + bins.map(b => `${b.label} ${b.n}`).join(', '))}">${bins.map(b => `<div class="col"><span class="c">${b.n}</span><i class="${tone(b)}" style="height:${Math.max(b.n ? 2 : 0, b.n / max * 100).toFixed(0)}%"></i></div>`).join('')}</div>
+    <div class="ddcolax">${bins.map(b => `<span>${esc(b.label)}</span>`).join('')}</div><p class="ddcap">${esc(caption)}</p>`
+}
+const midTone = b => b.max !== null ? b.max - 1e-9 : b.min + 1
+const panel = (say, sub, body, notes) => `<p class="ddsay">${say}</p>${sub ? `<p class="ddsub">${sub}</p>` : ''}${body}
+  <h3>What this counts</h3><ul class="ddnotes">${notes.map(n => `<li>${n}</li>`).join('')}</ul>
+  <p class="ddfoot"><button type="button" class="linkbtn" data-method>How this was made: sources, checks, definitions and limits</button></p>`
+const nameList = pts => `<ol class="ddnames">${pts.map(p => `<li>${linkTo(p.id, shortName(p.name))}<b>${p.v}</b></li>`).join('')}</ol>`
+function spreadPanel(tab, d) {
+  if (tab === 'size') {
+    const sv = d.size, assets = sv.measure === 'assets', what = assets ? 'assets' : 'revenue', who = company(d.lenders)
+    const say = sv.top ? `The ${sv.top.k} largest ${who} ${assets ? 'hold' : 'earn'} <span class="m">${pctS(sv.top.pct, 0)}</span> of the ${what}.` : `${plural(sv.n, d.lenders ? 'lender' : 'company')} report ${what}.`
+    const big = sv.bands[sv.bands.length - 1], first = sv.largest[0]
+    const sub = sv.n >= 6 ? `The largest, ${esc(shortName(first.name))}, ${assets ? 'holds' : 'earns'} ${B(pctS(first.value / sv.total * 100, 0))} on its own.${big.n ? ` The ${big.n} above ${esc(big.label.replace(' or more', ''))} are ${B(pctS(big.companiesPct, 0))} of the ${who} and ${assets ? 'hold' : 'earn'} ${B(pctS(big.valuePct, 0))} of the ${what}.` : ''}` : ''
+    const body = DIST_STATE.size === 'dist' && sv.hist.length > 1
+      ? bigCols(sv.hist.map(h => { const t = v => v >= 1e12 ? (v / 1e12).toFixed(0) + 'tn' : v >= 1e9 ? (v / 1e9).toFixed(0) + 'bn' : (v / 1e6).toFixed(0) + 'm'; return { label: t(h.lo), n: h.n, min: h.lo, max: h.hi } }), () => '', `Number of ${who} by ${what} in LKR; each column starts at the figure under it and covers about three times the one before`)
+      : `<table class="ddt"><thead><tr><th>${assets ? 'Assets' : 'Revenue'}</th><th>${d.lenders ? 'Lenders' : 'Companies'}</th><th class="b"><span class="sr">Shares</span></th><th class="opt">Of ${who}</th><th>Of ${what}</th></tr></thead><tbody>
+        ${sv.bands.filter(b => b.n).map(b => `<tr><td>${esc(b.label)}</td><td class="n">${b.n}</td><td class="b"><span class="pr"><i style="width:${b.companiesPct.toFixed(1)}%"></i><i class="hi" style="width:${b.valuePct.toFixed(1)}%"></i></span></td><td class="n opt">${pctS(b.companiesPct, 0)}</td><td class="n">${pctS(b.valuePct, 0)}</td></tr>`).join('')}</tbody></table>
+        <p class="ddkey"><span><i></i>share of ${who}</span><span><i class="hi"></i>share of ${what}</span></p>`
+    return panel(say, sub, (sv.n >= 6 ? segP('size', [['bands', 'Share by band'], ['dist', `${d.lenders ? 'Lenders' : 'Companies'} by size`]]) : '') + body
+      + (sv.largest.length ? `<h3>Largest</h3>${nameList(sv.largest.map(p => ({ ...p, v: lkrShort(p.value) })))}` : ''),
+      [`${B(reportIt(sv.n, sv.base))} report a ${what} figure that can be added up: ${B(fmtLkr(sv.total))} between them.`, 'A subsidiary is counted once, inside its group.',
+        assets ? 'Lenders are measured by total assets, because their income moves with interest rates.' : 'For banks and finance companies revenue means gross income.'])
+  }
+  if (tab === 'profit') {
+    const pp = d.pool, top = pp.top5Pct !== null ? pp.profitsLkr * pp.top5Pct / 100 : 0
+    const say = `Companies made <span class="m">${fmtLkr(pp.profitsLkr)}</span> in profit${pp.lossesLkr ? ` and lost <span class="m">${fmtLkr(-pp.lossesLkr)}</span>` : ''}.`
+    const sub = `${pp.lossesLkr ? `Losses are about ${B(pctS(-pp.lossesLkr / pp.profitsLkr * 100, 0))} of profits. ` : ''}${pp.top5Pct !== null ? `The 5 largest earners make ${B(pctS(pp.top5Pct, 0))} of the profit.` : ''}`
+    const rows = [top ? ['hi', '5 largest earners', 5, top] : null, ['', top ? 'Everyone else in profit' : 'Companies in profit', pp.profitable - (top ? 5 : 0), pp.profitsLkr - top], pp.lossesLkr ? ['lo', 'Companies that made a loss', pp.lossMaking, pp.lossesLkr] : null].filter(Boolean)
+    return panel(say, sub, `<div class="ddbar">${top ? `<i class="hi" style="flex:${top}"></i>` : ''}<i style="flex:${pp.profitsLkr - top}"></i>${pp.lossesLkr ? `<i class="lo" style="flex:${-pp.lossesLkr}"></i>` : ''}</div>
+      <table class="ddt"><thead><tr><th>Who</th><th>Companies</th><th>LKR</th><th class="opt">Share of profit</th></tr></thead><tbody>
+      ${rows.map(([c, w, n, v]) => `<tr><td><i class="tk ${c}"></i>${w}</td><td class="n">${n}</td><td class="n">${lkrShort(v)}</td><td class="n opt">${v > 0 ? pctS(v / pp.profitsLkr * 100, 0) : ''}</td></tr>`).join('')}</tbody></table>
+      ${pp.biggestLosses.length ? `<h3>Largest losses</h3>${nameList(pp.biggestLosses.map(p => ({ ...p, v: lkrShort(-p.value) })))}` : ''}`,
+      [`${B(reportIt(pp.n, pp.base, 'publish accounts'))}. Only listed companies do.`, 'Sums count a subsidiary once, inside its group.', 'The list of losses counts every company, so a subsidiary’s loss shows even when its group made a profit.', 'Profit is after tax.'])
+  }
+  if (tab === 'roe') {
+    const sp = d.roe, who = d.lenders ? 'lender' : 'company', neg = sp.points.filter(p => p.value < 0).length, hi = sp.points.filter(p => p.value >= 20).length
+    return panel(`The middle ${who} earns <span class="m">${pctS(sp.median)}</span> on its owners’ money.`,
+      sp.n >= 8 ? `Half earn between ${B(pctS(sp.p25))} and ${B(pctS(sp.p75))}. ${neg} made a loss; ${hi} earned 20% or more.` : '',
+      sp.n >= 8 ? bigCols(sp.bins, b => midTone(b) <= 0 ? 'lo' : '', `Number of ${d.lenders ? 'lenders' : 'companies'} in each band of return on equity`) : nameList(sp.points.map(p => ({ ...p, v: pctS(p.value) }))),
+      [`${B(reportIt(sp.n, sp.base))}.`, 'Return on equity is profit after tax divided by shareholders’ equity at the year end.', 'Companies whose equity is negative are left out: the ratio means nothing for them.'])
+  }
+  if (tab === 'growth') {
+    const five = DIST_STATE.growth === 'five', sp = d.growth, grew = sp.points.filter(p => p.value > 0).length
+    return panel(sp.n ? `The middle company ${sp.median < 0 ? 'shrank' : 'grew'} <span class="m">${pctS(Math.abs(sp.median))}</span>${five ? ' a year' : ''} after inflation${five ? ' over five years' : ''}.` : 'Too few companies here report growth.',
+      sp.n >= 8 ? `${grew} of ${sp.n} grew. Half fall between ${B(signed(sp.p25))} and ${B(signed(sp.p75))}.` : '',
+      segP('growth', [['year', 'This year'], ['five', 'Five years']]) + (sp.n >= 8 ? bigCols(sp.bins, b => midTone(b) <= 0 ? 'lo' : '', 'Number of companies by change in revenue, after inflation') : sp.n ? nameList(sp.points.map(p => ({ ...p, v: signed(p.value) }))) : ''),
+      [`${B(reportIt(sp.n, sp.base))} companies outside lending report it.`, 'Banks and finance companies are left out: their income moves with interest rates, not sales.',
+        'Companies whose revenue jumped for a one-off reason are left out too, such as vehicle importers when imports reopened.', 'The headline row counts lenders as well, so its figure can differ.'])
+  }
+  if (tab === 'debt') {
+    const dr = d.debt, weak = dr.bands[0].borrowingsPct + dr.bands[1].borrowingsPct, weakN = dr.bands[0].n + dr.bands[1].n
+    const rows = [['lo', 'Less than 1.5 times', weakN, weak], ['', '1.5 to 3.5 times', dr.bands[2].n, dr.bands[2].borrowingsPct], ['', '3.5 times or more', dr.bands[3].n, dr.bands[3].borrowingsPct]]
+    return panel(`<span class="m">${pctS(weak, 0)}</span> of borrowing sits with companies that barely cover their interest.`,
+      `${weakN} ${weakN === 1 ? 'company earns' : 'companies earn'} less than 1.5 times their interest bill in operating profit.${dr.median !== null ? ` The middle company covers it ${B(dr.median.toFixed(1) + '×')}.` : ''}`,
+      `<div class="ddbar">${rows.filter(r => r[3] > 0).map(r => `<i class="${r[0]}" style="flex:${r[3]}"></i>`).join('')}</div>
+      <table class="ddt"><thead><tr><th>Operating profit covers interest</th><th>Companies</th><th>Share of borrowing</th></tr></thead><tbody>
+      ${rows.map(([c, w, n, v]) => `<tr><td><i class="tk ${c}"></i>${w}</td><td class="n">${n}</td><td class="n">${pctS(v, 0)}</td></tr>`).join('')}</tbody></table>
+      ${dr.atRisk.length ? `<h3>Largest borrowers under 1.5 times</h3>${nameList(dr.atRisk.slice(0, 8).map(p => ({ ...p, v: lkrShort(p.value) })))}` : ''}`,
+      [`${B(reportIt(dr.n, dr.base))} companies outside finance report it. Between them they borrowed ${B(fmtLkr(dr.borrowingsLkr))}.`, 'Interest cover is operating profit divided by finance costs. Under 1.5 times is the line lenders treat as weak.',
+        'A company with an operating loss and borrowings counts in the lowest band.', 'Banks, finance companies and insurers are left out: borrowing is their business.'])
+  }
+  if (tab === 'capital') {
+    const sp = d.capital, close = sp.points.filter(p => p.value < 2), below = sp.points.filter(p => p.value < 0).length
+    return panel(`<span class="m">${close.length} of ${sp.n}</span> lenders hold less than 2 points of capital above the minimum.`,
+      `${below ? `${below} ${below === 1 ? 'is' : 'are'} below it. ` : ''}The middle lender is ${B(sp.median.toFixed(1))} points clear.`,
+      (sp.n >= 8 ? bigCols(sp.bins, b => midTone(b) < 0 ? 'lo' : midTone(b) < 2 ? 'mk' : '', 'Number of lenders by points of total capital above their minimum') : '')
+        + (close.length ? `<h3>Under 2 points</h3>${nameList(close.sort((a, b) => a.value - b.value).map(p => ({ ...p, v: (p.value >= 0 ? '+' : '−') + Math.abs(p.value).toFixed(1) })))}` : ''),
+      [`${B(reportIt(sp.n, sp.base))}.`, 'Each lender’s total capital ratio less the minimum the Central Bank sets for it, in percentage points: 12.5% for banks (more for the three systemically important ones), 12.5% or 14% for finance companies by size.'])
+  }
+  const sp = d.stage3
+  return panel(`At the middle lender, <span class="m">${pctS(sp.median)}</span> of loans have gone bad.`, sp.n >= 8 ? `Half sit between ${B(pctS(sp.p25))} and ${B(pctS(sp.p75))}.` : '',
+    sp.n >= 8 ? bigCols(sp.bins, b => midTone(b) >= 10 ? 'lo' : '', 'Number of lenders by share of loans in Stage 3') : nameList(sp.points.map(p => ({ ...p, v: pctS(p.value) }))),
+    [`${B(reportIt(sp.n, sp.base))}.`, 'Stage 3 loans as a share of all loans, as each lender reports it. Lenders do not all count this the same way.'])
+}
+function drawSpreadDialog() {
+  const d = SPREAD ?? spreadData()
+  const tabs = TABS(d.lenders)
+  if (!tabs.some(t => t[0] === DIST_STATE.tab)) DIST_STATE.tab = tabs[0][0]
+  SPREAD_DLG.querySelector('.dtabs').innerHTML = tabs.map(([id, t]) => `<button type="button" role="tab" id="stab-${id}" data-stab="${id}" aria-selected="${id === DIST_STATE.tab}" aria-controls="spread-panel" tabindex="${id === DIST_STATE.tab ? 0 : -1}">${t}</button>`).join('')
+  const body = SPREAD_DLG.querySelector('.mbody')
+  body.setAttribute('aria-labelledby', `stab-${DIST_STATE.tab}`)
+  body.innerHTML = spreadPanel(DIST_STATE.tab, d)
+}
+function gotoCompany(id) {
+  const r = BYID.get(id); if (!r) return
+  F = { ...emptyFilter(), cols: F.cols, group: r.group_id, scope: 'all' }; openId = r.company_id; shown = 2000; $('fq').value = ''; update()
+  document.querySelector(`tr.r[data-id="${CSS.escape(r.company_id)}"]`)?.scrollIntoView({ block: 'center' })
+}
+SPREAD_DLG.addEventListener('click', e => {
+  if (e.target === SPREAD_DLG || e.target.closest('[data-close]')) { SPREAD_DLG.close(); return }
+  if (e.target.closest('[data-method]')) { SPREAD_DLG.close(); return } // the page-wide handler then opens the method dialog
+  const go = e.target.closest('[data-goto]'); if (go) { SPREAD_DLG.close(); gotoCompany(go.dataset.goto); return }
+  const t = e.target.closest('[data-stab]'); if (t) { DIST_STATE.tab = t.dataset.stab; drawSpreadDialog(); SPREAD_DLG.querySelector(`[data-stab="${t.dataset.stab}"]`).focus(); return }
+  const s = e.target.closest('[data-dstate]')
+  if (s) { DIST_STATE[s.dataset.dstate] = s.dataset.v; if (s.dataset.dstate === 'growth') SPREAD = spreadData(); drawSpreadDialog(); SPREAD_DLG.querySelector(`[data-dstate="${s.dataset.dstate}"][data-v="${s.dataset.v}"]`)?.focus() }
+})
+SPREAD_DLG.addEventListener('keydown', e => {
+  const t = e.target.closest('[role="tab"]'); if (!t || (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight')) return
+  const all = [...SPREAD_DLG.querySelectorAll('[role="tab"]')], i = all.indexOf(t), n = all[(i + (e.key === 'ArrowRight' ? 1 : -1) + all.length) % all.length]
+  e.preventDefault(); DIST_STATE.tab = n.dataset.stab; drawSpreadDialog(); SPREAD_DLG.querySelector(`[data-stab="${n.dataset.stab}"]`).focus()
+})
 
 let SECTOR_BY = 'count'
 function drawBreaks() {
@@ -1532,7 +1766,7 @@ $('rows').addEventListener('click', e => {
   if (hb) { const list = HOLDINGS_OF.get(hb.dataset.holder) ?? []; const box = hb.closest('li'); if (box.querySelector('.also')) { box.querySelector('.also').remove(); return }
     box.insertAdjacentHTML('beforeend', `<div class="also">${list.sort((a, b) => (b.pct ?? 0) - (a.pct ?? 0)).map(x => `<span><button type="button" class="linkbtn" data-goto="${esc(x.company_id)}">${esc(x.company_name)}</button> ${x.pct !== null ? x.pct + '%' : ''}</span>`).join('')}</div>`); return }
   const go = e.target.closest('[data-goto]')
-  if (go) { const r = BYID.get(go.dataset.goto); F = { ...emptyFilter(), cols: F.cols, group: r.group_id, scope: 'all' }; openId = r.company_id; shown = 2000; $('fq').value = ''; update(); document.querySelector(`tr.r[data-id="${CSS.escape(r.company_id)}"]`)?.scrollIntoView({ block: 'center' }); return }
+  if (go) { gotoCompany(go.dataset.goto); return }
   if (e.target.closest('a')) return
   const tr = e.target.closest('tr.r'); if (!tr) return
   toggle(tr.dataset.id)
