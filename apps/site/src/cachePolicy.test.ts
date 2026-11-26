@@ -8,7 +8,7 @@ const request = (path: string, method = 'GET') => ({
 
 describe('site Workers Cache boundary', () => {
   test('allows only public documents', () => {
-    for (const path of ['/', '/about', '/funding', '/data', '/data/metro', '/analysis', '/analysis/evidence-needs-receipts', '/countries/lk', '/rss.xml']) {
+    for (const path of ['/', '/about', '/dashboard/funding', '/dashboard/enterprise', '/data', '/data/metro', '/analysis', '/analysis/evidence-needs-receipts', '/countries/lk', '/rss.xml']) {
       expect(isPublicPageRequest(request(path))).toBe(true)
     }
   })

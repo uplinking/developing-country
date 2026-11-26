@@ -9,7 +9,7 @@ import { withBase } from '../base'
 import { getBaseStyle, prefersDark } from './basemap'
 import { onThemeChange as onAppThemeChange } from '../theme'
 import {
-  LAYER_GROUPS, groupUnits, isGroupAvailable, type LayerGroup,
+  LAYER_GROUPS, STACK_ORDER, groupUnits, isGroupAvailable, type LayerGroup,
   CLIMATE_VARIABLES, CLIMATE_SOURCE_ID, climateFillLayers, climateLayerId, isClimateAvailable,
   DEMOGRAPHICS_SOURCE_ID, POP_LEVELS, populationLayers, popLayerId, isDemographicsAvailable,
   type OverlaySource, type PopLevelId,
@@ -38,33 +38,6 @@ declare global {
 // Register the pmtiles:// protocol once for the whole app.
 const protocol = new Protocol()
 maplibregl.addProtocol('pmtiles', protocol.tile)
-
-// Bottom -> top stacking order so relief/fills sit under the road/water lines.
-// Climate fills are inserted just above hillshade (see the load handler).
-const STACK_ORDER = [
-  'hillshade',
-  'land-cover-grid',
-  'population-change',
-  'parks',
-  'sea-routes',
-  'water',
-  'roads',
-  'expressways',
-  'metro_catchment',
-  'metro',
-  'boi-zones',
-  'developments',
-  'trails',
-  'cycling',
-  'attractions',
-  'waterfalls',
-  'irrigation-gauges',
-  'schools',
-  'hospitals',
-  'stepper',
-  'analyses',
-  'prospects',
-]
 
 function orderedGroups(): LayerGroup[] {
   const byId = new Map(LAYER_GROUPS.map((g) => [g.id, g]))

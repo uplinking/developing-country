@@ -11,7 +11,7 @@ const hrefs = (html: string) => [...html.matchAll(/href="([^"]+)"/g)].map((match
 
 test('header preserves cross-Worker destinations and explorer base paths', () => {
   const html = render()
-  for (const path of ['/data', '/analysis']) expect(html).toContain(`href="https://developing-country.org${path}"`)
+  for (const path of ['/data', '/dashboard/funding', '/dashboard/enterprise', '/analysis']) expect(html).toContain(`href="https://developing-country.org${path}"`)
   for (const path of ['/?connect=1', '/?signin=1']) expect(html).toContain(`href="https://explore.example/map${path}"`)
   expect(html).toContain('aria-label="Choose country"')
 })
@@ -25,13 +25,23 @@ test('the map is a front door on the landing page, not a header call-to-action',
 test('the phone menu is a native popover carrying every inline destination', () => {
   const html = render()
   // HTML attribute names are case-insensitive; React SSR keeps popoverTarget.
-  const target = html.match(/popovertarget="([^"]+)"/i)?.[1]
+  const target = html.match(/class="dc-site-header__menu-button"[^>]*popovertarget="([^"]+)"/i)?.[1]
   expect(target).toBeTruthy()
   expect(html).toContain(`id="${target}" popover="auto"`)
-  const [inline, menu] = html.split(/popovertarget=/i)
+  const [inline, menu] = html.split(/class="dc-site-header__menu-button"/i)
   const destinations = hrefs(inline).slice(1) // after the home link
-  expect(destinations).toHaveLength(5)
+  expect(destinations).toHaveLength(6)
   expect(hrefs(menu)).toEqual(destinations)
+})
+
+test('the dashboards sit in one native popover menu between Datasets and Thoughts', () => {
+  const html = render()
+  const target = html.match(/class="dc-site-header__group"[^>]*popovertarget="([^"]+)"/i)?.[1]
+  expect(target).toBeTruthy()
+  const dropdown = html.split(`id="${target}"`)[1]!.split('</div>')[0]!
+  expect(hrefs(dropdown)).toEqual(['https://developing-country.org/dashboard/funding', 'https://developing-country.org/dashboard/enterprise'])
+  expect(html.indexOf('>Datasets<')).toBeLessThan(html.indexOf('Dashboards'))
+  expect(html.indexOf('Dashboards')).toBeLessThan(html.indexOf('>Thoughts<'))
 })
 
 test('a host with in-app MCP and Sign in controls gets a header without those links', () => {
@@ -40,7 +50,7 @@ test('a host with in-app MCP and Sign in controls gets a header without those li
   }))
   expect(html).not.toContain('?connect=1')
   expect(html).not.toContain('?signin=1')
-  const [inline, menu] = html.split(/popovertarget=/i)
-  expect(hrefs(inline).slice(1)).toEqual(['https://developing-country.org/data', 'https://developing-country.org/funding', 'https://developing-country.org/analysis'])
+  const [inline, menu] = html.split(/class="dc-site-header__menu-button"/i)
+  expect(hrefs(inline).slice(1)).toEqual(['https://developing-country.org/data', 'https://developing-country.org/dashboard/funding', 'https://developing-country.org/dashboard/enterprise', 'https://developing-country.org/analysis'])
   expect(hrefs(menu)).toEqual(hrefs(inline).slice(1))
 })

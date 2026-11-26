@@ -1,7 +1,7 @@
 # Initiatives ledger: data model and pipeline
 
 Code: `scripts/initiatives/` (see its README), `packages/datasets/src/money.ts` and
-`apps/site/src/pages/funding.astro`.
+`apps/site/src/pages/dashboard/funding.astro`.
 
 ## One sentence
 

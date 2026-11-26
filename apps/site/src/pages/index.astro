@@ -13,7 +13,7 @@ import { loadSiteDatasetCatalog } from '../lib/datasetCatalogCloudflare'
 import { datasetMeta, datasetNotes } from '../lib/datasets'
 import { CANONICAL_EXPLORER_ORIGIN, resolveExplorerHref } from '../lib/explorer'
 import { ASSISTANT_LINKS } from '../lib/assistants'
-import { COLOMBO_SHOT, FUNDING_SHOT } from '../lib/films'
+import { COLOMBO_SHOT, COMPANIES_SHOT, FUNDING_SHOT } from '../lib/films'
 
 const [{ entry: home, cacheHint }, { entries: articles }, { entries: countries }, datasetCatalog] = await Promise.all([
   getEmDashEntry('pages', 'home'),
@@ -68,6 +68,13 @@ const libraryCards = libraryIds.map((id) => {
 /** What the app is made of, one panel each: what we built and why it helps. More will join as they are built. */
 const showcase = [
   {
+    title: 'MCP',
+    summary: 'We publish all of this as an MCP connector, so you can ask Claude or ChatGPT about the country in plain language and get answers that cite their source.',
+    actions: ASSISTANT_LINKS.map((link) => ({ ...link, external: true })),
+    tone: 'sky' as const,
+    film: 'connector' as const,
+  },
+  {
     title: 'Datasets',
     summary: 'We gather the public datasets that show how the country is doing, on urban development, the economy, prices, jobs, public finances and social conditions, so you can keep an eye on what is changing in one place.',
     actions: [{ href: '/data', label: 'Datasets' }],
@@ -84,16 +91,16 @@ const showcase = [
   {
     title: 'Funding dashboard',
     summary: 'We track public projects and the money behind them, from announcement to approval, contract and payment, so you can see who is funding what and how far it has got.',
-    actions: [{ href: '/funding', label: 'Funding dashboard' }],
+    actions: [{ href: '/dashboard/funding', label: 'Funding dashboard' }],
     tone: 'peach' as const,
     film: 'funding' as const,
   },
   {
-    title: 'MCP',
-    summary: 'We publish all of this as an MCP connector, so you can ask Claude or ChatGPT about the country in plain language and get answers that cite their source.',
-    actions: ASSISTANT_LINKS.map((link) => ({ ...link, external: true })),
-    tone: 'sky' as const,
-    film: 'connector' as const,
+    title: 'Enterprise analysis',
+    summary: 'We map Sri Lanka’s companies and the groups that own them, with their sectors, revenue, real growth and largest shareholders, so you can see who owns what, who is growing and how the economy is connected.',
+    actions: [{ href: '/dashboard/enterprise', label: 'Enterprise analysis' }],
+    tone: 'lilac' as const,
+    film: 'companies' as const,
   },
 ]
 ---
@@ -139,8 +146,17 @@ const showcase = [
                 slot="film"
                 class="showcase-panel__film"
                 shot={FUNDING_SHOT}
-                plate="developing-country.org/funding"
+                plate="developing-country.org/dashboard/funding"
                 label="The funding dashboard: money by stage from announced to paid, a weekly timeline of events, and the feed of funding decisions with their funders."
+              />
+            )}
+            {film === 'companies' && (
+              <ExplorerFilm
+                slot="film"
+                class="showcase-panel__film"
+                shot={COMPANIES_SHOT}
+                plate="developing-country.org/dashboard/enterprise"
+                label="Enterprise analysis: groups and companies counted, combined revenue and real growth, and the number of companies in each sector and kind of ownership."
               />
             )}
             {film === 'connector' && <ConnectorFilm slot="film" class="showcase-panel__film" />}
