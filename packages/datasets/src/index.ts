@@ -56,3 +56,14 @@ export {
   type PublisherType,
   type PublisherTypeId,
 } from './publishers'
+export {
+  DATASET_TERMS_OVERRIDES,
+  OPEN_LICENCES,
+  PUBLISHER_TERMS,
+  REUSE_TERMS_LABELS,
+  datasetReuseTerms,
+  type DatasetReuseTerms,
+  type OpenLicenceId,
+  type PublisherTerms,
+  type ReuseTermsStatus,
+} from './reuseTerms'

@@ -221,7 +221,11 @@ guessing names:
    field ids with role, type and unit; every filterable value of small string
    dimensions; the time span and geography join key (`geography_id` = ISO
    3166-2:LK codes such as `LK-11`); caveats; live provenance; ready-to-run
-   preset calls; and related datasets with reasons.
+   preset calls; and related datasets with reasons. Its `reuse` block gives
+   the publisher's reuse terms (status, named licence if any, the page they
+   are stated on and the date checked), and `download` gives the table's CSV
+   and metadata URLs from the [Data API](DATA_API.md). Quote `reuse` when a
+   user asks whether they may republish a table.
 3. `query_data {op:"select", …}`: start from a preset `call.arguments`.
 4. Follow the `next` list on the result. It can narrow a truncated result,
    save the chart as a live view, or open a related dataset.

@@ -1,0 +1,62 @@
+---
+import PolicyLayout from '../layouts/PolicyLayout.astro'
+import { API_TABLES_URL as api, PYTHON_EXAMPLE as python, R_EXAMPLE as r } from '../lib/apiExamples'
+---
+
+<PolicyLayout
+  title="Data API"
+  description="List the tables, filter them, and download any one as CSV for R or Python. No account or key needed."
+  meta="Developing Country · 22 November 2026"
+>
+  <h2>Three requests</h2>
+  <p>Every request is a plain <code>GET</code> on <code>{api}</code>.</p>
+  <ul>
+    <li><a href={api}><code>/api/tables</code></a> lists every table with its title, publisher, licence and download links.</li>
+    <li><a href={`${api}/ccpi-monthly`}><code>/api/tables/ccpi-monthly</code></a> describes one table: each column’s label and unit, its sources, its licence and a ready-made citation.</li>
+    <li><a href={`${api}/ccpi-monthly.csv`}><code>/api/tables/ccpi-monthly.csv</code></a> downloads the table as CSV.</li>
+  </ul>
+  <p>Each dataset page on this site also has a <strong>Download CSV</strong> button and shows the table’s id in its link.</p>
+
+  <h2>The CSV</h2>
+  <p>The first line holds the column names: short lower-case ids such as <code>geography_name</code> or <code>headline_index</code>, the same ids the metadata lists. There is one row per record, and an empty cell means the value is missing. The file has no comment lines, so <code>read.csv(url)</code> in R and <code>pandas.read_csv(url)</code> in Python read it with no extra arguments.</p>
+
+  <h2>Filtering</h2>
+  <p>Add filters to the CSV link. An unknown column name returns an error listing the valid ones.</p>
+  <ul>
+    <li><code>?geography_name=Colombo</code> keeps rows equal to a value; <code>?geography_name=Colombo,Gampaha</code> keeps any of several.</li>
+    <li><code>?year.gte=2020&amp;year.lte=2024</code> keeps a range, both ends included.</li>
+    <li><code>?fields=year,geography_name,population</code> keeps only those columns, in that order.</li>
+    <li><code>?order_by=-year</code> sorts; a leading <code>-</code> means newest or largest first.</li>
+  </ul>
+  <p>You can combine up to eight filters. A download returns at most 50,000 rows; the largest table today has fewer than 10,000.</p>
+
+  <h2>Python</h2>
+  <pre><code>{python}</code></pre>
+
+  <h2>R</h2>
+  <pre><code>{r}</code></pre>
+  <p>Both examples were run as written against a development copy of this API on 22 November 2026.</p>
+
+  <h2>Licences</h2>
+  <p>Each table carries a <code>reuse</code> record taken from its publisher’s own website, with the page it came from (<code>terms_url</code>) and the date we checked (<code>checked_on</code>). Its <code>status</code> is one of:</p>
+  <ul>
+    <li><code>open_licence</code>: the publisher names an open licence, such as CC BY 4.0.</li>
+    <li><code>reuse_with_attribution</code>: the publisher allows reproduction with credit, with limits given in <code>statement</code>.</li>
+    <li><code>all_rights_reserved</code>: the publisher’s site carries a copyright notice and grants no general reuse permission.</li>
+    <li><code>no_licence_stated</code>: we found no reuse terms at all.</li>
+  </ul>
+  <p>Most Sri Lankan government publishers do not state an open licence. Being able to download a table does not by itself give permission to republish it. Read the statement and the publisher’s page before you redistribute a table; quoting figures with a citation in coursework or research is a different matter from republishing the data.</p>
+
+  <h2>Citing a dataset</h2>
+  <p>Use the <code>citation</code> field from the table’s metadata. It names the publisher, the table, this site as distributor, the dataset version when there is one, the dataset page and the date you accessed it:</p>
+  <p><code>Department of Census and Statistics, Sri Lanka. Colombo Consumer Price Index. Distributed by developing-country.org. https://developing-country.org/data/ccpi-monthly (accessed 2026-11-22).</code></p>
+  <p>Also credit the publisher the way its terms ask (<code>reuse.attribution</code>), and cite the original publication listed under <code>sources</code> when you quote a figure.</p>
+
+  <h2>Maps, aggregation and AI tools</h2>
+  <p>Spatial layers, grouped totals and saved charts are available through the <a href="/connect">MCP server</a>, which reads the same tables.</p>
+</PolicyLayout>
+
+<style>
+  pre { margin: 0 0 24px; padding: 16px 18px; overflow-x: auto; border: 1px solid var(--report-line); font: 13px/1.55 var(--mono); }
+  pre code { overflow-wrap: normal; white-space: pre; }
+</style>

@@ -8,10 +8,12 @@ import {
   PUBLIC_DATA_THEMES,
   datasetLicence,
   datasetPublisher,
+  datasetReuseTerms,
   isPublisherTypeId,
   isPublicDataThemeId,
   publicDataTheme,
   type DatasetPublisher,
+  type DatasetReuseTerms,
   type PublicDataThemeId,
 } from '@developing-country/datasets'
 import type { DatasetCatalog, DatasetSourceRecord, DatasetVersionRecord } from './datasetCatalog'
@@ -185,6 +187,7 @@ export function datasetMeta(catalog: DatasetCatalog, id: DatasetId) {
     ...note,
     publisher: datasetPublisher(id),
     licence: datasetLicence(id),
+    reuse: datasetReuseTermsFor(id),
     themes: note.themeIds.map(publicDataTheme),
     version,
     sources: version.sourceIds.map((sourceId) => {
@@ -195,7 +198,23 @@ export function datasetMeta(catalog: DatasetCatalog, id: DatasetId) {
   }
 }
 
-export type { DatasetPublisher }
+export type { DatasetPublisher, DatasetReuseTerms }
+
+function datasetReuseTermsFor(id: DatasetId): DatasetReuseTerms {
+  const terms = datasetReuseTerms(id)
+  if (!terms) throw new Error(`Missing reuse terms for ${id}`)
+  return terms
+}
+
+/** CSV and metadata URLs for an Indicator Table; null for map-only datasets. */
+export function datasetDownload(
+  id: DatasetId,
+  origin = 'https://explore.developing-country.org',
+): { csvUrl: string; metadataUrl: string } | null {
+  if (!INDICATOR_DATASET_REGISTRY.some((dataset) => dataset.id === id)) return null
+  const base = new URL(`/api/tables/${encodeURIComponent(id)}`, origin).href
+  return { csvUrl: `${base}.csv`, metadataUrl: base }
+}
 
 export function datasetExploreUrl(
   id: DatasetId,

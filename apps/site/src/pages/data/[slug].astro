@@ -6,7 +6,7 @@ import DatasetPreview from '../../components/DatasetPreview.astro'
 import SiteLayout from '../../layouts/SiteLayout.astro'
 import { articleFields } from '../../lib/content'
 import { loadSiteDatasetCatalog } from '../../lib/datasetCatalogCloudflare'
-import { datasetExploreUrl, datasetMeta, isDatasetId, resolveDatasetPreviewUrl } from '../../lib/datasets'
+import { datasetDownload, datasetExploreUrl, datasetMeta, isDatasetId, resolveDatasetPreviewUrl } from '../../lib/datasets'
 
 const slug = decodeSlug(Astro.params.slug)
 if (!slug) return Astro.rewrite('/404')
@@ -22,6 +22,7 @@ const dataset = datasetMeta(await loadSiteDatasetCatalog(), data.datasetId)
 const explorerOrigin = import.meta.env.PUBLIC_EXPLORER_ORIGIN
   || (import.meta.env.DEV ? 'http://127.0.0.1:5173' : undefined)
 const exploreUrl = datasetExploreUrl(data.datasetId, false, explorerOrigin)
+const download = datasetDownload(data.datasetId, explorerOrigin)
 const embeddedUrl = resolveDatasetPreviewUrl(data.datasetId, data.datasetPreviewUrl, explorerOrigin)
 const seo = getSeoMeta(article, {
   siteTitle: settings.title || 'developing-country.org',
@@ -61,12 +62,17 @@ const recordCount = dataset.version.rowCount?.toLocaleString('en-GB')
           <strong>{dataset.publisher.name}</strong>
         </dd>
       </div>
-      {dataset.licence && (
-        <div>
-          <dt>Licence</dt>
-          <dd><a href={dataset.licence.url} rel="license">{dataset.licence.name}</a></dd>
-        </div>
-      )}
+      <div>
+        <dt>Licence</dt>
+        <dd class="dataset-note__reuse" data-reuse-status={dataset.reuse.status}>
+          {dataset.reuse.licence
+            ? <a href={dataset.reuse.licence.url} rel="license">{dataset.reuse.licence.name}</a>
+            : <strong>{dataset.reuse.label}</strong>}
+          {dataset.reuse.terms_url !== dataset.reuse.licence?.url && (
+            <a href={dataset.reuse.terms_url}>Publisher’s terms <span aria-hidden="true">↗</span></a>
+          )}
+        </dd>
+      </div>
     </dl>
 
     <section class="dataset-note__preview" aria-label="Dataset preview">
@@ -86,6 +92,21 @@ const recordCount = dataset.version.rowCount?.toLocaleString('en-GB')
       )}
     </section>
 
+    {download && (
+      <section class="dataset-note__download" aria-labelledby="dataset-download-title">
+        <div>
+          <h2 id="dataset-download-title">Download the data</h2>
+          <p>The full table as CSV, one row per record, with the column names used by the API.</p>
+        </div>
+        <div class="dataset-note__download-actions">
+          <a class="dc-button" href={download.csvUrl} download={`${data.datasetId}.csv`}>Download CSV</a>
+          <a href={download.metadataUrl}>Fields and sources (JSON)</a>
+          <a href="/api">API guide</a>
+        </div>
+        <pre><code>{`# R\nread.csv("${download.csvUrl}")\n\n# Python\npandas.read_csv("${download.csvUrl}")`}</code></pre>
+      </section>
+    )}
+
     <div class="dataset-note__body" {...article.edit.content}>
       <PortableText value={data.content} />
     </div>
@@ -93,12 +114,13 @@ const recordCount = dataset.version.rowCount?.toLocaleString('en-GB')
     <aside class="dataset-note__sources">
       <header>
         <h2>Sources</h2>
-        {dataset.licence && (
-          <p class="dataset-note__credit">
-            Reuse this dataset under {dataset.licence.name}, crediting
-            “{dataset.publisher.name}, {data.title}”. Each source below keeps its own terms.
-          </p>
-        )}
+        <p class="dataset-note__credit">
+          {dataset.licence
+            ? <>Reuse this dataset under {dataset.licence.name}, crediting
+                “{dataset.publisher.name}, {data.title}”. Each source below keeps its own terms.</>
+            : <>{dataset.reuse.statement} Credit: “{dataset.reuse.attribution}”.
+                Checked {dataset.reuse.checked_on} on the <a href={dataset.reuse.terms_url}>publisher’s site</a>.</>}
+        </p>
       </header>
       <ol>
         {dataset.sources.map((source, index) => (

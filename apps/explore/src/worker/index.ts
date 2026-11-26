@@ -28,6 +28,7 @@
 // Auth (Better Auth session cookie / MCP OAuth token, or dev header) is applied
 // inside api.ts / mcp.ts. See docs/AUTH_SETUP.md and docs/MCP.md.
 
+import { serveTables } from './tableExport'
 import { serveScheduledData } from './scheduledData'
 import type { Env } from './types'
 import { serveTile } from './tiles'
@@ -116,6 +117,7 @@ export default {
     if (path === '/mcp' || path === '/mcp/') return handleMcp(req, env, ctx)
     if (path === '/api/session/ws' || path === '/api/session/ws/') return handleSessionWs(req, env)
     if (path.startsWith('/api/datasets/')) return serveScheduledData(req, env, path)
+    if (path === '/api/tables' || path.startsWith('/api/tables/')) return serveTables(req, env, path)
     if (path.startsWith('/api/')) return handleApi(req, env, ctx)
 
     const cors =

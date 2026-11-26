@@ -182,6 +182,16 @@ describe('dataset card', () => {
     expect(metro.next.length).toBeGreaterThan(0)
   })
 
+  test('states the publisher’s reuse terms and the CSV download', () => {
+    const terms = card.reuse as { status: string; terms_url: string; licence: unknown }
+    expect(terms.status).toBe('all_rights_reserved')
+    expect(terms.licence).toBeNull()
+    expect(terms.terms_url).toBe('https://www.statistics.gov.lk/')
+    expect((card.download as { csv_url: string }).csv_url).toBe('https://explore.developing-country.org/api/tables/census-age-sex-dsd.csv')
+    const metro = datasetCard(catalog, index, 'metro_stop') as JsonObject & { reuse: { licence: { id: string } } }
+    expect(metro.reuse.licence.id).toBe('mit')
+  })
+
   test('returns null for an unknown id', () => {
     expect(datasetCard(catalog, index, 'no-such-dataset')).toBeNull()
   })
